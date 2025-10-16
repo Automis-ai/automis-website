@@ -1,0 +1,7 @@
+/* Optimized styles for instant loading - Simplified to only essential styles */
+
+/* Force GPU acceleration for smooth rendering */
+.use-cases-grid {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

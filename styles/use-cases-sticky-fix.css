@@ -1,0 +1,21 @@
+/* Fix for sticky sidebar in use-cases detail pages */
+.use-cases-detail-page .page-wrapper {
+  overflow: visible !important;
+}
+
+.sticky-sidebar-container {
+  position: relative;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 8rem; /* 128px - adjust based on your header height */
+  z-index: 10;
+}
+
+/* Ensure proper behavior on mobile */
+@media (max-width: 1023px) {
+  .sticky-sidebar {
+    position: static;
+  }
+}
