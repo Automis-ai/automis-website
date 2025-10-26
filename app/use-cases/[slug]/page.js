@@ -210,7 +210,7 @@ const CaseStudyDetailPage = ({ params }) => {
                 </div>
 
                 {}
-                <div className="bg-gradient-to-br from-yellow-light to-yellow-dark p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div className="bg-[#F5CD79] p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
                   <h3 className="sub-heading font-bold text-bg-primary mb-4">
                     Ready to see similar results?
                   </h3>
