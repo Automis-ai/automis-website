@@ -1047,14 +1047,17 @@ const page = () => {
                     Scale your business with AI
                   </h2>
                 </div>
-                <CTAButton
-                  href="https://api.leadconnectorhq.com/widget/booking/3Nvnzsvjaw89VWsdBBXF"
-                  variant="primary"
-                  size="large"
-                  external={true}
-                >
-                  Book Discovery Call!
-                </CTAButton>
+                <div className="flex justify-center">
+                  <CTAButton
+                    href="https://api.leadconnectorhq.com/widget/booking/3Nvnzsvjaw89VWsdBBXF"
+                    variant="primary"
+                    size="large"
+                    external={true}
+                    className="whitespace-nowrap inline-block"
+                  >
+                    Book Discovery Call!
+                  </CTAButton>
+                </div>
               </div>
             </div>
           </div>
