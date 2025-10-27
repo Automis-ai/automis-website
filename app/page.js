@@ -39,6 +39,7 @@ const Index = () => {
   const [animatedSteps, setAnimatedSteps] = useState([]);
   const [showStickyButton, setShowStickyButton] = useState(false);
   const [showSchedulerModal, setShowSchedulerModal] = useState(false);
+  const [showMobileCards, setShowMobileCards] = useState(false);
   const [auditFormData, setAuditFormData] = useState({
     name: "",
     email: "",
@@ -242,6 +243,11 @@ const Index = () => {
           scrollY > 300 && scrollY < documentHeight - windowHeight * 1.5
         );
       }
+      if (scrollY > 200) {
+        setShowMobileCards(true);
+      } else {
+        setShowMobileCards(false);
+      }
     };
 
     const handleFocusIn = (e) => {
@@ -359,7 +365,7 @@ const Index = () => {
       >
         <div className="absolute inset-0 bg-black/80 z-0"></div>
 
-        <div className="container mx-auto px-4 relative z-10 hero-padding">
+        <div className="container mx-auto px-4 relative z-10 hero-padding flex flex-col justify-center min-h-screen">
           <div className="flex flex-wrap -mx-4 justify-center">
             <div className="px-4 w-full lg:w-5/6 md:w-11/12">
               <div className="hero-content text-center">
@@ -421,7 +427,12 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mt-16 relative z-10 section-padding">
+          <div
+            className={`mt-16 relative z-10 section-padding transition-opacity duration-500 ${
+              showMobileCards ? "opacity-100" : "opacity-0 pointer-events-none"
+            } md:opacity-100 md:pointer-events-auto`}
+          >
+            {" "}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 md:justify-center">
               <div
                 className="group"
