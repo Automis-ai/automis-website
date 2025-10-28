@@ -9,6 +9,7 @@ import "@css/slick.min.css";
 import "@css/style.css";
 import { Montserrat, Open_Sans } from "next/font/google";
 import Script from "next/script";
+import ChatWidgets from "@/components/ChatWidgets";
 
 const montserrat = Montserrat({
   weight: ["700"],
@@ -114,12 +115,7 @@ export default function RootLayout({ children }) {
         />
 
         {/* LeadConnector Chatbot */}
-        <Script
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="68ab42078df6cd8fd2938446"
-          strategy="afterInteractive"
-        />
+        <ChatWidgets />
       </body>
     </html>
   );
