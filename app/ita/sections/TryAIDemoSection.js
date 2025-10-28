@@ -23,20 +23,24 @@ export default function TryAIDemoSection() {
 
   const suggestions = [
     {
-      icon: <MessageCircle className="w-6 h-6 text-blue-400" />,
+      icon: MessageCircle,
       text: "“Come funziona l'AI di Automis?”",
+      delay: 100,
     },
     {
-      icon: <BrainCircuit className="w-6 h-6 text-blue-400" />,
+      icon: BrainCircuit,
       text: "“Quali settori supportate?”",
+      delay: 200,
     },
     {
-      icon: <Mic className="w-6 h-6 text-blue-400" />,
+      icon: Mic,
       text: "“Posso integrare con il mio CRM?”",
+      delay: 300,
     },
     {
-      icon: <Rocket className="w-6 h-6 text-blue-400" />,
-      text: "Spiega la tua sfida principale e lascia l’AI analizzare il tuo caso per potenziali soluzioni",
+      icon: Rocket,
+      text: "Spiega la tua sfida principale e lascia l’AI analizzare il tuo caso per potenziali soluzioni.",
+      delay: 400,
     },
   ];
 
@@ -46,7 +50,7 @@ export default function TryAIDemoSection() {
       className="section-padding bg-bg-primary text-white relative overflow-hidden py-24"
       id="try-ai"
     >
-      {/* --- Subtle overlay for depth --- */}
+      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-darkest/20 via-transparent to-bg-primary z-0"></div>
 
       <div className="container mx-auto px-4 max-w-5xl text-center relative z-10">
@@ -56,10 +60,10 @@ export default function TryAIDemoSection() {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-snug">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-snug text-white">
             Prova Subito: Parla con la Nostra AI
           </h2>
-          <p className="text-[#EAEAEA] max-w-2xl mx-auto text-base md:text-lg mb-10">
+          <p className="text-blue-light/80 max-w-2xl mx-auto text-base md:text-lg mb-10">
             Non crederci sulla parola. Clicca qui sotto e chiedi qualsiasi cosa
             sulla nostra soluzione. L'AI di Automis risponderà in tempo reale,
             proprio come farebbe con i tuoi clienti.
@@ -71,23 +75,33 @@ export default function TryAIDemoSection() {
           </p>
         </div>
 
-        {/* Suggestions */}
+        {/* Glass Glow Boxes */}
         <div
           className={`grid grid-cols-1 md:grid-cols-2 gap-6 mb-14 transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          {suggestions.map((item, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-3 bg-gradient-to-br from-blue-darkest/30 to-blue-darkest/10 border border-blue-600/30 rounded-2xl p-5 backdrop-blur-md transition-all hover:scale-[1.02] hover:border-blue-400/50 duration-300"
-            >
-              <div>{item.icon}</div>
-              <p className="text-[#EAEAEA] text-left leading-relaxed">
-                {item.text}
-              </p>
-            </div>
-          ))}
+          {suggestions.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={index}
+                className={`bg-white/5 backdrop-blur-lg border border-[#B4C2FF]/15 rounded-2xl p-6 lg:p-8 shadow-lg hover:bg-yellow-light/10 hover:border-yellow-light/30 hover:scale-[1.02] transition-all duration-300 group ${
+                  visible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: `${item.delay}ms` }}
+              >
+                <div className="w-12 h-12 bg-[#3C91E6]/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-light/20 transition-all duration-300">
+                  <Icon className="w-6 h-6 text-[#3C91E6] group-hover:text-yellow-light transition-all duration-300" />
+                </div>
+                <p className="text-[#EAEAEA] text-left leading-relaxed group-hover:text-yellow-light/90 transition-colors duration-300">
+                  {item.text}
+                </p>
+              </div>
+            );
+          })}
         </div>
 
         {/* CTA */}
