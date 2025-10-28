@@ -7,7 +7,7 @@ export async function POST(req) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-secret-key": process.env.NEXT_PUBLIC_N8N_SECRET_KEY,
+          "x-secret-key": process.env.N8N_SECRET_KEY,
         },
         body: JSON.stringify(body),
       }

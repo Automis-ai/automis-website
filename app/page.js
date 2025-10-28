@@ -52,12 +52,6 @@ const Index = () => {
   const animatedPathRef = useRef(null);
   const sectionRef = useRef(null);
 
-  // Configure your webhook URL here
-  const AUDIT_WEBHOOK_URL =
-    "https://automis.app.n8n.cloud/webhook/download-audit";
-
-  const WEBHOOK_SECRET = process.env.NEXT_PUBLIC_N8N_SECRET_KEY;
-
   const handleAuditInputChange = (e) => {
     const { name, value } = e.target;
     setAuditFormData({
