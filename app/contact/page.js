@@ -57,11 +57,7 @@ const page = () => {
     }
   };
 
-  // Configure your webhook URL here
-  const WEBHOOK_URL = ""; // Add your webhook URL here
-
   const handleSubmit = async (e) => {
-    console.log("inhere")
     e.preventDefault();
     setFormStatus({ loading: true, success: false, error: null });
 
