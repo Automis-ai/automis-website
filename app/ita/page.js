@@ -8,6 +8,9 @@ import StepSection from "./sections/StepSection";
 import ResultsSection from "./sections/ResultsSection";
 import TryAIDemoSection from "./sections/TryAIDemoSection";
 import AdvancedTechSection from "./sections/AdvancedTechSection";
+import BeforeAfterSection from "./sections/BeforeAfterSection";
+import FAQSection from "./sections/FAQSection";
+import TestimonialsSection from "./sections/Testimonials";
 
 const ItaPage = () => {
   return (
@@ -18,6 +21,9 @@ const ItaPage = () => {
       <ResultsSection />
       <TryAIDemoSection />
       <AdvancedTechSection />
+      <BeforeAfterSection />
+      <FAQSection />
+      <TestimonialsSection />
     </AkpagerLayout>
   );
 };
