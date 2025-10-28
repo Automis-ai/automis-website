@@ -54,7 +54,9 @@ const Index = () => {
 
   // Configure your webhook URL here
   const AUDIT_WEBHOOK_URL =
-    "https://services.leadconnectorhq.com/hooks/3vDTnFmYGG0S3a8fbz3K/webhook-trigger/ce4512a8-a971-4785-903a-42f4188c4f1e";
+    "https://automis.app.n8n.cloud/webhook/download-audit";
+
+  const WEBHOOK_SECRET = process.env.NEXT_PUBLIC_N8N_SECRET_KEY;
 
   const handleAuditInputChange = (e) => {
     const { name, value } = e.target;
@@ -79,18 +81,14 @@ const Index = () => {
       };
 
       // Only send if webhook URL is configured
-      if (AUDIT_WEBHOOK_URL) {
-        const response = await fetch(AUDIT_WEBHOOK_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(webhookData),
-        });
+      const response = await fetch("/api/audit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(webhookData),
+      });
 
-        if (!response.ok) {
-          throw new Error(`Webhook error: ${response.status}`);
-        }
+      if (!response.ok) {
+        throw new Error(`Webhook error: ${response.status}`);
       }
 
       // Show success state
