@@ -1,7 +1,6 @@
 "use client";
 
 import CTAButton from "@/components/CTAButton";
-import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -42,15 +41,15 @@ const HeroSection = () => {
           </h1>
 
           <p
-            className="sub-heading text-white/90 mb-8 leading-relaxed"
+            className="sub-heading text-white/90 mb-8 leading-relaxed tracking-tight"
             data-aos="fade-up"
             data-aos-delay={200}
             data-aos-duration={1500}
           >
             Trasforma ogni chiamata in un'opportunità. La nostra intelligenza
-            artificiale vocale gestisce lead,
+            artificiale vocale gestisce lead, qualifica
             <br className="hidden md:block" />
-            qualifica clienti e prenota appuntamenti mentre tu ti concentri
+            clienti e prenota appuntamenti mentre tu ti concentri
             sulla crescita del tuo business.
           </p>
 
@@ -61,7 +60,7 @@ const HeroSection = () => {
             data-aos-duration={1500}
           >
             <CTAButton
-              href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+              href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
               external={true}
               variant="primary"
               size="large"

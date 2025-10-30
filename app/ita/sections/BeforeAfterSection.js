@@ -60,7 +60,7 @@ export default function BeforeAfterSection() {
     <section
       ref={sectionRef}
       id="before-after"
-      className="section-padding relative bg-bg-primary text-white overflow-hidden py-24"
+      className="section-padding relative bg-bg-primary text-white overflow-hidden"
     >
       {/* Background glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-darkest/40 via-transparent to-bg-primary z-0"></div>
@@ -87,19 +87,19 @@ export default function BeforeAfterSection() {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 text-left">
+          <div className="grid grid-cols-2 text-left">
             {/* Table Header */}
             <div className="p-5 md:p-6 border-b border-blue-400/20 md:border-b-0 md:border-r border-r-blue-400/20 bg-gradient-to-r from-red-500/10 to-red-500/5 flex items-center gap-3">
               <XCircle className="w-6 h-6 text-red-400" />
-              <h3 className="text-lg font-semibold text-red-400">
+              <p className="text-lg font-semibold text-red-400">
                 Senza Automis
-              </h3>
+              </p>
             </div>
             <div className="p-5 md:p-6 border-b border-blue-400/20 bg-gradient-to-r from-green-500/10 to-green-500/5 flex items-center gap-3">
               <CheckCircle2 className="w-6 h-6 text-green-400" />
-              <h3 className="text-lg font-semibold text-green-400">
+              <p className="text-lg font-semibold text-green-400">
                 Con Automis
-              </h3>
+              </p>
             </div>
 
             {/* Rows */}
@@ -108,7 +108,7 @@ export default function BeforeAfterSection() {
                 {/* Left column (Before) */}
                 <div
                   key={`before-${index}`}
-                  className={`p-5 md:p-6 border-b border-blue-400/10 md:border-r border-r-blue-400/10 text-blue-light/80 transition-all duration-500 hover:bg-red-500/5 ${
+                  className={`p-3 border-b border-blue-400/10 md:border-r border-r-blue-400/10 text-blue-light/80 transition-all duration-500 hover:bg-red-500/5 ${
                     index === comparisons.length - 1 ? "md:border-b-0" : ""
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
@@ -120,7 +120,7 @@ export default function BeforeAfterSection() {
                 {/* Right column (After) */}
                 <div
                   key={`after-${index}`}
-                  className={`p-5 md:p-6 border-b border-blue-400/10 text-blue-light/90 transition-all duration-500 hover:bg-green-500/5 ${
+                  className={`p-3 border-b border-blue-400/10 text-blue-light/90 transition-all duration-500 hover:bg-green-500/5 ${
                     index === comparisons.length - 1 ? "md:border-b-0" : ""
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}

@@ -80,40 +80,6 @@ export default function RootLayout({ children }) {
           />
         </noscript>
 
-        {/* LeadConnector Popup */}
-        <iframe
-          src="https://api.leadconnectorhq.com/widget/form/OiFmA825z4HK9h6E99ty"
-          style={{
-            display: "none",
-            width:
-              typeof window !== "undefined" && window.innerWidth >= 768
-                ? "600px"
-                : "90vw",
-            height: "800px",
-            border: "none",
-            borderRadius: 6,
-            maxWidth: "100%",
-          }}
-          id="popup-OiFmA825z4HK9h6E99ty"
-          data-layout="{'id':'POPUP'}"
-          data-trigger-type="showOnScrolling"
-          data-trigger-value="25"
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="AI ROI Calculator NEW"
-          data-height="952"
-          data-layout-iframe-id="popup-OiFmA825z4HK9h6E99ty"
-          data-form-id="OiFmA825z4HK9h6E99ty"
-          title="AI ROI Calculator NEW"
-        />
-
-        <Script
-          src="https://link.msgsndr.com/js/form_embed.js"
-          strategy="afterInteractive"
-        />
-
         {/* LeadConnector Chatbot */}
         <ChatWidgets />
       </body>

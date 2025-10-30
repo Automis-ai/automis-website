@@ -54,13 +54,10 @@ export default function PainPointsSection() {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-snug text-white">
-            Ogni Chiamata Persa è un'Opportunità Sprecata
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-snug text-white max-w-3xl mx-auto">
+          Scopri perché la maggior parte delle aziende perde potenziali
+          clienti ogni giorno.
           </h2>
-          <p className="text-blue-light/80 max-w-2xl mx-auto text-base md:text-lg">
-            Scopri perché la maggior parte delle aziende perde potenziali
-            clienti ogni giorno.
-          </p>
         </div>
 
         {/* Pain Points */}
@@ -89,22 +86,6 @@ export default function PainPointsSection() {
               </div>
             );
           })}
-        </div>
-
-        {/* Solution */}
-        <div
-          className={`text-center mt-16 transition-all duration-700 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-            Automis Voice AI Risolve Tutto Questo in Automatico
-          </h3>
-          <p className="text-blue-light/80 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            L'AI risponde al telefono, qualifica i lead, prenota appuntamenti e
-            riattiva clienti dormienti. Il tutto con una voce naturale e
-            conversazioni in italiano perfetto.
-          </p>
         </div>
       </div>
     </section>

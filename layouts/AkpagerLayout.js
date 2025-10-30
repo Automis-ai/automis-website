@@ -7,7 +7,14 @@ import Footer from "./Footer";
 import Header from "./Header";
 import CTAButton from "@/components/CTAButton";
 
-const AkpagerLayout = ({ children, header, footer, bodyClass, onePage }) => {
+const AkpagerLayout = ({
+  children,
+  header,
+  footer,
+  bodyClass,
+  onePage,
+  hideHeaderNav = false,
+}) => {
   const [showStickyButton, setShowStickyButton] = useState(false);
   useEffect(() => {
     akpagerUtility.animation();
@@ -50,11 +57,11 @@ const AkpagerLayout = ({ children, header, footer, bodyClass, onePage }) => {
     <Fragment>
       <VideoPopup />
       <div className="page-wrapper">
-        <Header header={header} onePage={onePage} />
+        <Header header={header} onePage={onePage} hideHeaderNav={hideHeaderNav}/>
         {children}
         <Footer footer={footer} />
       </div>
-      <div
+      {!hideHeaderNav && (<div
         className={`md:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
           showStickyButton
             ? "translate-y-0 opacity-100 scale-100"
@@ -76,7 +83,7 @@ const AkpagerLayout = ({ children, header, footer, bodyClass, onePage }) => {
             </CTAButton>
           </div>
         </div>
-      </div>
+      </div>)}
     </Fragment>
   );
 };

@@ -75,7 +75,7 @@ export default function ResultsSection() {
     },
     {
       icon: Utensils,
-      title: "Gestione Prenotazioni Ristoranti",
+      title: "Gestione Prenotazioni",
       sector: "Ristorazione, Saloni, Centri estetici",
       problem:
         "Durante il servizio pranzo/cena il telefono squilla, ma nessuno ha tempo per rispondere. Perdi 15–20 prenotazioni/settimana.",
@@ -129,41 +129,97 @@ export default function ResultsSection() {
         </div>
 
         {/* Case Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12">
+        <div className="flex flex-col gap-4 md:gap-6 mb-12">
           {cases.map((c, index) => {
             const Icon = c.icon;
             return (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-lg border border-[#B4C2FF]/15 rounded-xl p-6 lg:p-8 hover:bg-yellow-light/10 hover:border-yellow-light/30 transition-all duration-300 group"
+                className="bg-white/5 backdrop-blur-lg border border-[#B4C2FF]/15 rounded-xl p-5 md:p-7 hover:bg-yellow-light/10 hover:border-yellow-light/30 transition-all duration-300 group"
                 data-aos="fade-up"
                 data-aos-duration="800"
                 data-aos-delay={c.delay}
               >
-                <div className="w-14 h-14 bg-[#3C91E6]/20 rounded-lg flex items-center justify-center mb-5 group-hover:bg-yellow-light/20 transition-all duration-300">
-                  <Icon className="w-7 h-7 text-[#3C91E6] group-hover:text-yellow-light transition-all duration-300" />
-                </div>
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-2">
-                  {c.title}
-                </h3>
-                <p className="text-sm text-blue-light mb-4">
-                  Settore: {c.sector}
-                </p>
-                <div className="text-white/90 text-base leading-relaxed space-y-3">
-                  <p>
-                    <strong>Il Problema:</strong> {c.problem}
-                  </p>
-                  <p>
-                    <strong>La Soluzione Automis:</strong> {c.solution}
-                  </p>
-                  <div>
-                    <strong>Risultati:</strong>
-                    <ul className="list-disc list-inside mt-2 space-y-1">
-                      {c.results.map((r, i) => (
-                        <li key={i}>{r}</li>
-                      ))}
-                    </ul>
+                {/* Header */}
+                <div className="flex items-start gap-4 mb-4">
+                  {/* Icon */}
+                  <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-[#3C91E6]/20 rounded-lg flex items-center justify-center group-hover:bg-yellow-light/20 transition-all duration-300">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#3C91E6] group-hover:text-yellow-light transition-all duration-300" />
                   </div>
+
+                  {/* Title + Sector */}
+                  <div className="flex flex-col flex-1 min-w-0">
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white mb-1 break-words">
+                      {c.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-blue-light break-words">
+                      Settore: {c.sector}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Problem */}
+                <div className="bg-white/5 border border-white/10 rounded-lg py-3 px-4 mb-4">
+                  <h4 className="font-semibold text-yellow-light mb-1">
+                    Il Problema:
+                  </h4>
+                  <p className="text-white/90 leading-relaxed text-sm md:text-base">
+                    {c.problem}
+                  </p>
+                </div>
+
+                {/* Solution */}
+                <div className="bg-white/5 border border-white/10 rounded-lg py-3 px-4 mb-4">
+                  <h4 className="font-semibold text-[#3C91E6] mb-1">
+                    La Soluzione Automis:
+                  </h4>
+                  <p className="text-white/90 leading-relaxed text-sm md:text-base">
+                    {c.solution}
+                  </p>
+                </div>
+
+                {/* Results - highlighted section */}
+                <div className="bg-gradient-to-r from-[#3C91E6]/20 to-yellow-light/20 border border-[#3C91E6]/30 rounded-lg py-3 px-4">
+                  <h4 className="font-semibold text-yellow-light mb-2">
+                    Risultati:
+                  </h4>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                    {/* Amount 1 */}
+                    <div className="flex flex-col items-center justify-center">
+                      <p className="text-2xl md:text-3xl font-bold text-yellow-light mb-1">
+                        €700.000
+                      </p>
+                      <p className="text-white/90 text-sm md:text-base">
+                        ROI medio/anno
+                      </p>
+                    </div>
+
+                    {/* Amount 2 */}
+                    <div className="flex flex-col items-center justify-center">
+                      <p className="text-2xl md:text-3xl font-bold text-yellow-light mb-1">
+                        18–25%
+                      </p>
+                      <p className="text-white/90 text-sm md:text-base">
+                        Tasso di riattivazione
+                      </p>
+                    </div>
+
+                    {/* Amount 3 */}
+                    <div className="flex flex-col items-center justify-center">
+                      <p className="text-2xl md:text-3xl font-bold text-yellow-light mb-1">
+                        8.400&nbsp;min
+                      </p>
+                      <p className="text-white/90 text-sm md:text-base">
+                        Tempo risparmiato/mese
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Optional testimonial or note below results */}
+                  {/* <p className="mt-4 italic text-blue-light text-sm">
+    “Avevamo 15.000 lead vecchi nel CRM. Automis ne ha riattivati 2.700 in 6 mesi…”
+  </p> */}
                 </div>
               </div>
             );

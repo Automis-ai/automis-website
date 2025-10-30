@@ -8,15 +8,6 @@ export default function ChatWidgets() {
 
   return (
     <>
-      {/* Default chatbot */}
-      {pathname !== "/ita" && (
-        <Script
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-widget-id="68ab42078df6cd8fd2938446"
-          strategy="afterInteractive"
-        />
-      )}
-
       {/* ElevenLabs widget for /ita */}
       {pathname === "/ita" && (
         <>

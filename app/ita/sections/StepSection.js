@@ -68,11 +68,8 @@ export default function StepsSection() {
           data-aos-duration="800"
         >
           <h2 className="section-heading text-white mb-4">
-            3 Passi per Automatizzare le Tue Chiamate
+          3 Semplici passi per automatizzare le tue chiamate
           </h2>
-          <p className="sub-heading max-w-2xl mx-auto">
-            Dall’attivazione al live: tutto in pochi giorni, senza stress.
-          </p>
         </div>
 
         {/* Step Grid */}
@@ -116,7 +113,7 @@ export default function StepsSection() {
           data-aos-duration="800"
         >
           <CTAButton
-            href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+            href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
             external
             variant="primary"
             size="large"

@@ -6,6 +6,7 @@ import CTAButton from "@/components/CTAButton";
 
 export default function TestimonialsSection() {
   const sectionRef = useRef(null);
+  const iframeRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -19,6 +20,22 @@ export default function TestimonialsSection() {
 
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
+  }, []);
+
+  // optional dynamic resize if booking widget sends height messages
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (
+        event.origin.includes("leadconnectorhq.com") &&
+        typeof event.data === "object" &&
+        event.data?.type === "setHeight" &&
+        iframeRef.current
+      ) {
+        iframeRef.current.style.height = `${event.data?.height}px`;
+      }
+    };
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
   }, []);
 
   const testimonials = [
@@ -48,7 +65,6 @@ export default function TestimonialsSection() {
       id="testimonials"
       className="section-padding bg-bg-primary text-white relative overflow-hidden"
     >
-      {/* --- Background + overlay --- */}
       <div className="container mx-auto px-4 relative z-10">
         {/* Headline */}
         <div
@@ -65,7 +81,7 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        {/* --- Glass Testimonials --- */}
+        {/* Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-20">
           {testimonials.map((item, index) => (
             <div
@@ -77,7 +93,6 @@ export default function TestimonialsSection() {
               }`}
               style={{ transitionDelay: `${item.delay}ms` }}
             >
-              {/* Stars */}
               <div className="flex justify-center mb-4 text-yellow-light">
                 {[...Array(item.rating)].map((_, i) => (
                   <Star
@@ -86,13 +101,9 @@ export default function TestimonialsSection() {
                   />
                 ))}
               </div>
-
-              {/* Text */}
               <p className="text-white/90 text-lg italic mb-4 leading-relaxed text-center">
                 “{item.text}”
               </p>
-
-              {/* Author */}
               <p className="font-semibold text-yellow-light text-center">
                 {item.author}
               </p>
@@ -100,33 +111,17 @@ export default function TestimonialsSection() {
           ))}
         </div>
 
-        {/* --- CTA --- */}
+        {/* Compact Booking Iframe */}
         <div
-          className={`text-center mb-16 transition-all duration-700 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <CTAButton
-            href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
-            external={true}
-            variant="primary"
-            size="large"
-            icon="fas fa-calendar"
-          >
-            Prenota la tua Demo Gratuita
-          </CTAButton>
-        </div>
-
-        {/* --- Embedded Calendar --- */}
-        <div
-          className={`max-w-4xl mx-auto transition-all duration-700 ${
+          className={`max-w-7xl rounded-2xl mx-auto transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <iframe
-            src="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+            ref={iframeRef}
+            src="https://api.leadconnectorhq.com/widget/bookings/automis-it"
             title="Prenota una demo Automis"
-            className="w-full h-[700px] rounded-2xl "
+            className="w-full max-h-[600px] rounded-2xl border-0"
             allowFullScreen
           ></iframe>
         </div>
