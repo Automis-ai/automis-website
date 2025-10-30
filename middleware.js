@@ -4,7 +4,7 @@ export function middleware(req) {
   const host = req.headers.get("host") || "";
   const url = req.nextUrl;
 
-  const isVoice = host.startsWith("voice.");
+  const isVoice = host.startsWith("voice");
 
   // If user is on voice.automis.ai — only allow /ita
   if (isVoice) {
