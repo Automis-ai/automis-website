@@ -31,5 +31,5 @@ export function middleware(req) {
 
 // Apply to all routes except static assets and API
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|api).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|api|assets).*)"],
 };
