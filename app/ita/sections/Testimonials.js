@@ -121,7 +121,7 @@ export default function TestimonialsSection() {
             ref={iframeRef}
             src="https://api.leadconnectorhq.com/widget/bookings/automis-it"
             title="Prenota una demo Automis"
-            className="w-full max-h-[600px] rounded-2xl border-0"
+            className="w-full min-h-[600px] max-h-[700px] rounded-2xl border-0"
             allowFullScreen
           ></iframe>
         </div>
