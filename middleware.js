@@ -7,29 +7,34 @@ export function middleware(req) {
   const isLocal = host.startsWith("localhost");
   const isVoice = host.startsWith("voice");
 
-  // Allow /ita on localhost for testing
+  // ✅ Always allow everything locally
   if (isLocal) {
     return NextResponse.next();
   }
 
-  // If user is on voice.automis.ai — only allow /ita
+  // ✅ Voice domain → always redirect to /ita
   if (isVoice) {
-    if (!url.pathname.startsWith("/ita")) {
+    // If not already exactly /ita, redirect there
+    if (url.pathname !== "/ita") {
       url.pathname = "/ita";
+      url.search = ""; // optional: clear query params
       return NextResponse.redirect(url);
     }
-  } else {
-    // On main domain: block /ita
-    if (url.pathname.startsWith("/ita")) {
-      url.pathname = "/";
-      return NextResponse.redirect(url);
-    }
+    return NextResponse.next();
+  }
+
+  // ✅ Main domain → block /ita
+  if (url.pathname.startsWith("/ita")) {
+    url.pathname = "/";
+    return NextResponse.redirect(url);
   }
 
   return NextResponse.next();
 }
 
-// Apply to all routes except static assets and API
+// ✅ Exclude static assets and API routes
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|api|assets).*)"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|api|assets).*)",
+  ],
 };
