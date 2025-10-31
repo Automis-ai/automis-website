@@ -37,9 +37,18 @@ export default function ResultsSection() {
       solution:
         "L'AI chiama automaticamente i lead dormienti con conversazioni naturali, riscalda il contatto e trasferisce solo quelli interessati al tuo team.",
       results: [
-        "💰 ROI medio: €45.000–€85.000/anno (dipende dal valore medio vendita)",
-        "📈 Tasso di risposta: 12–18% (vs 3–5% email)",
-        "⏱️ Tempo risparmiato: 120 ore/mese del team commerciale",
+        {
+          label: "ROI medio/anno",
+          value: "€45.000–€85.000",
+        },
+        {
+          label: "Tasso di risposta",
+          value: "12–18%",
+        },
+        {
+          label: "Tempo risparmiato/mese",
+          value: "120 ore",
+        },
       ],
       delay: 100,
     },
@@ -52,9 +61,18 @@ export default function ResultsSection() {
       solution:
         "L'AI chiama ogni nuovo lead, fa domande di qualificazione e passa al tuo team solo i lead caldi.",
       results: [
-        "💰 Risparmio: €2.800/mese in tempo squadra commerciale",
-        "📈 Efficienza: +65% di tempo vendita dedicato a lead qualificati",
-        "🎯 Tasso chiusura: +28% su lead pre-qualificati dall'AI",
+        {
+          label: "Risparmio mensile",
+          value: "€2.800",
+        },
+        {
+          label: "Efficienza vendite",
+          value: "+65%",
+        },
+        {
+          label: "Tasso chiusura",
+          value: "+28%",
+        },
       ],
       delay: 200,
     },
@@ -67,9 +85,18 @@ export default function ResultsSection() {
       solution:
         "Receptionist AI sempre disponibile che risponde alle FAQ, prenota appuntamenti, invia conferme SMS e aggiorna il calendario.",
       results: [
-        "💰 Risparmio: €1.800–€2.500/mese (vs receptionist part-time)",
-        "📅 Appuntamenti extra: +18–25/mese da fuori orario",
-        "📞 Chiamate gestite: 85% risolte senza intervento umano",
+        {
+          label: "Risparmio mensile",
+          value: "€1.800–€2.500",
+        },
+        {
+          label: "Appuntamenti extra",
+          value: "+18–25/mese",
+        },
+        {
+          label: "Chiamate gestite automaticamente",
+          value: "85%",
+        },
       ],
       delay: 300,
     },
@@ -82,9 +109,18 @@ export default function ResultsSection() {
       solution:
         "L'AI risponde, controlla disponibilità in tempo reale, prenota tavoli, invia conferme WhatsApp e promemoria automatici.",
       results: [
-        "💰 Revenue extra: €3.200–€5.500/mese da prenotazioni recuperate",
-        "📉 No-show ridotti: –35% grazie a reminder automatici",
-        "⏱️ Tempo staff liberato: 45 minuti/giorno",
+        {
+          label: "Revenue extra",
+          value: "€3.200–€5.500/mese",
+        },
+        {
+          label: "Riduzione no-show",
+          value: "–35%",
+        },
+        {
+          label: "Tempo staff liberato",
+          value: "45 min/giorno",
+        },
       ],
       delay: 400,
     },
@@ -97,9 +133,18 @@ export default function ResultsSection() {
       solution:
         "AI che risponde via telefono, traccia ordini in real-time, gestisce resi e invia info prodotti.",
       results: [
-        "💰 Risparmio: €1.900–€3.200/mese in customer support",
-        "⚡ Risoluzione: 70–75% domande gestite senza operatore umano",
-        "😊 CSAT Score: 4.3/5 (vs 3.8/5 con solo operatori)",
+        {
+          label: "Risparmio mensile",
+          value: "€1.900–€3.200",
+        },
+        {
+          label: "Risoluzione automatica richieste",
+          value: "70–75%",
+        },
+        {
+          label: "Customer Satisfaction (CSAT)",
+          value: "4.3/5",
+        },
       ],
       delay: 500,
     },
@@ -116,8 +161,6 @@ export default function ResultsSection() {
           className={`text-center mb-12 transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
-          data-aos="fade-up"
-          data-aos-duration="800"
         >
           <h2 className="section-heading text-white mb-4">
             Risultati Reali per Business Reali
@@ -178,48 +221,27 @@ export default function ResultsSection() {
                   </p>
                 </div>
 
-                {/* Results - highlighted section */}
+                {/* Results */}
                 <div className="bg-gradient-to-r from-[#3C91E6]/20 to-yellow-light/20 border border-[#3C91E6]/30 rounded-lg py-3 px-4">
                   <h4 className="font-semibold text-yellow-light mb-2">
                     Risultati:
                   </h4>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                    {/* Amount 1 */}
-                    <div className="flex flex-col items-center justify-center">
-                      <p className="text-2xl md:text-3xl font-bold text-yellow-light mb-1">
-                        €700.000
-                      </p>
-                      <p className="text-white/90 text-sm md:text-base">
-                        ROI medio/anno
-                      </p>
-                    </div>
-
-                    {/* Amount 2 */}
-                    <div className="flex flex-col items-center justify-center">
-                      <p className="text-2xl md:text-3xl font-bold text-yellow-light mb-1">
-                        18–25%
-                      </p>
-                      <p className="text-white/90 text-sm md:text-base">
-                        Tasso di riattivazione
-                      </p>
-                    </div>
-
-                    {/* Amount 3 */}
-                    <div className="flex flex-col items-center justify-center">
-                      <p className="text-2xl md:text-3xl font-bold text-yellow-light mb-1">
-                        8.400&nbsp;min
-                      </p>
-                      <p className="text-white/90 text-sm md:text-base">
-                        Tempo risparmiato/mese
-                      </p>
-                    </div>
+                    {c.results.map((r, i) => (
+                      <div
+                        key={i}
+                        className="flex flex-col items-center justify-center"
+                      >
+                        <p className="text-2xl md:text-3xl font-bold text-yellow-light mb-1">
+                          {r.value}
+                        </p>
+                        <p className="text-white/90 text-sm md:text-base">
+                          {r.label}
+                        </p>
+                      </div>
+                    ))}
                   </div>
-
-                  {/* Optional testimonial or note below results */}
-                  {/* <p className="mt-4 italic text-blue-light text-sm">
-    “Avevamo 15.000 lead vecchi nel CRM. Automis ne ha riattivati 2.700 in 6 mesi…”
-  </p> */}
                 </div>
               </div>
             );
