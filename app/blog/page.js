@@ -230,7 +230,7 @@ const page = () => {
                     icon="fas fa-angle-double-right"
                     className="relative z-10"
                   >
-                    Book Consultation
+                    Book Discovery Call
                   </CTAButton>
                   <div className="absolute bottom-0 right-0 w-32 h-32 opacity-30">
                     <img src="assets/images/widget/cta-man.png" alt="Call-to-action promotional graphic" className="w-full h-full object-contain opacity-60" loading="lazy" />
