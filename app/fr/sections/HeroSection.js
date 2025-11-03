@@ -35,7 +35,7 @@ const HeroSection = () => {
             <span className="text-white">
               Votre Assistant Vocal <br className="hidden md:block" />
               <span className="text-text-blue">
-                Intelligent qui Travaille 24h/7j
+                Intelligent qui Travaille 24h/24 et 7j/7
               </span>
             </span>
           </h1>
@@ -60,7 +60,7 @@ const HeroSection = () => {
             data-aos-duration={1500}
           >
             <CTAButton
-              href="https://api.leadconnectorhq.com/widget/booking/KzUNC7gyY8AOTd52TkP8"
+              href="https://api.leadconnectorhq.com/widget/bookings/automis-fr"
               external={true}
               variant="primary"
               size="large"
@@ -82,7 +82,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-2">
               <i className="fas fa-check-circle text-yellow-light"></i>
-              <span>Conforme au GDPR</span>
+              <span>Conforme au RGPD</span>
             </div>
             <div className="flex items-center gap-2">
               <i className="fas fa-check-circle text-yellow-light"></i>
