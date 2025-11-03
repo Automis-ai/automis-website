@@ -24,20 +24,20 @@ export default function PainPointsSection() {
   const painPoints = [
     {
       icon: PhoneOff,
-      title: "Il 67% delle Chiamate Senza Risposta",
-      text: "I tuoi potenziali clienti chiamano, ma tu e il tuo team siete occupati. Risultato? Vanno dai concorrenti.",
+      title: "67 % des Appels Sans Réponse",
+      text: "Vos clients potentiels appellent, mais vous et votre équipe êtes occupés. Résultat ? Ils vont chez la concurrence",
       delay: 100,
     },
     {
       icon: Clock3,
-      title: "Team Sommerso da Richieste Ripetitive",
-      text: '"Quali sono gli orari?" "Quanto costa?" "Posso prenotare?" Le stesse domande tutto il giorno, ogni giorno.',
+      title: "Équipe Submergée par des Demandes Répétitives",
+      text: '"Quels sont les horaires ? » « Combien ça coûte ? » « Puis-je réserver ? » Les mêmes questions, toute la journée, tous les jours.',
       delay: 200,
     },
     {
       icon: PiggyBank,
-      title: "Lead Freddi che Non Rispondono",
-      text: "Database con migliaia di contatti che nessuno richiama. È denaro fermo sul tavolo.",
+      title: "Leads Froids qui ne Répondent Plus",
+      text: "Une base de données pleine de contacts que personne ne rappelle. C’est de l’argent laissé sur la table",
       delay: 300,
     },
   ];
@@ -55,8 +55,8 @@ export default function PainPointsSection() {
           }`}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-snug text-white max-w-3xl mx-auto">
-          Scopri perché la maggior parte delle aziende perde potenziali
-          clienti ogni giorno.
+          Découvrez pourquoi la plupart des entreprises 
+          perdent des clients potentiels chaque jour.
           </h2>
         </div>
 
