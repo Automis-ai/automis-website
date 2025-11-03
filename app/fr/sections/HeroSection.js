@@ -35,7 +35,7 @@ const HeroSection = () => {
             <span className="text-white">
               Votre Assistant Vocal <br className="hidden md:block" />
               <span className="text-text-blue">
-                Intelligent qui Travaille 24h/24 et 7j/7
+                Intelligent qui Travaille 24/7
               </span>
             </span>
           </h1>
