@@ -1,5 +1,6 @@
 // components/ChatWidgets.js
 "use client";
+
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 
@@ -15,6 +16,19 @@ export default function ChatWidgets() {
           <Script
             src="https://unpkg.com/@elevenlabs/convai-widget-embed"
             async
+            strategy="afterInteractive"
+          />
+        </>
+      )}
+
+      {/* ElevenLabs widget for /fr */}
+      {pathname === "/fr" && (
+        <>
+          <elevenlabs-convai agent-id="agent_2301k951bevxfs89r0s7vyr93cq5"></elevenlabs-convai>
+          <Script
+            src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+            async
+            type="text/javascript"
             strategy="afterInteractive"
           />
         </>
