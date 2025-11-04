@@ -45,9 +45,9 @@ const HeroSection = () => {
             data-aos-duration={1500}
           >
             Transforme cada chamada numa oportunidade. A nossa inteligência
-            artificial de voz gere contactos, qualifica
+            artificial de voz gere contactos,
             <br className="hidden md:block" />
-            clientes e agenda marcações — enquanto se concentra
+             qualifica clientes e agenda marcações — enquanto se concentra
             no crescimento do seu negócio.
           </p>
 

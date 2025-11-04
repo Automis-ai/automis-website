@@ -46,9 +46,9 @@ const HeroSection = () => {
             data-aos-duration={1500}
           >
             Verwandeln Sie jeden Anruf in eine Gelegenheit. Unsere Voice-AI
-            beantwortet Anrufe, qualifiziert Leads und bucht Termine –
+            beantwortet Anrufe, qualifiziert Leads 
             <br className="hidden md:block" />
-            während Sie sich auf das Wachstum Ihres Unternehmens konzentrieren.
+            und bucht Termine während Sie sich auf das Wachstum Ihres Unternehmens konzentrieren.
           </p>
 
           <div
