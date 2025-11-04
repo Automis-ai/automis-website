@@ -45,9 +45,9 @@ const HeroSection = () => {
             data-aos-duration={1500}
           >
             Convierte cada llamada en una oportunidad. Nuestra inteligencia
-            artificial de voz gestiona los leads, califica
+            artificial de voz gestiona los leads,
             <br className="hidden md:block" />
-            a los clientes y reserva citas mientras tú te centras en hacer
+             califica a los clientes y reserva citas mientras tú te centras en hacer
             crecer tu negocio.
           </p>
 
