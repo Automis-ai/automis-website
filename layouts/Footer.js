@@ -42,6 +42,8 @@ const DefaultFooter = () => {
     <footer className="container main-footer footer-one relative z-1">
       <div className="max-w-1660 mx-auto px-4 clearfix">
         <div className="max-w-1660 mx-auto footer-content-wrapper flex flex-col lg:flex-row lg:flex-nowrap justify-between items-center lg:items-start pt-20 !pb-16 lg:pt-40">
+
+          {/* LEFT SECTION: LOGO & INFO */}
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0 flex justify-center lg:justify-start">
             <div className="widget-about text-center lg:!text-left flex flex-col items-center lg:items-start">
               <Link href="#home">
@@ -64,28 +66,23 @@ const DefaultFooter = () => {
               </p>
             </div>
           </div>
+
+          {/* RIGHT SECTION: SOCIAL */}
           <div className="footer-social-wrapper w-full lg:w-1/2 flex justify-center lg:justify-end items-center lg:items-start">
             <div className="social-style-one flex flex-wrap gap-3 justify-center lg:justify-end">
-              <a href="https://x.com/AutomisAI" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-twitter" />
-              </a>
-              <a href="https://www.instagram.com/automis.ai/" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-instagram" />
-              </a>
-              <a href="https://www.linkedin.com/company/automisai" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin-in" />
-              </a>
-              <a href="https://www.facebook.com/automisai" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-facebook-f" />
-              </a>
+              <a href="https://x.com/AutomisAI" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter" /></a>
+              <a href="https://www.instagram.com/automis.ai/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram" /></a>
+              <a href="https://www.linkedin.com/company/automisai" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in" /></a>
+              <a href="https://www.facebook.com/automisai" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f" /></a>
             </div>
           </div>
         </div>
 
-        {/* === NEW FOOTER BOTTOM === */}
+        {/* === FOOTER BOTTOM (3 COL GRID) === */}
         <div className="footer-bottom py-10">
           <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4 md:gap-6">
-            {/* SINISTRA */}
+
+            {/* LEFT: COPYRIGHT */}
             <p className="text-white text-center md:text-left">
               © {new Date().getFullYear()}{" "}
               <Link href="#home" className="underline underline-offset-2">
@@ -94,35 +91,26 @@ const DefaultFooter = () => {
               — All Rights Reserved
             </p>
 
-            {/* CENTRALE: BADGE */}
+            {/* CENTER: ELEVEN LABS BADGE */}
             <div className="flex justify-center">
               <a
                 href="https://elevenlabs.io/startup-grants"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex"
                 aria-label="ElevenLabs Startup Grants"
               >
                 <img
                   src="https://eleven-public-cdn.elevenlabs.io/payloadcms/cy7rxce8uki-IIElevenLabsGrants%201.webp"
                   alt="ElevenLabs Grants"
-                  className="h-8 md:h-9 w-auto opacity-90 hover:opacity-100 transition"
+                  className="h-5 md:h-5 w-auto opacity-90 hover:opacity-100 transition"
                 />
               </a>
             </div>
 
-            {/* DESTRA */}
+            {/* RIGHT: LINKS */}
             <ul className="flex gap-6 justify-center md:justify-end text-white/70">
-              <li>
-                <Link href="/privacy-policy" className="hover:text-white transition">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms-of-service" className="hover:text-white transition">
-                  Terms of Service
-                </Link>
-              </li>
+              <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
+              <li><Link href="/terms-of-service" className="hover:text-white transition">Terms of Service</Link></li>
             </ul>
           </div>
 
@@ -136,5 +124,5 @@ const DefaultFooter = () => {
 };
 
 const Footer2 = () => {
-  return <></>; // lasciamo Footer2 invariato, lo modifichiamo solo se ti serve
+  return <></>; // non toccato, lo sistemiamo solo se serve
 };
