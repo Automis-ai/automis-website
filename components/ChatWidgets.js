@@ -33,6 +33,19 @@ export default function ChatWidgets() {
           />
         </>
       )}
+
+      {/* ElevenLabs widget for /pt */}
+      {pathname === "/pt" && (
+        <>
+          <elevenlabs-convai agent-id="agent_5501k9s44q79fkja12p86txkxq0n"></elevenlabs-convai>
+          <Script
+            src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+            async
+            type="text/javascript"
+            strategy="afterInteractive"
+          />
+        </>
+      )}
     </>
   );
 }
