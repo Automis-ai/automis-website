@@ -10,12 +10,12 @@ const SimpleNav = ({ menus, onePage }) => {
             <ul className="navigation onepage clearfix">
               {menus.map((menu) => (
                 <li key={menu.id} className={menu.submenus ? "dropdown" : ""}>
-                  <a href={`#${menu.href}`}>{menu.title}</a>
+                  <a href={#${menu.href}}>{menu.title}</a>
                   {menu.submenus && (
                     <ul>
                       {menu.submenus.map((submenu) => (
                         <li key={submenu.id}>
-                          <a href={`#${submenu.href}`}>{submenu.title}</a>
+                          <a href={#${submenu.href}}>{submenu.title}</a>
                         </li>
                       ))}
                     </ul>
@@ -27,7 +27,7 @@ const SimpleNav = ({ menus, onePage }) => {
             <ul className="navigation clearfix">
               {menus.map((menu) => (
                 <li key={menu.id} className={menu.submenus ? "dropdown" : ""}>
-                  <Link href={`/${menu.href === 'home' ? '' : menu.href}`}>
+                  <Link href={/${menu.href === 'home' ? '' : menu.href}}>
                     {menu.title}
                   </Link>
                   {menu.submenus && (
@@ -35,7 +35,7 @@ const SimpleNav = ({ menus, onePage }) => {
                       <ul>
                         {menu.submenus.map((submenu) => (
                           <li key={submenu.id}>
-                            <Link href={`/${submenu.href}`}>
+                            <Link href={/${submenu.href}}>
                               {submenu.title}
                             </Link>
                           </li>
@@ -52,11 +52,6 @@ const SimpleNav = ({ menus, onePage }) => {
               ))}
             </ul>
           )}
-
-          {/* 👇 SWITCHER LINGUE GTRANSLATE (aggiunto qui) */}
-          <div className="flex items-center ml-6">
-            <div className="gtranslate_wrapper"></div>
-          </div>
         </div>
       </div>
     </Fragment>

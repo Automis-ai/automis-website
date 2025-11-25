@@ -38,30 +38,26 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} ${openSans.variable} bg-[#000a14]`}
+        className={${montserrat.variable} ${openSans.variable} bg-[#000a14]}
         style={{ color: "white" }}
       >
         <Preloader />
-
-        {/* GTranslate Switcher */}
-        <div className="gtranslate_wrapper"></div>
-
         {children}
 
         {/* Microsoft Clarity */}
         <Script id="clarity" strategy="afterInteractive">
-          {`
+          {
             (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
               t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
               y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
             })(window, document, "clarity", "script", "r97o757a1j");
-          `}
+          }
         </Script>
 
         {/* Facebook Pixel */}
         <Script id="facebook-pixel" strategy="afterInteractive">
-          {`
+          {
             !function(f,b,e,v,n,t,s){
               if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
               if(!f._fbq)f._fbq=n;
@@ -71,7 +67,7 @@ export default function RootLayout({ children }) {
             }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
             fbq('init','3659071671051477');
             fbq('track','PageView');
-          `}
+          }
         </Script>
 
         <noscript>
@@ -86,29 +82,6 @@ export default function RootLayout({ children }) {
 
         {/* LeadConnector Chatbot */}
         <ChatWidgets />
-
-        {/* GTranslate settings */}
-        <Script id="gtranslate-settings" strategy="afterInteractive">
-          {`
-            window.gtranslateSettings = {
-              default_language: "en",
-              detect_browser_language: true,
-              languages: ["en","fr","it","es","pt","de"],
-              wrapper_selector: ".gtranslate_wrapper",
-              flag_size: 24,
-              switcher_horizontal_position: "right",
-              switcher_vertical_position: "top",
-              flag_style: "3d"
-            };
-          `}
-        </Script>
-
-        {/* GTranslate script */}
-        <Script
-          src="https://cdn.gtranslate.net/widgets/latest/dwf.js"
-          strategy="afterInteractive"
-          defer
-        />
       </body>
     </html>
   );
