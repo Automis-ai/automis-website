@@ -42,6 +42,10 @@ export default function RootLayout({ children }) {
         style={{ color: "white" }}
       >
         <Preloader />
+
+        {/* GTranslate Switcher */}
+        <div className="gtranslate_wrapper"></div>
+
         {children}
 
         {/* Microsoft Clarity */}
@@ -82,6 +86,29 @@ export default function RootLayout({ children }) {
 
         {/* LeadConnector Chatbot */}
         <ChatWidgets />
+
+        {/* GTranslate settings */}
+        <Script id="gtranslate-settings" strategy="afterInteractive">
+          {`
+            window.gtranslateSettings = {
+              default_language: "en",
+              detect_browser_language: true,
+              languages: ["en","fr","it","es","pt","de"],
+              wrapper_selector: ".gtranslate_wrapper",
+              flag_size: 24,
+              switcher_horizontal_position: "right",
+              switcher_vertical_position: "top",
+              flag_style: "3d"
+            };
+          `}
+        </Script>
+
+        {/* GTranslate script */}
+        <Script
+          src="https://cdn.gtranslate.net/widgets/latest/dwf.js"
+          strategy="afterInteractive"
+          defer
+        />
       </body>
     </html>
   );

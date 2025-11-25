@@ -52,6 +52,11 @@ const SimpleNav = ({ menus, onePage }) => {
               ))}
             </ul>
           )}
+
+          {/* 👇 SWITCHER LINGUE GTRANSLATE (aggiunto qui) */}
+          <div className="flex items-center ml-6">
+            <div className="gtranslate_wrapper"></div>
+          </div>
         </div>
       </div>
     </Fragment>
