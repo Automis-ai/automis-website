@@ -8,7 +8,7 @@ import FAQSection from "@/components/FAQSection";
 import CTAButton from "@/components/CTAButton";
 
 const AIAutomationsPage = () => {
-  const [expandedOffering, setExpandedOffering] = useState<number | null>(null);
+const [expandedOffering, setExpandedOffering] = useState(null);
 
   const toggleOffering = (index: number) => {
     setExpandedOffering(expandedOffering === index ? null : index);
