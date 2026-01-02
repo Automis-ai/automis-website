@@ -115,7 +115,7 @@ const Index = () => {
   const steps = [
     {
       id: 1,
-      title: "Discovery Call",
+      title: "Call Iniziale",
       duration: "Fino a 30 min",
       description: "Individuiamo i colli di bottiglia che bloccano la crescita.",
       icon: (
@@ -368,7 +368,7 @@ const Index = () => {
                   data-aos-duration={1500}
                 >
                   <span className="text-sm md:text-base font-semibold text-[#3C91E6] tracking-wide">
-                    Agenzia AI & Marketing
+                    Agenzia IA & Marketing
                   </span>
                 </div>
                 <h1
@@ -381,12 +381,12 @@ const Index = () => {
                   <span className="hero-heading block text-white mb-4 max-w-3xl mx-auto">
                     Trasforma l’intero <br />{" "}
                     <span className="text-text-blue">
-                      funnel contatti con l’AI
+                      funnel contatti con l’IA
                     </span>
                   </span>
                   <span className="block sub-heading  max-w-xl mx-auto">
-                    Uniamo AI Voice Agents, automazioni e ads ad alto ROI in un
-                    unico percorso pensato per aumentare chiamate prenotate e
+                    Combiniamo Agenti di IA, automazioni e ads in un unico 
+                    percorso pensato per aumentare chiamate prenotate e
                     fatturato.
                   </span>
                 </h1>
@@ -398,13 +398,13 @@ const Index = () => {
                   data-aos-offset={50}
                 >
                   <CTAButton
-                    href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                    href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                     variant="secondary"
                     size="medium"
                     external={true}
                     className="w-fit"
                   >
-                    Prenota una Discovery Call
+                    Prenota una Call conoscitiva
                   </CTAButton>
                   <div className="inline-flex items-center gap-2 text-white/70 text-sm">
                     <svg
@@ -414,7 +414,7 @@ const Index = () => {
                     >
                       <path d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" />
                     </svg>
-                    <span className="font-semibold">+27</span> prenotate questo mese
+                    <span className="font-semibold">+27</span> chiamate prenotate questo mese
                   </div>
                 </div>
               </div>
@@ -455,11 +455,11 @@ const Index = () => {
                     </div>
 
                     <h4 className="card-heading text-white mb-3 group-hover:text-yellow-light transition-colors duration-300">
-                      Paid Ads ad Alto ROI
+                      Ads ad Alto ROI
                     </h4>
 
                     <p className="body-text text-white/90 group-hover:text-text-light transition-colors flex-grow">
-                      Google & Meta Ads ottimizzate con AI per massimizzare il ROI
+                      Google & Meta Ads ottimizzate con IA per massimizzare il ROI
                     </p>
 
                     <Link legacyBehavior href="/paid-ads-management">
@@ -570,11 +570,11 @@ const Index = () => {
                     </div>
 
                     <h4 className="card-heading text-white mb-3 group-hover:text-yellow-light transition-colors duration-300">
-                      Assistente AI 24/7
+                      Assistenti IA 24/7
                     </h4>
 
                     <p className="body-text text-white/90 group-hover:text-text-light transition-colors flex-grow">
-                      AI Voice Agents che rispondono a ogni chiamata e prenotano
+                      Agenti IA che rispondono a ogni chiamata e prenotano
                       appuntamenti all’istante
                     </p>
 
@@ -858,7 +858,7 @@ const Index = () => {
                 Dentisti & Healthcare
               </h3>
               <p className="text-base text-white/90">
-                Il 30–50% delle chiamate in clinica resta senza risposta. I nostri agenti AI rispondono a ogni chiamata, prenotano i pazienti e si integrano con il software della struttura.
+                Il 30–50% delle chiamate in clinica resta senza risposta. I nostri agenti IA rispondono a ogni chiamata, prenotano i pazienti e si integrano con il software della struttura.
               </p>
             </div>
 
@@ -872,10 +872,10 @@ const Index = () => {
                 <Home className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-[#3C91E6] group-hover:text-yellow-light" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">
-                Real Estate
+                Immobiliare
               </h3>
               <p className="text-base text-white/90">
-                Gli agenti perdono il 70% dei lead online per colpa di un follow-up lento. Il nostro AI ISA chiama e scrive ai lead all’istante, 24/7.
+                Gli agenti perdono il 70% dei lead online per colpa di un follow-up lento. Il nostro Agente IA chiama e scrive ai lead all’istante, 24/7.
               </p>
             </div>
 
@@ -889,10 +889,10 @@ const Index = () => {
                 <Sparkles className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-[#3C91E6] group-hover:text-yellow-light" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">
-                Med-Spas
+                Cliniche Estetiche
               </h3>
               <p className="text-base text-white/90">
-                Non perdere mai più una richiesta per Botox o filler. La nostra AI nutre i lead e prenota le consulenze mentre tu ti concentri sui clienti.
+                Non perdere mai più una richiesta per Botox o filler. La nostra IA nutre i lead e prenota le consulenze mentre tu ti concentri sui clienti.
               </p>
             </div>
 
@@ -906,10 +906,10 @@ const Index = () => {
                 <Wrench className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-[#3C91E6] group-hover:text-yellow-light" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">
-                Home Services
+                Pronto Intervento Casa
               </h3>
               <p className="text-base text-white/90">
-                I nostri agenti vocali AI rispondono 24/7, qualificano il lavoro e prenotano direttamente in agenda—così non perdi mai più un lead per colpa della segreteria.
+                I nostri agenti vocali IA rispondono 24/7, qualificano il lavoro e prenotano direttamente in agenda, così non perdi mai più un lead per colpa della segreteria.
               </p>
             </div>
 
@@ -923,10 +923,10 @@ const Index = () => {
                 <Zap className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-[#3C91E6] group-hover:text-yellow-light" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">
-                Lead gen business
+                Business Generazione Contatti
               </h3>
               <p className="text-base text-white/90">
-                Inseriamo agenti AI e automazioni nel tuo funnel, rispondendo a ogni lead in pochi secondi. Più speed-to-lead = più deal chiusi per i tuoi clienti.
+                Inseriamo agenti IA e automazioni nel tuo funnel, rispondendo a ogni lead in pochi secondi. Più speed-to-lead = più deal chiusi per i tuoi clienti.
               </p>
             </div>
 
@@ -940,10 +940,10 @@ const Index = () => {
                 <Rocket className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-[#3C91E6] group-hover:text-yellow-light" />
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">
-                Marketing Agencies
+                Agenzie di Marketing
               </h3>
               <p className="text-base text-white/90">
-                Con Automis, le agenzie smettono di vendere “solo lead” e iniziano a consegnare appuntamenti prenotati. Il nostro AI Agent white-label e le automazioni trasformano le tue campagne in una macchina di prenotazioni.
+                Con Automis, le agenzie smettono di vendere “solo lead” e iniziano a consegnare appuntamenti prenotati. Il nostro Agente IA in white-label e le automazioni trasformano le tue campagne in una macchina di prenotazioni.
               </p>
             </div>
           </div>
@@ -958,15 +958,15 @@ const Index = () => {
               Pronto a trasformare il tuo settore?
             </h3>
             <p className="body-text text-white/90 mb-8 max-w-2xl mx-auto">
-              Scopri come le nostre soluzioni AI-powered possono accelerare la crescita nel tuo mercato, con una discovery call gratuita.
+              Scopri come le nostre soluzioni AI-powered possono accelerare la crescita nel tuo mercato, con una call conoscitiva gratuita.
             </p>
             <CTAButton
-              href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+              href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
               variant="secondary"
               size="medium"
               external={true}
             >
-              Prenota una Discovery Call
+              Prenota una Call conoscitiva
             </CTAButton>
           </div>
         </div>
@@ -1031,7 +1031,7 @@ const Index = () => {
                     size="medium"
                     className="cursor-default"
                   >
-                    Prenota una Discovery Call
+                    Prenota una Call conoscitiva
                   </CTAButton>
                 </div>
               </div>
@@ -1045,11 +1045,11 @@ const Index = () => {
               >
                 <div className="rounded-xl overflow-hidden shadow-2xl">
                   <iframe
-                    src="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                    src="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                     width="100%"
                     height="600"
                     frameBorder="0"
-                    title="Prenota una Discovery Call"
+                    title="Prenota una Call conoscitiva"
                     className="bg-white rounded-xl"
                   />
                 </div>
@@ -1101,11 +1101,11 @@ const Index = () => {
                 style={{ height: "calc(90vh - 80px)" }}
               >
                 <iframe
-                  src="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                  src="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                   width="100%"
                   height="100%"
                   frameBorder="0"
-                  title="Prenota una Discovery Call"
+                  title="Prenota una Call conoscitiva"
                   className="min-h-[600px]"
                 />
               </div>
@@ -1262,13 +1262,13 @@ const Index = () => {
 
             <div style={{ borderRadius: "80px", overflow: "hidden" }}>
               <CTAButton
-                href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                 variant="secondary"
                 size="medium"
                 external={true}
                 className="!rounded-full !text-base"
               >
-                Prenota una Discovery Call
+                Prenota una Call conoscitiva
               </CTAButton>
             </div>
           </div>
@@ -1290,13 +1290,13 @@ const Index = () => {
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-middle via-yellow-light to-blue-lightest rounded-xl blur-lg opacity-60 group-hover:opacity-90 animate-pulse-glow"></div>
           <div className="relative">
             <CTAButton
-              href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+              href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
               variant="secondary"
               size="medium"
               external={true}
               className="!text-base !py-4 !px-10 !font-semibold !w-full"
             >
-              Prenota una Discovery Call
+              Prenota una Call conoscitiva
             </CTAButton>
           </div>
         </div>
