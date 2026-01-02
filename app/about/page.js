@@ -526,7 +526,7 @@ const page = () => {
   </div>
 </div>
 
-      {/* */}
+      {/* spacer */}
       <section className="section-padding bg-section-dark">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap -mx-4 items-center">
@@ -555,7 +555,7 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* */}
+      {/* spacer */}
 
     </AkpagerLayout>
   );
