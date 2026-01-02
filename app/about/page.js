@@ -97,9 +97,9 @@ const page = () => {
 
   return (
     <AkpagerLayout>
-      {}
+      {/* spacer */}
       <section className="hero-area hero-padding bg-deep-blue relative overflow-hidden">
-        {}
+        {/* spacer */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent z-1"></div>
 
         <canvas
@@ -146,7 +146,7 @@ const page = () => {
                   </CTAButton>
                 </div>
 
-                {}
+                {/* spacer */}
                 <div className="flex flex-wrap gap-8 justify-start items-center" data-aos="fade-up" data-aos-duration={1500} data-aos-delay={400}>
                   <div>
                     <h3 className="sub-heading font-bold text-yellow-light mb-1">98%</h3>
@@ -166,7 +166,7 @@ const page = () => {
 
             <div className="px-4 lg:w-5/12 mt-12 lg:mt-0">
               <div className="relative" data-aos="fade-left" data-aos-duration={1500}>
-                {}
+                {/* spacer */}
                 <div className="absolute -top-4 md:-top-8 -left-4 md:-left-8 bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 p-4 md:p-6 rounded-2xl shadow-2xl about-hero-floating-card z-20 hidden sm:block hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
                   <Code2 className="text-yellow-light w-6 md:w-8 h-6 md:h-8 mb-2" />
                   <h4 className="text-white font-semibold text-xs md:text-sm">AI Models</h4>
@@ -179,7 +179,7 @@ const page = () => {
                   <p className="text-white/90 text-xs">10TB+ Daily</p>
                 </div>
 
-                {}
+                {/* spacer */}
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <div className="absolute inset-0 bg-gradient-to-tr from-blue-middle/20 to-yellow-light/20 about-hero-glow"></div>
                   <img
@@ -189,7 +189,7 @@ const page = () => {
                     loading="lazy"
                   />
 
-                  {}
+                  {/* spacer */}
                   <div className="absolute inset-0 pointer-events-none">
                     <div className="grid grid-cols-3 h-full">
                       <div className="border-r border-blue-middle/10"></div>
@@ -204,16 +204,16 @@ const page = () => {
           </div>
         </div>
 
-        {}
+        {/* spacer */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-blue-middle/20 to-transparent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-yellow-light/10 to-transparent rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
       </section>
-      {}
+      {/* spacer */}
 
-      {}
+      {/* spacer */}
       <section id="our-story" className="section-padding bg-bg-primary">
         <div className="container mx-auto px-4">
-          {}
+          {/* spacer */}
           <div className="flex flex-wrap -mx-4 items-center mb-20 lg:mb-32">
             <div className="px-4 lg:w-1/2 mb-8 lg:mb-0">
               <div className="relative" data-aos="fade-right" data-aos-duration={1500}>
@@ -268,7 +268,7 @@ const page = () => {
             </div>
           </div>
 
-          {}
+          {/* spacer */}
           <div className="flex flex-wrap -mx-4 items-center mt-20 lg:mt-32">
             <div className="px-4 lg:w-1/2 mb-8 lg:mb-0 order-2 lg:order-1">
                 <div className="pr-0 lg:pr-12" data-aos="fade-right" data-aos-duration={1500}>
@@ -309,9 +309,9 @@ const page = () => {
             </div>
           </div>
       </section>
-      {}
+      {/* spacer */}
 
-      {}
+      {/* spacer */}
       <section className="section-padding bg-bg-primary">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap -mx-4 justify-center mb-16">
@@ -377,9 +377,9 @@ const page = () => {
           </div>
         </div>
       </section>
-      {}
+      {/* spacer */}
 
-      {}
+      {/* spacer */}
       <section className="section-padding bg-bg-primary">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap -mx-4 justify-center">
@@ -396,9 +396,9 @@ const page = () => {
           </div>
         </div>
       </section>
-      {}
+      {/* spacer */}
 
-      {}
+      {/* spacer */}
       <section className="section-padding bg-bg-primary">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap -mx-4 justify-center mb-16">
@@ -533,13 +533,14 @@ const page = () => {
             <div className="px-4 lg:w-2/3">
               <div data-aos="fade-right" data-aos-duration={1500}>
                 <h2 className="section-heading text-white font-medium mb-4">
-                  Ready  to Transform Your Business?
+                  Ready to Transform Your Business?
                 </h2>
                 <p className="body-text text-white/90 mb-0">
                   If you're ready to unlock the full potential of AI for your business, let's Book Discovery Call.
                 </p>
               </div>
             </div>
+
             <div className="px-4 lg:w-1/3 lg:text-right">
               <div className="mt-8 lg:mt-0" data-aos="fade-left" data-aos-duration={1500}>
                 <CTAButton
@@ -555,9 +556,8 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* spacer */}
-
     </AkpagerLayout>
   );
 };
+
 export default page;
