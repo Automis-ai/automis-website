@@ -517,7 +517,7 @@ const page = () => {
             Book a discovery call
             <i
               className="far fa-arrow-right"
-              style={{ transform: "rotate(-30deg)" }}
+             style={{ transform: "rotate(-30deg)" }}
             />
           </a>
         </div>
@@ -526,7 +526,7 @@ const page = () => {
   </div>
 </div>
 
-      {}
+      {/* */}
       <section className="section-padding bg-section-dark">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap -mx-4 items-center">
@@ -555,7 +555,7 @@ const page = () => {
           </div>
         </div>
       </section>
-      {}
+      {/* */}
 
     </AkpagerLayout>
   );
