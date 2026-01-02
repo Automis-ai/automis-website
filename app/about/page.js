@@ -242,7 +242,7 @@ const page = () => {
                 </h2>
                 <p className="body-text text-white/90 mb-4">
                   Automis was founded on the belief that artificial intelligence and human expertise
-                  work best together. Luca, Arcangelo, and Huza recognized that many small businesses
+                  work best together. Luca and Arcangelo recognized that many small businesses
                   and startups wanted to leverage AI but lacked the know-how.
                 </p>
                 <p className="body-text text-white/90 mb-8">
@@ -415,86 +415,116 @@ const page = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap -mx-4 justify-center">
-            <div className="px-4 lg:w-1/3 md:w-1/2 mb-8">
-              <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:border-yellow-light/30 transition-all duration-300 group hover:transform hover:scale-105 h-full flex flex-col" data-aos="fade-up" data-aos-duration={1000}>
-                <div className="p-8 text-center">
-                  <div className="relative inline-block mb-6">
-                    <img
-                      src="/assets/images/headshots/luca.jpeg"
-                      alt="Luca Casillo - Co-Founder and Digital Marketing Expert at Automis"
-                      className="w-60 h-60 rounded-full object-cover object-top border-4 border-bright-blue group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                    <a
-                      href="https://www.linkedin.com/in/vincenzo-luca-casillo/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute bottom-4 right-4 w-12 h-12 bg-bright-blue text-white rounded-full flex items-center justify-center hover:bg-warm-yellow hover:text-blue-darkest transition-all duration-300 shadow-lg"
-                      aria-label="LinkedIn profile of Luca Casillo"
-                    >
-                      <i className="fab fa-linkedin-in text-xl"></i>
-                    </a>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-1">Vincenzo Luca Casillo</h3>
-                  <p className="text-bright-blue font-medium mb-4">Digital Marketing & Lead Generation Expert</p>
-                  <p className="text-base text-white/90 font-open-sans leading-relaxed">
-                    Drives business growth by creating high-converting campaigns and optimized funnels that turn clicks into customers.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="px-4 lg:w-1/3 md:w-1/2 mb-8">
-              <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:border-yellow-light/30 transition-all duration-300 group hover:transform hover:scale-105 h-full flex flex-col" data-aos="fade-up" data-aos-delay={100} data-aos-duration={1000}>
-                <div className="p-8 text-center">
-                  <div className="relative inline-block mb-6">
-                    <img
-                      src="/assets/images/headshots/arcangelo.jpeg"
-                      alt="Arcangelo Bianco - Co-Founder and Advertising Expert at Automis"
-                      className="w-60 h-60 rounded-full object-cover object-top border-4 border-bright-blue group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                    <a
-                      href="https://www.linkedin.com/in/biancoarcangelo/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute bottom-4 right-4 w-12 h-12 bg-bright-blue text-white rounded-full flex items-center justify-center hover:bg-warm-yellow hover:text-blue-darkest transition-all duration-300 shadow-lg"
-                      aria-label="LinkedIn profile of Arcangelo Bianco"
-                    >
-                      <i className="fab fa-linkedin-in text-xl"></i>
-                    </a>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-1">Arcangelo Bianco</h3>
-                  <p className="text-bright-blue font-medium mb-4">Advertising Expert</p>
-                  <p className="text-base text-white/90 font-open-sans leading-relaxed">
-                    Specializes in crafting and scaling ad strategies that maximize ROI across Google, Meta, and other platforms.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="px-4 lg:w-1/3 md:w-1/2 mb-8">
-              <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:border-yellow-light/30 transition-all duration-300 group hover:transform hover:scale-105 h-full flex flex-col" data-aos="fade-up" data-aos-delay={200} data-aos-duration={1000}>
-                <div className="p-8 text-center">
-                  <div className="relative inline-block mb-6">
-                    <img
-                      src="/assets/images/headshots/huza.jpg"
-                      alt="Huzaifa Yousaf - AI Expert and Automation Specialist at Automis"
-                      className="w-60 h-60 rounded-full object-cover object-top border-4 border-bright-blue group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-1">Huzaifa Yousaf</h3>
-                  <p className="text-bright-blue font-medium mb-4">AI Wizard</p>
-                  <p className="text-base text-white/90 font-open-sans leading-relaxed">
-                    Builds powerful AI systems and automations that streamline operations, recover revenue, and scale results effortlessly.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+<div className="flex flex-wrap -mx-4 justify-center">
+  {/* Luca */}
+  <div className="px-4 lg:w-1/2 md:w-1/2 mb-8">
+    <div
+      className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:border-yellow-light/30 transition-all duration-300 group hover:transform hover:scale-[1.03] h-full flex flex-col"
+      data-aos="fade-up"
+      data-aos-duration={1000}
+    >
+      <div className="p-8 text-center flex flex-col h-full">
+        <div className="relative inline-block mb-6 mx-auto">
+          <img
+            src="/assets/images/headshots/luca.jpeg"
+            alt="Vincenzo Luca Casillo - Co-Founder and Digital Marketing Expert at Automis"
+            className="w-60 h-60 rounded-full object-cover object-top border-4 border-bright-blue group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+          <a
+            href="https://www.linkedin.com/in/vincenzo-luca-casillo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-4 right-4 w-12 h-12 bg-bright-blue text-white rounded-full flex items-center justify-center hover:bg-warm-yellow hover:text-blue-darkest transition-all duration-300 shadow-lg"
+            aria-label="LinkedIn profile of Vincenzo Luca Casillo"
+          >
+            <i className="fab fa-linkedin-in text-xl"></i>
+          </a>
         </div>
-      </section>
-      {}
+
+        <h3 className="text-2xl font-bold text-white mb-1">
+          Vincenzo Luca Casillo
+        </h3>
+        <p className="text-bright-blue font-medium mb-4">
+          Digital Marketing & AI Growth Strategy
+        </p>
+        <p className="text-base text-white/90 font-open-sans leading-relaxed mb-6">
+          Turns paid traffic into predictable revenue with conversion-first funnels,
+          lead follow-up systems, and performance-driven strategy.
+        </p>
+
+        {/* Optional CTA per card */}
+        <div className="mt-auto">
+          <a
+            href="https://api.leadconnectorhq.com/widget/booking/3Nvnzsvjaw89VWsdBBXF"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold bg-yellow-light text-blue-darkest hover:bg-yellow-dark hover:text-white transition-all duration-300"
+          >
+            Book a discovery call
+            <i
+              className="far fa-arrow-right"
+              style={{ transform: "rotate(-30deg)" }}
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Arcangelo */}
+  <div className="px-4 lg:w-1/2 md:w-1/2 mb-8">
+    <div
+      className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:border-yellow-light/30 transition-all duration-300 group hover:transform hover:scale-[1.03] h-full flex flex-col"
+      data-aos="fade-up"
+      data-aos-delay={100}
+      data-aos-duration={1000}
+    >
+      <div className="p-8 text-center flex flex-col h-full">
+        <div className="relative inline-block mb-6 mx-auto">
+          <img
+            src="/assets/images/headshots/arcangelo.jpeg"
+            alt="Arcangelo Bianco - Co-Founder and Advertising Expert at Automis"
+            className="w-60 h-60 rounded-full object-cover object-top border-4 border-bright-blue group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+          <a
+            href="https://www.linkedin.com/in/biancoarcangelo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-4 right-4 w-12 h-12 bg-bright-blue text-white rounded-full flex items-center justify-center hover:bg-warm-yellow hover:text-blue-darkest transition-all duration-300 shadow-lg"
+            aria-label="LinkedIn profile of Arcangelo Bianco"
+          >
+            <i className="fab fa-linkedin-in text-xl"></i>
+          </a>
+        </div>
+
+        <h3 className="text-2xl font-bold text-white mb-1">Arcangelo Bianco</h3>
+        <p className="text-bright-blue font-medium mb-4">Performance Advertising</p>
+        <p className="text-base text-white/90 font-open-sans leading-relaxed mb-6">
+          Builds and scales ad systems that improve CAC and ROAS across Meta, Google,
+          and multi-channel acquisition.
+        </p>
+
+        {/* Optional CTA per card */}
+        <div className="mt-auto">
+          <a
+            href="https://api.leadconnectorhq.com/widget/booking/3Nvnzsvjaw89VWsdBBXF"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold bg-yellow-light text-blue-darkest hover:bg-yellow-dark hover:text-white transition-all duration-300"
+          >
+            Book a discovery call
+            <i
+              className="far fa-arrow-right"
+              style={{ transform: "rotate(-30deg)" }}
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
       {}
       <section className="section-padding bg-section-dark">
