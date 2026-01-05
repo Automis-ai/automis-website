@@ -1,9 +1,15 @@
 {
   "nav": {
     "home": "Home",
-    "features": "Features",
-    "pricing": "Pricing",
+    "jumpstartAudit": "Jumpstart Audit",
+    "services": "Services",
+    "paidAdsManagement": "Paid Ads Management",
+    "voiceAi": "Voice AI",
+    "aiAutomations": "AI Automations",
+    "caseStudies": "Case Studies",
+    "blog": "Blog",
+    "about": "About",
     "contact": "Contact",
-    "cta": "Book a demo"
+    "cta": "Book Discovery Call"
   }
 }

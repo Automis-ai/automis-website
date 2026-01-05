@@ -1,9 +1,15 @@
 {
   "nav": {
     "home": "Home",
-    "features": "Caratteristiche tecniche",
-    "pricing": "Prezzi",
+    "jumpstartAudit": "Audit Jumpstart",
+    "services": "Servizi",
+    "paidAdsManagement": "Gestione Ads",
+    "voiceAi": "Agenti Vocali AI",
+    "aiAutomations": "Automazioni AI",
+    "caseStudies": "Casi Studio",
+    "blog": "Blog",
+    "about": "Chi siamo",
     "contact": "Contatti",
-    "cta": "Prenota una demo"
+    "cta": "Prenota una call conoscitiva"
   }
 }
