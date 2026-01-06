@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 const WaveformPlayer = ({
-  audioSrc = 'assets/audio/audio.mp3',
+  audioSrc = 'assets/audio/Audio_Ai_bubble.IT.mp3',
   waveColor = '#3C91E6',
   progressColor = '#FEC458',
   height = 100,

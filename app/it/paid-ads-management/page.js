@@ -133,13 +133,13 @@ const PaidAdsManagementPage = () => {
                 <div className="w-64 h-20 bg-warm-yellow/30 rounded-full blur-2xl animate-pulse" />
               </div>
               <CTAButton
-                href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                 external={true}
                 variant="primary"
                 size="medium"
                 className="relative z-10"
               >
-                Prenota la Discovery Call
+                Prenota una Call
               </CTAButton>
             </div>
           </div>
@@ -719,12 +719,12 @@ const PaidAdsManagementPage = () => {
                 data-aos-duration={1000}
               >
                 <CTAButton
-                  href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                  href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                   external={true}
                   variant="primary"
                   size="xlarge"
                 >
-                  Prenota la Discovery Call
+                  Prenota una Call
                 </CTAButton>
               </div>
             </div>

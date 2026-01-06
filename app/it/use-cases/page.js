@@ -29,7 +29,7 @@ const UseCasesPage = () => {
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              Scopri come la nostra Voice AI, gli strumenti di automazione e le campagne pubblicitarie
+              Scopri come i nostri Agenti Vocali AI, gli strumenti di automazione e le campagne pubblicitarie
               rivoluzionano la generazione di contatti, la prenotazione di appuntamenti, il recruiting
               e l’operatività complessiva del tuo business.
             </p>

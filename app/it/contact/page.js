@@ -458,7 +458,7 @@ const page = () => {
                 </div>
                 <div className="bg-white/5 p-2">
                   <iframe
-                    src="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                    src="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                     className="w-full h-[500px] rounded-lg"
                     frameBorder="0"
                     scrolling="yes"

@@ -72,22 +72,18 @@ const page = () => {
                   className="sub-heading text-white/90 mb-4 max-w-xl mt-2"
                 >
                   Coinvolgi i lead, fissa appuntamenti e supporta i tuoi clienti
-                  24/7 con soluzioni avanzate di Voice AI.
-                </p>
-
-                <p className="body-text !text-text-muted">
-                  Costruito per te, senza che tu debba costruirlo
+                  24/7 con soluzioni avanzate di Agenti Vocali AI.
                 </p>
 
                 <div className="flex justify-center lg:justify-start">
                   <CTAButton
-                    href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                    href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                     variant="secondary"
                     size="medium"
                     external={true}
                     className="w-fit mt-8"
                   >
-                    Prenota una Discovery Call
+                    Prenota una Call 
                   </CTAButton>
                 </div>
               </div>
@@ -118,7 +114,7 @@ const page = () => {
                       data-aos-offset={50}
                     >
                       <img
-                        src="assets/images/shapes/hero-nine6-old.png"
+                        src="/assets/images/shapes/hero-nine6-old.png"
                         alt="Elemento decorativo"
                         className="w-full h-full object-contain"
                       />
@@ -131,7 +127,7 @@ const page = () => {
                       data-aos-offset={50}
                     >
                       <img
-                        src="assets/images/shapes/hero-nine2.png"
+                        src="/assets/images/shapes/hero-nine2.png"
                         alt="Elemento decorativo"
                         className="w-full h-full object-contain"
                       />
@@ -149,7 +145,7 @@ const page = () => {
                       data-aos-offset={50}
                     >
                       <img
-                        src="assets/images/shapes/hero-nine3.png"
+                        src="/assets/images/shapes/hero-nine3.png"
                         alt="Elemento decorativo"
                         className="w-full h-full object-contain"
                       />
@@ -167,7 +163,7 @@ const page = () => {
                       data-aos-offset={50}
                     >
                       <img
-                        src="assets/images/shapes/hero-nine4.png"
+                        src="/assets/images/shapes/hero-nine4.png"
                         alt="Elemento decorativo"
                         className="w-full h-full object-contain"
                       />
@@ -181,7 +177,7 @@ const page = () => {
                       data-aos-offset={50}
                     >
                       <img
-                        src="assets/images/shapes/hero-nine5.png"
+                        src="/assets/images/shapes/hero-nine5.png"
                         alt="Elemento decorativo"
                         className="w-full h-full object-contain"
                       />
@@ -195,7 +191,7 @@ const page = () => {
                       data-aos-offset={50}
                     >
                       <img
-                        src="assets/images/shapes/hero-nine6.png"
+                        src="/assets/images/shapes/hero-nine6.png"
                         alt="Elemento decorativo"
                         className="w-full h-full object-contain"
                       />
@@ -210,7 +206,7 @@ const page = () => {
         <div className="hero-nine-shapes">
           <div className="shape one">
             <img
-              src="assets/images/shapes/hero-nine.png"
+              src="/assets/images/shapes/hero-nine.png"
               alt="Forma decorativa di sfondo"
               loading="lazy"
               className="!bg-transparent"
@@ -218,7 +214,7 @@ const page = () => {
           </div>
           <div className="shape two">
             <img
-              src="assets/images/shapes/hero-nine.png"
+              src="/assets/images/shapes/hero-nine.png"
               alt="Forma decorativa di sfondo"
               loading="lazy"
               className="!bg-transparent"
@@ -322,12 +318,12 @@ const page = () => {
                       </ul>
 
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/booking/3Nvnzsvjaw89VWsdBBXF"
+                        href="https://api.leadconnectorhq.com/widget/booking/automis-it"
                         variant="primary"
                         size="small"
                         external={true}
                       >
-                        Prenota una Discovery Call
+                        Prenota una Call
                       </CTAButton>
                     </div>
                   </div>
@@ -384,12 +380,12 @@ const page = () => {
                       </ul>
 
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/booking/3Nvnzsvjaw89VWsdBBXF"
+                        href="https://api.leadconnectorhq.com/widget/booking/automis-it"
                         variant="primary"
                         size="small"
                         external={true}
                       >
-                        Prenota una Discovery Call
+                        Prenota una Call
                       </CTAButton>
                     </div>
                   </div>
@@ -764,12 +760,12 @@ const page = () => {
                       </ul>
 
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/booking/3Nvnzsvjaw89VWsdBBXF"
+                        href="https://api.leadconnectorhq.com/widget/booking/automis-it"
                         variant="primary"
                         size="medium"
                         external={true}
                       >
-                        Prenota una Discovery Call
+                        Prenota una Call
                       </CTAButton>
                     </div>
                   </div>
@@ -828,12 +824,12 @@ const page = () => {
                       </ul>
 
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/booking/3Nvnzsvjaw89VWsdBBXF"
+                        href="https://api.leadconnectorhq.com/widget/booking/automis-it"
                         variant="primary"
                         size="medium"
                         external={true}
                       >
-                        Prenota una Discovery Call
+                        Prenota una Call
                       </CTAButton>
                     </div>
                   </div>
@@ -909,12 +905,12 @@ const page = () => {
                       </ul>
 
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/booking/3Nvnzsvjaw89VWsdBBXF"
+                        href="https://api.leadconnectorhq.com/widget/booking/automis-it"
                         variant="primary"
                         size="medium"
                         external={true}
                       >
-                        Prenota una Discovery Call
+                        Prenota una Call
                       </CTAButton>
                     </div>
                   </div>
@@ -1088,7 +1084,7 @@ const page = () => {
               <div className="bg-blue-darkest/30 backdrop-blur-lg border-2 border-yellow-light rounded-2xl p-16 shadow-lg shadow-yellow-light/20 hover:scale-[1.02] transition-all duration-300">
                 <div className="mb-10">
                   <span className="inline-block bg-yellow-light/20 text-yellow-light px-6 py-2 rounded-full small-text font-semibold mb-6">
-                    Prenota ora una Discovery Call
+                    Prenota ora una Call
                   </span>
                   <h2
                     className="section-heading text-white"
@@ -1100,13 +1096,13 @@ const page = () => {
                 </div>
                 <div className="flex justify-center">
                   <CTAButton
-                    href="https://api.leadconnectorhq.com/widget/booking/3Nvnzsvjaw89VWsdBBXF"
+                    href="https://api.leadconnectorhq.com/widget/booking/automis-it"
                     variant="primary"
                     size="large"
                     external={true}
                     className="whitespace-nowrap inline-block"
                   >
-                    Prenota una Discovery Call!
+                    Prenota una Call gratuita!
                   </CTAButton>
                 </div>
               </div>

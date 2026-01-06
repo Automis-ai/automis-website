@@ -203,12 +203,12 @@ const [expandedOffering, setExpandedOffering] = useState(null);
               </p>
               <div className="flex gap-4 flex-wrap" data-aos="fade-up" data-aos-delay={200}>
                 <CTAButton
-                  href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                  href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                   external={true}
                   variant="secondary"
                   size="medium"
                 >
-                  Prenota una Discovery Call
+                  Prenota una Call
                 </CTAButton>
               </div>
             </div>
@@ -246,7 +246,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
               { icon: "fa-clock", title: "Più tempo", desc: "Recupera fino a 14 ore a settimana per persona" },
               { icon: "fa-rocket", title: "Più produttività", desc: "Riduci i tempi dei processi del 25% o più" },
               { icon: "fa-check-circle", title: "Meno errori", desc: "Elimina gli errori di inserimento manuale dati" },
-              { icon: "fa-expand-arrows", title: "Scala facilmente", desc: "Workflow 24/7 senza aumentare l’organico" },
+              { icon: "fa-expand-arrows", title: "Scala facilmente", desc: "Lavora 24/7 senza aumentare l’organico" },
             ].map((item, index) => (
               <div key={index}>
                 <div
@@ -563,7 +563,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="section-heading text-white mb-4" data-aos="fade-up">
-              Per Chi È
+              Per quali aziende è ideale
             </h2>
             <p className="sub-heading text-white/90" data-aos="fade-up" data-aos-delay={50}>
               I settori che ottengono più vantaggi dalle nostre automazioni
@@ -700,12 +700,12 @@ const [expandedOffering, setExpandedOffering] = useState(null);
             </div>
             <div className="px-4 lg:w-1/3 lg:text-right mt-4 lg:mt-0" data-aos="fade-up" data-aos-delay={100}>
               <CTAButton
-                href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                 external={true}
                 variant="tertiary"
                 size="medium"
               >
-                Prenota una Discovery Call
+                Prenota una Call
               </CTAButton>
             </div>
           </div>

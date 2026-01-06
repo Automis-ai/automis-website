@@ -123,7 +123,7 @@ const JumpstartAudit = () => {
                   data-aos-delay={100}
                   data-aos-duration={1200}
                 >
-                  In 15 giorni ti mostriamo esattamente come ridurre sprechi pubblicitari e trasformare più lead in fatturato prenotato, grazie ad automazioni su misura.
+                  In 15 giorni ti mostriamo esattamente come ridurre sprechi pubblicitari e trasformare più lead in fatturato, grazie ad Agenti IA e automazioni su misura.
                 </p>
 
                 {/* BENEFIT PILLS */}
@@ -134,10 +134,10 @@ const JumpstartAudit = () => {
                   data-aos-duration={1200}
                 >
                   {[
-                    "Costi di acquisizione più bassi",
-                    "Speed-to-lead più veloce",
+                    "CPA più bassi",
+                    "Primo contatto più veloce",
                     "Meno chiamate perse",
-                    "Più fatturato prenotato"
+                    "Più fatturato"
                   ].map((benefit, index) => (
                     <div
                       key={index}
@@ -168,13 +168,13 @@ const JumpstartAudit = () => {
                 {/* CTA */}
                 <div className="flex justify-center">
                   <CTAButton
-                    href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                    href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                     external={true}
                     variant="primary"
                     size="large"
                   >
                     <Rocket className="w-5 h-5 mr-2" />
-                    Prenota una Discovery Call
+                    Prenota una Call
                   </CTAButton>
                 </div>
               </div>
@@ -335,7 +335,7 @@ const JumpstartAudit = () => {
                 data-aos-delay={100}
                 data-aos-duration={1200}
               >
-                <span className="section-heading text-yellow-light">$1,850</span> di valore totale — incluso gratuitamente
+                <span className="section-heading text-yellow-light">€1,850</span> di valore totale — incluso gratuitamente
               </p>
             </div>
           </div>
@@ -350,11 +350,11 @@ const JumpstartAudit = () => {
                       <Zap className="w-8 h-8 text-yellow-light" />
                     </div>
                     <span className="px-3 py-1 bg-yellow-light/10 rounded-full small-text text-yellow-light font-semibold">
-                      $750 value
+                      €750 value
                     </span>
                   </div>
 
-                  <h3 className="card-heading text-white mb-2">Implementazione Quick-Win</h3>
+                  <h3 className="card-heading text-white mb-2">Implementazione Veloce</h3>
                   <p className="text-yellow-light small-text font-semibold mb-3">Chiavi in mano</p>
                   <p className="body-text text-white/90">
                     Costruiamo e attiviamo un’automazione su misura, focalizzata sul tuo principale collo di bottiglia. Setup live + 14 giorni di supporto.
@@ -372,7 +372,7 @@ const JumpstartAudit = () => {
                       <Calendar className="w-8 h-8 text-blue-middle group-hover:text-yellow-light transition-all duration-300" />
                     </div>
                     <span className="px-3 py-1 bg-blue-middle/10 rounded-full small-text text-blue-middle font-semibold">
-                      $600 value
+                      €600 value
                     </span>
                   </div>
 
@@ -394,7 +394,7 @@ const JumpstartAudit = () => {
                       <DollarSign className="w-8 h-8 text-blue-middle group-hover:text-yellow-light transition-all duration-300" />
                     </div>
                     <span className="px-3 py-1 bg-yellow-light/10 rounded-full small-text text-yellow-light font-semibold">
-                      $500 value
+                      €500 value
                     </span>
                   </div>
 
@@ -493,7 +493,7 @@ const JumpstartAudit = () => {
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-white/90">Costo extra</span>
-                      <span className="text-blue-middle font-semibold">$0</span>
+                      <span className="text-blue-middle font-semibold">€0</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-white/90">Presentazione pronta</span>
@@ -552,7 +552,7 @@ const JumpstartAudit = () => {
               <div className="!absolute !left-1/2 !top-0 !bottom-0 !w-0.5 !-translate-x-1/2 !overflow-hidden !bg-slate-800/30">
                 <div
                   className="!absolute !left-0 !top-0 !w-full !bg-gradient-to-b !from-yellow-light !via-blue-middle !to-yellow-light !transition-all !duration-300 !ease-out"
-                  style={{ height: `${lineHeight}%` }}
+                  style={{ height: `€{lineHeight}%` }}
                 />
               </div>
 
@@ -606,13 +606,13 @@ const JumpstartAudit = () => {
                   day: "Giorno 14",
                   title: "Presentazione finale → attivazione live",
                   what: "Presentiamo i risultati, confermiamo il piano e attiviamo il Quick Win in live. Rispondiamo a ogni domanda e definiamo i prossimi step.",
-                  result: "Se vuoi che eseguiamo il piano 90 giorni, applichiamo un credito di $500.",
+                  result: "Se vuoi che eseguiamo il piano 90 giorni, applichiamo un credito di €500.",
                   icon: <Award className="!w-6 !h-6" />
                 }
               ].map((step, index) => (
                 <div
                   key={index}
-                  className={`!relative !flex !items-center !mb-12 ${index % 2 === 0 ? '!justify-start' : '!justify-end'}`}
+                  className={`!relative !flex !items-center !mb-12 €{index % 2 === 0 ? '!justify-start' : '!justify-end'}`}
                   data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
                   data-aos-duration={1200}
                 >
@@ -620,7 +620,7 @@ const JumpstartAudit = () => {
                     {step.icon}
                   </div>
 
-                  <div className={`!w-5/12 !bg-slate-900 !rounded-xl !p-6 !border !border-slate-800 hover:!border-[#FEC458]/50 !transition-all ${index % 2 === 0 ? '!mr-auto' : '!ml-auto'}`}>
+                  <div className={`!w-5/12 !bg-slate-900 !rounded-xl !p-6 !border !border-slate-800 hover:!border-[#FEC458]/50 !transition-all €{index % 2 === 0 ? '!mr-auto' : '!ml-auto'}`}>
                     <span className="!text-[#FEC458] !text-sm !font-bold">{step.day}</span>
                     <h4 className="!text-xl !font-bold !text-white !mb-2">{step.title}</h4>
                     <p className="!text-gray-400 !text-sm !mb-3">
@@ -648,7 +648,7 @@ const JumpstartAudit = () => {
               <div className="!absolute !left-4 !top-0 !bottom-0 !w-0.5 !overflow-hidden !bg-slate-800/30">
                 <div
                   className="!absolute !left-0 !top-0 !w-full !bg-gradient-to-b !from-yellow-light !via-blue-middle !to-yellow-light !transition-all !duration-300 !ease-out"
-                  style={{ height: `${lineHeight}%` }}
+                  style={{ height: `€{lineHeight}%` }}
                 />
               </div>
 
@@ -710,7 +710,7 @@ const JumpstartAudit = () => {
                   title: "Go Live!",
                   fullTitle: "Presentazione finale → attivazione live",
                   what: "Presentiamo i risultati, confermiamo il piano e attiviamo il Quick Win in live. Rispondiamo a ogni domanda e definiamo i prossimi step.",
-                  result: "Se vuoi che eseguiamo il piano 90 giorni, applichiamo un credito di $500.",
+                  result: "Se vuoi che eseguiamo il piano 90 giorni, applichiamo un credito di €500.",
                   icon: <Award />
                 }
               ].map((step, index) => (
@@ -729,7 +729,7 @@ const JumpstartAudit = () => {
                       </div>
                       <div className="!w-6 !h-6 !rounded-full !bg-[#FEC458]/20 !flex !items-center !justify-center !flex-shrink-0 !ml-2">
                         <ChevronDown
-                          className={`!w-4 !h-4 !text-[#FEC458] !transition-transform !duration-300 ${expandedCards[index] ? '!rotate-180' : ''}`}
+                          className={`!w-4 !h-4 !text-[#FEC458] !transition-transform !duration-300 €{expandedCards[index] ? '!rotate-180' : ''}`}
                         />
                       </div>
                     </div>
@@ -857,8 +857,8 @@ const JumpstartAudit = () => {
               <div data-aos="fade-up" data-aos-delay={100} data-aos-duration={1200}>
                 <div className="mb-16">
                   <div className="flex flex-col items-center justify-center gap-3">
-                    <span className="text-gray-500 line-through" style={{ fontSize: '2.5rem', fontWeight: '600', lineHeight: '1', letterSpacing: '-0.02em' }}>$3,300</span>
-                    <span className="text-yellow-light" style={{ fontSize: '4rem', fontWeight: '700', lineHeight: '1', letterSpacing: '-0.03em' }}>$1,450</span>
+                    <span className="text-gray-500 line-through" style={{ fontSize: '2.5rem', fontWeight: '600', lineHeight: '1', letterSpacing: '-0.02em' }}>€3,300</span>
+                    <span className="text-yellow-light" style={{ fontSize: '4rem', fontWeight: '700', lineHeight: '1', letterSpacing: '-0.03em' }}>€1,450</span>
                   </div>
                 </div>
               </div>
@@ -876,13 +876,13 @@ const JumpstartAudit = () => {
             Unisciti a oltre 50 aziende che hanno usato il Jumpstart Audit per sbloccare fatturato “nascosto” nel funnel.
           </p>
           <CTAButton
-            href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+            href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
             external={true}
             variant="primary"
             size="large"
             className="btn-primary-cta"
           >
-            Prenota una Discovery Call
+            Prenota una Call
           </CTAButton>
         </div>
       </section>
@@ -980,7 +980,7 @@ In più: un referente per domande rapide e approvazioni. Forniamo una checklist 
                 data-aos-duration={1200}
               >
                 <CTAButton
-                  href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                  href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                   external={true}
                   variant="secondary"
                   size="large"

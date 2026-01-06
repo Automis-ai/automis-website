@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
-import { caseStudies } from "@/data/caseStudies";
+import { caseStudies } from "@/data/caseStudies.it";
 import CTAButton from "@/components/CTAButton";
 import "@/styles/use-cases-sticky-fix.css";
 
