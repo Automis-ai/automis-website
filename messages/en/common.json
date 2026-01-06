@@ -16,16 +16,6 @@
   "faq": {
     "badge": "FAQs",
     "title": "Got Questions? We've Got Answers!",
-    "description": "We know you might have some questions. That's why we've put together this list of common queries. If you don't see your question here, feel free to reach out!",
-    "items": [
-      {
-        "q": "Ok, but what exactly is this Voice AI?",
-        "a": "Voice AI is an automated phone assistant that answers calls, qualifies leads, and books appointments 24/7."
-      },
-      {
-        "q": "Does it work with the tools we already use?",
-        "a": "Yes. We integrate with CRMs, calendars, and marketing platforms you already use."
-      }
-    ]
+    "description": "We know you might have some questions. That's why we've put together this list of common queries. If you don't see your question here, feel free to reach out!"
   }
 }

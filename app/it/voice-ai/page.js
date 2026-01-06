@@ -5,6 +5,7 @@ import AkpagerLayout from "@/layouts/AkpagerLayout";
 import Link from "next/link";
 import { Tab, Nav } from "@/components/CustomTabs";
 import { useEffect, useState, useRef } from "react";
+import { useTranslations } from "next-intl";
 import PricingSection from "./PricingSection";
 import WaveformPlayer from "./WaveformPlayer";
 import FreeTestCallForm from "./DemoForm";
@@ -16,6 +17,7 @@ const FixedCta = dynamic(() => import("./FixedCta"), {
 });
 
 const page = () => {
+  const t = useTranslations("common");
   useEffect(() => {
     document.querySelector("body")?.classList.add("home-nine");
   }, []);
@@ -1038,38 +1040,58 @@ const page = () => {
             </div>
           </div>
         </div>
-      </section>
+</section>
 
-      {/* FAQ */}
-      <FAQSection
-        faqs={[
-          {
-            question: "Ok, ma in pratica cos’è questa Voice AI?",
-            answer:
-              "Pensa alla nostra Voice AI come a un’assistente virtuale super smart per il tuo business. Gestisce chiamate, prenota appuntamenti, risponde alle domande e può anche fare chiamate commerciali — il tutto con una voce sorprendentemente naturale. È come avere un membro del team in più che non dorme mai.",
-          },
-          {
-            question: "Capisce davvero cosa dicono i clienti?",
-            answer:
-              "Sì. Usa tecnologie avanzate per comprendere contesto, accenti e anche termini specifici di settore. Non si limita a “sentire” le parole: interpreta l’intento. Quindi anche con accenti marcati o linguaggio tecnico, riesce a gestire la conversazione in modo affidabile.",
-          },
-          {
-            question: "Funziona con i sistemi che usiamo già?",
-            answer:
-              "Assolutamente. La Voice AI si integra con CRM, calendario e gli strumenti che già utilizzi. Il nostro team ti aiuta nella configurazione, così si inserisce nel tuo flusso di lavoro senza stravolgerlo.",
-          },
-          {
-            question: "E se l’AI non sa rispondere a una domanda?",
-            answer:
-              "Nessun problema. Se incontra una richiesta che non può gestire, trasferisce la chiamata a un operatore umano in modo fluido. Il cliente ottiene sempre una risposta, in un modo o nell’altro.",
-          },
-          {
-            question: "Come monitoriamo quanto sta performando?",
-            answer:
-              "Hai a disposizione una dashboard analytics che mostra volumi chiamate, tassi di risoluzione, customer satisfaction e molto altro. È una vista completa delle interazioni, utile per individuare trend e aree di miglioramento.",
-          },
-        ]}
-      />
+{/* FAQ */}
+<section className="section-padding bg-bg-primary">
+  <div className="container mx-auto px-4">
+    {/* FAQ INTRO (da messages) */}
+    <div className="text-center mb-12">
+      <span className="inline-block bg-blue-middle/20 text-white/90 px-5 py-2 rounded-full small-text font-semibold mb-4">
+        {t("faq.badge")}
+      </span>
+
+      <h2 className="section-heading text-white mb-4">
+        {t("faq.title")}
+      </h2>
+
+      <p className="sub-heading text-white/90 max-w-3xl mx-auto">
+        {t("faq.description")}
+      </p>
+    </div>
+
+    {/* FAQ ITEMS (hardcoded) */}
+    <FAQSection
+      faqs={[
+        {
+          question: "Ok, ma in pratica cos’è questa Voice AI?",
+          answer:
+            "Pensa alla nostra Voice AI come a un’assistente virtuale super smart per il tuo business. Gestisce chiamate, prenota appuntamenti, risponde alle domande e può anche fare chiamate commerciali — il tutto con una voce sorprendentemente naturale. È come avere un membro del team in più che non dorme mai.",
+        },
+        {
+          question: "Capisce davvero cosa dicono i clienti?",
+          answer:
+            "Sì. Usa tecnologie avanzate per comprendere contesto, accenti e anche termini specifici di settore. Non si limita a “sentire” le parole: interpreta l’intento. Quindi anche con accenti marcati o linguaggio tecnico, riesce a gestire la conversazione in modo affidabile.",
+        },
+        {
+          question: "Funziona con i sistemi che usiamo già?",
+          answer:
+            "Assolutamente. La Voice AI si integra con CRM, calendario e gli strumenti che già utilizzi. Il nostro team ti aiuta nella configurazione, così si inserisce nel tuo flusso di lavoro senza stravolgerlo.",
+        },
+        {
+          question: "E se l’AI non sa rispondere a una domanda?",
+          answer:
+            "Nessun problema. Se incontra una richiesta che non può gestire, trasferisce la chiamata a un operatore umano in modo fluido. Il cliente ottiene sempre una risposta, in un modo o nell’altro.",
+        },
+        {
+          question: "Come monitoriamo quanto sta performando?",
+          answer:
+            "Hai a disposizione una dashboard analytics che mostra volumi chiamate, tassi di risoluzione, customer satisfaction e molto altro. È una vista completa delle interazioni, utile per individuare trend e aree di miglioramento.",
+        },
+      ]}
+    />
+  </div>
+</section>
 
       {/* FINAL CTA */}
       <section className="section-padding bg-section-dark">
