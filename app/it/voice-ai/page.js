@@ -48,22 +48,18 @@ const page = () => {
                 data-aos-duration={1500}
                 data-aos-offset={50}
               >
-                <h2
-                  data-aos="fade-up"
-                  data-aos-delay="50"
-                  data-aos-duration="1500"
-                  data-aos-offset="50"
-                  className="hero-heading !text-5xl text-white font-montserrat"
-                >
-                  <span>
-                    Converti subito <br className="sm:hidden" />
-                    i tuoi{" "}
-                    <span className="text-text-blue">
-                      contatti <br />
-                    </span>
-                  </span>
-                  in <span className="text-text-blue">appuntamenti</span>
-                </h2>
+<h2
+  data-aos="fade-up"
+  data-aos-delay="50"
+  data-aos-duration="1500"
+  data-aos-offset="50"
+  className="hero-heading !text-5xl text-white font-montserrat"
+>
+  Converti subito i tuoi{" "}
+  <span className="text-text-blue">contatti</span>
+  <br />
+  in <span className="text-text-blue">appuntamenti</span>
+</h2>
 
                 <p
                   data-aos="fade-up"
