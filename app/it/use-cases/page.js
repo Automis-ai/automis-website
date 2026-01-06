@@ -2,7 +2,7 @@
 import CaseStudyGrid from "@/components/CaseStudyGrid";
 import CTAButton from "@/components/CTAButton";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
-import { caseStudies } from "@/data/caseStudies";
+import { caseStudies } from "@/data/caseStudies.it";
 import "@/styles/use-cases.css";
 
 const UseCasesPage = () => {
