@@ -36,7 +36,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
       image:
         "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&h=400&fit=crop",
       description:
-        "Non perdere più un appuntamento grazie a uno scheduling intelligente attivo 24/7",
+        "Non perdere più un appuntamento grazie ad un sistema intelligente attivo 24/7",
       features: [
         "Receptionist AI 24/7: prenotazione da chiamata a calendario, promemoria e recupero no-show",
         "Integrazioni calendario: sincronizzazione con Calendly, GoHighLevel, Google Calendar e altri",
@@ -64,7 +64,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
       image:
         "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
       description:
-        "Automazione spese & fatture: acquisisci ricevute, genera fatture e instrada richieste di approvazione",
+        "Automazione spese & fatture: acquisisci ricevute, genera fatture e invia richieste di approvazione, automaticamente",
       features: [
         "Riduzione del carico operativo del team commerciale del 25%",
         "Tempo di risposta ai lead fino a 3× più veloce",
@@ -110,7 +110,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
   ];
 
   const processSteps = [
-    { number: "01", title: "Discovery & Audit", desc: "Mappiamo i flussi attuali e individuiamo i colli di bottiglia" },
+    { number: "01", title: "Discovery & Audit", desc: "Mappiamo i flussi attuali e individuiamo le principali problematiche" },
     { number: "02", title: "Workshop di Priorità", desc: "Sessione di 60 minuti per scegliere le automazioni a maggior impatto" },
     { number: "03", title: "Implementazione & Integrazioni", desc: "Sviluppo su misura, test e messa in produzione" },
     { number: "04", title: "Training & Handoff", desc: "SOP + onboarding live del team" },
@@ -130,7 +130,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
       icon: "fa-bullhorn",
       title: "Agenzie lead-gen",
       description:
-        "Qualifica i lead subito e instradali al team giusto. Aumenta il tasso di conversione fino a 3× con nurture intelligente.",
+        "Qualifica i lead subito e li gira al team giusto. Aumenta il tasso di conversione fino a 3× con nurture intelligente.",
       image:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
     },
@@ -138,7 +138,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
       icon: "fa-user-tie",
       title: "Team Recruiting",
       description:
-        "Screening candidati 24/7 e colloqui prenotati automaticamente. Riduci il time-to-hire del 40% e migliori la candidate experience.",
+        "Screening candidati 24/7 e colloqui prenotati automaticamente. Riduci del 40% i tempi di assunzione e migliori l'esperienza del candidato.",
       image:
         "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=400&h=300&fit=crop",
     },
@@ -146,7 +146,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
       icon: "fa-cloud",
       title: "Aziende SaaS",
       description:
-        "Automatizza onboarding, ticket supporto e rinnovi. Riduci il churn del 25% con engagement proattivo.",
+        "Automatizza onboarding, ticket supporto e rinnovi. Riduci la rotazione del personale del 25%.",
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
     },
@@ -157,7 +157,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
       icon: "fa-tooth",
       title: "Clinica Dentale",
       metric: "18%",
-      result: "Chiamate perse recuperate — +€4K/mese di nuovo fatturato",
+      result: "Chiamate perse recuperate, +€4K/mese di nuovo fatturato",
       bgImage:
         "https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&h=400&fit=crop",
     },

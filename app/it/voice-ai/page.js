@@ -55,9 +55,9 @@ const page = () => {
   data-aos-offset="50"
   className="hero-heading !text-5xl text-white font-montserrat"
 >
-  Converti subito{" "}
   <span className="whitespace-nowrap">
-    i tuoi <span className="text-text-blue">contatti</span>
+    Converti subito i tuoi{" "}
+    <span className="text-text-blue">contatti</span>
   </span>
   <br />
   in <span className="text-text-blue">appuntamenti</span>
