@@ -5,7 +5,6 @@ import AkpagerLayout from "@/layouts/AkpagerLayout";
 import Link from "next/link";
 import { Tab, Nav } from "@/components/CustomTabs";
 import { useEffect, useState, useRef } from "react";
-import { useTranslations } from "next-intl";
 import PricingSection from "./PricingSection";
 import WaveformPlayer from "./WaveformPlayer";
 import FreeTestCallForm from "./DemoForm";
@@ -17,7 +16,6 @@ const FixedCta = dynamic(() => import("./FixedCta"), {
 });
 
 const page = () => {
-  const t = useTranslations("common");
   useEffect(() => {
     document.querySelector("body")?.classList.add("home-nine");
   }, []);
@@ -1048,7 +1046,7 @@ const page = () => {
     {/* FAQ INTRO (da messages) */}
     <div className="text-center mb-12">
       <span className="inline-block bg-blue-middle/20 text-white/90 px-5 py-2 rounded-full small-text font-semibold mb-4">
-        {t("faq.badge")}
+        FAQ
       </span>
 
       <h2 className="section-heading text-white mb-4">
