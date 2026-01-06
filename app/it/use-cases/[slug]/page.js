@@ -118,7 +118,7 @@ const CaseStudyDetailPage = ({ params }) => {
               {}
               <div className="mb-16" data-aos="fade-up">
                 <h2 className="section-heading font-medium text-white mb-2">
-                  The Challenge
+                  Il Problema
                 </h2>
                 <div className="w-20 h-1 bg-yellow-light mb-6 rounded-full"></div>
                 <p className="body-text text-white/90 mb-6">
@@ -139,7 +139,7 @@ const CaseStudyDetailPage = ({ params }) => {
               {}
               <div className="mb-16" data-aos="fade-up">
                 <h2 className="section-heading font-medium text-white mb-2">
-                  Our Solution
+                  La nostra Soluzione
                 </h2>
                 <div className="w-20 h-1 bg-yellow-light mb-8 rounded-full"></div>
                 {caseStudy.solution.phases.map((phase, phaseIndex) => (
@@ -267,7 +267,7 @@ const CaseStudyDetailPage = ({ params }) => {
             {/* Sidebar - Dialog boxes */}
             <div className="lg:col-span-1 sticky-sidebar-container">
               <div className="sticky top-24 space-y-6">
-                {/* Key Results */}
+                {/* Risultati Raggiunti */}
                 <div
                   className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300 group"
                   data-aos="fade-up"
@@ -320,20 +320,20 @@ const CaseStudyDetailPage = ({ params }) => {
                   data-aos-delay="100"
                 >
                   <h3 className="sub-heading font-bold text-bg-primary mb-4">
-                    Ready to see similar results?
+                    Pronto ad ottenere risultati simili?
                   </h3>
                   <p className="body-text text-bg-primary/80 mb-6">
-                    Let's discuss how Automis.ai can transform your{" "}
-                    {caseStudy.industry.toLowerCase()} business
+                    Vediamo come Automis può aiutarti a transfortmare il tuo business {" "}
+                    {caseStudy.industry.toLowerCase()}
                   </p>
                   <a
                     href="/jumpstart-audit"
                     className="block w-full text-center px-6 py-3 text-yellow-light bg-bg-primary hover:bg-black rounded-xl transition-all duration-300 font-semibold"
                   >
-                    Book Discovery Call
+                    Prenota la Call conoscitiva
                   </a>
                   <p className="small-text text-bg-primary/70 mt-4 text-center">
-                    15-minute call • No commitment
+                    30 minuti di call senza impegno
                   </p>
                 </div>
               </div>
@@ -347,20 +347,20 @@ const CaseStudyDetailPage = ({ params }) => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="section-heading font-medium text-white mb-4">
-              Start Your Success Story Today
+              Inizia la tua storia di successo oggi 
             </h2>
             <p className="body-text text-white/90 mb-8">
-              Join {caseStudy.client.name} and hundreds of other businesses
-              transforming their operations with AI
+              Join {caseStudy.client.name} e centinaia di altri business
+              che trasformano la loro attività con l'IA 
             </p>
             <CTAButton
-              href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+              href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
               variant="secondary"
               size="medium"
               external={true}
               className="w-fit"
             >
-              Book Discovery Call
+              Prenota la call 
             </CTAButton>
           </div>
         </div>

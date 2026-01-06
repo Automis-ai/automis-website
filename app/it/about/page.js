@@ -572,7 +572,7 @@ const page = () => {
                     Arcangelo Bianco
                   </h3>
                   <p className="text-bright-blue font-medium mb-4">
-                    Esperto di advertising
+                    Esperto di IA e advertising
                   </p>
                   <p className="text-base text-white/90 font-open-sans leading-relaxed">
                     Si occupa di creare e scalare strategie ADV che massimizzano il ROI su Google, Meta e altre piattaforme.
