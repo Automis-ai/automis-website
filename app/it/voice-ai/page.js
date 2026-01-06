@@ -1072,42 +1072,48 @@ const page = () => {
   ]}
 />
 
-{/* FINAL CTA */}
-<section className="section-padding bg-section-dark">
-  <div className="container mx-auto px-4">
-    <div className="flex justify-center">
-      <div
-        className="w-full xl:w-2/3 lg:w-5/6 text-center"
-        data-aos="fade-up"
-        data-aos-duration={1500}
-        data-aos-offset={50}
-      >
-        <div className="bg-blue-darkest/30 backdrop-blur-lg border-2 border-yellow-light rounded-2xl p-16 shadow-lg shadow-yellow-light/20 hover:scale-[1.02] transition-all duration-300">
-          <div className="mb-10">
-            <span className="inline-block bg-yellow-light/20 text-yellow-light px-6 py-2 rounded-full small-text font-semibold mb-6">
-              Prenota ora una Call
-            </span>
-            <h2
-              className="section-heading text-white"
-              data-aos="fade-up"
-              data-aos-duration="800"
-            >
-              Scala il tuo business con l’AI
-            </h2>
-          </div>
+      {/* FINAL CTA */}
+      <section className="section-padding bg-section-dark">
+        <div className="container mx-auto px-4">
           <div className="flex justify-center">
-            <CTAButton
-              href="https://api.leadconnectorhq.com/widget/booking/automis-it"
-              variant="primary"
-              size="large"
-              external={true}
-              className="whitespace-nowrap inline-block"
+            <div
+              className="w-full xl:w-2/3 lg:w-5/6 text-center"
+              data-aos="fade-up"
+              data-aos-duration={1500}
+              data-aos-offset={50}
             >
-              Prenota una Call gratuita!
-            </CTAButton>
+              <div className="bg-blue-darkest/30 backdrop-blur-lg border-2 border-yellow-light rounded-2xl p-16 shadow-lg shadow-yellow-light/20 hover:scale-[1.02] transition-all duration-300">
+                <div className="mb-10">
+                  <span className="inline-block bg-yellow-light/20 text-yellow-light px-6 py-2 rounded-full small-text font-semibold mb-6">
+                    Prenota ora una Call
+                  </span>
+                  <h2
+                    className="section-heading text-white"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                  >
+                    Scala il tuo business con l’AI
+                  </h2>
+                </div>
+
+                <div className="flex justify-center">
+                  <CTAButton
+                    href="https://api.leadconnectorhq.com/widget/booking/automis-it"
+                    variant="primary"
+                    size="large"
+                    external={true}
+                    className="whitespace-nowrap inline-block"
+                  >
+                    Prenota una Call gratuita!
+                  </CTAButton>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
+    </AkpagerLayout>
+  );
+};
+
+export default page;
