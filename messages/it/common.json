@@ -11,5 +11,21 @@
     "about": "Chi siamo",
     "contact": "Contatti",
     "cta": "Prenota una call conoscitiva"
+  },
+
+  "faq": {
+    "badge": "FAQ",
+    "title": "Hai domande? Abbiamo le risposte!",
+    "description": "Sappiamo che potresti avere qualche dubbio. Per questo abbiamo raccolto le domande più frequenti. Se non trovi la tua, scrivici pure!",
+    "items": [
+      {
+        "q": "Ok, ma in pratica cos'è questa Voice AI?",
+        "a": "La Voice AI è un assistente telefonico automatico che risponde alle chiamate, qualifica i contatti e fissa appuntamenti 24/7."
+      },
+      {
+        "q": "Funziona con i sistemi che usiamo già?",
+        "a": "Sì. Si integra con CRM, calendari e strumenti di marketing che già utilizzi."
+      }
+    ]
   }
 }

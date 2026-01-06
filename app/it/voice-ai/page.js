@@ -59,7 +59,7 @@ const page = () => {
                     Converti subito <br className="sm:hidden" />
                     i tuoi{" "}
                     <span className="text-text-blue">
-                      lead <br />
+                      contatti <br />
                     </span>
                   </span>
                   in <span className="text-text-blue">appuntamenti</span>
@@ -71,8 +71,8 @@ const page = () => {
                   data-aos-offset={50}
                   className="sub-heading text-white/90 mb-4 max-w-xl mt-2"
                 >
-                  Coinvolgi i lead, fissa appuntamenti e supporta i tuoi clienti
-                  24/7 con soluzioni avanzate di Agenti Vocali AI.
+                  Qualifica i lead, fissa appuntamenti e supporta i tuoi clienti
+                  24/7, con Agenti Vocali avanzati di IA.
                 </p>
 
                 <div className="flex justify-center lg:justify-start">
@@ -459,12 +459,12 @@ const page = () => {
                   </div>
                   <div className="relative z-10 flex-grow">
                     <h4 className="card-heading text-white mb-3 group-hover:text-yellow-light transition-colors duration-300">
-                      Dentale & Sanità
+                      Cliniche Mediche 
                     </h4>
                     <p className="body-text text-white/90 group-hover:text-text-light transition-colors duration-300">
                       Risposta alle chiamate 24/7 e prenotazione appuntamenti
                       completamente automatizzata
-                      <br /> Gestione dati paziente con configurazioni HIPAA-ready
+                      <br /> Gestione dati paziente con configurazioni GDPR pronte all uso. 
                     </p>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-yellow-light/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -491,12 +491,12 @@ const page = () => {
                   </div>
                   <div className="relative z-10 flex-grow">
                     <h4 className="card-heading text-white mb-3 group-hover:text-yellow-light transition-colors duration-300">
-                      Home Services & Interventi
+                      Pronto Intervento H24
                     </h4>
                     <p className="body-text text-white/90 group-hover:text-text-light transition-colors duration-300">
-                      Gestione chiamate urgenti per idraulici, elettricisti, HVAC
+                      Gestione chiamate urgenti per idraulici, elettricisti, spurgo, gas e fabbro
                       <br />
-                      Sincronizzazione calendario bidirezionale in tempo reale
+                      Sincronizzazione calendario in tempo reale
                       per massimizzare l’utilizzo dei tecnici
                     </p>
                   </div>
@@ -524,12 +524,12 @@ const page = () => {
                   </div>
                   <div className="relative z-10 flex-grow">
                     <h4 className="card-heading text-white mb-3 group-hover:text-yellow-light transition-colors duration-300">
-                      Real Estate
+                     Immobiliare
                     </h4>
                     <p className="body-text text-white/90 group-hover:text-text-light transition-colors duration-300">
-                      Prenotazione visite anche fuori orario per ogni richiesta
+                      Prenotazione visite anche fuori orario per ogni richiesta generata. 
                       <br />
-                      Alert hot-lead instradati ai tuoi migliori agenti
+                      Chiamate e richieste inoltate tempestivamente agli agenti di zona 
                     </p>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-yellow-light/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -588,7 +588,7 @@ const page = () => {
                   </div>
                   <div className="relative z-10 flex-grow">
                     <h4 className="card-heading text-white mb-3 group-hover:text-yellow-light transition-colors duration-300">
-                      Automotive & Riparazioni
+                      Concessionarie & Riparazioni
                     </h4>
                     <p className="body-text text-white/90 group-hover:text-text-light transition-colors duration-300">
                       Gestione chiamate per soccorso, revisioni, manutenzione e
@@ -625,11 +625,11 @@ const page = () => {
                       White-Label & Agenzie
                     </h4>
                     <p className="body-text text-white/90 group-hover:text-text-light transition-colors duration-300">
-                      Receptionist Voice AI completamente brandizzabile da
+                      Agenti Ai e Dashobard, completamente brandizzabili da
                       rivendere con il tuo nome
                       <br />
-                      Integrazione plug-and-play — niente codice, niente
-                      assunzioni
+                      Integrazione rapida dell IA ed
+                      introti extra sul servizio offerto
                     </p>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-yellow-light/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -935,7 +935,7 @@ const page = () => {
                 data-aos-duration={1500}
                 data-aos-offset={50}
               >
-                <h2 className="section-heading text-white mb-4">AI vs Umani:</h2>
+                <h2 className="section-heading text-white mb-4">AI vs Nuovo Dipendente:</h2>
                 <p className="sub-heading text-white/90">
                   Una nuova forma di customer engagement ed efficienza operativa
                 </p>
@@ -1002,7 +1002,7 @@ const page = () => {
                 data-aos-offset={50}
               >
                 <div className="content">
-                  <h4 className="card-heading text-blue-middle mb-4">Umani</h4>
+                  <h4 className="card-heading text-blue-middle mb-4">Nuovo Dipendente</h4>
                   <ul className="space-y-2.5">
                     <li className="body-text text-blue-middle flex items-center">
                       <i className="fas fa-dollar-sign text-blue-middle mr-2.5 w-5" />
