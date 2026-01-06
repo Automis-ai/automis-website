@@ -1050,11 +1050,11 @@ const page = () => {
       </span>
 
       <h2 className="section-heading text-white mb-4">
-        {t("faq.title")}
+       Hai domande? Abbiamo le risposte!
       </h2>
 
       <p className="sub-heading text-white/90 max-w-3xl mx-auto">
-        {t("faq.description")}
+      Sappiamo che potresti avere qualche dubbio. Per questo abbiamo raccolto le domande più frequenti. Se non trovi la tua, scrivici pure!
       </p>
     </div>
 
