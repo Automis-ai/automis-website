@@ -117,7 +117,7 @@ const Index = () => {
       id: 1,
       title: "Call Iniziale",
       duration: "Fino a 30 min",
-      description: "Individuiamo i colli di bottiglia che bloccano la crescita.",
+      description: "Individuiamo gli ostacoli che bloccano la tua crescita.",
       icon: (
         <svg
           className="w-6 h-6"

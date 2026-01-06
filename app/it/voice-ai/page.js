@@ -55,8 +55,10 @@ const page = () => {
   data-aos-offset="50"
   className="hero-heading !text-5xl text-white font-montserrat"
 >
-  Converti subito i tuoi{" "}
-  <span className="text-text-blue">contatti</span>
+  Converti subito{" "}
+  <span className="whitespace-nowrap">
+    i tuoi <span className="text-text-blue">contatti</span>
+  </span>
   <br />
   in <span className="text-text-blue">appuntamenti</span>
 </h2>
@@ -425,10 +427,10 @@ const page = () => {
                 </h2>
                 <p className="sub-heading text-white/90">
                   Automis AI è progettato per qualsiasi attività basata su
-                  appuntamenti che non può permettersi di perdere chiamate. La
-                  nostra receptionist Voice AI 24/7 si integra con calendario e
+                  appuntamenti che non può permettersi di perdere chiamate.
+                  Il nostro Agente Vocale AI si integra con calendario e
                   CRM esistenti per convertire ogni lead in un appuntamento
-                  confermato — giorno e notte, in oltre 20 lingue.
+                  confermato 24/7, in oltre 20 lingue.
                 </p>
               </div>
             </div>
@@ -859,7 +861,7 @@ const page = () => {
                     >
                       <img
                         src="/assets/images/dashboard/image-2.png"
-                        alt="Dashboard KPI e insight analytics"
+                        alt="Dashboard KPI e approfindimento dati"
                         className="dashboard-image w-full h-auto max-w-full"
                         loading="lazy"
                       />
@@ -875,12 +877,12 @@ const page = () => {
                     >
                       <div className="mb-5">
                         <h3 className="sub-heading text-white text-2xl md:text-3xl">
-                          KPI chiari e insight utili per ottimizzare
+                          KPI chiari e approfondimenti utili per ottimizzare
                         </h3>
                       </div>
 
                       <p className="body-text text-white/90 mb-6">
-                        Ottieni insight sui KPI più importanti per migliorare
+                        Ottieni approfondimenti sui KPI più importanti per migliorare
                         continuamente le performance della tua Voice AI.
                       </p>
 
@@ -1022,7 +1024,7 @@ const page = () => {
                     </li>
                     <li className="body-text text-blue-middle flex items-center">
                       <i className="fas fa-user-clock text-blue-middle mr-2.5 w-5" />
-                      Ritardo nel lead capture
+                      Prima risposta lenta
                     </li>
                     <li className="body-text text-blue-middle flex items-center">
                       <i className="fas fa-business-time text-blue-middle mr-2.5 w-5" />
@@ -1037,97 +1039,75 @@ const page = () => {
 </section>
 
 {/* FAQ */}
-<section className="section-padding bg-bg-primary">
+<FAQSection
+  sectionSubtitle="FAQ"
+  sectionTitle="Hai domande? Abbiamo le risposte!"
+  sectionDescription="Sappiamo che potresti avere qualche dubbio. Per questo abbiamo raccolto le domande più frequenti. Se non trovi la tua, scrivici pure!"
+  faqs={[
+    {
+      question: "Ok, ma in pratica cos’è questa Voice AI?",
+      answer:
+        "Pensa alla nostra Voice AI come a un’assistente virtuale super smart per il tuo business. Gestisce chiamate, prenota appuntamenti, risponde alle domande e può anche fare chiamate commerciali — il tutto con una voce sorprendentemente naturale. È come avere un membro del team in più che non dorme mai.",
+    },
+    {
+      question: "Capisce davvero cosa dicono i clienti?",
+      answer:
+        "Sì. Usa tecnologie avanzate per comprendere contesto, accenti e anche termini specifici di settore. Non si limita a “sentire” le parole: interpreta l’intento. Quindi anche con accenti marcati o linguaggio tecnico, riesce a gestire la conversazione in modo affidabile.",
+    },
+    {
+      question: "Funziona con i sistemi che usiamo già?",
+      answer:
+        "Assolutamente. La Voice AI si integra con CRM, calendario e gli strumenti che già utilizzi. Il nostro team ti aiuta nella configurazione, così si inserisce nel tuo flusso di lavoro senza stravolgerlo.",
+    },
+    {
+      question: "E se l’AI non sa rispondere a una domanda?",
+      answer:
+        "Nessun problema. Se incontra una richiesta che non può gestire, trasferisce la chiamata a un operatore umano in modo fluido. Il cliente ottiene sempre una risposta, in un modo o nell’altro.",
+    },
+    {
+      question: "Come monitoriamo quanto sta performando?",
+      answer:
+        "Hai a disposizione una dashboard analytics che mostra volumi chiamate, tassi di risoluzione, customer satisfaction e molto altro. È una vista completa delle interazioni, utile per individuare trend e aree di miglioramento.",
+    },
+  ]}
+/>
+
+{/* FINAL CTA */}
+<section className="section-padding bg-section-dark">
   <div className="container mx-auto px-4">
-    {/* FAQ INTRO (da messages) */}
-    <div className="text-center mb-12">
-      <span className="inline-block bg-blue-middle/20 text-white/90 px-5 py-2 rounded-full small-text font-semibold mb-4">
-        FAQ
-      </span>
-
-      <h2 className="section-heading text-white mb-4">
-       Hai domande? Abbiamo le risposte!
-      </h2>
-
-      <p className="sub-heading text-white/90 max-w-3xl mx-auto">
-      Sappiamo che potresti avere qualche dubbio. Per questo abbiamo raccolto le domande più frequenti. Se non trovi la tua, scrivici pure!
-      </p>
-    </div>
-
-    {/* FAQ ITEMS (hardcoded) */}
-    <FAQSection
-      faqs={[
-        {
-          question: "Ok, ma in pratica cos’è questa Voice AI?",
-          answer:
-            "Pensa alla nostra Voice AI come a un’assistente virtuale super smart per il tuo business. Gestisce chiamate, prenota appuntamenti, risponde alle domande e può anche fare chiamate commerciali — il tutto con una voce sorprendentemente naturale. È come avere un membro del team in più che non dorme mai.",
-        },
-        {
-          question: "Capisce davvero cosa dicono i clienti?",
-          answer:
-            "Sì. Usa tecnologie avanzate per comprendere contesto, accenti e anche termini specifici di settore. Non si limita a “sentire” le parole: interpreta l’intento. Quindi anche con accenti marcati o linguaggio tecnico, riesce a gestire la conversazione in modo affidabile.",
-        },
-        {
-          question: "Funziona con i sistemi che usiamo già?",
-          answer:
-            "Assolutamente. La Voice AI si integra con CRM, calendario e gli strumenti che già utilizzi. Il nostro team ti aiuta nella configurazione, così si inserisce nel tuo flusso di lavoro senza stravolgerlo.",
-        },
-        {
-          question: "E se l’AI non sa rispondere a una domanda?",
-          answer:
-            "Nessun problema. Se incontra una richiesta che non può gestire, trasferisce la chiamata a un operatore umano in modo fluido. Il cliente ottiene sempre una risposta, in un modo o nell’altro.",
-        },
-        {
-          question: "Come monitoriamo quanto sta performando?",
-          answer:
-            "Hai a disposizione una dashboard analytics che mostra volumi chiamate, tassi di risoluzione, customer satisfaction e molto altro. È una vista completa delle interazioni, utile per individuare trend e aree di miglioramento.",
-        },
-      ]}
-    />
-  </div>
-</section>
-
-      {/* FINAL CTA */}
-      <section className="section-padding bg-section-dark">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center">
-            <div
-              className="w-full xl:w-2/3 lg:w-5/6 text-center"
+    <div className="flex justify-center">
+      <div
+        className="w-full xl:w-2/3 lg:w-5/6 text-center"
+        data-aos="fade-up"
+        data-aos-duration={1500}
+        data-aos-offset={50}
+      >
+        <div className="bg-blue-darkest/30 backdrop-blur-lg border-2 border-yellow-light rounded-2xl p-16 shadow-lg shadow-yellow-light/20 hover:scale-[1.02] transition-all duration-300">
+          <div className="mb-10">
+            <span className="inline-block bg-yellow-light/20 text-yellow-light px-6 py-2 rounded-full small-text font-semibold mb-6">
+              Prenota ora una Call
+            </span>
+            <h2
+              className="section-heading text-white"
               data-aos="fade-up"
-              data-aos-duration={1500}
-              data-aos-offset={50}
+              data-aos-duration="800"
             >
-              <div className="bg-blue-darkest/30 backdrop-blur-lg border-2 border-yellow-light rounded-2xl p-16 shadow-lg shadow-yellow-light/20 hover:scale-[1.02] transition-all duration-300">
-                <div className="mb-10">
-                  <span className="inline-block bg-yellow-light/20 text-yellow-light px-6 py-2 rounded-full small-text font-semibold mb-6">
-                    Prenota ora una Call
-                  </span>
-                  <h2
-                    className="section-heading text-white"
-                    data-aos="fade-up"
-                    data-aos-duration="800"
-                  >
-                    Scala il tuo business con l’AI
-                  </h2>
-                </div>
-                <div className="flex justify-center">
-                  <CTAButton
-                    href="https://api.leadconnectorhq.com/widget/booking/automis-it"
-                    variant="primary"
-                    size="large"
-                    external={true}
-                    className="whitespace-nowrap inline-block"
-                  >
-                    Prenota una Call gratuita!
-                  </CTAButton>
-                </div>
-              </div>
-            </div>
+              Scala il tuo business con l’AI
+            </h2>
+          </div>
+          <div className="flex justify-center">
+            <CTAButton
+              href="https://api.leadconnectorhq.com/widget/booking/automis-it"
+              variant="primary"
+              size="large"
+              external={true}
+              className="whitespace-nowrap inline-block"
+            >
+              Prenota una Call gratuita!
+            </CTAButton>
           </div>
         </div>
-      </section>
-    </AkpagerLayout>
-  );
-};
-
-export default page;
+      </div>
+    </div>
+  </div>
+</section>

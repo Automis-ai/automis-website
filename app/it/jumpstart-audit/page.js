@@ -135,7 +135,7 @@ const JumpstartAudit = () => {
                 >
                   {[
                     "CPA più bassi",
-                    "Primo contatto più veloce",
+                    "Contatto più veloce",
                     "Meno chiamate perse",
                     "Più fatturato"
                   ].map((benefit, index) => (
@@ -240,7 +240,7 @@ const JumpstartAudit = () => {
                 </div>
 
                 <div>
-                  <p className="small-text text-white/90 uppercase tracking-wider mb-3">Deliverable</p>
+                  <p className="small-text text-white/90 uppercase tracking-wider mb-3">Risultato Finale</p>
                   <p className="body-text text-white/90">Scorecard per canale, note su targeting e creatività, checklist di tracking, Top 3 raccomandazioni.</p>
                 </div>
               </div>
@@ -304,7 +304,7 @@ const JumpstartAudit = () => {
                 </div>
 
                 <div>
-                  <p className="small-text text-white/90 uppercase tracking-wider mb-3">Deliverable</p>
+                  <p className="small-text text-white/90 uppercase tracking-wider mb-3">Risultato Finale</p>
                   <p className="body-text text-white/90">Mappa dei flussi, shortlist opportunità (impatto vs sforzo), linee guida di implementazione.</p>
                 </div>
               </div>
@@ -357,7 +357,7 @@ const JumpstartAudit = () => {
                   <h3 className="card-heading text-white mb-2">Implementazione Veloce</h3>
                   <p className="text-yellow-light small-text font-semibold mb-3">Chiavi in mano</p>
                   <p className="body-text text-white/90">
-                    Costruiamo e attiviamo un’automazione su misura, focalizzata sul tuo principale collo di bottiglia. Setup live + 14 giorni di supporto.
+                    Costruiamo e attiviamo un’automazione su misura, focalizzata sul tuo principale problema. Setup live + 14 giorni di supporto.
                   </p>
                 </div>
               </div>
@@ -379,7 +379,7 @@ const JumpstartAudit = () => {
                   <h3 className="card-heading text-white mb-2">Piano d’Azione 90 Giorni</h3>
                   <p className="text-blue-middle small-text font-semibold mb-3">Roadmap step-by-step</p>
                   <p className="body-text text-white/90">
-                    Un piano operativo chiaro che puoi consegnare subito al tuo team: priorità, responsabili e milestone.
+                    Un piano operativo chiaro che puoi consegnare subito al tuo team: priorità, responsabili e obiettivi.
                   </p>
                 </div>
               </div>
@@ -483,7 +483,7 @@ const JumpstartAudit = () => {
                   </div>
 
                   <p className="body-text text-white/90 mb-6">
-                    I deliverable saranno rifiniti e pronti per C-level e stakeholder:
+                    La presentazione sarà rifinita e pronta per management e stakeholders:
                   </p>
 
                   <div className="bg-blue-darkest/50 backdrop-blur-sm rounded-xl p-4 space-y-2 border border-blue-middle/20">
@@ -533,7 +533,7 @@ const JumpstartAudit = () => {
                 data-aos="fade-up"
                 data-aos-duration={1200}
               >
-                Come funziona (Timeline)
+                Come funziona
               </h2>
               <p
                 className="body-text !text-white/90"
@@ -573,39 +573,39 @@ const JumpstartAudit = () => {
                 },
                 {
                   day: "Giorno 3–5",
-                  title: "Mappatura funnel e colli di bottiglia",
+                  title: "Mappatura funnel e individuazione problemi",
                   what: "Mappiamo il flusso lead → prenotazione (ads → acquisizione lead → contatto → booking → follow-up). Evidenziamo perdite: risposta lenta, chiamate perse, passaggi manuali, rischio no-show.",
                   icon: <Activity className="!w-6 !h-6" />
                 },
                 {
                   day: "Giorno 6–9",
-                  title: "Shortlist opportunità (impatto vs sforzo)",
+                  title: "Matrice opportunità (impatto vs sforzo)",
                   what: "Selezioniamo 3–6 azioni ad alto ROI (marketing + AI) e le ordiniamo per impatto/sforzo. Fix pratici su targeting, creatività, landing e tracking; più automazioni operative.",
                   icon: <Target className="!w-6 !h-6" />
                 },
                 {
                   day: "Giorno 10",
                   title: "Allineamento di metà audit (30–45 min)",
-                  what: "Review di flow map e shortlist. Validiamo le priorità col tuo team. Scegliamo il Quick Win da implementare.",
+                  what: "Revisione della matrice e piano di intervento. Validiamo le priorità col tuo team. Scegliamo L'intervento veloce da implementare.",
                   result: "Via libera su ciò che conta davvero, senza supposizioni.",
                   icon: <Users className="!w-6 !h-6" />
                 },
                 {
                   day: "Giorno 10–12",
-                  title: "Build e test del Quick Win",
-                  what: "Configuriamo il Quick Win concordato e lo testiamo end-to-end sul tuo stack.",
+                  title: "Creazione e prima implementazione veloce",
+                  what: "Configuriamo il primo implementazione veloce concordato e lo testiamo sulla tua struttura.",
                   icon: <Settings className="!w-6 !h-6" />
                 },
                 {
                   day: "Giorno 12–13",
-                  title: "Forecast e piano 90 giorni",
-                  what: "Modelliamo risparmi/aumento atteso e payback; prepariamo il Money-Slide Forecast Pack. Creiamo un Piano d’Azione 90 Giorni settimana per settimana con owner e milestone.",
+                  title: "Previsioni e piano 90 giorni",
+                  what: "Modelliamo risparmi/aumento atteso e ritorno sull'investimento; prepariamo il Piano Previsioni. Creiamo un Piano d’Azione 90 Giorni settimana per settimana con owner e milestone.",
                   icon: <LineChart className="!w-6 !h-6" />
                 },
                 {
                   day: "Giorno 14",
                   title: "Presentazione finale → attivazione live",
-                  what: "Presentiamo i risultati, confermiamo il piano e attiviamo il Quick Win in live. Rispondiamo a ogni domanda e definiamo i prossimi step.",
+                  what: "Presentiamo i risultati, confermiamo il piano e attiviamo l'implementazione veloce in live. Rispondiamo a ogni domanda e definiamo i prossimi step.",
                   result: "Se vuoi che eseguiamo il piano 90 giorni, applichiamo un credito di €500.",
                   icon: <Award className="!w-6 !h-6" />
                 }
@@ -700,16 +700,16 @@ const JumpstartAudit = () => {
                 },
                 {
                   day: "Giorno 12–13",
-                  title: "Forecast e piano",
-                  fullTitle: "Forecast e piano 90 giorni",
-                  what: "Modelliamo risparmi/aumento atteso e payback; prepariamo il Money-Slide Forecast Pack. Creiamo un Piano d’Azione 90 Giorni settimana per settimana con owner e milestone.",
+                  title: "Previsioni e piano",
+                  fullTitle: "Previsioni e piano 90 giorni",
+                  what: "Modelliamo risparmi/aumento atteso e payback; prepariamo il piano previsionale. Creiamo un Piano d’Azione 90 Giorni settimana per settimana con owner e milestone.",
                   icon: <LineChart />
                 },
                 {
                   day: "Giorno 14",
                   title: "Go Live!",
                   fullTitle: "Presentazione finale → attivazione live",
-                  what: "Presentiamo i risultati, confermiamo il piano e attiviamo il Quick Win in live. Rispondiamo a ogni domanda e definiamo i prossimi step.",
+                  what: "Presentiamo i risultati, confermiamo il piano e attiviamo l'implementazione veloce in live. Rispondiamo a ogni domanda e definiamo i prossimi step.",
                   result: "Se vuoi che eseguiamo il piano 90 giorni, applichiamo un credito di €500.",
                   icon: <Award />
                 }
@@ -909,15 +909,14 @@ Segnali iniziali tipici: speed-to-lead più veloce, recupero chiamate perse o pi
             question: "Eseguite voi il piano 90 giorni?",
             answer: `Sì—se lo desideri.
 
-• L’audit è completo di per sé: ricevi piano, forecast e handoff pack.
-
+• L’audit è completo di per sé: ricevi piano, previsioni e potenziale implementazione veloce.
 • Se vuoi che il nostro team implementi, offriamo un retainer e accreditiamo $500 del costo audit se inizi entro 14 giorni.
 
-• In ogni caso, il Quick Win include 14 giorni di supporto (bonus) per continuare a generare risultati.`
+• In ogni caso, l'implementazione veloce include 14 giorni di supporto (bonus) per continuare a generare risultati.`
           },
           {
-            question: "Healthcare / compliance?",
-            answer: `Supportiamo configurazioni “HIPAA-safe” dove necessario.
+            question: "GDPR Compliant?",
+            answer: `Supportiamo configurazioni GDPR Compliant dove necessario.
 
 • Progettiamo automazioni per minimizzare l’esposizione di dati sensibili (PHI), limitare la retention e usare canali sicuri.
 
@@ -931,9 +930,9 @@ Segnali iniziali tipici: speed-to-lead più veloce, recupero chiamate perse o pi
             question: "Che accessi vi servono?",
             answer: `Accessi in sola lettura per analizzare senza modificare nulla:
 
-• Piattaforme Ads: Google, Meta, LinkedIn (viewer).
+• Piattaforme Ads: Google, Meta, LinkedIn (vista).
 
-• CRM: stati lead, timestamp e outcome (export o viewer).
+• CRM: stati lead, timestamp e outcome (esporta o vista).
 
 • Sistema telefonico/call log: chiamate perse, metriche base (registrazioni opzionali).
 
@@ -945,9 +944,9 @@ In più: un referente per domande rapide e approvazioni. Forniamo una checklist 
             question: "E se non potete aiutarci?",
             answer: `Riduciamo il rischio con due tutele:
 
-• Fit Guarantee (Kickoff): se emergono limiti di dati/stack che impediscono impatto sui KPI core, rimborsiamo subito.
+• Idoneità garantita (Kickoff): se emergono limiti di dati/stack che impediscono impatto sui KPI core, rimborsiamo subito.
 
-• Clarity Guarantee (Final): se l’audit non mostra un percorso data-backed per 10% costi in meno o 5% prenotazioni in più o 10 ore/settimana risparmiate, rimborsiamo l’audit.
+• Trasparenza garantita (Final): se l’audit non mostra un percorso data-backed per 10% costi in meno o 5% prenotazioni in più o 10 ore/settimana risparmiate, rimborsiamo l’audit.
 
 (Le garanzie richiedono accessi tempestivi in sola lettura e dati storici accurati.)`
           }

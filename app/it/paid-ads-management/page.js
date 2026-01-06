@@ -301,9 +301,9 @@ const PaidAdsManagementPage = () => {
               },
               {
                 icon: <BarChart3 className="w-8 h-8 text-white" />,
-                title: "Report & insight",
+                title: "Reportistica",
                 description:
-                  "Dashboard settimanale con alert AI su anomalie e opportunità.",
+                  "Dashboard settimanale con allerta AI su anomalie e opportunità.",
               },
             ].map((item, index) => (
               <div
