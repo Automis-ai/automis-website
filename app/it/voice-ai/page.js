@@ -336,7 +336,7 @@ const page = () => {
                       data-aos-offset={50}
                     >
                       <img
-                        src="assets/images/tabs/tab-two.png"
+                        src="/assets/images/tabs/tab-two.png"
                         alt="Assistente vocale AI per chiamate outbound"
                         className="w-full max-w-[350px] rounded-lg hidden lg:block"
                         loading="lazy"
@@ -393,7 +393,7 @@ const page = () => {
                   <div className="w-full lg:w-[40%] order-2 lg:order-2">
                     <div className="hidden lg:flex justify-center lg:justify-end !bg-transparent">
                       <img
-                        src="assets/images/tabs/tab-inbound.png"
+                        src="/assets/images/tabs/tab-inbound.png"
                         alt="Receptionsit AI per chiamate inbound e prenotazioni"
                         className="w-full max-w-[350px] rounded-lg hidden lg:block"
                         loading="lazy"
@@ -412,7 +412,7 @@ const page = () => {
         id="cases"
         className="section-padding bg-bg-primary relative z-20"
         style={{
-          backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
+          backgroundImage: "url(/assets/images/backgrounds/wave-shape.png)",
         }}
       >
         <div className="max-w-7xl container mx-auto px-4">
@@ -644,7 +644,7 @@ const page = () => {
       <section
         id="analytics"
         className="section-padding bg-section-dark"
-        style={{ backgroundImage: "url(assets/images/backgrounds/tab.png)" }}
+        style={{ backgroundImage: "url(/assets/images/backgrounds/tab.png)" }}
       >
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="flex justify-center text-center">
@@ -778,7 +778,7 @@ const page = () => {
                       data-aos-offset={50}
                     >
                       <img
-                        src="assets/images/dashboard/image-3.png"
+                        src="/assets/images/dashboard/image-3.png"
                         alt="Dashboard di monitoraggio performance della Voice AI"
                         className="dashboard-image w-full h-auto max-w-full"
                         loading="lazy"
@@ -842,7 +842,7 @@ const page = () => {
                       data-aos-offset={50}
                     >
                       <img
-                        src="assets/images/dashboard/image-1.png"
+                        src="/assets/images/dashboard/image-1.png"
                         alt="Dashboard log chiamate e tracciamento conversazioni"
                         className="dashboard-image w-full h-auto max-w-full"
                         loading="lazy"
@@ -862,7 +862,7 @@ const page = () => {
                       data-aos-offset={50}
                     >
                       <img
-                        src="assets/images/dashboard/image-2.png"
+                        src="/assets/images/dashboard/image-2.png"
                         alt="Dashboard KPI e insight analytics"
                         className="dashboard-image w-full h-auto max-w-full"
                         loading="lazy"
