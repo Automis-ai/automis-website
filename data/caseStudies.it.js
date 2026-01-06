@@ -158,7 +158,7 @@ export const caseStudies = [
       ]
     },
     testimonial: {
-      quote: 'Con l'Agente Vocale AI di Automis non perdiamo più una chiamata. Il front desk oggi si concentra sui pazienti e il fatturato è cresciuto di €4.000 al mese.',
+      quote: 'quote: "Con l'Agente Vocale AI di Automis non perdiamo più una chiamata. Il front desk oggi si concentra sui pazienti e il fatturato è cresciuto di €4.000 al mese.",
       author: 'Dr. Andrew Tate',
       title: 'Responsabile Marketing, SmileBright Dental'
     }
