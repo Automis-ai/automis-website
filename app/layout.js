@@ -1,4 +1,5 @@
 import Preloader from "@/components/Preloader";
+import LocaleBootstrapper from "@/components/LocaleBootstrapper";
 import "./globals.css";
 import "@css/aos.css";
 import "@css/flaticon.min.css";
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
         style={{ color: "white" }}
       >
         <Preloader />
+        <LocaleBootstrapper />
         {children}
 
         {/* Microsoft Clarity */}

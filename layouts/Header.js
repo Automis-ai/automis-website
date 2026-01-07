@@ -3,9 +3,10 @@
 import useClickOutside from "@/utility/useClickOutside";
 import Link from "next/link";
 import { Fragment, useEffect, useMemo, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import CTAButton from "@/components/CTAButton";
 import { PATHNAMES, getLocaleFromPathname, hrefFor } from "@/utility/pathnames";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Header = ({ header, onePage, hideHeaderNav = false }) => {
   switch (header) {
@@ -20,12 +21,43 @@ export default Header;
 const DefaultHeader = ({ onePage, hideHeaderNav = false }) => {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
+  const router = useRouter();
 
   const normalized = useMemo(() => {
     if (pathname === "/it") return "/";
     if (pathname.startsWith("/it/")) return pathname.replace("/it", "");
     return pathname;
   }, [pathname]);
+
+  // Auto-detect language on first visit (only once)
+useEffect(() => {
+  // If user already chose a language before, do nothing
+  const saved = typeof window !== "undefined" ? localStorage.getItem("automis_locale") : null;
+  if (saved) return;
+
+  // Detect browser language
+  const browserLang =
+    typeof navigator !== "undefined" ? (navigator.language || "").toLowerCase() : "";
+
+  const preferred = browserLang.startsWith("it") ? "it" : "en";
+
+  // Save preference so it won't auto-redirect again
+  localStorage.setItem("automis_locale", preferred);
+
+  // If already on preferred locale, do nothing
+  if (preferred === locale) return;
+
+  // Redirect keeping the same path (best-effort)
+  const target =
+    preferred === "it"
+      ? normalized === "/"
+        ? "/it"
+        : `/it${normalized}`
+      : normalized;
+
+  router.replace(target);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [locale, normalized, router]);
 
   const [isSticky, setIsSticky] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
@@ -185,17 +217,19 @@ const DefaultHeader = ({ onePage, hideHeaderNav = false }) => {
                 </nav>
               </div>
 
-              {/* CTA */}
-              <div className="menu-btns !hidden menu-break:!flex">
-                <CTAButton
-                  href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
-                  external={true}
-                  variant="primary"
-                  size="small"
-                >
-                  {locale === "it" ? "Prenota una call" : "Book Discovery Call"}
-                </CTAButton>
-              </div>
+{/* Language Switcher + CTA */}
+<div className="menu-btns !hidden menu-break:!flex items-center gap-3">
+  <LanguageSwitcher />
+
+  <CTAButton
+    href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+    external={true}
+    variant="primary"
+    size="small"
+  >
+    {locale === "it" ? "Prenota una call" : "Book Discovery Call"}
+  </CTAButton>
+</div>
 
               {/* Mobile Menu Button */}
               <button
