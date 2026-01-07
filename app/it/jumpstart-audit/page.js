@@ -593,13 +593,13 @@ const JumpstartAudit = () => {
                 {
                   day: "Giorno 10–12",
                   title: "Creazione e prima implementazione veloce",
-                  what: "Configuriamo il primo implementazione veloce concordato e lo testiamo sulla tua struttura.",
+                  what: "Configuriamo la prima implementazione veloce concordata e la testiamo sulla tua struttura.",
                   icon: <Settings className="!w-6 !h-6" />
                 },
                 {
                   day: "Giorno 12–13",
                   title: "Previsioni e piano 90 giorni",
-                  what: "Modelliamo risparmi/aumento atteso e ritorno sull'investimento; prepariamo il Piano Previsioni. Creiamo un Piano d’Azione 90 Giorni settimana per settimana con owner e milestone.",
+                  what: "Modelliamo risparmi/aumento atteso e ritorno sull'investimento; prepariamo il Piano Previsioni. Creiamo un Piano d’Azione 90 Giorni, strutturato settimana per settimana, con responsabili assegnati e milestone definite.",
                   icon: <LineChart className="!w-6 !h-6" />
                 },
                 {
@@ -664,8 +664,8 @@ const JumpstartAudit = () => {
                 },
                 {
                   day: "Giorno 1–3",
-                  title: "Dati e baseline",
-                  fullTitle: "Raccolta dati e baseline",
+                  title: "Dati e Situazione iniziale",
+                  fullTitle: "Raccolta dati e situazione iniziale",
                   what: "Estraiamo i numeri reali: lead, CPL/CPA, speed-to-lead, % chiamate perse, show-rate, close-rate e LTV. Individuiamo eventuali gap di tracking.",
                   icon: <BarChart3 />
                 },
@@ -687,15 +687,15 @@ const JumpstartAudit = () => {
                   day: "Giorno 10",
                   title: "Allineamento",
                   fullTitle: "Allineamento di metà audit (30–45 min)",
-                  what: "Review di flow map e shortlist. Validiamo le priorità col tuo team. Scegliamo il Quick Win da implementare.",
+                  what: "Review di flow map e shortlist. Validiamo le priorità col tuo team. Scegliamo insieme la prima implementazione veloce da fare.",
                   result: "Via libera su ciò che conta davvero, senza supposizioni.",
                   icon: <Users />
                 },
                 {
                   day: "Giorno 10–12",
-                  title: "Build Quick Win",
-                  fullTitle: "Build e test del Quick Win",
-                  what: "Configuriamo il Quick Win concordato e lo testiamo end-to-end sul tuo stack.",
+                  title: "Risultato rapido",
+                  fullTitle: "Costruzione e test del risultato rapido",
+                  what: "Configuriamo il risultato rapido concordato e lo testiamo sul tuo business.",
                   icon: <Settings />
                 },
                 {
@@ -899,11 +899,11 @@ const JumpstartAudit = () => {
             question: "Quanto velocemente vedremo impatto?",
             answer: `Entro 14 giorni.
 
-• Giorno 0–10: avrai baseline, mappa delle perdite e shortlist prioritaria (core).
+• Giorno 0–10: avrai una fotografia iniziale, una mappa delle perdite e le priorità chiave su cui intervenire.
 
-• Giorno 14: attiviamo il Quick Win in live (bonus), così chiudi la call finale con qualcosa già operativo.
+• Giorno 14: attiviamo la prima implementazione veloce live (bonus), così chiudi la call finale con qualcosa già operativo.
 
-Segnali iniziali tipici: speed-to-lead più veloce, recupero chiamate perse o più risposte/prenotazioni da reminder e reattivazioni—dipende dal Quick Win che implementiamo.`
+Segnali iniziali tipici: speed-to-lead più veloce, recupero chiamate perse o più risposte/prenotazioni da reminder e reattivazioni—dipende dalla prima implementazione che effettuiamo.`
           },
           {
             question: "Eseguite voi il piano 90 giorni?",

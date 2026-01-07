@@ -574,7 +574,7 @@ const Index = () => {
                     </h4>
 
                     <p className="body-text text-white/90 group-hover:text-text-light transition-colors flex-grow">
-                      Agenti IA che rispondono a ogni chiamata e prenotano
+                      Agenti IA che rispondono ad ogni chiamata e prenotano
                       appuntamenti all’istante
                     </p>
 
@@ -858,7 +858,7 @@ const Index = () => {
                 Dentisti & Healthcare
               </h3>
               <p className="text-base text-white/90">
-                Il 30–50% delle chiamate in clinica resta senza risposta. I nostri agenti IA rispondono a ogni chiamata, prenotano i pazienti e si integrano con il software della struttura.
+                Il 30–50% delle chiamate in clinica resta senza risposta. I nostri agenti IA rispondono a ogni chiamata, fissano gli appuntamenti e si integrano con il software della struttura.
               </p>
             </div>
 

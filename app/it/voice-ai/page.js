@@ -426,8 +426,8 @@ const page = () => {
                   Settori <br className="sm:hidden" /> che serviamo
                 </h2>
                 <p className="sub-heading text-white/90">
-                  Automis AI è progettato per qualsiasi attività basata su
-                  appuntamenti che non può permettersi di perdere chiamate.
+                  Automis AI è progettato per qualsiasi attività, basata su
+                  appuntamenti, che non può permettersi di perdere chiamate.
                   Il nostro Agente Vocale AI si integra con calendario e
                   CRM esistenti per convertire ogni lead in un appuntamento
                   confermato 24/7, in oltre 20 lingue.
