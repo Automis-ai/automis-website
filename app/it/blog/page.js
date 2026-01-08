@@ -46,18 +46,6 @@ const page = () => {
               data-aos-delay={300}
               data-aos-duration={1500}
             >
-              <CTAButton
-href={getCtaHref("booking", locale)}
-                external={true}
-                variant="ghost"
-                size="medium"
-                icon="fas fa-bell"
-              >
-                Iscriviti alla Newsletter
-              </CTAButton>
-            </div>
-          </div>
-        </div>
 
         {/* background blobs */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">

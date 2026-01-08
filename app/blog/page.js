@@ -47,19 +47,6 @@ const page = () => {
               data-aos-delay={300}
               data-aos-duration={1500}
             >
-              <CTAButton
-                href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
-                external={true}
-                variant="ghost"
-                size="medium"
-                icon="fas fa-bell"
-              >
-                Subscribe to Newsletter
-              </CTAButton>
-
-            </div>
-          </div>
-        </div>
 
         {}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
