@@ -1,8 +1,13 @@
 "use client";
+
 import useClickOutside from "@/utility/useClickOutside";
 import Link from "next/link";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import CTAButton from "@/components/CTAButton";
+import { PATHNAMES, getLocaleFromPathname, hrefFor } from "@/utility/pathnames";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { getCtaHref } from "@/utility/ctaLinks";
 
 const Header = ({ header, onePage, hideHeaderNav = false }) => {
   switch (header) {
@@ -11,28 +16,71 @@ const Header = ({ header, onePage, hideHeaderNav = false }) => {
       return <DefaultHeader onePage={onePage} hideHeaderNav={hideHeaderNav} />;
   }
 };
+
 export default Header;
 
 const DefaultHeader = ({ onePage, hideHeaderNav = false }) => {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const router = useRouter();
+
+  const normalized = useMemo(() => {
+    if (pathname === "/it") return "/";
+    if (pathname.startsWith("/it/")) return pathname.replace("/it", "");
+    return pathname;
+  }, [pathname]);
+
+  // Auto-detect language on first visit (only once)
+useEffect(() => {
+  // If user already chose a language before, do nothing
+  const saved = typeof window !== "undefined" ? localStorage.getItem("automis_locale") : null;
+  if (saved) return;
+
+  // Detect browser language
+  const browserLang =
+    typeof navigator !== "undefined" ? (navigator.language || "").toLowerCase() : "";
+
+  const preferred = browserLang.startsWith("it") ? "it" : "en";
+
+  // Save preference so it won't auto-redirect again
+  localStorage.setItem("automis_locale", preferred);
+
+  // If already on preferred locale, do nothing
+  if (preferred === locale) return;
+
+  // Redirect keeping the same path (best-effort)
+  const target =
+    preferred === "it"
+      ? normalized === "/"
+        ? "/it"
+        : `/it${normalized}`
+      : normalized;
+
+  router.replace(target);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [locale, normalized, router]);
+
   const [isSticky, setIsSticky] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
+  const [activeLink, setActiveLink] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // ✅ Handle route and screen size
+  // Active link (senza /it)
   useEffect(() => {
-    const path = window.location.pathname;
-    setActiveLink(path === "/" ? "home" : path.replace("/", ""));
-    setIsMobile(window.innerWidth <= 768);
+    if (normalized === "/") return setActiveLink("home");
+    const key = normalized.replace("/", "");
+    setActiveLink(key);
+  }, [normalized]);
+
+  // screen size
+  useEffect(() => {
+    const compute = () => setIsMobile(window.innerWidth <= 768);
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // ✅ Sticky header for non-ITA
+  // Sticky header
   useEffect(() => {
     if (!hideHeaderNav) {
       const handleScroll = () => {
@@ -45,33 +93,52 @@ const DefaultHeader = ({ onePage, hideHeaderNav = false }) => {
     }
   }, [hideHeaderNav]);
 
-  // ✅ ESC closes mobile menu
+  // ESC closes mobile menu
   useEffect(() => {
     const handleEscape = (e) => e.key === "Escape" && setMobileMenuOpen(false);
     if (mobileMenuOpen) document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
   }, [mobileMenuOpen]);
 
-  const menus = [
-    { id: 1, href: "home", title: "Home" },
-    { id: 5, href: "jumpstart-audit", title: "Jumpstart Audit" },
-    {
-      id: 3,
-      href: "",
-      title: "Services",
-      submenus: [
-        { id: 31, href: "paid-ads-management", title: "Paid Ads Management" },
-        { id: 32, href: "voice-ai", title: "Voice AI" },
-        { id: 33, href: "ai-automations", title: "AI Automations" },
-      ],
-    },
-    { id: 2, href: "use-cases", title: "Case Studies" },
-    { id: 6, href: "blog", title: "Blog" },
-    { id: 8, href: "about", title: "About" },
-    { id: 7, href: "contact", title: "Contact" },
-  ];
+  // Menus (testi EN/IT + href da PATHNAMES)
+  const menus = useMemo(() => {
+    const t = {
+      home: locale === "it" ? "Home" : "Home",
+      jumpstart: locale === "it" ? "Audit Jumpstart" : "Jumpstart Audit",
+      services: locale === "it" ? "Servizi" : "Services",
+      paidAds: locale === "it" ? "Gestione Ads" : "Paid Ads Management",
+      voiceAI: locale === "it" ? "Voice AI" : "Voice AI",
+      automations: locale === "it" ? "Automazioni AI" : "AI Automations",
+      caseStudies: locale === "it" ? "Casi Studio" : "Case Studies",
+      blog: locale === "it" ? "Blog" : "Blog",
+      about: locale === "it" ? "Chi siamo" : "About",
+      contact: locale === "it" ? "Contatti" : "Contact",
+    };
 
-  // ✅ If hideHeaderNav is true → show simple logo header only
+    return [
+      { id: 1, key: "home", title: t.home, href: hrefFor(PATHNAMES.home, locale) },
+
+      { id: 5, key: "jumpstart-audit", title: t.jumpstart, href: hrefFor(PATHNAMES.pages.jumpstartAudit, locale) },
+
+      {
+        id: 3,
+        key: "services",
+        title: t.services,
+        submenus: [
+          { id: 31, key: "paid-ads-management", title: t.paidAds, href: hrefFor(PATHNAMES.services.paidAds, locale) },
+          { id: 32, key: "voice-ai", title: t.voiceAI, href: hrefFor(PATHNAMES.services.voiceAI, locale) },
+          { id: 33, key: "ai-automations", title: t.automations, href: hrefFor(PATHNAMES.services.aiAutomations, locale) },
+        ],
+      },
+
+      { id: 2, key: "use-cases", title: t.caseStudies, href: hrefFor(PATHNAMES.pages.useCases, locale) },
+      { id: 6, key: "blog", title: t.blog, href: hrefFor(PATHNAMES.pages.blog, locale) },
+      { id: 8, key: "about", title: t.about, href: hrefFor(PATHNAMES.pages.about, locale) },
+      { id: 7, key: "contact", title: t.contact, href: hrefFor(PATHNAMES.pages.contact, locale) },
+    ];
+  }, [locale]);
+
+  // Logo-only header (quando hideHeaderNav = true)
   if (hideHeaderNav) {
     return (
       <header
@@ -88,7 +155,7 @@ const DefaultHeader = ({ onePage, hideHeaderNav = false }) => {
           zIndex: 999,
         }}
       >
-        <Link href="/ita" className="flex items-center">
+        <Link href={hrefFor(PATHNAMES.home, locale)} className="flex items-center">
           <img
             src="/assets/images/logos/logo.png"
             alt="Automis AI"
@@ -99,7 +166,6 @@ const DefaultHeader = ({ onePage, hideHeaderNav = false }) => {
     );
   }
 
-  // ✅ Default (non-ITA) header styling
   return (
     <>
       <header
@@ -108,25 +174,15 @@ const DefaultHeader = ({ onePage, hideHeaderNav = false }) => {
         }`}
         style={{
           position: "fixed",
-          top: !isMobile
-            ? isSticky
-              ? "10px"
-              : "20px"
-            : isSticky
-            ? "8px"
-            : "12px",
+          top: !isMobile ? (isSticky ? "10px" : "20px") : isSticky ? "8px" : "12px",
           left: !isMobile ? "20px" : "12px",
           right: !isMobile ? "20px" : "12px",
           width: !isMobile ? "calc(100% - 40px)" : "calc(100% - 24px)",
           height: !isMobile ? "70px" : "56px",
-          backgroundColor: isSticky
-            ? "rgba(10,61,98,0.98)"
-            : "rgba(255,255,255,0.08)",
+          backgroundColor: isSticky ? "rgba(10,61,98,0.98)" : "rgba(255,255,255,0.08)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          boxShadow: isSticky
-            ? "0 8px 32px rgba(0,0,0,.12)"
-            : "0 4px 24px rgba(0,0,0,.06)",
+          boxShadow: isSticky ? "0 8px 32px rgba(0,0,0,.12)" : "0 4px 24px rgba(0,0,0,.06)",
           borderRadius: !isMobile ? "35px" : "25px",
           border: "1px solid rgba(255,255,255,0.1)",
           transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -146,7 +202,7 @@ const DefaultHeader = ({ onePage, hideHeaderNav = false }) => {
           <div className="w-full mx-auto px-3 md:px-5 clearfix">
             <div className="header-inner w-full mx-auto relative flex items-center justify-between h-full">
               <div className="logo-outer flex items-center">
-                <Link href="/" className="flex items-center">
+                <Link href={hrefFor(PATHNAMES.home, locale)} className="flex items-center">
                   <img
                     src="/assets/images/logos/logo.png"
                     alt="Automis AI Logo"
@@ -155,75 +211,73 @@ const DefaultHeader = ({ onePage, hideHeaderNav = false }) => {
                 </Link>
               </div>
 
-              {/* ✅ Desktop Nav */}
+              {/* Desktop Nav */}
               <div className="nav-outer flex-1 hidden menu-break:flex justify-center clearfix">
                 <nav className="main-menu navbar-expand-lg">
-                  <Nav
-                    menus={menus}
-                    onePage={onePage}
-                    activeLink={activeLink}
-                    setActiveLink={setActiveLink}
-                  />
+<Nav
+  menus={menus}
+  onePage={onePage}
+  activeLink={activeLink}
+  setActiveLink={setActiveLink}
+  locale={locale}
+/>
                 </nav>
               </div>
 
-              {/* ✅ CTA */}
-              <div className="menu-btns !hidden menu-break:!flex">
-                <CTAButton
-                  href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
-                  external={true}
-                  variant="primary"
-                  size="small"
-                >
-                  Book Discovery Call
-                </CTAButton>
-              </div>
+{/* Language Switcher + CTA */}
+<div className="menu-btns !hidden menu-break:!flex items-center gap-3">
+  <LanguageSwitcher />
+</div>
 
-              {/* ✅ Mobile Menu Button */}
-              <button
-                className="menu-break:hidden flex items-center justify-center w-10 h-10 relative rounded-full hover:bg-white/10 transition-all duration-300"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Open menu"
-                aria-expanded={mobileMenuOpen}
-              >
-                <div className="relative w-6 h-5 flex flex-col justify-center">
-                  <span
-                    className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
-                    style={{
-                      transform: mobileMenuOpen
-                        ? "rotate(45deg)"
-                        : "translateY(-8px)",
-                    }}
-                  />
-                  <span
-                    className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
-                    style={{ opacity: mobileMenuOpen ? 0 : 1 }}
-                  />
-                  <span
-                    className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
-                    style={{
-                      transform: mobileMenuOpen
-                        ? "rotate(-45deg)"
-                        : "translateY(8px)",
-                    }}
-                  />
-                </div>
-              </button>
-            </div>
+{/* Mobile top-bar actions */}
+<div className="menu-break:hidden flex items-center gap-2">
+  {/* Language switcher visible in the top bar */}
+<LanguageSwitcher
+  align="right"
+  className="scale-[0.95]"
+  persist={true}
+  autoDetectFirstVisit={false}
+  validateRoute={false}
+/>
+
+  {/* Mobile Menu Button */}
+  <button
+    className="flex items-center justify-center w-10 h-10 relative rounded-full hover:bg-white/10 transition-all duration-300"
+    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+    aria-label="Open menu"
+    aria-expanded={mobileMenuOpen}
+  >
+    <div className="relative w-6 h-5 flex flex-col justify-center">
+      <span
+        className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
+        style={{ transform: mobileMenuOpen ? "rotate(45deg)" : "translateY(-8px)" }}
+      />
+      <span
+        className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
+        style={{ opacity: mobileMenuOpen ? 0 : 1 }}
+      />
+      <span
+        className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
+        style={{ transform: mobileMenuOpen ? "rotate(-45deg)" : "translateY(8px)" }}
+      />
+    </div>
+  </button>
+</div>
           </div>
         </div>
+      </div>
       </header>
 
-      {/* ✅ Mobile Overlay + Drawer */}
+      {/* Mobile Overlay */}
       <div
         className={`fixed inset-0 bg-black transition-opacity duration-300 menu-break:hidden ${
-          mobileMenuOpen
-            ? "opacity-60 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          mobileMenuOpen ? "opacity-60 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         style={{ zIndex: 9998 }}
         onClick={() => setMobileMenuOpen(false)}
       />
+
+      {/* Mobile Drawer */}
       <div
         className={`fixed top-0 right-0 h-full bg-gradient-to-b from-[#0A3D62] to-[#051f33] shadow-2xl transition-all duration-500 ease-out menu-break:hidden ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -241,45 +295,50 @@ const DefaultHeader = ({ onePage, hideHeaderNav = false }) => {
           className="absolute top-6 right-6 text-white w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 flex items-center justify-center"
           aria-label="Close menu"
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
 
         <nav className="pt-24 px-6 pb-6 h-full overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-          <MobileMenuContent
-            menus={menus}
-            onePage={onePage}
-            activeLink={activeLink}
-            setActiveLink={setActiveLink}
-            setMobileMenuOpen={setMobileMenuOpen}
-          />
+<MobileMenuContent
+  menus={menus}
+  onePage={onePage}
+  activeLink={activeLink}
+  setActiveLink={setActiveLink}
+  setMobileMenuOpen={setMobileMenuOpen}
+  locale={locale}
+/>
         </nav>
       </div>
     </>
   );
 };
+
 const MobileMenuContent = ({
   menus,
   onePage,
   activeLink,
   setActiveLink,
   setMobileMenuOpen,
+  locale,
 }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   return (
     <div className="flex flex-col h-full">
+      {/* Language switcher (mobile) */}
+      <div className="mb-6">
+        <div className="flex items-center justify-between">
+          <span className="text-white/70 text-sm font-semibold">
+            {locale === "it" ? "Lingua" : "Language"}
+          </span>
+          <LanguageSwitcher />
+        </div>
+      </div>
+
+      {/* Menu */}
       <ul className="flex-1">
         {menus.map((menu) => (
           <li key={menu.id} className="mb-2">
@@ -287,9 +346,7 @@ const MobileMenuContent = ({
               <>
                 <button
                   onClick={() =>
-                    setActiveDropdown(
-                      activeDropdown === menu.id ? null : menu.id
-                    )
+                    setActiveDropdown(activeDropdown === menu.id ? null : menu.id)
                   }
                   className="w-full text-left text-white text-lg py-3 px-3 flex items-center justify-between hover:text-[#3C91E6] hover:bg-white/5 rounded-lg transition-all duration-300"
                 >
@@ -300,14 +357,15 @@ const MobileMenuContent = ({
                     }`}
                   />
                 </button>
+
                 {activeDropdown === menu.id && (
                   <ul className="ml-4 mt-2 space-y-2">
                     {menu.submenus.map((submenu) => (
                       <li key={submenu.id}>
                         <Link
-                          href={`/${submenu.href}`}
+                          href={submenu.href}
                           onClick={() => {
-                            setActiveLink(submenu.href);
+                            setActiveLink(submenu.key);
                             setMobileMenuOpen(false);
                           }}
                           className="block text-[#EAEAEA] py-2 px-4 hover:text-[#3C91E6] hover:bg-white/5 rounded-lg transition-all duration-300 ml-2"
@@ -321,13 +379,13 @@ const MobileMenuContent = ({
               </>
             ) : (
               <Link
-                href={menu.href === "home" ? "/" : `/${menu.href}`}
+                href={menu.href || "/"}
                 onClick={() => {
-                  setActiveLink(menu.href);
+                  setActiveLink(menu.key);
                   setMobileMenuOpen(false);
                 }}
                 className={`block text-white text-lg py-3 px-3 hover:text-[#3C91E6] hover:bg-white/5 rounded-lg transition-all duration-300 ${
-                  activeLink === menu.href ? "text-[#3C91E6] bg-white/5" : ""
+                  activeLink === menu.key ? "text-[#3C91E6] bg-white/5" : ""
                 }`}
               >
                 {menu.title}
@@ -337,254 +395,172 @@ const MobileMenuContent = ({
         ))}
       </ul>
 
+      {/* CTA (localized calendar) */}
       <div className="mt-auto pt-6 border-t border-white/10">
         <a
-          href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+          href={getCtaHref("booking", locale)}
           className="block w-full bg-gradient-to-r from-[#3C91E6] to-[#5BA3ED] text-white text-center py-4 rounded-2xl font-semibold hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
           onClick={() => setMobileMenuOpen(false)}
         >
-          Book Discovery Call
+          {locale === "it" ? "Prenota una call" : "Book Discovery Call"}
         </a>
+
+        <p className="text-center text-white/60 text-xs mt-3">
+          {locale === "it" ? "15 minuti • Nessun impegno" : "15 minutes • No commitment"}
+        </p>
       </div>
     </div>
   );
 };
 
-const Nav = ({
-  logo = "assets/images/logos/logo.png",
-  onePage,
-  menus,
-  activeLink,
-  setActiveLink,
-}) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const Nav = ({ onePage, menus, activeLink, setActiveLink, locale }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [hoverTimeout, setHoverTimeout] = useState(null);
 
   let domNode = useClickOutside(() => {
-    setMobileMenuOpen(false);
     setActiveDropdown(null);
   });
 
   return (
     <Fragment>
-      <div className="desktop-menu">
+      <div className="desktop-menu" ref={domNode}>
         <div className="navbar-collapse clearfix">
           {onePage ? (
             <ul className="navigation onepage clearfix">
               {menus.map((menu) => (
                 <li key={menu.id} className={menu.submenus ? "dropdown" : ""}>
-                  <a href={`#${menu.href}`}>{menu.title}</a>
-                  {menu.submenus && (
-                    <>
-                      <ul
-                        className="dropdown-menu"
-                        style={{
-                          backgroundColor: "#000a23",
-                          borderRadius: "8px",
-                          padding: "10px 0",
-                          minWidth: "220px",
-                          position: "absolute",
-                          top: "100%",
-                          left: "0",
-                          opacity: activeDropdown === menu.id ? "1" : "0",
-                          visibility:
-                            activeDropdown === menu.id ? "visible" : "hidden",
-                          transform:
-                            activeDropdown === menu.id
-                              ? "translateY(8px)"
-                              : "translateY(0)",
-                          transition: "all 0.25s ease",
-                          zIndex: "1000",
-                        }}
-                      >
-                        {menu.submenus.map((submenu) => (
-                          <li key={submenu.id}>
-                            <a
-                              href={`#${submenu.href}`}
-                              style={{
-                                color: "white",
-                                padding: "8px 20px",
-                                display: "block",
-                              }}
-                            >
-                              {submenu.title}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                      <div
-                        className="dropdown-btn"
-                        style={{
-                          transform:
-                            activeDropdown === menu.id
-                              ? "rotate(180deg)"
-                              : "rotate(0deg)",
-                          transition: "transform 0.25s ease",
-                        }}
-                      >
-                        <span className="far fa-angle-down" />
-                      </div>
-                    </>
-                  )}
+                  <a href={`#${menu.key}`}>{menu.title}</a>
                 </li>
               ))}
             </ul>
           ) : (
-            <ul className="navigation clearfix">
+<ul
+  className="navigation clearfix"
+  style={{
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "nowrap",
+    whiteSpace: "nowrap",
+    gap: locale === "en" ? "12px" : "16px", // <- riduci gap in EN
+  }}
+>
               {menus.map((menu) => (
                 <li
                   key={menu.id}
                   className={menu.submenus ? "dropdown" : ""}
                   style={{
                     position: "relative",
-                    zIndex:
-                      menu.submenus && activeDropdown === menu.id
-                        ? "9998"
-                        : "auto",
+                    zIndex: menu.submenus && activeDropdown === menu.id ? "9998" : "auto",
                   }}
                   onMouseEnter={() => {
                     if (menu.submenus) {
-                      if (hoverTimeout) {
-                        clearTimeout(hoverTimeout);
-                        setHoverTimeout(null);
-                      }
+                      if (hoverTimeout) clearTimeout(hoverTimeout);
                       setActiveDropdown(menu.id);
                     }
                   }}
                   onMouseLeave={() => {
                     if (menu.submenus) {
-                      const timeout = setTimeout(() => {
-                        setActiveDropdown(null);
-                      }, 150);
+                      const timeout = setTimeout(() => setActiveDropdown(null), 150);
                       setHoverTimeout(timeout);
                     }
                   }}
                 >
-                  <Link
-                    href={
-                      menu.submenus
-                        ? "#"
-                        : menu.href === "home"
-                        ? "/"
-                        : `/${menu.href}`
-                    }
-                    onClick={(e) => {
-                      if (!menu.submenus) {
-                        setActiveLink(menu.href);
-                      } else {
+                  {menu.submenus ? (
+                    <a
+                      href="#"
+                      onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        setActiveDropdown(
-                          activeDropdown === menu.id ? null : menu.id
-                        );
-                      }
-                    }}
-                    style={{
-                      color: activeLink === menu.href ? "#3C91E6" : "",
-                      position: "relative",
-                      transition: "color 0.2s ease",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      if (activeLink !== menu.href && !menu.submenus)
-                        e.target.style.color = "#3C91E6";
-                    }}
-                    onMouseLeave={(e) => {
-                      if (activeLink !== menu.href && !menu.submenus)
-                        e.target.style.color = "";
-                    }}
-                  >
-                    {menu.title}
-                    {menu.submenus && (
+                        setActiveDropdown(activeDropdown === menu.id ? null : menu.id);
+                      }}
+                      style={{
+                        color: activeLink === menu.key ? "#3C91E6" : "",
+                        cursor: "pointer",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {menu.title}
                       <span
                         className="far fa-angle-down"
                         style={{
                           marginLeft: "5px",
                           fontSize: "12px",
-                          transform:
-                            activeDropdown === menu.id
-                              ? "rotate(180deg)"
-                              : "rotate(0deg)",
+                          transform: activeDropdown === menu.id ? "rotate(180deg)" : "rotate(0deg)",
                           transition: "transform 0.25s ease",
                           display: "inline-block",
                         }}
                       />
-                    )}
-                    {activeLink === menu.href && (
-                      <span
-                        style={{
-                          position: "absolute",
-                          bottom: "-2px",
-                          left: "0",
-                          width: "100%",
-                          height: "2px",
-                          backgroundColor: "#3C91E6",
-                        }}
-                      />
-                    )}
-                  </Link>
+                    </a>
+) : (
+  <Link
+    href={menu.href || "/"}
+    onClick={() => setActiveLink(menu.key)}
+    style={{
+      color: activeLink === menu.key ? "#3C91E6" : "",
+      position: "relative",
+      transition: "color 0.2s ease",
+      cursor: "pointer",
+      whiteSpace: "nowrap",
+    }}
+  >
+    {menu.title}
+    {activeLink === menu.key && (
+      <span
+        style={{
+          position: "absolute",
+          bottom: "-2px",
+          left: "0",
+          width: "100%",
+          height: "2px",
+          backgroundColor: "#3C91E6",
+        }}
+      />
+    )}
+  </Link>
+)}
+
                   {menu.submenus && (
-                    <>
-                      <ul
-                        className="dropdown-menu"
-                        style={{
-                          backgroundColor: "rgba(10,61,98,0.98)",
-                          backdropFilter: "blur(20px)",
-                          WebkitBackdropFilter: "blur(20px)",
-                          borderRadius: "12px",
-                          padding: "12px 0",
-                          minWidth: "220px",
-                          position: "absolute",
-                          top: "100%",
-                          left: "0",
-                          opacity: activeDropdown === menu.id ? "1" : "0",
-                          visibility:
-                            activeDropdown === menu.id ? "visible" : "hidden",
-                          transform:
-                            activeDropdown === menu.id
-                              ? "translateY(0)"
-                              : "translateY(-5px)",
-                          transition: "all 0.25s ease",
-                          zIndex: "9999",
-                          boxShadow: "0 8px 25px rgba(0,0,0,0.15)",
-                          border: "1px solid rgba(255,255,255,0.1)",
-                          marginTop: "0px",
-                        }}
-                      >
-                        {menu.submenus.map((submenu) => (
-                          <li key={submenu.id}>
-                            <Link
-                              href={`/${submenu.href}`}
-                              onClick={() => setActiveLink(submenu.href)}
-                              style={{
-                                color: "white",
-                                padding: "10px 20px",
-                                display: "block",
-                                transition: "all 0.3s ease",
-                                textDecoration: "none",
-                                backgroundColor: "transparent",
-                              }}
-                              onMouseEnter={(e) => {
-                                e.target.style.color = "#FFFFFF !important";
-                                e.target.style.textShadow =
-                                  "0 0 12px rgba(60, 145, 230, 0.8), 0 0 20px rgba(60, 145, 230, 0.4)";
-                                e.target.style.backgroundColor =
-                                  "transparent !important";
-                              }}
-                              onMouseLeave={(e) => {
-                                e.target.style.color = "white !important";
-                                e.target.style.textShadow = "none";
-                                e.target.style.backgroundColor =
-                                  "transparent !important";
-                              }}
-                            >
-                              {submenu.title}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
+                    <ul
+                      className="dropdown-menu"
+                      style={{
+                        backgroundColor: "rgba(10,61,98,0.98)",
+                        backdropFilter: "blur(20px)",
+                        WebkitBackdropFilter: "blur(20px)",
+                        borderRadius: "12px",
+                        padding: "12px 0",
+                        minWidth: "220px",
+                        position: "absolute",
+                        top: "100%",
+                        left: "0",
+                        opacity: activeDropdown === menu.id ? "1" : "0",
+                        visibility: activeDropdown === menu.id ? "visible" : "hidden",
+                        transform: activeDropdown === menu.id ? "translateY(0)" : "translateY(-5px)",
+                        transition: "all 0.25s ease",
+                        zIndex: "9999",
+                        boxShadow: "0 8px 25px rgba(0,0,0,0.15)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        marginTop: "0px",
+                      }}
+                    >
+                      {menu.submenus.map((submenu) => (
+                        <li key={submenu.id}>
+                          <Link
+                            href={submenu.href}
+                            onClick={() => setActiveLink(submenu.key)}
+                            style={{
+                              color: "white",
+                              padding: "10px 20px",
+                              display: "block",
+                              transition: "all 0.3s ease",
+                              textDecoration: "none",
+                              backgroundColor: "transparent",
+                            }}
+                          >
+                            {submenu.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </li>
               ))}

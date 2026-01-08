@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { getLocaleFromPathname, hrefFor, PATHNAMES } from "@/utility/pathnames";
 
 const Footer = ({ footer }) => {
   return (
@@ -31,22 +35,42 @@ const Footer = ({ footer }) => {
           }
         }
       `}</style>
+
       {footer === 2 ? <Footer2 /> : <DefaultFooter />}
     </>
   );
 };
+
 export default Footer;
 
 const DefaultFooter = () => {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+
+  const t = {
+    tagline:
+      locale === "it"
+        ? "Automis combina AI e marketing umano per far crescere il tuo business più velocemente."
+        : "Automis combines AI and human marketing expertise to grow your business faster.",
+    emailLabel: locale === "it" ? "Email:" : "Email:",
+    rights:
+      locale === "it" ? "— Tutti i diritti riservati" : "— All Rights Reserved",
+    privacy: locale === "it" ? "Privacy Policy" : "Privacy Policy",
+    terms: locale === "it" ? "Termini di Servizio" : "Terms of Service",
+  };
+
+  const homeHref = hrefFor(PATHNAMES.home, locale);
+  const privacyHref = hrefFor(PATHNAMES.pages.privacyPolicy, locale);
+  const termsHref = hrefFor(PATHNAMES.pages.termsOfService, locale);
+
   return (
     <footer className="container main-footer footer-one relative z-1">
       <div className="max-w-1660 mx-auto px-4 clearfix">
         <div className="max-w-1660 mx-auto footer-content-wrapper flex flex-col lg:flex-row lg:flex-nowrap justify-between items-center lg:items-start pt-20 !pb-16 lg:pt-40">
-
           {/* LEFT SECTION: LOGO & INFO */}
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0 flex justify-center lg:justify-start">
             <div className="widget-about text-center lg:!text-left flex flex-col items-center lg:items-start">
-              <Link href="#home">
+              <Link href={homeHref}>
                 <img
                   src="/assets/images/logos/logo.png"
                   alt="Automis AI Logo"
@@ -55,12 +79,15 @@ const DefaultFooter = () => {
                   loading="lazy"
                 />
               </Link>
-              <p className="mb-3 max-w-md text-white">
-                Automis combina AI e marketing umano per far crescere il tuo business più velocemente.
-              </p>
+
+              <p className="mb-3 max-w-md text-white">{t.tagline}</p>
+
               <p className="mb-0 text-white">
-                <strong>Email:</strong>{" "}
-                <a href="mailto:info@automis.ai" className="text-white hover:text-blue-200 transition-colors">
+                <strong>{t.emailLabel}</strong>{" "}
+                <a
+                  href="mailto:info@automis.ai"
+                  className="text-white hover:text-blue-200 transition-colors"
+                >
                   info@automis.ai
                 </a>
               </p>
@@ -70,10 +97,38 @@ const DefaultFooter = () => {
           {/* RIGHT SECTION: SOCIAL */}
           <div className="footer-social-wrapper w-full lg:w-1/2 flex justify-center lg:justify-end items-center lg:items-start">
             <div className="social-style-one flex flex-wrap gap-3 justify-center lg:justify-end">
-              <a href="https://x.com/AutomisAI" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter" /></a>
-              <a href="https://www.instagram.com/automis.ai/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram" /></a>
-              <a href="https://www.linkedin.com/company/automisai" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in" /></a>
-              <a href="https://www.facebook.com/automisai" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f" /></a>
+              <a
+                href="https://x.com/AutomisAI"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Automis on X"
+              >
+                <i className="fab fa-twitter" />
+              </a>
+              <a
+                href="https://www.instagram.com/automis_italia/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Automis on Instagram"
+              >
+                <i className="fab fa-instagram" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/automisai"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Automis on LinkedIn"
+              >
+                <i className="fab fa-linkedin-in" />
+              </a>
+              <a
+                href="https://www.facebook.com/automisai"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Automis on Facebook"
+              >
+                <i className="fab fa-facebook-f" />
+              </a>
             </div>
           </div>
         </div>
@@ -81,14 +136,13 @@ const DefaultFooter = () => {
         {/* === FOOTER BOTTOM (3 COL GRID) === */}
         <div className="footer-bottom py-10">
           <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4 md:gap-6">
-
             {/* LEFT: COPYRIGHT */}
             <p className="text-white text-center md:text-left">
               © {new Date().getFullYear()}{" "}
-              <Link href="#home" className="underline underline-offset-2">
+              <Link href={homeHref} className="underline underline-offset-2">
                 Automis
               </Link>{" "}
-              — All Rights Reserved
+              {t.rights}
             </p>
 
             {/* CENTER: ELEVEN LABS BADGE */}
@@ -109,8 +163,16 @@ const DefaultFooter = () => {
 
             {/* RIGHT: LINKS */}
             <ul className="flex gap-6 justify-center md:justify-end text-white/70">
-              <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
-              <li><Link href="/terms-of-service" className="hover:text-white transition">Terms of Service</Link></li>
+              <li>
+                <Link href={privacyHref} className="hover:text-white transition">
+                  {t.privacy}
+                </Link>
+              </li>
+              <li>
+                <Link href={termsHref} className="hover:text-white transition">
+                  {t.terms}
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -124,5 +186,5 @@ const DefaultFooter = () => {
 };
 
 const Footer2 = () => {
-  return <></>; // non toccato, lo sistemiamo solo se serve
+  return <></>; // non toccato
 };

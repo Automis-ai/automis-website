@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Home",
+    "jumpstartAudit": "Audit Jumpstart",
+    "services": "Servizi",
+    "paidAdsManagement": "Gestione Ads",
+    "voiceAi": "Agenti Vocali AI",
+    "aiAutomations": "Automazioni AI",
+    "caseStudies": "Casi Studio",
+    "blog": "Blog",
+    "about": "Chi siamo",
+    "contact": "Contatti",
+    "cta": "Prenota una call conoscitiva"
+  },
+
+  "faq": {
+    "badge": "FAQ",
+    "title": "Hai domande? Abbiamo le risposte!",
+    "description": "Sappiamo che potresti avere qualche dubbio. Per questo abbiamo raccolto le domande più frequenti. Se non trovi la tua, scrivici pure!"
+  }
+}

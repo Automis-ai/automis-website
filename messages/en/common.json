@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "home": "Home",
+    "jumpstartAudit": "Jumpstart Audit",
+    "services": "Services",
+    "paidAdsManagement": "Paid Ads Management",
+    "voiceAi": "Voice AI",
+    "aiAutomations": "AI Automations",
+    "caseStudies": "Case Studies",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Book Discovery Call"
+  },
+
+  "faq": {
+    "badge": "FAQs",
+    "title": "Got Questions? We've Got Answers!",
+    "description": "We know you might have some questions. That's why we've put together this list of common queries. If you don't see your question here, feel free to reach out!"
+  }
+}

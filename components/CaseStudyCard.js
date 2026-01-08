@@ -1,7 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
-const CaseStudyCard = ({ caseStudy, imagePosition = 'top', index = 0 }) => {
+const CaseStudyCard = ({
+  caseStudy,
+  imagePosition = 'top',
+  index = 0,
+  readMoreLabel = "Read Full Story"
+}) => {
+    const pathname = usePathname();
+  const isItalian = pathname.startsWith('/it');
+  const href = `${isItalian ? '/it' : ''}/use-cases/${caseStudy.slug}`;
   const {
     slug,
     industry,
@@ -63,11 +72,11 @@ const CaseStudyCard = ({ caseStudy, imagePosition = 'top', index = 0 }) => {
       </div>
 
       <div data-aos="fade-up" data-aos-delay="400">
-        <Link
-          href={`/use-cases/${slug}`}
-          className="!inline-flex !items-center !text-sm !font-semibold !text-yellow-400 hover:!text-yellow-300 !transition-colors !duration-200 !group"
-        >
-        <span>Read Full Story</span>
+<Link
+  href={href}
+  className="!inline-flex !items-center !text-sm !font-semibold !text-yellow-400 hover:!text-yellow-300 !transition-colors !duration-200 !group"
+>
+<span>{readMoreLabel}</span>
         <svg
           className="!w-4 !h-4 !ml-2 !transition-transform !duration-200 group-hover:!translate-x-1"
           fill="none"
