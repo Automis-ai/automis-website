@@ -214,7 +214,13 @@ useEffect(() => {
               {/* Desktop Nav */}
               <div className="nav-outer flex-1 hidden menu-break:flex justify-center clearfix">
                 <nav className="main-menu navbar-expand-lg">
-                  <Nav menus={menus} onePage={onePage} activeLink={activeLink} setActiveLink={setActiveLink} />
+<Nav
+  menus={menus}
+  onePage={onePage}
+  activeLink={activeLink}
+  setActiveLink={setActiveLink}
+  locale={locale}
+/>
                 </nav>
               </div>
 
@@ -416,7 +422,7 @@ const MobileMenuContent = ({
   );
 };
 
-const Nav = ({ onePage, menus, activeLink, setActiveLink }) => {
+const Nav = ({ onePage, menus, activeLink, setActiveLink, locale }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [hoverTimeout, setHoverTimeout] = useState(null);
 
@@ -437,7 +443,16 @@ const Nav = ({ onePage, menus, activeLink, setActiveLink }) => {
               ))}
             </ul>
           ) : (
-            <ul className="navigation clearfix">
+<ul
+  className="navigation clearfix"
+  style={{
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "nowrap",
+    whiteSpace: "nowrap",
+    gap: locale === "en" ? "12px" : "16px", // <- riduci gap in EN
+  }}
+>
               {menus.map((menu) => (
                 <li
                   key={menu.id}
@@ -470,6 +485,7 @@ const Nav = ({ onePage, menus, activeLink, setActiveLink }) => {
                       style={{
                         color: activeLink === menu.key ? "#3C91E6" : "",
                         cursor: "pointer",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       {menu.title}
@@ -485,16 +501,13 @@ const Nav = ({ onePage, menus, activeLink, setActiveLink }) => {
                       />
                     </a>
                   ) : (
-                    <Link
-                      href={menu.href || "/"}
-                      onClick={() => setActiveLink(menu.key)}
-                      style={{
-                        color: activeLink === menu.key ? "#3C91E6" : "",
-                        position: "relative",
-                        transition: "color 0.2s ease",
-                        cursor: "pointer",
-                      }}
-                    >
+style={{
+  color: activeLink === menu.key ? "#3C91E6" : "",
+  position: "relative",
+  transition: "color 0.2s ease",
+  cursor: "pointer",
+  whiteSpace: "nowrap",
+}}
                       {menu.title}
                       {activeLink === menu.key && (
                         <span
