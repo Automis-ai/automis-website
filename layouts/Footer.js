@@ -106,7 +106,7 @@ const DefaultFooter = () => {
                 <i className="fab fa-twitter" />
               </a>
               <a
-                href="https://www.instagram.com/automis.ai/"
+                href="https://www.instagram.com/automis_italia/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Automis on Instagram"

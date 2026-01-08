@@ -986,7 +986,7 @@ In più: un referente per domande rapide e approvazioni. Forniamo una checklist 
                   size="large"
                 >
                   <Rocket className="w-6 h-6 mr-2" />
-                  Prenota una Discovery Call
+                  Riserva la tua Audit 
                 </CTAButton>
                 <p className="mt-6 small-text text-yellow-light font-semibold">
                   Solo 5 audit disponibili ogni mese per garantire implementazione live nella call finale
