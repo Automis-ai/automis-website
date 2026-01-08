@@ -129,7 +129,6 @@ href={getCtaHref("booking", locale)}
 <Link
   href={localizePath("/blog/ai-automations", locale)}
   className="text-white hover:text-yellow-light transition-all duration-300"
->
                       >
                         Automazioni AI <br /> Scala senza aumentare lo staff
                       </Link>
