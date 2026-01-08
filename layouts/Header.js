@@ -227,15 +227,6 @@ useEffect(() => {
 {/* Language Switcher + CTA */}
 <div className="menu-btns !hidden menu-break:!flex items-center gap-3">
   <LanguageSwitcher />
-
-<CTAButton
-  href={getCtaHref("booking", locale)}
-  external={true}
-  variant="primary"
-  size="small"
->
-  {locale === "it" ? "Prenota una call" : "Book Discovery Call"}
-</CTAButton>
 </div>
 
 {/* Mobile top-bar actions */}

@@ -55,23 +55,27 @@ const page = () => {
   data-aos-offset="50"
   className="hero-heading !text-5xl text-white font-montserrat hero-text-align"
 >
-  {/* DESKTOP (md+): 2 righe fisse */}
+  {/* DESKTOP (md+): 2 righe fisse, NO micro-wrap */}
   <span className="hidden md:block">
-    <span className="block">
-      Converti subito i tuoi <span className="text-text-blue">contatti</span>
+    <span className="block whitespace-nowrap">
+      Converti subito i tuoi{" "}
+      <span className="text-text-blue">contatti</span>
     </span>
-    <span className="block">
+
+    <span className="block whitespace-nowrap">
       in <span className="text-text-blue">appuntamenti</span>
     </span>
   </span>
 
   {/* MOBILE (<md): 3 righe fisse */}
   <span className="block md:hidden">
-    <span className="block">Converti subito i</span>
-    <span className="block">
+    <span className="block whitespace-nowrap">Converti subito i</span>
+
+    <span className="block whitespace-nowrap">
       tuoi <span className="text-text-blue">contatti</span>
     </span>
-    <span className="block">
+
+    <span className="block whitespace-nowrap">
       in <span className="text-text-blue">appuntamenti</span>
     </span>
   </span>
