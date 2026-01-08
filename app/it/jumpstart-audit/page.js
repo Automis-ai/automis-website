@@ -552,7 +552,7 @@ const JumpstartAudit = () => {
               <div className="!absolute !left-1/2 !top-0 !bottom-0 !w-0.5 !-translate-x-1/2 !overflow-hidden !bg-slate-800/30">
                 <div
                   className="!absolute !left-0 !top-0 !w-full !bg-gradient-to-b !from-yellow-light !via-blue-middle !to-yellow-light !transition-all !duration-300 !ease-out"
-                  style={{ height: `€{lineHeight}%` }}
+                  style={{ height: `${lineHeight}%` }}
                 />
               </div>
 
@@ -610,18 +610,20 @@ const JumpstartAudit = () => {
                   icon: <Award className="!w-6 !h-6" />
                 }
               ].map((step, index) => (
-                <div
-                  key={index}
-                  className={`!relative !flex !items-center !mb-12 €{index % 2 === 0 ? '!justify-start' : '!justify-end'}`}
-                  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-                  data-aos-duration={1200}
-                >
+<div
+  key={index}
+  className={`!relative !flex !items-center !mb-12 ${index % 2 === 0 ? '!justify-start' : '!justify-end'}`}
+  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+  data-aos-duration={1200}
+>
                   <div className="!absolute !left-1/2 !w-12 !h-12 !bg-gradient-to-r !from-yellow-light !to-blue-middle !rounded-full !-translate-x-1/2 !flex !items-center !justify-center !shadow-lg">
                     {step.icon}
                   </div>
 
-                  <div className={`!w-5/12 !bg-slate-900 !rounded-xl !p-6 !border !border-slate-800 hover:!border-[#FEC458]/50 !transition-all €{index % 2 === 0 ? '!mr-auto' : '!ml-auto'}`}>
-                    <span className="!text-[#FEC458] !text-sm !font-bold">{step.day}</span>
+<div
+  className={`!w-5/12 !bg-slate-900 !rounded-xl !p-6 !border !border-slate-800 hover:!border-[#FEC458]/50 !transition-all ${index % 2 === 0 ? '!mr-auto' : '!ml-auto'}`}
+>
+                      <span className="!text-[#FEC458] !text-sm !font-bold">{step.day}</span>
                     <h4 className="!text-xl !font-bold !text-white !mb-2">{step.title}</h4>
                     <p className="!text-gray-400 !text-sm !mb-3">
                       <span className="!font-semibold !text-gray-300">Cosa facciamo:</span> {step.what}
@@ -648,7 +650,7 @@ const JumpstartAudit = () => {
               <div className="!absolute !left-4 !top-0 !bottom-0 !w-0.5 !overflow-hidden !bg-slate-800/30">
                 <div
                   className="!absolute !left-0 !top-0 !w-full !bg-gradient-to-b !from-yellow-light !via-blue-middle !to-yellow-light !transition-all !duration-300 !ease-out"
-                  style={{ height: `€{lineHeight}%` }}
+style={{ height: `${lineHeight}%` }}
                 />
               </div>
 
@@ -729,8 +731,7 @@ const JumpstartAudit = () => {
                       </div>
                       <div className="!w-6 !h-6 !rounded-full !bg-[#FEC458]/20 !flex !items-center !justify-center !flex-shrink-0 !ml-2">
                         <ChevronDown
-                          className={`!w-4 !h-4 !text-[#FEC458] !transition-transform !duration-300 €{expandedCards[index] ? '!rotate-180' : ''}`}
-                        />
+className={`!w-4 !h-4 !text-[#FEC458] !transition-transform !duration-300 ${expandedCards[index] ? '!rotate-180' : ''}`}                        />
                       </div>
                     </div>
 
