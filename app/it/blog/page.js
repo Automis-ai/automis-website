@@ -1,13 +1,10 @@
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
-import { usePathname } from "next/navigation";
-import { getLocaleFromPathname, localizePath } from "@/utility/pathnames";
 import { getCtaHref } from "@/utility/ctaLinks";
 
 const page = () => {
-    const pathname = usePathname();
-  const locale = getLocaleFromPathname(pathname);
+  const locale = "it";
   return (
     <AkpagerLayout>
       {/* HERO */}
@@ -127,7 +124,7 @@ href={getCtaHref("booking", locale)}
                     </ul>
                     <h3 className="card-heading font-medium mb-4 max-w-7xl mx-auto">
 <Link
-  href={localizePath("/blog/ai-automations", locale)}
+href="/it/blog/ai-automations"
   className="text-white hover:text-yellow-light transition-all duration-300"
                       >
                         Automazioni AI <br /> Scala senza aumentare lo staff
@@ -139,7 +136,7 @@ href={getCtaHref("booking", locale)}
                       velocemente con processi intelligenti.
                     </p>
 <Link
-  href={localizePath("/blog/ai-automations", locale)}
+href="/it/blog/ai-automations"
   className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
 >
                       Leggi di più{" "}
@@ -186,7 +183,7 @@ href={getCtaHref("booking", locale)}
                     </ul>
                     <h3 className="card-heading font-medium mb-4">
                       <Link
-href={localizePath("/blog/voice-ai-receptionists", locale)}
+href="/blog/voice-ai-receptionists"
                         className="text-white hover:text-yellow-light transition-all duration-300"
                       >
                         Receptionist Voice AI <br /> Il futuro di chiamate e prenotazioni
@@ -198,7 +195,7 @@ href={localizePath("/blog/voice-ai-receptionists", locale)}
                       si ferma mai.
                     </p>
                     <Link
-href={localizePath("/blog/voice-ai-receptionists", locale)}
+href="/blog/voice-ai-receptionists"
                       className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
                     >
                       Leggi di più{" "}
@@ -245,7 +242,7 @@ href={localizePath("/blog/voice-ai-receptionists", locale)}
                     </ul>
                     <h3 className="card-heading font-medium mb-4">
                       <Link
-href={localizePath("/blog/ai-optimized-paid-ads", locale)}
+href="/blog/ai-optimized-paid-ads"
                         className="text-white hover:text-yellow-light transition-all duration-300"
                       >
                         Paid Ads ottimizzate con AI <br /> Dai click agli appuntamenti
@@ -256,7 +253,7 @@ href={localizePath("/blog/ai-optimized-paid-ads", locale)}
                       follow-up per trasformare il budget in chiamate prenotate — non solo lead.
                     </p>
                     <Link
-href={localizePath("/blog/ai-optimized-paid-ads", locale)}
+href="/blog/ai-optimized-paid-ads"
                       className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
                     >
                       Leggi di più{" "}
