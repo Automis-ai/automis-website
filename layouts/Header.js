@@ -268,6 +268,7 @@ useEffect(() => {
 </div>
           </div>
         </div>
+      </div>
       </header>
 
       {/* Mobile Overlay */}
