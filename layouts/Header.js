@@ -235,13 +235,13 @@ useEffect(() => {
 {/* Mobile top-bar actions */}
 <div className="menu-break:hidden flex items-center gap-2">
   {/* Language switcher visible in the top bar */}
-  <LanguageSwitcher
-    align="right"
-    className="scale-[0.95]"
-    persist={true}
-    autoDetectFirstVisit={true}
-    validateRoute={false}
-  />
+<LanguageSwitcher
+  align="right"
+  className="scale-[0.95]"
+  persist={true}
+  autoDetectFirstVisit={false}
+  validateRoute={false}
+/>
 
   {/* Mobile Menu Button */}
   <button

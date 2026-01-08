@@ -5,6 +5,9 @@ import AkpagerLayout from "@/layouts/AkpagerLayout";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
+import { usePathname } from "next/navigation";
+import { PATHNAMES, getLocaleFromPathname, hrefFor } from "@/utility/pathnames";
+import { getCtaHref } from "@/utility/ctaLinks";
 import {
   Heart,
   Home,
@@ -35,6 +38,8 @@ const ClientLogosCarousel = dynamic(
 );
 
 const Index = () => {
+    const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
   const [activeStep, setActiveStep] = useState(0);
   const [animatedSteps, setAnimatedSteps] = useState([]);
   const [showStickyButton, setShowStickyButton] = useState(false);
@@ -397,8 +402,8 @@ const Index = () => {
                   data-aos-duration={1500}
                   data-aos-offset={50}
                 >
-                  <CTAButton
-                    href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
+<CTAButton
+  href={getCtaHref("booking", locale)}
                     variant="secondary"
                     size="medium"
                     external={true}
@@ -462,7 +467,7 @@ const Index = () => {
                       Google & Meta Ads ottimizzate con IA per massimizzare il ROI
                     </p>
 
-                    <Link legacyBehavior href="/paid-ads-management">
+<Link legacyBehavior href={hrefFor(PATHNAMES.services.paidAds, locale)}>
                       <a className="flex items-center text-blue-lightest small-text font-medium group-hover:text-yellow-light transition-colors cursor-pointer mt-auto">
                         <span className="mr-2">Scopri il servizio</span>
                         <svg
@@ -520,7 +525,7 @@ const Index = () => {
                       senza personale extra
                     </p>
 
-                    <Link legacyBehavior href="/ai-automations">
+<Link legacyBehavior href={hrefFor(PATHNAMES.services.aiAutomations, locale)}>
                       <a className="flex items-center text-blue-lightest small-text font-medium group-hover:text-yellow-light transition-colors cursor-pointer mt-auto">
                         <span className="mr-2">Scopri il servizio</span>
                         <svg
@@ -578,7 +583,7 @@ const Index = () => {
                       appuntamenti all’istante
                     </p>
 
-                    <Link legacyBehavior href="/voice-ai">
+<Link legacyBehavior href={hrefFor(PATHNAMES.services.voiceAI, locale)}>
                       <a className="flex items-center text-blue-lightest small-text font-medium group-hover:text-yellow-light transition-colors cursor-pointer mt-auto">
                         <span className="mr-2">Scopri il servizio</span>
                         <svg
@@ -704,9 +709,9 @@ const Index = () => {
             </div>
           </div>
           <div className="mt-8 text-center">
-            <CTAButton href="/jumpstart-audit" variant="primary" size="medium">
-              Scopri Jumpstart
-            </CTAButton>
+<CTAButton href={hrefFor(PATHNAMES.pages.jumpstartAudit, locale)} variant="primary" size="medium">
+  Scopri Jumpstart
+</CTAButton>
           </div>
 
           <div className="mt-16">
@@ -960,8 +965,8 @@ const Index = () => {
             <p className="body-text text-white/90 mb-8 max-w-2xl mx-auto">
               Scopri come le nostre soluzioni AI-powered possono accelerare la crescita nel tuo mercato, con una call conoscitiva gratuita.
             </p>
-            <CTAButton
-              href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
+<CTAButton
+  href={getCtaHref("booking", locale)}
               variant="secondary"
               size="medium"
               external={true}
@@ -1044,8 +1049,8 @@ const Index = () => {
                 data-aos-offset={50}
               >
                 <div className="rounded-xl overflow-hidden shadow-2xl">
-                  <iframe
-                    src="https://api.leadconnectorhq.com/widget/bookings/automis-it"
+<iframe
+  src={getCtaHref("booking", locale)}
                     width="100%"
                     height="600"
                     frameBorder="0"
@@ -1100,8 +1105,8 @@ const Index = () => {
                 className="overflow-auto"
                 style={{ height: "calc(90vh - 80px)" }}
               >
-                <iframe
-                  src="https://api.leadconnectorhq.com/widget/bookings/automis-it"
+<iframe
+  src={getCtaHref("booking", locale)}
                   width="100%"
                   height="100%"
                   frameBorder="0"
@@ -1261,8 +1266,8 @@ const Index = () => {
             </div>
 
             <div style={{ borderRadius: "80px", overflow: "hidden" }}>
-              <CTAButton
-                href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
+<CTAButton
+  href={getCtaHref("booking", locale)}
                 variant="secondary"
                 size="medium"
                 external={true}
@@ -1289,8 +1294,8 @@ const Index = () => {
         <div className="mobile-sticky-glow relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-middle via-yellow-light to-blue-lightest rounded-xl blur-lg opacity-60 group-hover:opacity-90 animate-pulse-glow"></div>
           <div className="relative">
-            <CTAButton
-              href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
+<CTAButton
+  href={getCtaHref("booking", locale)}
               variant="secondary"
               size="medium"
               external={true}

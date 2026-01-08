@@ -1,13 +1,16 @@
 "use client";
-import { notFound } from "next/navigation";
+import { notFound, usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 import { caseStudies } from "@/data/caseStudies.it";
 import CTAButton from "@/components/CTAButton";
 import "@/styles/use-cases-sticky-fix.css";
+import { PATHNAMES, getLocaleFromPathname, hrefFor } from "@/utility/pathnames";
 
 const CaseStudyDetailPage = ({ params }) => {
+    const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
   const caseStudy = caseStudies.find((study) => study.slug === params.slug);
 
   if (!caseStudy) {
@@ -25,7 +28,7 @@ const CaseStudyDetailPage = ({ params }) => {
           {}
           <nav className="mb-8" data-aos="fade-down">
             <Link
-              href="/use-cases"
+href={hrefFor(PATHNAMES.pages.useCases, locale)}
               className="inline-flex items-center text-yellow-light hover:text-yellow-dark transition-all duration-300"
             >
               <svg
@@ -41,7 +44,7 @@ const CaseStudyDetailPage = ({ params }) => {
                   d="M15 19l-7-7 7-7"
                 />
               </svg>
-              Back to Use Cases
+{locale === "it" ? "Torna ai Casi Studio" : "Back to Use Cases"}
             </Link>
           </nav>
 

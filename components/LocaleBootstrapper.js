@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-const STORAGE_KEY = "site_lang";
+const STORAGE_KEY = "automis_locale";
 
 function stripLangPrefix(pathname) {
   if (pathname === "/it") return "/";

@@ -24,7 +24,7 @@ import { usePathname, useRouter } from "next/navigation";
  *         (e.g., /it/use-cases -> /use-cases or /it -> /).
  */
 
-const STORAGE_KEY = "site_lang";
+const STORAGE_KEY = "automis_locale";
 
 const LANGS = [
   { code: "en", label: "EN", flag: "🇬🇧" },

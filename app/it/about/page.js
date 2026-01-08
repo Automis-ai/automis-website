@@ -477,9 +477,8 @@ const page = () => {
               <div className="text-center" data-aos="fade-up" data-aos-duration={1500}>
                 <i className="fas fa-quote-left text-yellow-light text-6xl opacity-30 mb-8 block"></i>
                 <h2 className="section-heading text-white font-light italic leading-relaxed mb-8">
-                  "La nostra mission è rendere l’IA sofisticata accessibile e
-                  applicabile, trasformando insight in impatto e click in
-                  clienti."
+                  "La nostra missione è rendere l’intelligenza artificiale avanzata accessibile alle aziende, 
+                  trasformando informazioni complesse in risultati concreti e clienti reali."
                 </h2>
                 <p className="sub-heading text-yellow-light font-semibold">
                   — Il team Automis

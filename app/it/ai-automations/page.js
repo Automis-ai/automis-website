@@ -67,7 +67,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
         "Automazione spese & fatture: acquisisci ricevute, genera fatture e invia richieste di approvazione, automaticamente",
       features: [
         "Riduzione del carico operativo del team commerciale del 25%",
-        "Tempo di risposta ai lead fino a 3× più veloce",
+        "Tempo di risposta ai contatti fino a 3× più veloce",
       ],
       stats: { workload: "25%", response: "3×" },
     },
@@ -78,7 +78,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
       image:
         "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop",
       description:
-        "Selezione & scheduling: pre-qualifica candidati via voce o chat e prenota i colloqui automaticamente",
+        "Selezione & screening: pre-qualifica candidati via voce o chat e prenota i colloqui automaticamente",
       features: [
         "Screening candidati 2× più veloce",
         "30% di riduzione del lavoro amministrativo manuale",
@@ -198,8 +198,8 @@ const [expandedOffering, setExpandedOffering] = useState(null);
                 data-aos="fade-up"
                 data-aos-delay={100}
               >
-                Libera il tuo team per concentrarsi sulla strategia: l’AI gestisce qualificazione lead,
-                follow-up e prenotazione appuntamenti. Trasforma le operazioni con automazioni intelligenti.
+                Libera il tuo team dalle azioni ripetitive per concentrarsi solo sulla strategia: l’AI gestisce qualificazione lead,
+                follow-up e prenotazione appuntamenti. Trasforma il tuo business con automazioni intelligenti.
               </p>
               <div className="flex gap-4 flex-wrap" data-aos="fade-up" data-aos-delay={200}>
                 <CTAButton
@@ -243,10 +243,10 @@ const [expandedOffering, setExpandedOffering] = useState(null);
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {[
-              { icon: "fa-clock", title: "Più tempo", desc: "Recupera fino a 14 ore a settimana per persona" },
-              { icon: "fa-rocket", title: "Più produttività", desc: "Riduci i tempi dei processi del 25% o più" },
-              { icon: "fa-check-circle", title: "Meno errori", desc: "Elimina gli errori di inserimento manuale dati" },
-              { icon: "fa-expand-arrows", title: "Scala facilmente", desc: "Lavora 24/7 senza aumentare l’organico" },
+              { icon: "fa-clock", title: "Più tempo", desc: "Recupera fino a 14 ore a settimana per persona nel tuo team." },
+              { icon: "fa-rocket", title: "Più produttività", desc: "Riduci i tempi di esecuzione dei processi del 25% o più." },
+              { icon: "fa-check-circle", title: "Meno errori", desc: "Elimina gli errori di inserimento manuale dati." },
+              { icon: "fa-expand-arrows", title: "Scala facilmente", desc: "Lavora 24/7 senza aumentare l’organico." },
             ].map((item, index) => (
               <div key={index}>
                 <div
@@ -313,11 +313,11 @@ const [expandedOffering, setExpandedOffering] = useState(null);
                         <div className="flex gap-6 mb-6">
                           <div>
                             <div className="text-3xl font-medium text-blue-middle">{offerings[0].stats.leads}</div>
-                            <div className="small-text text-white/90">Lead in più</div>
+                            <div className="small-text text-white/90">Contatti in più</div>
                           </div>
                           <div>
                             <div className="text-3xl font-medium text-yellow-light">{offerings[0].stats.conversion}</div>
-                            <div className="small-text text-white/90">Conversion Rate</div>
+                            <div className="small-text text-white/90"> Tasso di Conversione</div>
                           </div>
                         </div>
 
@@ -420,7 +420,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
                         </div>
                         <div>
                           <span className="text-2xl font-medium text-blue-middle">{offerings[3].stats.response}</span>
-                          <span className="small-text text-white/90 block">Risposta ai lead</span>
+                          <span className="small-text text-white/90 block">Risposta ai contatti</span>
                         </div>
                       </div>
                       <i className="far fa-arrow-right text-yellow-light text-xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -447,7 +447,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
                       </div>
                       <div className="bg-blue-middle/20 p-4 text-center rounded-xl">
                         <div className="text-3xl font-medium text-yellow-light">{offerings[4].stats.admin}</div>
-                        <div className="small-text text-white/90">meno lavoro admin</div>
+                        <div className="small-text text-white/90">meno lavoro</div>
                       </div>
                     </div>
                   </div>
@@ -473,7 +473,7 @@ const [expandedOffering, setExpandedOffering] = useState(null);
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: "fa-percentage", value: 70, suffix: "%", label: "Riduzione follow-up manuali" },
-              { icon: "fa-tachometer-alt", value: 35, suffix: "%", label: "Lead→Appuntamento più veloce" },
+              { icon: "fa-tachometer-alt", value: 35, suffix: "%", label: "Contatto→ Appuntamento più veloce" },
               { icon: "fa-clock", value: 20, suffix: "+", label: "Ore risparmiate a settimana" },
               { icon: "fa-chart-line", value: 100, suffix: "%", label: "Efficienza scalabile", noCounter: true },
             ].map((stat, index) => (

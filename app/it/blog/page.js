@@ -1,8 +1,13 @@
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
+import { usePathname } from "next/navigation";
+import { getLocaleFromPathname, localizePath } from "@/utility/pathnames";
+import { getCtaHref } from "@/utility/ctaLinks";
 
 const page = () => {
+    const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
   return (
     <AkpagerLayout>
       {/* HERO */}
@@ -45,7 +50,7 @@ const page = () => {
               data-aos-duration={1500}
             >
               <CTAButton
-                href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+href={getCtaHref("booking", locale)}
                 external={true}
                 variant="ghost"
                 size="medium"
@@ -121,9 +126,10 @@ const page = () => {
                       </li>
                     </ul>
                     <h3 className="card-heading font-medium mb-4 max-w-7xl mx-auto">
-                      <Link
-                        href="/blog/ai-automations"
-                        className="text-white hover:text-yellow-light transition-all duration-300"
+<Link
+  href={localizePath("/blog/ai-automations", locale)}
+  className="text-white hover:text-yellow-light transition-all duration-300"
+>
                       >
                         Automazioni AI <br /> Scala senza aumentare lo staff
                       </Link>
@@ -133,10 +139,10 @@ const page = () => {
                       in un unico sistema. Risparmi ore ogni settimana, riduci gli errori e scali più
                       velocemente con processi intelligenti.
                     </p>
-                    <Link
-                      href="/blog/ai-automations"
-                      className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
-                    >
+<Link
+  href={localizePath("/blog/ai-automations", locale)}
+  className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
+>
                       Leggi di più{" "}
                       <i className="far fa-arrow-right transform group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -181,7 +187,7 @@ const page = () => {
                     </ul>
                     <h3 className="card-heading font-medium mb-4">
                       <Link
-                        href="/blog/voice-ai-receptionists"
+href={localizePath("/blog/voice-ai-receptionists", locale)}
                         className="text-white hover:text-yellow-light transition-all duration-300"
                       >
                         Receptionist Voice AI <br /> Il futuro di chiamate e prenotazioni
@@ -193,7 +199,7 @@ const page = () => {
                       si ferma mai.
                     </p>
                     <Link
-                      href="/blog/voice-ai-receptionists"
+href={localizePath("/blog/voice-ai-receptionists", locale)}
                       className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
                     >
                       Leggi di più{" "}
@@ -240,7 +246,7 @@ const page = () => {
                     </ul>
                     <h3 className="card-heading font-medium mb-4">
                       <Link
-                        href="/blog/ai-optimized-paid-ads"
+href={localizePath("/blog/ai-optimized-paid-ads", locale)}
                         className="text-white hover:text-yellow-light transition-all duration-300"
                       >
                         Paid Ads ottimizzate con AI <br /> Dai click agli appuntamenti
@@ -251,7 +257,7 @@ const page = () => {
                       follow-up per trasformare il budget in chiamate prenotate — non solo lead.
                     </p>
                     <Link
-                      href="/blog/ai-optimized-paid-ads"
+href={localizePath("/blog/ai-optimized-paid-ads", locale)}
                       className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
                     >
                       Leggi di più{" "}
@@ -280,7 +286,7 @@ const page = () => {
                     aiutarti a scalare in modo più veloce ed efficiente.
                   </p>
                   <CTAButton
-                    href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+href={getCtaHref("booking", locale)}
                     external={true}
                     variant="primary"
                     size="medium"

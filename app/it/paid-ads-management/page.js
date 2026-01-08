@@ -253,7 +253,7 @@ const PaidAdsManagementPage = () => {
         </div>
       </section>
 
-      {/* DELIVERABLES */}
+      {/* Risultati attesi */}
       <section className="section-padding bg-deep-blue relative">
         <div className="container mx-auto px-4">
           <div className="text-center">
@@ -262,7 +262,7 @@ const PaidAdsManagementPage = () => {
               data-aos="fade-down"
               data-aos-duration={1000}
             >
-              Deliverable chiave
+              Risultato chiave
             </span>
             <h2
               className="section-heading text-white mb-12"
@@ -411,9 +411,9 @@ const PaidAdsManagementPage = () => {
             },
             {
               step: "02",
-              title: "Build delle campagne",
+              title: "Settaggio delle campagne",
               description:
-                "Setup ad set/gruppi, creatività e tracking end-to-end.",
+                "Setup gruppi di annunci, creatività e tracking.",
               icon: <Settings className="w-6 h-6 text-white" />,
             },
             {
@@ -514,23 +514,23 @@ const PaidAdsManagementPage = () => {
             {
               icon: <Building2 className="w-10 h-10 text-bright-blue" />,
               title: "Business a prenotazione",
-              subtitle: "Dentisti, Med-Spa, Beauty",
+              subtitle: "Dentisti, Cliniche Estetiche, Centri di bellezza",
               image:
                 "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop",
               accent: "var(--bright-blue)",
             },
             {
               icon: <Home className="w-10 h-10 text-soft-blue" />,
-              title: "Real estate & property",
-              subtitle: "Agenti, broker, commerciale",
+              title: "Immobiliare",
+              subtitle: "Agenti, Brokers, Commerciali",
               image:
                 "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
               accent: "var(--soft-blue)",
             },
             {
               icon: <Sun className="w-10 h-10 text-soft-blue" />,
-              title: "Aziende lead-gen",
-              subtitle: "Solare, assicurazioni, legale",
+              title: "Aziende che generano contatti",
+              subtitle: "Solare, Assicurazioni, Avvocati",
               image:
                 "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop",
               accent: "var(--soft-blue)",
@@ -538,7 +538,7 @@ const PaidAdsManagementPage = () => {
             {
               icon: <Users className="w-10 h-10 text-warm-yellow" />,
               title: "Agenzie",
-              subtitle: "Marketing, performance, sales",
+              subtitle: "Marketing, Pubblicità, Venditori",
               image:
                 "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
               accent: "var(--warm-yellow)",
