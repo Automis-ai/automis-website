@@ -55,20 +55,21 @@ const page = () => {
   data-aos-offset="50"
   className="hero-heading !text-5xl text-white font-montserrat hero-text-align"
 >
-  {/* MOBILE: riga 1 | DESKTOP: inline */}
-  <span className="block lg:inline">Converti subito</span>
-
-  {/* MOBILE: riga 2 | DESKTOP: inline con spazi */}
-  <span className="block lg:inline">
-    <span className="lg:mx-2">i tuoi</span>
-    <span className="text-text-blue">contatti</span>
+  {/* MOBILE riga 1 | DESKTOP inline */}
+  <span className="block md:inline">
+    Converti subito i{" "}
   </span>
 
-  {/* DESKTOP: vai a capo solo su lg+ */}
-  <br className="hidden lg:block" />
+  {/* MOBILE riga 2 | DESKTOP inline */}
+  <span className="block md:inline">
+    tuoi <span className="text-text-blue">contatti</span>
+  </span>
 
-  {/* MOBILE: riga 3 | DESKTOP: inline */}
-  <span className="block lg:inline">
+  {/* DESKTOP: a capo da md in su */}
+  <br className="hidden md:block" />
+
+  {/* MOBILE riga 3 | DESKTOP inline */}
+  <span className="block md:inline">
     in <span className="text-text-blue">appuntamenti</span>
   </span>
 </h2>

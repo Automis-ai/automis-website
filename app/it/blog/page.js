@@ -183,7 +183,7 @@ href="/it/blog/ai-automations"
                     </ul>
                     <h3 className="card-heading font-medium mb-4">
                       <Link
-href="/blog/voice-ai-receptionists"
+href="/it/blog/voice-ai-receptionists"
                         className="text-white hover:text-yellow-light transition-all duration-300"
                       >
                         Receptionist Voice AI <br /> Il futuro di chiamate e prenotazioni
@@ -195,7 +195,7 @@ href="/blog/voice-ai-receptionists"
                       si ferma mai.
                     </p>
                     <Link
-href="/blog/voice-ai-receptionists"
+href="/it/blog/voice-ai-receptionists"
                       className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
                     >
                       Leggi di più{" "}
@@ -242,7 +242,7 @@ href="/blog/voice-ai-receptionists"
                     </ul>
                     <h3 className="card-heading font-medium mb-4">
                       <Link
-href="/blog/ai-optimized-paid-ads"
+href="/it/blog/ai-optimized-paid-ads"
                         className="text-white hover:text-yellow-light transition-all duration-300"
                       >
                         Paid Ads ottimizzate con AI <br /> Dai click agli appuntamenti
@@ -253,7 +253,7 @@ href="/blog/ai-optimized-paid-ads"
                       follow-up per trasformare il budget in chiamate prenotate — non solo lead.
                     </p>
                     <Link
-href="/blog/ai-optimized-paid-ads"
+href="/it/blog/ai-optimized-paid-ads"
                       className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
                     >
                       Leggi di più{" "}
