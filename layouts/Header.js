@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import CTAButton from "@/components/CTAButton";
 import { PATHNAMES, getLocaleFromPathname, hrefFor } from "@/utility/pathnames";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { getCtaHref } from "@/utility/ctaLinks";
 
 const Header = ({ header, onePage, hideHeaderNav = false }) => {
   switch (header) {
@@ -221,39 +222,50 @@ useEffect(() => {
 <div className="menu-btns !hidden menu-break:!flex items-center gap-3">
   <LanguageSwitcher />
 
-  <CTAButton
-    href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
-    external={true}
-    variant="primary"
-    size="small"
-  >
-    {locale === "it" ? "Prenota una call" : "Book Discovery Call"}
-  </CTAButton>
+<CTAButton
+  href={getCtaHref("booking", locale)}
+  external={true}
+  variant="primary"
+  size="small"
+>
+  {locale === "it" ? "Prenota una call" : "Book Discovery Call"}
+</CTAButton>
 </div>
 
-              {/* Mobile Menu Button */}
-              <button
-                className="menu-break:hidden flex items-center justify-center w-10 h-10 relative rounded-full hover:bg-white/10 transition-all duration-300"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Open menu"
-                aria-expanded={mobileMenuOpen}
-              >
-                <div className="relative w-6 h-5 flex flex-col justify-center">
-                  <span
-                    className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
-                    style={{ transform: mobileMenuOpen ? "rotate(45deg)" : "translateY(-8px)" }}
-                  />
-                  <span
-                    className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
-                    style={{ opacity: mobileMenuOpen ? 0 : 1 }}
-                  />
-                  <span
-                    className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
-                    style={{ transform: mobileMenuOpen ? "rotate(-45deg)" : "translateY(8px)" }}
-                  />
-                </div>
-              </button>
-            </div>
+{/* Mobile top-bar actions */}
+<div className="menu-break:hidden flex items-center gap-2">
+  {/* Language switcher visible in the top bar */}
+  <LanguageSwitcher
+    align="right"
+    className="scale-[0.95]"
+    persist={true}
+    autoDetectFirstVisit={true}
+    validateRoute={false}
+  />
+
+  {/* Mobile Menu Button */}
+  <button
+    className="flex items-center justify-center w-10 h-10 relative rounded-full hover:bg-white/10 transition-all duration-300"
+    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+    aria-label="Open menu"
+    aria-expanded={mobileMenuOpen}
+  >
+    <div className="relative w-6 h-5 flex flex-col justify-center">
+      <span
+        className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
+        style={{ transform: mobileMenuOpen ? "rotate(45deg)" : "translateY(-8px)" }}
+      />
+      <span
+        className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
+        style={{ opacity: mobileMenuOpen ? 0 : 1 }}
+      />
+      <span
+        className="absolute block w-6 h-0.5 bg-white transition-all duration-300 ease-out"
+        style={{ transform: mobileMenuOpen ? "rotate(-45deg)" : "translateY(8px)" }}
+      />
+    </div>
+  </button>
+</div>
           </div>
         </div>
       </header>
@@ -292,36 +304,60 @@ useEffect(() => {
         </button>
 
         <nav className="pt-24 px-6 pb-6 h-full overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-          <MobileMenuContent
-            menus={menus}
-            onePage={onePage}
-            activeLink={activeLink}
-            setActiveLink={setActiveLink}
-            setMobileMenuOpen={setMobileMenuOpen}
-            locale={locale}
-          />
+<MobileMenuContent
+  menus={menus}
+  onePage={onePage}
+  activeLink={activeLink}
+  setActiveLink={setActiveLink}
+  setMobileMenuOpen={setMobileMenuOpen}
+  locale={locale}
+/>
         </nav>
       </div>
     </>
   );
 };
 
-const MobileMenuContent = ({ menus, onePage, activeLink, setActiveLink, setMobileMenuOpen, locale }) => {
+const MobileMenuContent = ({
+  menus,
+  onePage,
+  activeLink,
+  setActiveLink,
+  setMobileMenuOpen,
+  locale,
+}) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   return (
     <div className="flex flex-col h-full">
+      {/* Language switcher (mobile) */}
+      <div className="mb-6">
+        <div className="flex items-center justify-between">
+          <span className="text-white/70 text-sm font-semibold">
+            {locale === "it" ? "Lingua" : "Language"}
+          </span>
+          <LanguageSwitcher />
+        </div>
+      </div>
+
+      {/* Menu */}
       <ul className="flex-1">
         {menus.map((menu) => (
           <li key={menu.id} className="mb-2">
             {menu.submenus ? (
               <>
                 <button
-                  onClick={() => setActiveDropdown(activeDropdown === menu.id ? null : menu.id)}
+                  onClick={() =>
+                    setActiveDropdown(activeDropdown === menu.id ? null : menu.id)
+                  }
                   className="w-full text-left text-white text-lg py-3 px-3 flex items-center justify-between hover:text-[#3C91E6] hover:bg-white/5 rounded-lg transition-all duration-300"
                 >
                   {menu.title}
-                  <span className={`far fa-angle-down transition-transform ${activeDropdown === menu.id ? "rotate-180" : ""}`} />
+                  <span
+                    className={`far fa-angle-down transition-transform ${
+                      activeDropdown === menu.id ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
 
                 {activeDropdown === menu.id && (
@@ -361,14 +397,19 @@ const MobileMenuContent = ({ menus, onePage, activeLink, setActiveLink, setMobil
         ))}
       </ul>
 
+      {/* CTA (localized calendar) */}
       <div className="mt-auto pt-6 border-t border-white/10">
         <a
-          href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+          href={getCtaHref("booking", locale)}
           className="block w-full bg-gradient-to-r from-[#3C91E6] to-[#5BA3ED] text-white text-center py-4 rounded-2xl font-semibold hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
           onClick={() => setMobileMenuOpen(false)}
         >
           {locale === "it" ? "Prenota una call" : "Book Discovery Call"}
         </a>
+
+        <p className="text-center text-white/60 text-xs mt-3">
+          {locale === "it" ? "15 minuti • Nessun impegno" : "15 minutes • No commitment"}
+        </p>
       </div>
     </div>
   );
