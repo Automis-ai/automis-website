@@ -7,7 +7,7 @@ import FAQSection from "@/components/FAQSection";
 const blogPosts = {
   "ai-automations": {
     title: "Automazioni AI <br/> Scala senza aumentare lo staff",
-    metaTitle: "Automazioni AI per aziende | CRM, workflow & nurturing lead",
+    metaTitle: "Automazioni AI per aziende | CRM, workflow & nurturing contatto",
     metaDescription:
       "Scala più velocemente con automazioni AI. Collega CRM, calendario, ads e follow-up con i workflow Automis. Risparmia tempo, riduci i costi e aumenta gli appuntamenti prenotati.",
     author: "Team Automis",
@@ -17,13 +17,13 @@ const blogPosts = {
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
     content: {
       intro:
-        "Le automazioni AI collegano CRM, calendario, ads e strumenti di comunicazione in un unico sistema. Invece di dipendere dal follow-up manuale del team, Automis costruisce workflow guidati dall’AI che qualificano i lead, prenotano appuntamenti e inviano promemoria in automatico. Il risultato? Ore risparmiate ogni settimana, meno errori umani e una crescita più rapida grazie all’efficienza dell’AI. Per i business basati su appuntamenti, fa davvero la differenza tra lead persi e crescita costante.",
+        "Le automazioni AI collegano CRM, calendario, ads e strumenti di comunicazione in un unico sistema. Invece di dipendere dal follow-up manuale del team, Automis costruisce workflow guidati dall’AI che qualificano i contatti, prenotano appuntamenti e inviano promemoria in automatico. Il risultato? Ore risparmiate ogni settimana, meno errori umani e una crescita più rapida grazie all’efficienza dell’AI. Per i business basati su appuntamenti, fa davvero la differenza tra contatti persi e crescita costante.",
       sections: [
         { type: "heading", level: 2, content: "Cosa sono le automazioni AI?" },
         {
           type: "paragraph",
           content:
-            "Le automazioni AI sono workflow intelligenti che sostituiscono attività ripetitive con processi automatici. Invece di copiare lead a mano, inviare promemoria e aggiornare il CRM manualmente, l’automazione lo fa in modo istantaneo e affidabile. Automis crea sistemi end-to-end che collegano ads, CRM, calendario e comunicazioni per non sprecare nessun lead.",
+            "Le automazioni AI sono workflow intelligenti che sostituiscono attività ripetitive con processi automatici. Invece di copiare contatto a mano, inviare promemoria e aggiornare il CRM manualmente, l’automazione lo fa in modo istantaneo e affidabile. Automis crea sistemi end-to-end che collegano ads, CRM, calendario e comunicazioni per non sprecare nessun contatto.",
         },
         {
           type: "heading",
@@ -33,9 +33,9 @@ const blogPosts = {
         {
           type: "list",
           items: [
-            "**La velocità è tutto**: il 70% dei lead “si raffredda” se non viene contattato entro 5 minuti",
+            "**La velocità è tutto**: il 70% dei contatti “si raffredda” se non viene contattato entro 5 minuti",
             "**Il carico sul team costa**: 10–20 ore/settimana sprecate in attività amministrative",
-            "**La coerenza vince**: l’AI garantisce a ogni lead la stessa esperienza rapida e di qualità",
+            "**La coerenza vince**: l’AI garantisce a ogni contatto la stessa esperienza rapida e di qualità",
           ],
         },
         {
@@ -46,7 +46,7 @@ const blogPosts = {
         {
           type: "numbered-list",
           items: [
-            "Lead acquisito da ads/form",
+            "Contatto acquisito da ads/form",
             "Qualifica immediata tramite receptionist AI o chatbot",
             "Sync nel CRM (HubSpot, Salesforce, GoHighLevel)",
             "Prenotazione nel calendario",
@@ -64,10 +64,10 @@ const blogPosts = {
           items: [
             { icon: "fa-clock", title: "Risparmio di tempo", desc: "10–20 ore/settimana" },
             { icon: "fa-chart-line", title: "Più conversioni", desc: "30–40% più prenotazioni" },
-            { icon: "fa-money-bill-wave", title: "Riduzione costi", desc: "Meno carico admin sul team" },
-            { icon: "fa-expand", title: "Scalabilità", desc: "50 o 5.000 lead" },
-            { icon: "fa-check-double", title: "Dati accurati", desc: "Sync 100% automatizzato" },
-            { icon: "fa-lightbulb", title: "Insight migliori", desc: "Analytics in tempo reale" },
+            { icon: "fa-money-bill-wave", title: "Riduzione costi", desc: "Meno carico sul team" },
+            { icon: "fa-expand", title: "Scalabilità", desc: "da 50 a 5.000 contatti" },
+            { icon: "fa-check-double", title: "Dati accurati", desc: "Sincronizzazione 100% " },
+            { icon: "fa-lightbulb", title: "Dati migliori", desc: "Analytics in tempo reale" },
           ],
         },
         { type: "heading", level: 2, content: "Use case per settore" },
@@ -77,14 +77,14 @@ const blogPosts = {
             {
               title: "Sanità",
               icon: "fa-heartbeat",
-              description: "Intake pazienti, conferme, promemoria",
+              description: "Prenotazioni, conferme, promemoria",
               image:
                 "https://images.unsplash.com/photo-1559328002-7092c0b3b50a?w=600&h=400&fit=crop",
             },
             {
-              title: "Home Services",
+              title: "Pronto Intervento h24",
               icon: "fa-tools",
-              description: "Pianificazione interventi, dispatch, promemoria",
+              description: "Pianificazione interventi, lavori, promemoria",
               image:
                 "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
             },
@@ -92,7 +92,7 @@ const blogPosts = {
               title: "Immobiliare",
               icon: "fa-home",
               description:
-                "Richiamate immediate, follow-up persistenti, prenotazione visite",
+                "Chiamate immediate, follow-up continui, prenotazione visite",
               image:
                 "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
             },
@@ -103,17 +103,17 @@ const blogPosts = {
           type: "table",
           headers: ["Attività", "Team manuale", "Con automazione AI"],
           rows: [
-            ["Follow-up lead", "5–10 min ciascuno", "Immediato, 24/7"],
+            ["Follow-up contatto", "5–10 min ciascuno", "Immediato, 24/7"],
             ["Inserimento CRM", "Soggetto a errori", "Sync automatizzato"],
             ["Promemoria", "Messaggi/chiamate manuali", "Multi-canale automatizzato"],
-            ["Costo mensile", "$3K–$5K personale", "$200–$500 strumenti"],
+            ["Costo mensile", "€3K–€5K personale", "€200–€500 strumenti"],
           ],
         },
         { type: "heading", level: 2, content: "Case study – Automazione follow-up pazienti" },
         {
           type: "case-study",
           title:
-            "MedSpa in California perdeva il 40% dei lead da ads. Dopo le automazioni Automis:",
+            "MedSpa in California perdeva il 40% dei contatti da ads. Dopo le automazioni Automis:",
           metrics: [
             { value: "100%", label: "lead contattati in <1 minuto" },
             { value: "65%", label: "prenotazioni (da 35%)" },
@@ -151,7 +151,7 @@ const blogPosts = {
       {
         question: "Quali attività posso automatizzare?",
         answer:
-          "Acquisizione lead, inserimento nel CRM, promemoria, riprogrammazione, follow-up, reportistica.",
+          "Acquisizione contatto, inserimento nel CRM, promemoria, riprogrammazione, follow-up, reportistica.",
       },
       {
         question: "Le automazioni sostituiscono il team?",
@@ -171,7 +171,7 @@ const blogPosts = {
     title: "Receptionist Voice AI <br/> Il futuro di chiamate e prenotazioni",
     metaTitle: "Receptionist Voice AI | Risposta 24/7 & prenotazioni",
     metaDescription:
-      "Scopri come i receptionist Voice AI rispondono 24/7, qualificano i lead e aumentano gli appuntamenti prenotati. Mai più chiamate perse con receptionist AI.",
+      "Scopri come i receptionist Voice AI rispondono 24/7, qualificano i contatti e aumentano gli appuntamenti prenotati. Mai più chiamate perse con receptionist AI.",
     author: "Team Automis",
     date: "Gennaio 2025",
     category: "Voice AI",
@@ -179,7 +179,7 @@ const blogPosts = {
       "https://images.unsplash.com/photo-1590650213165-c1fef80648c4?w=800&h=600&fit=crop",
     content: {
       intro:
-        "Un receptionist Voice AI è un agente telefonico basato su intelligenza artificiale che risponde a ogni chiamata 24/7, qualifica i lead e prenota appuntamenti direttamente nel CRM. A differenza di personale interno o call center, garantisce zero chiamate perse, tempi di risposta più rapidi e un tasso lead→prenotazione più alto. È il modo più affidabile per i business basati su appuntamenti (dentisti, HVAC, agenzie immobiliari) di scalare senza aumentare i costi di staffing.",
+        "Un receptionist Voice AI è un agente telefonico basato su intelligenza artificiale che risponde a ogni chiamata 24/7, qualifica i contatti e prenota appuntamenti direttamente nel CRM. A differenza di personale interno o call center, garantisce zero chiamate perse, tempi di risposta più rapidi e un tasso contatto→ prenotazione più alto. È il modo più affidabile per i business basati su appuntamenti (dentisti, HVAC, agenzie immobiliari) di scalare senza aumentare i costi di staffing.",
       sections: [
         { type: "heading", level: 2, content: "Cos’è un receptionist Voice AI?" },
         {
@@ -191,14 +191,14 @@ const blogPosts = {
         {
           type: "paragraph",
           content:
-            "Chiamate perse = ricavi persi. In sanità e home services, spesso il 40–60% delle chiamate inbound viene perso nelle ore di punta. Nell’HVAC, una chiamata persa può significare perdere un lavoro da $500+. Nell’immobiliare, un lead “si raffredda” se non viene contattato entro 5 minuti. La Voice AI elimina le opportunità perse. Rispetto a personale o call center, è più economica, più veloce e scalabile.",
+            "Chiamate perse = ricavi persi. In sanità e home services, spesso il 40–60% delle chiamate inbound viene perso nelle ore di punta. Nell’HVAC, una chiamata persa può significare perdere un lavoro da $500+. Nell’immobiliare, un contatto “si raffredda” se non viene contattato entro 5 minuti. La Voice AI elimina le opportunità perse. Rispetto a personale o call center, è più economica, più veloce e scalabile.",
         },
         { type: "heading", level: 2, content: "Come funziona un receptionist Voice AI" },
         {
           type: "list",
           items: [
             "**Risposta e instradamento chiamate** – accoglie il chiamante, gestisce FAQ, smista urgenze.",
-            "**Qualifica lead e prenotazione** – raccoglie dati, qualifica e prenota direttamente nel CRM.",
+            "**Qualifica contatto e prenotazione** – raccoglie dati, qualifica e prenota direttamente nel CRM.",
             "**Integrazione CRM & calendario** – sync con GoHighLevel, HubSpot, Salesforce, Google Calendar.",
           ],
         },
@@ -207,7 +207,7 @@ const blogPosts = {
           type: "benefits-grid",
           items: [
             { icon: "fa-clock", title: "Disponibile 24/7", desc: "Mai più chiamate perse" },
-            { icon: "fa-rocket", title: "Lead→prenotazione più veloce", desc: "Risposta e booking immediati" },
+            { icon: "fa-rocket", title: "Contatto →prenotazione più veloce", desc: "Risposta e booking immediati" },
             { icon: "fa-dollar-sign", title: "Costi ridotti", desc: "Fino all’80% in meno vs staff tradizionale" },
             { icon: "fa-expand-arrows-alt", title: "Scalabile", desc: "50 o 5.000 chiamate" },
             { icon: "fa-chart-bar", title: "Dati & insight", desc: "Tracciamento di ogni interazione" },
@@ -248,7 +248,7 @@ const blogPosts = {
             ["Disponibilità", "9–17 (feriali)", "24/7", "24/7"],
             ["Costo (annuo)", "$35K–$50K", "$1.50+/min", "$500–$1000/mese"],
             ["Tempo di risposta", "3–5 squilli", "2–3 squilli", "Immediato"],
-            ["Qualifica lead", "Variabile", "Limitata", "Coerente, con script"],
+            ["Qualifica Contatti", "Variabile", "Limitata", "Coerente, con script"],
             ["Integrazione CRM", "Manuale", "Rara", "Nativa + automatizzata"],
             ["Scalabilità", "Bassa", "Media", "Alta"],
           ],
@@ -282,7 +282,7 @@ const blogPosts = {
       {
         question: "Cos’è un receptionist Voice AI?",
         answer:
-          "Un agente telefonico AI che risponde 24/7, qualifica i lead e prenota appuntamenti direttamente nel tuo CRM.",
+          "Un agente telefonico AI che risponde 24/7, qualifica i contatti e prenota appuntamenti direttamente nel tuo CRM.",
       },
       { question: "Si integra con il mio CRM?", answer: "Sì, con i principali CRM e calendari." },
       { question: "È conveniente?", answer: "Sì: costa molto meno di staff o call center." },
@@ -296,7 +296,7 @@ const blogPosts = {
     title: "Paid Ads ottimizzate con AI <br/> Dai click agli appuntamenti",
     metaTitle: "Paid Ads ottimizzate con AI | Campagne più smart, più appuntamenti",
     metaDescription:
-      "Campagne adv potenziate dall’AI. Automis ottimizza bidding, creatività e follow-up per trasformare il budget in chiamate prenotate — non solo lead.",
+      "Campagne adv potenziate dall’AI. Automis ottimizza bidding, creatività e follow-up per trasformare il budget in chiamate prenotate — non solo contatti.",
     author: "Team Automis",
     date: "Gennaio 2025",
     category: "Paid Ads",
@@ -334,7 +334,7 @@ const blogPosts = {
         {
           type: "paragraph",
           content:
-            "Così ogni euro speso è tracciabile da click → lead → chiamata → prenotazione.",
+            "Così ogni euro speso è tracciabile da click → contatto → chiamata → prenotazione.",
         },
         { type: "heading", level: 2, content: "Perché serve l’AI nella pubblicità" },
         { type: "heading", level: 3, content: "Costi adv in crescita:" },
@@ -343,14 +343,14 @@ const blogPosts = {
           items: [
             "Negli ultimi 3 anni, CPC su Google e Meta sono aumentati del 30–50%.",
             "Senza ottimizzazione, paghi di più per ottenere meno.",
-            "L’AI ottimizza le offerte per ridurre sprechi e migliorare il costo/lead.",
+            "L’AI ottimizza le offerte per ridurre sprechi e migliorare il costo per contatto.",
           ],
         },
-        { type: "heading", level: 3, content: "Lead sprecati senza follow-up:" },
+        { type: "heading", level: 3, content: "Contatti sprecati senza follow-up:" },
         {
           type: "list",
           items: [
-            "Oltre il 50% dei lead da ads va perso perché non viene contattato in tempo",
+            "Oltre il 50% dei contatti da ads va perso perché non viene contattato in tempo",
             "L’AI collega ads e Voice AI, garantendo un contatto immediato",
           ],
         },
@@ -358,7 +358,7 @@ const blogPosts = {
         {
           type: "paragraph",
           content:
-            "Molti report si fermano ai “lead generati”. Con AI + integrazione CRM, mostriamo il ROI reale: costo per appuntamento, non costo per lead.",
+            "Molti report si fermano ai “contatti generati”. Con AI + integrazione CRM, mostriamo il ROI reale: costo per appuntamento, non costo per lead.",
         },
         { type: "heading", level: 2, content: "Come funzionano le Paid Ads ottimizzate con AI" },
         {
@@ -367,7 +367,7 @@ const blogPosts = {
             "Setup campagne – l’AI analizza i dati audience per un targeting migliore.",
             "Smart bidding – aggiustamenti delle offerte in tempo reale.",
             "Creatività dinamiche – test continui su headline, immagini, CTA.",
-            "Passaggio lead – i lead vengono assegnati a receptionist AI o chatbot.",
+            "Passaggio contatto – i contatti vengono assegnati a receptionist AI o chatbot.",
             "Attribuzione – integrazione CRM traccia ads → chiamata → prenotazione.",
           ],
         },
@@ -732,7 +732,7 @@ const BlogPostPage = ({ params }) => {
                     </h2>
                     <p className="body-text text-white/90 mb-8 max-w-xl mx-auto">
                       Scopri come le nostre soluzioni basate su AI possono aiutarti a scalare più
-                      velocemente, convertire più lead e automatizzare i tuoi processi.
+                      velocemente, convertire più contatti e automatizzare i tuoi processi.
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
                       <CTAButton
