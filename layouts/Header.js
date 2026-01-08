@@ -500,29 +500,33 @@ const Nav = ({ onePage, menus, activeLink, setActiveLink, locale }) => {
                         }}
                       />
                     </a>
-                  ) : (
-style={{
-  color: activeLink === menu.key ? "#3C91E6" : "",
-  position: "relative",
-  transition: "color 0.2s ease",
-  cursor: "pointer",
-  whiteSpace: "nowrap",
-}}
-                      {menu.title}
-                      {activeLink === menu.key && (
-                        <span
-                          style={{
-                            position: "absolute",
-                            bottom: "-2px",
-                            left: "0",
-                            width: "100%",
-                            height: "2px",
-                            backgroundColor: "#3C91E6",
-                          }}
-                        />
-                      )}
-                    </Link>
-                  )}
+) : (
+  <Link
+    href={menu.href || "/"}
+    onClick={() => setActiveLink(menu.key)}
+    style={{
+      color: activeLink === menu.key ? "#3C91E6" : "",
+      position: "relative",
+      transition: "color 0.2s ease",
+      cursor: "pointer",
+      whiteSpace: "nowrap",
+    }}
+  >
+    {menu.title}
+    {activeLink === menu.key && (
+      <span
+        style={{
+          position: "absolute",
+          bottom: "-2px",
+          left: "0",
+          width: "100%",
+          height: "2px",
+          backgroundColor: "#3C91E6",
+        }}
+      />
+    )}
+  </Link>
+)}
 
                   {menu.submenus && (
                     <ul
