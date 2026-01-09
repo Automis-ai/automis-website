@@ -9,7 +9,7 @@ const ClientLogosCarousel = ({
       id: 1,
       src: "/assets/images/client-logos/logo-1.jpg",
       alt: "Dati Ascensori",
-      scaleDesktop: 1.45,
+      scaleDesktop: 1.20,
       scaleMobile: 1.1,
     },
     {
