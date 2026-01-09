@@ -5,66 +5,68 @@ const page = () => {
   return (
     <AkpagerLayout>
       {}
-      <section
-        className="relative overflow-hidden bg-bg-primary hero-padding"
+<section 
+className="relative overflow-hidden bg-bg-primary hero-padding">
+  {/* background blobs */}
+  <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+    <div className="absolute top-20 left-10 w-72 h-72 bg-blue-middle/5 rounded-full blur-3xl" />
+    <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-lightest/5 rounded-full blur-3xl" />
+  </div>
+
+  {/* gradient overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary pointer-events-none" />
+
+  {/* subtle texture */}
+  <div
+    className="absolute inset-0 opacity-[0.02]"
+    style={{
+      backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  />
+
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="text-center max-w-4xl mx-auto">
+      <span
+        className="inline-flex items-center gap-2 bg-blue-darkest/30 backdrop-blur-lg text-blue-middle px-6 py-3 rounded-xl small-text font-medium mb-6 border border-blue-middle/20"
+        data-aos="fade-up"
+        data-aos-duration={1500}
       >
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <span
-              className="inline-flex items-center gap-2 bg-blue-darkest/30 backdrop-blur-lg text-blue-middle px-6 py-3 rounded-xl small-text font-medium mb-6 border border-blue-middle/20"
-              data-aos="fade-up"
-              data-aos-duration={1500}
-            >
-              <i className="fas fa-blog" />
-              Insights & Updates
-            </span>
+        <i className="fas fa-blog" />
+        Insights & Updates
+      </span>
 
-            <h1
-              className="hero-heading mb-6"
-              data-aos="fade-up"
-              data-aos-delay={100}
-              data-aos-duration={1500}
-            >
-              <span className="text-white">Discover Our</span>{' '}
-              <span className="text-text-blue">
-                Latest Insights
-              </span>
-            </h1>
+      <h1
+        className="hero-heading mb-6"
+        data-aos="fade-up"
+        data-aos-delay={100}
+        data-aos-duration={1500}
+      >
+        <span className="text-white">Discover Our</span>{" "}
+        <span className="text-text-blue">Latest Insights</span>
+      </h1>
 
-            <p
-              className="sub-heading text-white/90 mb-8 leading-relaxed"
-              data-aos="fade-up"
-              data-aos-delay={200}
-              data-aos-duration={1500}
-            >
-              Explore expert articles on AI-powered marketing, automation strategies,
-              and <br/> growth tactics to transform your business
-            </p>
+      <p
+        className="sub-heading text-white/90 mb-8 leading-relaxed"
+        data-aos="fade-up"
+        data-aos-delay={200}
+        data-aos-duration={1500}
+      >
+        Explore expert articles on AI-powered marketing, automation strategies, and <br />
+        growth tactics to transform your business
+      </p>
 
-            <div
-              className="flex flex-wrap gap-4 justify-center"
-              data-aos="fade-up"
-              data-aos-delay={300}
-              data-aos-duration={1500}
-            >
-
-        {}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-middle/5 rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-lightest/5 rounded-full filter blur-3xl"></div>
-        </div>
-
-        {}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary pointer-events-none"></div>
-
-<div
-  className="absolute inset-0 opacity-[0.02]"
-  style={{
-    backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
-/>
+      <div
+        className="flex flex-wrap gap-4 justify-center"
+        data-aos="fade-up"
+        data-aos-delay={300}
+        data-aos-duration={1500}
+      >
+        {/* (Optional) CTA buttons can go here */}
+      </div>
+    </div>
+  </div>
 </section>
 
 <section className="section-padding bg-bg-primary">
