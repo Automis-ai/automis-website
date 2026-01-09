@@ -1,144 +1,152 @@
 'use client';
 import React from "react";
 
-const ClientLogosCarousel = ({ title = "Trusted by Leading Brands Worldwide" }) => {
-  /**
-   * Optional: set tone: "dark" for logos that are too dark on a dark background.
-   * This will apply stronger brightness/contrast to improve readability.
-   *
-   * Examples:
-   * { id: 2, src: "/assets/images/client-logos/logo-2.png", alt: "...", tone: "dark" }
-   */
+const ClientLogosCarousel = ({
+  title = "Trusted by Leading Brands Worldwide",
+}) => {
   const clientLogos = [
-    { id: 1, src: "/assets/images/client-logos/logo-1.jpg", alt: "Partner company logo - trusted brand using Automis AI solutions" },
-    { id: 2, src: "/assets/images/client-logos/logo-2.png", alt: "Partner company logo - trusted brand using Automis AI solutions", tone: "dark" },
-    { id: 3, src: "/assets/images/client-logos/logo-3.svg", alt: "Partner company logo - trusted brand using Automis AI solutions", tone: "dark" },
-    { id: 4, src: "/assets/images/client-logos/logo-4.png", alt: "Partner company logo - trusted brand using Automis AI solutions" },
-    { id: 6, src: "/assets/images/client-logos/logo-6.jpg", alt: "Partner company logo - trusted brand using Automis AI solutions" },
-    { id: 7, src: "/assets/images/client-logos/logo-7.jpg", alt: "Partner company logo - trusted brand using Automis AI solutions" },
+    {
+      id: 1,
+      src: "/assets/images/client-logos/logo-1.jpg",
+      alt: "Dati Ascensori",
+      scale: 1.45,
+    },
+    {
+      id: 2,
+      src: "/assets/images/client-logos/logo-2.png",
+      alt: "Cube Digital Agency",
+      scale: 1.2,
+    },
+    {
+      id: 3,
+      src: "/assets/images/client-logos/logo-3.svg",
+      alt: "Crescere Digitale",
+      scale: 1.35,
+      mode: "invert",
+    },
+    {
+      id: 4,
+      src: "/assets/images/client-logos/logo-4.png",
+      alt: "Last Minute Click",
+      scale: 1.4,
+      mode: "invert",
+    },
+    {
+      id: 6,
+      src: "/assets/images/client-logos/logo-6.jpg",
+      alt: "Client Logo",
+      scale: 1.15,
+    },
+    {
+      id: 7,
+      src: "/assets/images/client-logos/logo-7.jpg",
+      alt: "Client Logo",
+      scale: 1.2,
+    },
   ];
 
-  const getToneClass = (tone) => {
-    // Default: mild boost for most logos
-    if (!tone) return "brightness-110 contrast-110";
-    // Dark logos: stronger boost
-    if (tone === "dark") return "brightness-150 contrast-125";
-    // Light logos: keep more neutral
-    if (tone === "light") return "brightness-100 contrast-100";
-    return "brightness-110 contrast-110";
-  };
-
-  // We duplicate the list so the animation can scroll seamlessly to -50%
-  const trackLogos = [...clientLogos, ...clientLogos];
-
   return (
-    <section className="py-12 md:py-16 overflow-hidden">
+    <section className="py-14 md:py-20 overflow-hidden">
+      {/* ANIMATION */}
       <style jsx>{`
         @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-320px * ${clientLogos.length}));
+          }
         }
 
         .logos-track {
           display: flex;
-          width: max-content;
-          animation: scroll 25s linear infinite;
+          animation: scroll 30s linear infinite;
         }
 
         .logos-track:hover {
           animation-play-state: paused;
         }
-
-        @media (prefers-reduced-motion: reduce) {
-          .logos-track {
-            animation: none;
-            transform: translateX(0);
-          }
-        }
-
-        @media (max-width: 767px) {
-          .swipe-container {
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-          }
-          .swipe-container::-webkit-scrollbar {
-            display: none;
-          }
-          .swipe-item {
-            scroll-snap-align: center;
-          }
-        }
       `}</style>
 
-      {/* Title */}
+      {/* TITLE */}
       <div
-        className="text-center mb-8 md:mb-12 px-4"
+        className="text-center mb-10 md:mb-14 px-4"
         data-aos="fade-up"
-        data-aos-duration={1500}
-        data-aos-offset={50}
+        data-aos-duration={1200}
       >
-        <h4 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-200">
+        <h4 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-200">
           {title}
         </h4>
       </div>
 
-      {/* Desktop: auto-scrolling carousel */}
+      {/* DESKTOP */}
       <div className="relative hidden md:block">
-        <div className="flex overflow-hidden">
+        <div className="overflow-hidden">
           <div className="logos-track">
-            {trackLogos.map((logo, idx) => (
-              <div key={`${logo.id}-${idx}`} className="flex-shrink-0 px-8">
-                {/* Logo "pill" background to improve readability */}
-                <div className="w-[220px] h-24 flex items-center justify-center">
-                  <div className="w-full h-full flex items-center justify-center px-6 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 hover:bg-white/15 hover:border-white/20 transition">
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      className={`h-10 w-auto max-w-[160px] object-contain opacity-90 hover:opacity-100 transition ${getToneClass(logo.tone)}`}
-                      loading="lazy"
-                      draggable={false}
-                    />
-                  </div>
+            {[...clientLogos, ...clientLogos].map((logo, index) => (
+              <div
+                key={`${logo.id}-${index}`}
+                className="flex-shrink-0 px-6"
+              >
+                <div className="w-[260px] lg:w-[300px] h-[110px] rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center transition-all duration-300 hover:bg-white/10">
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    className={`
+                      max-h-[64px]
+                      max-w-[200px]
+                      object-contain
+                      transition-all
+                      duration-300
+                      opacity-90
+                      hover:opacity-100
+                      ${logo.mode === "invert" ? "invert brightness-110" : ""}
+                    `}
+                    style={{
+                      transform: `scale(${logo.scale || 1})`,
+                    }}
+                  />
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Softer edge fades (avoid hiding logos too much) */}
-        <div className="absolute left-0 top-0 w-48 h-full bg-gradient-to-r from-black/60 to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 top-0 w-48 h-full bg-gradient-to-l from-black/60 to-transparent pointer-events-none z-10" />
+        {/* EDGE FADES */}
+        <div className="absolute left-0 top-0 w-40 h-full bg-gradient-to-r from-slate-950 to-transparent pointer-events-none z-10" />
+        <div className="absolute right-0 top-0 w-40 h-full bg-gradient-to-l from-slate-950 to-transparent pointer-events-none z-10" />
       </div>
 
-      {/* Mobile: swipeable row */}
-      <div className="md:hidden relative">
-        <div
-          className="swipe-container flex gap-4 px-4 pb-2"
-          style={{
-            background: "rgba(255,255,255,0.03)",
-            borderRadius: "12px",
-            padding: "12px",
-            border: "1px solid rgba(255,255,255,0.06)",
-          }}
-        >
+      {/* MOBILE */}
+      <div className="md:hidden px-4">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 scrollbar-hide">
           {clientLogos.map((logo) => (
-            <div key={`mobile-${logo.id}`} className="swipe-item flex-shrink-0">
-              <div className="w-[140px] h-20 flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-md border border-white/10 p-3">
+            <div
+              key={logo.id}
+              className="snap-center flex-shrink-0"
+            >
+              <div className="w-[200px] h-[96px] rounded-xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center">
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className={`max-h-14 max-w-[110px] object-contain opacity-90 ${getToneClass(logo.tone)}`}
                   loading="lazy"
-                  draggable={false}
+                  className={`
+                    max-h-[56px]
+                    max-w-[150px]
+                    object-contain
+                    opacity-90
+                    ${logo.mode === "invert" ? "invert brightness-110" : ""}
+                  `}
+                  style={{
+                    transform: `scale(${logo.scale || 1})`,
+                  }}
                 />
               </div>
             </div>
           ))}
         </div>
-
-        <p className="text-center text-sm text-gray-400 mt-2">
+        <p className="text-center text-sm text-gray-400 mt-3">
           ← Swipe to see more →
         </p>
       </div>
