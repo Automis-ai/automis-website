@@ -57,19 +57,17 @@ const page = () => {
         {}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary pointer-events-none"></div>
 
-        {}
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-          }}
-        ></div>
-      </section>
-      {}
+<div
+  className="absolute inset-0 opacity-[0.02]"
+  style={{
+    backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+/>
+</section>
 
-      <section className="section-padding bg-bg-primary">
+<section className="section-padding bg-bg-primary">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap -mx-4">
             <div className="px-4 lg:w-2/3">
