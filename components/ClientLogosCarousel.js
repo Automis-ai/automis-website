@@ -5,9 +5,8 @@ const ClientLogosCarousel = ({ title = "Trusted by Leading Brands Worldwide" }) 
   const clientLogos = [
     { id: 1, src: "/assets/images/client-logos/logo-1.jpg", alt: "Partner company logo - trusted brand using Automis AI solutions" },
     { id: 2, src: "/assets/images/client-logos/logo-2.png", alt: "Partner company logo - trusted brand using Automis AI solutions" },
-    { id: 3, src: "/assets/images/client-logos/logo-3.png", alt: "Partner company logo - trusted brand using Automis AI solutions" },
+    { id: 3, src: "/assets/images/client-logos/logo-3.svg", alt: "Partner company logo - trusted brand using Automis AI solutions" },
     { id: 4, src: "/assets/images/client-logos/logo-4.png", alt: "Partner company logo - trusted brand using Automis AI solutions" },
-    { id: 5, src: "/assets/images/client-logos/logo-5.avif", alt: "Partner company logo - trusted brand using Automis AI solutions" },
     { id: 6, src: "/assets/images/client-logos/logo-6.jpg", alt: "Partner company logo - trusted brand using Automis AI solutions" },
     { id: 7, src: "/assets/images/client-logos/logo-7.jpg", alt: "Partner company logo - trusted brand using Automis AI solutions" },
   ];
