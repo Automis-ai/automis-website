@@ -541,7 +541,7 @@ const Index = () => {
       <section className="section-padding bg-bg-primary" ref={sectionRef}>
         <div className="container mx-auto px-4">
           <div className="mb-8" data-aos="fade-up" data-aos-duration="800">
-            <h2 className="section-heading text-white text-center">Come Funziona</h2>
+            <h2 className="section-heading text-white text-center">Il Metodo Automis</h2>
           </div>
 
           <div className="flex flex-col lg:flex-row -mx-4 items-center gap-8 lg:gap-0">
