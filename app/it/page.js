@@ -872,9 +872,10 @@ const Index = () => {
       </div>
     </div>
   </div>
+</div>
 
-      </section>
-
+</div>
+</section>
       <section className="section-padding bg-bg-primary">
         <div className="container mx-auto px-4">
           <div
