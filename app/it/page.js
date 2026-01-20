@@ -838,18 +838,6 @@ const Index = () => {
 <div className="mt-16">
   <div className="max-w-4xl mx-auto">
     <div className="bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/20 backdrop-blur-xl rounded-xl lg:rounded-3xl p-6 md:p-8 lg:p-12 border border-blue-middle/20 shadow-2xl">
-      <div
-        className="text-center mb-8 lg:mb-10"
-        data-aos="fade-up"
-        data-aos-duration="800"
-      >
-        <h3 className="text-white mb-4 text-2xl lg:text-3xl font-bold">
-          Guarda il video (2 minuti)
-        </h3>
-        <p className="text-[#EAEAEA] max-w-2xl mx-auto text-base lg:text-lg mb-6">
-          Più appuntamenti, zero chiamate perse.
-        </p>
-      </div>
 
       <VSLPlayer
         videoId="ViE-j9SqENA"
@@ -867,7 +855,6 @@ const Index = () => {
           Prenota una Call conoscitiva
         </CTAButton>
         <p className="text-white/90 text-sm mt-4">
-          Nessun impegno • 15 minuti
         </p>
       </div>
     </div>
