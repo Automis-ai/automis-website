@@ -1,6 +1,6 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
-import Counter from "@/components/Counter";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -16,55 +16,45 @@ import {
   Wrench,
   Zap,
   Rocket,
-  TrendingUp,
-  Bot,
-  Phone,
   Target,
   Brain,
   Headphones,
 } from "lucide-react";
 
-const TestimonialSlider = dynamic(
-  () => import("@/components/TestimonialSlider"),
-  {
-    ssr: false,
-  }
-);
+const TestimonialSlider = dynamic(() => import("@/components/TestimonialSlider"), {
+  ssr: false,
+});
 
 const ClientLogosCarousel = dynamic(
   () => import("@/components/ClientLogosCarousel"),
-  {
-    ssr: false,
-  }
+  { ssr: false }
 );
 
 const Index = () => {
-    const pathname = usePathname();
+  const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
+
+  // Nascondo il Jumpstart audit (codice resta disponibile)
   const SHOW_JUMPSTART_AUDIT = false;
+
   const [activeStep, setActiveStep] = useState(0);
   const [animatedSteps, setAnimatedSteps] = useState([]);
   const [showStickyButton, setShowStickyButton] = useState(false);
   const [showSchedulerModal, setShowSchedulerModal] = useState(false);
   const [showMobileCards, setShowMobileCards] = useState(false);
-  const [auditFormData, setAuditFormData] = useState({
-    name: "",
-    email: "",
-  });
+
+  const [auditFormData, setAuditFormData] = useState({ name: "", email: "" });
   const [auditFormStatus, setAuditFormStatus] = useState({
     loading: false,
     success: false,
     error: null,
   });
-  const animatedPathRef = useRef(null);
+
   const sectionRef = useRef(null);
 
   const handleAuditInputChange = (e) => {
     const { name, value } = e.target;
-    setAuditFormData({
-      ...auditFormData,
-      [name]: value,
-    });
+    setAuditFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleAuditFormSubmit = async (e) => {
@@ -72,7 +62,6 @@ const Index = () => {
     setAuditFormStatus({ loading: true, success: false, error: null });
 
     try {
-      // Prepara i dati del form per il webhook
       const webhookData = {
         name: auditFormData.name,
         email: auditFormData.email,
@@ -81,38 +70,28 @@ const Index = () => {
         type: "audit-request",
       };
 
-      // Invia solo se l'URL del webhook è configurato
       const response = await fetch("/api/audit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(webhookData),
       });
 
-      if (!response.ok) {
-        throw new Error(`Errore webhook: ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`Errore webhook: ${response.status}`);
 
-      // Mostra stato di successo
       setAuditFormStatus({ loading: false, success: true, error: null });
 
-      // Reset form dopo 3 secondi
       setTimeout(() => {
         setAuditFormStatus({ loading: false, success: false, error: null });
-        setAuditFormData({
-          name: "",
-          email: "",
-        });
+        setAuditFormData({ name: "", email: "" });
       }, 3000);
     } catch (error) {
       console.error("Errore invio form audit:", error);
       setAuditFormStatus({
         loading: false,
         success: false,
-        error:
-          "Invio non riuscito. Riprova oppure contattaci direttamente.",
+        error: "Invio non riuscito. Riprova oppure contattaci direttamente.",
       });
 
-      // Cancella errore dopo 5 secondi
       setTimeout(() => {
         setAuditFormStatus({ loading: false, success: false, error: null });
       }, 5000);
@@ -126,12 +105,7 @@ const Index = () => {
       duration: "Fino a 30 min",
       description: "Individuiamo gli ostacoli che bloccano la tua crescita.",
       icon: (
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -147,12 +121,7 @@ const Index = () => {
       duration: "2 settimane / audit deck 20+ pagine",
       description: "Analizziamo ads, funnel e performance delle chiamate perse.",
       icon: (
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -168,12 +137,7 @@ const Index = () => {
       duration: "1h di brainstorming",
       description: "Ti mostriamo come l’AI chiude le perdite nel tuo funnel.",
       icon: (
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -189,12 +153,7 @@ const Index = () => {
       duration: "Roadmap 90 giorni consegnata",
       description: "Ricevi un playbook step-by-step per scalare.",
       icon: (
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -205,20 +164,6 @@ const Index = () => {
       ),
     },
   ];
-
-  useEffect(() => {
-    const path = animatedPathRef.current;
-    if (path) {
-      const length = path.getTotalLength();
-      path.style.strokeDasharray = length;
-      path.style.strokeDashoffset = length;
-
-      setTimeout(() => {
-        path.style.transition = "stroke-dashoffset 3s ease-in-out";
-        path.style.strokeDashoffset = "0";
-      }, 800);
-    }
-  }, []);
 
   useEffect(() => {
     const handleStickyScroll = () => {
@@ -242,23 +187,16 @@ const Index = () => {
           scrollY > 300 && scrollY < documentHeight - windowHeight * 1.5
         );
       }
-      if (scrollY > 200) {
-        setShowMobileCards(true);
-      } else {
-        setShowMobileCards(false);
-      }
+
+      setShowMobileCards(scrollY > 200);
     };
 
     const handleFocusIn = (e) => {
-      if (e.target.matches("input, textarea, select")) {
-        setShowStickyButton(false);
-      }
+      if (e.target.matches("input, textarea, select")) setShowStickyButton(false);
     };
 
     const handleFocusOut = () => {
-      setTimeout(() => {
-        handleStickyScroll();
-      }, 100);
+      setTimeout(() => handleStickyScroll(), 100);
     };
 
     window.addEventListener("scroll", handleStickyScroll);
@@ -281,9 +219,7 @@ const Index = () => {
             steps.forEach((step, index) => {
               setTimeout(() => {
                 setAnimatedSteps((prev) => {
-                  if (!prev.includes(step.id)) {
-                    return [...prev, step.id];
-                  }
+                  if (!prev.includes(step.id)) return [...prev, step.id];
                   return prev;
                 });
               }, index * 400);
@@ -291,10 +227,7 @@ const Index = () => {
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: "0px",
-      }
+      { threshold: 0.1, rootMargin: "0px" }
     );
 
     const handleScroll = () => {
@@ -308,9 +241,7 @@ const Index = () => {
         const distance = Math.abs(stepCenter - viewportCenter);
         const maxDistance = windowHeight / 2;
 
-        if (distance < maxDistance * 0.6) {
-          setActiveStep(index + 1);
-        }
+        if (distance < maxDistance * 0.6) setActiveStep(index + 1);
       });
     };
 
@@ -321,43 +252,14 @@ const Index = () => {
     }
 
     return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
+      if (section) observer.unobserve(section);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [animatedSteps.length]);
-
-  const founders = [
-    {
-      name: "Luca Casillo",
-      role: "Co-Founder",
-      mission:
-        "Costruiamo soluzioni innovative che trasformano le idee in risultati, grazie a tecnologia all’avanguardia.",
-      image: "/assets/images/headshots/luca.jpeg",
-    },
-    {
-      name: "Arcangelo Bianco",
-      role: "Co-Founder",
-      mission:
-        "Aiutiamo le aziende a crescere con visione strategica ed esecuzione impeccabile nel mondo digitale.",
-      image: "/assets/images/headshots/arcangelo.jpeg",
-    },
-    {
-      name: "Huzaifa Yousaf",
-      role: "AI Expert",
-      mission:
-        "Sviluppiamo soluzioni di intelligenza artificiale che colmano il divario tra potenziale umano e capacità delle macchine.",
-      image: "/assets/images/headshots/huza.jpg",
-    },
-  ];
+  }, [animatedSteps.length, steps]);
 
   return (
     <AkpagerLayout>
-      {/* <div className="lg:hidden">
-        <MobileHeroAndStickyCTA />
-      </div> */}
-
+      {/* ================= HERO ================= */}
       <section
         className="hero-area bgs-cover bg-bg-primary relative block"
         style={{ background: "url(assets/images/backgrounds/b-image.jpg)" }}
@@ -378,6 +280,7 @@ const Index = () => {
                     Agenzia IA & Marketing
                   </span>
                 </div>
+
                 <h1
                   className="mb-8"
                   data-aos="fade-up"
@@ -386,17 +289,15 @@ const Index = () => {
                   data-aos-offset={50}
                 >
                   <span className="hero-heading block text-white mb-4 max-w-3xl mx-auto">
-                    Trasforma l’intero <br />{" "}
-                    <span className="text-text-blue">
-                      funnel contatti con l’IA
-                    </span>
+                    Trasforma l’intero <br />
+                    <span className="text-text-blue">funnel contatti con l’IA</span>
                   </span>
-                  <span className="block sub-heading  max-w-xl mx-auto">
-                    Combiniamo Agenti di IA, automazioni e ads in un unico 
-                    percorso pensato per aumentare chiamate prenotate e
-                    fatturato.
+                  <span className="block sub-heading max-w-xl mx-auto">
+                    Combiniamo Agenti di IA, automazioni e ads in un unico percorso
+                    pensato per aumentare chiamate prenotate e fatturato.
                   </span>
                 </h1>
+
                 <div
                   className="flex flex-col items-center gap-3"
                   data-aos="fade-up"
@@ -404,8 +305,8 @@ const Index = () => {
                   data-aos-duration={1500}
                   data-aos-offset={50}
                 >
-<CTAButton
-  href={getCtaHref("booking", locale)}
+                  <CTAButton
+                    href={getCtaHref("booking", locale)}
                     variant="secondary"
                     size="medium"
                     external={true}
@@ -413,6 +314,7 @@ const Index = () => {
                   >
                     Prenota una Call conoscitiva
                   </CTAButton>
+
                   <div className="inline-flex items-center gap-2 text-white/70 text-sm">
                     <svg
                       className="w-4 h-4 text-yellow-light"
@@ -428,19 +330,15 @@ const Index = () => {
             </div>
           </div>
 
+          {/* Cards sotto Hero */}
           <div
             className={`mt-16 relative z-10 section-padding transition-opacity duration-500 ${
               showMobileCards ? "opacity-100" : "opacity-0 pointer-events-none"
             } md:opacity-100 md:pointer-events-auto`}
           >
-            {" "}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 md:justify-center">
-              <div
-                className="group"
-                data-aos="fade-up"
-                data-aos-duration={1500}
-                data-aos-offset={50}
-              >
+              {/* Card 1 */}
+              <div className="group" data-aos="fade-up" data-aos-duration={1500} data-aos-offset={50}>
                 <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/20 overflow-hidden transition-all duration-300 hover:bg-white/10 hover:border-warm-yellow/30 hover:transform hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)] min-h-[280px] flex flex-col">
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -448,7 +346,7 @@ const Index = () => {
                       backgroundImage:
                         "radial-gradient(circle at 80% 50%, rgba(254, 196, 88, 0.15) 0%, transparent 50%), radial-gradient(circle at 20% 20%, rgba(60, 145, 230, 0.1) 0%, transparent 50%), radial-gradient(circle at 50% 80%, rgba(254, 196, 88, 0.08) 0%, transparent 50%)",
                     }}
-                  ></div>
+                  />
 
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="mb-6 relative">
@@ -469,7 +367,7 @@ const Index = () => {
                       Google & Meta Ads ottimizzate con IA per massimizzare il ROI
                     </p>
 
-<Link legacyBehavior href={hrefFor(PATHNAMES.services.paidAds, locale)}>
+                    <Link legacyBehavior href={hrefFor(PATHNAMES.services.paidAds, locale)}>
                       <a className="flex items-center text-blue-lightest small-text font-medium group-hover:text-yellow-light transition-colors cursor-pointer mt-auto">
                         <span className="mr-2">Scopri il servizio</span>
                         <svg
@@ -491,6 +389,7 @@ const Index = () => {
                 </div>
               </div>
 
+              {/* Card 2 */}
               <div
                 className="group"
                 data-aos="fade-up"
@@ -505,7 +404,7 @@ const Index = () => {
                       backgroundImage:
                         "radial-gradient(circle at 80% 50%, rgba(254, 196, 88, 0.15) 0%, transparent 50%), radial-gradient(circle at 20% 20%, rgba(60, 145, 230, 0.1) 0%, transparent 50%), radial-gradient(circle at 50% 80%, rgba(254, 196, 88, 0.08) 0%, transparent 50%)",
                     }}
-                  ></div>
+                  />
 
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="mb-6 relative">
@@ -523,11 +422,11 @@ const Index = () => {
                     </h4>
 
                     <p className="body-text text-white/90 group-hover:text-text-light transition-colors flex-grow">
-                      Automazioni intelligenti che nutrono e qualificano i lead
-                      senza personale extra
+                      Automazioni intelligenti che nutrono e qualificano i lead senza
+                      personale extra
                     </p>
 
-<Link legacyBehavior href={hrefFor(PATHNAMES.services.aiAutomations, locale)}>
+                    <Link legacyBehavior href={hrefFor(PATHNAMES.services.aiAutomations, locale)}>
                       <a className="flex items-center text-blue-lightest small-text font-medium group-hover:text-yellow-light transition-colors cursor-pointer mt-auto">
                         <span className="mr-2">Scopri il servizio</span>
                         <svg
@@ -549,6 +448,7 @@ const Index = () => {
                 </div>
               </div>
 
+              {/* Card 3 */}
               <div
                 className="group md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto lg:mx-0 w-full"
                 data-aos="fade-up"
@@ -563,7 +463,7 @@ const Index = () => {
                       backgroundImage:
                         "radial-gradient(circle at 80% 50%, rgba(254, 196, 88, 0.15) 0%, transparent 50%), radial-gradient(circle at 20% 20%, rgba(60, 145, 230, 0.1) 0%, transparent 50%), radial-gradient(circle at 50% 80%, rgba(254, 196, 88, 0.08) 0%, transparent 50%)",
                     }}
-                  ></div>
+                  />
 
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="mb-6 relative">
@@ -581,11 +481,11 @@ const Index = () => {
                     </h4>
 
                     <p className="body-text text-white/90 group-hover:text-text-light transition-colors flex-grow">
-                      Agenti IA che rispondono ad ogni chiamata e prenotano
-                      appuntamenti all’istante
+                      Agenti IA che rispondono ad ogni chiamata e prenotano appuntamenti
+                      all’istante
                     </p>
 
-<Link legacyBehavior href={hrefFor(PATHNAMES.services.voiceAI, locale)}>
+                    <Link legacyBehavior href={hrefFor(PATHNAMES.services.voiceAI, locale)}>
                       <a className="flex items-center text-blue-lightest small-text font-medium group-hover:text-yellow-light transition-colors cursor-pointer mt-auto">
                         <span className="mr-2">Scopri il servizio</span>
                         <svg
@@ -611,12 +511,37 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ================= VSL (dopo Hero) ================= */}
+      <section className="bg-bg-primary pt-6 md:pt-10 pb-10 md:pb-16">
+        <div className="container mx-auto px-4">
+          <div className="-mx-4 md:mx-0">
+            <div className="mx-auto w-full max-w-none md:max-w-5xl">
+              <div className="bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/20 backdrop-blur-xl rounded-xl lg:rounded-3xl p-2 sm:p-3 md:p-6 lg:p-8 border border-blue-middle/20 shadow-2xl">
+                <div className="aspect-video w-full overflow-hidden rounded-lg lg:rounded-2xl">
+                  <VSLPlayer videoId="ViE-j9SqENA" />
+                </div>
+              </div>
+
+              {/* CTA: SOLO desktop/tablet */}
+              <div className="hidden md:flex justify-center mt-8">
+                <CTAButton
+                  href={hrefFor(PATHNAMES.services.voiceAI, locale)}
+                  variant="secondary"
+                  size="medium"
+                >
+                  Scopri Voice AI
+                </CTAButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= COME FUNZIONA ================= */}
       <section className="section-padding bg-bg-primary" ref={sectionRef}>
         <div className="container mx-auto px-4">
           <div className="mb-8" data-aos="fade-up" data-aos-duration="800">
-            <h2 className="section-heading text-white text-center">
-              Come Funziona
-            </h2>
+            <h2 className="section-heading text-white text-center">Come Funziona</h2>
           </div>
 
           <div className="flex flex-col lg:flex-row -mx-4 items-center gap-8 lg:gap-0">
@@ -633,12 +558,8 @@ const Index = () => {
                   {steps.map((step, index) => (
                     <div
                       key={step.id}
-                      className={`process-step ${
-                        animatedSteps.includes(step.id) ? "animated" : ""
-                      }`}
-                      style={{
-                        animationDelay: `${index * 150}ms`,
-                      }}
+                      className={`process-step ${animatedSteps.includes(step.id) ? "animated" : ""}`}
+                      style={{ animationDelay: `${index * 150}ms` }}
                       onMouseEnter={() => setActiveStep(step.id)}
                     >
                       <div className="step-content">
@@ -668,9 +589,7 @@ const Index = () => {
 
                             <h3
                               className={`text-lg lg:text-xl font-semibold mb-2 ${
-                                activeStep === step.id
-                                  ? "active text-white"
-                                  : "text-text-light"
+                                activeStep === step.id ? "active text-white" : "text-text-light"
                               }`}
                             >
                               {step.title}
@@ -710,174 +629,135 @@ const Index = () => {
               </div>
             </div>
           </div>
+
           <div className="mt-8 text-center">
-<CTAButton href={hrefFor(PATHNAMES.pages.jumpstartAudit, locale)} variant="primary" size="medium">
-  Scopri Jumpstart
-</CTAButton>
-          </div>
-
-{/* ===== Jumpstart Audit (hidden for now) + VSL replacement ===== */}
-{SHOW_JUMPSTART_AUDIT && (
-  <div className="mt-16">
-    <div className="max-w-4xl mx-auto">
-      <div className="bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/20 backdrop-blur-xl rounded-xl lg:rounded-3xl p-6 md:p-8 lg:p-12 border border-blue-middle/20 shadow-2xl">
-        <div
-          className="text-center mb-8 lg:mb-10"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
-          <h3 className="text-white mb-4 text-2xl lg:text-3xl font-bold">
-            Guarda un esempio di Jumpstart Audit
-          </h3>
-          <p className="text-[#EAEAEA] max-w-2xl mx-auto text-base lg:text-lg mb-6">
-            Scarica un report di esempio per capire come analizziamo le
-            performance di marketing e dove troviamo opportunità di crescita.
-          </p>
-        </div>
-
-        <form className="max-w-2xl mx-auto" onSubmit={handleAuditFormSubmit}>
-          {auditFormStatus.error && (
-            <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
-              <p className="text-white text-sm">{auditFormStatus.error}</p>
-            </div>
-          )}
-
-          {auditFormStatus.success && (
-            <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
-              <p className="text-white text-sm">
-                Richiesta inviata! Controlla la tua email per ricevere il report.
-              </p>
-            </div>
-          )}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
-            <div>
-              <label
-                htmlFor="audit-name"
-                className="block text-[#EAEAEA] text-sm mb-2"
-              >
-                Il tuo nome
-              </label>
-              <input
-                type="text"
-                id="audit-name"
-                name="name"
-                required
-                aria-required="true"
-                value={auditFormData.name}
-                onChange={handleAuditInputChange}
-                className="w-full h-12 px-4 py-3 bg-white/5 backdrop-blur-sm border border-[#B4C2FF]/15 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:border-[#3C91E6] transition-all duration-300 hover:bg-white/10"
-                placeholder="Inserisci il tuo nome"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="audit-email"
-                className="block text-[#EAEAEA] text-sm mb-2"
-              >
-                La tua email
-              </label>
-              <input
-                type="email"
-                id="audit-email"
-                name="email"
-                required
-                aria-required="true"
-                value={auditFormData.email}
-                onChange={handleAuditInputChange}
-                className="w-full h-12 px-4 py-3 bg-white/5 backdrop-blur-sm border border-[#B4C2FF]/15 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:border-[#3C91E6] transition-all duration-300 hover:bg-white/10"
-                placeholder="Inserisci la tua email"
-              />
-            </div>
-          </div>
-
-          <div className="text-center">
-            <button
-              type="submit"
-              disabled={auditFormStatus.loading}
-              className="w-full md:w-auto group relative inline-flex items-center justify-center gap-2 bg-[#3C91E6] hover:bg-[#0A3D62] text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:ring-offset-2 focus:ring-offset-transparent disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-label="Ottieni un esempio gratuito di audit"
+            <CTAButton
+              href={hrefFor(PATHNAMES.pages.jumpstartAudit, locale)}
+              variant="primary"
+              size="medium"
             >
-              {auditFormStatus.loading ? (
-                <>
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>Invio in corso...</span>
-                </>
-              ) : (
-                <>
-                  <span>Scarica l’audit</span>
-                  <svg
-                    className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </>
-              )}
-            </button>
-
-            <p className="text-white/90 text-sm mt-4">
-              Nessuna carta richiesta • Download immediato
-            </p>
+              Scopri Jumpstart
+            </CTAButton>
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-)}
 
-{/* ===== VSL section (visible now) ===== */}
-<div className="mt-10 md:mt-16">
-  {/* su mobile: esce dal padding del container; da md: torna normale */}
-  <div className="-mx-4 md:mx-0">
-    <div className="mx-auto w-full max-w-none md:max-w-4xl">
-      {/* Box SOLO video - padding più piccolo su mobile */}
-      <div className="bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/20 backdrop-blur-xl rounded-xl lg:rounded-3xl p-2 sm:p-3 md:p-6 lg:p-8 border border-blue-middle/20 shadow-2xl">
-        <VSLPlayer
-          videoId="ViE-j9SqENA"
-          title="Perché le aziende perdono appuntamenti ogni giorno"
-        />
-      </div>
+          {/* ===== Jumpstart Audit (hidden for now) ===== */}
+          {SHOW_JUMPSTART_AUDIT && (
+            <div className="mt-16">
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/20 backdrop-blur-xl rounded-xl lg:rounded-3xl p-6 md:p-8 lg:p-12 border border-blue-middle/20 shadow-2xl">
+                  <div className="text-center mb-8 lg:mb-10" data-aos="fade-up" data-aos-duration="800">
+                    <h3 className="text-white mb-4 text-2xl lg:text-3xl font-bold">
+                      Guarda un esempio di Jumpstart Audit
+                    </h3>
+                    <p className="text-[#EAEAEA] max-w-2xl mx-auto text-base lg:text-lg mb-6">
+                      Scarica un report di esempio per capire come analizziamo le performance di marketing
+                      e dove troviamo opportunità di crescita.
+                    </p>
+                  </div>
 
-      {/* CTA: solo da md in su (su mobile è ridondante) */}
-      <div className="hidden md:flex justify-center mt-8">
-        <CTAButton
-          href={getCtaHref("booking", locale)}
-          variant="secondary"
-          size="medium"
-          external={true}
-          className="w-fit"
-        >
-          Prenota una Call conoscitiva
-        </CTAButton>
-      </div>
-    </div>
-  </div>
-</div>
+                  <form className="max-w-2xl mx-auto" onSubmit={handleAuditFormSubmit}>
+                    {auditFormStatus.error && (
+                      <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+                        <p className="text-white text-sm">{auditFormStatus.error}</p>
+                      </div>
+                    )}
 
-</div>
-</section>
+                    {auditFormStatus.success && (
+                      <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
+                        <p className="text-white text-sm">
+                          Richiesta inviata! Controlla la tua email per ricevere il report.
+                        </p>
+                      </div>
+                    )}
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+                      <div>
+                        <label htmlFor="audit-name" className="block text-[#EAEAEA] text-sm mb-2">
+                          Il tuo nome
+                        </label>
+                        <input
+                          type="text"
+                          id="audit-name"
+                          name="name"
+                          required
+                          aria-required="true"
+                          value={auditFormData.name}
+                          onChange={handleAuditInputChange}
+                          className="w-full h-12 px-4 py-3 bg-white/5 backdrop-blur-sm border border-[#B4C2FF]/15 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:border-[#3C91E6] transition-all duration-300 hover:bg-white/10"
+                          placeholder="Inserisci il tuo nome"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="audit-email" className="block text-[#EAEAEA] text-sm mb-2">
+                          La tua email
+                        </label>
+                        <input
+                          type="email"
+                          id="audit-email"
+                          name="email"
+                          required
+                          aria-required="true"
+                          value={auditFormData.email}
+                          onChange={handleAuditInputChange}
+                          className="w-full h-12 px-4 py-3 bg-white/5 backdrop-blur-sm border border-[#B4C2FF]/15 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:border-[#3C91E6] transition-all duration-300 hover:bg-white/10"
+                          placeholder="Inserisci la tua email"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="text-center">
+                      <button
+                        type="submit"
+                        disabled={auditFormStatus.loading}
+                        className="w-full md:w-auto group relative inline-flex items-center justify-center gap-2 bg-[#3C91E6] hover:bg-[#0A3D62] text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:ring-offset-2 focus:ring-offset-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                        aria-label="Ottieni un esempio gratuito di audit"
+                      >
+                        {auditFormStatus.loading ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                            <span>Invio in corso...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>Scarica l’audit</span>
+                            <svg
+                              className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"
+                              />
+                            </svg>
+                          </>
+                        )}
+                      </button>
+
+                      <p className="text-white/90 text-sm mt-4">
+                        Nessuna carta richiesta • Download immediato
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ================= SETTORI ================= */}
       <section className="section-padding bg-bg-primary">
         <div className="container mx-auto px-4">
-          <div
-            className="text-center mb-12"
-            data-aos="fade-up"
-            data-aos-duration="800"
-          >
-            <h2 className="section-heading text-white mb-4">
-              Settori in cui operiamo
-            </h2>
+          <div className="text-center mb-12" data-aos="fade-up" data-aos-duration="800">
+            <h2 className="section-heading text-white mb-4">Settori in cui operiamo</h2>
             <p className="sub-heading max-w-3xl mx-auto">
-              Supportiamo aziende in diversi settori con soluzioni di marketing
-              AI-powered e strategie di crescita automatizzate
+              Supportiamo aziende in diversi settori con soluzioni di marketing AI-powered e strategie di
+              crescita automatizzate
             </p>
           </div>
 
@@ -895,7 +775,8 @@ const Index = () => {
                 Dentisti & Healthcare
               </h3>
               <p className="text-base text-white/90">
-                Il 30–50% delle chiamate in clinica resta senza risposta. I nostri agenti IA rispondono a ogni chiamata, fissano gli appuntamenti e si integrano con il software della struttura.
+                Il 30–50% delle chiamate in clinica resta senza risposta. I nostri agenti IA rispondono a
+                ogni chiamata, fissano gli appuntamenti e si integrano con il software della struttura.
               </p>
             </div>
 
@@ -912,7 +793,8 @@ const Index = () => {
                 Immobiliare
               </h3>
               <p className="text-base text-white/90">
-                Gli agenti perdono il 70% dei lead online per colpa di un follow-up lento. Il nostro Agente IA chiama e scrive ai lead all’istante, 24/7.
+                Gli agenti perdono il 70% dei lead online per colpa di un follow-up lento. Il nostro
+                Agente IA chiama e scrive ai lead all’istante, 24/7.
               </p>
             </div>
 
@@ -929,7 +811,8 @@ const Index = () => {
                 Cliniche Estetiche
               </h3>
               <p className="text-base text-white/90">
-                Non perdere mai più una richiesta per Botox o filler. La nostra IA nutre i lead e prenota le consulenze mentre tu ti concentri sui clienti.
+                Non perdere mai più una richiesta per Botox o filler. La nostra IA nutre i lead e prenota
+                le consulenze mentre tu ti concentri sui clienti.
               </p>
             </div>
 
@@ -946,7 +829,8 @@ const Index = () => {
                 Pronto Intervento Casa
               </h3>
               <p className="text-base text-white/90">
-                I nostri agenti vocali IA rispondono 24/7, qualificano il lavoro e prenotano direttamente in agenda, così non perdi mai più un lead per colpa della segreteria.
+                I nostri agenti vocali IA rispondono 24/7, qualificano il lavoro e prenotano direttamente
+                in agenda, così non perdi mai più un lead per colpa della segreteria.
               </p>
             </div>
 
