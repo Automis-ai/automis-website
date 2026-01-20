@@ -835,16 +835,20 @@ const Index = () => {
 )}
 
 {/* ===== VSL section (visible now) ===== */}
-<div className="mt-16">
-  <div className="max-w-4xl mx-auto">
-    <div className="bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/20 backdrop-blur-xl rounded-xl lg:rounded-3xl p-6 md:p-8 lg:p-12 border border-blue-middle/20 shadow-2xl">
+<div className="mt-10 md:mt-16">
+  {/* su mobile: esce dal padding del container; da md: torna normale */}
+  <div className="-mx-4 md:mx-0">
+    <div className="mx-auto w-full max-w-none md:max-w-4xl">
+      {/* Box SOLO video - padding più piccolo su mobile */}
+      <div className="bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/20 backdrop-blur-xl rounded-xl lg:rounded-3xl p-2 sm:p-3 md:p-6 lg:p-8 border border-blue-middle/20 shadow-2xl">
+        <VSLPlayer
+          videoId="ViE-j9SqENA"
+          title="Perché le aziende perdono appuntamenti ogni giorno"
+        />
+      </div>
 
-      <VSLPlayer
-        videoId="ViE-j9SqENA"
-        title="Più appuntamenti, zero chiamate perse"
-      />
-
-      <div className="text-center mt-8">
+      {/* CTA: solo da md in su (su mobile è ridondante) */}
+      <div className="hidden md:flex justify-center mt-8">
         <CTAButton
           href={getCtaHref("booking", locale)}
           variant="secondary"
@@ -854,8 +858,6 @@ const Index = () => {
         >
           Prenota una Call conoscitiva
         </CTAButton>
-        <p className="text-white/90 text-sm mt-4">
-        </p>
       </div>
     </div>
   </div>
