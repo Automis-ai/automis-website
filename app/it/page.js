@@ -5,6 +5,7 @@ import AkpagerLayout from "@/layouts/AkpagerLayout";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
+import VSLPlayer from "@/components/VSLPlayer";
 import { usePathname } from "next/navigation";
 import { PATHNAMES, getLocaleFromPathname, hrefFor } from "@/utility/pathnames";
 import { getCtaHref } from "@/utility/ctaLinks";
@@ -40,6 +41,7 @@ const ClientLogosCarousel = dynamic(
 const Index = () => {
     const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
+  const SHOW_JUMPSTART_AUDIT = false;
   const [activeStep, setActiveStep] = useState(0);
   const [animatedSteps, setAnimatedSteps] = useState([]);
   const [showStickyButton, setShowStickyButton] = useState(false);
@@ -714,123 +716,163 @@ const Index = () => {
 </CTAButton>
           </div>
 
-          <div className="mt-16">
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/20 backdrop-blur-xl rounded-xl lg:rounded-3xl p-6 md:p-8 lg:p-12 border border-blue-middle/20 shadow-2xl">
-                <div
-                  className="text-center mb-8 lg:mb-10"
-                  data-aos="fade-up"
-                  data-aos-duration="800"
-                >
-                  <h3 className="text-white mb-4 text-2xl lg:text-3xl font-bold">
-                    Guarda un esempio di Jumpstart Audit
-                  </h3>
-                  <p className="text-[#EAEAEA] max-w-2xl mx-auto text-base lg:text-lg mb-6">
-                    Scarica un report di esempio per capire come analizziamo le
-                    performance di marketing e dove troviamo opportunità di crescita.
-                  </p>
-                </div>
+{/* ===== Jumpstart Audit (hidden for now) + VSL replacement ===== */}
+{SHOW_JUMPSTART_AUDIT && (
+  <div className="mt-16">
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/20 backdrop-blur-xl rounded-xl lg:rounded-3xl p-6 md:p-8 lg:p-12 border border-blue-middle/20 shadow-2xl">
+        <div
+          className="text-center mb-8 lg:mb-10"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          <h3 className="text-white mb-4 text-2xl lg:text-3xl font-bold">
+            Guarda un esempio di Jumpstart Audit
+          </h3>
+          <p className="text-[#EAEAEA] max-w-2xl mx-auto text-base lg:text-lg mb-6">
+            Scarica un report di esempio per capire come analizziamo le
+            performance di marketing e dove troviamo opportunità di crescita.
+          </p>
+        </div>
 
-                <form
-                  className="max-w-2xl mx-auto"
-                  onSubmit={handleAuditFormSubmit}
-                >
-                  {auditFormStatus.error && (
-                    <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
-                      <p className="text-white text-sm">
-                        {auditFormStatus.error}
-                      </p>
-                    </div>
-                  )}
-                  {auditFormStatus.success && (
-                    <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
-                      <p className="text-white text-sm">
-                        Richiesta inviata! Controlla la tua email per ricevere il report.
-                      </p>
-                    </div>
-                  )}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
-                    <div>
-                      <label
-                        htmlFor="audit-name"
-                        className="block text-[#EAEAEA] text-sm mb-2"
-                      >
-                        Il tuo nome
-                      </label>
-                      <input
-                        type="text"
-                        id="audit-name"
-                        name="name"
-                        required
-                        aria-required="true"
-                        value={auditFormData.name}
-                        onChange={handleAuditInputChange}
-                        className="w-full h-12 px-4 py-3 bg-white/5 backdrop-blur-sm border border-[#B4C2FF]/15 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:border-[#3C91E6] transition-all duration-300 hover:bg-white/10"
-                        placeholder="Inserisci il tuo nome"
-                      />
-                    </div>
+        <form className="max-w-2xl mx-auto" onSubmit={handleAuditFormSubmit}>
+          {auditFormStatus.error && (
+            <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+              <p className="text-white text-sm">{auditFormStatus.error}</p>
+            </div>
+          )}
 
-                    <div>
-                      <label
-                        htmlFor="audit-email"
-                        className="block text-[#EAEAEA] text-sm mb-2"
-                      >
-                        La tua email
-                      </label>
-                      <input
-                        type="email"
-                        id="audit-email"
-                        name="email"
-                        required
-                        aria-required="true"
-                        value={auditFormData.email}
-                        onChange={handleAuditInputChange}
-                        className="w-full h-12 px-4 py-3 bg-white/5 backdrop-blur-sm border border-[#B4C2FF]/15 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:border-[#3C91E6] transition-all duration-300 hover:bg-white/10"
-                        placeholder="Inserisci la tua email"
-                      />
-                    </div>
-                  </div>
+          {auditFormStatus.success && (
+            <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
+              <p className="text-white text-sm">
+                Richiesta inviata! Controlla la tua email per ricevere il report.
+              </p>
+            </div>
+          )}
 
-                  <div className="text-center">
-                    <button
-                      type="submit"
-                      disabled={auditFormStatus.loading}
-                      className="w-full md:w-auto group relative inline-flex items-center justify-center gap-2 bg-[#3C91E6] hover:bg-[#0A3D62] text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:ring-offset-2 focus:ring-offset-transparent disabled:opacity-50 disabled:cursor-not-allowed"
-                      aria-label="Ottieni un esempio gratuito di audit"
-                    >
-                      {auditFormStatus.loading ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                          <span>Invio in corso...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Scarica l’audit</span>
-                          <svg
-                            className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M13 7l5 5m0 0l-5 5m5-5H6"
-                            />
-                          </svg>
-                        </>
-                      )}
-                    </button>
-                    <p className="text-white/90 text-sm mt-4">
-                      Nessuna carta richiesta • Download immediato
-                    </p>
-                  </div>
-                </form>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+            <div>
+              <label
+                htmlFor="audit-name"
+                className="block text-[#EAEAEA] text-sm mb-2"
+              >
+                Il tuo nome
+              </label>
+              <input
+                type="text"
+                id="audit-name"
+                name="name"
+                required
+                aria-required="true"
+                value={auditFormData.name}
+                onChange={handleAuditInputChange}
+                className="w-full h-12 px-4 py-3 bg-white/5 backdrop-blur-sm border border-[#B4C2FF]/15 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:border-[#3C91E6] transition-all duration-300 hover:bg-white/10"
+                placeholder="Inserisci il tuo nome"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="audit-email"
+                className="block text-[#EAEAEA] text-sm mb-2"
+              >
+                La tua email
+              </label>
+              <input
+                type="email"
+                id="audit-email"
+                name="email"
+                required
+                aria-required="true"
+                value={auditFormData.email}
+                onChange={handleAuditInputChange}
+                className="w-full h-12 px-4 py-3 bg-white/5 backdrop-blur-sm border border-[#B4C2FF]/15 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:border-[#3C91E6] transition-all duration-300 hover:bg-white/10"
+                placeholder="Inserisci la tua email"
+              />
             </div>
           </div>
-        </div>
+
+          <div className="text-center">
+            <button
+              type="submit"
+              disabled={auditFormStatus.loading}
+              className="w-full md:w-auto group relative inline-flex items-center justify-center gap-2 bg-[#3C91E6] hover:bg-[#0A3D62] text-white font-semibold py-3 px-6 md:py-4 md:px-8 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3C91E6] focus:ring-offset-2 focus:ring-offset-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Ottieni un esempio gratuito di audit"
+            >
+              {auditFormStatus.loading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <span>Invio in corso...</span>
+                </>
+              ) : (
+                <>
+                  <span>Scarica l’audit</span>
+                  <svg
+                    className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </>
+              )}
+            </button>
+
+            <p className="text-white/90 text-sm mt-4">
+              Nessuna carta richiesta • Download immediato
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+)}
+
+{/* ===== VSL section (visible now) ===== */}
+<div className="mt-16">
+  <div className="max-w-4xl mx-auto">
+    <div className="bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/20 backdrop-blur-xl rounded-xl lg:rounded-3xl p-6 md:p-8 lg:p-12 border border-blue-middle/20 shadow-2xl">
+      <div
+        className="text-center mb-8 lg:mb-10"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
+        <h3 className="text-white mb-4 text-2xl lg:text-3xl font-bold">
+          Guarda il video (2 minuti)
+        </h3>
+        <p className="text-[#EAEAEA] max-w-2xl mx-auto text-base lg:text-lg mb-6">
+          Più appuntamenti, zero chiamate perse.
+        </p>
+      </div>
+
+      <VSLPlayer
+        videoId="ViE-j9SqENA"
+        title="Più appuntamenti, zero chiamate perse"
+      />
+
+      <div className="text-center mt-8">
+        <CTAButton
+          href={getCtaHref("booking", locale)}
+          variant="secondary"
+          size="medium"
+          external={true}
+          className="w-fit"
+        >
+          Prenota una Call conoscitiva
+        </CTAButton>
+        <p className="text-white/90 text-sm mt-4">
+          Nessun impegno • 15 minuti
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
       </section>
 
       <section className="section-padding bg-bg-primary">
