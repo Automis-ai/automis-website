@@ -601,6 +601,58 @@ const Index = () => {
           </div>
         </div>
       </section>
+  
+{/* VSL (Desktop: CTA sotto | Mobile: quasi full screen, no CTA) */}
+      <section className="bg-bg-primary">
+        {/* Desktop / Tablet */}
+        <div className="hidden md:block py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="relative w-full aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black">
+                <iframe
+                  src="https://www.youtube.com/embed/qWSaK2kS7uo?rel=0&modestbranding=1"
+                  title="Automis VSL"
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+
+              <div className="flex justify-center mt-6">
+                <CTAButton
+                  href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                  variant="secondary"
+                  size="medium"
+                  external={true}
+                  className="w-fit"
+                >
+                  Book Discovery Call
+                </CTAButton>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile: quasi full-screen (non 100svh) + un po’ di respiro per scroll */}
+        <div className="md:hidden w-screen bg-black flex items-center justify-center py-8">
+          {/* 78svh circa: impatto forte ma lascia percepire che si può scrollare */}
+          <div className="w-full h-[78svh] flex items-center justify-center px-3">
+            <div className="relative w-full h-full rounded-none overflow-hidden bg-black flex items-center justify-center">
+              <iframe
+                src="https://www.youtube.com/embed/qWSaK2kS7uo?rel=0&modestbranding=1"
+                title="Automis VSL"
+                style={{
+                  width: "min(100vw, calc(78svh * (16 / 9)))",
+                  height: "min(78svh, calc(100vw * (9 / 16)))",
+                }}
+                className="border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section-padding bg-bg-primary" ref={sectionRef}>
         <div className="container mx-auto px-4">
