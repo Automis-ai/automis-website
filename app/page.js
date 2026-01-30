@@ -620,13 +620,13 @@ const Index = () => {
 
               <div className="flex justify-center mt-6">
                 <CTAButton
-                  href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                  href="https://automis.ai/voice-ai"
                   variant="secondary"
                   size="medium"
                   external={true}
                   className="w-fit"
                 >
-                  Book Discovery Call
+                  Discovery Our Voice AI
                 </CTAButton>
               </div>
             </div>
