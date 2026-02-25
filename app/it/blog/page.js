@@ -282,7 +282,7 @@ href={getCtaHref("booking", locale)}
                     icon="fas fa-angle-double-right"
                     className="relative z-10"
                   >
-                    Prenota una Discovery Call
+                    Prenota una Call Gratuita
                   </CTAButton>
 
                   <div className="absolute bottom-0 right-0 w-32 h-32 opacity-30">

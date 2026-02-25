@@ -329,12 +329,14 @@ href={hrefFor(PATHNAMES.pages.useCases, locale)}
                     Vediamo come Automis può aiutarti a transfortmare il tuo business {" "}
                     {caseStudy.industry.toLowerCase()}
                   </p>
-                  <a
-                    href="/jumpstart-audit"
-                    className="block w-full text-center px-6 py-3 text-yellow-light bg-bg-primary hover:bg-black rounded-xl transition-all duration-300 font-semibold"
-                  >
-                    Prenota la Call conoscitiva
-                  </a>
+<a
+  href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block w-full text-center px-6 py-3 text-yellow-light bg-bg-primary hover:bg-black rounded-xl transition-all duration-300 font-semibold"
+>
+  Prenota la Call conoscitiva
+</a>
                   <p className="small-text text-bg-primary/70 mt-4 text-center">
                     30 minuti di call senza impegno
                   </p>

@@ -326,12 +326,14 @@ const CaseStudyDetailPage = ({ params }) => {
                     Let's discuss how Automis.ai can transform your{" "}
                     {caseStudy.industry.toLowerCase()} business
                   </p>
-                  <a
-                    href="/jumpstart-audit"
-                    className="block w-full text-center px-6 py-3 text-yellow-light bg-bg-primary hover:bg-black rounded-xl transition-all duration-300 font-semibold"
-                  >
-                    Book Discovery Call
-                  </a>
+<a
+  href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block w-full text-center px-6 py-3 text-yellow-light bg-bg-primary hover:bg-black rounded-xl transition-all duration-300 font-semibold"
+>
+  Book Discovery Call
+</a>
                   <p className="small-text text-bg-primary/70 mt-4 text-center">
                     15-minute call • No commitment
                   </p>

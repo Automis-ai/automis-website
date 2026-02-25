@@ -736,12 +736,12 @@ const BlogPostPage = ({ params }) => {
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                        href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                         external={true}
                         variant="primary"
                         size="large"
                       >
-                        Prenota una Discovery Call
+                        Prenota una Call Gratuita
                       </CTAButton>
                     </div>
                   </div>
