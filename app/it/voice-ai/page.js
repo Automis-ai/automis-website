@@ -334,7 +334,7 @@ const page = () => {
                       </ul>
 
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/booking/automis-it"
+                        href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                         variant="primary"
                         size="small"
                         external={true}
@@ -396,7 +396,7 @@ const page = () => {
                       </ul>
 
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/booking/automis-it"
+                        href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                         variant="primary"
                         size="small"
                         external={true}
@@ -776,7 +776,7 @@ const page = () => {
                       </ul>
 
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/booking/automis-it"
+                        href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                         variant="primary"
                         size="medium"
                         external={true}
@@ -840,7 +840,7 @@ const page = () => {
                       </ul>
 
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/booking/automis-it"
+                        href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                         variant="primary"
                         size="medium"
                         external={true}
@@ -921,7 +921,7 @@ const page = () => {
                       </ul>
 
                       <CTAButton
-                        href="https://api.leadconnectorhq.com/widget/booking/automis-it"
+                        href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                         variant="primary"
                         size="medium"
                         external={true}
@@ -1116,7 +1116,7 @@ const page = () => {
 
                 <div className="flex justify-center">
                   <CTAButton
-                    href="https://api.leadconnectorhq.com/widget/booking/automis-it"
+                    href="https://api.leadconnectorhq.com/widget/bookings/automis-it"
                     variant="primary"
                     size="large"
                     external={true}
