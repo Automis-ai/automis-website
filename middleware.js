@@ -3,8 +3,23 @@ import { NextResponse } from "next/server";
 
 const VOICE_HOST = "voice.automis.ai";
 const DEV_HOSTS = new Set(["localhost", "127.0.0.1"]);
-const LOCALES = ["ita", "fr", "de", "pt", "es"];
-const DEFAULT_LOCALE = "ita";
+const LOCALES = ["it", "ita", "fr", "de", "pt", "es"];
+const DEFAULT_LOCALE = "it";
+const ENGLISH_ROOT_PAGES = new Set([
+  "privacy-policy",
+  "terms-of-service",
+  "contact",
+  "about",
+  "blog",
+  "use-cases",
+  "jumpstart-audit",
+  "paid-ads-management",
+  "ai-automations",
+  "voice-ai",
+  "consultation",
+  "coming-soon",
+  "blog-details"
+]);
 
 export function middleware(req) {
   const { nextUrl } = req;
@@ -32,12 +47,16 @@ export function middleware(req) {
     return NextResponse.redirect(new URL(`/${DEFAULT_LOCALE}`, req.url));
   }
 
-  // Se il primo segmento NON è una lingua supportata → redirect alla default
+  // Se il primo segmento NON è una lingua supportata → check if it's an English page
   const segments = pathname.split("/").filter(Boolean);
   const maybeLocale = segments[0];
 
   if (!LOCALES.includes(maybeLocale)) {
-    // Mantiene il resto del path dopo la lingua
+    // If it's a valid English root page, let it through
+    if (ENGLISH_ROOT_PAGES.has(maybeLocale)) {
+      return NextResponse.next();
+    }
+    // Otherwise redirect to default locale
     const remainder = segments.slice(0).join("/");
     return NextResponse.redirect(
       new URL(`/${DEFAULT_LOCALE}${pathname.startsWith("/") ? "" : "/"}${remainder ? pathname : ""}`, req.url)
