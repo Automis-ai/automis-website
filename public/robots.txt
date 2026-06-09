@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://automis.ai
+
+# Sitemaps
+Sitemap: https://automis.ai/sitemap.xml
