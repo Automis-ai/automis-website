@@ -2,264 +2,157 @@ import AkpagerLayout from "@/layouts/AkpagerLayout";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import { getCtaHref } from "@/utility/ctaLinks";
+import { getAllPosts } from "@/lib/blog";
 
-const page = () => {
+const BlogPage = async () => {
   const locale = "it";
+  const posts = getAllPosts("it");
+
   return (
     <AkpagerLayout>
-{/* HERO */}
-<section className="relative overflow-hidden bg-bg-primary hero-padding">
-  {/* background blobs */}
-  <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-    <div className="absolute top-20 left-10 w-72 h-72 bg-blue-middle/5 rounded-full blur-3xl" />
-    <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-lightest/5 rounded-full blur-3xl" />
-  </div>
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden bg-bg-primary hero-padding">
+        {/* background blobs */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-middle/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-lightest/5 rounded-full blur-3xl" />
+        </div>
 
-  {/* gradient overlay */}
-  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary pointer-events-none" />
+        {/* gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary pointer-events-none" />
 
-  {/* subtle texture */}
-  <div
-    className="absolute inset-0 opacity-[0.02]"
-    style={{
-      backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-  />
+        {/* subtle texture */}
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
 
-  <div className="container mx-auto px-4 relative z-10">
-    <div className="text-center max-w-4xl mx-auto">
-      <span
-        className="inline-flex items-center gap-2 bg-blue-darkest/30 backdrop-blur-lg text-blue-middle px-6 py-3 rounded-xl small-text font-medium mb-6 border border-blue-middle/20"
-        data-aos="fade-up"
-        data-aos-duration={1500}
-      >
-        <i className="fas fa-blog" />
-        Articoli & Aggiornamenti
-      </span>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <span
+              className="inline-flex items-center gap-2 bg-blue-darkest/30 backdrop-blur-lg text-blue-middle px-6 py-3 rounded-xl small-text font-medium mb-6 border border-blue-middle/20"
+              data-aos="fade-up"
+              data-aos-duration={1500}
+            >
+              <i className="fas fa-blog" />
+              Articoli &amp; Aggiornamenti
+            </span>
 
-      <h1
-        className="hero-heading mb-6"
-        data-aos="fade-up"
-        data-aos-delay={100}
-        data-aos-duration={1500}
-      >
-        <span className="text-white">Scopri le nostre</span>{" "}
-        <span className="text-text-blue">ultime novità</span>
-      </h1>
+            <h1
+              className="hero-heading mb-6"
+              data-aos="fade-up"
+              data-aos-delay={100}
+              data-aos-duration={1500}
+            >
+              <span className="text-white">Scopri le nostre</span>{" "}
+              <span className="text-text-blue">ultime novità</span>
+            </h1>
 
-      <p
-        className="sub-heading text-white/90 mb-8 leading-relaxed"
-        data-aos="fade-up"
-        data-aos-delay={200}
-        data-aos-duration={1500}
-      >
-        Esplora articoli su marketing potenziato dall’AI, strategie di automazione
-        e <br /> tattiche di crescita per trasformare il tuo business
-      </p>
+            <p
+              className="sub-heading text-white/90 mb-8 leading-relaxed"
+              data-aos="fade-up"
+              data-aos-delay={200}
+              data-aos-duration={1500}
+            >
+              Esplora articoli su marketing potenziato dall&apos;AI, strategie
+              di automazione e <br /> tattiche di crescita per trasformare il
+              tuo business
+            </p>
+          </div>
+        </div>
+      </section>
 
-      {/* CTA ROW (anche se per ora è vuota, almeno è chiusa correttamente) */}
-      <div
-        className="flex flex-wrap gap-4 justify-center"
-        data-aos="fade-up"
-        data-aos-delay={300}
-        data-aos-duration={1500}
-      >
-        {/* Se vuoi, qui dentro metti bottoni/filtri/CTA */}
-      </div>
-    </div>
-  </div>
-</section>
-
-      {/* POSTS */}
+      {/* ── POSTS ── */}
       <section className="section-padding bg-bg-primary">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap -mx-4">
             {/* LEFT: posts */}
             <div className="px-4 lg:w-2/3">
               <div className="space-y-8">
-                {/* Post 1 */}
-                <div
-                  className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl overflow-hidden hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300 group"
-                  data-aos="fade-up"
-                  data-aos-duration={800}
-                  data-aos-delay={100}
-                  data-aos-offset={50}
-                >
-                  <div className="relative overflow-hidden h-80">
-                    <img
-                      src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop"
-                      alt="Automazioni AI per aziende - Scala senza aumentare lo staff"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-8">
-                    <ul className="flex flex-wrap items-center gap-4 mb-4">
-                      <li>
-                        <a
-                          className="px-3 py-1 bg-blue-middle/20 text-blue-middle rounded-full hover:bg-yellow-light/20 hover:text-yellow-light transition-all duration-300"
-                          href="#"
-                        >
-                          Automazione AI
-                        </a>
-                      </li>
-                      <li className="block items-center gap-2 text-white/90">
-                        <i className="far fa-calendar-alt" />
-                        <a
-                          href="#"
-                          className="ml-2 hover:text-blue-middle transition-all duration-300"
-                        >
-                          Gennaio 2025
-                        </a>
-                      </li>
-                    </ul>
-                    <h3 className="card-heading font-medium mb-4 max-w-7xl mx-auto">
-<Link
-href="/it/blog/ai-automations"
-  className="text-white hover:text-yellow-light transition-all duration-300"
-                      >
-                        Automazioni AI <br /> Scala senza aumentare lo staff
-                      </Link>
-                    </h3>
-                    <p className="body-text text-white/90 mb-6 leading-relaxed">
-                      Le automazioni AI collegano CRM, calendario, ads e strumenti di comunicazione
-                      in un unico sistema. Risparmi ore ogni settimana, riduci gli errori e scali più
-                      velocemente con processi intelligenti.
-                    </p>
-<Link
-href="/it/blog/ai-automations"
-  className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
->
-                      Leggi di più{" "}
-                      <i className="far fa-arrow-right transform group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
+                {posts.map((post, index) => (
+                  <div
+                    key={post.slug}
+                    className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl overflow-hidden hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300 group"
+                    data-aos="fade-up"
+                    data-aos-duration={800}
+                    data-aos-delay={100 + index * 100}
+                    data-aos-offset={50}
+                  >
+                    {/* Image */}
+                    {post.image && (
+                      <div className="relative overflow-hidden h-80">
+                        <img
+                          src={post.image}
+                          alt={post.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
 
-                {/* Post 2 */}
-                <div
-                  className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl overflow-hidden hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300 group"
-                  data-aos="fade-up"
-                  data-aos-duration={800}
-                  data-aos-delay={200}
-                  data-aos-offset={50}
-                >
-                  <div className="relative overflow-hidden h-80">
-                    <img
-                      src="https://images.unsplash.com/photo-1590650213165-c1fef80648c4?w=800&h=600&fit=crop"
-                      alt="Receptionist Voice AI – Risposta 24/7 e prenotazioni"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-8">
-                    <ul className="flex flex-wrap items-center gap-4 mb-4">
-                      <li>
-                        <a
-                          className="px-3 py-1 bg-blue-middle/20 text-blue-middle rounded-full hover:bg-yellow-light/20 hover:text-yellow-light transition-all duration-300"
-                          href="#"
-                        >
-                          Voice AI
-                        </a>
-                      </li>
-                      <li className="block items-center gap-2 text-white/90">
-                        <i className="far fa-calendar-alt" />
-                        <a
-                          href="#"
-                          className="ml-2 hover:text-blue-middle transition-all duration-300"
-                        >
-                          Gennaio 2025
-                        </a>
-                      </li>
-                    </ul>
-                    <h3 className="card-heading font-medium mb-4">
-                      <Link
-href="/it/blog/voice-ai-receptionists"
-                        className="text-white hover:text-yellow-light transition-all duration-300"
-                      >
-                        Receptionist Voice AI <br /> Il futuro di chiamate e prenotazioni
-                      </Link>
-                    </h3>
-                    <p className="body-text text-white/90 mb-6 leading-relaxed">
-                      Scopri come i receptionist Voice AI rispondono 24/7, qualificano i lead e
-                      aumentano le prenotazioni. Niente più chiamate perse: il tuo “front desk” non
-                      si ferma mai.
-                    </p>
-                    <Link
-href="/it/blog/voice-ai-receptionists"
-                      className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
-                    >
-                      Leggi di più{" "}
-                      <i className="far fa-arrow-right transform group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
+                    {/* Content */}
+                    <div className="p-8">
+                      <ul className="flex flex-wrap items-center gap-4 mb-4">
+                        {post.category && (
+                          <li>
+                            <span className="px-3 py-1 bg-blue-middle/20 text-blue-middle rounded-full hover:bg-yellow-light/20 hover:text-yellow-light transition-all duration-300 small-text">
+                              {post.category}
+                            </span>
+                          </li>
+                        )}
+                        {post.date && (
+                          <li className="flex items-center gap-2 text-white/90">
+                            <i className="far fa-calendar-alt" />
+                            <span className="small-text">
+                              {new Date(post.date).toLocaleDateString("it-IT", {
+                                month: "long",
+                                year: "numeric",
+                              })}
+                            </span>
+                          </li>
+                        )}
+                      </ul>
 
-                {/* Post 3 */}
-                <div
-                  className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl overflow-hidden hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300 group"
-                  data-aos="fade-up"
-                  data-aos-duration={800}
-                  data-aos-delay={300}
-                  data-aos-offset={50}
-                >
-                  <div className="relative overflow-hidden h-80">
-                    <img
-                      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-                      alt="Paid Ads ottimizzate con AI | Campagne più smart, più appuntamenti"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-8">
-                    <ul className="flex flex-wrap items-center gap-4 mb-4">
-                      <li>
-                        <a
-                          className="px-3 py-1 bg-blue-middle/20 text-blue-middle rounded-full hover:bg-yellow-light/20 hover:text-yellow-light transition-all duration-300"
-                          href="#"
-                        >
-                          Paid Ads
-                        </a>
-                      </li>
-                      <li className="block items-center gap-2 text-white/90">
-                        <i className="far fa-calendar-alt" />
-                        <a
-                          href="#"
-                          className="ml-2 hover:text-blue-middle transition-all duration-300"
-                        >
-                          Gennaio 2025
-                        </a>
-                      </li>
-                    </ul>
-                    <h3 className="card-heading font-medium mb-4">
+                      <h2 className="card-heading font-medium mb-4">
+                        <Link
+                          href={`/it/blog/${post.slug}`}
+                          className="text-white hover:text-yellow-light transition-all duration-300"
+                          dangerouslySetInnerHTML={{
+                            __html: post.htmlTitle || post.title,
+                          }}
+                        />
+                      </h2>
+
+                      <p className="body-text text-white/90 mb-6 leading-relaxed">
+                        {post.description}
+                      </p>
+
                       <Link
-href="/it/blog/ai-optimized-paid-ads"
-                        className="text-white hover:text-yellow-light transition-all duration-300"
+                        href={`/it/blog/${post.slug}`}
+                        className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
                       >
-                        Paid Ads ottimizzate con AI <br /> Dai click agli appuntamenti
+                        Leggi di più{" "}
+                        <i className="far fa-arrow-right transform group-hover:translate-x-1 transition-transform" />
                       </Link>
-                    </h3>
-                    <p className="body-text text-white/90 mb-6 leading-relaxed">
-                      Campagne pubblicitarie potenziate dall’AI: ottimizziamo bidding, creatività e
-                      follow-up per trasformare il budget in chiamate prenotate — non solo lead.
-                    </p>
-                    <Link
-href="/it/blog/ai-optimized-paid-ads"
-                      className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
-                    >
-                      Leggi di più{" "}
-                      <i className="far fa-arrow-right transform group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    </div>
                   </div>
-                </div>
+                ))}
+
+                {posts.length === 0 && (
+                  <p className="body-text text-white/60 text-center py-12">
+                    Nessun articolo pubblicato. Torna presto.
+                  </p>
+                )}
               </div>
             </div>
 
-            {/* RIGHT: CTA */}
+            {/* RIGHT: CTA sidebar */}
             <div className="px-4 lg:w-1/3">
-              <div className="space-y-8 mt-0 lg:mt-0">
+              <div className="space-y-8 mt-8 lg:mt-0">
                 <div
                   className="relative bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 p-8 rounded-2xl overflow-hidden hover:border-yellow-light/30 transition-all duration-300 group"
                   data-aos="fade-left"
@@ -268,14 +161,15 @@ href="/it/blog/ai-optimized-paid-ads"
                   data-aos-offset={50}
                 >
                   <h3 className="sub-heading font-medium text-white mb-4 relative z-10">
-                    Pronto a trasformare il tuo business con l’AI?
+                    Pronto a trasformare il tuo business con l&apos;AI?
                   </h3>
                   <p className="body-text text-white/90 mb-6 relative z-10">
-                    Prenota una consulenza gratuita per scoprire come automazioni e Voice AI possono
-                    aiutarti a scalare in modo più veloce ed efficiente.
+                    Prenota una consulenza gratuita per scoprire come
+                    automazioni e Voice AI possono aiutarti a scalare in modo
+                    più veloce ed efficiente.
                   </p>
                   <CTAButton
-href={getCtaHref("booking", locale)}
+                    href={getCtaHref("booking", locale)}
                     external={true}
                     variant="primary"
                     size="medium"
@@ -297,7 +191,8 @@ href={getCtaHref("booking", locale)}
                   <div
                     className="absolute inset-0 opacity-10"
                     style={{
-                      backgroundImage: "url(assets/images/widget/cta-bg.png)",
+                      backgroundImage:
+                        "url(assets/images/widget/cta-bg.png)",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
@@ -312,4 +207,4 @@ href={getCtaHref("booking", locale)}
   );
 };
 
-export default page;
+export default BlogPage;

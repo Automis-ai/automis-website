@@ -12,6 +12,7 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
     "aos": "^2.3.4",
+    "gray-matter": "^4.0.3",
     "isotope-layout": "^3.0.6",
     "keen-slider": "^6.8.6",
     "lottie-react": "^2.4.1",
@@ -22,10 +23,12 @@
     "react-countup": "^6.5.0",
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.5",
+    "react-markdown": "^10.1.0",
     "react-nice-select": "^1.0.6",
     "react-player": "^2.14.1",
     "react-slick": "^0.30.2",
     "react-visibility-sensor": "^5.1.1",
+    "remark-gfm": "^4.0.1",
     "wavesurfer.js": "^7.10.1"
   },
   "devDependencies": {
