@@ -6,7 +6,6 @@ import FAQSection from "@/components/FAQSection";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getPostBySlug, getAllSlugs } from "@/lib/blog";
-import rehypeRaw from 'rehype-raw';
 
 // Tell Next.js which slugs exist at build time
 export async function generateStaticParams() {
@@ -83,7 +82,7 @@ const BlogPostPage = ({ params }) => {
           <div className="max-w-4xl mx-auto">
             {/* Markdown body */}
             <div className="blog-prose">
-<ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+<ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {post.body}
               </ReactMarkdown>
             </div>
