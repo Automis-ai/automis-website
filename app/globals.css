@@ -491,3 +491,35 @@ p.amount span {
   border-top: 1px solid rgba(60, 145, 230, 0.2);
   margin: 2.5rem 0;
 }
+
+/* ── CTA BLOCKS nel blog ── */
+.blog-prose blockquote {
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  border-left: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(60,145,230,0.12), rgba(180,194,255,0.08));
+  border: 1px solid rgba(60,145,230,0.25);
+  text-align: center;
+}
+
+.blog-prose blockquote p {
+  margin: 0.5rem 0;
+  max-width: 100%;
+}
+
+.blog-prose blockquote a {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background: linear-gradient(to right, #3C91E6, #B4C2FF);
+  color: white !important;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none !important;
+  margin-bottom: 0.5rem;
+}
+
+.blog-prose blockquote a:hover {
+  background: linear-gradient(to right, #FEC458, #FEC458);
+  color: #000a14 !important;
+}
