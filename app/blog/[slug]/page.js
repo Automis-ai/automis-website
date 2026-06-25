@@ -82,9 +82,14 @@ const BlogPostPage = ({ params }) => {
           <div className="max-w-4xl mx-auto">
             {/* Markdown body */}
             <div className="blog-prose">
-<ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {post.body}
-              </ReactMarkdown>
+<ReactMarkdown
+  remarkPlugins={[remarkGfm]}
+  components={{
+    img: () => null
+  }}
+>
+  {post.body}
+</ReactMarkdown>
             </div>
 
             {/* ── CTA ── */}
