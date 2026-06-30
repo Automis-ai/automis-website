@@ -69,6 +69,7 @@ export default {
         'open-sans': ['Open Sans', 'sans-serif'],
         'inter': ['Open Sans', 'sans-serif'],
         'work-sans': ['Montserrat', 'sans-serif'],
+        'plex-mono': ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       maxWidth: {
         'container': '1200px',

@@ -1,120 +1,123 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp, MessageCircleQuestion } from "lucide-react";
+import { Plus } from "lucide-react";
+import { SectionHeading, Grad } from "./_ui";
+
+const faqs = [
+  {
+    question: "A IA soa robótica?",
+    answer:
+      "Não. Utilizamos tecnologias de text-to-speech de última geração, com vozes naturais em português, pausas realistas e expressões emocionais. Muitos clientes nem percebem que estão a falar com uma IA.",
+  },
+  {
+    question: "Quanto tempo demora a configuração?",
+    answer:
+      "72 horas. A nossa equipa faz um onboarding guiado: recolhemos informação, criamos os guiões, testamos com a sua equipa e lançamos.",
+  },
+  {
+    question: "Posso integrar com o meu CRM atual?",
+    answer:
+      "Sim. Dispomos de integrações nativas com HubSpot, Salesforce, Zoho, Pipedrive, Monday e softwares de gestão. API disponível para soluções personalizadas.",
+  },
+  {
+    question: "O que acontece se a IA não compreender uma pergunta?",
+    answer:
+      "A IA está treinada para lidar também com questões complexas. Se surgir um pedido que não possa resolver, transfere a chamada para a sua equipa ou regista a mensagem e envia uma notificação imediata.",
+  },
+  {
+    question: "Está em conformidade com o RGPD?",
+    answer:
+      "Absolutamente. Servidores na UE, encriptação ponta-a-ponta, recolha automática de consentimentos e direito ao esquecimento implementado. Fornecemos documentação completa para o encarregado de proteção de dados.",
+  },
+  {
+    question: "Quanto custa?",
+    answer:
+      "O preço varia consoante a complexidade do caso. Agende uma chamada para um orçamento à medida do seu negócio.",
+  },
+  {
+    question: "A IA pode ligar para clientes ou apenas atender chamadas?",
+    answer:
+      "Ambos. A IA faz chamadas de saída (reativação de leads, follow-up, lembretes) e atende chamadas recebidas. Escolhe o fluxo que prefere.",
+  },
+  {
+    question: "Funciona para o meu setor?",
+    answer:
+      "Trabalhamos com imobiliário, automóvel, comércio eletrónico, escritórios profissionais, restauração, saúde, recrutamento, SaaS, logística e outros. Fale connosco para casos de estudo específicos.",
+  },
+  {
+    question: "Posso personalizar o guião das conversas?",
+    answer:
+      "Sim, totalmente. No onboarding definimos consigo o tom de voz, as perguntas, as respostas às FAQs e quando transferir para a equipa humana. É o SEU assistente.",
+  },
+  {
+    question: "O que inclui o suporte?",
+    answer:
+      "Apoio em português por e-mail, chat e telefone. Gestor de conta dedicado para planos Business e Enterprise. Otimização mensal dos guiões incluída.",
+  },
+];
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const faqs = [
-    {
-      question: "A IA soa robótica?",
-      answer:
-        "Não. Utilizamos tecnologias de text-to-speech de última geração, com vozes naturais em português, pausas realistas e expressões emocionais. Muitos clientes nem percebem que estão a falar com uma IA.",
-    },
-    {
-      question: "Quanto tempo demora a configuração?",
-      answer:
-        "72 horas. A nossa equipa faz um onboarding guiado: recolhemos informação, criamos os guiões, testamos com a sua equipa e lançamos.",
-    },
-    {
-      question: "Posso integrar com o meu CRM atual?",
-      answer:
-        "Sim. Dispomos de integrações nativas com HubSpot, Salesforce, Zoho, Pipedrive, Monday e softwares de gestão. API disponível para soluções personalizadas.",
-    },
-    {
-      question: "O que acontece se a IA não compreender uma pergunta?",
-      answer:
-        "A IA está treinada para lidar também com questões complexas. Se surgir um pedido que não possa resolver, transfere a chamada para a sua equipa ou regista a mensagem e envia uma notificação imediata.",
-    },
-    {
-      question: "Está em conformidade com o RGPD?",
-      answer:
-        "Absolutamente. Servidores na UE, encriptação ponta-a-ponta, recolha automática de consentimentos e direito ao esquecimento implementado. Fornecemos documentação completa para o DPO/encarregado de proteção de dados.",
-    },
-    {
-      question: "Quanto custa?",
-      answer:
-        "O preço varia consoante a complexidade do caso. Oferecemos sempre 14 dias de experiência gratuita. Contacte-nos para um orçamento à medida.",
-    },
-    {
-      question: "A IA pode ligar para os meus clientes potenciais ou apenas atender chamadas?",
-      answer:
-        "Ambos! A IA pode realizar chamadas de saída (reativação de leads, follow-up, lembretes de marcações) e atender chamadas recebidas. Escolhe o fluxo que prefere.",
-    },
-    {
-      question: "Funciona para o meu setor?",
-      answer:
-        "Trabalhamos com sucesso em: imobiliário, automóvel, comércio eletrónico, escritórios profissionais, restauração, saúde, recrutamento, SaaS, logística e outros. Fale connosco para casos de estudo específicos.",
-    },
-    {
-      question: "Posso personalizar o guião das conversas?",
-      answer:
-        "Sim, totalmente. No onboarding definimos consigo o tom de voz, as perguntas, as respostas às FAQs, quando transferir para a equipa humana, e muito mais. É o SEU assistente.",
-    },
-    {
-      question: "O que inclui o suporte?",
-      answer:
-        "Apoio em português por e-mail, chat e telefone. Gestor de conta dedicado para os planos Business e Enterprise. Otimização mensal dos guiões incluída.",
-    },
-  ];
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [openIndex, setOpenIndex] = useState(0);
 
   return (
     <section
       id="faq"
-      className="section-padding relative bg-bg-primary text-white py-24 overflow-hidden"
+      className="section-padding relative overflow-hidden bg-deep-blue text-white"
     >
-      {/* Glow & overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-darkest/30 via-transparent to-bg-primary z-0"></div>
+      <div className="pointer-events-none absolute -top-24 left-1/2 h-80 w-[36rem] -translate-x-1/2 rounded-full bg-bright-blue/8 blur-[130px]" />
 
-      <div className="container relative z-10 mx-auto px-6 max-w-4xl">
-        {/* Headline */}
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 flex justify-center items-center gap-2">
-            <MessageCircleQuestion className="w-8 h-8 text-blue-400" />
-            Perguntas Frequentes
-          </h2>
-          <p className="text-[#EAEAEA] text-lg max-w-2xl mx-auto">
-            Tudo o que precisa de saber antes de começar com a Automis.
-          </p>
-        </div>
+      <div className="container relative z-10 mx-auto max-w-3xl px-4">
+        <SectionHeading
+          eyebrow="Dúvidas"
+          title={
+            <>
+              Perguntas <Grad>frequentes</Grad>
+            </>
+          }
+          subtitle="Tudo o que precisa de saber antes de começar com a Automis."
+        />
 
-        {/* Accordion */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className={`rounded-2xl border border-blue-500/30 backdrop-blur-md bg-gradient-to-br from-blue-darkest/40 to-blue-darkest/10 py-3 px-4 transition-all duration-300 hover:border-blue-400/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] ${
-                openIndex === index ? "scale-[1.02]" : ""
-              }`}
-            >
-              <button
-                className="flex justify-between items-center w-full text-left"
-                onClick={() => toggleFAQ(index)}
-              >
-                <span className="font-semibold text-lg text-white">
-                  {faq.question}
-                </span>
-                {openIndex === index ? (
-                  <ChevronUp className="w-6 h-6 text-blue-400 transition-transform duration-300" />
-                ) : (
-                  <ChevronDown className="w-6 h-6 text-blue-400 transition-transform duration-300" />
-                )}
-              </button>
-
+        <div className="mt-12 space-y-3">
+          {faqs.map((faq, index) => {
+            const open = openIndex === index;
+            return (
               <div
-                className={`overflow-hidden transition-all duration-500 ${
-                  openIndex === index ? "max-h-96 mt-3" : "max-h-0"
-                }`}
+                key={index}
+                className="av-gradient-border overflow-hidden rounded-xl backdrop-blur-md"
               >
-                <p className="text-[#EAEAEA] leading-relaxed">{faq.answer}</p>
+                <button
+                  className="flex w-full items-center gap-4 px-5 py-4 text-left"
+                  onClick={() => setOpenIndex(open ? null : index)}
+                  aria-expanded={open}
+                >
+                  <span className="font-plex-mono text-xs text-bright-blue/70">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="flex-1 font-montserrat text-base font-semibold text-white">
+                    {faq.question}
+                  </span>
+                  <Plus
+                    className={`h-5 w-5 flex-shrink-0 text-bright-blue transition-transform duration-300 ${
+                      open ? "rotate-45" : ""
+                    }`}
+                    strokeWidth={2.5}
+                  />
+                </button>
+                <div
+                  className={`grid transition-all duration-300 ease-out ${
+                    open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-5 pb-5 pl-[3.25rem] font-open-sans text-[0.95rem] leading-relaxed text-white/65">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
