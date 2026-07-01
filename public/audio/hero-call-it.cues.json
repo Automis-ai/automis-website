@@ -1,0 +1,51 @@
+[
+  {
+    "start": 0,
+    "end": 2.87,
+    "speaker": "agent",
+    "name": "Automis",
+    "text": "Automis, buonasera. Come posso aiutarla?"
+  },
+  {
+    "start": 3.32,
+    "end": 6.48,
+    "speaker": "caller",
+    "name": "Cliente",
+    "text": "Buonasera. Vorrei prenotare un appuntamento."
+  },
+  {
+    "start": 6.93,
+    "end": 11.85,
+    "speaker": "agent",
+    "name": "Automis",
+    "text": "Certamente. Ho un posto giovedì, alle dieci e mezza. Le va bene?"
+  },
+  {
+    "start": 12.3,
+    "end": 13.58,
+    "speaker": "caller",
+    "name": "Cliente",
+    "text": "Sì, perfetto."
+  },
+  {
+    "start": 14.03,
+    "end": 19.54,
+    "speaker": "agent",
+    "name": "Automis",
+    "text": "Benissimo. Le ho appena inviato un SMS con la conferma. Desidera altro?"
+  },
+  {
+    "start": 19.99,
+    "end": 21.48,
+    "speaker": "caller",
+    "name": "Cliente",
+    "text": "No, grazie mille."
+  },
+  {
+    "start": 21.93,
+    "end": 24.46,
+    "speaker": "agent",
+    "name": "Automis",
+    "text": "Di nulla. Le auguro una buona serata!"
+  }
+]
