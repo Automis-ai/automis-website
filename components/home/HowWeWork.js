@@ -15,14 +15,14 @@ export default function HowWeWork({ content }) {
         {c.steps.map((step, i) => (
           <Reveal key={step.n} delay={i * 0.12} className="relative">
             <div className="flex items-center gap-4 md:block">
-              <span className="relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full border border-bright-blue/40 bg-deep-blue font-montserrat text-lg font-extrabold text-bright-blue">
+              <span className="relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full border border-bright-blue/40 bg-deep-blue font-display text-lg font-extrabold text-bright-blue">
                 {step.n}
               </span>
-              <h3 className="font-montserrat text-xl font-bold text-white md:mt-6">
+              <h3 className="font-display text-xl font-bold text-white md:mt-6">
                 {step.title}
               </h3>
             </div>
-            <p className="mt-4 font-open-sans text-sm leading-relaxed text-white/60">
+            <p className="mt-4 font-body text-sm leading-relaxed text-white/60">
               {step.body}
             </p>
           </Reveal>

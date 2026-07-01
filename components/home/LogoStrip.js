@@ -18,7 +18,7 @@ export default function LogoStrip({ title }) {
   return (
     <section className="relative overflow-hidden border-y border-white/[0.06] bg-white/[0.015] py-12">
       {title && (
-        <p className="mb-8 px-4 text-center font-plex-mono text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
+        <p className="mb-8 px-4 text-center font-mono text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
           {title}
         </p>
       )}

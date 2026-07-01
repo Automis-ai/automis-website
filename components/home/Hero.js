@@ -110,7 +110,7 @@ function SystemGraph({ labels }) {
         p.sats.map((s, i) => (
           <motion.span
             key={`satchip-${p.key}-${i}`}
-            className="absolute hidden -translate-x-1/2 -translate-y-1/2 rounded-md border border-white/10 bg-white/[0.04] px-2 py-1 font-plex-mono text-[0.55rem] uppercase tracking-[0.14em] text-white/55 backdrop-blur-sm md:block"
+            className="absolute hidden -translate-x-1/2 -translate-y-1/2 rounded-md border border-white/10 bg-white/[0.04] px-2 py-1 font-mono text-[0.55rem] uppercase tracking-[0.14em] text-white/55 backdrop-blur-sm md:block"
             style={{ left: `${s.x}%`, top: `${s.y}%` }}
             initial={reduce ? false : { opacity: 0, scale: 0.7 }}
             animate={reduce ? {} : { opacity: 1, scale: 1 }}
@@ -141,7 +141,7 @@ function SystemGraph({ labels }) {
                 p.featured ? "bg-warm-yellow" : "bg-bright-blue"
               }`}
             />
-            <span className="whitespace-nowrap font-montserrat text-xs font-bold text-white sm:text-sm">
+            <span className="whitespace-nowrap font-display text-xs font-bold text-white sm:text-sm">
               {pillarLabel(p.key)}
             </span>
           </div>
@@ -160,7 +160,7 @@ function SystemGraph({ labels }) {
           <div className="hx-spin absolute inset-0 rounded-full [background:conic-gradient(from_0deg,transparent,rgba(60,145,230,0.6),transparent_40%,rgba(254,196,88,0.5),transparent_75%)] opacity-70 blur-[1px]" />
           <div className="absolute inset-[3px] rounded-full bg-deep-blue" />
           <div className="av-orb relative grid h-16 w-16 place-items-center rounded-full border border-bright-blue/40 bg-[radial-gradient(circle_at_30%_30%,rgba(60,145,230,0.35),rgba(0,10,20,0.9))] sm:h-20 sm:w-20">
-            <span className="font-plex-mono text-[0.55rem] uppercase tracking-[0.16em] text-soft-blue">
+            <span className="font-mono text-[0.55rem] uppercase tracking-[0.16em] text-soft-blue">
               {labels.core}
             </span>
           </div>
@@ -191,10 +191,10 @@ export default function Hero({ content }) {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <Eyebrow>{h.eyebrow}</Eyebrow>
-          <h1 className="mt-6 font-montserrat text-4xl font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 font-display text-[2.9rem] font-semibold tracking-[-0.03em] leading-[0.98] text-white sm:text-6xl lg:text-[4.6rem]">
             {h.titleLead} <Grad>{h.titleAccent}</Grad>
           </h1>
-          <p className="mt-6 max-w-xl font-open-sans text-lg leading-relaxed text-white/65">
+          <p className="mt-7 max-w-xl font-body text-lg leading-relaxed text-white/65">
             {h.subhead}
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
@@ -203,7 +203,7 @@ export default function Hero({ content }) {
             </GoldCTA>
             <GhostLink href={h.secondaryCta.href}>{h.secondaryCta.label}</GhostLink>
           </div>
-          <p className="mt-10 max-w-md font-plex-mono text-[0.7rem] uppercase tracking-[0.16em] text-white/40">
+          <p className="mt-10 max-w-md font-mono text-[0.7rem] uppercase tracking-[0.16em] text-white/40">
             {h.trustLabel}
           </p>
         </motion.div>

@@ -28,10 +28,10 @@ export default function PainPoints({ content }) {
               <span className="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-bright-blue/10 text-bright-blue transition-colors duration-300 group-hover:bg-warm-yellow/15 group-hover:text-warm-yellow">
                 <Icon size={22} strokeWidth={1.75} />
               </span>
-              <h3 className="font-montserrat text-lg font-bold leading-snug text-white">
+              <h3 className="font-display text-lg font-bold leading-snug text-white">
                 {item.title}
               </h3>
-              <p className="mt-3 font-open-sans text-sm leading-relaxed text-white/60">
+              <p className="mt-3 font-body text-sm leading-relaxed text-white/60">
                 {item.body}
               </p>
             </Reveal>

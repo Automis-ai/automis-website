@@ -40,7 +40,7 @@ export default function PillarsExplorer({ content }) {
     <Section id="pillars">
       <SectionHeading eyebrow={c.eyebrow} title={c.title} subtitle={c.subtitle} />
 
-      <div className="mt-6 flex items-center justify-center gap-2 font-plex-mono text-[0.7rem] uppercase tracking-[0.18em] text-bright-blue">
+      <div className="mt-6 flex items-center justify-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-bright-blue">
         <MousePointerClick size={14} />
         Select a pillar to explore its systems
       </div>
@@ -81,16 +81,16 @@ export default function PillarsExplorer({ content }) {
                   <Icon size={20} strokeWidth={1.8} />
                 </span>
                 <span>
-                  <span className="block font-plex-mono text-[0.62rem] uppercase tracking-[0.18em] text-white/45">
+                  <span className="block font-mono text-[0.62rem] uppercase tracking-[0.18em] text-white/45">
                     {p.tag}
                     {p.featured && (
                       <span className="ml-2 text-warm-yellow">flagship</span>
                     )}
                   </span>
-                  <span className="mt-1 block font-montserrat text-base font-bold text-white">
+                  <span className="mt-1 block font-display text-base font-bold text-white">
                     {p.name}
                   </span>
-                  <span className="mt-1 hidden font-open-sans text-sm leading-snug text-white/55 lg:block">
+                  <span className="mt-1 hidden font-body text-sm leading-snug text-white/55 lg:block">
                     {p.body}
                   </span>
                 </span>
@@ -133,10 +133,10 @@ export default function PillarsExplorer({ content }) {
               >
                 <ActiveIcon size={26} strokeWidth={1.7} />
               </span>
-              <h3 className="mt-6 font-montserrat text-2xl font-extrabold leading-snug text-white sm:text-3xl">
+              <h3 className="mt-6 font-display text-2xl font-extrabold leading-snug text-white sm:text-3xl">
                 {activePillar.headline}
               </h3>
-              <p className="mt-4 max-w-xl font-open-sans text-base leading-relaxed text-white/65">
+              <p className="mt-4 max-w-xl font-body text-base leading-relaxed text-white/65">
                 {activePillar.body}
               </p>
               <ul className="mt-7 space-y-3">
@@ -151,7 +151,7 @@ export default function PillarsExplorer({ content }) {
                     >
                       <Check size={13} strokeWidth={3} />
                     </span>
-                    <span className="font-open-sans text-sm leading-relaxed text-white/75">
+                    <span className="font-body text-sm leading-relaxed text-white/75">
                       {cap}
                     </span>
                   </li>

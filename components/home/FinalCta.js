@@ -14,10 +14,10 @@ export default function FinalCta({ content, bookingUrl }) {
         <div className="relative grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
           <Reveal>
             <Eyebrow>{c.eyebrow}</Eyebrow>
-            <h2 className="mt-5 font-montserrat text-3xl font-extrabold leading-tight text-white sm:text-4xl">
+            <h2 className="mt-5 font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl">
               <Grad>{c.title}</Grad>
             </h2>
-            <p className="mt-5 max-w-lg font-open-sans text-base leading-relaxed text-white/65">
+            <p className="mt-5 max-w-lg font-body text-base leading-relaxed text-white/65">
               {c.subtitle}
             </p>
           </Reveal>

@@ -2,6 +2,7 @@
 
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 import home from "@/content/home.en";
+import { ScrollProgress } from "./home-ui";
 import Hero from "./Hero";
 import LogoStrip from "./LogoStrip";
 import PainPoints from "./PainPoints";
@@ -15,6 +16,7 @@ import FinalCta from "./FinalCta";
 export default function HomePage() {
   return (
     <AkpagerLayout>
+      <ScrollProgress />
       <main>
         <Hero content={home.hero} />
         <LogoStrip title="Growing with businesses across Europe" />

@@ -70,6 +70,10 @@ export default {
         'inter': ['Open Sans', 'sans-serif'],
         'work-sans': ['Montserrat', 'sans-serif'],
         'plex-mono': ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        // Homepage rebrand type system (scoped: used only by components/home/*)
+        'display': ['"Clash Display"', 'Montserrat', 'sans-serif'],
+        'body': ['Inter', 'Open Sans', 'sans-serif'],
+        'mono': ['"Geist Mono"', '"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       maxWidth: {
         'container': '1200px',

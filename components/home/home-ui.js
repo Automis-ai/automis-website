@@ -2,7 +2,20 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll } from "framer-motion";
+
+/* Thin scroll-progress bar pinned to the top — app-like, modern touch. */
+export function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const reduce = useReducedMotion();
+  if (reduce) return null;
+  return (
+    <motion.div
+      style={{ scaleX: scrollYProgress }}
+      className="fixed inset-x-0 top-0 z-[70] h-[3px] origin-left bg-gradient-to-r from-bright-blue via-soft-blue to-warm-yellow"
+    />
+  );
+}
 
 /* Brand gradient text — the single accent treatment on headings. */
 export function Grad({ children, className = "" }) {
@@ -19,7 +32,7 @@ export function Grad({ children, className = "" }) {
 export function Eyebrow({ children, className = "" }) {
   return (
     <span
-      className={`inline-flex items-center gap-2.5 font-plex-mono text-[0.7rem] font-medium uppercase tracking-[0.22em] text-bright-blue ${className}`}
+      className={`inline-flex items-center gap-2.5 font-mono text-[0.7rem] font-medium uppercase tracking-[0.22em] text-bright-blue ${className}`}
     >
       <span className="h-px w-6 bg-bright-blue/50" />
       {children}
@@ -37,11 +50,11 @@ export function SectionHeading({ eyebrow, title, subtitle, align = "center", cla
       } ${className}`}
     >
       {eyebrow && <span className="mb-4">{<Eyebrow>{eyebrow}</Eyebrow>}</span>}
-      <h2 className="font-montserrat text-3xl font-extrabold leading-[1.12] text-white sm:text-4xl lg:text-[2.75rem]">
+      <h2 className="font-display text-[2.1rem] font-semibold tracking-[-0.02em] leading-[1.02] text-white sm:text-[2.7rem] lg:text-[3.4rem]">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-5 max-w-2xl font-open-sans text-base leading-relaxed text-white/60 md:text-lg">
+        <p className="mt-6 max-w-2xl font-body text-base leading-relaxed text-white/60 md:text-lg">
           {subtitle}
         </p>
       )}
@@ -106,7 +119,7 @@ export function GoldCTA({ href, children, external = false, className = "", icon
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={reset}
-      className={`hx-cta-gold inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 font-montserrat text-base font-bold transition-[box-shadow,transform] duration-300 ${className}`}
+      className={`hx-cta-gold inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 font-display text-base font-bold transition-[box-shadow,transform] duration-300 ${className}`}
     >
       {children}
       {icon && (
@@ -139,7 +152,7 @@ export function GoldCTA({ href, children, external = false, className = "", icon
 
 /* Quiet secondary link with an arrow — pairs with the gold CTA. */
 export function GhostLink({ href, children, external = false, className = "" }) {
-  const cls = `group inline-flex items-center gap-2 font-montserrat text-sm font-semibold text-soft-blue transition-colors hover:text-white no-underline ${className}`;
+  const cls = `group inline-flex items-center gap-2 font-display text-sm font-semibold text-soft-blue transition-colors hover:text-white no-underline ${className}`;
   const body = (
     <>
       {children}

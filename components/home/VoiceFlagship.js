@@ -10,7 +10,7 @@ function Stat({ stat, index }) {
       delay={index * 0.08}
       className="av-gradient-border rounded-2xl bg-white/[0.03] px-5 py-7 text-center"
     >
-      <div className="font-montserrat text-4xl font-extrabold text-white sm:text-5xl">
+      <div className="font-display text-4xl font-extrabold text-white sm:text-5xl">
         {stat.plain ? (
           <span>
             {stat.value}
@@ -23,7 +23,7 @@ function Stat({ stat, index }) {
           </>
         )}
       </div>
-      <p className="mt-3 font-open-sans text-sm leading-snug text-white/55">{stat.label}</p>
+      <p className="mt-3 font-body text-sm leading-snug text-white/55">{stat.label}</p>
     </Reveal>
   );
 }
@@ -37,10 +37,10 @@ export default function VoiceFlagship({ content }) {
       <div className="relative grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
         <Reveal>
           <Eyebrow>{c.eyebrow}</Eyebrow>
-          <h2 className="mt-5 font-montserrat text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
             <Grad>{c.title}</Grad>
           </h2>
-          <p className="mt-5 max-w-xl font-open-sans text-base leading-relaxed text-white/65">
+          <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-white/65">
             {c.subtitle}
           </p>
           <ul className="mt-7 space-y-3">
@@ -49,7 +49,7 @@ export default function VoiceFlagship({ content }) {
                 <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-bright-blue/20 text-bright-blue">
                   <Check size={13} strokeWidth={3} />
                 </span>
-                <span className="font-open-sans text-sm leading-relaxed text-white/75">{hl}</span>
+                <span className="font-body text-sm leading-relaxed text-white/75">{hl}</span>
               </li>
             ))}
           </ul>
@@ -68,7 +68,7 @@ export default function VoiceFlagship({ content }) {
           </div>
           {c.revenueLine && (
             <Reveal delay={0.2}>
-              <p className="mt-5 font-open-sans text-sm leading-relaxed text-soft-blue/80">
+              <p className="mt-5 font-body text-sm leading-relaxed text-soft-blue/80">
                 {c.revenueLine}
               </p>
             </Reveal>
