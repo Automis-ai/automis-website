@@ -1,129 +1,85 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Star } from "lucide-react";
-import CTAButton from "@/components/CTAButton";
+import { Star, Quote } from "lucide-react";
+import { SectionHeading, Grad, useReveal } from "./_ui";
+
+const testimonials = [
+  {
+    rating: 5,
+    text: "In 6 mesi abbiamo riattivato lead che davamo ormai per persi, recuperando un business importante. L'AI chiama con una costanza che il mio team non riusciva a garantire.",
+    author: "Marco Rossi",
+    role: "CEO, Immobiliare — Milano",
+  },
+  {
+    rating: 5,
+    text: "Zero chiamate perse. I pazienti prenotano anche alle 23:00 e l'agenda si riempie da sola. Revenue in crescita di circa 6.000 €/mese.",
+    author: "Dott.ssa Giulia Bianchi",
+    role: "Studio Dentistico — Roma",
+  },
+  {
+    rating: 5,
+    text: "Abbiamo ridotto i no-show di circa il 40%. L'AI gestisce le prenotazioni durante il servizio, quando nessuno può rispondere al telefono.",
+    author: "Luca Ferrara",
+    role: "Ristorante — Napoli",
+  },
+];
 
 export default function TestimonialsSection() {
-  const sectionRef = useRef(null);
-  const iframeRef = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setVisible(true);
-        }),
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  // optional dynamic resize if booking widget sends height messages
-  useEffect(() => {
-    const handleMessage = (event) => {
-      if (
-        event.origin.includes("leadconnectorhq.com") &&
-        typeof event.data === "object" &&
-        event.data?.type === "setHeight" &&
-        iframeRef.current
-      ) {
-        iframeRef.current.style.height = `${event.data?.height}px`;
-      }
-    };
-    window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
-  }, []);
-
-  const testimonials = [
-    {
-      rating: 5,
-      text: "In 6 mesi abbiamo riattivato lead per €754.000. L'AI chiama meglio del mio team.",
-      author: "Marco Rossi — CEO, Immobiliare Milano",
-      delay: 100,
-    },
-    {
-      rating: 5,
-      text: "Zero chiamate perse. I pazienti prenotano anche alle 23:00. Revenue +€6K al mese.",
-      author: "Dott.ssa Giulia Bianchi — Studio Dentistico Roma",
-      delay: 200,
-    },
-    {
-      rating: 5,
-      text: "Abbiamo eliminato il 40% dei no-show. L'AI gestisce 200 prenotazioni/settimana.",
-      author: "Luca Ferrara — Ristorante Napoli",
-      delay: 300,
-    },
-  ];
+  const [ref, visible] = useReveal();
 
   return (
     <section
-      ref={sectionRef}
+      ref={ref}
       id="testimonials"
-      className="section-padding bg-bg-primary text-white relative overflow-hidden"
+      className="section-padding relative overflow-hidden bg-deep-blue text-white"
     >
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Headline */}
-        <div
-          className={`text-center mb-14 transition-all duration-700 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white leading-snug">
-            Aziende Italiane che si Fidano di Noi
-          </h2>
-          <p className="text-blue-light/80 max-w-2xl mx-auto text-base md:text-lg">
-            Scopri come le imprese italiane stanno già rivoluzionando il modo di
-            gestire i clienti con Automis Voice AI.
-          </p>
+      <div className="av-grid pointer-events-none absolute inset-0 opacity-[0.03]" />
+      <div className="pointer-events-none absolute -top-24 left-0 h-80 w-80 rounded-full bg-warm-yellow/8 blur-[120px]" />
+
+      <div className="container relative z-10 mx-auto px-4">
+        <div className={`av-reveal ${visible ? "is-visible" : ""}`}>
+          <SectionHeading
+            eyebrow="Prova sociale"
+            title={
+              <>
+                Aziende italiane che <Grad>si fidano di noi</Grad>
+              </>
+            }
+            subtitle="Scopri come le imprese in Italia stanno trasformando il modo di gestire i clienti con Automis Voice AI."
+          />
         </div>
 
-        {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-20">
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-7">
           {testimonials.map((item, index) => (
-            <div
-              key={index}
-              className={`bg-white/5 backdrop-blur-lg border border-[#B4C2FF]/15 rounded-2xl p-8 shadow-lg hover:bg-yellow-light/10 hover:border-yellow-light/30 hover:shadow-yellow-light/30 hover:scale-[1.02] transition-all duration-300 ${
-                visible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+            <figure
+              key={item.author}
+              className={`av-gradient-border av-reveal relative flex flex-col rounded-2xl p-7 backdrop-blur-md ${
+                visible ? "is-visible" : ""
               }`}
-              style={{ transitionDelay: `${item.delay}ms` }}
+              style={{ transitionDelay: `${index * 120}ms` }}
             >
-              <div className="flex justify-center mb-4 text-yellow-light">
+              <Quote
+                className="absolute right-6 top-6 h-8 w-8 text-bright-blue/15"
+                strokeWidth={1.5}
+              />
+              <div className="mb-4 flex gap-1 text-warm-yellow">
                 {[...Array(item.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-current text-yellow-light"
-                  />
+                  <Star key={i} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              <p className="text-white/90 text-lg italic mb-4 leading-relaxed text-center">
+              <blockquote className="flex-1 font-open-sans text-[0.95rem] italic leading-relaxed text-white/85">
                 “{item.text}”
-              </p>
-              <p className="font-semibold text-yellow-light text-center">
-                {item.author}
-              </p>
-            </div>
+              </blockquote>
+              <figcaption className="mt-6 border-t border-white/10 pt-4">
+                <p className="font-montserrat text-sm font-bold text-white">
+                  {item.author}
+                </p>
+                <p className="font-plex-mono text-xs uppercase tracking-wide text-soft-blue/70">
+                  {item.role}
+                </p>
+              </figcaption>
+            </figure>
           ))}
-        </div>
-
-        {/* Compact Booking Iframe */}
-        <div
-          className={`max-w-7xl rounded-2xl mx-auto transition-all duration-700 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <iframe
-            ref={iframeRef}
-            src="https://api.leadconnectorhq.com/widget/bookings/automis-it"
-            title="Prenota una demo Automis"
-            className="w-full min-h-[600px] max-h-[700px] rounded-2xl border-0"
-            allowFullScreen
-          ></iframe>
         </div>
       </div>
     </section>
