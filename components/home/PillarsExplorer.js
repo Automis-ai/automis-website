@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Check, TrendingUp, Phone, Brain } from "lucide-react";
+import { Check, TrendingUp, Phone, Brain, ChevronRight, MousePointerClick } from "lucide-react";
 import { Section, SectionHeading } from "./home-ui";
 
 const PILLAR_ICON = { marketing: TrendingUp, sales: Phone, admin: Brain };
@@ -12,14 +12,44 @@ export default function PillarsExplorer({ content }) {
   const reduce = useReducedMotion();
   const initial = c.items.find((p) => p.featured)?.key || c.items[0].key;
   const [active, setActive] = useState(initial);
+  const [touched, setTouched] = useState(false);
+  const paused = useRef(false);
   const activePillar = c.items.find((p) => p.key === active);
   const ActiveIcon = PILLAR_ICON[active] || Phone;
+
+  const select = (key) => {
+    setTouched(true);
+    setActive(key);
+  };
+
+  // Auto-advance until the user takes over, so the panel visibly reacts and
+  // the interaction reads as interactive at a glance.
+  useEffect(() => {
+    if (touched || reduce) return;
+    const id = setInterval(() => {
+      if (paused.current) return;
+      setActive((cur) => {
+        const i = c.items.findIndex((p) => p.key === cur);
+        return c.items[(i + 1) % c.items.length].key;
+      });
+    }, 3800);
+    return () => clearInterval(id);
+  }, [touched, reduce, c.items]);
 
   return (
     <Section id="pillars">
       <SectionHeading eyebrow={c.eyebrow} title={c.title} subtitle={c.subtitle} />
 
-      <div className="mt-14 grid gap-6 lg:grid-cols-[minmax(0,1fr)_1.25fr] lg:items-start">
+      <div className="mt-6 flex items-center justify-center gap-2 font-plex-mono text-[0.7rem] uppercase tracking-[0.18em] text-bright-blue">
+        <MousePointerClick size={14} />
+        Select a pillar to explore its systems
+      </div>
+
+      <div
+        onMouseEnter={() => (paused.current = true)}
+        onMouseLeave={() => (paused.current = false)}
+        className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_1.25fr] lg:items-start"
+      >
         {/* Selector rail */}
         <div
           role="tablist"
@@ -34,9 +64,11 @@ export default function PillarsExplorer({ content }) {
                 key={p.key}
                 role="tab"
                 aria-selected={isActive}
-                onClick={() => setActive(p.key)}
+                onClick={() => select(p.key)}
                 className={`av-gradient-border group relative flex min-w-[15rem] flex-1 items-start gap-4 rounded-2xl p-5 text-left transition-all duration-300 lg:min-w-0 ${
-                  isActive ? "bg-white/[0.06]" : "bg-white/[0.02] opacity-70 hover:opacity-100"
+                  isActive
+                    ? "bg-white/[0.06] ring-1 ring-bright-blue/30"
+                    : "bg-white/[0.02] opacity-70 hover:opacity-100 hover:bg-white/[0.04]"
                 }`}
               >
                 <span
@@ -62,6 +94,14 @@ export default function PillarsExplorer({ content }) {
                     {p.body}
                   </span>
                 </span>
+                <ChevronRight
+                  size={18}
+                  className={`ml-auto mt-1 shrink-0 self-center transition-all duration-300 ${
+                    isActive
+                      ? "translate-x-0.5 text-bright-blue"
+                      : "text-white/25 group-hover:translate-x-0.5 group-hover:text-white/60"
+                  }`}
+                />
               </button>
             );
           })}

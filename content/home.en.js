@@ -27,7 +27,7 @@ const home = {
       "From voice agents that answer every call to the internal brain that runs your operations, we find where you lose time and money and automate it end to end. You own the system.",
     primaryCta: { label: "Book a discovery call", href: BOOKING_URL },
     secondaryCta: { label: "See how it works", href: "#how-we-work" },
-    trustLabel: "Trusted by clinics, agencies, and firms across Portugal and Italy",
+    trustLabel: "Trusted by clinics, agencies, and firms across Europe",
     // Node-graph labels — the interactive "system" visual.
     graph: {
       core: "Automis Core",
