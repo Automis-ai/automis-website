@@ -427,6 +427,70 @@ html { scroll-behavior: smooth; }
   .av-fade-swap { animation: none; }
 }
 
+/* ═══════════════════════════════════════════
+   HOMEPAGE REBRAND · "the system" (.hx- prefix)
+   Bold layer for the EN homepage redesign.
+═══════════════════════════════════════════ */
+
+/* Ambient aurora: two large, slow-drifting radial glows behind the hero. */
+@keyframes hx-aurora-a {
+  0%, 100% { transform: translate(-4%, -2%) scale(1);    opacity: 0.55; }
+  50%      { transform: translate(6%, 4%) scale(1.15);   opacity: 0.8; }
+}
+@keyframes hx-aurora-b {
+  0%, 100% { transform: translate(3%, 2%) scale(1.05);   opacity: 0.45; }
+  50%      { transform: translate(-5%, -3%) scale(0.95); opacity: 0.7; }
+}
+.hx-aurora-a { animation: hx-aurora-a 20s ease-in-out infinite; will-change: transform, opacity; }
+.hx-aurora-b { animation: hx-aurora-b 26s ease-in-out infinite; will-change: transform, opacity; }
+
+/* System-graph connection lines: energy flowing along the wires. */
+@keyframes hx-dash-flow {
+  to { stroke-dashoffset: -240; }
+}
+.hx-wire {
+  stroke-dasharray: 5 11;
+  animation: hx-dash-flow 3.2s linear infinite;
+}
+
+/* Slow conic spin for the core node ring. */
+@keyframes hx-spin { to { transform: rotate(360deg); } }
+.hx-spin { animation: hx-spin 16s linear infinite; transform-origin: center; }
+
+/* Soft breathing pulse for the pillar nodes. */
+@keyframes hx-breathe {
+  0%, 100% { opacity: 0.9;  r: var(--r, 7); }
+  50%      { opacity: 0.45; r: calc(var(--r, 7) * 1.35); }
+}
+.hx-breathe { animation: hx-breathe 3s ease-in-out infinite; }
+
+/* Fine film grain to keep the dark field from banding. */
+.hx-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+/* Magnetic gold CTA sheen (paired with framer-motion pointer offset). */
+.hx-cta-gold {
+  background: linear-gradient(120deg, #FEC458, #F5CD79 55%, #FEC458);
+  color: #000a14;
+  box-shadow: 0 10px 30px -8px rgba(254, 196, 88, 0.5);
+}
+.hx-cta-gold:hover { box-shadow: 0 16px 44px -8px rgba(254, 196, 88, 0.65); }
+
+/* Vertical progress rail used by the sticky pillar explorer. */
+.hx-rail-fill { transition: height 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-aurora-a, .hx-aurora-b, .hx-wire, .hx-spin, .hx-breathe { animation: none; }
+  .hx-breathe { opacity: 0.9; }
+}
+
 /* ─────────────────────────────────────────
    Blog Markdown Prose Styles
    Used by ReactMarkdown inside blog posts
