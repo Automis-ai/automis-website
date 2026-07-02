@@ -1,6 +1,7 @@
 "use client";
 
 import Marquee from "react-fast-marquee";
+import { useReducedMotion } from "framer-motion";
 
 /* Client logos, boxless. Unified monochrome treatment so mixed-source logos
    read as one clean row on the dark field. `light` marks logos that are already
@@ -15,15 +16,16 @@ const LOGOS = [
 ];
 
 export default function LogoStrip({ title }) {
+  const reduce = useReducedMotion();
   return (
-    <section className="relative overflow-hidden border-y border-white/[0.06] bg-white/[0.015] py-12">
+    <section className="relative overflow-hidden border-y border-soft-blue/[0.08] bg-white/[0.01] py-12">
       {title && (
         <p className="mb-8 px-4 text-center font-mono text-[0.7rem] uppercase tracking-[0.22em] text-white/40">
           {title}
         </p>
       )}
       <div className="relative">
-        <Marquee speed={38} gradient={false} pauseOnHover autoFill>
+        <Marquee speed={38} gradient={false} pauseOnHover autoFill play={!reduce}>
           {LOGOS.map((logo, i) => (
             <div key={`${logo.alt}-${i}`} className="mx-10 flex items-center">
               <img
