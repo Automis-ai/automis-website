@@ -1,12 +1,14 @@
-// Mouse/touch-trailing flowing-lines canvas effect.
-// Adapted to plain JS with brand-blue hue and a proper cleanup (returns a
-// teardown fn so React can stop the loop and detach listeners on unmount).
+// Flowing-lines canvas effect.
+// - Ribbons trail the cursor/touch, and drift autonomously when idle so the
+//   effect is alive before (and between) pointer movement.
+// - Stroke color eases through a classy brand palette (light blue -> gold ->
+//   deeper blue) roughly every ~2.6s.
 
 let ctx;
-let f;
-let pos = {};
+let pos = { x: 0, y: 0 };
 let lines = [];
-let hueValue = 0;
+let startTime = 0;
+let lastMove = -1e9; // far in the past => start in autonomous mode
 
 const E = {
   friction: 0.5,
@@ -16,20 +18,34 @@ const E = {
   tension: 0.99,
 };
 
-function Osc(e = {}) {
-  this.phase = e.phase || 0;
-  this.offset = e.offset || 0;
-  this.frequency = e.frequency || 0.001;
-  this.amplitude = e.amplitude || 1;
+const IDLE_MS = 800; // resume autonomous drift this long after the last pointer move
+const STOP_MS = 2600; // time spent easing between two palette colors
+
+// Brand palette: light blue -> gold (#FEC458) -> deeper blue (#3C91E6).
+const PALETTE = [
+  [96, 165, 250],
+  [254, 196, 88],
+  [60, 129, 214],
+];
+
+function lerp(a, b, t) {
+  return a + (b - a) * t;
 }
-Osc.prototype.update = function () {
-  this.phase += this.frequency;
-  hueValue = this.offset + Math.sin(this.phase) * this.amplitude;
-  return hueValue;
-};
-Osc.prototype.value = function () {
-  return hueValue;
-};
+
+function currentColor(now) {
+  const seg = (now - startTime) / STOP_MS;
+  const i = Math.floor(seg) % PALETTE.length;
+  const j = (i + 1) % PALETTE.length;
+  let t = seg - Math.floor(seg);
+  t = t * t * (3 - 2 * t); // smoothstep ease
+  const a = PALETTE[i];
+  const b = PALETTE[j];
+  return [
+    Math.round(lerp(a[0], b[0], t)),
+    Math.round(lerp(a[1], b[1], t)),
+    Math.round(lerp(a[2], b[2], t)),
+  ];
+}
 
 function Node() {
   this.x = 0;
@@ -100,14 +116,38 @@ function seedLines() {
   }
 }
 
+// Smooth wandering target (layered sines) used when no pointer is active.
+function autoTarget(now) {
+  const w = ctx.canvas.width;
+  const h = ctx.canvas.height;
+  const s = (now - startTime) / 1000;
+  const cx = w / 2;
+  const cy = h * 0.46;
+  return {
+    x: cx + Math.sin(s * 0.5) * w * 0.3 + Math.sin(s * 0.23) * w * 0.12,
+    y: cy + Math.cos(s * 0.4) * h * 0.22 + Math.cos(s * 0.29) * h * 0.1,
+  };
+}
+
 function render() {
   if (!ctx || !ctx.running) return;
+  const now = performance.now();
+
+  // Autonomous drift when the pointer has been idle.
+  if (now - lastMove > IDLE_MS) {
+    const target = autoTarget(now);
+    pos.x = target.x;
+    pos.y = target.y;
+  }
+
   ctx.globalCompositeOperation = "source-over";
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   ctx.globalCompositeOperation = "lighter";
-  // Brand-blue hue band (bright-blue -> soft-blue range), soft glowing strokes.
-  ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",85%,62%,0.025)";
+
+  const c = currentColor(now);
+  ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},0.03)`;
   ctx.lineWidth = 10;
+
   for (let t = 0; t < E.trails; t++) {
     const e = lines[t];
     e.update();
@@ -123,17 +163,9 @@ export function renderCanvas() {
   ctx = canvas.getContext("2d");
   ctx.running = true;
   ctx.frame = 1;
+  startTime = performance.now();
+  lastMove = -1e9;
 
-  // Hue oscillator kept inside the brand blue band (~192deg to ~228deg).
-  f = new Osc({
-    phase: Math.random() * 2 * Math.PI,
-    amplitude: 18,
-    frequency: 0.0015,
-    offset: 210,
-  });
-
-  // Size the drawing buffer to the canvas element (which is stretched to the
-  // hero via CSS), so the effect stays contained and coordinate-correct.
   const resizeCanvas = () => {
     ctx.canvas.width = canvas.clientWidth;
     ctx.canvas.height = canvas.clientHeight;
@@ -144,16 +176,14 @@ export function renderCanvas() {
     const src = e.touches ? e.touches[0] : e;
     pos.x = src.clientX - rect.left;
     pos.y = src.clientY - rect.top;
+    lastMove = performance.now(); // hand control to the pointer
   };
-  const onMove = (e) => {
-    setPos(e);
-  };
+  const onMove = (e) => setPos(e);
   const onTouchStart = (e) => {
     if (e.touches.length === 1) setPos(e);
   };
 
   resizeCanvas();
-  // Seed at center so the effect is present before the first pointer move.
   pos.x = canvas.clientWidth / 2;
   pos.y = canvas.clientHeight * 0.42;
   seedLines();
@@ -166,7 +196,6 @@ export function renderCanvas() {
 
   render();
 
-  // Teardown for React unmount.
   return () => {
     if (ctx) ctx.running = false;
     document.removeEventListener("mousemove", onMove);
