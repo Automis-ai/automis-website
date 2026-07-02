@@ -169,7 +169,7 @@ const home = {
         client: "Clínica Dentária Santa Maria dos Olivais",
         location: "Lisbon, Portugal",
         sector: "Healthcare",
-        logo: "/assets/images/case-studies/clinica-santa-maria.svg",
+        logo: "/assets/images/case-studies/clinica-santa-maria.png",
         summary:
           "An AI voice receptionist that answers every patient call, handles FAQs, and books appointments 24/7, so the front desk stops losing after hours bookings.",
         tags: ["Voice AI", "24/7 booking", "GDPR"],
