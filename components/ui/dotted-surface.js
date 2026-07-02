@@ -36,7 +36,10 @@ export function DottedSurface({ className = "", ...props }) {
 
     const { w, h } = size();
     const camera = new THREE.PerspectiveCamera(60, w / h, 1, 10000);
-    camera.position.set(0, 355, 1220);
+    // Higher, slightly closer vantage so the field spreads across the frame and
+    // sits balanced behind the centered headline (rather than clumping low).
+    camera.position.set(0, 480, 1000);
+    camera.lookAt(0, -60, 0);
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -45,21 +48,28 @@ export function DottedSurface({ className = "", ...props }) {
     container.appendChild(renderer.domElement);
 
     const positions = [];
+    const colors = [];
     const geometry = new THREE.BufferGeometry();
+    // Depth gradient across the two brand blues: bright-blue near -> soft-blue far.
+    const near = new THREE.Color("#3C91E6"); // bright-blue
+    const far = new THREE.Color("#B4C2FF"); // soft-blue
     for (let ix = 0; ix < AMOUNTX; ix++) {
       for (let iy = 0; iy < AMOUNTY; iy++) {
         const x = ix * SEPARATION - (AMOUNTX * SEPARATION) / 2;
         const z = iy * SEPARATION - (AMOUNTY * SEPARATION) / 2;
         positions.push(x, 0, z);
+        const c = near.clone().lerp(far, iy / AMOUNTY);
+        colors.push(c.r, c.g, c.b);
       }
     }
     geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+    geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-      color: new THREE.Color("#6f8be0"), // soft brand blue
-      size: 7,
+      size: 12,
+      vertexColors: true,
       transparent: true,
-      opacity: 0.55,
+      opacity: 0.85,
       sizeAttenuation: true,
     });
 

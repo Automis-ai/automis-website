@@ -22,8 +22,8 @@ export default function Hero({ content }) {
       {/* Ambient glow + edge fades to blend the surface into the page */}
       <div className="pointer-events-none absolute inset-0">
         <div className="hx-aurora-a absolute left-1/2 top-[38%] h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-bright-blue/12 blur-[150px]" />
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-deep-blue via-deep-blue/70 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-deep-blue via-deep-blue/80 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-deep-blue to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-deep-blue to-transparent" />
       </div>
 
       {/* Centered content */}
