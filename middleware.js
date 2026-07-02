@@ -45,8 +45,10 @@ export function middleware(req) {
       return NextResponse.redirect(new URL("/ita", req.url));
     }
 
-    // Se per sbaglio atterrano su /it (lander principale) mentre sono su voice.automis.ai -> forza /ita
-    if (pathname === "/it") {
+    // Su voice.automis.ai il tree /it (sito principale) non esiste: /it e QUALSIASI
+    // /it/* (es. /it/ita, generato da vecchi redirect client-side) -> forza /ita.
+    // Rete di sicurezza contro i 404 lato client sulla lander Voice.
+    if (pathname === "/it" || pathname.startsWith("/it/")) {
       return NextResponse.redirect(new URL("/ita", req.url));
     }
 

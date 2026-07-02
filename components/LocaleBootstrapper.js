@@ -22,6 +22,13 @@ export default function LocaleBootstrapper() {
 
   useEffect(() => {
     try {
+      // La landing VoiceAI (voice.automis.ai, path /ita) NON segue il modello
+      // EN="/…" / IT="/it/…". Trattarla qui la fa leggere come "inglese" e, su un
+      // browser italiano al primo accesso, produce un redirect a /it/ita -> 404.
+      // La escludiamo del tutto: su voice host e su /ita non deve fare nulla.
+      if (typeof window !== "undefined" && window.location.hostname === "voice.automis.ai") return;
+      if (pathname === "/ita" || pathname.startsWith("/ita/")) return;
+
       const stored = localStorage.getItem(STORAGE_KEY);
 
       // 1) If user already chose, do nothing
