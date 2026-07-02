@@ -65,7 +65,7 @@ export default function PillarsExplorer({ content }) {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => select(p.key)}
-                className={`av-gradient-border group relative flex min-w-[15rem] flex-1 items-start gap-4 rounded-2xl p-5 text-left transition-all duration-300 lg:min-w-0 ${
+                className={`${p.featured ? "hx-orbit-on" : "hx-orbit"} av-gradient-border group relative flex min-w-[15rem] flex-1 items-start gap-4 rounded-2xl p-5 text-left transition-all duration-300 lg:min-w-0 ${
                   isActive
                     ? "bg-white/[0.06] ring-1 ring-bright-blue/30"
                     : "bg-white/[0.02] opacity-70 hover:opacity-100 hover:bg-white/[0.04]"

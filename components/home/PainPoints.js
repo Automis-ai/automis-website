@@ -23,7 +23,7 @@ export default function PainPoints({ content }) {
             <Reveal
               key={item.title}
               delay={i * 0.08}
-              className="av-gradient-border group flex h-full flex-col rounded-2xl bg-white/[0.03] p-6 transition-transform duration-300 hover:-translate-y-1"
+              className="hx-orbit av-gradient-border group flex h-full flex-col rounded-2xl bg-white/[0.03] p-6 transition-transform duration-300 hover:-translate-y-1"
             >
               <span className="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-bright-blue/10 text-bright-blue transition-colors duration-300 group-hover:bg-warm-yellow/15 group-hover:text-warm-yellow">
                 <Icon size={22} strokeWidth={1.75} />

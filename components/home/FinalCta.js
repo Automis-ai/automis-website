@@ -9,7 +9,7 @@ export default function FinalCta({ content, bookingUrl }) {
     <Section id="book" className="hx-grain">
       <div className="pointer-events-none absolute -top-10 left-1/2 h-64 w-[36rem] max-w-full -translate-x-1/2 rounded-full bg-bright-blue/12 blur-[120px]" />
 
-      <div className="av-gradient-border relative overflow-hidden rounded-3xl bg-white/[0.03] p-6 sm:p-10">
+      <div className="hx-orbit-on av-gradient-border relative overflow-hidden rounded-3xl bg-white/[0.03] p-6 sm:p-10">
         <div className="av-grid pointer-events-none absolute inset-0 opacity-[0.04]" />
         <div className="relative grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
           <Reveal>

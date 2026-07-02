@@ -169,6 +169,7 @@ const home = {
         client: "Clínica Dentária Santa Maria dos Olivais",
         location: "Lisbon, Portugal",
         sector: "Healthcare",
+        logo: "/assets/images/case-studies/clinica-santa-maria.svg",
         summary:
           "An AI voice receptionist that answers every patient call, handles FAQs, and books appointments 24/7, so the front desk stops losing after hours bookings.",
         tags: ["Voice AI", "24/7 booking", "GDPR"],
@@ -177,6 +178,7 @@ const home = {
         client: "Adifesa",
         location: "Italy",
         sector: "Finance",
+        logo: "/assets/images/case-studies/adifesa.png",
         summary:
           "Meta advertising automation for cessione del quinto (salary backed loans), turning paid campaigns into a steady flow of qualified, ready to contact leads.",
         tags: ["Paid ads", "Lead gen", "CRM"],

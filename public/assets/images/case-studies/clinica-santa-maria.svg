@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 96" fill="none" role="img" aria-label="Clínica Santa Maria dos Olivais">
+  <!-- smile -->
+  <path d="M16 44 Q66 98 116 44" stroke="#0A1B2A" stroke-width="15" stroke-linecap="round" fill="none"/>
+  <!-- wink -->
+  <path d="M79 41 Q93 14 107 41" stroke="#0A1B2A" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <!-- eye -->
+  <circle cx="45" cy="29" r="12.5" fill="#C6D634"/>
+</svg>

@@ -14,7 +14,7 @@ export default function Guarantee({ content }) {
           <Reveal
             key={item.title}
             delay={i * 0.1}
-            className="av-gradient-border flex h-full flex-col rounded-2xl bg-white/[0.03] p-7"
+            className="hx-orbit av-gradient-border flex h-full flex-col rounded-2xl bg-white/[0.03] p-7"
           >
             <span className="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-warm-yellow/12 text-warm-yellow">
               <ShieldCheck size={24} strokeWidth={1.8} />

@@ -494,6 +494,77 @@ html { scroll-behavior: smooth; }
   .hx-breathe { opacity: 0.9; }
 }
 
+/* Gold light travelling around a card border (the "yellow orbit").
+   Progressive enhancement via @property; degrades to a static state. */
+@property --hx-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes hx-orbit-spin {
+  to { --hx-angle: 360deg; }
+}
+.hx-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--hx-angle),
+    transparent 48%,
+    rgba(254, 196, 88, 0.35) 62%,
+    #fec458 76%,
+    #f5cd79 84%,
+    rgba(254, 196, 88, 0.35) 90%,
+    transparent 98%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.hx-orbit:hover::after {
+  opacity: 1;
+  animation: hx-orbit-spin 3s linear infinite;
+}
+/* Always-on variant for a couple of ambient highlights. */
+.hx-orbit-on::after {
+  opacity: 0.9;
+  animation: hx-orbit-spin 5s linear infinite;
+}
+
+/* Sheen sweep across a button on hover (pair with relative + overflow-hidden). */
+.hx-shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -160%;
+  width: 55%;
+  height: 100%;
+  transform: skewX(-20deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.hx-shine:hover::before {
+  left: 160%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-orbit:hover::after { animation: none; }
+  .hx-orbit-on::after { animation: none; opacity: 0.6; }
+  .hx-shine::before { transition: none; }
+}
+
 /* ─────────────────────────────────────────
    Blog Markdown Prose Styles
    Used by ReactMarkdown inside blog posts

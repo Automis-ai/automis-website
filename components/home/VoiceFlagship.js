@@ -14,12 +14,12 @@ function Stat({ stat, index }) {
         {stat.plain ? (
           <span>
             {stat.value}
-            <span className="text-bright-blue">{stat.suffix}</span>
+            <span className="text-warm-yellow">{stat.suffix}</span>
           </span>
         ) : (
           <>
             <CountUp end={stat.value} duration={2} enableScrollSpy scrollSpyOnce />
-            <span className="text-bright-blue">{stat.suffix}</span>
+            <span className="text-warm-yellow">{stat.suffix}</span>
           </>
         )}
       </div>

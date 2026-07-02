@@ -119,7 +119,7 @@ export function GoldCTA({ href, children, external = false, className = "", icon
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={reset}
-      className={`hx-cta-gold inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 font-display text-base font-bold transition-[box-shadow,transform] duration-300 ${className}`}
+      className={`hx-cta-gold hx-shine relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 font-display text-base font-bold transition-[box-shadow,transform] duration-300 ${className}`}
     >
       {children}
       {icon && (
