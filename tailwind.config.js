@@ -33,11 +33,30 @@ export default {
         'soft-blue': '#B4C2FF',
         'warm-yellow': '#F5CD79',
 
+        // Homepage v3 "rooms": four navy depths, darkest to most raised
+        'ink': {
+          '950': '#00060E',
+          '900': '#000A14',
+          '800': '#06121F',
+          '700': '#0B1D33',
+        },
+        'gold': {
+          '400': '#F5CD79',
+          '500': '#FEC458',
+          '700': '#B07A12',
+        },
+        // Functional only: live-status dots, never decorative
+        'signal': '#4ADE80',
+
         'bg-primary': '#000a14',
         'blue': {
           'darkest': '#000a14',
           'middle': '#3C91E6',
           'lightest': '#B4C2FF',
+          '600': '#1656A8',
+          '500': '#3C91E6',
+          '400': '#6FB1F0',
+          '300': '#B4C2FF',
         },
 
         'yellow': {
@@ -86,6 +105,10 @@ export default {
         'container-1070': '1200px',
       },
       fontSize: {
+        // Homepage v3 display scale (Clash Display)
+        'display-2xl': ['clamp(2.75rem, 6vw, 5.25rem)', { lineHeight: '0.97', letterSpacing: '-0.03em' }],
+        'display-xl': ['clamp(2.25rem, 4.5vw, 3.75rem)', { lineHeight: '1.02', letterSpacing: '-0.02em' }],
+        'display-lg': ['clamp(1.5rem, 2.2vw, 1.875rem)', { lineHeight: '1.15', letterSpacing: '-0.01em' }],
         'h1': ['3rem', { lineHeight: '1.2' }],
         'h2': ['2.25rem', { lineHeight: '1.3' }],
         'h3': ['1.75rem', { lineHeight: '1.4' }],

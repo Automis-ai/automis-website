@@ -834,3 +834,106 @@ html { scroll-behavior: smooth; }
   background: linear-gradient(to right, #FEC458, #FEC458);
   color: #000a14 !important;
 }
+
+/* ═══════════════════════════════════════════
+   HOMEPAGE v3 · "the system, live" (.hx3- prefix)
+   Fully dark cinematic page: four navy "rooms"
+   separated by glow and hairlines, no light flips.
+═══════════════════════════════════════════ */
+
+/* Room surfaces */
+.hx3-surface-deep {
+  background: #000a14;
+}
+.hx3-surface-panel {
+  background: linear-gradient(180deg, #06121f 0%, #000a14 70%);
+  border-top: 1px solid rgba(180, 194, 255, 0.07);
+}
+.hx3-surface-raised {
+  background: linear-gradient(180deg, #0b1d33 0%, #06121f 55%, #000a14 100%);
+  border-top: 1px solid rgba(180, 194, 255, 0.09);
+}
+.hx3-surface-accent {
+  background:
+    radial-gradient(120% 90% at 50% -15%, rgba(60, 145, 230, 0.15), transparent 60%),
+    radial-gradient(70% 55% at 85% 115%, rgba(254, 196, 88, 0.05), transparent 60%),
+    #00060e;
+  border-top: 1px solid rgba(180, 194, 255, 0.07);
+  border-bottom: 1px solid rgba(180, 194, 255, 0.07);
+}
+
+/* Live status dot (functional green, ticker + deployment cards only) */
+@keyframes hx3-live {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.45); }
+  50%      { opacity: 0.7; box-shadow: 0 0 0 5px rgba(74, 222, 128, 0); }
+}
+.hx3-live-dot { animation: hx3-live 2.2s ease-in-out infinite; }
+
+/* Core breathing (transform-only, GPU friendly) */
+@keyframes hx3-core {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50%      { transform: scale(1.05); opacity: 1; }
+}
+.hx3-core {
+  animation: hx3-core 3.4s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Diagram node states: toggled by the lifecycle scheduler via data-state */
+.hx3-node rect,
+.hx3-node circle,
+.hx3-node text { transition: opacity 0.4s ease, fill 0.4s ease, stroke 0.4s ease; }
+.hx3-node { opacity: 0.55; transition: opacity 0.4s ease; }
+.hx3-node[data-state="active"] { opacity: 1; }
+.hx3-node[data-state="done"] { opacity: 0.9; }
+
+/* Packet: glowing dot travelling a wire via SMIL animateMotion */
+.hx3-packet {
+  filter: drop-shadow(0 0 6px rgba(111, 177, 240, 0.9));
+}
+
+/* Typing indicator (call simulation) */
+@keyframes hx3-typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30%           { transform: translateY(-3px); opacity: 1; }
+}
+.hx3-typing span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: rgba(180, 194, 255, 0.8);
+  animation: hx3-typing 1.1s ease-in-out infinite;
+}
+.hx3-typing span:nth-child(2) { animation-delay: 0.15s; }
+.hx3-typing span:nth-child(3) { animation-delay: 0.3s; }
+
+/* Energized rail for the process steps: a pulse sweeping the line */
+.hx3-rail {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(60, 145, 230, 0.28) 12%,
+    rgba(60, 145, 230, 0.28) 88%,
+    transparent 100%
+  );
+}
+@keyframes hx3-rail-sweep {
+  from { background-position: -40% 0; }
+  to   { background-position: 140% 0; }
+}
+.hx3-rail-pulse {
+  background-image: linear-gradient(90deg, transparent, rgba(111, 177, 240, 0.95), transparent);
+  background-size: 26% 100%;
+  background-repeat: no-repeat;
+  animation: hx3-rail-sweep 4.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx3-live-dot,
+  .hx3-core,
+  .hx3-typing span,
+  .hx3-rail-pulse { animation: none; }
+  .hx3-node { opacity: 0.9; }
+}

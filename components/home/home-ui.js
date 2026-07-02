@@ -5,12 +5,14 @@ import Link from "next/link";
 import { motion, useReducedMotion, useScroll } from "framer-motion";
 
 /* ── Surface context ──────────────────────────────────────────
-   Each Section declares a surface (deep | panel | light | accent);
-   children read it to pick light/dark treatments automatically. */
+   Each Section declares a surface (deep | panel | raised | accent);
+   v3 is fully dark: rooms differ by depth, not by light/dark flips.
+   "light" is kept for backward compatibility during the migration. */
 const SurfaceContext = createContext({ surface: "deep", light: false });
 export const useSurface = () => useContext(SurfaceContext);
 
 const isLightSurface = (s) => s === "light";
+const surfaceCls = (s) => (s === "light" ? "hx-surface-light" : `hx3-surface-${s}`);
 
 /* Adaptive text classes (dark surfaces vs light surface). */
 const headingCls = (light) => (light ? "text-[#0A1B2A]" : "text-white");
@@ -81,9 +83,7 @@ export function SectionHeading({ kicker, title, lead, align = "center", classNam
       } ${className}`}
     >
       {kicker && <span className="mb-5">{<Kicker>{kicker}</Kicker>}</span>}
-      <h2
-        className={`font-display text-[2.3rem] font-semibold tracking-[-0.02em] leading-[1.02] sm:text-[2.9rem] lg:text-[3.6rem] ${headingCls(light)}`}
-      >
+      <h2 className={`font-display text-display-xl font-semibold ${headingCls(light)}`}>
         {title}
       </h2>
       {lead && (
@@ -135,7 +135,7 @@ export function Section({
       <section
         id={id}
         data-surface={surface}
-        className={`hx-surface-${surface} relative overflow-hidden px-4 ${pad} ${className}`}
+        className={`${surfaceCls(surface)} relative overflow-hidden px-4 ${pad} ${className}`}
       >
         {grid && !light && (
           <div className="av-grid pointer-events-none absolute inset-0 opacity-[0.04]" />
@@ -230,6 +230,35 @@ export function GoldCTA({ href, children, external = false, className = "", icon
     <Link href={href} className="inline-block no-underline">
       {inner}
     </Link>
+  );
+}
+
+/* Pulsing live-status dot. Functional green only: means "this is running". */
+export function LiveDot({ className = "" }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`hx3-live-dot inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-signal ${className}`}
+    />
+  );
+}
+
+/* Small mono chip for statuses, tags, and cost labels. */
+const TAG_TONES = {
+  default: "border-white/10 bg-white/[0.04] text-white/60",
+  blue: "border-bright-blue/25 bg-bright-blue/10 text-bright-blue",
+  gold: "border-gold-500/30 bg-gold-500/10 text-gold-400",
+  red: "border-red-400/20 bg-red-400/[0.07] text-red-300/80",
+};
+export function MonoTag({ children, tone = "default", className = "" }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.16em] ${
+        TAG_TONES[tone] || TAG_TONES.default
+      } ${className}`}
+    >
+      {children}
+    </span>
   );
 }
 
