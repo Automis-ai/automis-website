@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin } from "lucide-react";
+import { MapPin, Check } from "lucide-react";
 import { Section, SectionHeading, Reveal } from "./home-ui";
 
-/* Client logo on a clean light badge (so colored/dark logos read on the dark
-   card). Falls back to an initials monogram if the image is missing. */
+/* Client logo on a clean light badge (colored/dark logos read on the dark card).
+   Falls back to an initials monogram if the image is missing. */
 function ClientLogo({ src, name }) {
   const [ok, setOk] = useState(Boolean(src));
   if (!ok) {
@@ -39,15 +39,15 @@ function ClientLogo({ src, name }) {
 export default function Results({ content }) {
   const c = content;
   return (
-    <Section id="results">
-      <SectionHeading eyebrow={c.eyebrow} title={c.title} subtitle={c.subtitle} />
+    <Section id="results" surface="deep">
+      <SectionHeading kicker={c.kicker} title={c.title} lead={c.lead} />
 
       <div className="mt-14 grid gap-6 md:grid-cols-2">
         {c.cases.map((cs, i) => (
           <Reveal
             key={cs.client}
             delay={i * 0.1}
-            className="hx-orbit av-gradient-border group flex h-full flex-col rounded-3xl bg-white/[0.03] p-8 transition-transform duration-300 hover:-translate-y-1"
+            className="hx-orbit av-gradient-border group flex h-full flex-col rounded-3xl bg-white/[0.03] p-8"
           >
             <div className="flex items-start justify-between gap-4">
               <ClientLogo src={cs.logo} name={cs.client} />
@@ -58,12 +58,18 @@ export default function Results({ content }) {
             <span className="mt-6 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-bright-blue">
               {cs.sector}
             </span>
-            <h3 className="mt-2 font-display text-xl font-bold leading-snug text-white">
-              {cs.client}
-            </h3>
-            <p className="mt-4 flex-1 font-body text-sm leading-relaxed text-white/65">
-              {cs.summary}
-            </p>
+            <h3 className="mt-2 font-display text-xl font-bold leading-snug text-white">{cs.client}</h3>
+            <p className="mt-3 font-body text-sm leading-relaxed text-white/60">{cs.summary}</p>
+
+            <ul className="mt-5 space-y-2.5 border-t border-white/10 pt-5">
+              {cs.outcomes.map((o) => (
+                <li key={o} className="flex items-start gap-2.5 font-body text-sm text-white/80">
+                  <Check size={15} strokeWidth={3} className="mt-0.5 shrink-0 text-bright-blue" />
+                  <span>{o}</span>
+                </li>
+              ))}
+            </ul>
+
             <div className="mt-6 flex flex-wrap gap-2">
               {cs.tags.map((t) => (
                 <span

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { renderCanvas } from "@/components/ui/canvas";
-import { Grad, Eyebrow, GoldCTA, GhostLink } from "./home-ui";
+import { Grad, Kicker, GoldCTA, GhostLink } from "./home-ui";
 
 export default function Hero({ content }) {
   const reduce = useReducedMotion();
@@ -16,7 +16,7 @@ export default function Hero({ content }) {
   }, [reduce]);
 
   return (
-    <section className="hx-grain relative flex min-h-[92vh] items-center overflow-hidden px-4 pb-24 pt-28 md:pt-32">
+    <section className="hx-surface-deep hx-grain relative flex min-h-[92vh] items-center overflow-hidden px-4 pb-24 pt-28 md:pt-32">
       {/* Mouse-trailing flowing-lines background (brand blue) */}
       <canvas
         id="automis-canvas"
@@ -39,7 +39,7 @@ export default function Hero({ content }) {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="flex justify-center">
-            <Eyebrow>{h.eyebrow}</Eyebrow>
+            <Kicker>{h.kicker}</Kicker>
           </div>
           <h1 className="mx-auto mt-6 max-w-4xl font-display text-[2.9rem] font-semibold tracking-[-0.03em] leading-[0.98] text-white sm:text-6xl lg:text-[5rem]">
             {h.titleLead} <Grad>{h.titleAccent}</Grad>
@@ -53,9 +53,19 @@ export default function Hero({ content }) {
             </GoldCTA>
             <GhostLink href={h.secondaryCta.href}>{h.secondaryCta.label}</GhostLink>
           </div>
-          <p className="mx-auto mt-12 max-w-md font-mono text-[0.7rem] uppercase tracking-[0.16em] text-white/40">
-            {h.trustLabel}
-          </p>
+
+          {/* Above-the-fold trust chips */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-2.5">
+            {h.chips.map((chip) => (
+              <span
+                key={chip}
+                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-3.5 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-white/70 backdrop-blur-sm"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-bright-blue" />
+                {chip}
+              </span>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

@@ -565,6 +565,56 @@ html { scroll-behavior: smooth; }
   .hx-shine::before { transition: none; }
 }
 
+/* ═══════════════════════════════════════════
+   v2 · SECTION SURFACES (scroll rhythm)
+   Alternate deep / panel / light / accent so each
+   section reads as a distinct "room" while scrolling.
+═══════════════════════════════════════════ */
+.hx-surface-deep {
+  background: #000a14;
+}
+.hx-surface-panel {
+  background: linear-gradient(180deg, #06121f 0%, #000a14 62%);
+  border-top: 1px solid rgba(180, 194, 255, 0.06);
+}
+.hx-surface-accent {
+  background:
+    radial-gradient(120% 90% at 50% -15%, rgba(60, 145, 230, 0.16), transparent 60%),
+    radial-gradient(80% 60% at 85% 120%, rgba(254, 196, 88, 0.08), transparent 60%),
+    #00060e;
+  border-top: 1px solid rgba(180, 194, 255, 0.06);
+  border-bottom: 1px solid rgba(180, 194, 255, 0.06);
+}
+.hx-surface-light {
+  background: #f4f7fc;
+  color: #0a1b2a;
+}
+
+/* Light-surface card + hover lift */
+.hx-card-light {
+  background: #ffffff;
+  border: 1px solid rgba(10, 27, 42, 0.08);
+  box-shadow: 0 14px 40px -20px rgba(10, 27, 42, 0.28);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hx-card-light:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 50px -22px rgba(10, 27, 42, 0.35);
+}
+/* Flagship variant on light: warm gold frame */
+.hx-card-light-gold {
+  border-color: rgba(254, 196, 88, 0.7);
+  box-shadow: 0 16px 44px -18px rgba(254, 196, 88, 0.4);
+}
+
+/* Soft divider used to blend a dark section into a light one */
+.hx-fade-to-light {
+  background: linear-gradient(180deg, transparent, #f4f7fc);
+}
+.hx-fade-to-deep {
+  background: linear-gradient(180deg, transparent, #000a14);
+}
+
 /* ─────────────────────────────────────────
    Blog Markdown Prose Styles
    Used by ReactMarkdown inside blog posts

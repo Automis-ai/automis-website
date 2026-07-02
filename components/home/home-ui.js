@@ -1,10 +1,24 @@
 "use client";
 
-import { useRef } from "react";
+import { createContext, useContext, useRef } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll } from "framer-motion";
 
-/* Thin scroll-progress bar pinned to the top — app-like, modern touch. */
+/* ── Surface context ──────────────────────────────────────────
+   Each Section declares a surface (deep | panel | light | accent);
+   children read it to pick light/dark treatments automatically. */
+const SurfaceContext = createContext({ surface: "deep", light: false });
+export const useSurface = () => useContext(SurfaceContext);
+
+const isLightSurface = (s) => s === "light";
+
+/* Adaptive text classes (dark surfaces vs light surface). */
+const headingCls = (light) => (light ? "text-[#0A1B2A]" : "text-white");
+const leadCls = (light) => (light ? "text-[#0A1B2A]/70" : "text-white/70");
+const bodyCls = (light) => (light ? "text-[#0A1B2A]/65" : "text-white/60");
+const mutedCls = (light) => (light ? "text-[#0A1B2A]/55" : "text-white/45");
+
+/* Thin scroll-progress bar pinned to the top. */
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const reduce = useReducedMotion();
@@ -17,19 +31,8 @@ export function ScrollProgress() {
   );
 }
 
-/* Brand gradient text — the single accent treatment on headings. */
-export function Grad({ children, className = "" }) {
-  return (
-    <span
-      className={`bg-gradient-to-r from-soft-blue via-bright-blue to-soft-blue bg-clip-text text-transparent ${className}`}
-    >
-      {children}
-    </span>
-  );
-}
-
-/* Mono utility eyebrow. Reads like a system label, ties to the integrator identity. */
-export function Eyebrow({ children, className = "" }) {
+/* Mono kicker (section label). Bright-blue reads on both light and dark. */
+export function Kicker({ children, className = "" }) {
   return (
     <span
       className={`inline-flex items-center gap-2.5 font-mono text-[0.7rem] font-medium uppercase tracking-[0.22em] text-bright-blue ${className}`}
@@ -40,8 +43,36 @@ export function Eyebrow({ children, className = "" }) {
   );
 }
 
-/* Section header: eyebrow + Montserrat title + soft subtitle. */
-export function SectionHeading({ eyebrow, title, subtitle, align = "center", className = "" }) {
+/* Gradient-highlighted words. Adapts contrast to the surface. */
+export function Grad({ children, className = "" }) {
+  const { light } = useSurface();
+  const grad = light
+    ? "from-[#3C91E6] to-[#1656a8]"
+    : "from-soft-blue via-bright-blue to-soft-blue";
+  return (
+    <span className={`bg-gradient-to-r ${grad} bg-clip-text text-transparent ${className}`}>
+      {children}
+    </span>
+  );
+}
+
+/* Inline scan-anchor: a bolded highlight inside body copy. */
+export function HL({ children, tone = "text" }) {
+  const { light } = useSurface();
+  const color =
+    tone === "gold"
+      ? "text-warm-yellow"
+      : tone === "blue"
+        ? "text-bright-blue"
+        : light
+          ? "text-[#0A1B2A]"
+          : "text-white";
+  return <strong className={`font-semibold ${color}`}>{children}</strong>;
+}
+
+/* Section header: kicker -> big headline -> lead. One job per section. */
+export function SectionHeading({ kicker, title, lead, align = "center", className = "" }) {
+  const { light } = useSurface();
   const isCenter = align === "center";
   return (
     <Reveal
@@ -49,20 +80,20 @@ export function SectionHeading({ eyebrow, title, subtitle, align = "center", cla
         isCenter ? "items-center text-center mx-auto max-w-3xl" : "items-start text-left"
       } ${className}`}
     >
-      {eyebrow && <span className="mb-4">{<Eyebrow>{eyebrow}</Eyebrow>}</span>}
-      <h2 className="font-display text-[2.1rem] font-semibold tracking-[-0.02em] leading-[1.02] text-white sm:text-[2.7rem] lg:text-[3.4rem]">
+      {kicker && <span className="mb-5">{<Kicker>{kicker}</Kicker>}</span>}
+      <h2
+        className={`font-display text-[2.3rem] font-semibold tracking-[-0.02em] leading-[1.02] sm:text-[2.9rem] lg:text-[3.6rem] ${headingCls(light)}`}
+      >
         {title}
       </h2>
-      {subtitle && (
-        <p className="mt-6 max-w-2xl font-body text-base leading-relaxed text-white/60 md:text-lg">
-          {subtitle}
-        </p>
+      {lead && (
+        <p className={`mt-6 max-w-2xl font-body text-lg leading-relaxed ${leadCls(light)}`}>{lead}</p>
       )}
     </Reveal>
   );
 }
 
-/* Scroll-reveal wrapper. Fades + rises once on enter; disabled under reduced-motion. */
+/* Scroll-reveal wrapper (once). */
 export function Reveal({ children, className = "", delay = 0, y = 22, as = "div", ...rest }) {
   const reduce = useReducedMotion();
   const MotionTag = motion[as] || motion.div;
@@ -79,7 +110,7 @@ export function Reveal({ children, className = "", delay = 0, y = 22, as = "div"
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
       {...rest}
     >
@@ -88,17 +119,69 @@ export function Reveal({ children, className = "", delay = 0, y = 22, as = "div"
   );
 }
 
-/* Consistent section shell: vertical rhythm + optional faint brand grid. */
-export function Section({ id, children, className = "", grid = false, containerClass = "" }) {
+/* Surface-aware section shell with generous rhythm. */
+export function Section({
+  id,
+  surface = "deep",
+  children,
+  className = "",
+  containerClass = "",
+  grid = false,
+  pad = "py-24 md:py-32",
+}) {
+  const light = isLightSurface(surface);
   return (
-    <section id={id} className={`relative overflow-hidden px-4 py-20 md:py-28 ${className}`}>
-      {grid && <div className="av-grid pointer-events-none absolute inset-0 opacity-[0.04]" />}
-      <div className={`container relative mx-auto max-w-6xl ${containerClass}`}>{children}</div>
-    </section>
+    <SurfaceContext.Provider value={{ surface, light }}>
+      <section
+        id={id}
+        data-surface={surface}
+        className={`hx-surface-${surface} relative overflow-hidden px-4 ${pad} ${className}`}
+      >
+        {grid && !light && (
+          <div className="av-grid pointer-events-none absolute inset-0 opacity-[0.04]" />
+        )}
+        <div className={`container relative mx-auto max-w-6xl ${containerClass}`}>{children}</div>
+      </section>
+    </SurfaceContext.Provider>
   );
 }
 
-/* Magnetic gold CTA — the one gold accent, one primary action per page. */
+/* Adaptive card: dark glass with gold-orbit hover, or a clean white light card. */
+export function Card({ children, className = "", orbit = true, gold = false }) {
+  const { light } = useSurface();
+  if (light) {
+    return (
+      <div className={`hx-card-light ${gold ? "hx-card-light-gold" : ""} rounded-2xl ${className}`}>
+        {children}
+      </div>
+    );
+  }
+  return (
+    <div
+      className={`av-gradient-border ${orbit ? "hx-orbit" : ""} ${
+        gold ? "hx-orbit-on" : ""
+      } rounded-2xl bg-white/[0.03] ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+/* Big focal number + label (adaptive). */
+export function Stat({ value, suffix, label, gold = false, className = "" }) {
+  const { light } = useSurface();
+  return (
+    <div className={className}>
+      <div className={`font-display text-4xl font-semibold sm:text-5xl lg:text-6xl ${headingCls(light)}`}>
+        {value}
+        {suffix && <span className={gold ? "text-warm-yellow" : "text-bright-blue"}>{suffix}</span>}
+      </div>
+      <p className={`mt-3 font-body text-sm leading-snug ${bodyCls(light)}`}>{label}</p>
+    </div>
+  );
+}
+
+/* Magnetic gold CTA with sheen. Works on any surface (gold is the constant). */
 export function GoldCTA({ href, children, external = false, className = "", icon = true }) {
   const ref = useRef(null);
   const reduce = useReducedMotion();
@@ -150,9 +233,13 @@ export function GoldCTA({ href, children, external = false, className = "", icon
   );
 }
 
-/* Quiet secondary link with an arrow — pairs with the gold CTA. */
+/* Quiet secondary link with arrow (adaptive). */
 export function GhostLink({ href, children, external = false, className = "" }) {
-  const cls = `group inline-flex items-center gap-2 font-display text-sm font-semibold text-soft-blue transition-colors hover:text-white no-underline ${className}`;
+  const { light } = useSurface();
+  const base = light
+    ? "text-bright-blue hover:text-[#0A1B2A]"
+    : "text-soft-blue hover:text-white";
+  const cls = `group inline-flex items-center gap-2 font-display text-sm font-semibold no-underline transition-colors ${base} ${className}`;
   const body = (
     <>
       {children}
