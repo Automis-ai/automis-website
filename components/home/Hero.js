@@ -1,27 +1,32 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { renderCanvas } from "@/components/ui/canvas";
 import { Grad, Eyebrow, GoldCTA, GhostLink } from "./home-ui";
-
-// WebGL background: client-only, code-split so three.js never blocks first paint.
-const DottedSurface = dynamic(
-  () => import("@/components/ui/dotted-surface").then((m) => m.DottedSurface),
-  { ssr: false }
-);
 
 export default function Hero({ content }) {
   const reduce = useReducedMotion();
   const h = content;
 
+  useEffect(() => {
+    if (reduce) return; // respect reduced-motion: skip the animated canvas
+    const cleanup = renderCanvas();
+    return cleanup;
+  }, [reduce]);
+
   return (
     <section className="hx-grain relative flex min-h-[92vh] items-center overflow-hidden px-4 pb-24 pt-28 md:pt-32">
-      {/* Animated dotted-wave surface */}
-      <DottedSurface />
+      {/* Mouse-trailing flowing-lines background (brand blue) */}
+      <canvas
+        id="automis-canvas"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full"
+      />
 
-      {/* Ambient glow + edge fades to blend the surface into the page */}
+      {/* Ambient glow + edge fades to blend the effect into the page */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="hx-aurora-a absolute left-1/2 top-[38%] h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-bright-blue/12 blur-[150px]" />
+        <div className="absolute left-1/2 top-[42%] h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-bright-blue/10 blur-[150px]" />
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-deep-blue to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-deep-blue to-transparent" />
       </div>
