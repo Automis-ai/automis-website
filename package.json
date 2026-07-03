@@ -12,6 +12,7 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
     "aos": "^2.3.4",
+    "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
     "isotope-layout": "^3.0.6",
     "jspdf": "^4.2.1",
@@ -30,6 +31,8 @@
     "react-slick": "^0.30.2",
     "react-visibility-sensor": "^5.1.1",
     "remark-gfm": "^4.0.1",
+    "simplex-noise": "^4.0.3",
+    "tailwind-merge": "^3.6.0",
     "wavesurfer.js": "^7.10.1"
   },
   "devDependencies": {

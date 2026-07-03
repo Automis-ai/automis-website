@@ -54,10 +54,10 @@ export default function SystemPillars() {
           return (
             <Reveal key={p.n} delay={i * 110} className="h-full">
               <div
-                className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${
+                className={`card-gold group relative flex h-full flex-col overflow-hidden rounded-2xl border p-7 backdrop-blur-sm hover:-translate-y-1 ${
                   p.featured
                     ? "border-[#3C91E6]/35 bg-white/[0.05]"
-                    : "border-white/[0.08] bg-white/[0.03] hover:border-white/20"
+                    : "border-white/[0.08] bg-white/[0.03]"
                 }`}
               >
                 {p.featured && (

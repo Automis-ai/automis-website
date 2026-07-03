@@ -49,7 +49,7 @@ export default function Industries() {
           const Icon = ic.icon;
           return (
             <Reveal key={ic.title} delay={i * 90} className="h-full">
-              <div className="group flex h-full items-start gap-5 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05]">
+              <div className="card-gold group flex h-full items-start gap-5 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 hover:bg-white/[0.05]">
                 <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] transition-colors group-hover:border-[#57C7E3]/40">
                   <Icon className="h-5 w-5 text-[#8fe0f0]" strokeWidth={1.8} />
                 </span>

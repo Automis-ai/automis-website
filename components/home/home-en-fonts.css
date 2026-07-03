@@ -22,6 +22,30 @@
   font-style: normal;
   font-display: swap;
 }
+/* General Sans (Fontshare) — body face, chosen as Clash Display's companion.
+   Same foundry as Clash Display, so the pairing is intentional. */
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/general-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/general-sans-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/general-sans-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: "Satoshi";
   src: url("/fonts/satoshi-400.woff2") format("woff2");
@@ -44,11 +68,67 @@
   font-display: swap;
 }
 
-/* Scope the pairing to the EN home so other locales keep their fonts. */
+/* Scope the pairing to the EN home so other locales keep their fonts.
+   Pairing: Clash Display (display / headings) + General Sans (body / UI). */
 .home-en-root {
-  font-family: "Satoshi", "Open Sans", system-ui, sans-serif;
+  font-family: "General Sans", "Satoshi", "Open Sans", system-ui, sans-serif;
 }
 .home-en-root .font-display {
   font-family: "Clash Display", "Montserrat", sans-serif;
   letter-spacing: -0.01em;
+}
+/* Utility to opt any element explicitly into the body face. */
+.home-en-root .font-body {
+  font-family: "General Sans", "Satoshi", system-ui, sans-serif;
+}
+
+/* No stray horizontal scroll on the EN home (scoped, safe for other locales). */
+.home-en-root {
+  overflow-x: hidden;
+}
+
+/* Gold hover accent for cards (item 8).
+   Gold = scarcity in the brand, so it appears on interaction only: a gold
+   top-line draws in and the border warms + lifts on hover/focus-within. */
+.home-en-root .card-gold {
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.home-en-root .card-gold::after {
+  content: "";
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  top: 0;
+  height: 2px;
+  border-radius: 0 0 2px 2px;
+  background: linear-gradient(90deg, #FEC458, #F5CD79);
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+.home-en-root .card-gold:hover,
+.home-en-root .card-gold:focus-within {
+  border-color: rgba(254, 196, 88, 0.42);
+  box-shadow: 0 16px 46px -20px rgba(254, 196, 88, 0.35);
+}
+.home-en-root .card-gold:hover::after,
+.home-en-root .card-gold:focus-within::after {
+  transform: scaleX(1);
+  opacity: 0.95;
+}
+
+/* Mobile: give each section a clearly defined block of breathing room and a
+   faint hairline so same-coloured sections read as separate (item 6). */
+@media (max-width: 767px) {
+  .home-en-root .home-section + .home-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-en-root .card-gold,
+  .home-en-root .card-gold::after {
+    transition: none;
+  }
 }

@@ -58,9 +58,9 @@ export function Reveal({ children, delay = 0, y = 24, as: Tag = "div", className
 }
 
 // Section shell with consistent vertical rhythm + id anchor.
-export function Section({ id, children, className = "", inner = "max-w-6xl", pad = "py-20 md:py-28" }) {
+export function Section({ id, children, className = "", inner = "max-w-6xl", pad = "py-24 md:py-28" }) {
   return (
-    <section id={id} className={`relative ${pad} ${className}`}>
+    <section id={id} className={`home-section relative ${pad} ${className}`}>
       <div className={`container mx-auto px-5 sm:px-6`}>
         <div className={`${inner} mx-auto`}>{children}</div>
       </div>
@@ -109,8 +109,9 @@ export function SectionHeading({ eyebrow, title, lead, align = "center", classNa
       {eyebrow ? <Reveal><Eyebrow>{eyebrow}</Eyebrow></Reveal> : null}
       <Reveal delay={60}>
         <h2
-          className="font-display mt-5 text-[2rem] leading-[1.12] tracking-[-0.02em] text-white sm:text-[2.6rem] md:text-[3rem]"
-          style={{ maxWidth: align === "center" ? "20ch" : "none" }}
+          className={`font-display mt-5 text-[1.75rem] leading-[1.14] tracking-[-0.02em] text-white [text-wrap:balance] sm:text-[2.6rem] sm:leading-[1.12] md:text-[3rem] ${
+            align === "center" ? "mx-auto max-w-[16ch] sm:max-w-[20ch]" : "max-w-[20ch]"
+          }`}
         >
           {title}
         </h2>
@@ -118,7 +119,7 @@ export function SectionHeading({ eyebrow, title, lead, align = "center", classNa
       {lead ? (
         <Reveal delay={120}>
           <p
-            className={`mt-5 text-[1.05rem] leading-relaxed text-white/60 ${
+            className={`mt-4 text-[1rem] leading-relaxed text-white/60 [text-wrap:pretty] sm:mt-5 sm:text-[1.05rem] ${
               align === "center" ? "mx-auto max-w-2xl" : "max-w-xl"
             }`}
           >
@@ -134,8 +135,8 @@ export function SectionHeading({ eyebrow, title, lead, align = "center", classNa
 export function Card({ children, className = "", hover = true }) {
   return (
     <div
-      className={`group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 ${
-        hover ? "hover:border-white/20 hover:bg-white/[0.05] hover:-translate-y-1" : ""
+      className={`group relative rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-sm ${
+        hover ? "card-gold hover:bg-white/[0.05] hover:-translate-y-1" : ""
       } ${className}`}
     >
       {children}

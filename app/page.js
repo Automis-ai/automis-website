@@ -38,7 +38,7 @@ export default function Home() {
     <div className="home-en-root">
       {/* Preload the two most critical font weights for a fast first paint. */}
       <link rel="preload" href="/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-      <link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/general-sans-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
       <AkpagerLayout>
         <HeroEN />
