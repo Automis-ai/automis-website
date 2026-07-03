@@ -38,6 +38,70 @@ export default function SwipeRow({ items, gridClassName = "md:grid-cols-2", clas
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Gentle auto-play on mobile: drift one card at a time, ping-ponging back and
+  // forth. Touching / swiping / scrolling the row pauses it; it resumes a few
+  // seconds after the last interaction. Never runs on desktop, off-screen,
+  // when the tab is hidden, or for reduced-motion users.
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el || typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const mq = window.matchMedia("(max-width: 767px)");
+    const STEP_MS = 3800; // dwell time per card
+    const RESUME_MS = 4000; // idle time before auto-play resumes after a touch
+
+    let paused = false;
+    let inView = false;
+    let dir = 1;
+    let resumeTimer;
+
+    const advance = () => {
+      if (paused || !inView || document.hidden || !mq.matches) return;
+      const cards = el.querySelectorAll("[data-swipe-card]");
+      if (cards.length < 2) return;
+      const center = el.scrollLeft + el.clientWidth / 2;
+      let cur = 0;
+      let best = Infinity;
+      cards.forEach((c, i) => {
+        const d = Math.abs(c.offsetLeft + c.clientWidth / 2 - center);
+        if (d < best) { best = d; cur = i; }
+      });
+      let next = cur + dir;
+      if (next >= cards.length) { dir = -1; next = cur - 1; }
+      else if (next < 0) { dir = 1; next = cur + 1; }
+      el.scrollTo({ left: cards[next].offsetLeft - 20, behavior: "smooth" });
+    };
+
+    const timer = setInterval(advance, STEP_MS);
+
+    const pause = () => {
+      paused = true;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { paused = false; }, RESUME_MS);
+    };
+    el.addEventListener("pointerdown", pause, { passive: true });
+    el.addEventListener("touchstart", pause, { passive: true });
+    el.addEventListener("wheel", pause, { passive: true });
+
+    let io;
+    if (typeof IntersectionObserver !== "undefined") {
+      io = new IntersectionObserver(([e]) => { inView = e.isIntersecting; }, { threshold: 0.5 });
+      io.observe(el);
+    } else {
+      inView = true;
+    }
+
+    return () => {
+      clearInterval(timer);
+      clearTimeout(resumeTimer);
+      el.removeEventListener("pointerdown", pause);
+      el.removeEventListener("touchstart", pause);
+      el.removeEventListener("wheel", pause);
+      if (io) io.disconnect();
+    };
+  }, []);
+
   const goTo = (i) => {
     const el = trackRef.current;
     if (!el) return;
