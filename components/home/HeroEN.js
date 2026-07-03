@@ -1,5 +1,5 @@
 "use client";
-import { Reveal, GradientText } from "./_ui";
+import { Reveal } from "./_ui";
 import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 import { WavyBackground } from "@/components/ui/WavyBackground";
 import HeroDemo from "./HeroDemo";
@@ -41,8 +41,8 @@ export default function HeroEN() {
 
           <Reveal delay={80}>
             <h1 className="font-display mx-auto mt-7 max-w-[15ch] text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-[3.6rem] md:text-[4.4rem]">
-              We build the{" "}
-              <GradientText>systems your business is missing</GradientText>.
+              We build the <span className="text-[#3C91E6]">systems</span> your business is{" "}
+              <span className="text-[#3C91E6]">missing</span>.
             </h1>
           </Reveal>
 

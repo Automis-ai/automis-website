@@ -17,6 +17,8 @@ const QUESTIONS = [
       { label: "Professional / financial services", w: { sales: 2, admin: 3 }, h: 7 },
       { label: "Real estate", w: { sales: 3, marketing: 1 }, h: 5 },
       { label: "Local business / services", w: { sales: 2, marketing: 1 }, h: 4 },
+      { label: "E-commerce / retail", w: { marketing: 2, sales: 2 }, h: 5 },
+      { label: "Hospitality / restaurant", w: { sales: 3, admin: 1 }, h: 5 },
     ],
   },
   {

@@ -1,7 +1,7 @@
 "use client";
 import { Section, SectionHeading, Reveal } from "./_ui";
 import SwipeRow from "./SwipeRow";
-import { HeartPulse, Scale, Building2, Store, ShieldCheck } from "lucide-react";
+import { HeartPulse, Scale, Building2, Store, ShoppingBag, UtensilsCrossed, ShieldCheck } from "lucide-react";
 
 const ICPS = [
   {
@@ -28,8 +28,22 @@ const ICPS = [
   {
     icon: Store,
     title: "Local Businesses",
-    sub: "Services · retail · trades",
+    sub: "Services · trades · local shops",
     body: "Stop missing calls and automate the social DMs, with a system that captures every lead while you get on with the work.",
+    proven: null,
+  },
+  {
+    icon: ShoppingBag,
+    title: "E-commerce & Retail",
+    sub: "Online stores · retail",
+    body: "AI that answers order, shipping, and returns questions around the clock, plus WhatsApp and social flows that turn browsers into buyers.",
+    proven: null,
+  },
+  {
+    icon: UtensilsCrossed,
+    title: "Hospitality & Restaurants",
+    sub: "Restaurants · hotels · bookings",
+    body: "A voice agent that takes bookings and answers FAQs 24/7, cutting no-shows and freeing your floor staff to look after guests.",
     proven: null,
   },
 ];

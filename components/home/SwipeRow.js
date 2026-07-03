@@ -55,15 +55,15 @@ export default function SwipeRow({ items, gridClassName = "md:grid-cols-2", clas
             </div>
           ))}
         </div>
-        <div className="mt-5 flex items-center justify-center gap-2">
+        <div className="mt-5 flex items-center justify-center gap-1.5">
           {items.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Go to item ${i + 1}`}
-              className="h-1.5 rounded-full transition-all duration-300"
+              className="h-1 rounded-full transition-all duration-300"
               style={{
-                width: active === i ? 22 : 6,
+                width: active === i ? 14 : 4,
                 background: active === i ? "linear-gradient(90deg,#3C91E6,#57C7E3)" : "rgba(255,255,255,0.2)",
               }}
             />
