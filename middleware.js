@@ -18,7 +18,8 @@ const ENGLISH_ROOT_PAGES = new Set([
   "voice-ai",
   "consultation",
   "coming-soon",
-  "blog-details"
+  "blog-details",
+  "arcangelo"
 ]);
 
 export function middleware(req) {
