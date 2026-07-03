@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Section, SectionHeading, Reveal, GradientText, GRAD } from "./_ui";
+import SwipeRow from "./SwipeRow";
 import { TrendingUp, Headphones, Database, ArrowUpRight, Check } from "lucide-react";
 
 const PILLARS = [
@@ -9,7 +10,7 @@ const PILLARS = [
     icon: TrendingUp,
     kicker: "Marketing & Growth",
     title: "Systems that run your marketing",
-    body: "Not another agency running your ads. AI systems that optimise creative and spend across Meta & Google, win visibility in Google and AI search, and keep content flowing — on their own.",
+    body: "Not another agency running your ads. AI systems that optimise creative and spend across Meta and Google, win visibility in Google and AI search, and keep content flowing on their own.",
     points: ["AI Ads & Creative Agent", "SEO / GEO visibility (Google + AI search)", "Content & reputation workflows"],
     href: null,
     cta: null,
@@ -19,8 +20,8 @@ const PILLARS = [
     icon: Headphones,
     kicker: "Sales & Acquisition",
     title: "A front desk that never sleeps",
-    body: "The Automis Voice Agent answers every call 24/7 — qualifies, books, and recovers missed calls. Paired with social & WhatsApp automation that turns DMs into qualified leads in your CRM.",
-    points: ["24/7 AI Voice Agent — our flagship", "Missed-call recovery + booking", "Social & WhatsApp → qualified CRM leads"],
+    body: "The Automis Voice Agent answers every call 24/7. It qualifies, books, and recovers missed calls. Paired with social and WhatsApp automation that turns DMs into qualified leads in your CRM.",
+    points: ["24/7 AI Voice Agent, our flagship", "Missed-call recovery + booking", "Social & WhatsApp → qualified CRM leads"],
     href: "/voice-ai",
     cta: "Explore Voice AI",
     featured: true,
@@ -30,7 +31,7 @@ const PILLARS = [
     icon: Database,
     kicker: "Admin & Company Brain",
     title: "Your knowledge, finally searchable",
-    body: "The hardest part to copy. A custom “Second Brain” over your company data, OCR that digitises paper, and voice notes that write themselves into your CRM. The operations layer no competitor can buy off the shelf.",
+    body: "The hardest part to copy. A custom Second Brain over your company data, OCR that digitises paper, and voice notes that write themselves into your CRM. The operations layer no competitor can buy off the shelf.",
     points: ["Custom RAG Second Brain", "Scan-to-Brain OCR / Vision", "Audio-to-CRM voice notes"],
     href: null,
     cta: null,
@@ -45,11 +46,13 @@ export default function SystemPillars() {
         title={<>We don&apos;t sell tools. We build the <GradientText>system that runs your business</GradientText>.</>}
         lead="Marketing brings people in. Sales makes sure none slip through. Admin turns the whole thing into an operation that scales without more headcount."
       />
-      <div className="mt-14 grid grid-cols-1 gap-4 lg:grid-cols-3">
-        {PILLARS.map((p, i) => {
+      <SwipeRow
+        className="mt-14"
+        gridClassName="lg:grid-cols-3"
+        items={PILLARS.map((p, i) => {
           const Icon = p.icon;
           return (
-            <Reveal key={p.n} delay={i * 110}>
+            <Reveal key={p.n} delay={i * 110} className="h-full">
               <div
                 className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${
                   p.featured
@@ -97,7 +100,7 @@ export default function SystemPillars() {
             </Reveal>
           );
         })}
-      </div>
+      />
     </Section>
   );
 }

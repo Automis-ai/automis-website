@@ -1,12 +1,13 @@
 "use client";
 import { Section, SectionHeading, Reveal, Card } from "./_ui";
+import SwipeRow from "./SwipeRow";
 import { PhoneMissed, Timer, FileStack, Brain } from "lucide-react";
 
 const PAINS = [
   {
     icon: PhoneMissed,
     title: "Calls go unanswered",
-    body: "30–50% of calls to local businesses go to voicemail. Every missed call is a booking your competitor picks up instead.",
+    body: "30 to 50% of calls to local businesses go to voicemail. Every missed call is a booking your competitor picks up instead.",
   },
   {
     icon: Timer,
@@ -16,12 +17,12 @@ const PAINS = [
   {
     icon: FileStack,
     title: "Admin eats the day",
-    body: "Your team burns hours every week on data entry, scheduling, and chasing paperwork — instead of serving customers.",
+    body: "Your team burns hours every week on data entry, scheduling, and chasing paperwork, instead of serving customers.",
   },
   {
     icon: Brain,
     title: "Knowledge is trapped",
-    body: "Critical information lives in inboxes, PDFs, and people's heads — impossible to find the moment you actually need it.",
+    body: "Critical information lives in inboxes, PDFs, and people's heads, impossible to find the moment you actually need it.",
   },
 ];
 
@@ -31,13 +32,15 @@ export default function PainPoints() {
       <SectionHeading
         eyebrow="The cost of doing nothing"
         title={<>Growth doesn&apos;t leak all at once. It leaks a little, everywhere.</>}
-        lead="Most businesses don't have a marketing problem — they have a system problem. Here's where the money quietly walks out the door."
+        lead="Most businesses don't have a marketing problem. They have a system problem. Here's where the money quietly walks out the door."
       />
-      <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {PAINS.map((p, i) => {
+      <SwipeRow
+        className="mt-14"
+        gridClassName="sm:grid-cols-2 lg:grid-cols-4"
+        items={PAINS.map((p, i) => {
           const Icon = p.icon;
           return (
-            <Reveal key={p.title} delay={i * 90}>
+            <Reveal key={p.title} delay={i * 90} className="h-full">
               <Card className="h-full">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] transition-colors group-hover:border-[#57C7E3]/40">
                   <Icon className="h-5 w-5 text-[#8fe0f0]" strokeWidth={1.8} />
@@ -48,7 +51,7 @@ export default function PainPoints() {
             </Reveal>
           );
         })}
-      </div>
+      />
     </Section>
   );
 }

@@ -7,7 +7,7 @@ const STEPS = [
     icon: Search,
     step: "Step 1",
     title: "Discover & Diagnose",
-    body: "We learn your business before touching a single tool. We map exactly where you lose time and money — then decide what's worth automating first.",
+    body: "We learn your business before touching a single tool. We map exactly where you lose time and money, then decide what's worth automating first.",
     meta: "Discovery call + audit",
   },
   {
@@ -21,7 +21,7 @@ const STEPS = [
     icon: LineChart,
     step: "Step 3",
     title: "Launch, Monitor & Optimise",
-    body: "We don't disappear after go-live. Continuous monthly improvement with human oversight — your system gets sharper every month, not stale.",
+    body: "We don't disappear after go-live. Continuous monthly improvement with human oversight, so your system gets sharper every month, not stale.",
     meta: "Ongoing, with human-in-the-loop",
   },
 ];
@@ -32,7 +32,7 @@ export default function HowWeWork() {
       <SectionHeading
         eyebrow="How we work"
         title={<>A strategic integrator, not a vendor</>}
-        lead="We diagnose the bottleneck before we build. You own the infrastructure we deliver — it's your system, not a subscription you're locked into blind."
+        lead="We diagnose the bottleneck before we build. You own the infrastructure we deliver. It's your system, not a subscription you're locked into blind."
       />
       <div className="relative mt-16">
         {/* connecting line (desktop) */}

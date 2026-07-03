@@ -1,11 +1,10 @@
 "use client";
 import { Reveal, GradientText, GRAD } from "./_ui";
 import CTAButton from "@/components/CTAButton";
+import ToolsStrip from "./ToolsStrip";
 import { Phone, CalendarCheck, Zap, ArrowRight, MessageSquare, Sparkles } from "lucide-react";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
-
-const INTEGRATIONS = ["Meta", "Google", "GoHighLevel", "HubSpot", "WhatsApp", "Zapier", "n8n"];
 
 export default function HeroEN() {
   return (
@@ -14,6 +13,8 @@ export default function HeroEN() {
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="hero-aurora hero-aurora-1" />
         <div className="hero-aurora hero-aurora-2" />
+        <div className="hero-aurora hero-aurora-3" />
+        <div className="hero-beam" />
         <div className="hero-grid" />
         <div
           className="absolute inset-x-0 bottom-0 h-40"
@@ -26,21 +27,21 @@ export default function HeroEN() {
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-[12px] font-medium uppercase tracking-[0.16em] text-white/70 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: GRAD, boxShadow: "0 0 10px rgba(87,199,227,0.8)" }} />
-              Strategic AI Automation Agency · Europe &amp; US
+              Strategic AI Automation Agency
             </span>
           </Reveal>
 
           <Reveal delay={80}>
             <h1 className="font-display mx-auto mt-7 max-w-[16ch] text-[2.5rem] font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-[3.4rem] md:text-[4.1rem]">
               The AI automation agency that builds the{" "}
-              <GradientText>system your business is missing</GradientText>.
+              <span className="hero-shimmer">system your business is missing</span>.
             </h1>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mx-auto mt-7 max-w-2xl text-[1.1rem] leading-relaxed text-white/65 md:text-[1.2rem]">
-              We find where your business leaks time and money — missed calls, slow follow-up,
-              hours lost to admin — and build the AI agents and automations that fix it end to end.
+              We find where your business leaks time and money (missed calls, slow follow-up,
+              hours lost to admin) and build the AI agents and automations that fix it end to end.
               One system, designed around how you actually work.
             </p>
           </Reveal>
@@ -63,17 +64,7 @@ export default function HeroEN() {
 
           <Reveal delay={320}>
             <div className="mt-14">
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-white/35">
-                Connects to the tools you already run
-              </p>
-              <div className="mt-5 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
-                {INTEGRATIONS.map((name) => (
-                  <span key={name} className="text-sm font-semibold tracking-tight text-white/45 transition-colors hover:text-white/75">
-                    {name}
-                  </span>
-                ))}
-                <span className="text-sm font-medium italic text-white/30">+ if it has an API, we connect to it</span>
-              </div>
+              <ToolsStrip />
             </div>
           </Reveal>
         </div>
@@ -110,7 +101,7 @@ export default function HeroEN() {
                     “Yes, is Thursday morning possible?”
                   </div>
                   <div className="max-w-[88%] rounded-2xl rounded-tl-sm bg-white/[0.05] px-3.5 py-2.5 text-left text-[13px] text-white/80">
-                    “Thursday 9:30 is open — booked. You’ll get an SMS confirmation. 👋”
+                    “Thursday 9:30 is open. Booked, and you’ll get an SMS confirmation. 👋”
                   </div>
                 </div>
                 <div className="mt-4 flex items-center gap-2 rounded-lg border border-[#57C7E3]/20 bg-[#57C7E3]/[0.06] px-3 py-2 text-left">
@@ -179,6 +170,39 @@ export default function HeroEN() {
           background: radial-gradient(circle, rgba(87, 199, 227, 0.32), transparent 65%);
           animation: heroFloat2 20s ease-in-out infinite;
         }
+        .hero-aurora-3 {
+          top: 18%;
+          left: 42%;
+          width: 34vw;
+          height: 34vw;
+          max-width: 460px;
+          max-height: 460px;
+          background: radial-gradient(circle, rgba(245, 205, 121, 0.16), transparent 62%);
+          animation: heroFloat1 24s ease-in-out infinite reverse;
+        }
+        .hero-beam {
+          position: absolute;
+          top: -20%;
+          left: 50%;
+          width: 120%;
+          height: 70%;
+          transform: translateX(-50%) rotate(8deg);
+          background: conic-gradient(
+            from 180deg at 50% 50%,
+            transparent 0deg,
+            rgba(180, 194, 255, 0.06) 90deg,
+            transparent 180deg,
+            rgba(60, 145, 230, 0.06) 270deg,
+            transparent 360deg
+          );
+          filter: blur(40px);
+          animation: heroBeam 22s linear infinite;
+        }
+        @keyframes heroBeam {
+          to {
+            transform: translateX(-50%) rotate(368deg);
+          }
+        }
         .hero-grid {
           position: absolute;
           inset: 0;
@@ -196,8 +220,34 @@ export default function HeroEN() {
           0%, 100% { transform: translate(0, 0) scale(1); }
           50% { transform: translate(-40px, 30px) scale(1.1); }
         }
+        .hero-shimmer {
+          background-image: linear-gradient(
+            110deg,
+            #3c91e6 0%,
+            #57c7e3 25%,
+            #b4c2ff 45%,
+            #f5cd79 60%,
+            #57c7e3 80%,
+            #3c91e6 100%
+          );
+          background-size: 220% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+          animation: heroShimmer 7s linear infinite;
+        }
+        @keyframes heroShimmer {
+          to {
+            background-position: -220% center;
+          }
+        }
         @media (prefers-reduced-motion: reduce) {
-          .hero-aurora { animation: none; }
+          .hero-aurora,
+          .hero-beam,
+          .hero-shimmer {
+            animation: none;
+          }
         }
       `}</style>
     </section>

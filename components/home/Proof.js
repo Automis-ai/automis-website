@@ -1,19 +1,22 @@
 "use client";
+import { useState } from "react";
 import { Section, SectionHeading, Reveal, GRAD } from "./_ui";
 import { Stethoscope, Landmark, Quote } from "lucide-react";
 
 const CASES = [
   {
     icon: Stethoscope,
+    logo: "/assets/images/client-logos/clinica-santa-maria.png",
     client: "Clínica Santa Maria dos Olivais",
     meta: "Dental clinic · Lisbon, PT",
     tag: "Voice AI receptionist",
     result:
-      "An AI receptionist that answers inbound calls around the clock — booking check-ups and recovering the after-hours calls that used to hit voicemail.",
-    quote: "Patients get answered instantly, day or night — no missed bookings.",
+      "An AI receptionist that answers inbound calls around the clock, booking check-ups and recovering the after-hours calls that used to hit voicemail.",
+    quote: "Patients get answered instantly, day or night, with no missed bookings.",
   },
   {
     icon: Landmark,
+    logo: "/assets/images/client-logos/adifesa.png",
     client: "Adifesa",
     meta: "Finance · cessione del quinto · IT",
     tag: "Meta automation",
@@ -23,10 +26,28 @@ const CASES = [
   },
 ];
 
+// Shows the real client logo on a light chip; falls back to the icon until the
+// logo file is dropped into public/assets/images/client-logos/.
+function ClientMark({ logo, Icon, name }) {
+  const [failed, setFailed] = useState(false);
+  if (logo && !failed) {
+    return (
+      <span className="flex h-12 items-center justify-center rounded-xl bg-white px-3">
+        <img src={logo} alt={name} onError={() => setFailed(true)} className="max-h-8 w-auto object-contain" />
+      </span>
+    );
+  }
+  return (
+    <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+      <Icon className="h-5 w-5 text-[#8fe0f0]" strokeWidth={1.8} />
+    </span>
+  );
+}
+
 const STATS = [
-  { value: "30–50%", label: "of missed calls typically recovered" },
+  { value: "30-50%", label: "of missed calls typically recovered" },
   { value: "<30s", label: "average response to a new lead" },
-  { value: "24/7", label: "coverage — nights, weekends, holidays" },
+  { value: "24/7", label: "coverage across nights, weekends, holidays" },
   { value: "~7 days", label: "to launch Voice & simple systems" },
 ];
 
@@ -46,9 +67,7 @@ export default function Proof() {
             <Reveal key={c.client} delay={i * 120}>
               <div className="flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 backdrop-blur-sm">
                 <div className="flex items-center justify-between">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
-                    <Icon className="h-5 w-5 text-[#8fe0f0]" strokeWidth={1.8} />
-                  </span>
+                  <ClientMark logo={c.logo} Icon={Icon} name={c.client} />
                   <span className="rounded-full border border-[#57C7E3]/25 bg-[#57C7E3]/[0.08] px-3 py-1 text-[11px] font-semibold text-[#8fe0f0]">
                     {c.tag}
                   </span>
@@ -83,7 +102,7 @@ export default function Proof() {
       </Reveal>
       <Reveal>
         <p className="mt-4 text-center text-[12px] text-white/30">
-          Figures are typical, conservative estimates based on our deployments — your results depend on call volume, market, and setup.
+          Figures are typical, conservative estimates based on our deployments. Your results depend on call volume, market, and setup.
         </p>
       </Reveal>
     </Section>

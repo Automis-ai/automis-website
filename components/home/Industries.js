@@ -1,5 +1,6 @@
 "use client";
 import { Section, SectionHeading, Reveal } from "./_ui";
+import SwipeRow from "./SwipeRow";
 import { HeartPulse, Scale, Building2, Store, ShieldCheck } from "lucide-react";
 
 const ICPS = [
@@ -7,7 +8,7 @@ const ICPS = [
     icon: HeartPulse,
     title: "Healthcare",
     sub: "Clinics · dentists · medspas",
-    body: "Privacy-first AI that answers and books 24/7 and handles patient intake — so no call goes to voicemail and no chart gets lost.",
+    body: "Privacy-first AI that answers and books 24/7 and handles patient intake, so no call goes to voicemail and no chart gets lost.",
     proven: "Proven with Clínica Santa Maria dos Olivais",
   },
   {
@@ -21,14 +22,14 @@ const ICPS = [
     icon: Building2,
     title: "Real Estate",
     sub: "Agencies · brokers",
-    body: "24/7 responses to every inquiry and AI that matches buyer requests to the right listings — speed-to-lead that wins the deal.",
+    body: "24/7 responses to every inquiry and AI that matches buyer requests to the right listings. Speed-to-lead that wins the deal.",
     proven: null,
   },
   {
     icon: Store,
     title: "Local Businesses",
     sub: "Services · retail · trades",
-    body: "Stop missing calls and automate the social DMs — a system that captures every lead while you get on with the work.",
+    body: "Stop missing calls and automate the social DMs, with a system that captures every lead while you get on with the work.",
     proven: null,
   },
 ];
@@ -39,13 +40,15 @@ export default function Industries() {
       <SectionHeading
         eyebrow="Who we build for"
         title={<>Built around your industry, not a template</>}
-        lead="Deep, bespoke systems for the sectors we know best — each with its own bottlenecks, compliance needs, and way of winning customers."
+        lead="Deep, bespoke systems for the sectors we know best, each with its own bottlenecks, compliance needs, and way of winning customers."
       />
-      <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2">
-        {ICPS.map((ic, i) => {
+      <SwipeRow
+        className="mt-14"
+        gridClassName="md:grid-cols-2"
+        items={ICPS.map((ic, i) => {
           const Icon = ic.icon;
           return (
-            <Reveal key={ic.title} delay={i * 90}>
+            <Reveal key={ic.title} delay={i * 90} className="h-full">
               <div className="group flex h-full items-start gap-5 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05]">
                 <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] transition-colors group-hover:border-[#57C7E3]/40">
                   <Icon className="h-5 w-5 text-[#8fe0f0]" strokeWidth={1.8} />
@@ -65,7 +68,7 @@ export default function Industries() {
             </Reveal>
           );
         })}
-      </div>
+      />
     </Section>
   );
 }

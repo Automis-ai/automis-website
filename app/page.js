@@ -1,5 +1,5 @@
-import { Space_Grotesk, Inter } from "next/font/google";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
+import "@/components/home/home-en-fonts.css";
 import HeroEN from "@/components/home/HeroEN";
 import PainPoints from "@/components/home/PainPoints";
 import SystemPillars from "@/components/home/SystemPillars";
@@ -11,24 +11,10 @@ import Authority from "@/components/home/Authority";
 import FaqEN from "@/components/home/FaqEN";
 import FinalCta from "@/components/home/FinalCta";
 
-// Fonts scoped to the EN home only (other locales keep Montserrat/Open Sans).
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-display-en",
-  display: "swap",
-});
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-body-en",
-  display: "swap",
-});
-
 export const metadata = {
-  title: "Automis — AI Automation Agency for Business | Voice, Sales & Admin AI",
+  title: "Automis | AI Automation Agency for Business — Voice, Sales & Admin AI",
   description:
-    "Automis is a strategic AI automation agency for businesses in Europe & the US. We build the AI voice agents, automations, and company-brain systems your business is missing — end to end.",
+    "Automis is a strategic AI automation agency. We build the AI voice agents, automations, and company-brain systems your business is missing, end to end.",
   keywords: [
     "AI automation agency",
     "AI agency",
@@ -39,9 +25,9 @@ export const metadata = {
   ],
   alternates: { canonical: "https://automis.ai/" },
   openGraph: {
-    title: "Automis — The AI automation agency that builds the system your business is missing",
+    title: "Automis | The AI automation agency that builds the system your business is missing",
     description:
-      "AI voice agents, marketing automation, and company-brain systems — built end to end around how your business actually works.",
+      "AI voice agents, marketing automation, and company-brain systems, built end to end around how your business actually works.",
     url: "https://automis.ai/",
     type: "website",
   },
@@ -49,7 +35,11 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className={`${spaceGrotesk.variable} ${inter.variable} home-en-root`}>
+    <div className="home-en-root">
+      {/* Preload the two most critical font weights for a fast first paint. */}
+      <link rel="preload" href="/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
       <AkpagerLayout>
         <HeroEN />
         <PainPoints />
@@ -59,19 +49,9 @@ export default function Home() {
         <Industries />
         <OpportunityFinder />
         <Authority />
-        <FaqEN />
         <FinalCta />
+        <FaqEN />
       </AkpagerLayout>
-
-      <style
-        // Scope the new fonts to the EN home without touching global styles.
-        dangerouslySetInnerHTML={{
-          __html: `
-            .home-en-root { font-family: var(--font-body-en), 'Open Sans', sans-serif; }
-            .home-en-root .font-display { font-family: var(--font-display-en), 'Montserrat', sans-serif; letter-spacing: -0.01em; }
-          `,
-        }}
-      />
     </div>
   );
 }

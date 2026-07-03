@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Section, SectionHeading, Reveal, GRAD } from "./_ui";
 import CTAButton from "@/components/CTAButton";
-import { Sparkles, ArrowRight, ArrowLeft, Check, Clock, TrendingUp, Loader2 } from "lucide-react";
+import { Sparkles, ArrowRight, ArrowLeft, Check, Clock, TrendingUp, Loader2, Download } from "lucide-react";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
@@ -45,8 +45,8 @@ const QUESTIONS = [
     q: "How many leads or inquiries do you get per week?",
     options: [
       { label: "Under 20", w: {}, h: 2 },
-      { label: "20 – 100", w: {}, h: 4 },
-      { label: "100 – 500", w: {}, h: 7 },
+      { label: "20 to 100", w: {}, h: 4 },
+      { label: "100 to 500", w: {}, h: 7 },
       { label: "500+", w: {}, h: 10 },
     ],
   },
@@ -143,10 +143,33 @@ export default function OpportunityFinder() {
     return { primary, secondary, plays: plays.slice(0, 3), hoursLow, hoursHigh };
   };
 
+  const sectorLabel = () => {
+    const oi = answers[QUESTIONS[0].id];
+    return oi != null ? QUESTIONS[0].options[oi].label : "";
+  };
+
+  const buildPdf = async (roadmap) => {
+    try {
+      const { generateRoadmapPdf } = await import("./roadmapPdf");
+      generateRoadmapPdf({
+        name,
+        sector: sectorLabel(),
+        pillarName: PILLAR_PLAYS[roadmap.primary].name,
+        secondaryName: roadmap.secondary ? PILLAR_PLAYS[roadmap.secondary].name : null,
+        hoursLow: roadmap.hoursLow,
+        hoursHigh: roadmap.hoursHigh,
+        plays: roadmap.plays,
+      });
+    } catch (err) {
+      console.error("PDF generation error", err);
+    }
+  };
+
   const submit = async (e) => {
     e.preventDefault();
     setStatus({ loading: true, error: null });
     const roadmap = computeRoadmap();
+    // Lead capture (best-effort) so GHL can follow up with the emailed copy.
     try {
       await fetch("/api/audit", {
         method: "POST",
@@ -167,9 +190,10 @@ export default function OpportunityFinder() {
         }),
       });
     } catch (err) {
-      // We still show the roadmap even if the webhook fails — capture is best-effort.
-      console.error("Finder submit error", err);
+      console.error("Finder capture error", err);
     }
+    // Generate + download the personalised PDF instantly.
+    await buildPdf(roadmap);
     setStatus({ loading: false, error: null });
     setStep(total + 1);
   };
@@ -181,7 +205,7 @@ export default function OpportunityFinder() {
       <SectionHeading
         eyebrow="Free · 60 seconds · no call required"
         title={<>The AI Opportunity Finder</>}
-        lead="Answer 6 quick questions and get an instant, personalised roadmap of the top automations for your business — and how much time they could give you back."
+        lead="Answer 6 quick questions and get an instant, personalised roadmap of the top automations for your business, plus how much time they could give you back."
       />
 
       <Reveal delay={80}>
@@ -251,7 +275,7 @@ export default function OpportunityFinder() {
                   Where should we send your roadmap?
                 </h3>
                 <p className="mt-2 text-[14px] text-white/55">
-                  See it on screen instantly — we'll also email you a copy you can keep.
+                  You'll get your personalised PDF roadmap on screen and downloaded instantly, plus a copy in your inbox.
                 </p>
                 <div className="mt-6 space-y-3">
                   <input
@@ -311,7 +335,7 @@ export default function OpportunityFinder() {
                       <span className="text-[12px] font-semibold uppercase tracking-wide">Time back / week</span>
                     </div>
                     <p className="font-display mt-2 text-[2rem] font-bold text-white">
-                      {roadmap.hoursLow}–{roadmap.hoursHigh}<span className="text-[1rem] font-medium text-white/45"> hrs</span>
+                      {roadmap.hoursLow}-{roadmap.hoursHigh}<span className="text-[1rem] font-medium text-white/45"> hrs</span>
                     </p>
                   </div>
                   <div className="rounded-2xl border border-white/[0.1] bg-white/[0.03] p-5 text-left">
@@ -338,12 +362,23 @@ export default function OpportunityFinder() {
                   </ul>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-4 flex items-center justify-center gap-2 rounded-xl border border-[#57C7E3]/20 bg-[#57C7E3]/[0.06] px-4 py-2.5 text-[13px] text-white/70">
+                  <Check className="h-4 w-4 flex-shrink-0 text-[#8fe0f0]" strokeWidth={2.4} />
+                  Your PDF roadmap just downloaded. A copy is on its way to your inbox.
+                </div>
+
+                <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                   <CTAButton href={BOOKING} variant="secondary" size="medium" external className="w-full sm:w-auto">
                     Want us to build these? Book a call
                   </CTAButton>
-                  <p className="mt-3 text-[12px] text-white/35">Estimates are indicative and depend on your volume and setup.</p>
+                  <button
+                    onClick={() => buildPdf(roadmap)}
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-5 py-3.5 text-[14px] font-semibold text-white/80 transition-colors hover:border-white/30 hover:text-white"
+                  >
+                    <Download className="h-4 w-4" strokeWidth={2} /> Download PDF again
+                  </button>
                 </div>
+                <p className="mt-3 text-[12px] text-white/35">Estimates are indicative and depend on your volume and setup.</p>
               </div>
             )}
           </div>

@@ -6,7 +6,7 @@ import { Plus } from "lucide-react";
 const FAQS = [
   {
     q: "How fast can we go live?",
-    a: "Voice agents and simple automations are typically live in about 7 days. Complex, multi-pillar systems run on a custom timeline — we scope it precisely in the discovery call before anything starts.",
+    a: "Voice agents and simple automations are typically live in about 7 days. Complex, multi-pillar systems run on a custom timeline, and we scope it precisely in the discovery call before anything starts.",
   },
   {
     q: "How much does it cost?",
@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: "Do I need technical staff to run this?",
-    a: "No. We design, build, deploy, and maintain the system — you just use it. And you own the infrastructure we deliver; it's not a black box you're locked out of.",
+    a: "No. We design, build, deploy, and maintain the system, and you just use it. You also own the infrastructure we deliver; it's not a black box you're locked out of.",
   },
   {
     q: "What happens after launch?",

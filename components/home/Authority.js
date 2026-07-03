@@ -45,7 +45,7 @@ export default function Authority() {
               Two founders, on the ground in your market
             </h2>
             <p className="mt-4 text-[14.5px] leading-relaxed text-white/60">
-              We build in Portugal and Italy — close enough to understand how European businesses
+              We build in Portugal and Italy, close enough to understand how European businesses
               actually run, and hands-on enough to build systems that fit them.
             </p>
             <div className="mt-8 flex gap-5">

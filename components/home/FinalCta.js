@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Script from "next/script";
 import { Reveal, GRAD, GradientText } from "./_ui";
 import { Check, Loader2 } from "lucide-react";
 
@@ -52,7 +53,7 @@ export default function FinalCta() {
               </h2>
               <p className="mt-5 max-w-md text-[1.05rem] leading-relaxed text-white/60">
                 Book a discovery call and we'll show you exactly where AI can win you back time,
-                calls, and revenue — no jargon, no obligation.
+                calls, and revenue. No jargon, no obligation.
               </p>
               <ul className="mt-7 space-y-3">
                 {BULLETS.map((b) => (
@@ -82,7 +83,7 @@ export default function FinalCta() {
               ref={holderRef}
               className="relative rounded-2xl border border-white/[0.1] bg-white/[0.02] p-2 shadow-2xl"
             >
-              <div className="relative w-full overflow-hidden rounded-xl bg-white" style={{ minHeight: 640 }}>
+              <div className="relative w-full overflow-hidden rounded-xl bg-white" style={{ minHeight: 760 }}>
                 {/* skeleton */}
                 {!loaded && (
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[#0b1622]">
@@ -92,16 +93,19 @@ export default function FinalCta() {
                 )}
                 {inView && (
                   <iframe
-                    src={BOOKING}
+                    id="ghl-booking-iframe"
+                    src={`${BOOKING}?embed=true`}
                     title="Book a discovery call with Automis"
-                    className="h-full w-full"
-                    style={{ height: 640, border: "none" }}
-                    scrolling="no"
+                    className="block h-full w-full"
+                    style={{ height: 780, minHeight: 760, border: "none", overflow: "auto" }}
+                    scrolling="yes"
                     onLoad={() => setLoaded(true)}
                     loading="lazy"
                   />
                 )}
               </div>
+              {/* LeadConnector auto-resize so all available days are reachable */}
+              <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
             </div>
           </Reveal>
         </div>
