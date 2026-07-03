@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Section, SectionHeading, Reveal, GradientText, GRAD } from "./_ui";
+import { Section, SectionHeading, GradientText, GRAD } from "./_ui";
 import SwipeRow from "./SwipeRow";
 import { TrendingUp, Headphones, Database, ArrowUpRight, Check } from "lucide-react";
 
@@ -49,11 +49,11 @@ export default function SystemPillars() {
       <SwipeRow
         className="mt-14"
         gridClassName="lg:grid-cols-3"
-        items={PILLARS.map((p, i) => {
+        items={PILLARS.map((p) => {
           const Icon = p.icon;
           return (
-            <Reveal key={p.n} delay={i * 110} className="h-full">
               <div
+                key={p.n}
                 className={`card-gold group relative flex h-full flex-col overflow-hidden rounded-2xl border p-7 backdrop-blur-sm hover:-translate-y-1 ${
                   p.featured
                     ? "border-[#3C91E6]/35 bg-white/[0.05]"
@@ -97,7 +97,6 @@ export default function SystemPillars() {
                   <div className="mt-6 h-5" />
                 )}
               </div>
-            </Reveal>
           );
         })}
       />

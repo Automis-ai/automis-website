@@ -1,11 +1,16 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
+import { Reveal } from "./_ui";
 
 /*
   Mobile-first content row.
   - On mobile: horizontal scroll-snap carousel with peek + dot indicators
-    (shortens the page and invites interaction).
-  - On >= md: falls back to a normal responsive grid (pass gridClassName).
+    (shortens the page and invites interaction). Cards are STATIC vertically —
+    they only move horizontally with the scroll. The reveal animation lives on
+    the desktop grid only, because a vertical translate inside the horizontal
+    scroller clips the card's top frame and fights page scroll.
+  - On >= md: falls back to a normal responsive grid (pass gridClassName), with
+    a staggered scroll-reveal per card.
 */
 export default function SwipeRow({ items, gridClassName = "md:grid-cols-2", className = "" }) {
   const trackRef = useRef(null);
@@ -42,11 +47,13 @@ export default function SwipeRow({ items, gridClassName = "md:grid-cols-2", clas
 
   return (
     <div className={className}>
-      {/* Mobile carousel */}
+      {/* Mobile carousel — cards static, horizontal scroll only. Vertical
+          padding gives the card frame + gold top-line room inside the
+          overflow-x clip so the top border is never cut. */}
       <div className="md:hidden">
         <div
           ref={trackRef}
-          className="swipe-track flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
+          className="swipe-track flex snap-x snap-mandatory gap-4 overflow-x-auto px-0.5 pt-2 pb-2"
           style={{ scrollPaddingLeft: 20, WebkitOverflowScrolling: "touch" }}
         >
           {items.map((it, i) => (
@@ -55,26 +62,33 @@ export default function SwipeRow({ items, gridClassName = "md:grid-cols-2", clas
             </div>
           ))}
         </div>
-        <div className="mt-5 flex items-center justify-center gap-1.5">
+        <div className="mt-4 flex items-center justify-center gap-1.5">
           {items.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Go to item ${i + 1}`}
-              className="h-1 rounded-full transition-all duration-300"
+              className="block rounded-full transition-all duration-300"
               style={{
-                width: active === i ? 14 : 4,
-                background: active === i ? "linear-gradient(90deg,#3C91E6,#57C7E3)" : "rgba(255,255,255,0.2)",
+                // Override the template's global 44px min tap-target so the
+                // pagination dots render at their true (small) size.
+                minWidth: 0,
+                minHeight: 0,
+                padding: 0,
+                border: 0,
+                height: 5,
+                width: active === i ? 16 : 5,
+                background: active === i ? "linear-gradient(90deg,#3C91E6,#57C7E3)" : "rgba(255,255,255,0.25)",
               }}
             />
           ))}
         </div>
       </div>
 
-      {/* Desktop grid */}
+      {/* Desktop grid — staggered reveal per card */}
       <div className={`hidden gap-4 md:grid ${gridClassName}`}>
         {items.map((it, i) => (
-          <div key={i} className="h-full">{it}</div>
+          <Reveal key={i} delay={i * 90} className="h-full">{it}</Reveal>
         ))}
       </div>
 

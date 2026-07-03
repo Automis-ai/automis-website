@@ -1,5 +1,5 @@
 "use client";
-import { Section, SectionHeading, Reveal, GRAD } from "./_ui";
+import { Section, SectionHeading, GRAD } from "./_ui";
 import SwipeRow from "./SwipeRow";
 import { Search, Wrench, LineChart } from "lucide-react";
 
@@ -38,11 +38,10 @@ export default function HowWeWork() {
       <SwipeRow
         className="mt-14"
         gridClassName="md:grid-cols-3"
-        items={STEPS.map((s, i) => {
+        items={STEPS.map((s) => {
           const Icon = s.icon;
           return (
-            <Reveal key={s.step} delay={i * 130} className="h-full">
-              <div className="card-gold group flex h-full flex-col items-start rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 backdrop-blur-sm hover:-translate-y-1">
+              <div key={s.step} className="card-gold group flex h-full flex-col items-start rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 backdrop-blur-sm hover:-translate-y-1">
                 <span
                   className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl border border-white/10"
                   style={{ background: "rgba(60,145,230,0.10)" }}
@@ -60,7 +59,6 @@ export default function HowWeWork() {
                   </span>
                 </p>
               </div>
-            </Reveal>
           );
         })}
       />
