@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import CTAButton from "@/components/CTAButton";
 import {
-  ShoppingBag,
+  Laptop,
   Stethoscope,
   Home as HomeIcon,
   Store,
@@ -68,7 +68,7 @@ const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automi
 
 const NICHES = [
   { id: "clinic", label: "Dental & health clinics", icon: Stethoscope },
-  { id: "ecommerce", label: "E-commerce & online stores", icon: ShoppingBag },
+  { id: "online", label: "Online & service business", icon: Laptop },
   { id: "realestate", label: "Real estate", icon: HomeIcon },
   { id: "local", label: "Local business", icon: Store },
 ];
