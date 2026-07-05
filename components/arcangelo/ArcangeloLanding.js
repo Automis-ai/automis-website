@@ -63,7 +63,7 @@ function Reveal({ children, delay = 0, y = 24, className = "" }) {
 // site; swap for the live calendar once confirmed.
 const VOICE = "https://voice.automis.ai";
 const WEBSITE = "https://automis.ai";
-const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
+const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/arcangelo-automis";
 
 const NICHES = [
   { id: "clinic", label: "Dental & health clinics", icon: Stethoscope },
