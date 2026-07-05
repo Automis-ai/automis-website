@@ -1,113 +1,99 @@
-"use client";
-import CaseStudyGrid from "@/components/CaseStudyGrid";
-import CTAButton from "@/components/CTAButton";
-import AkpagerLayout from "@/layouts/AkpagerLayout";
-import { caseStudies } from "@/data/caseStudies";
-import "@/styles/use-cases.css";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import AutomisEnShell from "@/components/site/AutomisEnShell";
+import FinalCta from "@/components/home/FinalCta";
+import { Section, SectionHeading, Reveal, GRAD } from "@/components/home/_ui";
+import ClientMark from "@/components/use-cases/ClientMark";
+import { CASES } from "@/components/use-cases/cases";
 
-const UseCasesPage = () => {
-  return (
-    <AkpagerLayout>
-      {}
-      <section className="hero-padding bg-bg-primary relative overflow-hidden flex items-center justify-center min-h-[500px]">
-        <div className="absolute inset-0 bg-gradient-to-b from-bg-primary to-section-dark opacity-90"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-section-dark/50 to-transparent"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-5xl mx-auto">
-            {}
-            {}
-
-            <h1
-              className="hero-heading text-white mb-6 leading-tight"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              Tailored AI Solutions {' '}
-              <br/>
-              <span className=" text-text-blue">
-                for Every Industry
-              </span>
-            </h1>
-
-            <p
-              className="sub-heading text-white/90 leading-relaxed mb-8 max-w-3xl mx-auto"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-Discover how our Voice AI, automation tools, and ad campaigns revolutionize lead generation, appointment scheduling, recruitment, and overall business operations
-            </p>
-
-            {}
-            <div
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12"
-            >
-              <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 text-center hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
-                <div className="section-heading text-yellow-light mb-3 group-hover:scale-110 transition-transform duration-300">50+</div>
-                <div className="small-text text-white/90">Businesses Transformed</div>
-              </div>
-              <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 text-center hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800">
-                <div className="section-heading text-yellow-light mb-3 group-hover:scale-110 transition-transform duration-300">€2M+</div>
-                <div className="small-text text-white/90">Revenue Generated</div>
-              </div>
-              <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 text-center hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
-                <div className="section-heading text-yellow-light mb-3 group-hover:scale-110 transition-transform duration-300">24/7</div>
-                <div className="small-text text-white/90">AI Availability</div>
-              </div>
-              <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 text-center hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="700" data-aos-duration="800">
-                <div className="section-heading text-yellow-light mb-3 group-hover:scale-110 transition-transform duration-300">47%</div>
-                <div className="small-text text-white/90">Cost Reduction</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      {}
-      <section className="section-padding bg-bg-primary">
-        <CaseStudyGrid caseStudies={caseStudies} />
-      </section>
-
-      {}
-      <section className="section-padding bg-bg-primaryrelative overflow-hidden">
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2
-              className="section-heading font-medium text-section-dark mb-5"
-              data-aos="fade-up"
-            >
-              Ready to Transform Your Business?
-            </h2>
-            <p
-              className="sub-heading text-white mb-8"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              Join hundreds of businesses achieving extraordinary results with AI-powered automation
-            </p>
-
-            <div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <CTAButton
-                href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
-                external={true}
-                variant="secondary"
-                size="large"
-              >
-                Book Discovery Call
-              </CTAButton>
-
-
-            </div>
-          </div>
-        </div>
-      </section>
-    </AkpagerLayout>
-  );
+export const metadata = {
+  title: "Use Cases | Real AI systems, already running for Automis clients",
+  description:
+    "Case studies from Automis: a 24/7 Voice AI receptionist for a Lisbon dental clinic and Meta lead automation for an Italian finance business. Real clients, real systems.",
+  keywords: [
+    "AI automation case studies",
+    "AI voice receptionist case study",
+    "Meta lead automation",
+    "AI for dental clinics",
+    "AI for finance",
+  ],
+  alternates: { canonical: "https://automis.ai/use-cases" },
+  openGraph: {
+    title: "Automis Use Cases | Real client AI systems, already running",
+    description:
+      "See the AI systems we built for real clients: a 24/7 Voice AI receptionist and Meta lead automation. Proof, not promises.",
+    url: "https://automis.ai/use-cases",
+    siteName: "Automis",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Automis Use Cases | Real client AI systems, already running",
+    description:
+      "See the AI systems we built for real clients: a 24/7 Voice AI receptionist and Meta lead automation.",
+  },
 };
 
-export default UseCasesPage;
+export default function UseCasesPage() {
+  return (
+    <AutomisEnShell>
+      {/* Hero */}
+      <Section className="relative overflow-hidden bg-[#000a14] pt-24 md:pt-28" pad="pb-16 sm:pb-20">
+        <div className="pointer-events-none absolute inset-0">
+          <div
+            className="absolute left-1/2 top-0 h-[380px] w-[760px] -translate-x-1/2 opacity-50 blur-3xl"
+            style={{ background: "radial-gradient(50% 50% at 50% 0%, rgba(60,145,230,0.26), transparent 70%)" }}
+          />
+        </div>
+        <div className="relative z-10">
+          <SectionHeading
+            eyebrow="Proof, not promises"
+            title={<>Real clients. Real AI systems. Already running.</>}
+            lead="We are a two-founder team building for businesses in our own markets first, Portugal and Italy. Here is what we have shipped and what it does for them every day."
+          />
+        </div>
+      </Section>
+
+      {/* Case-study grid */}
+      <Section className="bg-[#020a12]" pad="py-14 sm:py-16 md:py-20">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {CASES.map((c, i) => (
+            <Reveal key={c.slug} delay={i * 120}>
+              <Link
+                href={`/use-cases/${c.slug}`}
+                className="card-glow group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 backdrop-blur-sm transition-transform hover:-translate-y-1"
+              >
+                <div className="flex items-center justify-between">
+                  <ClientMark slug={c.slug} logo={c.logo} name={c.client} />
+                  <span className="rounded-full border border-[#57C7E3]/25 bg-[#57C7E3]/[0.08] px-3 py-1 text-[11px] font-semibold text-[#8fe0f0]">
+                    {c.tag}
+                  </span>
+                </div>
+                <h2 className="font-display mt-5 text-xl font-semibold text-white">{c.shortClient}</h2>
+                <p className="mt-1 text-[13px] text-white/60">
+                  {c.industry} · {c.location}
+                </p>
+                <p className="mt-4 text-[14.5px] leading-relaxed text-white/65">{c.summary}</p>
+                <span
+                  className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-semibold text-[#8fe0f0]"
+                  style={{ backgroundImage: GRAD, WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent", color: "transparent" }}
+                >
+                  Read the case study
+                  <ArrowRight className="h-4 w-4 flex-shrink-0 text-[#57C7E3] transition-transform group-hover:translate-x-1" strokeWidth={2} />
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={140}>
+          <p className="mt-6 text-center text-[12px] text-white/50">
+            Metrics on these pages are conservative estimates based on our deployments. Your results depend on volume, market, and setup.
+          </p>
+        </Reveal>
+      </Section>
+
+      <FinalCta />
+    </AutomisEnShell>
+  );
+}

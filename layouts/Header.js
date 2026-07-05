@@ -123,7 +123,6 @@ useEffect(() => {
         key: "services",
         title: t.services,
         submenus: [
-          { id: 31, key: "paid-ads-management", title: t.paidAds, href: hrefFor(PATHNAMES.services.paidAds, locale) },
           { id: 32, key: "voice-ai", title: t.voiceAI, href: hrefFor(PATHNAMES.services.voiceAI, locale) },
           { id: 33, key: "ai-automations", title: t.automations, href: hrefFor(PATHNAMES.services.aiAutomations, locale) },
         ],

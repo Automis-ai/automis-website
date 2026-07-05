@@ -13,12 +13,9 @@ const ENGLISH_ROOT_PAGES = new Set([
   "blog",
   "use-cases",
   "jumpstart-audit",
-  "paid-ads-management",
   "ai-automations",
   "voice-ai",
-  "consultation",
-  "coming-soon",
-  "blog-details"
+  "consultation"
 ]);
 
 export function middleware(req) {
