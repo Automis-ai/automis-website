@@ -65,7 +65,7 @@ export default function Proof() {
           const Icon = c.icon;
           return (
             <Reveal key={c.client} delay={i * 120}>
-              <div className="card-gold group flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 backdrop-blur-sm hover:-translate-y-1">
+              <div className="card-glow group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 backdrop-blur-sm hover:-translate-y-1">
                 <div className="flex items-center justify-between">
                   <ClientMark logo={c.logo} Icon={Icon} name={c.client} />
                   <span className="rounded-full border border-[#57C7E3]/25 bg-[#57C7E3]/[0.08] px-3 py-1 text-[11px] font-semibold text-[#8fe0f0]">
