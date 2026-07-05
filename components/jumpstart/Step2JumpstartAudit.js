@@ -122,6 +122,25 @@ const CLARITY_OUTCOMES = [
   "10+ hours/week saved",
 ];
 
+/* Honest expectations: what the deep audit actually involves. */
+const INVOLVES = [
+  {
+    icon: Users,
+    title: "We interview your team",
+    body: "We talk to the people who run your marketing, sales, and operations, so the plan fits how your business actually works.",
+  },
+  {
+    icon: Shield,
+    title: "We dig into your real numbers",
+    body: "Read-only access to your ads, CRM, and call logs lets us work from your actual data. Nothing changes in your accounts.",
+  },
+  {
+    icon: CalendarClock,
+    title: "About two weeks to a real plan",
+    body: "Proper analysis takes time. In roughly two weeks we turn what we find into a clear, data-backed plan you can act on.",
+  },
+];
+
 /* 14-day timeline, day-by-day, ported faithfully. */
 const TIMELINE = [
   {
@@ -187,10 +206,32 @@ export default function Step2JumpstartAudit() {
 
       <SectionHeading
         title={<>The <GradientText>Jumpstart Audit</GradientText></>}
-        lead="Two comprehensive audits, a C-suite-ready plan, and a live automation switched on in 14 days. This is the deep dive that turns your bottlenecks into a data-backed path to lower costs, more bookings, and hours back every week."
+        lead="This is the deep dive, not a quick call. Over about two weeks we interview your team, analyze your funnel and ad spend, and turn what we find into two comprehensive audits plus a plan you can act on. No guesswork, no generic template."
       />
 
+      {/* ── Honest expectations: what the audit actually involves ── */}
+      <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {INVOLVES.map((v, i) => {
+          const Icon = v.icon;
+          const cardClass = i % 2 === 0 ? "card-glow" : "card-gold";
+          return (
+            <Reveal key={v.title} delay={i * 70}>
+              <div className={`${cardClass} group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-sm transition-all hover:-translate-y-1`}>
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+                  <Icon className="h-5 w-5 text-[#8fe0f0]" strokeWidth={1.8} />
+                </span>
+                <h3 className="font-display mt-5 text-[1.1rem] font-semibold leading-tight text-white">{v.title}</h3>
+                <p className="mt-2.5 text-[14px] leading-relaxed text-white/60">{v.body}</p>
+              </div>
+            </Reveal>
+          );
+        })}
+      </div>
+
       {/* ── The two comprehensive audits ─────────────────────────── */}
+      <h3 className="font-display mt-20 text-center text-[1.5rem] font-semibold text-white sm:text-[1.8rem]">
+        What you walk away with
+      </h3>
       <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
         {AUDITS.map((a, i) => {
           const Icon = a.icon;
@@ -254,6 +295,52 @@ export default function Step2JumpstartAudit() {
             </Reveal>
           );
         })}
+      </div>
+
+      {/* ── Price + €500 credit + scarcity + CTA ─────────────────── */}
+      <div className="mt-24">
+        <Reveal>
+          <div className="card-glow relative overflow-hidden rounded-3xl border border-[#FEC458]/25 bg-white/[0.03] p-8 text-center backdrop-blur-sm sm:p-12">
+            <div
+              className="pointer-events-none absolute inset-0 opacity-60"
+              style={{ background: "radial-gradient(60% 60% at 50% 0%, rgba(254,196,88,0.10), transparent 70%)" }}
+            />
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#FEC458]/30 bg-[#FEC458]/[0.07] px-4 py-1.5 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#FEC458]">
+                <CalendarClock className="h-3.5 w-3.5" strokeWidth={2.2} />
+                Only 5 audit slots each month
+              </span>
+
+              <p className="mt-8 text-[13px] font-medium uppercase tracking-[0.16em] text-white/45">Your investment</p>
+              <div className="mt-3 flex flex-col items-center justify-center gap-2">
+                <span className="font-display text-[1.6rem] font-semibold leading-none text-white/40 line-through sm:text-[2rem]">
+                  €3,300
+                </span>
+                <span className="font-display text-[3.4rem] font-bold leading-none tracking-[-0.03em] text-[#FEC458] sm:text-[4.2rem]">
+                  €1,450
+                </span>
+              </div>
+
+              <div className="mx-auto mt-8 max-w-md rounded-2xl border border-[#57C7E3]/20 bg-[#57C7E3]/[0.05] p-5">
+                <p className="text-[15px] leading-relaxed text-white/80">
+                  Start the build within 14 days and we apply a{" "}
+                  <span className="font-semibold text-[#57C7E3]">€500 credit</span> toward implementation.
+                </p>
+              </div>
+
+              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <InteractiveHoverButton href={BOOKING} variant="solid" text="Apply for the Jumpstart Audit" />
+                <InteractiveHoverButton href="#book" variant="ghost" text="Book a free call first" />
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px] text-white/55">
+                <span className="inline-flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.2} /> Fit &amp; Clarity guarantees</span>
+                <span className="inline-flex items-center gap-1.5"><Gift className="h-3.5 w-3.5 text-[#FEC458]" strokeWidth={2.2} /> €1,850 in bonuses</span>
+                <span className="inline-flex items-center gap-1.5"><Zap className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.2} /> Live Quick-Win in 14 days</span>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
 
       {/* ── Bonuses: €1,850 in value, free ───────────────────────── */}
@@ -423,51 +510,6 @@ export default function Step2JumpstartAudit() {
         </div>
       </div>
 
-      {/* ── Price + €500 credit + scarcity + CTA ─────────────────── */}
-      <div className="mt-24">
-        <Reveal>
-          <div className="card-glow relative overflow-hidden rounded-3xl border border-[#FEC458]/25 bg-white/[0.03] p-8 text-center backdrop-blur-sm sm:p-12">
-            <div
-              className="pointer-events-none absolute inset-0 opacity-60"
-              style={{ background: "radial-gradient(60% 60% at 50% 0%, rgba(254,196,88,0.10), transparent 70%)" }}
-            />
-            <div className="relative">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#FEC458]/30 bg-[#FEC458]/[0.07] px-4 py-1.5 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#FEC458]">
-                <CalendarClock className="h-3.5 w-3.5" strokeWidth={2.2} />
-                Only 5 audit slots each month
-              </span>
-
-              <p className="mt-8 text-[13px] font-medium uppercase tracking-[0.16em] text-white/45">Your investment</p>
-              <div className="mt-3 flex flex-col items-center justify-center gap-2">
-                <span className="font-display text-[1.6rem] font-semibold leading-none text-white/40 line-through sm:text-[2rem]">
-                  €3,300
-                </span>
-                <span className="font-display text-[3.4rem] font-bold leading-none tracking-[-0.03em] text-[#FEC458] sm:text-[4.2rem]">
-                  €1,450
-                </span>
-              </div>
-
-              <div className="mx-auto mt-8 max-w-md rounded-2xl border border-[#57C7E3]/20 bg-[#57C7E3]/[0.05] p-5">
-                <p className="text-[15px] leading-relaxed text-white/80">
-                  Start the build within 14 days and we apply a{" "}
-                  <span className="font-semibold text-[#57C7E3]">€500 credit</span> toward implementation.
-                </p>
-              </div>
-
-              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <InteractiveHoverButton href={BOOKING} variant="solid" text="Apply for the Jumpstart Audit" />
-                <InteractiveHoverButton href="#book" variant="ghost" text="Book a free call first" />
-              </div>
-
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px] text-white/55">
-                <span className="inline-flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.2} /> Fit &amp; Clarity guarantees</span>
-                <span className="inline-flex items-center gap-1.5"><Gift className="h-3.5 w-3.5 text-[#FEC458]" strokeWidth={2.2} /> €1,850 in bonuses</span>
-                <span className="inline-flex items-center gap-1.5"><Zap className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.2} /> Live Quick-Win in 14 days</span>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </div>
     </Section>
   );
 }

@@ -125,6 +125,7 @@ useEffect(() => {
         submenus: [
           { id: 32, key: "voice-ai", title: t.voiceAI, href: hrefFor(PATHNAMES.services.voiceAI, locale) },
           { id: 33, key: "ai-automations", title: t.automations, href: hrefFor(PATHNAMES.services.aiAutomations, locale) },
+          { id: 34, key: "jumpstart-audit", title: t.jumpstart, href: hrefFor(PATHNAMES.pages.jumpstartAudit, locale) },
         ],
       },
 

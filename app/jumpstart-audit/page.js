@@ -9,7 +9,7 @@ import JumpstartBooking from "@/components/jumpstart/JumpstartBooking";
 export const metadata = {
   title: "Jumpstart Marketing & AI Audit | Automis, Find Where You Leak Time & Money",
   description:
-    "Start with a free 30-minute consultation, then go deep with the Jumpstart Audit (€1,450): two comprehensive audits, a C-suite-ready plan, and a live automation switched on in 14 days.",
+    "It starts with a free discovery call. The full Jumpstart Audit (€1,450) is a two-week deep dive: we interview your team, analyze your funnel and ad spend, and hand you a data-backed plan plus a live automation.",
   keywords: [
     "Jumpstart Audit",
     "marketing and AI audit",
@@ -22,7 +22,7 @@ export const metadata = {
   openGraph: {
     title: "Jumpstart Marketing & AI Audit | Automis",
     description:
-      "A free 30-minute consultation to map your bottlenecks, then a deep Jumpstart Audit (€1,450) with a data-backed plan and a live automation in 14 days.",
+      "A free discovery call to start, then a two-week Jumpstart Audit (€1,450): interviews, real analysis, and a data-backed plan you can act on.",
     url: "https://automis.ai/jumpstart-audit",
     siteName: "Automis",
     type: "website",

@@ -35,9 +35,10 @@ export default function JumpstartHero() {
 
           <Reveal delay={160} immediate>
             <p className="mx-auto mt-7 max-w-2xl text-[1.1rem] leading-relaxed text-white/70 md:text-[1.2rem]">
-              Start with a free 30-minute consultation to map your top bottlenecks. When you
-              are ready to go deep, our Jumpstart Audit gives you a data-backed plan and a live
-              automation switched on in 14 days.
+              It starts with a free call where we share a couple of quick wins and show you how
+              the audit works. To find where you are really leaking, the full Jumpstart Audit
+              goes deep: we interview your team, dig into your numbers, and hand you a data-backed
+              plan in about two weeks.
             </p>
           </Reveal>
 
@@ -58,10 +59,10 @@ export default function JumpstartHero() {
                   </span>
                 </div>
                 <h2 className="font-display mt-4 text-[1.15rem] font-semibold leading-tight text-white">
-                  30-minute consultation
+                  A free discovery call
                 </h2>
                 <p className="mt-2 text-[13.5px] leading-relaxed text-white/60">
-                  Map your top bottlenecks and see what is possible. No cost, no obligation.
+                  A couple of quick tips, how the audit works, and whether we are a fit. No cost.
                 </p>
               </a>
 
@@ -87,14 +88,14 @@ export default function JumpstartHero() {
                     <Search className="h-4 w-4 text-[#FEC458]" strokeWidth={1.8} />
                   </span>
                   <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#FEC458]">
-                    Step 2 · €1,450
+                    Step 2 · The deep dive
                   </span>
                 </div>
                 <h2 className="font-display mt-4 text-[1.15rem] font-semibold leading-tight text-white">
                   The Jumpstart Audit
                 </h2>
                 <p className="mt-2 text-[13.5px] leading-relaxed text-white/60">
-                  The deep audit: a data-backed plan plus a live Quick-Win automation in 14 days.
+                  A two-week deep dive: interviews, real analysis, and a data-backed plan you can act on.
                 </p>
               </a>
             </div>
@@ -105,12 +106,12 @@ export default function JumpstartHero() {
               <InteractiveHoverButton
                 href={BOOKING}
                 variant="solid"
-                text="Book a Free Consultation"
+                text="Book a Free Discovery Call"
               />
               <InteractiveHoverButton
                 href="#step-2"
                 variant="ghost"
-                text="See the full audit"
+                text="How the audit works"
               />
             </div>
           </Reveal>
