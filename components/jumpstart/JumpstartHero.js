@@ -1,6 +1,7 @@
 "use client";
-import { Reveal, GradientText, GRAD } from "@/components/home/_ui";
-import { ArrowRight, Clock, ShieldCheck } from "lucide-react";
+import { Reveal, GradientText } from "@/components/home/_ui";
+import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
+import { Clock, ShieldCheck } from "lucide-react";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
@@ -60,22 +61,16 @@ export default function JumpstartHero() {
 
           <Reveal delay={300} immediate>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
+              <InteractiveHoverButton
                 href={BOOKING}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-xl px-7 py-4 text-[15px] font-bold text-[#04101c] transition-transform hover:-translate-y-0.5 sm:w-auto"
-                style={{ background: GRAD }}
-              >
-                Book your free AI Audit
-              </a>
-              <a
+                variant="solid"
+                text="Book your free AI Audit"
+              />
+              <InteractiveHoverButton
                 href="#how-it-works"
-                className="group inline-flex items-center gap-2 rounded-xl px-5 py-4 text-base font-semibold text-white/85 transition-colors hover:text-white"
-              >
-                See how it works
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2} />
-              </a>
+                variant="ghost"
+                text="See how it works"
+              />
             </div>
           </Reveal>
 

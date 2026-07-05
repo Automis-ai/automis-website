@@ -1,15 +1,16 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import { Section, Reveal, Eyebrow, GradientText, GRAD } from "@/components/home/_ui";
+import { Section, Reveal, Eyebrow, GradientText } from "@/components/home/_ui";
+import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 import BookingEmbed from "@/components/contact/BookingEmbed";
 import { Coffee, Compass, ShieldCheck, Check } from "lucide-react";
 
 export const metadata = {
-  title: "Book a Consultation | Just Want to Talk? — Automis",
+  title: "Book a Consultation | Just Want to Talk?, Automis",
   description:
     "No forms, no pressure. Book a free 30-minute call with Automis to talk through your business and where AI could actually help. Just a conversation.",
   alternates: { canonical: "https://automis.ai/consultation" },
   openGraph: {
-    title: "Book a Consultation | Just Want to Talk? — Automis",
+    title: "Book a Consultation | Just Want to Talk?, Automis",
     description:
       "No forms, no pressure. Book a free 30-minute call to talk through your business and where AI could actually help.",
     url: "https://automis.ai/consultation",
@@ -71,15 +72,13 @@ export default function ConsultationPage() {
               </p>
             </Reveal>
             <Reveal delay={240} immediate>
-              <a
-                href={BOOKING}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex rounded-xl px-7 py-4 text-[15px] font-bold text-[#04101c] transition-transform duration-300 hover:-translate-y-0.5"
-                style={{ background: GRAD }}
-              >
-                Book a free call
-              </a>
+              <div className="mt-8 flex justify-center">
+                <InteractiveHoverButton
+                  href={BOOKING}
+                  variant="solid"
+                  text="Book a free call"
+                />
+              </div>
             </Reveal>
           </div>
         </div>

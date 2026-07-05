@@ -6,7 +6,7 @@ import DashboardWalk from "@/components/voice-ai/DashboardWalk";
 import CrmTiers from "@/components/voice-ai/CrmTiers";
 import VoicePricing from "@/components/voice-ai/VoicePricing";
 import VoiceFaq from "@/components/voice-ai/VoiceFaq";
-import FinalCta from "@/components/home/FinalCta";
+import VoiceBooking from "@/components/voice-ai/VoiceBooking";
 
 export const metadata = {
   title: "Automis Voice AI | The 24/7 AI Receptionist That Books Appointments",
@@ -34,7 +34,7 @@ export const metadata = {
         url: "/assets/og/home-en.png",
         width: 1200,
         height: 630,
-        alt: "Automis Voice AI — the 24/7 AI receptionist that books appointments",
+        alt: "Automis Voice AI, the 24/7 AI receptionist that books appointments",
       },
     ],
   },
@@ -57,7 +57,7 @@ export default function VoiceAiPage() {
       <CrmTiers />
       <VoicePricing />
       <VoiceFaq />
-      <FinalCta />
+      <VoiceBooking />
     </AutomisEnShell>
   );
 }

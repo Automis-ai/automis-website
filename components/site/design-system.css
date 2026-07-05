@@ -130,43 +130,41 @@
   opacity: 0.95;
 }
 
-/* Pointer-follow border glow (test on SystemPillars).
-   A spotlight lights the card border wherever the cursor is, driven by the
-   shared --glow-x/--glow-y vars from <PointerGlow>. Uses ::before only, so it
-   layers cleanly over .card-gold's ::after gold line.
-   Gold test: hue locked to the brand gold (~42) so it can be compared live
-   against the gold hover-border used on the other card sections. Radius is wide
-   enough that even mid-card (e.g. the wide flagship card) the nearest border
-   still catches the light. A faint inner spotlight on the surface adds depth. */
+/* Cursor-follow gold border glow — on every .card-glow card.
+   <PointerGlow> sets --mx/--my as LOCAL coordinates (px from the card's own
+   top-left) on whichever card the cursor is over, so the spotlight follows the
+   mouse on every card — not just the ones near the viewport origin. Using local
+   coords (no background-attachment:fixed) avoids the earlier bug where a filter
+   made the fixed gradient resolve per-element and the glow died on right-hand
+   cards. The ring only paints while the card is hovered, so cards stay clean at
+   rest. A masked ::before draws the gold spotlight onto the border only. */
 .automis-en .card-glow {
   position: relative;
   --glow-hue: 42;
   --glow-sat: 96%;
-  background-image: radial-gradient(
-    300px 300px at calc(var(--glow-x, -9999) * 1px) calc(var(--glow-y, -9999) * 1px),
-    hsl(var(--glow-hue) var(--glow-sat) 60% / 0.24),
-    transparent 60%
-  );
-  background-attachment: fixed;
 }
 .automis-en .card-glow::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 2.5px;
+  padding: 2px;
   background: radial-gradient(
-    420px 420px at calc(var(--glow-x, -9999) * 1px) calc(var(--glow-y, -9999) * 1px),
-    hsl(var(--glow-hue) var(--glow-sat) 74% / 1),
-    hsl(var(--glow-hue) var(--glow-sat) 64% / 0) 64%
+    circle 220px at var(--mx, 50%) var(--my, 50%),
+    hsl(var(--glow-hue) var(--glow-sat) 72% / 1),
+    hsl(var(--glow-hue) var(--glow-sat) 62% / 0) 72%
   );
-  background-attachment: fixed;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
           mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
-  filter: brightness(1.5) drop-shadow(0 0 5px hsl(var(--glow-hue) var(--glow-sat) 60% / 0.55));
+  filter: brightness(1.35) drop-shadow(0 0 6px hsl(var(--glow-hue) var(--glow-sat) 60% / 0.5));
+  opacity: 0;
+  transition: opacity 0.25s ease;
   pointer-events: none;
+}
+.automis-en .card-glow:hover::before {
+  opacity: 1;
 }
 
 /* Mobile: give each section a clearly defined block of breathing room and a

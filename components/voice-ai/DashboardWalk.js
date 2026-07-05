@@ -1,21 +1,13 @@
 "use client";
 import { Section, SectionHeading, Reveal } from "@/components/home/_ui";
-import { FileAudio, FileText, Sparkles } from "lucide-react";
+import { FileAudio, FileText, Sparkles, ShieldCheck } from "lucide-react";
 
-const SHOTS = [
-  {
-    src: "/assets/images/dashboard/clean/overview.png",
-    caption: "Live dashboard — calls, success rate, trends",
-  },
-  {
-    src: "/assets/images/dashboard/clean/call-logs.png",
-    caption: "Every call logged",
-  },
-  {
-    src: "/assets/images/dashboard/clean/pipeline.png",
-    caption: "Sales pipeline",
-  },
-];
+// Lead screenshot: the live Bookings table, every call the AI handled, with
+// outcome and status. Customer names/numbers are blurred for privacy.
+const LEAD_SHOT = {
+  src: "/assets/images/dashboard/clean/bookings.png",
+  caption: "Every call the AI handled, with status and outcome, live",
+};
 
 // Subtle browser-chrome frame wrapper for a screenshot.
 function BrowserFrame({ children }) {
@@ -40,36 +32,30 @@ export default function DashboardWalk() {
       <SectionHeading
         eyebrow="You see everything"
         title={<>Full transparency into every call your AI handles.</>}
-        lead="No black box. A live dashboard of calls and outcomes, every conversation logged, and a sales pipeline that moves on its own."
+        lead="No black box. Watch a live feed of every call, its status, and its outcome, then open any single call for the recording, transcript, and AI summary."
       />
 
       <div className="mt-14 space-y-6">
-        {/* Lead screenshot — full width */}
+        {/* Lead screenshot, full width */}
         <Reveal>
           <BrowserFrame>
             <img
-              src={SHOTS[0].src}
-              alt={SHOTS[0].caption}
+              src={LEAD_SHOT.src}
+              alt={LEAD_SHOT.caption}
               className="block w-full"
               loading="lazy"
             />
           </BrowserFrame>
-          <p className="mt-3 text-center text-[13px] text-white/55">{SHOTS[0].caption}</p>
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] text-white/55">
+            <span>{LEAD_SHOT.caption}</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-0.5 text-[11px] text-white/45">
+              <ShieldCheck className="h-3 w-3 text-[#57C7E3]" strokeWidth={2} />
+              Customer data blurred for privacy
+            </span>
+          </div>
         </Reveal>
 
-        {/* Two supporting screenshots */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {SHOTS.slice(1).map((s, i) => (
-            <Reveal key={s.src} delay={i * 120}>
-              <BrowserFrame>
-                <img src={s.src} alt={s.caption} className="block w-full" loading="lazy" />
-              </BrowserFrame>
-              <p className="mt-3 text-center text-[13px] text-white/55">{s.caption}</p>
-            </Reveal>
-          ))}
-        </div>
-
-        {/* Open-a-call detail — placeholder (screenshot not ready) */}
+        {/* Open-a-call detail, placeholder (English capture pending) */}
         <Reveal delay={80}>
           <div className="card-gold rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-sm sm:p-8">
             <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2">
@@ -94,7 +80,7 @@ export default function DashboardWalk() {
                   </span>
                 </div>
               </div>
-              {/* Captioned placeholder box — screenshot pending */}
+              {/* Captioned placeholder box, English capture pending */}
               <div className="flex flex-col">
                 <div
                   className="flex aspect-[16/10] w-full items-center justify-center rounded-xl border border-dashed border-white/15 bg-white/[0.02]"
@@ -102,7 +88,7 @@ export default function DashboardWalk() {
                   <div className="text-center">
                     <Sparkles className="mx-auto h-7 w-7 text-white/25" strokeWidth={1.6} />
                     <p className="mt-3 text-[13px] font-medium text-white/40">Call detail view</p>
-                    <p className="mt-1 text-[12px] text-white/30">Screenshot coming soon</p>
+                    <p className="mt-1 text-[12px] text-white/30">English capture pending</p>
                   </div>
                 </div>
                 <p className="mt-3 text-center text-[13px] text-white/55">

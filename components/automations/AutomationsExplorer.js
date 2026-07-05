@@ -1,9 +1,12 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Section, SectionHeading, Reveal, GRAD } from "@/components/home/_ui";
+import { Section, SectionHeading, Reveal } from "@/components/home/_ui";
+import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 import { NICHES, GOALS, GOAL_BY_ID, AUTOMATIONS } from "./automationsData";
 import { ArrowUpRight, AlertCircle, Wrench, Target, X } from "lucide-react";
+
+const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
 // A single filter pill. Active state uses the signature blue accent.
 function FilterPill({ active, onClick, children }) {
@@ -178,14 +181,16 @@ export default function AutomationsExplorer() {
               We very likely build this anyway. Clear a filter, or book a call and we will scope it
               around your business.
             </p>
-            <button
-              type="button"
-              onClick={clearAll}
-              className="mt-5 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-[14px] font-bold text-[#04101c] transition-transform hover:-translate-y-0.5"
-              style={{ background: GRAD }}
-            >
-              Reset filters
-            </button>
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <InteractiveHoverButton href={BOOKING} variant="solid" text="Book a Discovery Call" />
+              <button
+                type="button"
+                onClick={clearAll}
+                className="inline-flex items-center gap-1.5 text-[13.5px] font-medium text-white/55 transition-colors hover:text-white"
+              >
+                <X className="h-3.5 w-3.5" strokeWidth={2.2} /> Clear filters
+              </button>
+            </div>
           </div>
         )}
       </div>

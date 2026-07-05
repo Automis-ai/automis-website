@@ -4,6 +4,7 @@ import { ArrowLeft, AlertCircle, Check, Quote } from "lucide-react";
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import FinalCta from "@/components/home/FinalCta";
 import { Section, Reveal, Eyebrow, GRAD } from "@/components/home/_ui";
+import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 import ClientMark from "@/components/use-cases/ClientMark";
 import { CASES, getCase } from "@/components/use-cases/cases";
 
@@ -15,7 +16,7 @@ export function generateMetadata({ params }) {
   const c = getCase(params.slug);
   if (!c) return {};
   const url = `https://automis.ai/use-cases/${c.slug}`;
-  const title = `${c.shortClient} | ${c.tag} case study — Automis`;
+  const title = `${c.shortClient} | ${c.tag} case study, Automis`;
   const description = `${c.headline} ${c.summary}`.slice(0, 300);
   return {
     title,
@@ -155,15 +156,13 @@ export default function CaseStudyDetailPage({ params }) {
         <Reveal delay={160}>
           <div className="mt-12 flex flex-col items-center gap-4 text-center">
             <p className="text-[1.05rem] text-white/70">Want a system like this built for your business?</p>
-            <a
-              href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex rounded-xl px-6 py-4 text-[15px] font-bold text-[#04101c] transition-transform hover:-translate-y-0.5"
-              style={{ background: GRAD }}
-            >
-              Book a discovery call
-            </a>
+            <div className="flex justify-center">
+              <InteractiveHoverButton
+                href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                variant="solid"
+                text="Book a Discovery Call"
+              />
+            </div>
           </div>
         </Reveal>
       </Section>

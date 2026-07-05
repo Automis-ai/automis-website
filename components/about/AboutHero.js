@@ -1,5 +1,6 @@
 "use client";
-import { Reveal, Eyebrow, GradientText, GRAD } from "@/components/home/_ui";
+import { Reveal, Eyebrow, GradientText } from "@/components/home/_ui";
+import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
@@ -32,21 +33,8 @@ export default function AboutHero() {
           </Reveal>
           <Reveal immediate delay={180}>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href={BOOKING}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex rounded-xl px-6 py-4 text-[15px] font-bold text-[#04101c] transition-transform hover:-translate-y-0.5"
-                style={{ background: GRAD }}
-              >
-                Book a discovery call
-              </a>
-              <a
-                href="#process"
-                className="inline-flex rounded-xl border border-white/15 bg-white/[0.03] px-6 py-4 text-[15px] font-semibold text-white/85 transition-colors hover:bg-white/[0.06]"
-              >
-                See how we work
-              </a>
+              <InteractiveHoverButton href={BOOKING} variant="solid" text="Book a discovery call" />
+              <InteractiveHoverButton href="#process" variant="ghost" text="See how we work" />
             </div>
           </Reveal>
         </div>

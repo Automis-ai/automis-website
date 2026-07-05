@@ -8,12 +8,12 @@ import { Check, Loader2 } from "lucide-react";
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
 const BULLETS = [
-  "A free 30-minute AI Audit, no commitment",
-  "We map where your business leaks time & money",
-  "You leave with your highest-ROI automations, ranked",
+  "A 30-minute call, hear your AI voice agent live",
+  "We map your calls, hours, and where bookings slip away",
+  "Leave with a plan for a voice agent that answers 24/7",
 ];
 
-export default function JumpstartBooking() {
+export default function VoiceBooking() {
   const holderRef = useRef(null);
   const [inView, setInView] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -48,13 +48,14 @@ export default function JumpstartBooking() {
           {/* Left: pitch */}
           <Reveal>
             <div>
-              <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">Book your slot</span>
+              <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">Put it to work</span>
               <h2 className="font-display mt-4 text-[2.1rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.7rem]">
-                Find the AI systems <GradientText>your business is missing</GradientText>.
+                Get your AI voice agent <GradientText>answering, qualifying, and booking 24/7</GradientText>.
               </h2>
               <p className="mt-5 max-w-md text-[1.05rem] leading-relaxed text-white/60">
-                Pick a time that works and we'll show you exactly where AI can win you back
-                time, calls, and revenue. 30 minutes, no jargon, no obligation.
+                Book a discovery call and we will set up a voice agent that picks up every call,
+                qualifies the lead, and books it straight onto your calendar, day, night, and
+                weekend. No missed calls, no lost revenue.
               </p>
               <ul className="mt-7 space-y-3">
                 {BULLETS.map((b) => (
@@ -67,11 +68,7 @@ export default function JumpstartBooking() {
                 ))}
               </ul>
               <div className="mt-8 flex lg:hidden">
-                <InteractiveHoverButton
-                  href={BOOKING}
-                  variant="solid"
-                  text="Book your free AI Audit"
-                />
+                <InteractiveHoverButton href={BOOKING} variant="solid" text="Book a Discovery Call" />
               </div>
             </div>
           </Reveal>
@@ -86,11 +83,12 @@ export default function JumpstartBooking() {
               <div className="flex items-center justify-between px-3 pb-2 pt-1.5">
                 <span className="flex items-center gap-2 text-[13px] font-semibold text-white/85">
                   <span className="h-2 w-2 rounded-full" style={{ background: GRAD, boxShadow: "0 0 8px rgba(87,199,227,0.8)" }} />
-                  Live availability · 30-min AI Audit
+                  Live availability · 30-min call
                 </span>
                 <span className="text-[12px] text-white/50">Instant confirmation</span>
               </div>
               <div className="relative w-full overflow-hidden rounded-xl bg-white" style={{ minHeight: 760 }}>
+                {/* skeleton */}
                 {!loaded && (
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[#0b1622]">
                     <Loader2 className="h-6 w-6 animate-spin text-[#57C7E3]" />
@@ -101,7 +99,7 @@ export default function JumpstartBooking() {
                   <iframe
                     id="ghl-booking-iframe"
                     src={`${BOOKING}?embed=true`}
-                    title="Book a free 30-minute AI Audit with Automis"
+                    title="Book a discovery call with Automis"
                     className="block h-full w-full"
                     style={{ height: 780, minHeight: 760, border: "none", overflow: "auto" }}
                     scrolling="yes"
@@ -111,9 +109,9 @@ export default function JumpstartBooking() {
                 )}
               </div>
               <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-2 py-2 text-[12px] text-white/60">
-                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> No commitment</span>
+                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> 30-day performance guarantee</span>
                 <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> GDPR-aligned</span>
-                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> Read-only</span>
+                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> No obligation</span>
               </div>
               {/* LeadConnector auto-resize so all available days are reachable */}
               <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />

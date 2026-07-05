@@ -6,19 +6,19 @@ const DELIVERABLES = [
   {
     icon: Map,
     title: "A leak map of your business",
-    body: "We walk your lead-to-booking flow — ads, calls, follow-up, admin — and pinpoint exactly where hours and revenue are slipping away.",
+    body: "We walk your lead-to-booking flow, ads, calls, follow-up, admin, and pinpoint exactly where hours and revenue are slipping away.",
     points: ["Speed-to-lead & missed calls", "Manual handoffs & follow-up gaps", "Repetitive admin eating your week"],
   },
   {
     icon: ListChecks,
     title: "Your top AI opportunities",
-    body: "A short, ranked shortlist of the automations that would move the needle most for your specific business — scored by impact versus effort.",
+    body: "A short, ranked shortlist of the automations that would move the needle most for your specific business, scored by impact versus effort.",
     points: ["3–6 high-ROI moves, ranked", "What to fix first, and why", "Where AI actually pays back fast"],
   },
   {
     icon: Gauge,
     title: "A clear next step",
-    body: "You leave knowing what a fix looks like, what it would take, and whether it's a build worth doing — with zero obligation to continue.",
+    body: "You leave knowing what a fix looks like, what it would take, and whether it's a build worth doing, with zero obligation to continue.",
     points: ["Plain-English recommendations", "Rough effort & payback view", "No pressure, no commitment"],
   },
 ];

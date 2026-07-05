@@ -1,8 +1,9 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import AutomationsHero from "@/components/automations/AutomationsHero";
 import AutomationsExplorer from "@/components/automations/AutomationsExplorer";
+import CustomAutomations from "@/components/automations/CustomAutomations";
 import OpportunityFinder from "@/components/home/OpportunityFinder";
-import FinalCta from "@/components/home/FinalCta";
+import AutomationsCta from "@/components/automations/AutomationsCta";
 
 export const metadata = {
   title: "Automations | Automis",
@@ -24,8 +25,9 @@ export default function AutomationsPage() {
     <AutomisEnShell>
       <AutomationsHero />
       <AutomationsExplorer />
+      <CustomAutomations />
       <OpportunityFinder />
-      <FinalCta />
+      <AutomationsCta />
     </AutomisEnShell>
   );
 }

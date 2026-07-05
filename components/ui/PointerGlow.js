@@ -2,12 +2,17 @@
 import { useEffect } from "react";
 
 /*
-  Publishes the pointer position as CSS custom properties on <html>
-  (--glow-x / --glow-y in viewport px, --glow-xp as 0..1 across the width).
-  Cards with the `.card-glow` class read these to light their border where the
-  cursor is (see components/site/design-system.css). One shared listener drives every card.
+  Drives the cursor-follow gold border glow on `.card-glow` cards.
 
-  Skipped for touch (no fine pointer) and reduced-motion users. rAF-throttled.
+  One delegated pointermove listener: for whichever `.card-glow` the cursor is
+  over, it writes --mx / --my as LOCAL coordinates (px from that card's own
+  top-left). The CSS (components/site/design-system.css) paints a masked gold
+  spotlight on the border at (--mx, --my). Local per-card coords are the fix for
+  the old viewport-based approach, which — because a filter makes a fixed-attach
+  background resolve per element — only lit cards near the viewport origin.
+
+  Skipped for touch (no fine pointer) and reduced-motion users. rAF-throttled;
+  only the hovered card is ever written to.
 */
 export default function PointerGlow() {
   useEffect(() => {
@@ -15,27 +20,35 @@ export default function PointerGlow() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!window.matchMedia("(pointer: fine)").matches) return;
 
-    const root = document.documentElement;
     let raf = 0;
+    let el = null;
     let x = 0;
     let y = 0;
 
     const flush = () => {
       raf = 0;
-      root.style.setProperty("--glow-x", x.toFixed(1));
-      root.style.setProperty("--glow-y", y.toFixed(1));
-      root.style.setProperty("--glow-xp", (x / window.innerWidth).toFixed(3));
+      if (el) {
+        el.style.setProperty("--mx", `${x}px`);
+        el.style.setProperty("--my", `${y}px`);
+      }
     };
 
     const onMove = (e) => {
-      x = e.clientX;
-      y = e.clientY;
+      const card = e.target.closest ? e.target.closest(".card-glow") : null;
+      if (!card) {
+        el = null;
+        return;
+      }
+      const r = card.getBoundingClientRect();
+      el = card;
+      x = e.clientX - r.left;
+      y = e.clientY - r.top;
       if (!raf) raf = requestAnimationFrame(flush);
     };
 
-    window.addEventListener("pointermove", onMove, { passive: true });
+    document.addEventListener("pointermove", onMove, { passive: true });
     return () => {
-      window.removeEventListener("pointermove", onMove);
+      document.removeEventListener("pointermove", onMove);
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);

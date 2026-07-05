@@ -8,12 +8,15 @@ import { Check, Loader2 } from "lucide-react";
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
 const BULLETS = [
-  "A free 30-minute AI Audit, no commitment",
-  "We map where your business leaks time & money",
-  "You leave with your highest-ROI automations, ranked",
+  "A 30-minute, no-pressure discovery call",
+  "We map which automation wins you the most time and revenue",
+  "You leave with a clear, custom plan built for your business",
 ];
 
-export default function JumpstartBooking() {
+// Closing CTA for the Automations catalog. It is the last, most prominent block
+// on the page: a booking pitch driven by the standard InteractiveHoverButton,
+// paired with the live LeadConnector calendar so a visitor can book on the spot.
+export default function AutomationsCta() {
   const holderRef = useRef(null);
   const [inView, setInView] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -48,18 +51,23 @@ export default function JumpstartBooking() {
           {/* Left: pitch */}
           <Reveal>
             <div>
-              <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">Book your slot</span>
+              <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">
+                Let&apos;s build yours
+              </span>
               <h2 className="font-display mt-4 text-[2.1rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.7rem]">
-                Find the AI systems <GradientText>your business is missing</GradientText>.
+                Turn one of these into <GradientText>your system</GradientText>.
               </h2>
               <p className="mt-5 max-w-md text-[1.05rem] leading-relaxed text-white/60">
-                Pick a time that works and we'll show you exactly where AI can win you back
-                time, calls, and revenue. 30 minutes, no jargon, no obligation.
+                Book a discovery call and we will show you which automation pays off first, and how
+                we build it around the way your business actually runs. No jargon, no obligation.
               </p>
               <ul className="mt-7 space-y-3">
                 {BULLETS.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-[15px] text-white/80">
-                    <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: GRAD }}>
+                    <span
+                      className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full"
+                      style={{ background: GRAD }}
+                    >
                       <Check className="h-3 w-3 text-[#04101c]" strokeWidth={3} />
                     </span>
                     {b}
@@ -67,26 +75,24 @@ export default function JumpstartBooking() {
                 ))}
               </ul>
               <div className="mt-8 flex lg:hidden">
-                <InteractiveHoverButton
-                  href={BOOKING}
-                  variant="solid"
-                  text="Book your free AI Audit"
-                />
+                <InteractiveHoverButton href={BOOKING} variant="solid" text="Book a Discovery Call" />
               </div>
             </div>
           </Reveal>
 
-          {/* Right: calendar embed */}
+          {/* Right: live calendar embed */}
           <Reveal delay={100}>
             <div
               ref={holderRef}
               className="relative rounded-2xl border border-white/[0.1] bg-white/[0.02] p-2 shadow-2xl"
             >
-              {/* dark header so the (unavoidably light) calendar reads as an intentional inset */}
               <div className="flex items-center justify-between px-3 pb-2 pt-1.5">
                 <span className="flex items-center gap-2 text-[13px] font-semibold text-white/85">
-                  <span className="h-2 w-2 rounded-full" style={{ background: GRAD, boxShadow: "0 0 8px rgba(87,199,227,0.8)" }} />
-                  Live availability · 30-min AI Audit
+                  <span
+                    className="h-2 w-2 rounded-full"
+                    style={{ background: GRAD, boxShadow: "0 0 8px rgba(87,199,227,0.8)" }}
+                  />
+                  Live availability · 30-min call
                 </span>
                 <span className="text-[12px] text-white/50">Instant confirmation</span>
               </div>
@@ -99,9 +105,9 @@ export default function JumpstartBooking() {
                 )}
                 {inView && (
                   <iframe
-                    id="ghl-booking-iframe"
+                    id="ghl-booking-iframe-automations"
                     src={`${BOOKING}?embed=true`}
-                    title="Book a free 30-minute AI Audit with Automis"
+                    title="Book a discovery call with Automis"
                     className="block h-full w-full"
                     style={{ height: 780, minHeight: 760, border: "none", overflow: "auto" }}
                     scrolling="yes"
@@ -111,15 +117,27 @@ export default function JumpstartBooking() {
                 )}
               </div>
               <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-2 py-2 text-[12px] text-white/60">
-                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> No commitment</span>
-                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> GDPR-aligned</span>
-                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> Read-only</span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> 30-day performance guarantee
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> GDPR-aligned
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> No obligation
+                </span>
               </div>
-              {/* LeadConnector auto-resize so all available days are reachable */}
               <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
             </div>
           </Reveal>
         </div>
+
+        {/* Prominent primary CTA under the two columns, always visible. */}
+        <Reveal delay={140}>
+          <div className="mt-12 flex justify-center">
+            <InteractiveHoverButton href={BOOKING} variant="solid" text="Book a Discovery Call" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );

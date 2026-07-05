@@ -1,7 +1,7 @@
 /*
   Shared case-study data for the use-cases list + detail pages.
   Facts are real (two live Automis clients); every quantitative metric is a
-  conservative, clearly-labeled estimate — we do not publish real client/caller
+  conservative, clearly-labeled estimate, we do not publish real client/caller
   data (GDPR / privacy-first positioning). Keep this the single source of truth
   for both /use-cases and /use-cases/[slug].
 */
@@ -17,7 +17,7 @@ export const CASES = [
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
     // list-card one-liner
     summary:
-      "A 24/7 Voice AI receptionist that answers every call, books check-ups, and recovers the after-hours calls that used to go to voicemail.",
+      "A 24/7 Voice AI receptionist that answers every call, books check-ups, and captures the after-hours calls that used to go unanswered.",
     // detail: outcome-led hero line
     headline:
       "An AI receptionist that never lets a patient call go unanswered.",
@@ -35,14 +35,14 @@ export const CASES = [
         "24/7 inbound answering that greets every caller instantly, day or night.",
         "Live appointment booking and rescheduling into the clinic's calendar, with confirmations.",
         "Structured patient intake so the right details are captured before the visit.",
-        "Missed-call recovery that automatically follows up on calls the team could not reach in time.",
+        "After-hours coverage that books the nights-and-weekends calls that used to go unanswered.",
       ],
     },
     results: {
-      lead: "Figures below are conservative estimates from comparable Voice AI deployments. Actual results vary with call volume and setup.",
+      lead: "The AI receptionist always answers, so there are no missed calls by design. Timing figures are conservative estimates from comparable Voice AI deployments and vary with call volume and setup.",
       metrics: [
-        { value: "24/7", label: "call coverage, including nights, weekends, and holidays" },
-        { value: "~30-50%", label: "of missed calls typically recovered (estimate)" },
+        { value: "0", label: "missed calls, every call answered live, 24/7" },
+        { value: "After hours", label: "nights-and-weekends calls captured and booked instead of lost" },
         { value: "<30s", label: "average time to answer an inbound call (estimate)" },
       ],
     },

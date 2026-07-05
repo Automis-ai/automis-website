@@ -42,7 +42,7 @@ export default function WhatWeLookAt() {
       <SectionHeading
         eyebrow="What we look at · three pillars"
         title={<>We audit the <GradientText>whole business</GradientText>, not just one channel</>}
-        lead="Most bottlenecks aren't where you think. We look across marketing, sales, and admin — the three places time and money quietly leak — so the fix targets what actually matters."
+        lead="Most bottlenecks aren't where you think. We look across marketing, sales, and admin, the three places time and money quietly leak, so the fix targets what actually matters."
       />
       <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {PILLARS.map((p, i) => {

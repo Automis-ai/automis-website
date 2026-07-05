@@ -1,5 +1,6 @@
 "use client";
 import { Section, SectionHeading, Reveal, GRAD } from "@/components/home/_ui";
+import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 import { Check, ShieldCheck } from "lucide-react";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
@@ -91,23 +92,20 @@ export default function VoicePricing() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={BOOKING}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mt-8 inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-[14px] font-bold transition-transform hover:-translate-y-0.5 ${
-                  t.featured ? "text-[#04101c]" : "border border-white/15 text-white hover:border-white/30"
-                }`}
-                style={t.featured ? { background: GRAD } : undefined}
-              >
-                Book a Discovery Call
-              </a>
+              <div className="mt-8 flex">
+                <InteractiveHoverButton
+                  href={BOOKING}
+                  variant={t.featured ? "solid" : "ghost"}
+                  text="Book a Discovery Call"
+                  className="w-full"
+                />
+              </div>
             </div>
           </Reveal>
         ))}
       </div>
 
-      {/* 30-day performance guarantee — all tiers */}
+      {/* 30-day performance guarantee, all tiers */}
       <Reveal delay={120}>
         <div className="mt-6 flex flex-col items-center gap-3 rounded-2xl border border-[#FEC458]/25 bg-[#FEC458]/[0.05] p-6 text-center sm:flex-row sm:justify-center sm:text-left">
           <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-[#FEC458]/30 bg-[#FEC458]/10">

@@ -13,7 +13,7 @@ const STEPS = [
     n: "02",
     icon: Search,
     title: "We map your bottlenecks",
-    body: "On the call we trace your flow — ads → lead → outreach → booking → follow-up → admin — and flag the leaks: slow response, missed calls, manual handoffs, work that repeats every week.",
+    body: "On the call we trace your flow, ads → lead → outreach → booking → follow-up → admin, and flag the leaks: slow response, missed calls, manual handoffs, work that repeats every week.",
   },
   {
     n: "03",
@@ -25,7 +25,7 @@ const STEPS = [
     n: "04",
     icon: Rocket,
     title: "Decide your next move",
-    body: "Take the plan and run with it yourself, or have us build it. Either way you leave with clarity — and zero obligation to continue.",
+    body: "Take the plan and run with it yourself, or have us build it. Either way you leave with clarity, and zero obligation to continue.",
   },
 ];
 

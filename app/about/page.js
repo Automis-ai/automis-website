@@ -30,7 +30,7 @@ export const metadata = {
         url: "/assets/og/home-en.png",
         width: 1200,
         height: 630,
-        alt: "Automis — Two founders, hands-on with your build",
+        alt: "Automis, Two founders, hands-on with your build",
       },
     ],
   },

@@ -6,7 +6,7 @@ import { Plus } from "lucide-react";
 const FAQS = [
   {
     q: "How long is the AI Audit, and what does it cost?",
-    a: "It's a free 30-minute call with no commitment. You leave with a map of where your business leaks time and money and a ranked shortlist of the automations that would fix it — whether or not we ever work together.",
+    a: "It's a free 30-minute call with no commitment. You leave with a map of where your business leaks time and money and a ranked shortlist of the automations that would fix it, whether or not we ever work together.",
   },
   {
     q: "How fast will I see value?",
@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: "Do I have to buy anything after?",
-    a: "No. The audit stands on its own — take the plan and run with it yourself if you like. If you'd rather we build the fixes, we'll scope that separately after the call. There's zero obligation to continue.",
+    a: "No. The audit stands on its own, take the plan and run with it yourself if you like. If you'd rather we build the fixes, we'll scope that separately after the call. There's zero obligation to continue.",
   },
   {
     q: "What access do you need?",
@@ -26,7 +26,7 @@ const FAQS = [
   },
   {
     q: "What if you can't help us?",
-    a: "We'll tell you straight. If the audit shows there isn't a meaningful win to be had, we'll say so on the call — better to save you the time than sell you a build you don't need.",
+    a: "We'll tell you straight. If the audit shows there isn't a meaningful win to be had, we'll say so on the call, better to save you the time than sell you a build you don't need.",
   },
 ];
 
