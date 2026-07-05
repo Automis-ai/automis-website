@@ -128,6 +128,42 @@
   opacity: 0.95;
 }
 
+/* Pointer-follow border glow (test on SystemPillars).
+   A spotlight lights the card border wherever the cursor is, driven by the
+   shared --glow-x/--glow-y vars from <PointerGlow>. Uses ::before only, so it
+   layers cleanly over .card-gold's ::after gold line. Hue is locked to the
+   brand range (cyan ~200 -> periwinkle ~230) — never the rainbow sweep of the
+   original. A faint inner spotlight on the surface adds depth. */
+.home-en-root .card-glow {
+  position: relative;
+  --glow-hue: calc(200 + var(--glow-xp, 0.5) * 30);
+  background-image: radial-gradient(
+    240px 240px at calc(var(--glow-x, -9999) * 1px) calc(var(--glow-y, -9999) * 1px),
+    hsl(var(--glow-hue) 92% 62% / 0.16),
+    transparent 62%
+  );
+  background-attachment: fixed;
+}
+.home-en-root .card-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: radial-gradient(
+    300px 300px at calc(var(--glow-x, -9999) * 1px) calc(var(--glow-y, -9999) * 1px),
+    hsl(var(--glow-hue) 95% 72% / 1),
+    hsl(var(--glow-hue) 95% 62% / 0) 58%
+  );
+  background-attachment: fixed;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  filter: brightness(1.35);
+  pointer-events: none;
+}
+
 /* Mobile: give each section a clearly defined block of breathing room and a
    faint hairline so same-coloured sections read as separate (item 6). */
 /* A faint hairline between same-coloured sections so they read as separate

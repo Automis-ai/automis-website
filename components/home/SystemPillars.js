@@ -54,7 +54,7 @@ export default function SystemPillars() {
           return (
               <div
                 key={p.n}
-                className={`card-gold group relative flex h-full flex-col overflow-hidden rounded-2xl border p-7 backdrop-blur-sm hover:-translate-y-1 ${
+                className={`card-glow group relative flex h-full flex-col overflow-hidden rounded-2xl border p-7 backdrop-blur-sm hover:-translate-y-1 ${
                   p.featured
                     ? "border-[#3C91E6]/35 bg-white/[0.05]"
                     : "border-white/[0.08] bg-white/[0.03]"
