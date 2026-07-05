@@ -92,7 +92,7 @@ const CTAS = [
   {
     key: "call",
     label: "Book a free call",
-    sub: "15 minutes, no pitch",
+    sub: "30 minutes, no pitch",
     icon: CalendarDays,
     href: BOOKING,
     external: true,
@@ -333,21 +333,21 @@ export default function ArcangeloLanding() {
                   </p>
                   <div className="mt-6 flex flex-col gap-3">
                     <a
-                      href={`/assets/downloads/${niche.id}-cheatsheet.pdf`}
+                      href={`/assets/downloads/${niche.id}-ai-playbook.pdf`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex w-full items-center justify-center gap-2 rounded-xl py-4 text-[15px] font-bold text-[#04101c] transition-transform hover:-translate-y-0.5"
                       style={{ background: GRAD }}
                     >
-                      <FileDown className="h-4 w-4" strokeWidth={2.4} /> Download the 1-page cheat sheet
+                      <FileDown className="h-4 w-4" strokeWidth={2.4} /> Download the full 7-page playbook
                     </a>
                     <a
-                      href={`/assets/downloads/${niche.id}-ai-playbook.pdf`}
+                      href={`/assets/downloads/${niche.id}-cheatsheet.pdf`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 px-5 py-3.5 text-[14px] font-semibold text-white/80 transition-colors hover:border-white/30 hover:text-white"
                     >
-                      <FileDown className="h-4 w-4" strokeWidth={2} /> Download the full 7-page playbook
+                      <FileDown className="h-4 w-4" strokeWidth={2} /> Also grab the 1-page cheat sheet
                     </a>
                   </div>
                   <div className="mt-6 border-t border-white/[0.08] pt-5">
