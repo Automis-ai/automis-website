@@ -25,8 +25,8 @@ export default function VoiceProblem() {
     <Section id="voice-problem" className="bg-[#020a12]">
       <SectionHeading
         eyebrow="The problem"
-        title={<>Your phone is leaking revenue you already paid to generate.</>}
-        lead="Marketing works. The calls come in. But the ones you cannot answer fast enough never turn into booked appointments."
+        title={<>Every missed call and cold lead is a booking you never see.</>}
+        lead="Calls come in when no one is free to answer, on nights, weekends, and busy afternoons. New leads come in faster than anyone can call back. Either way, the appointment goes to whoever picks up first."
       />
       <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-3">
         {PAINS.map((p, i) => {
