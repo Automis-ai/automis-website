@@ -5,7 +5,7 @@ import { useEffect } from "react";
   Publishes the pointer position as CSS custom properties on <html>
   (--glow-x / --glow-y in viewport px, --glow-xp as 0..1 across the width).
   Cards with the `.card-glow` class read these to light their border where the
-  cursor is (see home-en-fonts.css). One shared listener drives every card.
+  cursor is (see components/site/design-system.css). One shared listener drives every card.
 
   Skipped for touch (no fine pointer) and reduced-motion users. rAF-throttled.
 */

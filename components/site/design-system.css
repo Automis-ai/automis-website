@@ -1,5 +1,7 @@
-/* Self-hosted display/body pairing for the EN home only.
-   Clash Display (headlines) + Satoshi (body) — Fontshare, commercial-OK. */
+/* Automis EN design system — shared across all English pages.
+   Wrap a page/section in `.automis-en` to opt into the fonts + primitives below.
+   Self-hosted display/body pairing: Clash Display (headlines) + General Sans /
+   Satoshi (body) — Fontshare, commercial-OK. Scoped so other locales are untouched. */
 
 @font-face {
   font-family: "Clash Display";
@@ -70,10 +72,10 @@
 
 /* Scope the pairing to the EN home so other locales keep their fonts.
    Pairing: Clash Display (display / headings) + General Sans (body / UI). */
-.home-en-root {
+.automis-en {
   font-family: "General Sans", "Satoshi", "Open Sans", system-ui, sans-serif;
 }
-.home-en-root .font-display {
+.automis-en .font-display {
   font-family: "Clash Display", "Montserrat", sans-serif;
   letter-spacing: -0.005em;
   word-spacing: 0.05em;
@@ -81,29 +83,29 @@
 /* Clash Display runs tight at display sizes; give words room to breathe,
    more so on small screens where headings fuse otherwise. */
 @media (max-width: 767px) {
-  .home-en-root .font-display {
+  .automis-en .font-display {
     letter-spacing: 0.01em;
     word-spacing: 0.09em;
   }
 }
 /* Utility to opt any element explicitly into the body face. */
-.home-en-root .font-body {
+.automis-en .font-body {
   font-family: "General Sans", "Satoshi", system-ui, sans-serif;
 }
 
 /* No stray horizontal scroll on the EN home (scoped, safe for other locales). */
-.home-en-root {
+.automis-en {
   overflow-x: hidden;
 }
 
 /* Gold hover accent for cards (item 8).
    Gold = scarcity in the brand, so it appears on interaction only: a gold
    top-line draws in and the border warms + lifts on hover/focus-within. */
-.home-en-root .card-gold {
+.automis-en .card-gold {
   position: relative;
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.home-en-root .card-gold::after {
+.automis-en .card-gold::after {
   content: "";
   position: absolute;
   left: 1.5rem;
@@ -117,13 +119,13 @@
   opacity: 0;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
 }
-.home-en-root .card-gold:hover,
-.home-en-root .card-gold:focus-within {
+.automis-en .card-gold:hover,
+.automis-en .card-gold:focus-within {
   border-color: rgba(254, 196, 88, 0.42);
   box-shadow: 0 16px 46px -20px rgba(254, 196, 88, 0.35);
 }
-.home-en-root .card-gold:hover::after,
-.home-en-root .card-gold:focus-within::after {
+.automis-en .card-gold:hover::after,
+.automis-en .card-gold:focus-within::after {
   transform: scaleX(1);
   opacity: 0.95;
 }
@@ -136,7 +138,7 @@
    against the gold hover-border used on the other card sections. Radius is wide
    enough that even mid-card (e.g. the wide flagship card) the nearest border
    still catches the light. A faint inner spotlight on the surface adds depth. */
-.home-en-root .card-glow {
+.automis-en .card-glow {
   position: relative;
   --glow-hue: 42;
   --glow-sat: 96%;
@@ -147,7 +149,7 @@
   );
   background-attachment: fixed;
 }
-.home-en-root .card-glow::before {
+.automis-en .card-glow::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -171,12 +173,12 @@
    faint hairline so same-coloured sections read as separate (item 6). */
 /* A faint hairline between same-coloured sections so they read as separate
    blocks instead of one undifferentiated dark field (desktop + mobile). */
-.home-en-root .home-section + .home-section {
+.automis-en .home-section + .home-section {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 @media (prefers-reduced-motion: reduce) {
-  .home-en-root .card-gold,
-  .home-en-root .card-gold::after {
+  .automis-en .card-gold,
+  .automis-en .card-gold::after {
     transition: none;
   }
 }

@@ -1,5 +1,4 @@
-import AkpagerLayout from "@/layouts/AkpagerLayout";
-import "@/components/home/home-en-fonts.css";
+import AutomisEnShell from "@/components/site/AutomisEnShell";
 import HeroEN from "@/components/home/HeroEN";
 import PainPoints from "@/components/home/PainPoints";
 import SystemPillars from "@/components/home/SystemPillars";
@@ -10,7 +9,6 @@ import OpportunityFinder from "@/components/home/OpportunityFinder";
 import Authority from "@/components/home/Authority";
 import FaqEN from "@/components/home/FaqEN";
 import FinalCta from "@/components/home/FinalCta";
-import PointerGlow from "@/components/ui/PointerGlow";
 
 export const metadata = {
   title: "Automis | AI Automation Agency for Business — Voice, Sales & Admin AI",
@@ -52,24 +50,17 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="home-en-root">
-      <PointerGlow />
-      {/* Preload the two most critical font weights for a fast first paint. */}
-      <link rel="preload" href="/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-      <link rel="preload" href="/fonts/general-sans-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-
-      <AkpagerLayout>
-        <HeroEN />
-        <PainPoints />
-        <SystemPillars />
-        <HowWeWork />
-        <Proof />
-        <Industries />
-        <OpportunityFinder />
-        <Authority />
-        <FaqEN />
-        <FinalCta />
-      </AkpagerLayout>
-    </div>
+    <AutomisEnShell>
+      <HeroEN />
+      <PainPoints />
+      <SystemPillars />
+      <HowWeWork />
+      <Proof />
+      <Industries />
+      <OpportunityFinder />
+      <Authority />
+      <FaqEN />
+      <FinalCta />
+    </AutomisEnShell>
   );
 }
