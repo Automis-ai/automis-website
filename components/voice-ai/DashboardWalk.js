@@ -80,19 +80,19 @@ export default function DashboardWalk() {
                   </span>
                 </div>
               </div>
-              {/* Captioned placeholder box, English capture pending */}
+              {/* Real call-detail view: recording + transcript + AI summary.
+                  Messages/transcript are blurred for privacy. */}
               <div className="flex flex-col">
-                <div
-                  className="flex aspect-[16/10] w-full items-center justify-center rounded-xl border border-dashed border-white/15 bg-white/[0.02]"
-                >
-                  <div className="text-center">
-                    <Sparkles className="mx-auto h-7 w-7 text-white/25" strokeWidth={1.6} />
-                    <p className="mt-3 text-[13px] font-medium text-white/40">Call detail view</p>
-                    <p className="mt-1 text-[12px] text-white/30">English capture pending</p>
-                  </div>
+                <div className="overflow-hidden rounded-xl border border-white/[0.1] bg-[#0b1622] shadow-2xl">
+                  <img
+                    src="/assets/images/dashboard/clean/call-detail.png"
+                    alt="One call opened: recording, transcript, and AI summary"
+                    className="block w-full"
+                    loading="lazy"
+                  />
                 </div>
                 <p className="mt-3 text-center text-[13px] text-white/55">
-                  One call, opened: recording + transcript + AI summary
+                  One call, opened: recording, transcript, and AI summary
                 </p>
               </div>
             </div>

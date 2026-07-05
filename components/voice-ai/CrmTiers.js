@@ -64,7 +64,11 @@ export default function CrmTiers() {
           const flip = i % 2 === 1;
           return (
             <Reveal key={t.title} delay={i * 80}>
-              <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:gap-10">
+              <div
+                className={`grid grid-cols-1 items-center gap-6 lg:gap-10 ${
+                  flip ? "lg:grid-cols-[1.18fr_0.82fr]" : "lg:grid-cols-[0.82fr_1.18fr]"
+                }`}
+              >
                 {/* Text column */}
                 <div className={flip ? "lg:order-2" : ""}>
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
