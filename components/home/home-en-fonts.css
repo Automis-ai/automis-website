@@ -75,7 +75,16 @@
 }
 .home-en-root .font-display {
   font-family: "Clash Display", "Montserrat", sans-serif;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
+  word-spacing: 0.05em;
+}
+/* Clash Display runs tight at display sizes; give words room to breathe,
+   more so on small screens where headings fuse otherwise. */
+@media (max-width: 767px) {
+  .home-en-root .font-display {
+    letter-spacing: 0.01em;
+    word-spacing: 0.09em;
+  }
 }
 /* Utility to opt any element explicitly into the body face. */
 .home-en-root .font-body {
@@ -121,10 +130,10 @@
 
 /* Mobile: give each section a clearly defined block of breathing room and a
    faint hairline so same-coloured sections read as separate (item 6). */
-@media (max-width: 767px) {
-  .home-en-root .home-section + .home-section {
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
+/* A faint hairline between same-coloured sections so they read as separate
+   blocks instead of one undifferentiated dark field (desktop + mobile). */
+.home-en-root .home-section + .home-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 @media (prefers-reduced-motion: reduce) {
   .home-en-root .card-gold,

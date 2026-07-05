@@ -62,9 +62,16 @@ export default function HeroDemo() {
     if (el && typeof IntersectionObserver !== "undefined") {
       io = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting && !inView.current) {
-            inView.current = true;
-            schedule(0);
+          if (entry.isIntersecting) {
+            if (!inView.current) {
+              inView.current = true;
+              setStep(0);
+              schedule(0);
+            }
+          } else if (inView.current) {
+            // Stop the timer loop while offscreen; replay on return.
+            inView.current = false;
+            clearTimeout(timerRef.current);
           }
         },
         { threshold: 0.35 }

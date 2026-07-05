@@ -110,7 +110,7 @@ export function generateRoadmapPdf({ name, sector, pillarName, secondaryName, ho
   const steps = [
     ["1. Discover & Diagnose", "We map where you lose time and money before touching a tool."],
     ["2. Design, Build & Deploy", "Live in about 7 days for Voice and simple systems, custom for complex."],
-    ["3. Launch, Monitor & Optimise", "Continuous monthly improvement with human oversight."],
+    ["3. Launch, Monitor & Optimize", "Continuous monthly improvement with human oversight."],
   ];
   steps.forEach((s) => {
     y += 24;

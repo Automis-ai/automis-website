@@ -27,6 +27,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://automis.ai"),
   title: {
     template: "Automis - AI Powered Marketing and booking",
     default: "Automis - AI Powered Marketing and booking ",

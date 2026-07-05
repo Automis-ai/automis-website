@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: "What happens after launch?",
-    a: "We don't disappear. Every engagement includes continuous monthly optimisation with human oversight, so your system keeps improving instead of going stale. That's what the ongoing partnership covers.",
+    a: "We don't disappear. Every engagement includes continuous monthly optimization with human oversight, so your system keeps improving instead of going stale. That's what the ongoing partnership covers.",
   },
   {
     q: "What if it doesn't work for us?",

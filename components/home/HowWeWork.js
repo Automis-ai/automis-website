@@ -21,7 +21,7 @@ const STEPS = [
   {
     icon: LineChart,
     step: "Step 3",
-    title: "Launch, Monitor & Optimise",
+    title: "Launch, Monitor & Optimize",
     body: "We don't disappear after go-live. Continuous monthly improvement with human oversight, so your system gets sharper every month, not stale.",
     meta: "Ongoing, with human-in-the-loop",
   },

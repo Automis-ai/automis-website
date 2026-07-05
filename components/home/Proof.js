@@ -21,7 +21,7 @@ const CASES = [
     meta: "Finance · cessione del quinto · IT",
     tag: "Meta automation",
     result:
-      "Every comment and DM across Meta answered and qualified automatically, feeding a steady, organised flow of leads to the sales team instead of a noisy inbox.",
+      "Every comment and DM across Meta answered and qualified automatically, feeding a steady, organized flow of leads to the sales team instead of a noisy inbox.",
     quote: "Leads are captured and qualified before anyone lifts a finger.",
   },
 ];
@@ -73,7 +73,7 @@ export default function Proof() {
                   </span>
                 </div>
                 <h3 className="font-display mt-5 text-xl font-semibold text-white">{c.client}</h3>
-                <p className="mt-1 text-[13px] text-white/45">{c.meta}</p>
+                <p className="mt-1 text-[13px] text-white/60">{c.meta}</p>
                 <p className="mt-4 text-[14.5px] leading-relaxed text-white/65">{c.result}</p>
                 <div className="mt-auto flex items-start gap-2.5 border-t border-white/[0.06] pt-5">
                   <Quote className="h-4 w-4 flex-shrink-0 text-[#57C7E3]" strokeWidth={2} />
@@ -101,7 +101,7 @@ export default function Proof() {
         </div>
       </Reveal>
       <Reveal>
-        <p className="mt-4 text-center text-[12px] text-white/30">
+        <p className="mt-4 text-center text-[12px] text-white/50">
           Figures are typical, conservative estimates based on our deployments. Your results depend on call volume, market, and setup.
         </p>
       </Reveal>

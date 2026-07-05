@@ -50,8 +50,8 @@ const DefaultFooter = () => {
   const t = {
     tagline:
       locale === "it"
-        ? "Automis combina AI e marketing umano per far crescere il tuo business più velocemente."
-        : "Automis combines AI and human marketing expertise to grow your business faster.",
+        ? "Automis costruisce i sistemi di AI che mancano al tuo business — tra marketing, vendite e operations."
+        : "Automis builds the AI systems your business is missing — across marketing, sales, and operations.",
     emailLabel: locale === "it" ? "Email:" : "Email:",
     rights:
       locale === "it" ? "— Tutti i diritti riservati" : "— All Rights Reserved",
@@ -60,6 +60,11 @@ const DefaultFooter = () => {
   };
 
   const homeHref = hrefFor(PATHNAMES.home, locale);
+  // Instagram is split by market: IT audience -> @automis_italia, EN -> @automis.ai
+  const instagramHref =
+    locale === "it"
+      ? "https://www.instagram.com/automis_italia/"
+      : "https://www.instagram.com/automis.ai/";
   const privacyHref = hrefFor(PATHNAMES.pages.privacyPolicy, locale);
   const termsHref = hrefFor(PATHNAMES.pages.termsOfService, locale);
 
@@ -106,7 +111,7 @@ const DefaultFooter = () => {
                 <i className="fab fa-twitter" />
               </a>
               <a
-                href="https://www.instagram.com/automis_italia/"
+                href={instagramHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Automis on Instagram"

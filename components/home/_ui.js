@@ -14,11 +14,25 @@ export const GRAD_SOFT =
   "linear-gradient(120deg,rgba(60,145,230,0.16),rgba(87,199,227,0.10),rgba(180,194,255,0.05))";
 
 // Scroll-reveal wrapper (no framer-motion; IntersectionObserver + CSS).
-export function Reveal({ children, delay = 0, y = 24, as: Tag = "div", className = "", ...rest }) {
+// `immediate` paints the final state at once — use it for above-the-fold LCP
+// content so the browser isn't waiting on a 0.7s fade to measure the hero.
+// prefers-reduced-motion is honored: no fade, just the final state.
+export function Reveal({ children, delay = 0, y = 24, as: Tag = "div", className = "", immediate = false, ...rest }) {
   const ref = useRef(null);
-  const [shown, setShown] = useState(false);
+  const [shown, setShown] = useState(immediate);
+  const [reduce, setReduce] = useState(false);
 
   useEffect(() => {
+    if (immediate) return;
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      setReduce(true);
+      setShown(true);
+      return;
+    }
     const el = ref.current;
     if (!el) return;
     if (typeof IntersectionObserver === "undefined") {
@@ -38,18 +52,24 @@ export function Reveal({ children, delay = 0, y = 24, as: Tag = "div", className
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [immediate]);
+
+  const animate = !immediate && !reduce;
 
   return (
     <Tag
       ref={ref}
       className={className}
-      style={{
-        opacity: shown ? 1 : 0,
-        transform: shown ? "translateY(0)" : `translateY(${y}px)`,
-        transition: `opacity 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}ms`,
-        willChange: "opacity, transform",
-      }}
+      style={
+        animate
+          ? {
+              opacity: shown ? 1 : 0,
+              transform: shown ? "translateY(0)" : `translateY(${y}px)`,
+              transition: `opacity 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}ms`,
+              willChange: "opacity, transform",
+            }
+          : undefined
+      }
       {...rest}
     >
       {children}
@@ -58,7 +78,7 @@ export function Reveal({ children, delay = 0, y = 24, as: Tag = "div", className
 }
 
 // Section shell with consistent vertical rhythm + id anchor.
-export function Section({ id, children, className = "", inner = "max-w-6xl", pad = "py-24 md:py-28" }) {
+export function Section({ id, children, className = "", inner = "max-w-6xl", pad = "py-16 sm:py-20 md:py-24" }) {
   return (
     <section id={id} className={`home-section relative ${pad} ${className}`}>
       <div className={`container mx-auto px-5 sm:px-6`}>

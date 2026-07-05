@@ -34,7 +34,7 @@ export default function FinalCta() {
   }, []);
 
   return (
-    <section id="book" className="relative overflow-hidden bg-[#020a12] py-20 md:py-28">
+    <section id="book" className="relative overflow-hidden bg-[#020a12] py-16 md:py-24">
       <div className="pointer-events-none absolute inset-0">
         <div
           className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 opacity-50 blur-3xl"
@@ -83,6 +83,14 @@ export default function FinalCta() {
               ref={holderRef}
               className="relative rounded-2xl border border-white/[0.1] bg-white/[0.02] p-2 shadow-2xl"
             >
+              {/* dark header so the (unavoidably light) calendar reads as an intentional inset */}
+              <div className="flex items-center justify-between px-3 pb-2 pt-1.5">
+                <span className="flex items-center gap-2 text-[13px] font-semibold text-white/85">
+                  <span className="h-2 w-2 rounded-full" style={{ background: GRAD, boxShadow: "0 0 8px rgba(87,199,227,0.8)" }} />
+                  Live availability · 30-min call
+                </span>
+                <span className="text-[12px] text-white/50">Instant confirmation</span>
+              </div>
               <div className="relative w-full overflow-hidden rounded-xl bg-white" style={{ minHeight: 760 }}>
                 {/* skeleton */}
                 {!loaded && (
@@ -103,6 +111,11 @@ export default function FinalCta() {
                     loading="lazy"
                   />
                 )}
+              </div>
+              <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-2 py-2 text-[12px] text-white/60">
+                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> 30-day performance guarantee</span>
+                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> GDPR-aligned</span>
+                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> No obligation</span>
               </div>
               {/* LeadConnector auto-resize so all available days are reachable */}
               <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />

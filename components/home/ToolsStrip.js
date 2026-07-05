@@ -35,7 +35,7 @@ export default function ToolsStrip() {
 
   return (
     <div className="relative">
-      <p className="text-center text-[11px] font-medium uppercase tracking-[0.22em] text-white/35">
+      <p className="text-center text-[11px] font-medium uppercase tracking-[0.22em] text-white/60">
         Connects to the tools you already run
       </p>
       <div className="tools-marquee-mask relative mt-6 overflow-hidden">
@@ -47,13 +47,13 @@ export default function ToolsStrip() {
           ))}
         </div>
       </div>
-      <p className="mt-5 text-center text-[13px] font-medium italic text-white/30">
+      <p className="mt-5 text-center text-[13px] font-medium italic text-white/55">
         If it has an API, we connect to it.
       </p>
 
       <style jsx global>{`
         .tools-mark {
-          color: rgba(255, 255, 255, 0.42);
+          color: rgba(255, 255, 255, 0.62);
           transition: color 0.3s ease;
         }
         .tools-mark:hover {

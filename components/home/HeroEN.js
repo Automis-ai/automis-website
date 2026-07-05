@@ -32,34 +32,36 @@ export default function HeroEN() {
 
       <div className="container relative z-10 mx-auto px-5 sm:px-6">
         <div className="mx-auto max-w-4xl pt-32 pb-14 text-center sm:pt-36 md:pt-40">
-          <Reveal>
+          <Reveal immediate>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-[12px] font-medium uppercase tracking-[0.16em] text-white/70 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: "linear-gradient(120deg,#3C91E6,#57C7E3)", boxShadow: "0 0 10px rgba(87,199,227,0.8)" }} />
               Strategic AI Automation Agency
             </span>
           </Reveal>
 
-          <Reveal delay={80}>
+          <Reveal delay={80} immediate>
             <h1 className="font-display mx-auto mt-7 max-w-[15ch] text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-[3.6rem] md:text-[4.4rem]">
               We build the <span className="text-[#3C91E6]">systems</span> your business is{" "}
               <span className="text-[#3C91E6]">missing</span>.
             </h1>
           </Reveal>
 
-          <Reveal delay={160}>
-            <p className="mx-auto mt-7 max-w-2xl text-[1.1rem] leading-relaxed text-white/65 md:text-[1.2rem]">
-              We find where your business leaks time and money (missed calls, slow follow-up,
-              hours lost to admin) and build the AI agents and automations that fix it end to end.
-              One system, designed around how you actually work.
+          <Reveal delay={160} immediate>
+            <p className="mx-auto mt-7 max-w-2xl text-[1.1rem] leading-relaxed text-white/70 md:text-[1.2rem]">
+              For clinics, agencies, and local businesses across Europe and the US — we find where
+              you leak time and money (missed calls, slow follow-up, hours lost to admin) and build
+              the AI agents and automations that fix it, end to end. One system, designed around how
+              you actually work.
             </p>
           </Reveal>
 
-          <Reveal delay={240}>
+          <Reveal delay={240} immediate>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <InteractiveHoverButton
                 href={BOOKING}
                 target="_blank"
                 rel="noopener noreferrer"
+                variant="solid"
                 className="w-full sm:w-auto"
               >
                 Book Discovery Call
@@ -83,7 +85,7 @@ export default function HeroEN() {
         </div>
 
         {/* Product panel — animated live-booking sequence */}
-        <Reveal delay={200} className="mx-auto max-w-5xl pb-24">
+        <Reveal delay={200} className="mx-auto max-w-5xl pb-12 md:pb-16">
           <div className="relative">
             <div
               className="absolute -inset-x-6 -top-6 bottom-0 rounded-[2rem] opacity-60 blur-2xl"

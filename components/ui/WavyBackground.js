@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { createNoise3D } from "simplex-noise";
 
 /*
@@ -33,20 +33,12 @@ export const WavyBackground = ({
   const ntRef = useRef(0);
   const sizeRef = useRef({ w: 0, h: 0 });
 
-  const [isSafari, setIsSafari] = useState(false);
-
   const getSpeed = () => (speed === "fast" ? 0.002 : 0.001);
 
   const waveColors =
     colors ?? ["#3C91E6", "#57C7E3", "#B4C2FF", "#0A3D62", "#FEC458"];
 
   useEffect(() => {
-    setIsSafari(
-      typeof window !== "undefined" &&
-        navigator.userAgent.includes("Safari") &&
-        !navigator.userAgent.includes("Chrome")
-    );
-
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
@@ -65,7 +57,6 @@ export const WavyBackground = ({
       canvas.style.width = `${w}px`;
       canvas.style.height = `${h}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.filter = `blur(${blur}px)`;
     };
 
     const drawWave = (n) => {
@@ -90,7 +81,6 @@ export const WavyBackground = ({
 
     const render = () => {
       const { w, h } = sizeRef.current;
-      ctx.filter = `blur(${blur}px)`;
       ctx.globalAlpha = waveOpacity;
       ctx.fillStyle = backgroundFill;
       ctx.fillRect(0, 0, w, h);
@@ -105,15 +95,48 @@ export const WavyBackground = ({
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    let running = false;
+    const start = () => {
+      if (running || prefersReduced) return;
+      running = true;
+      rafRef.current = requestAnimationFrame(render);
+    };
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(rafRef.current);
+    };
+
     if (prefersReduced) {
       // One static, fully-opaque pass so the texture is present but still.
       ctx.globalAlpha = 1;
       ctx.fillStyle = backgroundFill;
       ctx.fillRect(0, 0, sizeRef.current.w, sizeRef.current.h);
       drawWave(5);
-    } else {
-      render();
     }
+
+    // Animate only while the hero is on screen and the tab is visible — otherwise
+    // the canvas keeps repainting for the whole 11k-px page (CPU/battery drain).
+    let inView = true;
+    let io;
+    if (typeof IntersectionObserver !== "undefined") {
+      io = new IntersectionObserver(
+        ([entry]) => {
+          inView = entry.isIntersecting;
+          if (inView && !document.hidden) start();
+          else stop();
+        },
+        { threshold: 0 }
+      );
+      io.observe(container);
+    } else {
+      start();
+    }
+
+    const onVisibility = () => {
+      if (document.hidden) stop();
+      else if (inView) start();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
 
     let ro;
     if (typeof ResizeObserver !== "undefined") {
@@ -124,7 +147,9 @@ export const WavyBackground = ({
     }
 
     return () => {
-      cancelAnimationFrame(rafRef.current);
+      stop();
+      document.removeEventListener("visibilitychange", onVisibility);
+      if (io) io.disconnect();
       if (ro) ro.disconnect();
       else window.removeEventListener("resize", resize);
     };
@@ -139,7 +164,7 @@ export const WavyBackground = ({
       <canvas
         className="absolute inset-0 z-0"
         ref={canvasRef}
-        style={{ ...(isSafari ? { filter: `blur(${blur}px)` } : {}) }}
+        style={{ filter: `blur(${blur}px)` }}
       />
       <div className={cn("relative z-10 w-full", className)} {...props}>
         {children}

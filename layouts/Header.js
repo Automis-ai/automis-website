@@ -118,8 +118,6 @@ useEffect(() => {
     return [
       { id: 1, key: "home", title: t.home, href: hrefFor(PATHNAMES.home, locale) },
 
-      { id: 5, key: "jumpstart-audit", title: t.jumpstart, href: hrefFor(PATHNAMES.pages.jumpstartAudit, locale) },
-
       {
         id: 3,
         key: "services",
@@ -466,17 +464,22 @@ const Nav = ({ onePage, menus, activeLink, setActiveLink, locale }) => {
                   }}
                 >
                   {menu.submenus ? (
-                    <a
-                      href="#"
+                    <button
+                      type="button"
                       onClick={(e) => {
-                        e.preventDefault();
                         e.stopPropagation();
                         setActiveDropdown(activeDropdown === menu.id ? null : menu.id);
                       }}
+                      aria-haspopup="true"
+                      aria-expanded={activeDropdown === menu.id}
                       style={{
                         color: activeLink === menu.key ? "#3C91E6" : "",
                         cursor: "pointer",
                         whiteSpace: "nowrap",
+                        background: "none",
+                        border: "none",
+                        padding: 0,
+                        font: "inherit",
                       }}
                     >
                       {menu.title}
@@ -490,7 +493,7 @@ const Nav = ({ onePage, menus, activeLink, setActiveLink, locale }) => {
                           display: "inline-block",
                         }}
                       />
-                    </a>
+                    </button>
 ) : (
   <Link
     href={menu.href || "/"}

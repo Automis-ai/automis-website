@@ -54,7 +54,7 @@ export default function Industries() {
       <SectionHeading
         eyebrow="Who we build for"
         title={<>Built around your industry, not a template</>}
-        lead="Deep, bespoke systems for the sectors we know best, each with its own bottlenecks, compliance needs, and way of winning customers."
+        lead="Bespoke systems shaped around each sector's real bottlenecks, compliance needs, and way of winning customers — never a one-size template."
       />
       <SwipeRow
         className="mt-14"
@@ -68,7 +68,7 @@ export default function Industries() {
                 </span>
                 <div>
                   <h3 className="font-display text-lg font-semibold text-white">{ic.title}</h3>
-                  <p className="mt-0.5 text-[12.5px] font-medium uppercase tracking-wide text-white/35">{ic.sub}</p>
+                  <p className="mt-0.5 text-[12.5px] font-medium uppercase tracking-wide text-white/55">{ic.sub}</p>
                   <p className="mt-3 text-[14.5px] leading-relaxed text-white/60">{ic.body}</p>
                   {ic.proven && (
                     <span className="mt-3 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-[#8fe0f0]">

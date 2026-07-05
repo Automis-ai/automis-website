@@ -29,7 +29,23 @@ export const metadata = {
     description:
       "AI voice agents, marketing automation, and company-brain systems, built end to end around how your business actually works.",
     url: "https://automis.ai/",
+    siteName: "Automis",
     type: "website",
+    images: [
+      {
+        url: "/assets/og/home-en.png",
+        width: 1200,
+        height: 630,
+        alt: "Automis — We build the systems your business is missing",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Automis | The AI automation agency that builds the system your business is missing",
+    description:
+      "AI voice agents, marketing automation, and company-brain systems, built end to end around how your business actually works.",
+    images: ["/assets/og/home-en.png"],
   },
 };
 
@@ -49,8 +65,8 @@ export default function Home() {
         <Industries />
         <OpportunityFinder />
         <Authority />
-        <FinalCta />
         <FaqEN />
+        <FinalCta />
       </AkpagerLayout>
     </div>
   );

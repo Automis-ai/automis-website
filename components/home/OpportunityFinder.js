@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Section, SectionHeading, Reveal, GRAD } from "./_ui";
 import CTAButton from "@/components/CTAButton";
-import { Sparkles, ArrowRight, ArrowLeft, Check, Clock, TrendingUp, Loader2, Download } from "lucide-react";
+import { Sparkles, ArrowRight, ArrowLeft, Check, Clock, TrendingUp, Loader2, Download, Lock } from "lucide-react";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
@@ -200,6 +200,7 @@ export default function OpportunityFinder() {
     setStep(total + 1);
   };
 
+  const partial = isEmail ? computeRoadmap() : null;
   const roadmap = isRoadmap ? computeRoadmap() : null;
 
   return (
@@ -207,7 +208,7 @@ export default function OpportunityFinder() {
       <SectionHeading
         eyebrow="Free · 60 seconds · no call required"
         title={<>The AI Opportunity Finder</>}
-        lead="Answer 6 quick questions and get an instant, personalised roadmap of the top automations for your business, plus how much time they could give you back."
+        lead="Answer 6 quick questions and get an instant, personalized roadmap of the top automations for your business, plus how much time they could give you back."
       />
 
       <Reveal delay={80}>
@@ -218,7 +219,7 @@ export default function OpportunityFinder() {
               <div className="flex items-center justify-between text-[12px] text-white/45">
                 <span className="inline-flex items-center gap-1.5">
                   <Sparkles className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2} />
-                  {isEmail ? "Almost there" : `Question ${step + 1} of ${total}`}
+                  {isEmail ? "Your results" : `Question ${step + 1} of ${total}`}
                 </span>
                 <span className="font-plex-mono">{Math.round((isEmail ? 1 : progress) * 100)}%</span>
               </div>
@@ -271,53 +272,91 @@ export default function OpportunityFinder() {
             )}
 
             {/* Email capture */}
-            {isEmail && (
-              <form onSubmit={submit}>
-                <h3 className="font-display text-xl font-semibold text-white sm:text-[1.4rem]">
-                  Where should we send your roadmap?
-                </h3>
-                <p className="mt-2 text-[14px] text-white/55">
-                  You'll get your personalised PDF roadmap on screen and downloaded instantly, plus a copy in your inbox.
-                </p>
-                <div className="mt-6 space-y-3">
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Your name"
-                    className="w-full rounded-xl border border-white/[0.12] bg-white/[0.03] px-4 py-3.5 text-[15px] text-white placeholder-white/35 outline-none transition-colors focus:border-[#3C91E6]"
-                  />
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Your email"
-                    className="w-full rounded-xl border border-white/[0.12] bg-white/[0.03] px-4 py-3.5 text-[15px] text-white placeholder-white/35 outline-none transition-colors focus:border-[#3C91E6]"
-                  />
+            {isEmail && partial && (
+              <div>
+                {/* Partial result — the value is shown BEFORE the email gate */}
+                <div className="text-center">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#57C7E3]/25 bg-[#57C7E3]/[0.08] px-3.5 py-1.5 text-[12px] font-semibold text-[#8fe0f0]">
+                    <Check className="h-3.5 w-3.5" strokeWidth={2.5} /> Here's what we found
+                  </span>
+                  <h3 className="font-display mt-4 text-[1.4rem] font-bold text-white sm:text-[1.55rem]">
+                    Start with{" "}
+                    <span style={{ backgroundImage: GRAD, WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent", color: "transparent" }}>
+                      {PILLAR_PLAYS[partial.primary].name}
+                    </span>
+                  </h3>
                 </div>
-                <button
-                  type="submit"
-                  disabled={status.loading}
-                  className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl py-4 text-[15px] font-bold text-[#04101c] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
-                  style={{ background: GRAD }}
-                >
-                  {status.loading ? (
-                    <><Loader2 className="h-4 w-4 animate-spin" /> Building your roadmap…</>
-                  ) : (
-                    <>See my roadmap <ArrowRight className="h-4 w-4" strokeWidth={2.4} /></>
-                  )}
-                </button>
+
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-white/[0.1] bg-white/[0.03] p-5 text-left">
+                    <div className="flex items-center gap-2 text-[#8fe0f0]">
+                      <Clock className="h-4 w-4" strokeWidth={2} />
+                      <span className="text-[12px] font-semibold uppercase tracking-wide">Time back / week</span>
+                    </div>
+                    <p className="font-display mt-2 text-[2rem] font-bold text-white">
+                      {partial.hoursLow}-{partial.hoursHigh}<span className="text-[1rem] font-medium text-white/45"> hrs</span>
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-white/[0.1] bg-white/[0.03] p-5 text-left">
+                    <div className="flex items-center gap-2 text-[#8fe0f0]">
+                      <TrendingUp className="h-4 w-4" strokeWidth={2} />
+                      <span className="text-[12px] font-semibold uppercase tracking-wide">Focus pillar</span>
+                    </div>
+                    <p className="font-display mt-2 text-[1.15rem] font-semibold leading-tight text-white">
+                      {PILLAR_PLAYS[partial.primary].name}
+                      {partial.secondary && <span className="text-white/40"> + {PILLAR_PLAYS[partial.secondary].name.split(" ")[0]}</span>}
+                    </p>
+                  </div>
+                </div>
+
+                <form onSubmit={submit} className="mt-4 rounded-2xl border border-white/[0.1] bg-white/[0.03] p-5">
+                  <p className="flex items-center gap-2 text-[14px] font-semibold text-white">
+                    <Lock className="h-4 w-4 text-[#57C7E3]" strokeWidth={2} />
+                    Unlock your top 3 automations + PDF roadmap
+                  </p>
+                  <p className="mt-1 text-[13px] text-white/55">
+                    Get the full personalized roadmap on screen and a copy in your inbox.
+                  </p>
+                  <div className="mt-4 space-y-3">
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Your name (optional)"
+                      className="w-full rounded-xl border border-white/[0.12] bg-white/[0.03] px-4 py-3.5 text-[15px] text-white placeholder-white/40 outline-none transition-colors focus:border-[#3C91E6]"
+                    />
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Your email"
+                      className="w-full rounded-xl border border-white/[0.12] bg-white/[0.03] px-4 py-3.5 text-[15px] text-white placeholder-white/40 outline-none transition-colors focus:border-[#3C91E6]"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={status.loading}
+                    className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl py-4 text-[15px] font-bold text-[#04101c] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+                    style={{ background: GRAD }}
+                  >
+                    {status.loading ? (
+                      <><Loader2 className="h-4 w-4 animate-spin" /> Building your roadmap…</>
+                    ) : (
+                      <>Unlock my roadmap <ArrowRight className="h-4 w-4" strokeWidth={2.4} /></>
+                    )}
+                  </button>
+                  <p className="mt-3 text-center text-[11.5px] text-white/45">No spam. No credit card. Unsubscribe anytime.</p>
+                </form>
+
                 <button
                   type="button"
                   onClick={() => setStep((s) => s - 1)}
-                  className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-white/45 transition-colors hover:text-white/80"
+                  className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-white/55 transition-colors hover:text-white/85"
                 >
                   <ArrowLeft className="h-4 w-4" strokeWidth={2} /> Back
                 </button>
-                <p className="mt-4 text-center text-[11.5px] text-white/30">No spam. No credit card. Unsubscribe anytime.</p>
-              </form>
+              </div>
             )}
 
             {/* Roadmap result */}

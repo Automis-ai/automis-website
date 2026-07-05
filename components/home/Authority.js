@@ -59,7 +59,7 @@ export default function Authority() {
                   />
                   <div>
                     <p className="text-[15px] font-semibold text-white">{f.name}</p>
-                    <p className="text-[12.5px] text-white/45">{f.role}</p>
+                    <p className="text-[12.5px] text-white/60">{f.role}</p>
                   </div>
                 </div>
               ))}
@@ -68,9 +68,9 @@ export default function Authority() {
               href="https://www.instagram.com/automis.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2.5 rounded-xl border border-white/12 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white/80 transition-colors hover:border-white/25 hover:text-white"
+              className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium text-white/55 transition-colors hover:text-white/85"
             >
-              <Instagram className="h-4 w-4 text-[#8fe0f0]" strokeWidth={2} />
+              <Instagram className="h-3.5 w-3.5 text-[#8fe0f0]" strokeWidth={2} />
               Follow @automis.ai
             </a>
           </div>
