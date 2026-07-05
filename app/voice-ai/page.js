@@ -1,6 +1,7 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import VoiceHero from "@/components/voice-ai/VoiceHero";
 import VoiceProblem from "@/components/voice-ai/VoiceProblem";
+import InboundOutbound from "@/components/voice-ai/InboundOutbound";
 import HowItWorks from "@/components/voice-ai/HowItWorks";
 import DashboardWalk from "@/components/voice-ai/DashboardWalk";
 import CrmTiers from "@/components/voice-ai/CrmTiers";
@@ -52,6 +53,7 @@ export default function VoiceAiPage() {
     <AutomisEnShell>
       <VoiceHero />
       <VoiceProblem />
+      <InboundOutbound />
       <HowItWorks />
       <DashboardWalk />
       <CrmTiers />
