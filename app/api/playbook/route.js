@@ -5,6 +5,16 @@
 // The PDF itself is also delivered as an instant download on the page.
 const GHL_UPSERT_URL = "https://services.leadconnectorhq.com/contacts/upsert";
 
+// TEMP diagnostic — remove before production merge. Reports only whether the
+// env vars reached the function (booleans, no secret values exposed).
+export async function GET() {
+  return Response.json({
+    ok: true,
+    ghl_api_key_present: Boolean(process.env.GHL_API_KEY),
+    ghl_location_id_present: Boolean(process.env.GHL_LOCATION_ID),
+  });
+}
+
 export async function POST(req) {
   try {
     const body = await req.json();
