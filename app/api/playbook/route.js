@@ -5,14 +5,41 @@
 // The PDF itself is also delivered as an instant download on the page.
 const GHL_UPSERT_URL = "https://services.leadconnectorhq.com/contacts/upsert";
 
-// TEMP diagnostic — remove before production merge. Reports only whether the
-// env vars reached the function (booleans, no secret values exposed).
+// TEMP diagnostic — remove before production merge. Does a live test upsert and
+// returns GHL's exact status + response so we can see why it's failing. No
+// secrets are echoed (the token is never returned).
 export async function GET() {
-  return Response.json({
-    ok: true,
-    ghl_api_key_present: Boolean(process.env.GHL_API_KEY),
-    ghl_location_id_present: Boolean(process.env.GHL_LOCATION_ID),
-  });
+  const token = process.env.GHL_API_KEY;
+  const locationId = process.env.GHL_LOCATION_ID;
+  const present = {
+    ghl_api_key_present: Boolean(token),
+    ghl_location_id_present: Boolean(locationId),
+    location_id_length: locationId ? locationId.length : 0,
+    token_prefix: token ? token.slice(0, 4) : null,
+  };
+  if (!token || !locationId) return Response.json({ ...present, note: "missing env" });
+  try {
+    const res = await fetch(GHL_UPSERT_URL, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Version: "2021-07-28",
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        locationId,
+        email: "diagnostic-test@automis.ai",
+        name: "Diagnostic Test",
+        tags: ["diagnostic-test"],
+        source: "arcangelo-diagnostic",
+      }),
+    });
+    const text = await res.text();
+    return Response.json({ ...present, ghl_status: res.status, ghl_response: text.slice(0, 1000) });
+  } catch (e) {
+    return Response.json({ ...present, fetch_error: String(e) });
+  }
 }
 
 export async function POST(req) {
