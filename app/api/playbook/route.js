@@ -1,31 +1,54 @@
-// Lead-magnet delivery for the /arcangelo IG landing.
-// Forwards {niche, name, email, ...} to a GoHighLevel inbound webhook, which
-// runs the workflow that emails the matching cheat sheet + playbook and tags
-// the contact `lead-magnet · <niche>`. Same pattern as /api/audit.
+// Lead-magnet capture for the /arcangelo IG landing.
+// Upserts the contact into GoHighLevel via the API v2 (no webhook needed) and
+// tags it by niche + newsletter consent. A GHL workflow triggered by the
+// `lead-magnet` tag sends the delivery email and starts the nurture sequence.
+// The PDF itself is also delivered as an instant download on the page.
+const GHL_UPSERT_URL = "https://services.leadconnectorhq.com/contacts/upsert";
+
 export async function POST(req) {
   try {
     const body = await req.json();
+    const { name, email, niche, niche_label, newsletter } = body || {};
 
-    if (!process.env.GHL_PLAYBOOK_WEBHOOK_URL) {
-      // Not wired yet (GHL workflow / Vercel env pending). Fail soft so the
-      // front-end can still confirm to the user; the lead is logged below.
-      console.warn("GHL_PLAYBOOK_WEBHOOK_URL not configured — playbook lead not forwarded:", body);
-      return new Response("Webhook not configured", { status: 501 });
+    if (!email || !niche) {
+      return new Response("Missing email or niche", { status: 400 });
     }
 
-    const response = await fetch(process.env.GHL_PLAYBOOK_WEBHOOK_URL, {
+    const token = process.env.GHL_API_KEY;
+    const locationId = process.env.GHL_LOCATION_ID;
+
+    // Not wired yet (keys not in Vercel env). Fail soft — the page still shows
+    // the instant download; we just haven't captured the lead server-side.
+    if (!token || !locationId) {
+      console.warn("GHL_API_KEY / GHL_LOCATION_ID not set — playbook lead not captured:", { email, niche });
+      return new Response("Capture not configured", { status: 501 });
+    }
+
+    const tags = ["lead-magnet", `playbook-${niche}`, "arcangelo-ig"];
+    if (newsletter) tags.push("newsletter");
+
+    const res = await fetch(GHL_UPSERT_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Version: "2021-07-28",
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        locationId,
+        email,
+        name: name || undefined,
+        tags,
+        source: "arcangelo-ig-landing",
+      }),
     });
 
-    const text = await response.text();
-    console.log("GHL playbook response:", text);
-
-    if (!response.ok) {
-      return new Response(text, { status: response.status });
+    const text = await res.text();
+    if (!res.ok) {
+      console.error("GHL upsert failed:", res.status, text);
+      return new Response(text, { status: res.status });
     }
-
     return new Response("OK", { status: 200 });
   } catch (err) {
     console.error("Playbook API route error:", err);

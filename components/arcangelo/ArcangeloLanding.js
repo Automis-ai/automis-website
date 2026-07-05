@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import CTAButton from "@/components/CTAButton";
 import {
   Laptop,
   Stethoscope,
@@ -129,6 +128,7 @@ export default function ArcangeloLanding() {
           email,
           niche: niche.id,
           niche_label: niche.label,
+          newsletter: true,
           type: "playbook-lead-magnet",
           source: "arcangelo-ig-landing",
           timestamp: new Date().toISOString(),
@@ -176,7 +176,7 @@ export default function ArcangeloLanding() {
               </span>
             </h1>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/60">
-              Daily AI, decoded for real owners — no hype. Grab the free playbooks, see our Voice AI
+              Daily AI, decoded for real owners, no hype. Grab the free playbooks, see our Voice AI
               live, or book a call.
             </p>
           </div>
@@ -312,8 +312,8 @@ export default function ArcangeloLanding() {
                       </>
                     )}
                   </button>
-                  <p className="mt-4 text-center text-[11.5px] text-white/30">
-                    No spam. Unsubscribe anytime.
+                  <p className="mt-4 text-center text-[11.5px] leading-relaxed text-white/30">
+                    You'll get the playbook plus occasional AI tips by email. No spam, unsubscribe anytime.
                   </p>
                 </form>
               )}
@@ -322,27 +322,54 @@ export default function ArcangeloLanding() {
               {step === "done" && (
                 <div className="text-center">
                   <span className="inline-flex items-center gap-2 rounded-full border border-[#57C7E3]/25 bg-[#57C7E3]/[0.08] px-3.5 py-1.5 text-[12px] font-semibold text-[#8fe0f0]">
-                    <Check className="h-3.5 w-3.5" strokeWidth={2.5} /> On its way
+                    <Check className="h-3.5 w-3.5" strokeWidth={2.5} /> Ready
                   </span>
                   <h3 className="font-montserrat mt-5 text-[1.3rem] font-bold text-white">
-                    Check your inbox
+                    Your {niche?.label} playbook
                   </h3>
                   <p className="mt-2 text-[14px] text-white/55">
-                    Your <b className="text-white/80">{niche?.label}</b> AI Playbook is heading to{" "}
-                    <b className="text-white/80">{email}</b>. While you wait — see the automations live:
+                    Grab it now, and we've emailed a copy to{" "}
+                    <b className="text-white/80">{email}</b>.
                   </p>
                   <div className="mt-6 flex flex-col gap-3">
-                    <CTAButton href={BOOKING} variant="secondary" size="medium" external fullWidth>
-                      Want us to build these? Book a call
-                    </CTAButton>
                     <a
-                      href={VOICE}
+                      href={`/assets/downloads/${niche.id}-cheatsheet.pdf`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 px-5 py-3.5 text-[14px] font-semibold text-white/80 transition-colors hover:border-white/30 hover:text-white"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl py-4 text-[15px] font-bold text-[#04101c] transition-transform hover:-translate-y-0.5"
+                      style={{ background: GRAD }}
                     >
-                      <PlayCircle className="h-4 w-4" strokeWidth={2} /> Test our Voice AI live
+                      <FileDown className="h-4 w-4" strokeWidth={2.4} /> Download the 1-page cheat sheet
                     </a>
+                    <a
+                      href={`/assets/downloads/${niche.id}-ai-playbook.pdf`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 px-5 py-3.5 text-[14px] font-semibold text-white/80 transition-colors hover:border-white/30 hover:text-white"
+                    >
+                      <FileDown className="h-4 w-4" strokeWidth={2} /> Download the full 7-page playbook
+                    </a>
+                  </div>
+                  <div className="mt-6 border-t border-white/[0.08] pt-5">
+                    <p className="text-[12.5px] text-white/40">While you're here:</p>
+                    <div className="mt-3 flex flex-col gap-2.5">
+                      <a
+                        href={BOOKING}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 px-5 py-3 text-[13.5px] font-semibold text-white/80 transition-colors hover:border-white/30 hover:text-white"
+                      >
+                        <CalendarDays className="h-4 w-4" strokeWidth={2} /> Book a free call
+                      </a>
+                      <a
+                        href={VOICE}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 px-5 py-3 text-[13.5px] font-semibold text-white/80 transition-colors hover:border-white/30 hover:text-white"
+                      >
+                        <PlayCircle className="h-4 w-4" strokeWidth={2} /> Test our Voice AI live
+                      </a>
+                    </div>
                   </div>
                 </div>
               )}
