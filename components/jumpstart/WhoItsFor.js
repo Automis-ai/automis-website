@@ -5,19 +5,19 @@ import { Check, X } from "lucide-react";
 const FOR = [
   "Lead-driven businesses that live or die by bookings",
   "Teams running Google, Meta, or LinkedIn ads",
-  "Owners who want more output without adding headcount",
+  "Owners who want more bookings without adding headcount",
   "Anyone drowning in missed calls, slow follow-up, or admin",
 ];
 
 const NOT_FOR = [
-  "Pre-launch with no leads or activity to analyze yet",
-  "Looking for a one-off ad tweak, not a system",
-  "Not open to sharing how the business actually runs",
+  "No tracking systems in place yet",
+  "No ad activity to analyze",
+  "Not willing to grant read-only access",
 ];
 
 export default function WhoItsFor() {
   return (
-    <Section id="who-its-for" className="bg-deep-blue">
+    <Section id="who-its-for" className="bg-[#020a12]">
       <SectionHeading
         eyebrow="Fit check"
         title="Is the AI Audit right for you?"

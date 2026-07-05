@@ -1,29 +1,28 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import JumpstartHero from "@/components/jumpstart/JumpstartHero";
-import WhatYouGet from "@/components/jumpstart/WhatYouGet";
-import HowItWorks from "@/components/jumpstart/HowItWorks";
-import WhatWeLookAt from "@/components/jumpstart/WhatWeLookAt";
+import Step1FreeConsultation from "@/components/jumpstart/Step1FreeConsultation";
+import Step2JumpstartAudit from "@/components/jumpstart/Step2JumpstartAudit";
 import WhoItsFor from "@/components/jumpstart/WhoItsFor";
 import JumpstartFaq from "@/components/jumpstart/JumpstartFaq";
 import JumpstartBooking from "@/components/jumpstart/JumpstartBooking";
 
 export const metadata = {
-  title: "Free 30-Minute AI Audit | Automis, Find Your Highest-ROI Automations",
+  title: "Jumpstart Marketing & AI Audit | Automis, Find Where You Leak Time & Money",
   description:
-    "Book a free 30-minute AI Audit. We map exactly where your business loses time and money, then hand you the top AI automations to fix it. No commitment.",
+    "Start with a free 30-minute consultation, then go deep with the Jumpstart Audit (€1,450): two comprehensive audits, a C-suite-ready plan, and a live automation switched on in 14 days.",
   keywords: [
-    "AI audit",
-    "free AI audit",
+    "Jumpstart Audit",
+    "marketing and AI audit",
+    "free AI consultation",
     "business automation audit",
     "AI opportunity assessment",
-    "AI consultation",
     "automation strategy call",
   ],
   alternates: { canonical: "https://automis.ai/jumpstart-audit" },
   openGraph: {
-    title: "Free 30-Minute AI Audit | Automis",
+    title: "Jumpstart Marketing & AI Audit | Automis",
     description:
-      "See exactly where your business leaks time and money, and the highest-ROI AI automations to fix it, in one free 30-minute call.",
+      "A free 30-minute consultation to map your bottlenecks, then a deep Jumpstart Audit (€1,450) with a data-backed plan and a live automation in 14 days.",
     url: "https://automis.ai/jumpstart-audit",
     siteName: "Automis",
     type: "website",
@@ -32,15 +31,15 @@ export const metadata = {
         url: "/assets/og/home-en.png",
         width: 1200,
         height: 630,
-        alt: "Automis, Free 30-minute AI Audit",
+        alt: "Automis, Jumpstart Marketing & AI Audit",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free 30-Minute AI Audit | Automis",
+    title: "Jumpstart Marketing & AI Audit | Automis",
     description:
-      "See exactly where your business leaks time and money, and the highest-ROI AI automations to fix it, in one free 30-minute call.",
+      "Free 30-minute consultation, then a deep Jumpstart Audit (€1,450) with a data-backed plan and a live automation in 14 days.",
     images: ["/assets/og/home-en.png"],
   },
 };
@@ -49,9 +48,8 @@ export default function JumpstartAuditPage() {
   return (
     <AutomisEnShell>
       <JumpstartHero />
-      <WhatYouGet />
-      <HowItWorks />
-      <WhatWeLookAt />
+      <Step1FreeConsultation />
+      <Step2JumpstartAudit />
       <WhoItsFor />
       <JumpstartFaq />
       <JumpstartBooking />

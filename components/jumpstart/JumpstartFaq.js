@@ -5,28 +5,28 @@ import { Plus } from "lucide-react";
 
 const FAQS = [
   {
-    q: "How long is the AI Audit, and what does it cost?",
-    a: "It's a free 30-minute call with no commitment. You leave with a map of where your business leaks time and money and a ranked shortlist of the automations that would fix it, whether or not we ever work together.",
+    q: "What's the difference between the free consultation and the paid audit?",
+    a: "The free 30-minute consultation is the low-friction first step: a quick call to map your top bottlenecks and see what's possible, with no cost and no obligation. The Jumpstart Audit (€1,450) is the deep dive: two comprehensive audits, a C-suite-ready plan and forecast, and a live Quick-Win automation switched on in 14 days.",
   },
   {
-    q: "How fast will I see value?",
-    a: "Right away. By the end of the 30 minutes you'll have a clear view of your biggest bottleneck and the highest-ROI ways to solve it. Common early wins we spot: faster speed-to-lead, recovered missed calls, and follow-up that stops falling through the cracks.",
+    q: "How fast will we see impact?",
+    a: "Within 14 days on the paid audit. By Day 10 you'll have baselines, the leak map, and a prioritized shortlist. On Day 14 we turn on your Quick-Win live, so you leave the final call with something working. Typical early signals: faster speed-to-lead, recovered missed calls, or more responses and appointments from reminders and reactivation, depending on the Quick-Win we install.",
   },
   {
-    q: "Do I have to buy anything after?",
-    a: "No. The audit stands on its own, take the plan and run with it yourself if you like. If you'd rather we build the fixes, we'll scope that separately after the call. There's zero obligation to continue.",
+    q: "Do you execute the 90-day plan?",
+    a: "Yes, if you want us to. The audit stands on its own: you get the plan, forecasts, and handoff pack. If you'd like our team to implement, we offer a retainer and credit €500 of your audit if you start within 14 days. Either way, your Quick-Win includes 14 days of support so it keeps delivering.",
   },
   {
     q: "What access do you need?",
-    a: "For a first audit, usually nothing but a conversation. If we go deeper, we only ever ask for read-only access (ad platforms, CRM, call logs, calendar) so we can analyze without changing anything in your accounts.",
+    a: "Read-only access so we can analyze without changing anything. Ad platforms (Google, Meta, LinkedIn, viewer), CRM (lead statuses, timestamps, outcomes, export or viewer), phone system and call logs (missed calls, basic metrics, recordings optional), and calendar or scheduling (booking and no-show view or API). Plus one point-of-contact for quick questions and approvals. We provide a short checklist at kickoff.",
   },
   {
-    q: "Is my data safe? What about healthcare and GDPR?",
-    a: "Yes. We're privacy-first by design, with EU / local server options and human-in-the-loop routing for anything sensitive. For healthcare we design around minimizing data exposure and respecting safe channels, and we'll flag what's safe versus not in your stack.",
+    q: "Healthcare or compliance? Is my data safe?",
+    a: "Yes. We support GDPR-aligned and HIPAA-safe configurations where relevant. We design automations to minimize data exposure, limit retention, and respect safe channels, with options like no recording or redacted transcripts, least-privilege access, and clear consent language. We'll flag what's safe versus not in your stack and share a compliance checklist on request.",
   },
   {
     q: "What if you can't help us?",
-    a: "We'll tell you straight. If the audit shows there isn't a meaningful win to be had, we'll say so on the call, better to save you the time than sell you a build you don't need.",
+    a: "We de-risk it with two safeguards. Fit Guarantee (kickoff): if we learn your data or stack won't let us move core KPIs meaningfully, we refund right away. Clarity Guarantee (final): if our audit doesn't map a data-backed path to 10% lower costs, 5% more bookings, or 10 hours per week saved, we refund the audit. Guarantees require timely read-only access and accurate historical data.",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function JumpstartFaq() {
   };
 
   return (
-    <Section id="faq" className="bg-[#020a12]" inner="max-w-3xl">
+    <Section id="faq" className="bg-deep-blue" inner="max-w-3xl">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <SectionHeading eyebrow="FAQ" title={<>Answers before you book</>} />
       <div className="mt-12 space-y-3">

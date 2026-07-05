@@ -50,11 +50,11 @@ const DefaultFooter = () => {
   const t = {
     tagline:
       locale === "it"
-        ? "Automis costruisce i sistemi di AI che mancano al tuo business — tra marketing, vendite e operations."
-        : "Automis builds the AI systems your business is missing — across marketing, sales, and operations.",
+        ? "Automis costruisce i sistemi di AI che mancano al tuo business, tra marketing, vendite e operations."
+        : "Automis builds the AI systems your business is missing, across marketing, sales, and operations.",
     emailLabel: locale === "it" ? "Email:" : "Email:",
     rights:
-      locale === "it" ? "— Tutti i diritti riservati" : "— All Rights Reserved",
+      locale === "it" ? "· Tutti i diritti riservati" : "· All Rights Reserved",
     privacy: locale === "it" ? "Privacy Policy" : "Privacy Policy",
     terms: locale === "it" ? "Termini di Servizio" : "Terms of Service",
   };
