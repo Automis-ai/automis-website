@@ -48,10 +48,8 @@ export default function HeroEN() {
 
           <Reveal delay={160} immediate>
             <p className="mx-auto mt-7 max-w-2xl text-[1.1rem] leading-relaxed text-white/70 md:text-[1.2rem]">
-              For clinics, agencies, and local businesses across Europe and the US — we find where
-              you leak time and money (missed calls, slow follow-up, hours lost to admin) and build
-              the AI agents and automations that fix it, end to end. One system, designed around how
-              you actually work.
+              We map exactly where your business loses time and money: the calls you miss, the leads
+              that go cold, the admin that piles up. Then we build the AI agents and automations to fix it.
             </p>
           </Reveal>
 

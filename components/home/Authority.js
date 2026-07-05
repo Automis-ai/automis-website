@@ -5,12 +5,12 @@ import { ShieldCheck, Lock, UserCheck, Instagram } from "lucide-react";
 const FOUNDERS = [
   {
     name: "Luca Casillo",
-    role: "Co-Founder · Italy",
+    role: "Co-Founder",
     image: "/assets/images/headshots/luca.jpeg",
   },
   {
     name: "Arcangelo Bianco",
-    role: "Co-Founder · Portugal",
+    role: "Co-Founder",
     image: "/assets/images/headshots/arcangelo.jpeg",
   },
 ];
@@ -42,11 +42,11 @@ export default function Authority() {
           <div>
             <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">The team behind it</span>
             <h2 className="font-display mt-4 text-[1.9rem] font-semibold leading-tight text-white sm:text-[2.2rem]">
-              Two founders, on the ground in your market
+              Two founders, hands-on with your build
             </h2>
             <p className="mt-4 text-[14.5px] leading-relaxed text-white/60">
-              We build in Portugal and Italy, close enough to understand how European businesses
-              actually run, and hands-on enough to build systems that fit them.
+              Founder-led and hands-on: we design, build, and ship the systems ourselves,
+              shaped around how your business actually works.
             </p>
             <div className="mt-8 flex gap-5">
               {FOUNDERS.map((f) => (
