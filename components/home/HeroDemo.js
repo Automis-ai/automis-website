@@ -44,7 +44,7 @@ const COPY = {
       { label: "Lead salvato nel CRM + follow-up pronto", meta: "8s" },
     ],
     incomingCall: "Chiamata in arrivo",
-    callerMeta: "+351 · nuovo paziente",
+    callerMeta: "+39 · nuovo paziente",
     aiAnswering: "Risponde l'IA",
     bookedBanner: "Appuntamento preso · sincronizzato in agenda · CRM aggiornato",
     automationRunning: "Automazione al lavoro",

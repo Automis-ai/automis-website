@@ -30,7 +30,7 @@ const COPY = {
   },
   it: {
     eyebrow: "Quanto ti costa non agire",
-    title: <>Sono le perdite che non vedi a costarti di più.</>,
+    title: <>Mentre aspetti, i clienti vanno dal tuo concorrente.</>,
     lead: "Quasi nessun business ha un problema di marketing. Ha un problema di sistema. Ed è lì che i soldi se ne vanno, senza che tu te ne accorga.",
     pains: [
       {
@@ -42,7 +42,7 @@ const COPY = {
         body: "Quasi tutti rispondono dopo ore. Ma passati i primi 5 minuti, le probabilità di chiudere quel lead crollano.",
       },
       {
-        title: "La burocrazia ti mangia la giornata",
+        title: "Ore perse tra pratiche e scartoffie",
         body: "Il tuo team perde ore ogni settimana tra dati da inserire, appuntamenti da fissare e scartoffie da rincorrere, invece di occuparsi dei clienti.",
       },
       {
