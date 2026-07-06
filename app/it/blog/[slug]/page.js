@@ -21,12 +21,22 @@ export async function generateMetadata({ params }) {
       description: "L'articolo richiesto non è disponibile.",
     };
   }
+  const url = `https://automis.ai/it/blog/${params.slug}`;
   return {
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.description,
+    alternates: {
+      canonical: url,
+      languages: {
+        en: `https://automis.ai/blog/${params.slug}`,
+        "it-IT": `https://automis.ai/it/blog/${params.slug}`,
+        "x-default": `https://automis.ai/blog/${params.slug}`,
+      },
+    },
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.description,
+      url,
       type: "article",
       publishedTime: post.date,
     },

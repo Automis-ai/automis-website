@@ -4,6 +4,28 @@ import CTAButton from "@/components/CTAButton";
 import { getCtaHref } from "@/utility/ctaLinks";
 import { getAllPosts } from "@/lib/blog";
 
+export const metadata = {
+  title: "Blog | Guide su automazione e IA per il tuo business | Automis",
+  description:
+    "Guide pratiche su agenti vocali IA, automazioni e sistemi per i lead, pensate per attività locali e professionisti. Dal team di Automis.",
+  alternates: {
+    canonical: "https://automis.ai/it/blog",
+    languages: {
+      en: "https://automis.ai/blog",
+      "it-IT": "https://automis.ai/it/blog",
+      "x-default": "https://automis.ai/blog",
+    },
+  },
+  openGraph: {
+    title: "Blog Automis | Guide su automazione e IA per il tuo business",
+    description:
+      "Guide pratiche su agenti vocali IA, automazioni e sistemi per i lead, per attività locali e professionisti.",
+    url: "https://automis.ai/it/blog",
+    siteName: "Automis",
+    type: "website",
+  },
+};
+
 const BlogPage = async () => {
   const locale = "it";
   const posts = getAllPosts("it");
