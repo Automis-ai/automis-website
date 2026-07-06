@@ -8,7 +8,14 @@ export const metadata = {
   title: "Contact Automis | Talk to a Strategic AI Automation Partner",
   description:
     "Get in touch with Automis. Send us a message or book a 30-minute discovery call and we'll show you where AI can win back time, calls, and revenue for your business.",
-  alternates: { canonical: "https://automis.ai/contact" },
+  alternates: {
+    canonical: "https://automis.ai/contact",
+    languages: {
+      en: "https://automis.ai/contact",
+      "it-IT": "https://automis.ai/it/contact",
+      "x-default": "https://automis.ai/contact",
+    },
+  },
   openGraph: {
     title: "Contact Automis | Talk to a Strategic AI Automation Partner",
     description:

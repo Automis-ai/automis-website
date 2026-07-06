@@ -1,8 +1,30 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { Reveal, GradientText } from "@/components/home/_ui";
 import { ArrowDown } from "lucide-react";
 
+const COPY = {
+  en: {
+    eyebrow: "The catalog",
+    headlinePre: "The automations ",
+    headlineAccent: "we build",
+    subhead:
+      "A working catalog of AI systems we deploy, from voice receptionists to your own Company Brain. Filter by your industry and your goal to see what fits.",
+    cta: "Explore the catalog",
+  },
+  it: {
+    eyebrow: "Il catalogo",
+    headlinePre: "Le automazioni ",
+    headlineAccent: "che costruiamo",
+    subhead:
+      "Un catalogo concreto di sistemi IA che mettiamo in produzione, dalle receptionist vocali al tuo Company Brain. Filtra per settore e obiettivo e scopri cosa fa al caso tuo.",
+    cta: "Esplora il catalogo",
+  },
+};
+
 export default function AutomationsHero() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
   return (
     <section id="automations-hero" className="relative overflow-hidden bg-deep-blue">
       {/* soft aurora glow behind the headline */}
@@ -21,20 +43,19 @@ export default function AutomationsHero() {
                 className="h-1.5 w-1.5 rounded-full"
                 style={{ background: "linear-gradient(120deg,#3C91E6,#57C7E3)", boxShadow: "0 0 10px rgba(87,199,227,0.8)" }}
               />
-              The catalog
+              {t.eyebrow}
             </span>
           </Reveal>
 
           <Reveal immediate delay={60}>
             <h1 className="font-display mt-6 text-[2.2rem] leading-[1.1] tracking-[-0.02em] text-white [text-wrap:balance] sm:text-[3rem] md:text-[3.4rem]">
-              The automations <GradientText>we build</GradientText>
+              {t.headlinePre}<GradientText>{t.headlineAccent}</GradientText>
             </h1>
           </Reveal>
 
           <Reveal immediate delay={120}>
             <p className="mx-auto mt-5 max-w-xl text-[1.05rem] leading-relaxed text-white/60 [text-wrap:pretty]">
-              A working catalog of AI systems we deploy, from voice receptionists to your own
-              Company Brain. Filter by your industry and your goal to see what fits.
+              {t.subhead}
             </p>
           </Reveal>
 
@@ -43,7 +64,7 @@ export default function AutomationsHero() {
               href="#explorer"
               className="mt-9 inline-flex items-center gap-2 rounded-xl border border-white/15 px-5 py-3 text-[14px] font-semibold text-white/80 transition-colors hover:border-white/30 hover:text-white"
             >
-              Explore the catalog
+              {t.cta}
               <ArrowDown className="h-4 w-4" strokeWidth={2} />
             </a>
           </Reveal>

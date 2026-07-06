@@ -22,7 +22,14 @@ export const metadata = {
     "AI appointment booking",
     "missed call recovery",
   ],
-  alternates: { canonical: "https://automis.ai/voice-ai" },
+  alternates: {
+    canonical: "https://automis.ai/voice-ai",
+    languages: {
+      en: "https://automis.ai/voice-ai",
+      "it-IT": "https://automis.ai/it/voice-ai",
+      "x-default": "https://automis.ai/voice-ai",
+    },
+  },
   openGraph: {
     title: "Automis Voice AI | The 24/7 AI receptionist that books appointments",
     description:

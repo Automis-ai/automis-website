@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { Reveal, GRAD, GradientText } from "@/components/home/_ui";
 import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
@@ -7,16 +8,62 @@ import { Check, Loader2 } from "lucide-react";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
-const BULLETS = [
-  "A 30-minute, no-pressure discovery call",
-  "We map which automation wins you the most time and revenue",
-  "You leave with a clear, custom plan built for your business",
-];
+const COPY = {
+  en: {
+    eyebrow: "Let's build yours",
+    headingPre: "Turn one of these into ",
+    headingGrad: "your system",
+    headingPost: ".",
+    lead:
+      "Book a discovery call and we will show you which automation pays off first, and how we build it around the way your business actually runs. No jargon, no obligation.",
+    bullets: [
+      "A 30-minute, no-pressure discovery call",
+      "We map which automation wins you the most time and revenue",
+      "You leave with a clear, custom plan built for your business",
+    ],
+    cta: "Book a Discovery Call",
+    liveAvailability: "Live availability · 30-min call",
+    instantConfirmation: "Instant confirmation",
+    loadingCalendar: "Loading live calendar…",
+    iframeTitle: "Book a discovery call with Automis",
+    guarantee: "30-day performance guarantee",
+    gdpr: "GDPR-aligned",
+    noObligation: "No obligation",
+  },
+  it: {
+    eyebrow: "Costruiamo il tuo",
+    headingPre: "Trasforma una di queste nel ",
+    headingGrad: "tuo sistema",
+    headingPost: ".",
+    lead:
+      "Prenota una call e ti mostriamo quale automazione conviene di più per prima, e come la costruiamo attorno al modo in cui il tuo business lavora davvero. Zero tecnicismi, senza impegno.",
+    bullets: [
+      "Una call di 30 minuti, senza pressioni",
+      "Mappiamo quale automazione ti fa guadagnare più tempo e fatturato",
+      "Esci con un piano chiaro e su misura, costruito per il tuo business",
+    ],
+    cta: "Prenota una call",
+    liveAvailability: "Disponibilità in tempo reale · call di 30 min",
+    instantConfirmation: "Conferma immediata",
+    loadingCalendar: "Caricamento del calendario…",
+    iframeTitle: "Prenota una call con Automis",
+    guarantee: "Garanzia sui risultati a 30 giorni",
+    gdpr: "Conforme al GDPR",
+    noObligation: "Senza impegno",
+  },
+};
 
 // Closing CTA for the Automations catalog. It is the last, most prominent block
 // on the page: a booking pitch driven by the standard InteractiveHoverButton,
 // paired with the live LeadConnector calendar so a visitor can book on the spot.
 export default function AutomationsCta() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
+  const booking =
+    locale === "it"
+      ? "https://api.leadconnectorhq.com/widget/bookings/automis-it"
+      : BOOKING;
+
   const holderRef = useRef(null);
   const [inView, setInView] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -52,17 +99,16 @@ export default function AutomationsCta() {
           <Reveal>
             <div>
               <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">
-                Let&apos;s build yours
+                {t.eyebrow}
               </span>
               <h2 className="font-display mt-4 text-[2.1rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.7rem]">
-                Turn one of these into <GradientText>your system</GradientText>.
+                {t.headingPre}<GradientText>{t.headingGrad}</GradientText>{t.headingPost}
               </h2>
               <p className="mt-5 max-w-md text-[1.05rem] leading-relaxed text-white/60">
-                Book a discovery call and we will show you which automation pays off first, and how
-                we build it around the way your business actually runs. No jargon, no obligation.
+                {t.lead}
               </p>
               <ul className="mt-7 space-y-3">
-                {BULLETS.map((b) => (
+                {t.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-[15px] text-white/80">
                     <span
                       className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full"
@@ -75,7 +121,7 @@ export default function AutomationsCta() {
                 ))}
               </ul>
               <div className="mt-8 flex lg:hidden">
-                <InteractiveHoverButton href={BOOKING} variant="solid" text="Book a Discovery Call" />
+                <InteractiveHoverButton href={booking} variant="solid" text={t.cta} />
               </div>
             </div>
           </Reveal>
@@ -92,22 +138,22 @@ export default function AutomationsCta() {
                     className="h-2 w-2 rounded-full"
                     style={{ background: GRAD, boxShadow: "0 0 8px rgba(87,199,227,0.8)" }}
                   />
-                  Live availability · 30-min call
+                  {t.liveAvailability}
                 </span>
-                <span className="text-[12px] text-white/50">Instant confirmation</span>
+                <span className="text-[12px] text-white/50">{t.instantConfirmation}</span>
               </div>
               <div className="relative w-full overflow-hidden rounded-xl bg-white" style={{ minHeight: 760 }}>
                 {!loaded && (
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[#0b1622]">
                     <Loader2 className="h-6 w-6 animate-spin text-[#57C7E3]" />
-                    <p className="text-[13px] text-white/50">Loading live calendar…</p>
+                    <p className="text-[13px] text-white/50">{t.loadingCalendar}</p>
                   </div>
                 )}
                 {inView && (
                   <iframe
                     id="ghl-booking-iframe-automations"
-                    src={`${BOOKING}?embed=true`}
-                    title="Book a discovery call with Automis"
+                    src={`${booking}?embed=true`}
+                    title={t.iframeTitle}
                     className="block h-full w-full"
                     style={{ height: 780, minHeight: 760, border: "none", overflow: "auto" }}
                     scrolling="yes"
@@ -118,13 +164,13 @@ export default function AutomationsCta() {
               </div>
               <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-2 py-2 text-[12px] text-white/60">
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> 30-day performance guarantee
+                  <Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.guarantee}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> GDPR-aligned
+                  <Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.gdpr}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> No obligation
+                  <Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.noObligation}
                 </span>
               </div>
               <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
@@ -135,7 +181,7 @@ export default function AutomationsCta() {
         {/* Prominent primary CTA under the two columns, always visible. */}
         <Reveal delay={140}>
           <div className="mt-12 flex justify-center">
-            <InteractiveHoverButton href={BOOKING} variant="solid" text="Book a Discovery Call" />
+            <InteractiveHoverButton href={booking} variant="solid" text={t.cta} />
           </div>
         </Reveal>
       </div>

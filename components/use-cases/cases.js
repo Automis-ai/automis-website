@@ -4,6 +4,11 @@
   conservative, clearly-labeled estimate, we do not publish real client/caller
   data (GDPR / privacy-first positioning). Keep this the single source of truth
   for both /use-cases and /use-cases/[slug].
+
+  Localization: each case carries an `it` object with the Italian of every
+  user-facing field. Non-translatable logic keys (slug, client, shortClient,
+  logo) stay language-neutral. Use getCases(locale) / getCase(slug, locale);
+  localize() shallow-merges `it` over the base object for locale === "it".
 */
 
 export const CASES = [
@@ -49,6 +54,43 @@ export const CASES = [
     quote:
       "Patients get answered instantly, day or night, and bookings no longer slip through when the front desk is busy.",
     quoteAttribution: "Client story - quote placeholder, pending approval",
+    it: {
+      industry: "Clinica dentistica",
+      location: "Lisbona, Portogallo",
+      tag: "Segretaria IA",
+      summary:
+        "Una segretaria IA attiva 24/7 che risponde a ogni chiamata, prenota i check-up e recupera le chiamate fuori orario che prima restavano senza risposta.",
+      headline:
+        "Una segretaria IA che non lascia mai senza risposta la chiamata di un paziente.",
+      challenge: {
+        lead: "Uno studio dentistico pieno di lavoro perde pazienti nel momento in cui il telefono resta senza risposta.",
+        points: [
+          "Le chiamate in arrivo durante i trattamenti, la pausa pranzo e fuori orario finivano in segreteria, e la maggior parte di chi chiamava non richiamava più.",
+          "Il personale alla reception veniva interrotto mentre lavorava per gestire richieste di routine su prenotazioni e spostamenti di appuntamento.",
+          "Le richieste dei nuovi pazienti competevano con l'assistenza alla poltrona, così prime impressioni e prenotazioni andavano perse.",
+        ],
+      },
+      solution: {
+        lead: "Abbiamo attivato la segretaria IA di Automis, configurata sulle regole di prenotazione e sul tono reali della clinica.",
+        points: [
+          "Risposta alle chiamate in entrata 24/7, che accoglie subito chi chiama, di giorno e di notte.",
+          "Prenotazione e spostamento degli appuntamenti in tempo reale sul calendario della clinica, con conferme.",
+          "Raccolta strutturata dei dati del paziente, così le informazioni giuste vengono acquisite prima della visita.",
+          "Copertura fuori orario che prenota le chiamate di sere e fine settimana che prima restavano senza risposta.",
+        ],
+      },
+      results: {
+        lead: "La segretaria IA risponde sempre, quindi non ci sono chiamate perse per definizione. I tempi indicati sono stime prudenti basate su implementazioni comparabili di segretarie IA e variano in base al volume di chiamate e alla configurazione.",
+        metrics: [
+          { value: "0", label: "chiamate perse: ogni chiamata gestita in diretta, 24/7" },
+          { value: "Fuori orario", label: "chiamate di sere e fine settimana recuperate e prenotate invece che perse" },
+          { value: "<30s", label: "tempo medio di risposta a una chiamata in entrata (stima)" },
+        ],
+      },
+      quote:
+        "I pazienti ricevono risposta all'istante, di giorno e di notte, e le prenotazioni non si perdono più quando la reception è impegnata.",
+      quoteAttribution: "Storia del cliente, citazione provvisoria in attesa di approvazione",
+    },
   },
   {
     slug: "adifesa",
@@ -90,9 +132,55 @@ export const CASES = [
     quote:
       "Leads are captured and qualified before anyone lifts a finger, and the sales team only sees the ones worth a call.",
     quoteAttribution: "Client story - quote placeholder, pending approval",
+    it: {
+      industry: "Finanza, cessione del quinto",
+      location: "Monza, Italia",
+      tag: "Automazione Meta",
+      summary:
+        "Automazione Meta che risponde in automatico a ogni commento e DM su Facebook e Instagram, qualifica l'interesse e smista i lead puliti al team commerciale.",
+      headline:
+        "Ogni lead da Facebook e Instagram gestito e qualificato, in automatico.",
+      challenge: {
+        lead: "Un'azienda finanziaria che gestiva campagne di cessione del quinto su Meta era sommersa da commenti e DM.",
+        points: [
+          "Commenti agli annunci e messaggi diretti arrivavano in gran volume, più in fretta di quanto il team riuscisse a rispondere, e le risposte lente fanno perdere i lead caldi.",
+          "Le richieste di finanziamento reali finivano sepolte in una casella rumorosa, insieme a spam e messaggi fuori tema.",
+          "Nessun modo coerente di qualificare l'interesse prima dell'intervento di una persona, così il team commerciale perdeva tempo su contatti non pronti.",
+        ],
+      },
+      solution: {
+        lead: "Abbiamo costruito un'automazione Meta di Automis che intercetta ogni potenziale cliente nel momento in cui interagisce.",
+        points: [
+          "Risposte automatiche ai commenti e ai DM su Facebook e Instagram, con il tono dell'azienda.",
+          "Qualificazione dei lead che raccoglie i dati chiave per una richiesta di cessione del quinto.",
+          "Smistamento pulito dei lead qualificati al team commerciale, fuori dalla casella pubblica rumorosa.",
+          "Un flusso di lead costante e organizzato, invece della corsa manuale sotto ogni annuncio.",
+        ],
+      },
+      results: {
+        lead: "I dati qui sotto sono stime prudenti basate su implementazioni comparabili di automazione Meta. I risultati reali variano in base a budget pubblicitario, pubblico e configurazione.",
+        metrics: [
+          { value: "<30s", label: "risposta media a un nuovo commento o DM (stima)" },
+          { value: "24/7", label: "copertura, così nessun lead aspetta gli orari d'ufficio" },
+          { value: "100%", label: "dei commenti e DM in entrata gestiti in automatico" },
+        ],
+      },
+      quote:
+        "I lead vengono raccolti e qualificati prima ancora di muovere un dito, e il team commerciale vede solo quelli che meritano una call.",
+      quoteAttribution: "Storia del cliente, citazione provvisoria in attesa di approvazione",
+    },
   },
 ];
 
-export function getCase(slug) {
-  return CASES.find((c) => c.slug === slug);
+function localize(c, locale) {
+  return locale === "it" ? { ...c, ...c.it } : c;
+}
+
+export function getCases(locale) {
+  return CASES.map((c) => localize(c, locale));
+}
+
+export function getCase(slug, locale) {
+  const c = CASES.find((x) => x.slug === slug);
+  return c ? localize(c, locale) : undefined;
 }

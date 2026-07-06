@@ -9,7 +9,14 @@ export const metadata = {
   title: "Automations | Automis",
   description:
     "Browse the AI automations Automis builds, from 24/7 voice receptionists to social-DM-to-CRM and your own Company Brain. Filter by industry and goal to see what fits your business.",
-  alternates: { canonical: "https://automis.ai/ai-automations" },
+  alternates: {
+    canonical: "https://automis.ai/ai-automations",
+    languages: {
+      en: "https://automis.ai/ai-automations",
+      "it-IT": "https://automis.ai/it/ai-automations",
+      "x-default": "https://automis.ai/ai-automations",
+    },
+  },
   openGraph: {
     title: "Automations | Automis",
     description:

@@ -1,30 +1,63 @@
 "use client";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Section, SectionHeading, Reveal } from "@/components/home/_ui";
 import { Plus, Minus } from "lucide-react";
 
-const FAQS = [
-  {
-    q: "So, what is this Voice AI thing all about?",
-    a: "Think of Automis Voice AI as a super-smart virtual receptionist for your business. It handles customer calls, books appointments, answers questions, and even makes outbound calls, all while sounding surprisingly human. It is like an extra team member who never sleeps.",
+const COPY = {
+  en: {
+    eyebrow: "FAQ",
+    title: "Questions, answered.",
+    faqs: [
+      {
+        q: "So, what is this Voice AI thing all about?",
+        a: "Think of Automis Voice AI as a super-smart virtual receptionist for your business. It handles customer calls, books appointments, answers questions, and even makes outbound calls, all while sounding surprisingly human. It is like an extra team member who never sleeps.",
+      },
+      {
+        q: "Can it really understand what customers are saying?",
+        a: "Yes. Our Voice AI uses advanced speech tech to understand context, accents, and even industry jargon. It is not just hearing words, it is getting the meaning behind them. So whether your customer has a strong accent or uses a lot of technical terms, the AI has it covered.",
+      },
+      {
+        q: "Will it work with the systems we already use?",
+        a: "Absolutely. Voice AI integrates with your CRM, calendar, and other business tools. Our team sets everything up so it fits right into your current workflow, no need to overhaul your entire system.",
+      },
+      {
+        q: "What if the AI gets stumped by a question?",
+        a: "While the AI is smart, we know it cannot handle everything. If it hits a question it cannot answer, it smoothly hands the call to a human. Your customers always get the help they need, one way or another.",
+      },
+      {
+        q: "How do we keep track of how well it is doing?",
+        a: "You get a full analytics dashboard: call volumes, resolution rates, customer satisfaction, and more. It is a bird's-eye view of your customer interactions that helps you spot trends and areas to improve, with every call recorded, transcribed, and summarized.",
+      },
+    ],
   },
-  {
-    q: "Can it really understand what customers are saying?",
-    a: "Yes. Our Voice AI uses advanced speech tech to understand context, accents, and even industry jargon. It is not just hearing words, it is getting the meaning behind them. So whether your customer has a strong accent or uses a lot of technical terms, the AI has it covered.",
+  it: {
+    eyebrow: "Domande frequenti",
+    title: "Le tue domande, con risposta.",
+    faqs: [
+      {
+        q: "Allora, di cosa si tratta esattamente questa IA vocale?",
+        a: "Immagina Automis Voice AI come un receptionist virtuale super intelligente per il tuo business. Gestisce le chiamate dei clienti, prende appuntamenti, risponde alle domande e fa persino chiamate in outbound, il tutto con una voce sorprendentemente umana. È come avere un membro del team in più che non dorme mai.",
+      },
+      {
+        q: "Capisce davvero cosa dicono i clienti?",
+        a: "Sì. La nostra IA vocale usa tecnologie vocali avanzate per capire il contesto, gli accenti e persino il gergo del settore. Non si limita a sentire le parole: ne coglie il significato. Così, che il tuo cliente abbia un accento marcato o usi tanti termini tecnici, l'IA se la cava senza problemi.",
+      },
+      {
+        q: "Funziona con i sistemi che già usiamo?",
+        a: "Assolutamente. La Voice AI si integra con il tuo CRM, il calendario e gli altri strumenti aziendali. Il nostro team configura tutto in modo che si inserisca perfettamente nel tuo flusso di lavoro attuale, senza bisogno di rivoluzionare l'intero sistema.",
+      },
+      {
+        q: "E se l'IA si trova spiazzata da una domanda?",
+        a: "Per quanto sia intelligente, sappiamo che l'IA non può gestire tutto. Quando incontra una domanda a cui non sa rispondere, passa la chiamata a una persona in modo naturale, senza attriti. I tuoi clienti ricevono sempre l'aiuto di cui hanno bisogno, in un modo o nell'altro.",
+      },
+      {
+        q: "Come teniamo traccia dei risultati?",
+        a: "Hai a disposizione una dashboard di analisi completa: volume delle chiamate, tassi di risoluzione, soddisfazione dei clienti e molto altro. È una visione d'insieme delle interazioni con i tuoi clienti che ti aiuta a individuare tendenze e aree da migliorare, con ogni chiamata registrata, trascritta e riassunta.",
+      },
+    ],
   },
-  {
-    q: "Will it work with the systems we already use?",
-    a: "Absolutely. Voice AI integrates with your CRM, calendar, and other business tools. Our team sets everything up so it fits right into your current workflow, no need to overhaul your entire system.",
-  },
-  {
-    q: "What if the AI gets stumped by a question?",
-    a: "While the AI is smart, we know it cannot handle everything. If it hits a question it cannot answer, it smoothly hands the call to a human. Your customers always get the help they need, one way or another.",
-  },
-  {
-    q: "How do we keep track of how well it is doing?",
-    a: "You get a full analytics dashboard: call volumes, resolution rates, customer satisfaction, and more. It is a bird's-eye view of your customer interactions that helps you spot trends and areas to improve, with every call recorded, transcribed, and summarized.",
-  },
-];
+};
 
 function FaqItem({ item, isOpen, onToggle }) {
   return (
@@ -57,12 +90,14 @@ function FaqItem({ item, isOpen, onToggle }) {
 }
 
 export default function VoiceFaq() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
   const [open, setOpen] = useState(0);
   return (
     <Section id="voice-faq" className="bg-[#000a14]" inner="max-w-3xl">
-      <SectionHeading eyebrow="FAQ" title={<>Questions, answered.</>} />
+      <SectionHeading eyebrow={t.eyebrow} title={<>{t.title}</>} />
       <div className="mt-12 space-y-3">
-        {FAQS.map((item, i) => (
+        {t.faqs.map((item, i) => (
           <Reveal key={item.q} delay={i * 70}>
             <FaqItem item={item} isOpen={open === i} onToggle={() => setOpen(open === i ? -1 : i)} />
           </Reveal>

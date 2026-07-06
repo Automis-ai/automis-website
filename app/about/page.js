@@ -17,7 +17,14 @@ export const metadata = {
     "AI automation team",
     "GDPR AI",
   ],
-  alternates: { canonical: "https://automis.ai/about" },
+  alternates: {
+    canonical: "https://automis.ai/about",
+    languages: {
+      en: "https://automis.ai/about",
+      "it-IT": "https://automis.ai/it/about",
+      "x-default": "https://automis.ai/about",
+    },
+  },
   openGraph: {
     title: "About Automis | Two founders, hands-on with your build",
     description:

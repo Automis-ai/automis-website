@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { Reveal, GradientText } from "@/components/home/_ui";
 import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 
@@ -7,7 +8,38 @@ const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automi
 // "How Automis Voice AI works" walkthrough.
 const VIDEO_ID = "qWSaK2kS7uo";
 
+const COPY = {
+  en: {
+    eyebrow: "Flagship · Automis Voice AI",
+    headline: {
+      pre: "The AI receptionist that turns every call into a ",
+      grad: "booked appointment",
+      post: ".",
+    },
+    subhead:
+      "Automis Voice AI answers every call 24/7, qualifies the lead, books it on your calendar, and syncs it to your CRM. Nights, weekends, holidays. No missed calls, no lost revenue.",
+    cta: "Book a Discovery Call",
+    videoTitle: "How Automis Voice AI works",
+  },
+  it: {
+    eyebrow: "Prodotto di punta · Automis Voice AI",
+    headline: {
+      pre: "Il receptionist IA che trasforma ogni chiamata in un ",
+      grad: "appuntamento fissato",
+      post: ".",
+    },
+    subhead:
+      "Automis Voice AI risponde a ogni chiamata 24/7, qualifica il lead, lo fissa sul tuo calendario e lo sincronizza con il tuo CRM. Notti, weekend, festivi. Nessuna chiamata persa, nessun fatturato perso.",
+    cta: "Prenota una call",
+    videoTitle: "Come funziona Automis Voice AI",
+  },
+};
+
 export default function VoiceHero() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
+  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
+
   return (
     <section id="voice-hero" className="relative overflow-hidden bg-[#000a14] pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24">
       <div className="pointer-events-none absolute inset-0">
@@ -22,26 +54,25 @@ export default function VoiceHero() {
           <Reveal immediate>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-3.5 py-1.5 text-[12px] font-medium uppercase tracking-[0.18em] text-white/70 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: "linear-gradient(120deg,#3C91E6,#57C7E3,#B4C2FF)", boxShadow: "0 0 10px rgba(87,199,227,0.7)" }} />
-              Flagship · Automis Voice AI
+              {t.eyebrow}
             </span>
           </Reveal>
           <Reveal immediate delay={60}>
             <h1 className="font-display mt-6 text-[2.2rem] font-bold leading-[1.1] tracking-[-0.02em] text-white [text-wrap:balance] sm:text-[3rem] md:text-[3.5rem]">
-              The AI receptionist that turns every call into a <GradientText>booked appointment</GradientText>.
+              {t.headline.pre}<GradientText>{t.headline.grad}</GradientText>{t.headline.post}
             </h1>
           </Reveal>
           <Reveal immediate delay={120}>
             <p className="mx-auto mt-5 max-w-2xl text-[1.05rem] leading-relaxed text-white/60 [text-wrap:pretty] sm:text-[1.15rem]">
-              Automis Voice AI answers every call 24/7, qualifies the lead, books it on your calendar,
-              and syncs it to your CRM. Nights, weekends, holidays. No missed calls, no lost revenue.
+              {t.subhead}
             </p>
           </Reveal>
           <Reveal immediate delay={180}>
             <div className="mt-8 flex justify-center">
               <InteractiveHoverButton
-                href={BOOKING}
+                href={booking}
                 variant="solid"
-                text="Book a Discovery Call"
+                text={t.cta}
               />
             </div>
           </Reveal>
@@ -54,7 +85,7 @@ export default function VoiceHero() {
               <div className="relative w-full overflow-hidden rounded-xl bg-[#04101c]" style={{ aspectRatio: "16 / 9" }}>
                 <iframe
                   src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?rel=0`}
-                  title="How Automis Voice AI works"
+                  title={t.videoTitle}
                   className="absolute inset-0 h-full w-full"
                   style={{ border: "none" }}
                   loading="lazy"
@@ -63,7 +94,7 @@ export default function VoiceHero() {
                 />
               </div>
               <p className="px-3 py-3 text-center text-[13px] font-medium text-white/60">
-                How Automis Voice AI works
+                {t.videoTitle}
               </p>
             </div>
           </div>

@@ -1,36 +1,75 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { Section, SectionHeading, Reveal } from "@/components/home/_ui";
 import { CalendarCheck2, Users, KanbanSquare, Check, ShieldCheck } from "lucide-react";
 
-const TIERS = [
-  {
-    icon: CalendarCheck2,
-    kicker: "Level 1",
-    title: "Bookings",
-    body: "Every appointment the AI booked, in one place. See what is on the calendar without touching a spreadsheet.",
-    points: ["Every AI-booked appointment", "Date, time, and contact at a glance", "Synced to your calendar"],
-    shot: "/assets/images/dashboard/clean/bookings.png",
-    caption: "Bookings, every AI-booked appointment, with call outcome",
-  },
-  {
-    icon: Users,
-    kicker: "Level 2",
-    title: "Light CRM",
-    body: "Contacts with the outcome and sentiment of every call, so you know who to follow up with and why.",
-    points: ["Contacts + call outcomes", "Sentiment on every interaction", "Follow-up context, ready to act on"],
-    shot: "/assets/images/dashboard/clean/light-crm.png",
-    caption: "Light CRM, call outcomes and sentiment on every contact",
-  },
-  {
-    icon: KanbanSquare,
-    kicker: "Level 3",
-    title: "Pipeline",
-    body: "A full kanban sales board. Drag deals through your stages and watch the AI feed the top of the funnel.",
-    points: ["Kanban sales stages", "Deals moved as they progress", "AI keeps the funnel full"],
-    shot: "/assets/images/dashboard/clean/pipeline.png",
-    caption: "Pipeline, a kanban board the AI keeps feeding from the top",
-  },
+// Structural metadata (icon + screenshot) stays identical across locales.
+const TIER_META = [
+  { icon: CalendarCheck2, shot: "/assets/images/dashboard/clean/bookings.png" },
+  { icon: Users, shot: "/assets/images/dashboard/clean/light-crm.png" },
+  { icon: KanbanSquare, shot: "/assets/images/dashboard/clean/pipeline.png" },
 ];
+
+const COPY = {
+  en: {
+    eyebrow: "The CRM",
+    title: "Three levels of visibility, from booked to closed.",
+    lead: "Start with a clean view of your bookings and grow into a full pipeline as your sales operation does.",
+    privacy: "Customer names and numbers are blurred for privacy.",
+    tiers: [
+      {
+        kicker: "Level 1",
+        title: "Bookings",
+        body: "Every appointment the AI booked, in one place. See what is on the calendar without touching a spreadsheet.",
+        points: ["Every AI-booked appointment", "Date, time, and contact at a glance", "Synced to your calendar"],
+        caption: "Bookings, every AI-booked appointment, with call outcome",
+      },
+      {
+        kicker: "Level 2",
+        title: "Light CRM",
+        body: "Contacts with the outcome and sentiment of every call, so you know who to follow up with and why.",
+        points: ["Contacts + call outcomes", "Sentiment on every interaction", "Follow-up context, ready to act on"],
+        caption: "Light CRM, call outcomes and sentiment on every contact",
+      },
+      {
+        kicker: "Level 3",
+        title: "Pipeline",
+        body: "A full kanban sales board. Drag deals through your stages and watch the AI feed the top of the funnel.",
+        points: ["Kanban sales stages", "Deals moved as they progress", "AI keeps the funnel full"],
+        caption: "Pipeline, a kanban board the AI keeps feeding from the top",
+      },
+    ],
+  },
+  it: {
+    eyebrow: "Il CRM",
+    title: "Tre livelli di visibilità, dalla prenotazione alla chiusura.",
+    lead: "Parti da una vista pulita delle tue prenotazioni e cresci fino a una pipeline completa, man mano che cresce la tua attività di vendita.",
+    privacy: "Nomi e numeri dei clienti sono oscurati per privacy.",
+    tiers: [
+      {
+        kicker: "Livello 1",
+        title: "Prenotazioni",
+        body: "Ogni appuntamento fissato dall'IA, in un unico posto. Vedi cosa c'è in calendario senza toccare un foglio di calcolo.",
+        points: ["Ogni appuntamento fissato dall'IA", "Data, ora e contatto a colpo d'occhio", "Sincronizzati con il tuo calendario"],
+        caption: "Prenotazioni: ogni appuntamento fissato dall'IA, con l'esito della call",
+      },
+      {
+        kicker: "Livello 2",
+        title: "CRM leggero",
+        body: "Contatti con l'esito e il sentiment di ogni call, così sai chi ricontattare e perché.",
+        points: ["Contatti + esiti delle call", "Sentiment su ogni interazione", "Contesto del follow-up, pronto all'uso"],
+        caption: "CRM leggero: esiti delle call e sentiment su ogni contatto",
+      },
+      {
+        kicker: "Livello 3",
+        title: "Pipeline",
+        body: "Una vera board kanban delle vendite. Trascina le trattative tra le fasi e guarda l'IA riempire la parte alta del funnel.",
+        points: ["Fasi di vendita in kanban", "Trattative che avanzano fase dopo fase", "L'IA mantiene il funnel pieno"],
+        caption: "Pipeline: una board kanban che l'IA alimenta dall'alto",
+      },
+    ],
+  },
+};
 
 // Subtle browser-chrome frame wrapper for a screenshot.
 function BrowserFrame({ src, alt }) {
@@ -50,20 +89,24 @@ function BrowserFrame({ src, alt }) {
 }
 
 export default function CrmTiers() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
+
   return (
     <Section id="voice-crm" className="bg-[#000a14]">
       <SectionHeading
-        eyebrow="The CRM"
-        title={<>Three levels of visibility, from booked to closed.</>}
-        lead="Start with a clean view of your bookings and grow into a full pipeline as your sales operation does."
+        eyebrow={t.eyebrow}
+        title={<>{t.title}</>}
+        lead={t.lead}
       />
 
       <div className="mt-14 space-y-8 sm:space-y-12">
-        {TIERS.map((t, i) => {
-          const Icon = t.icon;
+        {TIER_META.map((meta, i) => {
+          const Icon = meta.icon;
+          const tier = t.tiers[i];
           const flip = i % 2 === 1;
           return (
-            <Reveal key={t.title} delay={i * 80}>
+            <Reveal key={tier.title} delay={i * 80}>
               <div
                 className={`grid grid-cols-1 items-center gap-6 lg:gap-10 ${
                   flip ? "lg:grid-cols-[1.18fr_0.82fr]" : "lg:grid-cols-[0.82fr_1.18fr]"
@@ -74,11 +117,11 @@ export default function CrmTiers() {
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
                     <Icon className="h-5 w-5 text-[#8fe0f0]" strokeWidth={1.8} />
                   </span>
-                  <p className="mt-6 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">{t.kicker}</p>
-                  <h3 className="font-display mt-2 text-[1.5rem] font-semibold leading-tight text-white">{t.title}</h3>
-                  <p className="mt-3.5 text-[14.5px] leading-relaxed text-white/60">{t.body}</p>
+                  <p className="mt-6 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">{tier.kicker}</p>
+                  <h3 className="font-display mt-2 text-[1.5rem] font-semibold leading-tight text-white">{tier.title}</h3>
+                  <p className="mt-3.5 text-[14.5px] leading-relaxed text-white/60">{tier.body}</p>
                   <ul className="mt-5 space-y-2.5">
-                    {t.points.map((pt) => (
+                    {tier.points.map((pt) => (
                       <li key={pt} className="flex items-start gap-2.5 text-[14px] text-white/75">
                         <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#57C7E3]" strokeWidth={2.4} />
                         {pt}
@@ -89,8 +132,8 @@ export default function CrmTiers() {
 
                 {/* Screenshot column */}
                 <div className={flip ? "lg:order-1" : ""}>
-                  <BrowserFrame src={t.shot} alt={t.caption} />
-                  <p className="mt-3 text-center text-[13px] text-white/55">{t.caption}</p>
+                  <BrowserFrame src={meta.shot} alt={tier.caption} />
+                  <p className="mt-3 text-center text-[13px] text-white/55">{tier.caption}</p>
                 </div>
               </div>
             </Reveal>
@@ -101,7 +144,7 @@ export default function CrmTiers() {
       <Reveal delay={120}>
         <p className="mt-8 flex items-center justify-center gap-1.5 text-[12px] text-white/40">
           <ShieldCheck className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2} />
-          Customer names and numbers are blurred for privacy.
+          {t.privacy}
         </p>
       </Reveal>
     </Section>
