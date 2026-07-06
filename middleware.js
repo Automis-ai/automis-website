@@ -39,14 +39,14 @@ export function middleware(req) {
   if (isVoiceHost) {
     // Se root ("/") -> reindirizza a /ita (che è la lander Voice AI in italiano)
     if (pathname === "/") {
-      return NextResponse.redirect(new URL("/ita", req.url));
+      return NextResponse.redirect(new URL("/ita", req.url), 308);
     }
 
     // Su voice.automis.ai il tree /it (sito principale) non esiste: /it e QUALSIASI
     // /it/* (es. /it/ita, generato da vecchi redirect client-side) -> forza /ita.
     // Rete di sicurezza contro i 404 lato client sulla lander Voice.
     if (pathname === "/it" || pathname.startsWith("/it/")) {
-      return NextResponse.redirect(new URL("/ita", req.url));
+      return NextResponse.redirect(new URL("/ita", req.url), 308);
     }
 
     // Altrimenti procedi normalmente per /ita, /fr, /de, /es, /pt, /voice-ai
@@ -66,7 +66,7 @@ export function middleware(req) {
 
   // Se atterrano su /ita (lander voice) mentre sono su automis.ai -> forza /it (lander principale)
   if (pathname === "/ita") {
-    return NextResponse.redirect(new URL("/it", req.url));
+    return NextResponse.redirect(new URL("/it", req.url), 308);
   }
 
   // Gestione altri segmenti (privacy-policy, about, etc.)

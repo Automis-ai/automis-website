@@ -11,7 +11,7 @@ import FaqEN from "@/components/home/FaqEN";
 import FinalCta from "@/components/home/FinalCta";
 
 export const metadata = {
-  title: "Automis | AI Automation Agency for Business — Voice, Sales & Admin AI",
+  title: "Automis | AI Automation Agency: Voice, Sales & Admin AI",
   description:
     "Automis is a strategic AI automation agency. We build the AI voice agents, automations, and company-brain systems your business is missing, end to end.",
   keywords: [

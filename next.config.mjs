@@ -8,10 +8,11 @@ const nextConfig = {
       { source: "/coming-soon", destination: "/", permanent: true },
       { source: "/blog-details", destination: "/blog", permanent: true },
       // Free consultation now lives as step 1 of the Jumpstart Audit ladder.
-      { source: "/consultation", destination: "/jumpstart-audit", permanent: false },
+      { source: "/consultation", destination: "/jumpstart-audit", permanent: true },
     ];
   },
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: 'https',

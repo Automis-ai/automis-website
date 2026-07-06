@@ -6,6 +6,7 @@ import FAQSection from "@/components/FAQSection";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getPostBySlug, getAllSlugs } from "@/lib/blog";
+import JsonLd from "@/components/JsonLd";
 
 // Tell Next.js which slugs exist at build time
 export async function generateStaticParams() {
@@ -21,14 +22,28 @@ export async function generateMetadata({ params }) {
       description: "The requested blog post could not be found.",
     };
   }
+  const url = `https://automis.ai/blog/${params.slug}`;
+  const ogImage = post.image
+    ? new URL(post.image, "https://automis.ai").toString()
+    : "https://automis.ai/assets/og/home-en.png";
   return {
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.description,
+    alternates: { canonical: url },
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.description,
+      url,
+      siteName: "Automis",
       type: "article",
       publishedTime: post.date,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.metaTitle || post.title,
+      description: post.metaDescription || post.description,
+      images: [ogImage],
     },
   };
 }
@@ -37,8 +52,23 @@ const BlogPostPage = ({ params }) => {
   const post = getPostBySlug(params.slug, "en");
   if (!post) notFound();
 
+  const url = `https://automis.ai/blog/${params.slug}`;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription || post.description,
+    image: post.image ? new URL(post.image, "https://automis.ai").toString() : undefined,
+    datePublished: post.date,
+    dateModified: post.updated || post.date,
+    author: { "@type": "Organization", name: "Automis", "@id": "https://automis.ai/#organization" },
+    publisher: { "@id": "https://automis.ai/#organization" },
+    mainEntityOfPage: url,
+  };
+
   return (
     <AkpagerLayout>
+      <JsonLd data={articleSchema} />
       {/* ── HERO ── */}
       <section
         className="hero-padding bg-bg-primary relative z-1 bgs-cover text-center"

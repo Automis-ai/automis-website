@@ -7,6 +7,7 @@ import { Section, Reveal, Eyebrow, GRAD } from "@/components/home/_ui";
 import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 import ClientMark from "@/components/use-cases/ClientMark";
 import { CASES, getCase } from "@/components/use-cases/cases";
+import JsonLd from "@/components/JsonLd";
 
 export function generateStaticParams() {
   return CASES.map((c) => ({ slug: c.slug }));
@@ -17,7 +18,7 @@ export function generateMetadata({ params }) {
   if (!c) return {};
   const url = `https://automis.ai/use-cases/${c.slug}`;
   const title = `${c.shortClient} | ${c.tag} case study, Automis`;
-  const description = `${c.headline} ${c.summary}`.slice(0, 300);
+  const description = `${c.headline} ${c.summary}`.slice(0, 160);
   return {
     title,
     description,
@@ -31,8 +32,33 @@ export default function CaseStudyDetailPage({ params }) {
   const c = getCase(params.slug);
   if (!c) notFound();
 
+  const caseUrl = `https://automis.ai/use-cases/${c.slug}`;
+  const caseSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: c.headline,
+        description: c.summary,
+        about: c.tag,
+        author: { "@id": "https://automis.ai/#organization" },
+        publisher: { "@id": "https://automis.ai/#organization" },
+        mainEntityOfPage: caseUrl,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://automis.ai/" },
+          { "@type": "ListItem", position: 2, name: "Use cases", item: "https://automis.ai/use-cases" },
+          { "@type": "ListItem", position: 3, name: c.shortClient },
+        ],
+      },
+    ],
+  };
+
   return (
     <AutomisEnShell>
+      <JsonLd data={caseSchema} />
       {/* Header */}
       <Section className="relative overflow-hidden bg-[#000a14] pt-24 md:pt-28" pad="pb-14 sm:pb-16">
         <div className="pointer-events-none absolute inset-0">

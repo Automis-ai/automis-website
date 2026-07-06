@@ -11,6 +11,7 @@ import "@css/style.css";
 import { Montserrat, Open_Sans } from "next/font/google";
 import Script from "next/script";
 import ChatWidgets from "@/components/ChatWidgets";
+import JsonLd from "@/components/JsonLd";
 
 const montserrat = Montserrat({
   weight: ["700"],
@@ -29,11 +30,50 @@ const openSans = Open_Sans({
 export const metadata = {
   metadataBase: new URL("https://automis.ai"),
   title: {
-    template: "Automis - AI Powered Marketing and booking",
-    default: "Automis - AI Powered Marketing and booking ",
+    default: "Automis | AI Automation Agency for Business",
   },
   description:
-    "Automis is an AI powered marketing and booking platform that helps businesses automate their marketing efforts and streamline their booking processes.",
+    "Automis is a strategic AI automation agency. We build the AI voice agents, automations, and company-brain systems your business is missing, end to end.",
+};
+
+// Site-wide entity graph (Organization + WebSite) for SEO / knowledge panel.
+const ORG_JSONLD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://automis.ai/#organization",
+      name: "Automis",
+      url: "https://automis.ai",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://automis.ai/assets/images/logos/logo.png",
+      },
+      description:
+        "Strategic AI automation agency building AI voice agents, automations, and company-brain systems across marketing, sales, and operations.",
+      email: "info@automis.ai",
+      sameAs: [
+        "https://x.com/AutomisAI",
+        "https://www.instagram.com/automis.ai/",
+        "https://www.linkedin.com/company/automisai",
+        "https://www.facebook.com/automisai",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "info@automis.ai",
+        availableLanguage: ["en", "it", "pt"],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://automis.ai/#website",
+      url: "https://automis.ai",
+      name: "Automis",
+      inLanguage: "en",
+      publisher: { "@id": "https://automis.ai/#organization" },
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
@@ -43,6 +83,8 @@ export default function RootLayout({ children }) {
         className={`${montserrat.variable} ${openSans.variable} bg-[#000a14]`}
         style={{ color: "white" }}
       >
+        <JsonLd data={ORG_JSONLD} />
+
         {/* Google Tag Manager */}
         <Script
           id="gtm-base"

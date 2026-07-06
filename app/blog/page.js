@@ -3,6 +3,22 @@ import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import { getAllPosts } from "@/lib/blog";
 
+export const metadata = {
+  title: "AI Automation Insights & Guides | Automis",
+  description:
+    "Practical guides on AI voice agents, marketing and sales automation, and the systems that scale a business. From the Automis team.",
+  alternates: { canonical: "https://automis.ai/blog" },
+  openGraph: {
+    title: "AI Automation Insights & Guides | Automis",
+    description:
+      "Practical guides on AI voice agents, automation, and the systems that scale a business.",
+    url: "https://automis.ai/blog",
+    siteName: "Automis",
+    type: "website",
+    images: [{ url: "/assets/og/home-en.png", width: 1200, height: 630, alt: "Automis blog" }],
+  },
+};
+
 const BlogPage = async () => {
   const posts = getAllPosts("en");
 
@@ -46,8 +62,8 @@ const BlogPage = async () => {
               data-aos-delay={100}
               data-aos-duration={1500}
             >
-              <span className="text-white">Discover Our</span>{" "}
-              <span className="text-text-blue">Latest Insights</span>
+              <span className="text-white">AI Automation</span>{" "}
+              <span className="text-text-blue">Insights &amp; Guides</span>
             </h1>
 
             <p
