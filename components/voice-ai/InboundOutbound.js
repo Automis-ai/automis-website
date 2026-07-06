@@ -15,7 +15,7 @@ import {
   Star,
 } from "lucide-react";
 
-/* Two ways the same voice agent works for a business:
+/* Two specialized voice agents that work as one system:
    INBOUND = the 24/7 receptionist (answers the calls coming in)
    OUTBOUND = the growth engine (makes the calls going out) */
 const INBOUND = {
@@ -159,8 +159,8 @@ export default function InboundOutbound() {
     <Section id="voice-modes" className="bg-[#000a14]">
       <SectionHeading
         eyebrow="Inbound and outbound"
-        title={<>One voice agent, <GradientText>two jobs</GradientText>.</>}
-        lead="It answers the calls coming in like a 24/7 receptionist, and it makes the calls going out to turn the leads you already paid for into booked appointments."
+        title={<>One system, <GradientText>two specialized agents</GradientText>.</>}
+        lead="One agent answers the calls coming in like a 24/7 receptionist. A second works the calls going out, turning the leads you already paid for into booked appointments."
       />
 
       <div className="mt-14 grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
