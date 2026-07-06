@@ -57,7 +57,7 @@ export default function Proof() {
       <SectionHeading
         eyebrow="Proof, not promises"
         title={<>Real businesses. Real systems. Already running.</>}
-        lead="We're a two-founder team split across Portugal and Italy, building for businesses in our own markets first."
+        lead="We're a founder-led team building for real businesses. The systems below are live right now."
       />
 
       <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2">

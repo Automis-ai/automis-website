@@ -35,7 +35,7 @@ export default function HeroEN() {
           <Reveal immediate>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-[12px] font-medium uppercase tracking-[0.16em] text-white/70 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: "linear-gradient(120deg,#3C91E6,#57C7E3)", boxShadow: "0 0 10px rgba(87,199,227,0.8)" }} />
-              Strategic AI Automation Agency
+              AI Automation Agency
             </span>
           </Reveal>
 
@@ -47,14 +47,14 @@ export default function HeroEN() {
           </Reveal>
 
           <Reveal delay={160} immediate>
-            <p className="mx-auto mt-7 max-w-2xl text-[1.1rem] leading-relaxed text-white/70 md:text-[1.2rem]">
+            <p className="mx-auto mt-5 max-w-2xl text-[0.95rem] leading-relaxed text-white/70 sm:mt-7 sm:text-[1.05rem] md:text-[1.2rem]">
               We map exactly where your business loses time and money: the calls you miss, the leads
               that go cold, the admin that piles up. Then we build the AI agents and automations to fix it.
             </p>
           </Reveal>
 
           <Reveal delay={240} immediate>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:mt-10 sm:flex-row">
               <InteractiveHoverButton
                 href={BOOKING}
                 target="_blank"
@@ -76,7 +76,7 @@ export default function HeroEN() {
           </Reveal>
 
           <Reveal delay={320}>
-            <div className="mt-14">
+            <div className="mt-10 sm:mt-14">
               <ToolsStrip />
             </div>
           </Reveal>

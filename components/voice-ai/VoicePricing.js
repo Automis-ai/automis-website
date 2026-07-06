@@ -26,6 +26,7 @@ const TIERS = [
     period: "/mo",
     tagline: "Turn answered calls into a follow-up machine.",
     features: [
+      "600 minutes / month",
       "Everything in Starter",
       "CRM sync (GoHighLevel / HubSpot)",
       "SMS & WhatsApp reminders",
@@ -40,6 +41,7 @@ const TIERS = [
     period: "/mo",
     tagline: "A full acquisition engine, voice and beyond.",
     features: [
+      "1,500 minutes / month",
       "Everything in Growth",
       "WhatsApp chatbot",
       "Outbound campaigns",
@@ -92,7 +94,7 @@ export default function VoicePricing() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 flex">
+              <div className="mt-auto flex pt-8">
                 <InteractiveHoverButton
                   href={BOOKING}
                   variant={t.featured ? "solid" : "ghost"}
@@ -104,6 +106,27 @@ export default function VoicePricing() {
           </Reveal>
         ))}
       </div>
+
+      {/* Enterprise / Custom — 4th tier as a full-width band */}
+      <Reveal delay={130}>
+        <div className="mt-5 flex flex-col items-start gap-5 rounded-2xl border border-white/[0.1] bg-white/[0.03] p-7 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">Enterprise / Custom</p>
+            <p className="font-display mt-2 text-[1.3rem] font-semibold leading-snug text-white">
+              High volume, multiple locations, or bespoke integrations?
+            </p>
+            <p className="mt-1.5 max-w-xl text-[14px] leading-relaxed text-white/60">
+              Custom call volume, dedicated support, and a system scoped and priced around exactly how your business runs.
+            </p>
+          </div>
+          <InteractiveHoverButton
+            href={BOOKING}
+            variant="ghost"
+            text="Let's talk"
+            className="w-full flex-shrink-0 sm:w-auto"
+          />
+        </div>
+      </Reveal>
 
       {/* 30-day performance guarantee, all tiers */}
       <Reveal delay={120}>

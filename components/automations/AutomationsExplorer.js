@@ -3,10 +3,18 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Section, SectionHeading, Reveal } from "@/components/home/_ui";
 import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
-import { NICHES, GOALS, GOAL_BY_ID, AUTOMATIONS } from "./automationsData";
-import { ArrowUpRight, AlertCircle, Wrench, Target, X } from "lucide-react";
+import { NICHES, GOALS, AUTOMATIONS } from "./automationsData";
+import { ArrowUpRight, Plus, X, Target, Headphones, TrendingUp, Database } from "lucide-react";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
+
+// Pillars, in the order the page tells its story (win leads -> grow -> run ops).
+const PILLAR_ORDER = ["sales", "marketing", "admin"];
+const PILLAR_META = {
+  sales: { name: "Sales & Acquisition", blurb: "Answer, qualify, and never miss a lead.", icon: Headphones },
+  marketing: { name: "Marketing & Growth", blurb: "Bring the right customers in, on autopilot.", icon: TrendingUp },
+  admin: { name: "Admin & Company Brain", blurb: "Take the busywork and knowledge off your team.", icon: Database },
+};
 
 // A single filter pill. Active state uses the signature blue accent.
 function FilterPill({ active, onClick, children }) {
@@ -25,58 +33,56 @@ function FilterPill({ active, onClick, children }) {
   );
 }
 
-// One automation card. Alternates card-gold / card-glow via the `variant` prop.
-function AutomationCard({ item, variant }) {
-  const goal = GOAL_BY_ID[item.pillar];
-  const effect = variant === "glow" ? "card-glow" : "card-gold";
+// Compact, outcome-first card. Detail (problem + what we automate) is tucked
+// behind a "See how it works" toggle so the grid scans cleanly.
+function AutomationCard({ item }) {
+  const [open, setOpen] = useState(false);
   return (
-    <div
-      className={`${effect} group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-sm transition-transform hover:-translate-y-1`}
-    >
-      <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#57C7E3]">
-        {goal?.pillar}
-      </span>
+    <div className="card-gold group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-sm transition-transform hover:-translate-y-1">
+      <h3 className="font-display text-[1.2rem] font-semibold leading-tight text-white">{item.title}</h3>
 
-      <h3 className="font-display mt-4 text-[1.25rem] font-semibold leading-tight text-white">
-        {item.title}
-      </h3>
+      {/* The payoff, lead with it. No repeated uppercase labels. */}
+      <p className="mt-3 flex items-start gap-2.5 text-[14.5px] font-medium leading-relaxed text-white">
+        <Target className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#F5CD79]" strokeWidth={2} />
+        {item.outcome}
+      </p>
 
-      <dl className="mt-4 space-y-3.5 text-[14px] leading-relaxed">
-        <div className="flex items-start gap-2.5">
-          <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-white/40" strokeWidth={2} />
-          <div>
-            <dt className="text-[11px] font-semibold uppercase tracking-wide text-white/40">Problem</dt>
-            <dd className="mt-0.5 text-white/65">{item.problem}</dd>
+      {/* Detail, revealed on demand */}
+      <div className="grid transition-all duration-300 ease-out" style={{ gridTemplateRows: open ? "1fr" : "0fr" }}>
+        <div className="overflow-hidden">
+          <div className="mt-4 space-y-3 border-t border-white/[0.06] pt-4 text-[13.5px] leading-relaxed">
+            <p className="text-white/55">
+              <span className="font-semibold text-white/75">The problem: </span>
+              {item.problem}
+            </p>
+            <p className="text-white/70">
+              <span className="font-semibold text-white/85">What we automate: </span>
+              {item.automate}
+            </p>
           </div>
         </div>
-        <div className="flex items-start gap-2.5">
-          <Wrench className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#8fe0f0]" strokeWidth={2} />
-          <div>
-            <dt className="text-[11px] font-semibold uppercase tracking-wide text-white/40">What we automate</dt>
-            <dd className="mt-0.5 text-white/80">{item.automate}</dd>
-          </div>
-        </div>
-        <div className="flex items-start gap-2.5">
-          <Target className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#F5CD79]" strokeWidth={2} />
-          <div>
-            <dt className="text-[11px] font-semibold uppercase tracking-wide text-white/40">Outcome</dt>
-            <dd className="mt-0.5 font-medium text-white">{item.outcome}</dd>
-          </div>
-        </div>
-      </dl>
+      </div>
 
-      {item.liveHref && (
-        <Link
-          href={item.liveHref}
-          className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[#8fe0f0] transition-colors hover:text-white"
+      <div className="mt-auto flex items-center justify-between gap-3 pt-5">
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#8fe0f0] transition-colors hover:text-white"
         >
-          {item.liveLabel || "See it live"}
-          <ArrowUpRight
-            className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            strokeWidth={2}
-          />
-        </Link>
-      )}
+          {open ? "Hide details" : "See how it works"}
+          <Plus className={`h-3.5 w-3.5 transition-transform duration-300 ${open ? "rotate-45" : ""}`} strokeWidth={2.4} />
+        </button>
+        {item.liveHref && (
+          <Link
+            href={item.liveHref}
+            className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-white/60 transition-colors hover:text-white"
+          >
+            {item.liveLabel || "See it live"}
+            <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} />
+          </Link>
+        )}
+      </div>
     </div>
   );
 }
@@ -92,6 +98,18 @@ export default function AutomationsExplorer() {
       return nicheOk && goalOk;
     });
   }, [niche, goal]);
+
+  // Group the filtered set by pillar so the page reads as three clear sections
+  // instead of one long undifferentiated grid.
+  const groups = useMemo(
+    () =>
+      PILLAR_ORDER.map((pid) => ({
+        pid,
+        meta: PILLAR_META[pid],
+        items: filtered.filter((a) => a.pillar === pid),
+      })).filter((g) => g.items.length > 0),
+    [filtered]
+  );
 
   const hasFilter = niche !== "all" || goal !== "all";
   const clearAll = () => {
@@ -110,45 +128,29 @@ export default function AutomationsExplorer() {
       {/* Filters */}
       <Reveal delay={80}>
         <div className="mx-auto mt-12 max-w-5xl space-y-6">
-          {/* By niche */}
           <div>
-            <p className="mb-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/45">
-              By industry
-            </p>
+            <p className="mb-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/50">By industry</p>
             <div className="-mx-1 flex flex-wrap gap-2 overflow-x-auto px-1 pb-1">
-              <FilterPill active={niche === "all"} onClick={() => setNiche("all")}>
-                All industries
-              </FilterPill>
+              <FilterPill active={niche === "all"} onClick={() => setNiche("all")}>All industries</FilterPill>
               {NICHES.map((n) => (
-                <FilterPill key={n.id} active={niche === n.id} onClick={() => setNiche(n.id)}>
-                  {n.label}
-                </FilterPill>
+                <FilterPill key={n.id} active={niche === n.id} onClick={() => setNiche(n.id)}>{n.label}</FilterPill>
               ))}
             </div>
           </div>
 
-          {/* By goal */}
           <div>
-            <p className="mb-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/45">
-              By goal
-            </p>
+            <p className="mb-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/50">By goal</p>
             <div className="-mx-1 flex flex-wrap gap-2 overflow-x-auto px-1 pb-1">
-              <FilterPill active={goal === "all"} onClick={() => setGoal("all")}>
-                All goals
-              </FilterPill>
+              <FilterPill active={goal === "all"} onClick={() => setGoal("all")}>All goals</FilterPill>
               {GOALS.map((g) => (
-                <FilterPill key={g.id} active={goal === g.id} onClick={() => setGoal(g.id)}>
-                  {g.label}
-                </FilterPill>
+                <FilterPill key={g.id} active={goal === g.id} onClick={() => setGoal(g.id)}>{g.label}</FilterPill>
               ))}
             </div>
           </div>
 
-          {/* Count + clear */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.06] pt-5">
             <p className="text-[14px] text-white/60">
-              Showing{" "}
-              <span className="font-semibold text-white">{filtered.length}</span>{" "}
+              Showing <span className="font-semibold text-white">{filtered.length}</span>{" "}
               {filtered.length === 1 ? "automation" : "automations"}
             </p>
             {hasFilter && (
@@ -164,22 +166,38 @@ export default function AutomationsExplorer() {
         </div>
       </Reveal>
 
-      {/* Grid */}
-      <div className="mx-auto mt-10 max-w-6xl">
-        {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((item, i) => (
-              <Reveal key={item.id} delay={Math.min(i, 6) * 50}>
-                <AutomationCard item={item} variant={i % 2 === 0 ? "gold" : "glow"} />
-              </Reveal>
-            ))}
-          </div>
+      {/* Grouped grid */}
+      <div className="mx-auto max-w-6xl">
+        {groups.length > 0 ? (
+          groups.map((g) => {
+            const Icon = g.meta.icon;
+            return (
+              <div key={g.pid} className="mt-14 first:mt-10">
+                <div className="flex items-center gap-3.5 border-b border-white/[0.07] pb-4">
+                  <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+                    <Icon className="h-5 w-5 text-[#8fe0f0]" strokeWidth={1.8} />
+                  </span>
+                  <div>
+                    <h3 className="font-display text-[1.3rem] font-semibold leading-tight text-white">{g.meta.name}</h3>
+                    <p className="mt-0.5 text-[13.5px] text-white/50">{g.meta.blurb}</p>
+                  </div>
+                  <span className="ml-auto text-[13px] font-medium text-white/45">{g.items.length}</span>
+                </div>
+                <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {g.items.map((item, i) => (
+                    <Reveal key={item.id} delay={Math.min(i, 5) * 40}>
+                      <AutomationCard item={item} />
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
+            );
+          })
         ) : (
-          <div className="mx-auto max-w-md rounded-2xl border border-white/[0.1] bg-white/[0.03] p-8 text-center">
+          <div className="mx-auto mt-10 max-w-md rounded-2xl border border-white/[0.1] bg-white/[0.03] p-8 text-center">
             <p className="font-display text-lg font-semibold text-white">No exact match yet</p>
             <p className="mt-2 text-[14px] text-white/55">
-              We very likely build this anyway. Clear a filter, or book a call and we will scope it
-              around your business.
+              We very likely build this anyway. Clear a filter, or book a call and we will scope it around your business.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <InteractiveHoverButton href={BOOKING} variant="solid" text="Book a Discovery Call" />
