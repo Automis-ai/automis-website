@@ -43,7 +43,7 @@ const COPY = {
     eyebrow: "Il team dietro Automis",
     heading: "Due founder, al lavoro sul tuo progetto",
     intro:
-      "Guidato dai founder e sempre operativo: progettiamo, costruiamo e mettiamo online i sistemi in prima persona, cuciti su come lavora davvero il tuo business.",
+      "Ci mettiamo le mani noi founder: progettiamo, costruiamo e mandiamo online i sistemi in prima persona, cuciti su come lavora davvero il tuo business.",
     roles: ["Co-Founder", "Co-Founder"],
     follow: "Seguici su @automis.ai",
     trust: [
@@ -56,8 +56,8 @@ const COPY = {
         body: "In linea con il GDPR, con opzioni di server in UE o locali per dati sanitari e finanziari. Le tue informazioni restano dove devono stare.",
       },
       {
-        title: "Sempre con una persona nel processo",
-        body: "I casi complessi o delicati passano direttamente al tuo team. L'AI gestisce i volumi; le persone gestiscono le sfumature.",
+        title: "C'è sempre una persona nel processo",
+        body: "I casi complessi o delicati passano direttamente al tuo team. L'IA gestisce i volumi, le persone gestiscono le sfumature.",
       },
     ],
   },
@@ -96,7 +96,7 @@ export default function Authority() {
               ))}
             </div>
             <a
-              href="https://www.instagram.com/automis.ai"
+              href={locale === "it" ? "https://www.instagram.com/automis_italia/" : "https://www.instagram.com/automis.ai/"}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium text-white/55 transition-colors hover:text-white/85"

@@ -29,25 +29,25 @@ const COPY = {
     ],
   },
   it: {
-    eyebrow: "Il costo di non fare nulla",
-    title: <>Le falle che non vedi sono quelle che ti costano di più.</>,
-    lead: "La maggior parte dei business non ha un problema di marketing. Ha un problema di sistema. Ecco dove i soldi escono dalla porta, in silenzio.",
+    eyebrow: "Quanto ti costa non agire",
+    title: <>Sono le perdite che non vedi a costarti di più.</>,
+    lead: "Quasi nessun business ha un problema di marketing. Ha un problema di sistema. Ed è lì che i soldi se ne vanno, senza che tu te ne accorga.",
     pains: [
       {
-        title: "Chiamate senza risposta",
-        body: "Dal 30 al 50% delle chiamate ai business locali finisce in segreteria. Ogni chiamata persa è un appuntamento che si prende il tuo concorrente.",
+        title: "Chiamate che restano senza risposta",
+        body: "Dal 30 al 50% delle chiamate a un'attività locale finisce in segreteria. E ogni chiamata persa è un cliente che prenota dal tuo concorrente.",
       },
       {
         title: "Lead che si raffreddano",
-        body: "Molti business impiegano ore per rispondere. Dopo i primi 5 minuti, le probabilità di convertire quel lead crollano a picco.",
+        body: "Quasi tutti rispondono dopo ore. Ma passati i primi 5 minuti, le probabilità di chiudere quel lead crollano.",
       },
       {
-        title: "L'amministrazione ti mangia la giornata",
-        body: "Il tuo team brucia ore ogni settimana tra inserimento dati, agende e scartoffie da inseguire, invece di seguire i clienti.",
+        title: "La burocrazia ti mangia la giornata",
+        body: "Il tuo team perde ore ogni settimana tra dati da inserire, appuntamenti da fissare e scartoffie da rincorrere, invece di occuparsi dei clienti.",
       },
       {
-        title: "La conoscenza resta intrappolata",
-        body: "Le informazioni importanti vivono in caselle email, PDF e nella testa delle persone: impossibili da trovare nel momento in cui ti servono davvero.",
+        title: "Le informazioni restano bloccate",
+        body: "Ciò che conta è sparso tra email, PDF e la testa delle persone: introvabile proprio quando ti serve.",
       },
     ],
   },

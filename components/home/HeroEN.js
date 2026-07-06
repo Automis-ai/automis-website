@@ -23,22 +23,23 @@ const COPY = {
     ctaSecondary: "Find your AI opportunities",
   },
   it: {
-    eyebrow: "Agenzia di automazione AI",
+    eyebrow: "Agenzia di automazione IA",
     h1_pre: "Costruiamo i ",
     h1_word1: "sistemi",
-    h1_mid: " che",
-    h1_word2: "mancano",
-    h1_post: " al tuo business.",
+    h1_mid: " che mancano al tuo ",
+    h1_word2: "business",
+    h1_post: ".",
     subhead:
-      "Individuiamo con precisione dove il tuo business perde tempo e denaro: le chiamate che perdi, i lead che si raffreddano, il lavoro amministrativo che si accumula. Poi costruiamo gli agenti AI e le automazioni per risolverlo.",
+      "Scopriamo esattamente dove il tuo business perde tempo e soldi: le chiamate a cui non rispondi, i lead che si raffreddano, le pratiche che si accumulano. Poi costruiamo gli agenti IA e le automazioni che risolvono il problema.",
     ctaPrimary: "Prenota una call",
-    ctaSecondary: "Scopri le tue opportunità AI",
+    ctaSecondary: "Scopri le tue opportunità IA",
   },
 };
 
 export default function HeroEN() {
   const locale = usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
+  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
   return (
     <section id="hero" className="relative overflow-hidden bg-deep-blue">
       {/* Animated wavy background (brand palette) — an aurora ribbon confined to
@@ -85,7 +86,7 @@ export default function HeroEN() {
           <Reveal delay={240} immediate>
             <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:mt-10 sm:flex-row">
               <InteractiveHoverButton
-                href={BOOKING}
+                href={booking}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="solid"

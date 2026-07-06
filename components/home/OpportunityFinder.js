@@ -131,31 +131,31 @@ const COPY = {
     },
   },
   it: {
-    eyebrow: "Gratis · 60 secondi · nessuna call richiesta",
-    title: "AI Opportunity Finder",
-    lead: "Rispondi a 6 domande veloci e ricevi subito una roadmap personalizzata con le automazioni più utili per il tuo business, e quanto tempo possono farti recuperare.",
+    eyebrow: "Gratis · 60 secondi · senza call",
+    title: "Trova le tue opportunità IA",
+    lead: "Rispondi a 6 domande veloci e ottieni subito una roadmap su misura: le automazioni che contano di più per il tuo business e quanto tempo ti fanno risparmiare.",
     yourResults: "I tuoi risultati",
     question: "Domanda",
     of: "di",
     back: "Indietro",
-    hereIsWhatWeFound: "Ecco cosa abbiamo trovato",
-    startWith: "Inizia da",
-    timeBack: "Tempo recuperato / settimana",
+    hereIsWhatWeFound: "Ecco cosa è emerso",
+    startWith: "Parti da",
+    timeBack: "Tempo risparmiato / settimana",
     hrs: "ore",
     focusPillar: "Pilastro prioritario",
     unlockTitle: "Sblocca le tue 3 automazioni + roadmap PDF",
-    unlockSubtitle: "Ricevi la roadmap personalizzata completa a schermo e una copia via email.",
+    unlockSubtitle: "Vedi la roadmap completa su misura a schermo e ricevine una copia via email.",
     namePlaceholder: "Il tuo nome (facoltativo)",
     emailPlaceholder: "La tua email",
-    buildingRoadmap: "Sto costruendo la tua roadmap…",
+    buildingRoadmap: "Sto preparando la tua roadmap…",
     unlockCta: "Sblocca la mia roadmap",
-    noSpam: "Niente spam. Nessuna carta di credito. Disiscriviti quando vuoi.",
+    noSpam: "Niente spam. Nessuna carta richiesta. Ti disiscrivi quando vuoi.",
     roadmapReady: "La tua roadmap è pronta",
-    top3Title: "Le tue 3 automazioni principali",
+    top3Title: "Le tue 3 automazioni top",
     pdfDownloaded: "La tua roadmap PDF è stata scaricata. Una copia sta arrivando nella tua email.",
     buildCta: "Vuoi che le costruiamo noi? Prenota una call",
     downloadAgain: "Scarica di nuovo il PDF",
-    disclaimer: "Le stime sono indicative e dipendono dal tuo volume e dalla configurazione.",
+    disclaimer: "Le stime sono indicative e variano in base ai tuoi volumi e alla configurazione.",
     questions: [
       {
         id: "sector",
@@ -173,11 +173,11 @@ const COPY = {
         id: "leak",
         q: "Dove perdi più tempo o denaro?",
         options: [
-          { label: "Chiamate perse e senza risposta", w: { sales: 3 }, h: 6 },
-          { label: "Follow-up lento sui lead", w: { sales: 2, marketing: 1 }, h: 5 },
-          { label: "Gestione manuale e burocrazia", w: { admin: 3 }, h: 8 },
+          { label: "Chiamate perse o senza risposta", w: { sales: 3 }, h: 6 },
+          { label: "Follow-up lenti sui lead", w: { sales: 2, marketing: 1 }, h: 5 },
+          { label: "Pratiche e attività manuali", w: { admin: 3 }, h: 8 },
           { label: "Marketing che non converte", w: { marketing: 3 }, h: 4 },
-          { label: "Informazioni aziendali disorganizzate", w: { admin: 3 }, h: 6 },
+          { label: "Informazioni aziendali sparse ovunque", w: { admin: 3 }, h: 6 },
         ],
       },
       {
@@ -205,20 +205,20 @@ const COPY = {
         q: "Cosa hai provato finora?",
         options: [
           { label: "Ancora niente", w: {}, h: 3 },
-          { label: "Assunto più personale", w: { admin: 1 }, h: 4 },
+          { label: "Ho assunto più personale", w: { admin: 1 }, h: 4 },
           { label: "Strumenti base / un chatbot", w: { sales: 1 }, h: 2 },
-          { label: "Lavorato con un'agenzia", w: { marketing: 1 }, h: 2 },
+          { label: "Mi sono affidato a un'agenzia", w: { marketing: 1 }, h: 2 },
         ],
       },
       {
         id: "goal",
         q: "Qual è il tuo obiettivo n.1 per i prossimi 90 giorni?",
         options: [
-          { label: "Più appuntamenti fissati", w: { sales: 3 }, h: 6 },
-          { label: "Risposte più rapide ai lead", w: { sales: 2, marketing: 1 }, h: 5 },
-          { label: "Liberare tempo per il mio team", w: { admin: 3 }, h: 7 },
-          { label: "Migliore ROI del marketing", w: { marketing: 3 }, h: 4 },
-          { label: "Organizzare le informazioni aziendali", w: { admin: 3 }, h: 5 },
+          { label: "Più appuntamenti prenotati", w: { sales: 3 }, h: 6 },
+          { label: "Rispondere più in fretta ai lead", w: { sales: 2, marketing: 1 }, h: 5 },
+          { label: "Liberare tempo al mio team", w: { admin: 3 }, h: 7 },
+          { label: "Un marketing che rende di più", w: { marketing: 3 }, h: 4 },
+          { label: "Mettere ordine nelle informazioni aziendali", w: { admin: 3 }, h: 5 },
         ],
       },
     ],
@@ -226,25 +226,25 @@ const COPY = {
       sales: {
         name: "Vendite & Acquisizione",
         plays: [
-          "Voice AI 24/7 che risponde e qualifica ogni chiamata",
-          "Recupero chiamate perse con follow-up SMS immediato",
+          "Agente vocale IA 24/7 che risponde e qualifica ogni chiamata",
+          "Recupero delle chiamate perse con SMS di follow-up immediato",
           "Automazioni social & WhatsApp che alimentano il tuo CRM",
         ],
       },
       admin: {
         name: "Operations & Company Brain",
         plays: [
-          "“Second Brain” RAG personalizzato sui tuoi documenti",
-          "OCR Scan-to-Brain per digitalizzare i documenti",
-          "Note vocali Audio-to-CRM, trascritte in automatico",
+          "Un “Second Brain” RAG sui tuoi documenti",
+          "OCR Scan-to-Brain per digitalizzare le pratiche",
+          "Note vocali trascritte e portate nel CRM in automatico",
         ],
       },
       marketing: {
         name: "Marketing & Crescita",
         plays: [
-          "AI Ads & Creative Agent su Meta & Google",
-          "Visibilità SEO / GEO su Google e ricerca AI",
-          "Workflow automatici per contenuti e reputazione",
+          "Agente IA per ads e creatività su Meta e Google",
+          "Visibilità SEO / GEO su Google e sulle ricerche IA",
+          "Workflow automatici per contenuti e reputazione online",
         ],
       },
     },
@@ -254,6 +254,7 @@ const COPY = {
 export default function OpportunityFinder() {
   const locale = usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
+  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
   const QUESTIONS = t.questions;
   const PILLAR_PLAYS = t.pillars;
 
@@ -563,7 +564,7 @@ export default function OpportunityFinder() {
                 </div>
 
                 <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-                  <CTAButton href={BOOKING} variant="secondary" size="medium" external className="w-full sm:w-auto">
+                  <CTAButton href={booking} variant="secondary" size="medium" external className="w-full sm:w-auto">
                     {t.buildCta}
                   </CTAButton>
                   <button

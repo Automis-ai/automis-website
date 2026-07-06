@@ -33,25 +33,25 @@ const COPY = {
   it: {
     eyebrow: "Come lavoriamo",
     title: "Un partner strategico, non un fornitore",
-    lead: "Individuiamo il collo di bottiglia prima di costruire. L'infrastruttura che realizziamo è tua: è il tuo sistema, non un abbonamento a cui resti legato alla cieca.",
+    lead: "Prima di costruire, individuiamo il collo di bottiglia. L'infrastruttura che realizziamo è tua: un sistema che ti appartiene, non un abbonamento a cui resti legato senza sapere cosa c'è dentro.",
     steps: [
       {
         step: "Step 1",
-        title: "Analizziamo e capiamo",
-        body: "Prima di toccare qualsiasi strumento, studiamo il tuo business. Mappiamo con precisione dove perdi tempo e denaro, poi decidiamo cosa conviene automatizzare per primo.",
+        title: "Analisi e diagnosi",
+        body: "Prima di mettere mano a qualsiasi strumento, studiamo il tuo business. Individuiamo con precisione dove perdi tempo e soldi, poi decidiamo cosa conviene automatizzare per primo.",
         meta: "Call conoscitiva + audit",
       },
       {
         step: "Step 2",
         title: "Progettiamo, costruiamo e attiviamo",
-        body: "Costruiamo il tuo sistema e tu lo testi prima che vada online. Niente parte finché non funziona come lavora davvero il tuo business.",
+        body: "Costruiamo il tuo sistema e tu lo provi prima che vada online. Niente parte finché non funziona come lavora davvero la tua attività.",
         meta: "~7 giorni per Voice e progetti semplici · su misura per i complessi",
       },
       {
         step: "Step 3",
         title: "Lanciamo, monitoriamo e ottimizziamo",
-        body: "Non spariamo dopo il lancio. Miglioriamo il sistema ogni mese con supervisione umana, così diventa sempre più efficace invece di invecchiare.",
-        meta: "Continuo, con supervisione umana",
+        body: "Dopo il lancio non spariamo. Ogni mese miglioriamo il sistema con supervisione umana, così diventa sempre più preciso invece di restare fermo.",
+        meta: "In continuo, con supervisione umana",
       },
     ],
   },

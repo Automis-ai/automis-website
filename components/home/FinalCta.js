@@ -31,30 +31,31 @@ const COPY = {
   },
   it: {
     eyebrow: "Costruiamolo insieme",
-    h2Pre: "Trova il sistema AI ",
+    h2Pre: "Scopri il sistema IA ",
     h2Grad: "che manca al tuo business",
     h2Post: ".",
     lead:
-      "Prenota una call e ti mostriamo esattamente dove l'AI può farti recuperare tempo, chiamate e fatturato. Senza tecnicismi, senza impegno.",
+      "Prenota una call: ti mostriamo nero su bianco dove l'IA può farti recuperare tempo, chiamate e fatturato. Zero tecnicismi, zero impegno.",
     bullets: [
-      "Una call di 30 minuti, senza pressioni",
-      "Individuiamo dove il tuo business perde tempo e denaro",
-      "Esci con una visione chiara delle tue migliori opportunità AI",
+      "Una call di 30 minuti, in tutta tranquillità",
+      "Scopriamo dove il tuo business sta perdendo tempo e soldi",
+      "Esci con le idee chiare sulle tue migliori opportunità IA",
     ],
     cta: "Prenota una call",
-    availability: "Disponibilità in tempo reale · call da 30 min",
+    availability: "Disponibilità aggiornata · call da 30 min",
     instantConfirmation: "Conferma immediata",
     loading: "Caricamento calendario…",
     iframeTitle: "Prenota una call con Automis",
     guarantee: "Garanzia sui risultati a 30 giorni",
     gdpr: "Conforme al GDPR",
-    noObligation: "Senza impegno",
+    noObligation: "Nessun impegno",
   },
 };
 
 export default function FinalCta() {
   const locale = usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
+  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
   const holderRef = useRef(null);
   const [inView, setInView] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -107,7 +108,7 @@ export default function FinalCta() {
                 ))}
               </ul>
               <a
-                href={BOOKING}
+                href={booking}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 inline-flex rounded-xl px-6 py-4 text-[15px] font-bold text-[#04101c] transition-transform hover:-translate-y-0.5 lg:hidden"
@@ -143,7 +144,7 @@ export default function FinalCta() {
                 {inView && (
                   <iframe
                     id="ghl-booking-iframe"
-                    src={`${BOOKING}?embed=true`}
+                    src={`${booking}?embed=true`}
                     title={t.iframeTitle}
                     className="block h-full w-full"
                     style={{ height: 780, minHeight: 760, border: "none", overflow: "auto" }}

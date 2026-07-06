@@ -9,7 +9,7 @@ const COPY = {
   },
   it: {
     eyebrow: "Si integra con gli strumenti che usi già",
-    tagline: "Se ha un'API, ci colleghiamo.",
+    tagline: "Se ha un'API, la colleghiamo.",
   },
 };
 

@@ -41,27 +41,27 @@ const COPY = {
       {
         client: "Clínica Santa Maria dos Olivais",
         meta: "Clinica dentale · Lisbona, PT",
-        tag: "Receptionist Voice AI",
+        tag: "Segretaria IA",
         result:
-          "Un receptionist AI che risponde alle chiamate in entrata 24 ore su 24, prenota le visite e recupera le chiamate fuori orario che prima finivano in segreteria.",
-        quote: "I pazienti ricevono risposta subito, giorno e notte, senza prenotazioni perse.",
+          "Una segretaria IA che risponde alle chiamate 24 ore su 24, fissa le visite e recupera anche le chiamate fuori orario che prima finivano in segreteria.",
+        quote: "I pazienti trovano sempre risposta, di giorno e di notte, senza perdere una prenotazione.",
       },
       {
         client: "Adifesa",
-        meta: "Finanza · cessione del quinto · IT",
+        meta: "Finanza · cessione del quinto · Monza, Italia",
         tag: "Automazione Meta",
         result:
-          "Ogni commento e messaggio su Meta viene gestito e qualificato in automatico, portando al team commerciale un flusso di lead costante e ordinato invece di una inbox caotica.",
-        quote: "I lead vengono catturati e qualificati prima ancora che qualcuno alzi un dito.",
+          "Ogni commento e messaggio su Meta viene gestito e qualificato in automatico: al team commerciale arriva un flusso di lead costante e ordinato, non più una inbox ingestibile.",
+        quote: "I lead vengono raccolti e qualificati prima ancora che qualcuno muova un dito.",
       },
     ],
     stats: [
       { value: "30-50%", label: "delle chiamate perse tipicamente recuperate" },
       { value: "<30s", label: "risposta media a un nuovo lead" },
       { value: "24/7", label: "copertura tra notti, weekend e festivi" },
-      { value: "~7 giorni", label: "per lanciare Voice e sistemi semplici" },
+      { value: "~7 giorni", label: "per attivare l'IA vocale e i sistemi semplici" },
     ],
-    eyebrow: "Fatti, non promesse",
+    eyebrow: "I risultati dei nostri clienti",
     title: <>Business veri. Sistemi veri. Già attivi.</>,
     lead: "Siamo un team guidato dai founder che costruisce per business reali. I sistemi qui sotto sono attivi in questo momento.",
     disclaimer:

@@ -40,28 +40,28 @@ const COPY = {
     title: "Risposte chiare, prima di prenotare",
     faqs: [
       {
-        q: "Quanto in fretta possiamo partire?",
-        a: "Voice agent e automazioni semplici sono operativi di solito in circa 7 giorni. I sistemi complessi e multi-pilastro seguono tempistiche su misura, che definiamo con precisione nella discovery call prima di iniziare qualsiasi cosa.",
+        q: "In quanto tempo si parte?",
+        a: "Gli agenti vocali IA e le automazioni semplici vanno di solito online in circa 7 giorni. I sistemi complessi e multi-pilastro hanno tempistiche su misura, che definiamo con precisione nella discovery call prima di partire.",
       },
       {
         q: "Quanto costa?",
-        a: "La nostra Voice AI ha piani mensili a prezzo fisso (trovi i prezzi nella pagina Voice AI). Tutto il resto lo quotiamo su misura dopo una discovery call, perché costruiamo attorno ai tuoi processi specifici e non su un pacchetto uguale per tutti.",
+        a: "Il nostro agente vocale IA ha piani mensili a prezzo fisso (trovi le tariffe nella pagina Voice AI). Tutto il resto lo quotiamo su misura dopo una discovery call, perché costruiamo attorno ai tuoi processi e non su un pacchetto uguale per tutti.",
       },
       {
         q: "I miei dati sono al sicuro? E il GDPR?",
-        a: "Sì. Siamo privacy-first per scelta, con server in UE o locali per dati sanitari e finanziari, e una gestione con supervisione umana per tutto ciò che è sensibile. Le tue informazioni restano dove devono.",
+        a: "Sì. La privacy viene prima di tutto: server in UE o in locale per dati sanitari e finanziari, e supervisione umana su tutto ciò che è sensibile. Le tue informazioni restano dove devono stare.",
       },
       {
-        q: "Mi serve personale tecnico per gestirlo?",
-        a: "No. Progettiamo, costruiamo, mettiamo online e manteniamo il sistema: tu lo usi e basta. E l'infrastruttura che ti consegniamo è tua, non è una scatola nera a cui non hai accesso.",
+        q: "Serve personale tecnico per gestirlo?",
+        a: "No. Progettiamo, costruiamo, mettiamo online e manteniamo il sistema: a te resta solo usarlo. E l'infrastruttura che ti consegniamo è tua, non una scatola nera a cui non puoi mettere mano.",
       },
       {
         q: "Cosa succede dopo il lancio?",
-        a: "Non spariamo. Ogni progetto include un'ottimizzazione mensile continua con supervisione umana, così il tuo sistema continua a migliorare invece di invecchiare. È questo che copre la partnership continuativa.",
+        a: "Non ci volatilizziamo. Ogni progetto include un'ottimizzazione mensile continua con supervisione umana, così il tuo sistema migliora nel tempo invece di arrugginirsi. È questo che copre la partnership continuativa.",
       },
       {
         q: "E se non funzionasse per noi?",
-        a: "Ogni piano Voice ha una garanzia sulle performance di 30 giorni, e i progetti su misura che prevedono un costo di setup includono il rimborso di quella quota. Il rischio del primo passo ce lo prendiamo noi.",
+        a: "Ogni piano Voice ha una garanzia sui risultati di 30 giorni, e i progetti su misura con costo di setup prevedono il rimborso di quella quota. Il rischio del primo passo ce lo prendiamo noi.",
       },
     ],
   },
