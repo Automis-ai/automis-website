@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Phone, CalendarCheck, Zap, MessageSquare, Check } from "lucide-react";
 
 /*
@@ -10,18 +11,49 @@ import { Phone, CalendarCheck, Zap, MessageSquare, Check } from "lucide-react";
   to the finished state for reduced-motion users.
 */
 
-const CHAT = [
-  { from: "bot", text: "Hi! Automis at Clínica Santa Maria. Would you like to book a check-up?" },
-  { from: "user", text: "Yes, is Thursday morning possible?" },
-  { from: "bot", text: "Thursday 9:30 is open. Booked, and you’ll get an SMS confirmation. 👋" },
-];
+const COPY = {
+  en: {
+    chat: [
+      { from: "bot", text: "Hi! Automis at Clínica Santa Maria. Would you like to book a check-up?" },
+      { from: "user", text: "Yes, is Thursday morning possible?" },
+      { from: "bot", text: "Thursday 9:30 is open. Booked, and you’ll get an SMS confirmation. 👋" },
+    ],
+    steps: [
+      { label: "Call answered & qualified", meta: "0s" },
+      { label: "Slot booked in calendar", meta: "4s" },
+      { label: "SMS + WhatsApp confirmation sent", meta: "6s" },
+      { label: "Lead pushed to CRM + follow-up set", meta: "8s" },
+    ],
+    incomingCall: "Incoming call",
+    callerMeta: "+351 · new patient",
+    aiAnswering: "AI answering",
+    bookedBanner: "Appointment booked · synced to calendar · CRM updated",
+    automationRunning: "Automation running",
+    zeroStaff: "Zero staff time · runs 24/7",
+  },
+  it: {
+    chat: [
+      { from: "bot", text: "Ciao! Sono Automis della Clínica Santa Maria. Vuoi prenotare un check-up?" },
+      { from: "user", text: "Sì, è possibile giovedì mattina?" },
+      { from: "bot", text: "Giovedì alle 9:30 è libero. Prenotato, riceverai un SMS di conferma. 👋" },
+    ],
+    steps: [
+      { label: "Chiamata risposta e qualificata", meta: "0s" },
+      { label: "Appuntamento fissato in calendario", meta: "4s" },
+      { label: "Conferma SMS + WhatsApp inviata", meta: "6s" },
+      { label: "Lead salvato nel CRM + follow-up impostato", meta: "8s" },
+    ],
+    incomingCall: "Chiamata in arrivo",
+    callerMeta: "+351 · nuovo paziente",
+    aiAnswering: "AI in risposta",
+    bookedBanner: "Appuntamento prenotato · sincronizzato in calendario · CRM aggiornato",
+    automationRunning: "Automazione in esecuzione",
+    zeroStaff: "Zero tempo del personale · attivo 24/7",
+  },
+};
 
-const STEPS = [
-  { icon: Phone, label: "Call answered & qualified", meta: "0s" },
-  { icon: CalendarCheck, label: "Slot booked in calendar", meta: "4s" },
-  { icon: MessageSquare, label: "SMS + WhatsApp confirmation sent", meta: "6s" },
-  { icon: Zap, label: "Lead pushed to CRM + follow-up set", meta: "8s" },
-];
+// Icons stay paired to the automation rows by index; labels/meta come from COPY.
+const STEP_ICONS = [Phone, CalendarCheck, MessageSquare, Zap];
 
 // step: 0 idle · 1 bot-typing · 2 bot1 · 3 user-typing · 4 user · 5 bot-typing
 //       · 6 bot2 · 7 booked · 8 complete (hold, then loop)
@@ -34,6 +66,8 @@ const VISIBLE_AT = { 0: 0, 1: 0, 2: 1, 3: 1, 4: 2, 5: 2, 6: 3, 7: 3, 8: 3 };
 const TYPING_AT = { 1: "bot", 3: "user", 5: "bot" };
 
 export default function HeroDemo() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
   const [step, setStep] = useState(0);
   const rootRef = useRef(null);
   const timerRef = useRef(null);
@@ -107,17 +141,17 @@ export default function HeroDemo() {
               <span className="absolute -inset-0.5 rounded-full border border-[#57C7E3]/40 animate-ping" style={{ animationDuration: "2.2s" }} />
             </span>
             <div className="text-left">
-              <p className="text-sm font-semibold text-white">Incoming call</p>
-              <p className="text-[12px] text-white/45">+351 · new patient</p>
+              <p className="text-sm font-semibold text-white">{t.incomingCall}</p>
+              <p className="text-[12px] text-white/45">{t.callerMeta}</p>
             </div>
           </div>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#57C7E3]/12 px-2.5 py-1 text-[11px] font-semibold text-[#8fe0f0]">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#57C7E3]" /> AI answering
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#57C7E3]" /> {t.aiAnswering}
           </span>
         </div>
 
         <div className="mt-4 min-h-[188px] space-y-2.5">
-          {CHAT.map((m, i) => {
+          {t.chat.map((m, i) => {
             const shown = i < visible;
             const isUser = m.from === "user";
             return (
@@ -173,16 +207,16 @@ export default function HeroDemo() {
           }}
         >
           <CalendarCheck className="h-4 w-4 flex-shrink-0 text-[#8fe0f0]" strokeWidth={2} />
-          <p className="text-[12.5px] text-white/75">Appointment booked · synced to calendar · CRM updated</p>
+          <p className="text-[12.5px] text-white/75">{t.bookedBanner}</p>
         </div>
       </div>
 
       {/* Right: automation timeline */}
       <div className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-5">
-        <p className="text-left text-[11px] font-semibold uppercase tracking-[0.18em] text-white/40">Automation running</p>
+        <p className="text-left text-[11px] font-semibold uppercase tracking-[0.18em] text-white/40">{t.automationRunning}</p>
         <div className="mt-4 space-y-3.5">
-          {STEPS.map((s, i) => {
-            const Icon = s.icon;
+          {t.steps.map((s, i) => {
+            const Icon = STEP_ICONS[i];
             const active = step >= rowActiveAt[i];
             return (
               <div key={i} className="flex items-center gap-3" style={{ transition: "opacity .4s ease", opacity: active ? 1 : 0.4 }}>
@@ -216,7 +250,7 @@ export default function HeroDemo() {
           className="mt-4 rounded-lg px-3 py-2.5 text-left"
           style={{ background: "rgba(245,205,121,0.08)", border: "1px solid rgba(245,205,121,0.22)" }}
         >
-          <p className="text-[12.5px] font-medium text-[#F5CD79]">Zero staff time · runs 24/7</p>
+          <p className="text-[12.5px] font-medium text-[#F5CD79]">{t.zeroStaff}</p>
         </div>
       </div>
 

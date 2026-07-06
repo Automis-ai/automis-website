@@ -1,5 +1,17 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { TOOL_ICONS } from "./toolIcons";
+
+const COPY = {
+  en: {
+    eyebrow: "Connects to the tools you already run",
+    tagline: "If it has an API, we connect to it.",
+  },
+  it: {
+    eyebrow: "Si integra con gli strumenti che usi già",
+    tagline: "Se ha un'API, ci colleghiamo.",
+  },
+};
 
 function Mark({ item }) {
   return (
@@ -25,6 +37,8 @@ function GHLMark() {
 }
 
 export default function ToolsStrip() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
   const items = [
     ...TOOL_ICONS.slice(0, 4).map((it) => <Mark key={it.name} item={it} />),
     <GHLMark key="ghl" />,
@@ -36,7 +50,7 @@ export default function ToolsStrip() {
   return (
     <div className="relative">
       <p className="text-center text-[11px] font-medium uppercase tracking-[0.22em] text-white/60">
-        Connects to the tools you already run
+        {t.eyebrow}
       </p>
       <div className="tools-marquee-mask relative mt-6 overflow-hidden">
         <div className="tools-marquee flex w-max items-center gap-10">
@@ -48,7 +62,7 @@ export default function ToolsStrip() {
         </div>
       </div>
       <p className="mt-5 text-center text-[13px] font-medium italic text-white/55">
-        If it has an API, we connect to it.
+        {t.tagline}
       </p>
 
       <style jsx global>{`

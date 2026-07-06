@@ -22,7 +22,14 @@ export const metadata = {
     "AI for small business",
     "AI receptionist",
   ],
-  alternates: { canonical: "https://automis.ai/" },
+  alternates: {
+    canonical: "https://automis.ai/",
+    languages: {
+      en: "https://automis.ai/",
+      "it-IT": "https://automis.ai/it",
+      "x-default": "https://automis.ai/",
+    },
+  },
   openGraph: {
     title: "Automis | The AI automation agency that builds the system your business is missing",
     description:

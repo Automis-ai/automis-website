@@ -1,29 +1,78 @@
 "use client";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Section, SectionHeading, Reveal, GRAD } from "./_ui";
 import { Stethoscope, Landmark, Quote } from "lucide-react";
 
-const CASES = [
-  {
-    icon: Stethoscope,
-    logo: "/assets/images/client-logos/clinica-santa-maria.png",
-    client: "Clínica Santa Maria dos Olivais",
-    meta: "Dental clinic · Lisbon, PT",
-    tag: "Voice AI receptionist",
-    result:
-      "An AI receptionist that answers inbound calls around the clock, booking check-ups and recovering the after-hours calls that used to hit voicemail.",
-    quote: "Patients get answered instantly, day or night, with no missed bookings.",
+const COPY = {
+  en: {
+    cases: [
+      {
+        client: "Clínica Santa Maria dos Olivais",
+        meta: "Dental clinic · Lisbon, PT",
+        tag: "Voice AI receptionist",
+        result:
+          "An AI receptionist that answers inbound calls around the clock, booking check-ups and recovering the after-hours calls that used to hit voicemail.",
+        quote: "Patients get answered instantly, day or night, with no missed bookings.",
+      },
+      {
+        client: "Adifesa",
+        meta: "Finance · cessione del quinto · IT",
+        tag: "Meta automation",
+        result:
+          "Every comment and DM across Meta answered and qualified automatically, feeding a steady, organized flow of leads to the sales team instead of a noisy inbox.",
+        quote: "Leads are captured and qualified before anyone lifts a finger.",
+      },
+    ],
+    stats: [
+      { value: "30-50%", label: "of missed calls typically recovered" },
+      { value: "<30s", label: "average response to a new lead" },
+      { value: "24/7", label: "coverage across nights, weekends, holidays" },
+      { value: "~7 days", label: "to launch Voice & simple systems" },
+    ],
+    eyebrow: "Proof, not promises",
+    title: <>Real businesses. Real systems. Already running.</>,
+    lead: "We're a founder-led team building for real businesses. The systems below are live right now.",
+    disclaimer:
+      "Figures are typical, conservative estimates based on our deployments. Your results depend on call volume, market, and setup.",
   },
-  {
-    icon: Landmark,
-    logo: "/assets/images/client-logos/adifesa.png",
-    client: "Adifesa",
-    meta: "Finance · cessione del quinto · IT",
-    tag: "Meta automation",
-    result:
-      "Every comment and DM across Meta answered and qualified automatically, feeding a steady, organized flow of leads to the sales team instead of a noisy inbox.",
-    quote: "Leads are captured and qualified before anyone lifts a finger.",
+  it: {
+    cases: [
+      {
+        client: "Clínica Santa Maria dos Olivais",
+        meta: "Clinica dentale · Lisbona, PT",
+        tag: "Receptionist Voice AI",
+        result:
+          "Un receptionist AI che risponde alle chiamate in entrata 24 ore su 24, prenota le visite e recupera le chiamate fuori orario che prima finivano in segreteria.",
+        quote: "I pazienti ricevono risposta subito, giorno e notte, senza prenotazioni perse.",
+      },
+      {
+        client: "Adifesa",
+        meta: "Finanza · cessione del quinto · IT",
+        tag: "Automazione Meta",
+        result:
+          "Ogni commento e messaggio su Meta viene gestito e qualificato in automatico, portando al team commerciale un flusso di lead costante e ordinato invece di una inbox caotica.",
+        quote: "I lead vengono catturati e qualificati prima ancora che qualcuno alzi un dito.",
+      },
+    ],
+    stats: [
+      { value: "30-50%", label: "delle chiamate perse tipicamente recuperate" },
+      { value: "<30s", label: "risposta media a un nuovo lead" },
+      { value: "24/7", label: "copertura tra notti, weekend e festivi" },
+      { value: "~7 giorni", label: "per lanciare Voice e sistemi semplici" },
+    ],
+    eyebrow: "Fatti, non promesse",
+    title: <>Business veri. Sistemi veri. Già attivi.</>,
+    lead: "Siamo un team guidato dai founder che costruisce per business reali. I sistemi qui sotto sono attivi in questo momento.",
+    disclaimer:
+      "I dati sono stime tipiche e prudenti basate sui nostri progetti. I tuoi risultati dipendono dal volume di chiamate, dal mercato e dalla configurazione.",
   },
+};
+
+const CASE_ICONS = [Stethoscope, Landmark];
+const CASE_LOGOS = [
+  "/assets/images/client-logos/clinica-santa-maria.png",
+  "/assets/images/client-logos/adifesa.png",
 ];
 
 // Shows the real client logo on a light chip; falls back to the icon until the
@@ -44,20 +93,17 @@ function ClientMark({ logo, Icon, name }) {
   );
 }
 
-const STATS = [
-  { value: "30-50%", label: "of missed calls typically recovered" },
-  { value: "<30s", label: "average response to a new lead" },
-  { value: "24/7", label: "coverage across nights, weekends, holidays" },
-  { value: "~7 days", label: "to launch Voice & simple systems" },
-];
-
 export default function Proof() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
+  const CASES = t.cases.map((c, i) => ({ ...c, icon: CASE_ICONS[i], logo: CASE_LOGOS[i] }));
+  const STATS = t.stats;
   return (
     <Section id="proof" className="bg-[#020a12]">
       <SectionHeading
-        eyebrow="Proof, not promises"
-        title={<>Real businesses. Real systems. Already running.</>}
-        lead="We're a founder-led team building for real businesses. The systems below are live right now."
+        eyebrow={t.eyebrow}
+        title={t.title}
+        lead={t.lead}
       />
 
       <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -102,7 +148,7 @@ export default function Proof() {
       </Reveal>
       <Reveal>
         <p className="mt-4 text-center text-[12px] text-white/50">
-          Figures are typical, conservative estimates based on our deployments. Your results depend on call volume, market, and setup.
+          {t.disclaimer}
         </p>
       </Reveal>
     </Section>

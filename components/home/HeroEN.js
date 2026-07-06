@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { Reveal } from "./_ui";
 import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 import { WavyBackground } from "@/components/ui/WavyBackground";
@@ -8,7 +9,36 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
+const COPY = {
+  en: {
+    eyebrow: "AI Automation Agency",
+    h1_pre: "We build the ",
+    h1_word1: "systems",
+    h1_mid: " your business is",
+    h1_word2: "missing",
+    h1_post: ".",
+    subhead:
+      "We map exactly where your business loses time and money: the calls you miss, the leads that go cold, the admin that piles up. Then we build the AI agents and automations to fix it.",
+    ctaPrimary: "Book Discovery Call",
+    ctaSecondary: "Find your AI opportunities",
+  },
+  it: {
+    eyebrow: "Agenzia di automazione AI",
+    h1_pre: "Costruiamo i ",
+    h1_word1: "sistemi",
+    h1_mid: " che",
+    h1_word2: "mancano",
+    h1_post: " al tuo business.",
+    subhead:
+      "Individuiamo con precisione dove il tuo business perde tempo e denaro: le chiamate che perdi, i lead che si raffreddano, il lavoro amministrativo che si accumula. Poi costruiamo gli agenti AI e le automazioni per risolverlo.",
+    ctaPrimary: "Prenota una call",
+    ctaSecondary: "Scopri le tue opportunità AI",
+  },
+};
+
 export default function HeroEN() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
   return (
     <section id="hero" className="relative overflow-hidden bg-deep-blue">
       {/* Animated wavy background (brand palette) — an aurora ribbon confined to
@@ -35,21 +65,20 @@ export default function HeroEN() {
           <Reveal immediate>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-[12px] font-medium uppercase tracking-[0.16em] text-white/70 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: "linear-gradient(120deg,#3C91E6,#57C7E3)", boxShadow: "0 0 10px rgba(87,199,227,0.8)" }} />
-              AI Automation Agency
+              {t.eyebrow}
             </span>
           </Reveal>
 
           <Reveal delay={80} immediate>
             <h1 className="font-display mx-auto mt-7 max-w-[15ch] text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-[3.6rem] md:text-[4.4rem]">
-              We build the <span className="text-[#3C91E6]">systems</span> your business is{" "}
-              <span className="text-[#3C91E6]">missing</span>.
+              {t.h1_pre}<span className="text-[#3C91E6]">{t.h1_word1}</span>{t.h1_mid}{" "}
+              <span className="text-[#3C91E6]">{t.h1_word2}</span>{t.h1_post}
             </h1>
           </Reveal>
 
           <Reveal delay={160} immediate>
             <p className="mx-auto mt-5 max-w-2xl text-[0.95rem] leading-relaxed text-white/70 sm:mt-7 sm:text-[1.05rem] md:text-[1.2rem]">
-              We map exactly where your business loses time and money: the calls you miss, the leads
-              that go cold, the admin that piles up. Then we build the AI agents and automations to fix it.
+              {t.subhead}
             </p>
           </Reveal>
 
@@ -62,14 +91,14 @@ export default function HeroEN() {
                 variant="solid"
                 className="w-full sm:w-auto"
               >
-                Book Discovery Call
+                {t.ctaPrimary}
               </InteractiveHoverButton>
               <a
                 href="#opportunity-finder"
                 className="group inline-flex items-center gap-2 rounded-xl px-5 py-4 text-base font-semibold text-white/85 transition-colors hover:text-white"
               >
                 <Sparkles className="h-4 w-4 text-[#57C7E3]" strokeWidth={2} />
-                Find your AI opportunities
+                {t.ctaSecondary}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2} />
               </a>
             </div>

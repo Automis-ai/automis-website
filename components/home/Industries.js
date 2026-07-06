@@ -1,66 +1,115 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { Section, SectionHeading } from "./_ui";
 import SwipeRow from "./SwipeRow";
 import { HeartPulse, Scale, Building2, Store, ShoppingBag, UtensilsCrossed, ShieldCheck } from "lucide-react";
 
-const ICPS = [
-  {
-    icon: HeartPulse,
-    title: "Healthcare",
-    sub: "Clinics · dentists · medspas",
-    body: "Privacy-first AI that answers and books 24/7 and handles patient intake, so no call goes to voicemail and no chart gets lost.",
-    proven: "Proven with Clínica Santa Maria dos Olivais",
+const ICONS = [HeartPulse, Scale, Building2, Store, ShoppingBag, UtensilsCrossed];
+
+const COPY = {
+  en: {
+    eyebrow: "Who we build for",
+    title: "Built around your industry, not a template",
+    lead: "Bespoke systems shaped around each sector's real bottlenecks, compliance needs, and way of winning customers. Never a one-size template.",
+    icps: [
+      {
+        title: "Healthcare",
+        sub: "Clinics · dentists · medspas",
+        body: "Privacy-first AI that answers and books 24/7 and handles patient intake, so no call goes to voicemail and no chart gets lost.",
+        proven: "Proven with Clínica Santa Maria dos Olivais",
+      },
+      {
+        title: "Professional & Financial Services",
+        sub: "Lawyers · accountants · finance",
+        body: "Instant lead qualification plus a Company Brain over your legal and financial documents, and voice notes written straight into your CRM.",
+        proven: "Proven with Adifesa",
+      },
+      {
+        title: "Real Estate",
+        sub: "Agencies · brokers",
+        body: "24/7 responses to every inquiry and AI that matches buyer requests to the right listings. Speed-to-lead that wins the deal.",
+        proven: null,
+      },
+      {
+        title: "Local Businesses",
+        sub: "Services · trades · local shops",
+        body: "Stop missing calls and automate the social DMs, with a system that captures every lead while you get on with the work.",
+        proven: null,
+      },
+      {
+        title: "E-commerce & Retail",
+        sub: "Online stores · retail",
+        body: "AI that answers order, shipping, and returns questions around the clock, plus WhatsApp and social flows that turn browsers into buyers.",
+        proven: null,
+      },
+      {
+        title: "Hospitality & Restaurants",
+        sub: "Restaurants · hotels · bookings",
+        body: "A voice agent that takes bookings and answers FAQs 24/7, cutting no-shows and freeing your floor staff to look after guests.",
+        proven: null,
+      },
+    ],
   },
-  {
-    icon: Scale,
-    title: "Professional & Financial Services",
-    sub: "Lawyers · accountants · finance",
-    body: "Instant lead qualification plus a Company Brain over your legal and financial documents, and voice notes written straight into your CRM.",
-    proven: "Proven with Adifesa",
+  it: {
+    eyebrow: "Per chi costruiamo",
+    title: "Su misura per il tuo settore, non un template",
+    lead: "Sistemi costruiti attorno ai veri colli di bottiglia di ogni settore, alle sue esigenze di conformità e al suo modo di conquistare clienti. Mai un template preconfezionato.",
+    icps: [
+      {
+        title: "Sanità",
+        sub: "Cliniche · dentisti · medspa",
+        body: "AI attenta alla privacy che risponde e prenota 24/7 e gestisce l'accoglienza dei pazienti: nessuna chiamata finisce in segreteria e nessuna cartella va persa.",
+        proven: "Provato con Clínica Santa Maria dos Olivais",
+      },
+      {
+        title: "Servizi Professionali e Finanziari",
+        sub: "Avvocati · commercialisti · finanza",
+        body: "Qualifica dei lead in tempo reale e un Company Brain sui tuoi documenti legali e finanziari, con note vocali scritte direttamente nel tuo CRM.",
+        proven: "Provato con Adifesa",
+      },
+      {
+        title: "Immobiliare",
+        sub: "Agenzie · broker",
+        body: "Risposte 24/7 a ogni richiesta e AI che abbina le esigenze dell'acquirente agli immobili giusti. La velocità di risposta che chiude la trattativa.",
+        proven: null,
+      },
+      {
+        title: "Attività Locali",
+        sub: "Servizi · artigiani · negozi locali",
+        body: "Basta chiamate perse e DM social automatizzati, con un sistema che cattura ogni lead mentre tu ti concentri sul lavoro.",
+        proven: null,
+      },
+      {
+        title: "E-commerce e Retail",
+        sub: "Negozi online · retail",
+        body: "AI che risponde a domande su ordini, spedizioni e resi 24 ore su 24, più flussi WhatsApp e social che trasformano i curiosi in clienti.",
+        proven: null,
+      },
+      {
+        title: "Ospitalità e Ristorazione",
+        sub: "Ristoranti · hotel · prenotazioni",
+        body: "Un agente vocale che prende le prenotazioni e risponde alle domande frequenti 24/7, riducendo i no-show e liberando il personale di sala per gli ospiti.",
+        proven: null,
+      },
+    ],
   },
-  {
-    icon: Building2,
-    title: "Real Estate",
-    sub: "Agencies · brokers",
-    body: "24/7 responses to every inquiry and AI that matches buyer requests to the right listings. Speed-to-lead that wins the deal.",
-    proven: null,
-  },
-  {
-    icon: Store,
-    title: "Local Businesses",
-    sub: "Services · trades · local shops",
-    body: "Stop missing calls and automate the social DMs, with a system that captures every lead while you get on with the work.",
-    proven: null,
-  },
-  {
-    icon: ShoppingBag,
-    title: "E-commerce & Retail",
-    sub: "Online stores · retail",
-    body: "AI that answers order, shipping, and returns questions around the clock, plus WhatsApp and social flows that turn browsers into buyers.",
-    proven: null,
-  },
-  {
-    icon: UtensilsCrossed,
-    title: "Hospitality & Restaurants",
-    sub: "Restaurants · hotels · bookings",
-    body: "A voice agent that takes bookings and answers FAQs 24/7, cutting no-shows and freeing your floor staff to look after guests.",
-    proven: null,
-  },
-];
+};
 
 export default function Industries() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
   return (
     <Section id="industries" className="bg-deep-blue">
       <SectionHeading
-        eyebrow="Who we build for"
-        title={<>Built around your industry, not a template</>}
-        lead="Bespoke systems shaped around each sector's real bottlenecks, compliance needs, and way of winning customers — never a one-size template."
+        eyebrow={t.eyebrow}
+        title={<>{t.title}</>}
+        lead={t.lead}
       />
       <SwipeRow
         className="mt-14"
         gridClassName="md:grid-cols-2"
-        items={ICPS.map((ic) => {
-          const Icon = ic.icon;
+        items={t.icps.map((ic, i) => {
+          const Icon = ICONS[i];
           return (
               <div key={ic.title} className="card-gold group flex h-full items-start gap-5 rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 hover:bg-white/[0.05]">
                 <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] transition-colors group-hover:border-[#57C7E3]/40">

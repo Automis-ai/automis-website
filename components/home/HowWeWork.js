@@ -1,45 +1,79 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { Section, SectionHeading, GRAD } from "./_ui";
 import SwipeRow from "./SwipeRow";
 import { Search, Wrench, LineChart } from "lucide-react";
 
-const STEPS = [
-  {
-    icon: Search,
-    step: "Step 1",
-    title: "Discover & Diagnose",
-    body: "We learn your business before touching a single tool. We map exactly where you lose time and money, then decide what's worth automating first.",
-    meta: "Discovery call + audit",
+const COPY = {
+  en: {
+    eyebrow: "How we work",
+    title: "A strategic integrator, not a vendor",
+    lead: "We diagnose the bottleneck before we build. You own the infrastructure we deliver. It's your system, not a subscription you're locked into blind.",
+    steps: [
+      {
+        step: "Step 1",
+        title: "Discover & Diagnose",
+        body: "We learn your business before touching a single tool. We map exactly where you lose time and money, then decide what's worth automating first.",
+        meta: "Discovery call + audit",
+      },
+      {
+        step: "Step 2",
+        title: "Design, Build & Deploy",
+        body: "We build your system and you test it before it goes live. Nothing ships until it works the way your business actually runs.",
+        meta: "~7 days for Voice & simple · custom for complex",
+      },
+      {
+        step: "Step 3",
+        title: "Launch, Monitor & Optimize",
+        body: "We don't disappear after go-live. Continuous monthly improvement with human oversight, so your system gets sharper every month, not stale.",
+        meta: "Ongoing, with human-in-the-loop",
+      },
+    ],
   },
-  {
-    icon: Wrench,
-    step: "Step 2",
-    title: "Design, Build & Deploy",
-    body: "We build your system and you test it before it goes live. Nothing ships until it works the way your business actually runs.",
-    meta: "~7 days for Voice & simple · custom for complex",
+  it: {
+    eyebrow: "Come lavoriamo",
+    title: "Un partner strategico, non un fornitore",
+    lead: "Individuiamo il collo di bottiglia prima di costruire. L'infrastruttura che realizziamo è tua: è il tuo sistema, non un abbonamento a cui resti legato alla cieca.",
+    steps: [
+      {
+        step: "Step 1",
+        title: "Analizziamo e capiamo",
+        body: "Prima di toccare qualsiasi strumento, studiamo il tuo business. Mappiamo con precisione dove perdi tempo e denaro, poi decidiamo cosa conviene automatizzare per primo.",
+        meta: "Call conoscitiva + audit",
+      },
+      {
+        step: "Step 2",
+        title: "Progettiamo, costruiamo e attiviamo",
+        body: "Costruiamo il tuo sistema e tu lo testi prima che vada online. Niente parte finché non funziona come lavora davvero il tuo business.",
+        meta: "~7 giorni per Voice e progetti semplici · su misura per i complessi",
+      },
+      {
+        step: "Step 3",
+        title: "Lanciamo, monitoriamo e ottimizziamo",
+        body: "Non spariamo dopo il lancio. Miglioriamo il sistema ogni mese con supervisione umana, così diventa sempre più efficace invece di invecchiare.",
+        meta: "Continuo, con supervisione umana",
+      },
+    ],
   },
-  {
-    icon: LineChart,
-    step: "Step 3",
-    title: "Launch, Monitor & Optimize",
-    body: "We don't disappear after go-live. Continuous monthly improvement with human oversight, so your system gets sharper every month, not stale.",
-    meta: "Ongoing, with human-in-the-loop",
-  },
-];
+};
+
+const STEP_ICONS = [Search, Wrench, LineChart];
 
 export default function HowWeWork() {
+  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const t = COPY[locale];
   return (
     <Section id="how" className="bg-deep-blue">
       <SectionHeading
-        eyebrow="How we work"
-        title={<>A strategic integrator, not a vendor</>}
-        lead="We diagnose the bottleneck before we build. You own the infrastructure we deliver. It's your system, not a subscription you're locked into blind."
+        eyebrow={t.eyebrow}
+        title={<>{t.title}</>}
+        lead={t.lead}
       />
       <SwipeRow
         className="mt-14"
         gridClassName="md:grid-cols-3"
-        items={STEPS.map((s) => {
-          const Icon = s.icon;
+        items={t.steps.map((s, i) => {
+          const Icon = STEP_ICONS[i];
           return (
               <div key={s.step} className="card-gold group flex h-full flex-col items-start rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 backdrop-blur-sm hover:-translate-y-1">
                 <span

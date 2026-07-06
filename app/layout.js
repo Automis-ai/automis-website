@@ -29,11 +29,10 @@ const openSans = Open_Sans({
 export const metadata = {
   metadataBase: new URL("https://automis.ai"),
   title: {
-    template: "Automis - AI Powered Marketing and booking",
-    default: "Automis - AI Powered Marketing and booking ",
+    default: "Automis | AI Automation Agency for Business",
   },
   description:
-    "Automis is an AI powered marketing and booking platform that helps businesses automate their marketing efforts and streamline their booking processes.",
+    "Automis is a strategic AI automation agency. We build the AI voice agents, automations, and company-brain systems your business is missing, end to end.",
 };
 
 export default function RootLayout({ children }) {
