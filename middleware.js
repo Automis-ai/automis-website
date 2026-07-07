@@ -15,7 +15,8 @@ const ENGLISH_ROOT_PAGES = new Set([
   "jumpstart-audit",
   "ai-automations",
   "voice-ai",
-  "consultation"
+  "consultation",
+  "arcangelo"
 ]);
 
 export function middleware(req) {
