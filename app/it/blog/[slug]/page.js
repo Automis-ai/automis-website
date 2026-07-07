@@ -1,4 +1,4 @@
-import AkpagerLayout from "@/layouts/AkpagerLayout";
+import AutomisEnShell from "@/components/site/AutomisEnShell";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CTAButton from "@/components/CTAButton";
@@ -21,12 +21,22 @@ export async function generateMetadata({ params }) {
       description: "L'articolo richiesto non è disponibile.",
     };
   }
+  const url = `https://automis.ai/it/blog/${params.slug}`;
   return {
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.description,
+    alternates: {
+      canonical: url,
+      languages: {
+        en: `https://automis.ai/blog/${params.slug}`,
+        "it-IT": `https://automis.ai/it/blog/${params.slug}`,
+        "x-default": `https://automis.ai/blog/${params.slug}`,
+      },
+    },
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.description,
+      url,
       type: "article",
       publishedTime: post.date,
     },
@@ -38,7 +48,7 @@ const BlogPostPage = ({ params }) => {
   if (!post) notFound();
 
   return (
-    <AkpagerLayout>
+    <AutomisEnShell>
       {/* ── HERO ── */}
       <section
         className="hero-padding bg-bg-primary relative z-1 bgs-cover text-center"
@@ -144,7 +154,7 @@ const BlogPostPage = ({ params }) => {
           </div>
         </div>
       </section>
-    </AkpagerLayout>
+    </AutomisEnShell>
   );
 };
 
