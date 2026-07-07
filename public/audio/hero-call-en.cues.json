@@ -1,49 +1,49 @@
 [
   {
     "start": 0,
-    "end": 2.4,
+    "end": 1.99,
     "speaker": "agent",
     "name": "Automis",
     "text": "Automis, good evening. How can I help you?"
   },
   {
-    "start": 2.85,
-    "end": 5.6,
+    "start": 2.44,
+    "end": 4.66,
     "speaker": "caller",
     "name": "Caller",
     "text": "Good evening. I'd like to book an appointment."
   },
   {
-    "start": 6.05,
-    "end": 10.6,
+    "start": 5.11,
+    "end": 9.55,
     "speaker": "agent",
     "name": "Automis",
-    "text": "Of course. I have a slot on Thursday, at half past ten. Does that work for you?"
+    "text": "Of course. I have an opening on Thursday at ten thirty. Does that work for you?"
   },
   {
-    "start": 11.05,
-    "end": 12.4,
+    "start": 10,
+    "end": 11.28,
     "speaker": "caller",
     "name": "Caller",
     "text": "Yes, that's perfect."
   },
   {
-    "start": 12.85,
-    "end": 17.6,
+    "start": 11.73,
+    "end": 15.75,
     "speaker": "agent",
     "name": "Automis",
     "text": "Great. I've just sent you a text with the confirmation. Anything else?"
   },
   {
-    "start": 18.05,
-    "end": 19.5,
+    "start": 16.2,
+    "end": 17.9,
     "speaker": "caller",
     "name": "Caller",
     "text": "No, thank you so much."
   },
   {
-    "start": 19.95,
-    "end": 22.1,
+    "start": 18.35,
+    "end": 20.75,
     "speaker": "agent",
     "name": "Automis",
     "text": "You're welcome. Have a wonderful evening!"
