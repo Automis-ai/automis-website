@@ -34,6 +34,8 @@ const COPY = {
     roadmapReady: "Your roadmap is ready",
     top3Title: "Your top 3 automations",
     pdfDownloaded: "Your PDF roadmap just downloaded. A copy is on its way to your inbox.",
+    newsletterNote: "You're also on the Automis list, so you'll get occasional AI news, tips, and updates. Unsubscribe anytime.",
+    spamNote: "Don't see the email? Check your spam or promotions folder.",
     buildCta: "Want us to build these? Book a call",
     downloadAgain: "Download PDF again",
     disclaimer: "Estimates are indicative and depend on your volume and setup.",
@@ -153,6 +155,8 @@ const COPY = {
     roadmapReady: "La tua roadmap è pronta",
     top3Title: "Le tue 3 automazioni top",
     pdfDownloaded: "La tua roadmap PDF è stata scaricata. Una copia sta arrivando nella tua email.",
+    newsletterNote: "Entri anche nella lista Automis: ogni tanto riceverai novità, consigli e aggiornamenti sull'IA. Ti disiscrivi quando vuoi.",
+    spamNote: "Non vedi l'email? Controlla la cartella spam o promozioni.",
     buildCta: "Vuoi che le costruiamo noi? Prenota una call",
     downloadAgain: "Scarica di nuovo il PDF",
     disclaimer: "Le stime sono indicative e variano in base ai tuoi volumi e alla configurazione.",
@@ -346,7 +350,7 @@ export default function OpportunityFinder() {
     const mod = await import("./roadmapPdf");
     // Locale-specific base tag + one of the 6 variant tags, so EN and IT nurture
     // flows stay separate in GHL.
-    const tags = [`opportunity-finder-${locale}`, mod.variantTag(roadmap.primary, roadmap.secondary)];
+    const tags = [`opportunity-finder-${locale}`, mod.variantTag(roadmap.primary, roadmap.secondary), "newsletter"];
     const roadmapUrl = roadmapLink(roadmap);
     // Lead capture (best-effort). GHL emails the roadmap link + starts nurture.
     try {
@@ -600,6 +604,9 @@ export default function OpportunityFinder() {
                   <Check className="h-4 w-4 flex-shrink-0 text-[#8fe0f0]" strokeWidth={2.4} />
                   {t.pdfDownloaded}
                 </div>
+
+                <p className="mt-3 text-center text-[12.5px] leading-relaxed text-white/60">{t.newsletterNote}</p>
+                <p className="mt-1 text-center text-[12px] text-white/45">{t.spamNote}</p>
 
                 <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                   <CTAButton href={booking} variant="secondary" size="medium" external className="w-full sm:w-auto">
