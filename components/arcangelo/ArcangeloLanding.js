@@ -61,7 +61,7 @@ function Reveal({ children, delay = 0, y = 24, className = "" }) {
 
 // External destinations. BOOKING is the same placeholder used elsewhere on the
 // site; swap for the live calendar once confirmed.
-const VOICE = "https://voice.automis.ai";
+const VOICE = "https://voice.automis.ai/en";
 const WEBSITE = "https://automis.ai";
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/arcangelo-automis";
 
