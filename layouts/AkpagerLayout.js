@@ -47,14 +47,22 @@ const AkpagerLayout = ({
       const documentHeight = document.documentElement.scrollHeight;
 
       const footer = document.querySelector(".main-footer");
-      if (footer) {
-        const footerRect = footer.getBoundingClientRect();
-        const footerTop = footerRect.top + scrollY;
+      const footerTop = footer
+        ? footer.getBoundingClientRect().top + scrollY
+        : documentHeight - windowHeight * 1.5;
 
-        setShowStickyButton(scrollY > 300 && scrollY < footerTop - windowHeight);
-      } else {
-        setShowStickyButton(scrollY > 300 && scrollY < documentHeight - windowHeight * 1.5);
-      }
+      // Don't cover / compete with the Opportunity Finder or the booking calendar.
+      const covered = ["#opportunity-finder", "#book"].some((sel) => {
+        const el = document.querySelector(sel);
+        if (!el) return false;
+        const r = el.getBoundingClientRect();
+        return r.top < windowHeight * 0.9 && r.bottom > windowHeight * 0.15;
+      });
+
+      // Only after the hero (and its own CTA) has scrolled away.
+      const pastHero = scrollY > windowHeight * 0.85;
+
+      setShowStickyButton(pastHero && scrollY < footerTop - windowHeight && !covered);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -83,7 +91,8 @@ const AkpagerLayout = ({
         >
           <div className="mobile-sticky-glow relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-middle via-yellow-light to-blue-lightest rounded-xl blur-lg opacity-60 group-hover:opacity-90 animate-pulse-glow"></div>
-            <div className="relative">
+            {/* solid backdrop so page content never bleeds through the pill */}
+            <div className="relative rounded-xl bg-[#000a14]">
               <CTAButton
                 href={stickyCtaHref}
                 variant="secondary"

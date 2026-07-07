@@ -29,6 +29,15 @@ export default function LocaleBootstrapper() {
       if (typeof window !== "undefined" && window.location.hostname === "voice.automis.ai") return;
       if (pathname === "/ita" || pathname.startsWith("/ita/")) return;
 
+      // Explicit override: ?lang=en|it forces the choice and skips the auto
+      // language redirect. Useful for sharing an English link while the IT
+      // pages are still on the old template (EN-first rollout).
+      const override = new URLSearchParams(window.location.search).get("lang");
+      if (override === "en" || override === "it") {
+        localStorage.setItem(STORAGE_KEY, override);
+        return;
+      }
+
       const stored = localStorage.getItem(STORAGE_KEY);
 
       // 1) If user already chose, do nothing

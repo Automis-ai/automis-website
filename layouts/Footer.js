@@ -50,16 +50,29 @@ const DefaultFooter = () => {
   const t = {
     tagline:
       locale === "it"
-        ? "Automis combina AI e marketing umano per far crescere il tuo business più velocemente."
-        : "Automis combines AI and human marketing expertise to grow your business faster.",
+        ? "Automis costruisce i sistemi di IA che mancano al tuo business, tra marketing, vendite e operations."
+        : "Automis builds the AI systems your business is missing, across marketing, sales, and operations.",
     emailLabel: locale === "it" ? "Email:" : "Email:",
     rights:
-      locale === "it" ? "— Tutti i diritti riservati" : "— All Rights Reserved",
+      locale === "it" ? "· Tutti i diritti riservati" : "· All Rights Reserved",
     privacy: locale === "it" ? "Privacy Policy" : "Privacy Policy",
     terms: locale === "it" ? "Termini di Servizio" : "Terms of Service",
   };
 
   const homeHref = hrefFor(PATHNAMES.home, locale);
+  // Instagram is split by market: IT audience -> @automis_italia, EN -> @automis.ai
+  const instagramHref =
+    locale === "it"
+      ? "https://www.instagram.com/automis_italia/"
+      : "https://www.instagram.com/automis.ai/";
+  const linkedinHref =
+    locale === "it"
+      ? "https://www.linkedin.com/company/automis-italia/"
+      : "https://www.linkedin.com/company/automisai";
+  const facebookHref =
+    locale === "it"
+      ? "https://www.facebook.com/profile.php?id=61575356883644"
+      : "https://www.facebook.com/automisai";
   const privacyHref = hrefFor(PATHNAMES.pages.privacyPolicy, locale);
   const termsHref = hrefFor(PATHNAMES.pages.termsOfService, locale);
 
@@ -98,15 +111,7 @@ const DefaultFooter = () => {
           <div className="footer-social-wrapper w-full lg:w-1/2 flex justify-center lg:justify-end items-center lg:items-start">
             <div className="social-style-one flex flex-wrap gap-3 justify-center lg:justify-end">
               <a
-                href="https://x.com/AutomisAI"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Automis on X"
-              >
-                <i className="fab fa-twitter" />
-              </a>
-              <a
-                href="https://www.instagram.com/automis_italia/"
+                href={instagramHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Automis on Instagram"
@@ -114,7 +119,7 @@ const DefaultFooter = () => {
                 <i className="fab fa-instagram" />
               </a>
               <a
-                href="https://www.linkedin.com/company/automisai"
+                href={linkedinHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Automis on LinkedIn"
@@ -122,12 +127,20 @@ const DefaultFooter = () => {
                 <i className="fab fa-linkedin-in" />
               </a>
               <a
-                href="https://www.facebook.com/automisai"
+                href={facebookHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Automis on Facebook"
               >
                 <i className="fab fa-facebook-f" />
+              </a>
+              <a
+                href="https://x.com/AutomisAI"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Automis on X"
+              >
+                <i className="fab fa-twitter" />
               </a>
             </div>
           </div>

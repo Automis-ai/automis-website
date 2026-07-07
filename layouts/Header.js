@@ -107,8 +107,8 @@ useEffect(() => {
       jumpstart: locale === "it" ? "Audit Jumpstart" : "Jumpstart Audit",
       services: locale === "it" ? "Servizi" : "Services",
       paidAds: locale === "it" ? "Gestione Ads" : "Paid Ads Management",
-      voiceAI: locale === "it" ? "Voice AI" : "Voice AI",
-      automations: locale === "it" ? "Automazioni AI" : "AI Automations",
+      voiceAI: locale === "it" ? "Assistente Vocale IA" : "Voice AI",
+      automations: locale === "it" ? "Automazioni IA" : "AI Automations",
       caseStudies: locale === "it" ? "Casi Studio" : "Case Studies",
       blog: locale === "it" ? "Blog" : "Blog",
       about: locale === "it" ? "Chi siamo" : "About",
@@ -118,16 +118,14 @@ useEffect(() => {
     return [
       { id: 1, key: "home", title: t.home, href: hrefFor(PATHNAMES.home, locale) },
 
-      { id: 5, key: "jumpstart-audit", title: t.jumpstart, href: hrefFor(PATHNAMES.pages.jumpstartAudit, locale) },
-
       {
         id: 3,
         key: "services",
         title: t.services,
         submenus: [
-          { id: 31, key: "paid-ads-management", title: t.paidAds, href: hrefFor(PATHNAMES.services.paidAds, locale) },
           { id: 32, key: "voice-ai", title: t.voiceAI, href: hrefFor(PATHNAMES.services.voiceAI, locale) },
           { id: 33, key: "ai-automations", title: t.automations, href: hrefFor(PATHNAMES.services.aiAutomations, locale) },
+          { id: 34, key: "jumpstart-audit", title: t.jumpstart, href: hrefFor(PATHNAMES.pages.jumpstartAudit, locale) },
         ],
       },
 
@@ -466,17 +464,22 @@ const Nav = ({ onePage, menus, activeLink, setActiveLink, locale }) => {
                   }}
                 >
                   {menu.submenus ? (
-                    <a
-                      href="#"
+                    <button
+                      type="button"
                       onClick={(e) => {
-                        e.preventDefault();
                         e.stopPropagation();
                         setActiveDropdown(activeDropdown === menu.id ? null : menu.id);
                       }}
+                      aria-haspopup="true"
+                      aria-expanded={activeDropdown === menu.id}
                       style={{
                         color: activeLink === menu.key ? "#3C91E6" : "",
                         cursor: "pointer",
                         whiteSpace: "nowrap",
+                        background: "none",
+                        border: "none",
+                        padding: 0,
+                        font: "inherit",
                       }}
                     >
                       {menu.title}
@@ -490,7 +493,7 @@ const Nav = ({ onePage, menus, activeLink, setActiveLink, locale }) => {
                           display: "inline-block",
                         }}
                       />
-                    </a>
+                    </button>
 ) : (
   <Link
     href={menu.href || "/"}

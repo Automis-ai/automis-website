@@ -1,15 +1,37 @@
-import AkpagerLayout from "@/layouts/AkpagerLayout";
+import AutomisEnShell from "@/components/site/AutomisEnShell";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import { getCtaHref } from "@/utility/ctaLinks";
 import { getAllPosts } from "@/lib/blog";
+
+export const metadata = {
+  title: "Blog | Guide su automazione e IA per il tuo business | Automis",
+  description:
+    "Guide pratiche su agenti vocali IA, automazioni e sistemi per i contatti, pensate per attività locali e professionisti. Dal team di Automis.",
+  alternates: {
+    canonical: "https://automis.ai/it/blog",
+    languages: {
+      en: "https://automis.ai/blog",
+      "it-IT": "https://automis.ai/it/blog",
+      "x-default": "https://automis.ai/blog",
+    },
+  },
+  openGraph: {
+    title: "Blog Automis | Guide su automazione e IA per il tuo business",
+    description:
+      "Guide pratiche su agenti vocali IA, automazioni e sistemi per i contatti, per attività locali e professionisti.",
+    url: "https://automis.ai/it/blog",
+    siteName: "Automis",
+    type: "website",
+  },
+};
 
 const BlogPage = async () => {
   const locale = "it";
   const posts = getAllPosts("it");
 
   return (
-    <AkpagerLayout>
+    <AutomisEnShell>
       {/* ── HERO ── */}
       <section className="relative overflow-hidden bg-bg-primary hero-padding">
         {/* background blobs */}
@@ -161,11 +183,11 @@ const BlogPage = async () => {
                   data-aos-offset={50}
                 >
                   <h3 className="sub-heading font-medium text-white mb-4 relative z-10">
-                    Pronto a trasformare il tuo business con l&apos;AI?
+                    Pronto a trasformare il tuo business con l&apos;IA?
                   </h3>
                   <p className="body-text text-white/90 mb-6 relative z-10">
                     Prenota una consulenza gratuita per scoprire come
-                    automazioni e Voice AI possono aiutarti a scalare in modo
+                    automazioni e assistente vocale possono aiutarti a scalare in modo
                     più veloce ed efficiente.
                   </p>
                   <CTAButton
@@ -203,7 +225,7 @@ const BlogPage = async () => {
           </div>
         </div>
       </section>
-    </AkpagerLayout>
+    </AutomisEnShell>
   );
 };
 

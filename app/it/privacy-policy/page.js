@@ -37,7 +37,7 @@ const PrivacyPolicy = () => {
                     La presente Privacy Policy descrive come <span className="font-bold">Automis</span> (“noi”, “nostro” o “la Società”), registrata in Estonia (n. Registrazione <span className="font-bold">17179196</span>), con sede legale in <span className="font-bold">Harju maakond, Tallinn, Kesklinna linnaosa, Järvevana tee 9, 11314</span>, raccoglie, utilizza, conserva e protegge i dati personali nell’ambito dei propri servizi.
                   </p>
                   <p className="body-text text-white/90 mb-4">
-                    Automis è un’AI & Marketing Agency che fornisce servizi di gestione campagne pubblicitarie, agenti vocali AI, automazione dei workflow, automazione social media e consulenza. A seconda del servizio e del contesto, Automis può operare come:
+                    Automis è un’AI & Marketing Agency che fornisce servizi di gestione campagne pubblicitarie, agenti vocali IA, automazione dei workflow, automazione social media e consulenza. A seconda del servizio e del contesto, Automis può operare come:
                   </p>
                   <ul className="body-text text-white/90 space-y-3 mb-4">
                     <li className="flex items-start">
@@ -94,10 +94,10 @@ const PrivacyPolicy = () => {
                   <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
                     <h3 className="card-heading text-white mb-4">2.3 Dati trattati tramite servizi Voice AI (per conto dei Clienti)</h3>
                     <p className="body-text text-white/90 mb-4">
-                      Nell’ambito del <span className="font-bold">Servizio Voice AI</span> (gestione chiamate in entrata e uscita tramite agenti vocali AI), possiamo trattare:
+                      Nell’ambito del <span className="font-bold">Servizio Voice AI</span> (gestione chiamate in entrata e uscita tramite agenti vocali IA), possiamo trattare:
                     </p>
                     <ul className="body-text text-white/90 space-y-2">
-                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Audio e trascrizioni delle chiamate:</span> registrazioni e/o trascrizioni in tempo reale delle chiamate gestite dai nostri agenti vocali AI per conto del Cliente</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Audio e trascrizioni delle chiamate:</span> registrazioni e/o trascrizioni in tempo reale delle chiamate gestite dai nostri agenti vocali IA per conto del Cliente</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Informazioni del chiamante:</span> numero di telefono, nome (se fornito), informazioni condivise durante la chiamata (es. richieste appuntamento, informazioni su servizi)</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Metadati della chiamata:</span> durata, timestamp, esito (prenotato, trasferito, segreteria)</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Dati di scheduling:</span> dettagli appuntamento, disponibilità calendario, conferme prenotazione</span></li>
@@ -107,7 +107,7 @@ const PrivacyPolicy = () => {
                   <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
                     <h3 className="card-heading text-white mb-4">2.4 Dati trattati tramite AI Automations (per conto dei Clienti)</h3>
                     <p className="body-text text-white/90 mb-4">
-                      Nell’ambito del <span className="font-bold">Servizio di Automazione AI</span> (qualificazione lead, nurturing, sincronizzazione CRM, automazione workflow), possiamo trattare:
+                      Nell’ambito del <span className="font-bold">Servizio di Automazione IA</span> (qualificazione lead, nurturing, sincronizzazione CRM, automazione workflow), possiamo trattare:
                     </p>
                     <ul className="body-text text-white/90 space-y-2">
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Dati dei lead:</span> nome, email, telefono, fonte, stato qualificazione, lead score</span></li>
@@ -162,7 +162,7 @@ const PrivacyPolicy = () => {
                     <h3 className="card-heading text-white mb-4">3.2 Dati trattati per conto dei Clienti</h3>
                     <ul className="body-text text-white/90 space-y-2">
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Automazione social media:</span> invio risposte automatiche a commenti e DM su Facebook/Instagram via API ufficiali Meta</span></li>
-                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Voice AI:</span> gestione chiamate in entrata/uscita, prenotazione appuntamenti, qualificazione lead, supporto clienti tramite agenti vocali AI</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Voice AI:</span> gestione chiamate in entrata/uscita, prenotazione appuntamenti, qualificazione lead, supporto clienti tramite agenti vocali IA</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Qualificazione e nurturing lead:</span> screening, scoring e follow-up automatici</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Sincronizzazione CRM:</span> mantenimento dati CRM aggiornati e accurati tra piattaforme</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Gestione appuntamenti:</span> prenotazione, conferma, riprogrammazione e promemoria automatici</span></li>
@@ -224,7 +224,7 @@ const PrivacyPolicy = () => {
                     <h3 className="card-heading text-white mb-4">5.2 Fornitori di tecnologia e infrastruttura</h3>
                     <ul className="body-text text-white/90 space-y-2">
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">n8n</span> (n8n GmbH / n8n Cloud): piattaforma di workflow automation</span></li>
-                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">ElevenLabs:</span> fornitore di sintesi vocale AI per i servizi Voice AI</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">ElevenLabs:</span> fornitore di sintesi vocale IA per i servizi Voice AI</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">GoHighLevel / LeadConnector:</span> piattaforma CRM e marketing automation</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Vercel, GitHub, Supabase:</span> infrastruttura e hosting</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Twilio:</span> infrastruttura telefonica per Voice AI</span></li>
@@ -418,7 +418,7 @@ const PrivacyPolicy = () => {
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>La chiamata potrebbe essere registrata e/o trascritta per finalità di erogazione del servizio e controllo qualità.</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Puoi richiedere di parlare con un operatore umano in qualsiasi momento.</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span>Le registrazioni sono conservate in modo sicuro per un periodo limitato come descritto nella Sezione 7.</span></li>
-                    <li className="flex items-start"> <span className="mr-3 mt-1">•</span> <span>Le normative applicabili sulla registrazione delle chiamate variano per giurisdizione. Dove richiesto, l’agente AI informerà il chiamante che la chiamata viene registrata e otterrà il consenso verbale prima di procedere.</span></li>
+                    <li className="flex items-start"> <span className="mr-3 mt-1">•</span> <span>Le normative applicabili sulla registrazione delle chiamate variano per giurisdizione. Dove richiesto, l’agente IA informerà il chiamante che la chiamata viene registrata e otterrà il consenso verbale prima di procedere.</span></li>
                   </ul>
                 </div>
               </div>

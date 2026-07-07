@@ -1,13 +1,35 @@
-import AkpagerLayout from "@/layouts/AkpagerLayout";
+import AutomisEnShell from "@/components/site/AutomisEnShell";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import { getAllPosts } from "@/lib/blog";
+
+export const metadata = {
+  title: "Blog | AI automation insights for local business | Automis",
+  description:
+    "Practical guides on AI voice agents, automation, and lead systems for local businesses and professionals, from the Automis team.",
+  alternates: {
+    canonical: "https://automis.ai/blog",
+    languages: {
+      en: "https://automis.ai/blog",
+      "it-IT": "https://automis.ai/it/blog",
+      "x-default": "https://automis.ai/blog",
+    },
+  },
+  openGraph: {
+    title: "Automis Blog | AI automation insights for local business",
+    description:
+      "Practical guides on AI voice agents, automation, and lead systems for local businesses and professionals.",
+    url: "https://automis.ai/blog",
+    siteName: "Automis",
+    type: "website",
+  },
+};
 
 const BlogPage = async () => {
   const posts = getAllPosts("en");
 
   return (
-    <AkpagerLayout>
+    <AutomisEnShell>
       {/* ── HERO ── */}
       <section className="relative overflow-hidden bg-bg-primary hero-padding">
         {/* background blobs */}
@@ -197,7 +219,7 @@ const BlogPage = async () => {
           </div>
         </div>
       </section>
-    </AkpagerLayout>
+    </AutomisEnShell>
   );
 };
 

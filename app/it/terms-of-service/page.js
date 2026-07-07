@@ -33,7 +33,7 @@ const TermsOfServiceIT = () => {
                     <span className="font-bold text-white">“Cliente”:</span> qualsiasi persona fisica o giuridica che sottoscrive un contratto con Automis per l’erogazione dei Servizi.
                   </p>
                   <p className="body-text text-white/80">
-                    <span className="font-bold text-white">“Servizi”:</span> i servizi di marketing, automazione AI, gestione pubblicitaria, voice AI e consulenza offerti da Automis.
+                    <span className="font-bold text-white">“Servizi”:</span> i servizi di marketing, automazione IA, gestione pubblicitaria, voice AI e consulenza offerti da Automis.
                   </p>
                   <p className="body-text text-white/80">
                     <span className="font-bold text-white">“Utente Finale”:</span> qualsiasi persona che interagisce con gli asset del Cliente (pagine/profili Meta, linee telefoniche, moduli web, ecc.).
@@ -55,16 +55,16 @@ const TermsOfServiceIT = () => {
 
                   <div>
                     <h3 className="text-lg font-bold text-blue-middle mb-2">2.1 Gestione campagne pubblicitarie (Paid Ads)</h3>
-                    <p className="body-text text-white/80">Creazione, gestione e ottimizzazione AI-driven di campagne pubblicitarie su Google, Meta, TikTok, LinkedIn, X e altre piattaforme. Include ricerca audience, produzione creatività pubblicitarie, A/B testing, ottimizzazione bid, configurazione tracking/pixel e reportistica performance.</p>
+                    <p className="body-text text-white/80">Creazione, gestione e ottimizzazione guidata dall’IA di campagne pubblicitarie su Google, Meta, TikTok, LinkedIn, X e altre piattaforme. Include ricerca audience, produzione creatività pubblicitarie, A/B testing, ottimizzazione bid, configurazione tracking/pixel e reportistica performance.</p>
                   </div>
 
                   <div>
                     <h3 className="text-lg font-bold text-blue-middle mb-2">2.2 Voice AI</h3>
-                    <p className="body-text text-white/80">Agenti vocali AI per la gestione di chiamate in entrata e uscita per conto del Cliente. Include qualificazione lead, prenotazione e riprogrammazione appuntamenti, supporto clienti, registrazione e trascrizione chiamate, integrazione CRM e accesso a dashboard analytics in tempo reale. Gli agenti Voice AI sono disponibili 24/7 e supportano 20+ lingue.</p>
+                    <p className="body-text text-white/80">Agenti vocali IA per la gestione di chiamate in entrata e uscita per conto del Cliente. Include qualificazione lead, prenotazione e riprogrammazione appuntamenti, supporto clienti, registrazione e trascrizione chiamate, integrazione CRM e accesso a dashboard analytics in tempo reale. Gli agenti Voice AI sono disponibili 24/7 e supportano 20+ lingue.</p>
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-bold text-blue-middle mb-2">2.3 Automazioni AI</h3>
+                    <h3 className="text-lg font-bold text-blue-middle mb-2">2.3 Automazioni IA</h3>
                     <p className="body-text text-white/80">Progettazione e implementazione di automazioni workflow personalizzate, tra cui: sequenze di qualificazione e nurturing lead (via SMS, WhatsApp, email), sincronizzazione dati CRM, automazioni di prenotazione e promemoria appuntamenti, workflow di gestione fatture e spese, screening e scheduling candidati HR, e integrazioni personalizzate con gli strumenti esistenti del Cliente.</p>
                   </div>
 
@@ -95,7 +95,7 @@ const TermsOfServiceIT = () => {
                   <li className="list-disc"><span className="font-bold">Rispettare le policy delle piattaforme:</span> il Cliente è responsabile di assicurarsi che l’utilizzo dei Servizi sia conforme alle Community Standards di Meta, alle Linee guida di Instagram, alle policy di Google Ads e a tutte le policy applicabili delle piattaforme utilizzate.</li>
                   <li className="list-disc"><span className="font-bold">Non utilizzare i Servizi per attività illecite:</span> è vietato utilizzare le automazioni per spam, frode, promesse illegali, contenuti offensivi o diffamatori, o qualsiasi attività che violi diritti di terzi.</li>
                   <li className="list-disc"><span className="font-bold">Fornire informazioni accurate:</span> il Cliente deve fornire informazioni veritiere e complete per la configurazione dei Servizi.</li>
-                  <li className="list-disc"><span className="font-bold">Aggiornare la propria Privacy Policy e TOS:</span> il Cliente è responsabile di aggiornare la propria Privacy Policy e i propri Termini di Servizio per informare i propri Utenti Finali sull’utilizzo di strumenti di automazione AI per la gestione di commenti, messaggi e chiamate.</li>
+                  <li className="list-disc"><span className="font-bold">Aggiornare la propria Privacy Policy e TOS:</span> il Cliente è responsabile di aggiornare la propria Privacy Policy e i propri Termini di Servizio per informare i propri Utenti Finali sull’utilizzo di strumenti di automazione IA per la gestione di commenti, messaggi e chiamate.</li>
                   <li className="list-disc"><span className="font-bold">Mantenere accesso autorizzato:</span> il Cliente deve garantire che le credenziali e i permessi forniti ad Automis per l’accesso alle API Meta, account pubblicitari, CRM, telefonia e altre piattaforme rimangano validi e autorizzati.</li>
                   <li className="list-disc"><span className="font-bold">Rispettare le normative applicabili:</span> il Cliente è Titolare del trattamento nei confronti dei propri Utenti Finali ed è responsabile della conformità alle normative sulla protezione dei dati (GDPR, ecc.).</li>
                   <li className="list-disc"><span className="font-bold">Conformità registrazione chiamate:</span> dove i servizi Voice AI prevedono la registrazione delle chiamate, il Cliente è responsabile della conformità alle leggi applicabili sul consenso alla registrazione nelle giurisdizioni pertinenti.</li>
@@ -132,8 +132,8 @@ const TermsOfServiceIT = () => {
                   <ul className="body-text text-white/80 space-y-4 pl-6">
                     <li className="list-disc"><span className="font-bold text-white">Disclosure AI:</span> gli agenti vocali di Automis sono alimentati da intelligenza artificiale. A seconda delle preferenze del Cliente e della legge applicabile, l’AI può identificarsi come sistema automatizzato all’inizio di ogni chiamata.</li>
                     <li className="list-disc"><span className="font-bold text-white">Registrazione chiamate:</span> le chiamate possono essere registrate e trascritte. Il Cliente è responsabile della configurazione dei meccanismi di consenso e delle informative come richiesto dalla legge applicabile.</li>
-                    <li className="list-disc"><span className="font-bold text-white">Escalation umana:</span> l’agente AI può trasferire le chiamate a un operatore umano quando non può gestire una richiesta. Il Cliente deve fornire un percorso di escalation valido.</li>
-                    <li className="list-disc"><span className="font-bold text-white">Nessuna consulenza professionale:</span> gli agenti vocali AI non forniscono consulenza professionale, medica, legale o finanziaria. Le risposte sono esclusivamente informative.</li>
+                    <li className="list-disc"><span className="font-bold text-white">Escalation umana:</span> l’agente IA può trasferire le chiamate a un operatore umano quando non può gestire una richiesta. Il Cliente deve fornire un percorso di escalation valido.</li>
+                    <li className="list-disc"><span className="font-bold text-white">Nessuna consulenza professionale:</span> gli agenti vocali IA non forniscono consulenza professionale, medica, legale o finanziaria. Le risposte sono esclusivamente informative.</li>
                     <li className="list-disc"><span className="font-bold text-white">Uptime:</span> Automis si prefigge il 99,5% di uptime per i servizi Voice AI ma non garantisce disponibilità ininterrotta. Le interruzioni dei fornitori di telefonia sono al di fuori del nostro controllo.</li>
                   </ul>
                 </div>
