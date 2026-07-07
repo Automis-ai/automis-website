@@ -1,23 +1,21 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { Section, SectionHeading, Reveal } from "@/components/home/_ui";
-import { FileAudio, FileText, Sparkles, ShieldCheck } from "lucide-react";
+import { FileAudio, FileText, Sparkles } from "lucide-react";
 
-// Lead screenshot: the live Bookings table, every call the AI handled, with
-// outcome and status. Customer names/numbers are blurred for privacy.
-// Locale-aware: Italian dashboard captures live under clean/it.
+// Lead screenshot: the live dashboard overview (aggregate stats + call trend).
+// Aggregate only, no customer PII. Locale-aware: IT captures live under clean/it.
 const SHOTS = {
-  en: { bookings: "/assets/images/dashboard/clean/bookings.png", callDetail: "/assets/images/dashboard/clean/call-detail.png" },
-  it: { bookings: "/assets/images/dashboard/clean/it/bookings.png", callDetail: "/assets/images/dashboard/clean/it/call-detail.png" },
+  en: { overview: "/assets/images/dashboard/clean/overview-en.png", callDetail: "/assets/images/dashboard/clean/call-detail.png" },
+  it: { overview: "/assets/images/dashboard/clean/it/overview.png", callDetail: "/assets/images/dashboard/clean/it/call-detail.png" },
 };
 
 const COPY = {
   en: {
     eyebrow: "You see everything",
     title: "Full transparency into every call your AI handles.",
-    lead: "No black box. Watch a live feed of every call, its status, and its outcome, then open any single call for the recording, transcript, and AI summary.",
-    leadCaption: "Every call the AI handled, with status and outcome, live",
-    privacyBadge: "Customer data blurred for privacy",
+    lead: "No black box. Start with a live overview of your calls, success rate, and trends, then open any single call for the recording, transcript, and AI summary.",
+    leadCaption: "Your dashboard overview: calls, success rate, and trends, live",
     detailTitle: "Open any call to see the whole story",
     detailBody:
       "Click into a single call and you get the full recording, a searchable transcript, and an AI summary of what happened and what to do next. Nothing is hidden, so you always know exactly how your front desk is performing.",
@@ -30,9 +28,8 @@ const COPY = {
   it: {
     eyebrow: "Vedi tutto",
     title: "Trasparenza totale su ogni chiamata che gestisce la tua IA.",
-    lead: "Nessuna scatola nera. Segui in tempo reale ogni chiamata, il suo stato e il suo esito, poi apri una singola chiamata per registrazione, trascrizione e riepilogo IA.",
-    leadCaption: "Ogni chiamata gestita dall'IA, con stato ed esito, in tempo reale",
-    privacyBadge: "Dati dei clienti oscurati per privacy",
+    lead: "Nessuna scatola nera. Parti da una panoramica in tempo reale di chiamate, tasso di successo e andamento, poi apri una singola chiamata per registrazione, trascrizione e riepilogo IA.",
+    leadCaption: "La panoramica della tua dashboard: chiamate, tasso di successo e andamento, in tempo reale",
     detailTitle: "Apri una chiamata e vedi tutta la storia",
     detailBody:
       "Apri una singola chiamata e trovi la registrazione completa, una trascrizione consultabile e un riepilogo IA di cosa è successo e cosa fare dopo. Niente è nascosto, così sai sempre esattamente come sta lavorando la tua reception.",
@@ -79,7 +76,7 @@ export default function DashboardWalk() {
         <Reveal>
           <BrowserFrame>
             <img
-              src={shots.bookings}
+              src={shots.overview}
               alt={t.leadCaption}
               className="block w-full"
               loading="lazy"
@@ -87,10 +84,6 @@ export default function DashboardWalk() {
           </BrowserFrame>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[13px] text-white/55">
             <span>{t.leadCaption}</span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-0.5 text-[11px] text-white/45">
-              <ShieldCheck className="h-3 w-3 text-[#57C7E3]" strokeWidth={2} />
-              {t.privacyBadge}
-            </span>
           </div>
         </Reveal>
 

@@ -21,7 +21,10 @@ const InteractiveHoverButton = React.forwardRef(
         href={href}
         style={solid ? { background: "linear-gradient(120deg,#3C91E6 0%,#57C7E3 55%,#8FD3F4 100%)", ...style } : style}
         className={cn(
-          "group relative cursor-pointer overflow-hidden rounded-full px-6 py-3.5 text-center text-base font-semibold backdrop-blur-sm transition-[transform,box-shadow,background-color] duration-300",
+          // inline-flex (not the default inline for <a>) so overflow-hidden
+          // actually clips the sliding label — inline elements ignore overflow,
+          // which let long labels spill outside the button on hover.
+          "group relative inline-flex items-center justify-center cursor-pointer overflow-hidden rounded-full px-6 py-3.5 text-center text-base font-semibold backdrop-blur-sm transition-[transform,box-shadow,background-color] duration-300",
           solid
             ? "border border-transparent text-[#00121f] shadow-[0_14px_36px_-10px_rgba(60,145,230,0.65)] hover:-translate-y-0.5 hover:shadow-[0_18px_46px_-10px_rgba(87,199,227,0.75)]"
             : "border border-white/15 bg-white/[0.04] text-white hover:bg-white/[0.06]",
@@ -39,7 +42,7 @@ const InteractiveHoverButton = React.forwardRef(
         <div
           aria-hidden="true"
           className={cn(
-            "absolute top-0 z-20 flex h-full w-full -translate-x-40 items-center justify-center gap-2 whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100",
+            "absolute inset-0 z-20 flex -translate-x-40 items-center justify-center gap-2 whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100",
             solid ? "text-white" : "text-[#00121f]"
           )}
         >

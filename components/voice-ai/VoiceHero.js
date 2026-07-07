@@ -5,8 +5,8 @@ import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
-// "How Automis Voice AI works" walkthrough.
-const VIDEO_ID = "qWSaK2kS7uo";
+// "How Automis Voice AI works" walkthrough (locale-specific video).
+const VIDEO_ID = { en: "qWSaK2kS7uo", it: "ViE-j9SqENA" };
 
 const COPY = {
   en: {
@@ -38,6 +38,7 @@ const COPY = {
 export default function VoiceHero() {
   const locale = usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
+  const videoId = VIDEO_ID[locale];
   const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
 
   return (
@@ -84,7 +85,7 @@ export default function VoiceHero() {
             <div className="card-glow relative overflow-hidden rounded-2xl border border-white/[0.1] bg-white/[0.03] p-2 shadow-2xl backdrop-blur-sm">
               <div className="relative w-full overflow-hidden rounded-xl bg-[#04101c]" style={{ aspectRatio: "16 / 9" }}>
                 <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?rel=0`}
+                  src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0`}
                   title={t.videoTitle}
                   className="absolute inset-0 h-full w-full"
                   style={{ border: "none" }}

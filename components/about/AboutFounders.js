@@ -17,9 +17,9 @@ const COPY = {
     founders: [
       {
         name: "Vincenzo Luca Casillo",
-        role: "Growth & Performance Marketing",
+        role: "AI-Driven Growth & Marketing",
         image: "/assets/images/headshots/luca.jpeg",
-        bio: "Vincenzo owns growth and marketing. He runs and optimizes performance advertising across Meta and Google, measurably improving CAC and ROAS, and builds the conversion-first funnels, content, and search visibility that turn attention into booked demand. He pairs paid acquisition with AI-driven follow-up, so the traffic he generates never goes cold. Clients don't get vanity metrics; they get a marketing engine that brings in real, qualified demand.",
+        bio: "Vincenzo owns growth and marketing, powered by AI at every step. He runs and optimizes AI-driven advertising across Meta and Google (measurably improving CAC and ROAS), uses AI to win visibility in Google and AI search (SEO and GEO), and builds the conversion-first funnels and content that turn attention into booked demand. He pairs paid acquisition with AI-driven follow-up, so the traffic he generates never goes cold. Clients don't get vanity metrics; they get an AI-powered marketing engine that brings in real, qualified demand.",
         social: {
           type: "linkedin",
           url: "https://www.linkedin.com/in/vincenzo-luca-casillo/",
@@ -49,9 +49,9 @@ const COPY = {
     founders: [
       {
         name: "Vincenzo Luca Casillo",
-        role: "Crescita e performance marketing",
+        role: "Crescita e marketing guidati dall'IA",
         image: "/assets/images/headshots/luca.jpeg",
-        bio: "Vincenzo guida crescita e marketing. Gestisce e ottimizza le campagne pubblicitarie a performance su Meta e Google, migliorando in modo misurabile CAC e ROAS, e costruisce i funnel orientati alla conversione, i contenuti e la visibilità sui motori di ricerca che trasformano l'attenzione in domanda concreta. All'acquisizione a pagamento affianca un follow-up guidato dall'IA, così il traffico che genera non si raffredda mai. Niente metriche di vanità: i clienti ricevono un motore di marketing che porta domanda reale e qualificata.",
+        bio: "Vincenzo guida crescita e marketing, con l'IA in ogni passaggio. Gestisce e ottimizza le campagne pubblicitarie guidate dall'IA su Meta e Google (migliorando in modo misurabile CAC e ROAS), usa l'IA per guadagnare visibilità su Google e nelle ricerche IA (SEO e GEO), e costruisce i funnel orientati alla conversione e i contenuti che trasformano l'attenzione in domanda concreta. All'acquisizione a pagamento affianca un follow-up guidato dall'IA, così il traffico che genera non si raffredda mai. Niente metriche di vanità: i clienti ricevono un motore di marketing potenziato dall'IA che porta domanda reale e qualificata.",
         social: {
           type: "linkedin",
           url: "https://www.linkedin.com/in/vincenzo-luca-casillo/",

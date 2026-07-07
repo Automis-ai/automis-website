@@ -122,16 +122,17 @@ export function GradientText({ children, className = "" }) {
 }
 
 // Section heading block: eyebrow + h2 + optional lead paragraph.
-export function SectionHeading({ eyebrow, title, lead, align = "center", className = "" }) {
+export function SectionHeading({ eyebrow, title, lead, align = "center", className = "", titleClassName = "" }) {
   const alignCls = align === "center" ? "text-center items-center mx-auto" : "text-left items-start";
+  // Default title width caps; override per-instance with titleClassName (e.g. a
+  // long headline that would otherwise wrap to too many lines).
+  const titleWidth = titleClassName || (align === "center" ? "mx-auto max-w-[16ch] sm:max-w-[20ch]" : "max-w-[20ch]");
   return (
     <div className={`flex flex-col ${alignCls} ${className}`}>
       {eyebrow ? <Reveal><Eyebrow>{eyebrow}</Eyebrow></Reveal> : null}
       <Reveal delay={60}>
         <h2
-          className={`font-display mt-5 text-[1.75rem] leading-[1.14] tracking-[-0.02em] text-white [text-wrap:balance] sm:text-[2.6rem] sm:leading-[1.12] md:text-[3rem] ${
-            align === "center" ? "mx-auto max-w-[16ch] sm:max-w-[20ch]" : "max-w-[20ch]"
-          }`}
+          className={`font-display mt-5 text-[1.75rem] leading-[1.14] tracking-[-0.02em] text-white [text-wrap:balance] sm:text-[2.6rem] sm:leading-[1.12] md:text-[3rem] ${titleWidth}`}
         >
           {title}
         </h2>

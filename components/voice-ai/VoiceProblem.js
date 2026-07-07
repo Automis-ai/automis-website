@@ -55,6 +55,7 @@ export default function VoiceProblem() {
         eyebrow={t.eyebrow}
         title={t.title}
         lead={t.lead}
+        titleClassName="mx-auto max-w-[30ch] sm:max-w-[42ch]"
       />
       <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-3">
         {t.pains.map((p, i) => {
