@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 const VOICE_HOST = "voice.automis.ai";
 const DEV_HOSTS = new Set(["localhost", "127.0.0.1"]);
-const LOCALES = ["it", "ita", "fr", "de", "pt", "es"];
+const LOCALES = ["it", "ita", "en", "fr", "de", "pt", "es"];
 const DEFAULT_LOCALE = "it";
 const ENGLISH_ROOT_PAGES = new Set([
   "privacy-policy",
@@ -50,7 +50,7 @@ export function middleware(req) {
       return NextResponse.redirect(new URL("/ita", req.url));
     }
 
-    // Altrimenti procedi normalmente per /ita, /fr, /de, /es, /pt, /voice-ai
+    // Altrimenti procedi normalmente per /ita, /en, /fr, /de, /es, /pt, /voice-ai
     return NextResponse.next();
   }
 
