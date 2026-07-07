@@ -350,7 +350,7 @@ export default function OpportunityFinder() {
     const mod = await import("./roadmapPdf");
     // Locale-specific base tag + one of the 6 variant tags, so EN and IT nurture
     // flows stay separate in GHL.
-    const tags = [`opportunity-finder-${locale}`, mod.variantTag(roadmap.primary, roadmap.secondary), "newsletter"];
+    const tags = [`opportunity-finder-${locale}`, mod.variantTag(roadmap.primary, roadmap.secondary)];
     const roadmapUrl = roadmapLink(roadmap);
     // Lead capture (best-effort). GHL emails the roadmap link + starts nurture.
     try {
