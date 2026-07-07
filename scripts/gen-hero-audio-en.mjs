@@ -29,9 +29,9 @@ const H = { "xi-api-key": KEY };
 const SR = 22050; // mono 16-bit WAV — universally supported & seekable; small enough for voice
 
 // ENGLISH voices — override via env if desired (AGENT_VOICE / CALLER_VOICE).
-const AGENT = process.env.AGENT_VOICE || "EXAVITQu4vr4xnSDxMaL"; // Sarah – Mature, Reassuring, Confident (f, american)
-const CALLER = process.env.CALLER_VOICE || "nPczCjzI2devNBz1zQrb"; // Brian – Deep, Resonant, Comforting (m, american)
-const MODEL = "eleven_multilingual_v2";
+const AGENT = process.env.AGENT_VOICE || "cgSgspJ2msm6clMCkdW9"; // Jessica – Playful, Bright, Warm (f, american)
+const CALLER = process.env.CALLER_VOICE || "TX3LPaxmHKxFdv7VOQHJ"; // Liam – Energetic, light, natural (m, american)
+const MODEL = "eleven_v3"; // most realistic / expressive model
 
 // The call (English). Agent answers first (inbound).
 const LINES = [
@@ -109,7 +109,7 @@ async function ttsLine(line) {
       body: JSON.stringify({
         text: line.text,
         model_id: MODEL,
-        voice_settings: { stability: 0.5, similarity_boost: 0.8, style: 0.0 },
+        voice_settings: { stability: 0.5, similarity_boost: 0.75 },
       }),
     }
   );
