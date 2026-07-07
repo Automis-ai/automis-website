@@ -331,6 +331,9 @@ export default function ArcangeloLanding() {
                     Grab it now, and we've emailed a copy to{" "}
                     <b className="text-white/80">{email}</b>.
                   </p>
+                  <p className="mt-2 text-[12.5px] text-white/40">
+                    Don't see it in a minute or two? Check your spam or promotions folder.
+                  </p>
                   <div className="mt-6 flex flex-col gap-3">
                     <a
                       href={`/assets/downloads/${niche.id}-ai-playbook.pdf`}
