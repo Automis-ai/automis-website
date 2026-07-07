@@ -174,7 +174,7 @@ const COPY = {
         q: "Dove perdi più tempo o denaro?",
         options: [
           { label: "Chiamate perse o senza risposta", w: { sales: 3 }, h: 6 },
-          { label: "Follow-up lenti sui lead", w: { sales: 2, marketing: 1 }, h: 5 },
+          { label: "Follow-up lenti sui contatti", w: { sales: 2, marketing: 1 }, h: 5 },
           { label: "Pratiche e attività manuali", w: { admin: 3 }, h: 8 },
           { label: "Marketing che non converte", w: { marketing: 3 }, h: 4 },
           { label: "Informazioni aziendali sparse ovunque", w: { admin: 3 }, h: 6 },
@@ -192,7 +192,7 @@ const COPY = {
       },
       {
         id: "volume",
-        q: "Quanti lead o richieste ricevi a settimana?",
+        q: "Quanti contatti o richieste ricevi a settimana?",
         options: [
           { label: "Meno di 20", w: {}, h: 2 },
           { label: "Da 20 a 100", w: {}, h: 4 },
@@ -215,7 +215,7 @@ const COPY = {
         q: "Qual è il tuo obiettivo n.1 per i prossimi 90 giorni?",
         options: [
           { label: "Più appuntamenti prenotati", w: { sales: 3 }, h: 6 },
-          { label: "Rispondere più in fretta ai lead", w: { sales: 2, marketing: 1 }, h: 5 },
+          { label: "Rispondere più in fretta ai contatti", w: { sales: 2, marketing: 1 }, h: 5 },
           { label: "Liberare tempo al mio team", w: { admin: 3 }, h: 7 },
           { label: "Un marketing che rende di più", w: { marketing: 3 }, h: 4 },
           { label: "Mettere ordine nelle informazioni aziendali", w: { admin: 3 }, h: 5 },

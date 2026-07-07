@@ -33,7 +33,7 @@ const COPY = {
   it: {
     eyebrow: "Come lavoriamo",
     title: "Un partner strategico, non un fornitore",
-    lead: "Prima di costruire, individuiamo il collo di bottiglia. L'infrastruttura che realizziamo è tua: un sistema che ti appartiene, non un abbonamento a cui resti legato senza sapere cosa c'è dentro.",
+    lead: "Prima di costruire, individuiamo il punto critico. L'infrastruttura che realizziamo è tua: un sistema che ti appartiene, non un abbonamento a cui resti legato senza sapere cosa c'è dentro.",
     steps: [
       {
         step: "Step 1",

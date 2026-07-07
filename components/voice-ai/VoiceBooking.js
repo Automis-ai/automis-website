@@ -32,15 +32,15 @@ const COPY = {
   },
   it: {
     eyebrow: "Mettila al lavoro",
-    headingPre: "Fai in modo che il tuo agente IA vocale ",
+    headingPre: "Fai in modo che il tuo assistente vocale ",
     headingGrad: "risponda, qualifichi e prenoti 24/7",
     headingPost: ".",
     paragraph:
-      "Prenota una call e configuriamo un agente IA vocale che risponde a ogni chiamata, qualifica il lead e lo prenota direttamente sul tuo calendario, di giorno, di notte e nel weekend. Nessuna chiamata persa, nessun fatturato perso.",
+      "Prenota una call e configuriamo un assistente vocale che risponde a ogni chiamata, qualifica il contatto e lo prenota direttamente sul tuo calendario, di giorno, di notte e nel weekend. Nessuna chiamata persa, nessun fatturato perso.",
     bullets: [
-      "Una call di 30 minuti: senti il tuo agente IA vocale dal vivo",
+      "Una call di 30 minuti: senti il tuo assistente vocale dal vivo",
       "Analizziamo le tue chiamate, gli orari e dove perdi prenotazioni",
-      "Esci con un piano per un agente IA vocale che risponde 24/7",
+      "Esci con un piano per un assistente vocale che risponde 24/7",
     ],
     cta: "Prenota una call",
     calHeader: "Disponibilità in tempo reale · call di 30 min",

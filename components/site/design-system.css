@@ -93,6 +93,13 @@
   font-family: "General Sans", "Satoshi", system-ui, sans-serif;
 }
 
+/* Legacy-template pages wrapped in the shell (e.g. the blog) still use the old
+   heading utilities. Map those onto Clash Display so their type matches the new
+   design system instead of falling back to the old font. */
+.automis-en :is(.hero-heading, .sub-heading, .section-heading, .card-heading) {
+  font-family: "Clash Display", "Montserrat", sans-serif;
+}
+
 /* No stray horizontal scroll on the EN home (scoped, safe for other locales). */
 .automis-en {
   overflow-x: hidden;

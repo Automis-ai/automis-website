@@ -11,9 +11,9 @@ import FaqEN from "@/components/home/FaqEN";
 import FinalCta from "@/components/home/FinalCta";
 
 export const metadata = {
-  title: "Automis | Agenzia di automazione AI per il tuo business",
+  title: "Automis | Agenzia di automazione IA per il tuo business",
   description:
-    "Automis è un'agenzia strategica di automazione AI. Costruiamo gli AI voice agent, le automazioni e i sistemi “company brain” che mancano al tuo business, dall'inizio alla fine.",
+    "Automis è un'agenzia strategica di automazione IA. Costruiamo gli assistenti vocali IA, le automazioni e i sistemi “company brain” che mancano al tuo business, dall'inizio alla fine.",
   alternates: {
     canonical: "https://automis.ai/it",
     languages: {
@@ -23,9 +23,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Automis | Agenzia di automazione AI per il tuo business",
+    title: "Automis | Agenzia di automazione IA per il tuo business",
     description:
-      "Costruiamo gli AI voice agent, le automazioni e i sistemi che mancano al tuo business, dall'inizio alla fine.",
+      "Costruiamo gli assistenti vocali IA, le automazioni e i sistemi che mancano al tuo business, dall'inizio alla fine.",
     url: "https://automis.ai/it",
     siteName: "Automis",
     locale: "it_IT",

@@ -38,7 +38,7 @@ const COPY = {
         body: "Dal 30 al 50% delle chiamate a un'attività locale finisce in segreteria. E ogni chiamata persa è un cliente che prenota dal tuo concorrente.",
       },
       {
-        title: "Lead che si raffreddano",
+        title: "Contatti che si raffreddano",
         body: "Quasi tutti rispondono dopo ore. Ma passati i primi 5 minuti, le probabilità di chiudere quel lead crollano.",
       },
       {

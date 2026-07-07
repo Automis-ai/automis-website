@@ -47,7 +47,7 @@ const COPY = {
   },
   it: {
     eyebrow: "Esempi, non un menù fisso",
-    titlePre: "Ogni card qui sopra è un ",
+    titlePre: "Ogni esempio qui sopra è un ",
     titleGradient: "punto di partenza",
     titlePost: "",
     lead: "Il catalogo mostra il tipo di automazioni che costruiamo. Non caliamo un template sul tuo business. Prendiamo l'esempio più vicino, poi progettiamo e costruiamo un sistema su misura attorno ai tuoi processi, ai tuoi strumenti e ai tuoi obiettivi.",
@@ -56,7 +56,7 @@ const COPY = {
         step: "Step 1",
         title: "Scopri e diagnostica",
         body: "Capiamo come funziona davvero il tuo business prima di toccare un solo strumento. Durante la call conoscitiva e l'audit mappiamo dove perdi tempo, chiamate e fatturato, poi decidiamo quale automazione vale la pena costruire per prima.",
-        points: ["Call conoscitiva + audit dei processi", "Troviamo il vero collo di bottiglia, non quello ovvio"],
+        points: ["Call conoscitiva + audit dei processi", "Troviamo il vero punto critico, non quello ovvio"],
         meta: "Esci sapendo qual è la tua automazione con il ROI più alto",
       },
       {

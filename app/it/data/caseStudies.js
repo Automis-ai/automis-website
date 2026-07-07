@@ -32,7 +32,7 @@ export const caseStudies = [
           items: [
             'Kickoff di 2 ore con il CEO Marco Rossi e il team vendite',
             'Mappatura completa del funnel: click annuncio → form landing page → instradamento chiamata → follow-up agente',
-            'Individuati tre colli di bottiglia: assenza di copertura 24/7, inserimento manuale dei dati in Pipedrive (≈4 ore/giorno), nessun reminder automatico per le visite'
+            'Individuati tre punti critici: assenza di copertura 24/7, inserimento manuale dei dati in Pipedrive (≈4 ore/giorno), nessun reminder automatico per le visite'
           ]
         },
         {
@@ -40,7 +40,7 @@ export const caseStudies = [
           items: [
             'Scripting e rilascio di un agente Voice AI white-label',
             'Gestione chiamate inbound 24/7, qualificazione dei chiamanti (“Budget? ✔️” / “Zona preferita? ✔️”) e proposta slot disponibili',
-            'Trasferimento dei lead ad alta intenzione agli agenti live in orario d’ufficio'
+            'Trasferimento dei contatti ad alta intenzione agli agenti live in orario d’ufficio'
           ]
         },
         {
@@ -53,7 +53,7 @@ export const caseStudies = [
         {
           title: 'Follow-Up Automatizzato (Da Settimana 3)',
           items: [
-            'Per i lead senza risposta, avviata una sequenza nurture in 3 step:',
+            'Per i contatti senza risposta, avviata una sequenza nurture in 3 step:',
             'Email immediata con riepilogo dell’immobile',
             'SMS di promemoria dopo 12 ore',
             'Messaggio WhatsApp personalizzato dopo 48 ore'
@@ -73,7 +73,7 @@ export const caseStudies = [
       ]
     },
     testimonial: {
-      quote: 'Automis.ai ha trasformato il nostro modo di gestire le richieste: ogni lead viene acquisito, qualificato e prenotato. I nostri agenti si concentrano sulla chiusura, non sulle chiamate.',
+      quote: 'Automis.ai ha trasformato il nostro modo di gestire le richieste: ogni contatto viene acquisito, qualificato e prenotato. I nostri agenti si concentrano sulla chiusura, non sulle chiamate.',
       author: 'Marco Rossi',
       title: 'Direttore Generale, Rossi Realty'
     }
@@ -197,7 +197,7 @@ export const caseStudies = [
           items: [
             'Kickoff di 90 minuti con clinic manager e coordinatori',
             'Mappatura percorso richieste: form sito → email automatica → richiamata → prenotazione',
-            'Individuati colli di bottiglia: assenza supporto fuori orario, reminder manuali, dati frammentati'
+            'Individuati punti critici: assenza supporto fuori orario, reminder manuali, dati frammentati'
           ]
         },
         {

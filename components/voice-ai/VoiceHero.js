@@ -22,16 +22,16 @@ const COPY = {
     videoTitle: "How Automis Voice AI works",
   },
   it: {
-    eyebrow: "Prodotto di punta · Automis Voice AI",
+    eyebrow: "Prodotto di punta · Assistente Vocale Automis",
     headline: {
-      pre: "Il receptionist IA che trasforma ogni chiamata in un ",
+      pre: "L'assistente vocale che trasforma ogni chiamata in un ",
       grad: "appuntamento fissato",
       post: ".",
     },
     subhead:
-      "Automis Voice AI risponde a ogni chiamata 24/7, qualifica il lead, lo fissa sul tuo calendario e lo sincronizza con il tuo CRM. Notti, weekend, festivi. Nessuna chiamata persa, nessun fatturato perso.",
+      "L'assistente vocale di Automis risponde a ogni chiamata 24/7, qualifica il contatto, lo fissa sul tuo calendario e lo sincronizza con il tuo CRM. Notti, weekend, festivi. Nessuna chiamata persa, nessun fatturato perso.",
     cta: "Prenota una call",
-    videoTitle: "Come funziona Automis Voice AI",
+    videoTitle: "Come funziona l'assistente vocale di Automis",
   },
 };
 

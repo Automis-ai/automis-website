@@ -123,7 +123,7 @@ const JumpstartAudit = () => {
                   data-aos-delay={100}
                   data-aos-duration={1200}
                 >
-                  In 15 giorni ti mostriamo esattamente come ridurre sprechi pubblicitari e trasformare più lead in fatturato, grazie ad Agenti IA e automazioni su misura.
+                  In 15 giorni ti mostriamo esattamente come ridurre sprechi pubblicitari e trasformare più contatti in fatturato, grazie ad Agenti IA e automazioni su misura.
                 </p>
 
                 {/* BENEFIT PILLS */}
@@ -674,7 +674,7 @@ style={{ height: `${lineHeight}%` }}
                 {
                   day: "Giorno 3–5",
                   title: "Mappa funnel",
-                  fullTitle: "Mappatura funnel e colli di bottiglia",
+                  fullTitle: "Mappatura funnel e punti critici",
                   what: "Mappiamo il flusso lead → prenotazione (ads → acquisizione lead → contatto → booking → follow-up). Evidenziamo perdite: risposta lenta, chiamate perse, passaggi manuali, rischio no-show.",
                   icon: <Activity />
                 },
@@ -798,7 +798,7 @@ className={`!w-4 !h-4 !text-[#FEC458] !transition-transform !duration-300 ${expa
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-yellow-light mt-2 flex-shrink-0" />
-                      <span className="body-text text-text-light">Aziende guidate da lead</span>
+                      <span className="body-text text-text-light">Aziende che vivono di contatti e prenotazioni</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 rounded-full bg-yellow-light mt-2 flex-shrink-0" />

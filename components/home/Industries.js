@@ -53,7 +53,7 @@ const COPY = {
   it: {
     eyebrow: "Per chi costruiamo",
     title: "Su misura per il tuo settore, non un template",
-    lead: "Sistemi cuciti sui veri colli di bottiglia del tuo settore, sulle sue esigenze di conformità e sul suo modo di conquistare clienti. Mai un template preconfezionato.",
+    lead: "Sistemi cuciti sui veri punti critici del tuo settore, sulle sue esigenze di conformità e sul suo modo di conquistare clienti. Mai un template preconfezionato.",
     icps: [
       {
         title: "Sanità",
@@ -64,7 +64,7 @@ const COPY = {
       {
         title: "Servizi Professionali e Finanziari",
         sub: "Avvocati · commercialisti · finanza",
-        body: "Lead qualificati all'istante e un Company Brain sui tuoi documenti legali e finanziari, con le note vocali trascritte direttamente nel CRM.",
+        body: "Contatti qualificati all'istante e un Company Brain sui tuoi documenti legali e finanziari, con le note vocali trascritte direttamente nel CRM.",
         proven: "Realizzato con Adifesa",
       },
       {
@@ -76,7 +76,7 @@ const COPY = {
       {
         title: "Attività Locali",
         sub: "Servizi · artigiani · negozi locali",
-        body: "Basta chiamate perse e DM social gestiti in automatico: un sistema che cattura ogni lead mentre tu pensi al lavoro.",
+        body: "Basta chiamate perse e DM social gestiti in automatico: un sistema che cattura ogni contatto mentre tu pensi al lavoro.",
         proven: null,
       },
       {

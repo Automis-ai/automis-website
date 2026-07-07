@@ -137,13 +137,13 @@ export const CASES = [
       location: "Monza, Italia",
       tag: "Automazione Meta",
       summary:
-        "Automazione Meta che risponde in automatico a ogni commento e DM su Facebook e Instagram, qualifica l'interesse e smista i lead puliti al team commerciale.",
+        "Automazione Meta che risponde in automatico a ogni commento e DM su Facebook e Instagram, qualifica l'interesse e smista i contatti puliti al team commerciale.",
       headline:
-        "Ogni lead da Facebook e Instagram gestito e qualificato, in automatico.",
+        "Ogni contatto da Facebook e Instagram gestito e qualificato, in automatico.",
       challenge: {
         lead: "Un'azienda finanziaria che gestiva campagne di cessione del quinto su Meta era sommersa da commenti e DM.",
         points: [
-          "Commenti agli annunci e messaggi diretti arrivavano in gran volume, più in fretta di quanto il team riuscisse a rispondere, e le risposte lente fanno perdere i lead caldi.",
+          "Commenti agli annunci e messaggi diretti arrivavano in gran volume, più in fretta di quanto il team riuscisse a rispondere, e le risposte lente fanno perdere i contatti caldi.",
           "Le richieste di finanziamento reali finivano sepolte in una casella rumorosa, insieme a spam e messaggi fuori tema.",
           "Nessun modo coerente di qualificare l'interesse prima dell'intervento di una persona, così il team commerciale perdeva tempo su contatti non pronti.",
         ],
@@ -152,21 +152,21 @@ export const CASES = [
         lead: "Abbiamo costruito un'automazione Meta di Automis che intercetta ogni potenziale cliente nel momento in cui interagisce.",
         points: [
           "Risposte automatiche ai commenti e ai DM su Facebook e Instagram, con il tono dell'azienda.",
-          "Qualificazione dei lead che raccoglie i dati chiave per una richiesta di cessione del quinto.",
-          "Smistamento pulito dei lead qualificati al team commerciale, fuori dalla casella pubblica rumorosa.",
-          "Un flusso di lead costante e organizzato, invece della corsa manuale sotto ogni annuncio.",
+          "Qualificazione dei contatti che raccoglie i dati chiave per una richiesta di cessione del quinto.",
+          "Smistamento pulito dei contatti qualificati al team commerciale, fuori dalla casella pubblica rumorosa.",
+          "Un flusso di contatti costante e organizzato, invece della corsa manuale sotto ogni annuncio.",
         ],
       },
       results: {
         lead: "I dati qui sotto sono stime prudenti basate su implementazioni comparabili di automazione Meta. I risultati reali variano in base a budget pubblicitario, pubblico e configurazione.",
         metrics: [
           { value: "<30s", label: "risposta media a un nuovo commento o DM (stima)" },
-          { value: "24/7", label: "copertura, così nessun lead aspetta gli orari d'ufficio" },
+          { value: "24/7", label: "copertura, così nessun contatto aspetta gli orari d'ufficio" },
           { value: "100%", label: "dei commenti e DM in entrata gestiti in automatico" },
         ],
       },
       quote:
-        "I lead vengono raccolti e qualificati prima ancora di muovere un dito, e il team commerciale vede solo quelli che meritano una call.",
+        "I contatti vengono raccolti e qualificati prima ancora di muovere un dito, e il team commerciale vede solo quelli che meritano una call.",
       quoteAttribution: "Storia del cliente, citazione provvisoria in attesa di approvazione",
     },
   },

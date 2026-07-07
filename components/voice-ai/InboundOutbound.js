@@ -122,11 +122,11 @@ const COPY = {
           Un sistema, <GradientText>due agenti specializzati</GradientText>.
         </>
       ),
-      lead: "Un agente risponde alle chiamate in entrata come un receptionist attivo 24/7. Un secondo lavora le chiamate in uscita, trasformando i lead che hai già pagato in appuntamenti fissati.",
+      lead: "Un agente risponde alle chiamate in entrata come un assistente vocale attivo 24/7. Un secondo lavora le chiamate in uscita, trasformando i contatti che hai già pagato in appuntamenti fissati.",
     },
     inbound: {
       eyebrow: "Inbound",
-      title: "Il tuo receptionist attivo 24/7",
+      title: "Il tuo assistente vocale attivo 24/7",
       intro:
         "Risponde a ogni chiamata in entrata con una voce naturale, giorno e notte, così nessuno finisce in segreteria o chiama un concorrente.",
       items: [
@@ -166,17 +166,17 @@ const COPY = {
       eyebrow: "Outbound",
       title: "Il tuo motore di crescita",
       intro:
-        "Chiama i lead che hai già pagato: i nuovi in pochi secondi, quelli freddi riattivati e i follow-up per non lasciare raffreddare nulla.",
+        "Chiama i contatti che hai già pagato: i nuovi in pochi secondi, quelli freddi riattivati e i follow-up per non lasciare raffreddare nulla.",
       items: [
         {
-          title: "Richiamo immediato al nuovo lead",
-          what: "Nel momento in cui arriva un lead da un form, un'inserzione o dal sito, l'agente richiama in pochi secondi per qualificarlo e fissare l'appuntamento mentre l'interesse è alto.",
-          outcome: "Raggiungi i lead prima dei tuoi concorrenti",
+          title: "Richiamo immediato al nuovo contatto",
+          what: "Nel momento in cui arriva un contatto da un form, un'inserzione o dal sito, l'agente richiama in pochi secondi per qualificarlo e fissare l'appuntamento mentre l'interesse è alto.",
+          outcome: "Raggiungi i contatti prima dei tuoi concorrenti",
         },
         {
-          title: "Riattiva i lead freddi",
+          title: "Riattiva i contatti freddi",
           what: "Lavora le liste CRM vecchie o dormienti, riaccende i contatti passati con una voce naturale e riprenota chi è ancora interessato.",
-          outcome: "Nuovi appuntamenti da lead già presenti nel tuo database",
+          outcome: "Nuovi appuntamenti da contatti già presenti nel tuo database",
         },
         {
           title: "Promemoria e conferme",

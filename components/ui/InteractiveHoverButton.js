@@ -29,13 +29,17 @@ const InteractiveHoverButton = React.forwardRef(
         )}
         {...props}
       >
-        <span className="relative z-10 inline-block translate-x-0 transition-all duration-300 group-hover:translate-x-40 group-hover:opacity-0">
+        {/* Resting label. The trailing invisible arrow reserves the exact width
+            the hover state needs (label + gap + arrow), so long labels don't
+            overflow/clip on hover and the label doesn't shift sideways. */}
+        <span className="relative z-10 inline-flex items-center justify-center gap-2 whitespace-nowrap translate-x-0 transition-all duration-300 group-hover:translate-x-40 group-hover:opacity-0">
           {label}
+          <ArrowRight aria-hidden="true" className="h-4 w-4 opacity-0" strokeWidth={2.4} />
         </span>
         <div
           aria-hidden="true"
           className={cn(
-            "absolute top-0 z-20 flex h-full w-full -translate-x-40 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100",
+            "absolute top-0 z-20 flex h-full w-full -translate-x-40 items-center justify-center gap-2 whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100",
             solid ? "text-white" : "text-[#00121f]"
           )}
         >

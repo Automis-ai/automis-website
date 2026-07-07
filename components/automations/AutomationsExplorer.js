@@ -44,13 +44,13 @@ const COPY = {
   },
   it: {
     pillars: {
-      sales: { name: "Vendite e acquisizione", blurb: "Rispondi, qualifica e non perdere mai un lead." },
+      sales: { name: "Vendite e acquisizione", blurb: "Rispondi, qualifica e non perdere mai un contatto." },
       marketing: { name: "Marketing e crescita", blurb: "Porta i clienti giusti, in automatico." },
       admin: { name: "Admin e cervello aziendale", blurb: "Togli al tuo team il lavoro ripetitivo e la gestione delle informazioni." },
     },
     eyebrow: "Filtra sul tuo mondo",
     title: <>Trova le automazioni giuste per te</>,
-    lead: "Scegli il tuo settore, scegli il tuo obiettivo, o combinali entrambi per restringere la lista. Ogni card è qualcosa che costruiamo davvero.",
+    lead: "Scegli il tuo settore, scegli il tuo obiettivo, o combinali entrambi per restringere la lista. Ogni esempio è qualcosa che costruiamo davvero.",
     byIndustry: "Per settore",
     allIndustries: "Tutti i settori",
     byGoal: "Per obiettivo",

@@ -43,7 +43,7 @@ const COPY = {
         body: "Risponde al primo squillo, 24/7, con una voce naturale. Niente attese, niente segreteria, nessuna chiamata persa.",
       },
       {
-        title: "Qualifica il lead",
+        title: "Qualifica il contatto",
         body: "Fa le tue domande, capisce la richiesta e raccoglie i dettagli che contano prima di prenotare.",
       },
       {

@@ -76,9 +76,9 @@ const COPY = {
       {
         kicker: "Vendite & Acquisizione",
         title: "Una reception che non stacca mai",
-        body: "L'agente vocale IA di Automis risponde a ogni chiamata, 24 ore su 24. Qualifica, prenota e recupera le chiamate perse. Insieme all'automazione su social e WhatsApp che trasforma i DM in lead qualificati nel tuo CRM.",
-        points: ["Agente vocale IA 24/7, il nostro fiore all'occhiello", "Recupero chiamate perse + prenotazioni", "Social & WhatsApp → lead qualificati nel CRM"],
-        cta: "Scopri l'IA vocale",
+        body: "L'assistente vocale di Automis risponde a ogni chiamata, 24 ore su 24. Qualifica, prenota e recupera le chiamate perse. Insieme all'automazione su social e WhatsApp che trasforma i DM in contatti qualificati nel tuo CRM.",
+        points: ["Assistente vocale IA 24/7, il nostro fiore all'occhiello", "Recupero chiamate perse + prenotazioni", "Social & WhatsApp → contatti qualificati nel CRM"],
+        cta: "Scopri l'assistente vocale",
       },
       {
         kicker: "Operations & Company Brain",

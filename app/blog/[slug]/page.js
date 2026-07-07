@@ -1,4 +1,4 @@
-import AkpagerLayout from "@/layouts/AkpagerLayout";
+import AutomisEnShell from "@/components/site/AutomisEnShell";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CTAButton from "@/components/CTAButton";
@@ -48,7 +48,7 @@ const BlogPostPage = ({ params }) => {
   if (!post) notFound();
 
   return (
-    <AkpagerLayout>
+    <AutomisEnShell>
       {/* ── HERO ── */}
       <section
         className="hero-padding bg-bg-primary relative z-1 bgs-cover text-center"
@@ -150,7 +150,7 @@ const BlogPostPage = ({ params }) => {
           </div>
         </div>
       </section>
-    </AkpagerLayout>
+    </AutomisEnShell>
   );
 };
 

@@ -36,16 +36,16 @@ const COPY = {
     title: "Le tue domande, con risposta.",
     faqs: [
       {
-        q: "Allora, di cosa si tratta esattamente questa IA vocale?",
-        a: "Immagina Automis Voice AI come un receptionist virtuale super intelligente per il tuo business. Gestisce le chiamate dei clienti, prende appuntamenti, risponde alle domande e fa persino chiamate in outbound, il tutto con una voce sorprendentemente umana. È come avere un membro del team in più che non dorme mai.",
+        q: "Allora, di cosa si tratta esattamente questo assistente vocale?",
+        a: "Immagina l'assistente vocale di Automis come una segretaria virtuale super intelligente per il tuo business. Gestisce le chiamate dei clienti, prende appuntamenti, risponde alle domande e fa persino chiamate in outbound, il tutto con una voce sorprendentemente umana. È come avere un membro del team in più che non dorme mai.",
       },
       {
         q: "Capisce davvero cosa dicono i clienti?",
-        a: "Sì. La nostra IA vocale usa tecnologie vocali avanzate per capire il contesto, gli accenti e persino il gergo del settore. Non si limita a sentire le parole: ne coglie il significato. Così, che il tuo cliente abbia un accento marcato o usi tanti termini tecnici, l'IA se la cava senza problemi.",
+        a: "Sì. Il nostro assistente vocale usa tecnologie di riconoscimento vocale avanzate per capire il contesto, gli accenti e persino il gergo del settore. Non si limita a sentire le parole: ne coglie il significato. Così, che il tuo cliente abbia un accento marcato o usi tanti termini tecnici, l'IA se la cava senza problemi.",
       },
       {
         q: "Funziona con i sistemi che già usiamo?",
-        a: "Assolutamente. La Voice AI si integra con il tuo CRM, il calendario e gli altri strumenti aziendali. Il nostro team configura tutto in modo che si inserisca perfettamente nel tuo flusso di lavoro attuale, senza bisogno di rivoluzionare l'intero sistema.",
+        a: "Assolutamente. L'assistente vocale si integra con il tuo CRM, il calendario e gli altri strumenti aziendali. Il nostro team configura tutto in modo che si inserisca perfettamente nel tuo flusso di lavoro attuale, senza bisogno di rivoluzionare l'intero sistema.",
       },
       {
         q: "E se l'IA si trova spiazzata da una domanda?",

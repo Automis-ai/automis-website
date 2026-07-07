@@ -3,12 +3,21 @@ import { usePathname } from "next/navigation";
 import { Section, SectionHeading, Reveal } from "@/components/home/_ui";
 import { CalendarCheck2, Users, KanbanSquare, Check, ShieldCheck } from "lucide-react";
 
-// Structural metadata (icon + screenshot) stays identical across locales.
-const TIER_META = [
-  { icon: CalendarCheck2, shot: "/assets/images/dashboard/clean/bookings.png" },
-  { icon: Users, shot: "/assets/images/dashboard/clean/light-crm.png" },
-  { icon: KanbanSquare, shot: "/assets/images/dashboard/clean/pipeline.png" },
-];
+// Structural metadata (icon + screenshot). Icons stay identical across locales;
+// screenshots are locale-aware (Italian captures live under clean/it).
+const TIER_ICONS = [CalendarCheck2, Users, KanbanSquare];
+const TIER_SHOTS = {
+  en: [
+    "/assets/images/dashboard/clean/bookings.png",
+    "/assets/images/dashboard/clean/light-crm.png",
+    "/assets/images/dashboard/clean/pipeline.png",
+  ],
+  it: [
+    "/assets/images/dashboard/clean/it/bookings.png",
+    "/assets/images/dashboard/clean/it/light-crm.png",
+    "/assets/images/dashboard/clean/it/pipeline.png",
+  ],
+};
 
 const COPY = {
   en: {
@@ -91,6 +100,7 @@ function BrowserFrame({ src, alt }) {
 export default function CrmTiers() {
   const locale = usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
+  const shots = TIER_SHOTS[locale];
 
   return (
     <Section id="voice-crm" className="bg-[#000a14]">
@@ -101,8 +111,7 @@ export default function CrmTiers() {
       />
 
       <div className="mt-14 space-y-8 sm:space-y-12">
-        {TIER_META.map((meta, i) => {
-          const Icon = meta.icon;
+        {TIER_ICONS.map((Icon, i) => {
           const tier = t.tiers[i];
           const flip = i % 2 === 1;
           return (
@@ -132,7 +141,7 @@ export default function CrmTiers() {
 
                 {/* Screenshot column */}
                 <div className={flip ? "lg:order-1" : ""}>
-                  <BrowserFrame src={meta.shot} alt={tier.caption} />
+                  <BrowserFrame src={shots[i]} alt={tier.caption} />
                   <p className="mt-3 text-center text-[13px] text-white/55">{tier.caption}</p>
                 </div>
               </div>

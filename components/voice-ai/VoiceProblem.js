@@ -27,8 +27,8 @@ const COPY = {
   },
   it: {
     eyebrow: "Il problema",
-    title: <>Ogni chiamata persa e ogni lead lasciato raffreddare è una prenotazione che non vedrai mai.</>,
-    lead: "Le chiamate arrivano quando non c'è nessuno libero a rispondere: di sera, nei weekend, nei pomeriggi più intensi. E i nuovi lead arrivano più in fretta di quanto chiunque riesca a richiamarli. In entrambi i casi, l'appuntamento va a chi risponde per primo.",
+    title: <>Ogni chiamata persa e ogni contatto lasciato raffreddare è una prenotazione che non vedrai mai.</>,
+    lead: "Le chiamate arrivano quando non c'è nessuno libero a rispondere: di sera, nei weekend, nei pomeriggi più intensi. E i nuovi contatti arrivano più in fretta di quanto chiunque riesca a richiamarli. In entrambi i casi, l'appuntamento va a chi risponde per primo.",
     pains: [
       {
         title: "Una chiamata persa è un cliente perso",
@@ -40,7 +40,7 @@ const COPY = {
       },
       {
         title: "Un follow-up lento fa saltare la trattativa",
-        body: "I lead si raffreddano in pochi minuti. Se per richiamare ci vogliono ore, l'interesse è già svanito e l'appuntamento va a chi ha risposto per primo.",
+        body: "I contatti si raffreddano in pochi minuti. Se per richiamare ci vogliono ore, l'interesse è già svanito e l'appuntamento va a chi ha risposto per primo.",
       },
     ],
   },

@@ -1,4 +1,4 @@
-import AkpagerLayout from "@/layouts/AkpagerLayout";
+import AutomisEnShell from "@/components/site/AutomisEnShell";
 import Link from "next/link";
 import CTAButton from "@/components/CTAButton";
 import { getAllPosts } from "@/lib/blog";
@@ -29,7 +29,7 @@ const BlogPage = async () => {
   const posts = getAllPosts("en");
 
   return (
-    <AkpagerLayout>
+    <AutomisEnShell>
       {/* ── HERO ── */}
       <section className="relative overflow-hidden bg-bg-primary hero-padding">
         {/* background blobs */}
@@ -219,7 +219,7 @@ const BlogPage = async () => {
           </div>
         </div>
       </section>
-    </AkpagerLayout>
+    </AutomisEnShell>
   );
 };
 

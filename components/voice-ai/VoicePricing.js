@@ -109,7 +109,7 @@ const COPY = {
         tagline: "Trasforma le chiamate in una macchina di follow-up.",
         features: [
           "600 minuti / mese",
-          "Tutto quello di Starter",
+          "Tutto ciò che include Starter",
           "Sincronizzazione CRM (GoHighLevel / HubSpot)",
           "Promemoria via SMS e WhatsApp",
           "Follow-up automatici",
@@ -124,7 +124,7 @@ const COPY = {
         tagline: "Un motore di acquisizione completo: voce e non solo.",
         features: [
           "1.500 minuti / mese",
-          "Tutto quello di Growth",
+          "Tutto ciò che include Growth",
           "Chatbot WhatsApp",
           "Campagne outbound",
           "Integrazioni su misura",

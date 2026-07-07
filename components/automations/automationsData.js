@@ -17,7 +17,7 @@ export const NICHES = [
 // By goal (pillar). Plain-language goal labels map onto the 3 Automis pillars.
 export const GOALS = [
   { id: "marketing", label: "Get more customers", pillar: "Marketing & Growth", label_it: "Trova più clienti", pillar_it: "Marketing e crescita" },
-  { id: "sales", label: "Never miss a lead", pillar: "Sales & Acquisition", label_it: "Non perdere un lead", pillar_it: "Vendite e acquisizione" },
+  { id: "sales", label: "Never miss a lead", pillar: "Sales & Acquisition", label_it: "Non perdere un contatto", pillar_it: "Vendite e acquisizione" },
   { id: "admin", label: "Run the back office", pillar: "Admin & Company Brain", label_it: "Gestisci il back office", pillar_it: "Admin e cervello aziendale" },
 ];
 
@@ -64,26 +64,26 @@ export const AUTOMATIONS = [
     it: {
       title: "Recupero delle chiamate perse",
       problem: "Una chiamata persa di solito è un cliente perso, che semplicemente chiama l'attività successiva nella lista.",
-      automate: "Nel momento in cui una chiamata va persa, parte un SMS automatico che riapre la conversazione e propone di essere richiamati o un link per prenotare.",
+      automate: "Nel momento in cui una chiamata viene persa, parte un SMS automatico che riapre la conversazione e propone di essere richiamati o un link per prenotare.",
       outcome: "Recuperi una quota significativa di chiamate perse che altrimenti se ne andrebbero.",
       liveLabel: "Guardala dal vivo",
     },
   },
   {
     id: "dm-to-crm",
-    title: "Instagram & Facebook DM to CRM",
+    title: "Instagram & Facebook comments & DMs to CRM",
     pillar: "sales",
     niches: ["local", "professional", "real-estate"],
-    problem: "Leads slide into your social DMs and get buried before anyone can qualify and follow up.",
-    automate: "An AI agent replies to every Instagram and Facebook DM, qualifies the lead, and writes it straight into your CRM with the full context.",
+    problem: "Leads slide into your social comments and DMs and get buried before anyone can qualify and follow up.",
+    automate: "An AI agent replies to every Instagram and Facebook comment and DM, qualifies the lead, and writes it straight into your CRM with the full context.",
     outcome: "Every social inquiry becomes a tracked lead your team can act on.",
     liveHref: "/use-cases/adifesa",
     liveLabel: "See it live",
     it: {
-      title: "DM di Instagram e Facebook nel CRM",
-      problem: "I lead arrivano nei DM dei tuoi social e finiscono sepolti prima che qualcuno riesca a qualificarli e a ricontattarli.",
-      automate: "Un agente IA risponde a ogni DM di Instagram e Facebook, qualifica il lead e lo scrive direttamente nel tuo CRM con tutto il contesto.",
-      outcome: "Ogni richiesta dai social diventa un lead tracciato su cui il tuo team può agire.",
+      title: "Commenti e DM di Instagram e Facebook nel CRM",
+      problem: "I contatti arrivano nei commenti e nei DM dei tuoi social e finiscono sepolti prima che qualcuno riesca a qualificarli e a ricontattarli.",
+      automate: "Un agente IA risponde a ogni commento e DM di Instagram e Facebook, qualifica il contatto e lo scrive direttamente nel tuo CRM con tutto il contesto.",
+      outcome: "Ogni richiesta dai social diventa un contatto tracciato su cui il tuo team può agire.",
       liveLabel: "Guardala dal vivo",
     },
   },
@@ -113,10 +113,10 @@ export const AUTOMATIONS = [
     outcome: "Sales time goes to the leads most likely to close.",
     liveHref: null,
     it: {
-      title: "Qualifica e smistamento dei lead",
-      problem: "Il tuo team perde tempo sui lead non qualificati e rallenta quelli buoni.",
-      automate: "L'IA valuta ogni lead in base ai tuoi criteri, gli assegna un punteggio e smista in automatico quelli qualificati alla persona giusta del team.",
-      outcome: "Il tempo delle vendite va ai lead con più probabilità di chiudere.",
+      title: "Qualifica e smistamento dei contatti",
+      problem: "Il tuo team perde tempo sui contatti non qualificati e rallenta quelli buoni.",
+      automate: "L'IA valuta ogni contatto in base ai tuoi criteri, gli assegna un punteggio e smista in automatico quelli qualificati alla persona giusta del team.",
+      outcome: "Il tempo delle vendite va ai contatti con più probabilità di chiudere.",
     },
   },
   {

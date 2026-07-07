@@ -5,7 +5,11 @@ import { FileAudio, FileText, Sparkles, ShieldCheck } from "lucide-react";
 
 // Lead screenshot: the live Bookings table, every call the AI handled, with
 // outcome and status. Customer names/numbers are blurred for privacy.
-const LEAD_SHOT_SRC = "/assets/images/dashboard/clean/bookings.png";
+// Locale-aware: Italian dashboard captures live under clean/it.
+const SHOTS = {
+  en: { bookings: "/assets/images/dashboard/clean/bookings.png", callDetail: "/assets/images/dashboard/clean/call-detail.png" },
+  it: { bookings: "/assets/images/dashboard/clean/it/bookings.png", callDetail: "/assets/images/dashboard/clean/it/call-detail.png" },
+};
 
 const COPY = {
   en: {
@@ -60,6 +64,7 @@ function BrowserFrame({ children }) {
 export default function DashboardWalk() {
   const locale = usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
+  const shots = SHOTS[locale];
 
   return (
     <Section id="voice-dashboard" className="bg-[#020a12]" inner="max-w-6xl">
@@ -74,7 +79,7 @@ export default function DashboardWalk() {
         <Reveal>
           <BrowserFrame>
             <img
-              src={LEAD_SHOT_SRC}
+              src={shots.bookings}
               alt={t.leadCaption}
               className="block w-full"
               loading="lazy"
@@ -117,7 +122,7 @@ export default function DashboardWalk() {
               <div className="flex flex-col">
                 <div className="overflow-hidden rounded-xl border border-white/[0.1] bg-[#0b1622] shadow-2xl">
                   <img
-                    src="/assets/images/dashboard/clean/call-detail.png"
+                    src={shots.callDetail}
                     alt={t.callDetailAlt}
                     className="block w-full"
                     loading="lazy"

@@ -17,9 +17,9 @@ const COPY = {
     founders: [
       {
         name: "Vincenzo Luca Casillo",
-        role: "AI Growth Strategy & Marketing Systems",
+        role: "Growth & Performance Marketing",
         image: "/assets/images/headshots/luca.jpeg",
-        bio: "Vincenzo has spent years building AI systems, agents, and automations that turn messy, manual growth work into predictable revenue engines. He has a sharp eye for the bottleneck: he walks into a business, maps where time and money leak, and pinpoints exactly which processes are ready to be automated. From conversion-first funnels to AI-driven lead follow-up, he designs and ships the whole system end to end. Clients don't get slides and theory; they get a working machine they own and can rely on.",
+        bio: "Vincenzo owns growth and marketing. He runs and optimizes performance advertising across Meta and Google, measurably improving CAC and ROAS, and builds the conversion-first funnels, content, and search visibility that turn attention into booked demand. He pairs paid acquisition with AI-driven follow-up, so the traffic he generates never goes cold. Clients don't get vanity metrics; they get a marketing engine that brings in real, qualified demand.",
         social: {
           type: "linkedin",
           url: "https://www.linkedin.com/in/vincenzo-luca-casillo/",
@@ -28,9 +28,9 @@ const COPY = {
       },
       {
         name: "Arcangelo Bianco",
-        role: "AI Automation & Performance Systems",
+        role: "AI Automation & Audit",
         image: "/assets/images/headshots/arcangelo.jpeg",
-        bio: "Arcangelo is hands-on with every layer of an AI build, from custom agents and multi-step automations to the acquisition systems that feed them. He's obsessed with finding the highest-leverage place to automate: the repetitive task, the slow handoff, the follow-up that never happens, and turning it into a system that runs on its own. He pairs that with performance advertising that measurably improves CAC and ROAS across Meta, Google, and beyond. The result is real, owned infrastructure that keeps delivering results long after the build is done.",
+        bio: "Arcangelo is hands-on with every layer of an AI build, from custom agents and multi-step automations to the Second Brain systems that run on your own data. He's obsessed with finding the highest-leverage place to automate: he walks into a business, maps where time and money leak, and pinpoints exactly which processes are ready to be automated, the repetitive task, the slow handoff, the follow-up that never happens. That audit-first approach turns into real, owned infrastructure that keeps delivering results long after the build is done.",
         social: {
           type: "instagram",
           url: "https://instagram.com/arcangelo.automis",
@@ -49,9 +49,9 @@ const COPY = {
     founders: [
       {
         name: "Vincenzo Luca Casillo",
-        role: "Strategia di crescita IA e sistemi di marketing",
+        role: "Crescita e performance marketing",
         image: "/assets/images/headshots/luca.jpeg",
-        bio: "Vincenzo ha passato anni a costruire sistemi IA, agenti e automazioni che trasformano il lavoro di crescita disordinato e manuale in motori di fatturato prevedibili. Ha un occhio chirurgico per i colli di bottiglia: entra in un business, individua dove si perdono tempo e denaro e capisce con precisione quali processi sono pronti per essere automatizzati. Dai funnel orientati alla conversione al follow-up dei lead guidato dall'IA, progetta e rilascia l'intero sistema dall'inizio alla fine. I clienti non ricevono slide e teoria: ricevono una macchina che funziona, che possiedono e su cui possono contare.",
+        bio: "Vincenzo guida crescita e marketing. Gestisce e ottimizza le campagne pubblicitarie a performance su Meta e Google, migliorando in modo misurabile CAC e ROAS, e costruisce i funnel orientati alla conversione, i contenuti e la visibilità sui motori di ricerca che trasformano l'attenzione in domanda concreta. All'acquisizione a pagamento affianca un follow-up guidato dall'IA, così il traffico che genera non si raffredda mai. Niente metriche di vanità: i clienti ricevono un motore di marketing che porta domanda reale e qualificata.",
         social: {
           type: "linkedin",
           url: "https://www.linkedin.com/in/vincenzo-luca-casillo/",
@@ -60,9 +60,9 @@ const COPY = {
       },
       {
         name: "Arcangelo Bianco",
-        role: "Automazione IA e sistemi di performance",
+        role: "Automazione IA e audit",
         image: "/assets/images/headshots/arcangelo.jpeg",
-        bio: "Arcangelo è operativo su ogni livello di un progetto IA, dagli agenti su misura alle automazioni a più passaggi, fino ai sistemi di acquisizione che li alimentano. È ossessionato dal trovare il punto in cui automatizzare rende di più: l'attività ripetitiva, il passaggio di consegne lento, il follow-up che non parte mai, e dal trasformarlo in un sistema che gira da solo. A questo affianca campagne pubblicitarie a performance che migliorano in modo misurabile CAC e ROAS su Meta, Google e oltre. Il risultato è un'infrastruttura reale e di tua proprietà che continua a produrre risultati molto dopo la fine del progetto.",
+        bio: "Arcangelo è operativo su ogni livello di un progetto IA, dagli agenti su misura alle automazioni a più passaggi, fino ai sistemi di Second Brain che girano sui dati della tua azienda. È ossessionato dal trovare il punto in cui automatizzare rende di più: entra in un business, individua dove si perdono tempo e denaro e capisce con precisione quali processi sono pronti per essere automatizzati, l'attività ripetitiva, il passaggio di consegne lento, il follow-up che non parte mai. Questo approccio che parte dall'audit diventa un'infrastruttura reale e di tua proprietà, che continua a produrre risultati molto dopo la fine del progetto.",
         social: {
           type: "instagram",
           url: "https://instagram.com/arcangelo.automis",

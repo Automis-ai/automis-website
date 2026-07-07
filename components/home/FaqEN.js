@@ -41,11 +41,11 @@ const COPY = {
     faqs: [
       {
         q: "In quanto tempo si parte?",
-        a: "Gli agenti vocali IA e le automazioni semplici vanno di solito online in circa 7 giorni. I sistemi complessi e multi-pilastro hanno tempistiche su misura, che definiamo con precisione nella discovery call prima di partire.",
+        a: "Gli assistenti vocali IA e le automazioni semplici vanno di solito online in circa 7 giorni. I sistemi complessi e multi-pilastro hanno tempistiche su misura, che definiamo con precisione nella discovery call prima di partire.",
       },
       {
         q: "Quanto costa?",
-        a: "Il nostro agente vocale IA ha piani mensili a prezzo fisso (trovi le tariffe nella pagina Voice AI). Tutto il resto lo quotiamo su misura dopo una discovery call, perché costruiamo attorno ai tuoi processi e non su un pacchetto uguale per tutti.",
+        a: "Il nostro assistente vocale ha piani mensili a prezzo fisso (trovi le tariffe nella pagina Assistente Vocale). Tutto il resto lo quotiamo su misura dopo una discovery call, perché costruiamo attorno ai tuoi processi e non su un pacchetto uguale per tutti.",
       },
       {
         q: "I miei dati sono al sicuro? E il GDPR?",
@@ -61,7 +61,7 @@ const COPY = {
       },
       {
         q: "E se non funzionasse per noi?",
-        a: "Ogni piano Voice ha una garanzia sui risultati di 30 giorni, e i progetti su misura con costo di setup prevedono il rimborso di quella quota. Il rischio del primo passo ce lo prendiamo noi.",
+        a: "Ogni piano dell'assistente vocale ha una garanzia sui risultati di 30 giorni, e i progetti su misura con costo di setup prevedono il rimborso di quella quota. Il rischio del primo passo ce lo prendiamo noi.",
       },
     ],
   },

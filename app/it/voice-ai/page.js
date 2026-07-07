@@ -10,14 +10,14 @@ import VoiceFaq from "@/components/voice-ai/VoiceFaq";
 import VoiceBooking from "@/components/voice-ai/VoiceBooking";
 
 export const metadata = {
-  title: "Voice AI | Segretaria e agenti vocali IA 24/7 | Automis",
+  title: "Assistente Vocale IA | Segretaria e agenti vocali 24/7 | Automis",
   description:
-    "La Voice AI di Automis risponde a ogni chiamata 24/7, qualifica i lead, fissa gli appuntamenti e li sincronizza sul tuo CRM. Piani da 297€/mese, garanzia 30 giorni.",
+    "L'assistente vocale IA di Automis risponde a ogni chiamata 24/7, qualifica i contatti, fissa gli appuntamenti e li sincronizza sul tuo CRM. Piani da 297€/mese, garanzia 30 giorni.",
   keywords: [
     "agente vocale IA",
     "segretaria IA",
     "risponditore telefonico IA",
-    "voice AI per aziende",
+    "assistente vocale per aziende",
     "risposta chiamate 24/7",
     "prenotazione appuntamenti IA",
     "recupero chiamate perse",
@@ -31,7 +31,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Automis Voice AI | La segretaria IA 24/7 che fissa gli appuntamenti",
+    title: "Assistente Vocale Automis | La segretaria IA 24/7 che fissa gli appuntamenti",
     description:
       "Risponde a ogni chiamata 24/7, qualifica, prenota e sincronizza il tuo CRM. Trasparenza totale via dashboard, piani da 297€/mese, garanzia 30 giorni.",
     url: "https://automis.ai/it/voice-ai",
@@ -43,13 +43,13 @@ export const metadata = {
         url: "/assets/og/home-en.png",
         width: 1200,
         height: 630,
-        alt: "Automis Voice AI, la segretaria IA 24/7 che fissa gli appuntamenti",
+        alt: "Assistente Vocale Automis, la segretaria IA 24/7 che fissa gli appuntamenti",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Automis Voice AI | La segretaria IA 24/7 che fissa gli appuntamenti",
+    title: "Assistente Vocale Automis | La segretaria IA 24/7 che fissa gli appuntamenti",
     description:
       "Risponde a ogni chiamata 24/7, qualifica, prenota e sincronizza il tuo CRM. Trasparenza totale via dashboard, piani da 297€/mese.",
     images: ["/assets/og/home-en.png"],

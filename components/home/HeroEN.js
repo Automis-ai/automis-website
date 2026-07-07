@@ -30,7 +30,7 @@ const COPY = {
     h1_word2: "business",
     h1_post: ".",
     subhead:
-      "Scopriamo esattamente dove il tuo business perde tempo e soldi: le chiamate a cui non rispondi, i lead che si raffreddano, le pratiche che si accumulano. Poi costruiamo gli agenti IA e le automazioni che risolvono il problema.",
+      "Scopriamo esattamente dove il tuo business perde tempo e soldi: le chiamate a cui non rispondi, i contatti che si raffreddano, le pratiche che si accumulano. Poi costruiamo gli agenti IA e le automazioni che risolvono il problema.",
     ctaPrimary: "Prenota una call",
     ctaSecondary: "Scopri le tue opportunità IA",
   },
