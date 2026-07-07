@@ -305,17 +305,34 @@ export default function OpportunityFinder() {
     return oi != null ? QUESTIONS[0].options[oi].label : "";
   };
 
+  // Link that regenerates this exact personalised roadmap (online access + the
+  // copy GHL emails). Encodes first name, sector, pillars, hours, locale.
+  const roadmapLink = (roadmap) => {
+    const params = new URLSearchParams({
+      n: name || "",
+      s: sectorLabel(),
+      p: roadmap.primary,
+      x: roadmap.secondary || "",
+      lo: String(roadmap.hoursLow),
+      hi: String(roadmap.hoursHigh),
+      l: locale,
+    });
+    const origin = typeof window !== "undefined" ? window.location.origin : "https://automis.ai";
+    return `${origin}/roadmap?${params.toString()}`;
+  };
+
+  // Re-download the personalised roadmap (used by the "Download again" button).
   const buildPdf = async (roadmap) => {
     try {
       const { generateRoadmapPdf } = await import("./roadmapPdf");
-      generateRoadmapPdf({
+      await generateRoadmapPdf({
         name,
         sector: sectorLabel(),
-        pillarName: PILLAR_PLAYS[roadmap.primary].name,
-        secondaryName: roadmap.secondary ? PILLAR_PLAYS[roadmap.secondary].name : null,
+        primary: roadmap.primary,
+        secondary: roadmap.secondary,
         hoursLow: roadmap.hoursLow,
         hoursHigh: roadmap.hoursHigh,
-        plays: roadmap.plays,
+        locale,
       });
     } catch (err) {
       console.error("PDF generation error", err);
@@ -326,7 +343,12 @@ export default function OpportunityFinder() {
     e.preventDefault();
     setStatus({ loading: true, error: null });
     const roadmap = computeRoadmap();
-    // Lead capture (best-effort) so GHL can follow up with the emailed copy.
+    const mod = await import("./roadmapPdf");
+    // Locale-specific base tag + one of the 6 variant tags, so EN and IT nurture
+    // flows stay separate in GHL.
+    const tags = [`opportunity-finder-${locale}`, mod.variantTag(roadmap.primary, roadmap.secondary)];
+    const roadmapUrl = roadmapLink(roadmap);
+    // Lead capture (best-effort). GHL emails the roadmap link + starts nurture.
     try {
       await fetch("/api/audit", {
         method: "POST",
@@ -335,13 +357,17 @@ export default function OpportunityFinder() {
           name,
           email,
           type: "opportunity-finder",
-          source: "home-en-opportunity-finder",
+          source: `home-${locale}-opportunity-finder`,
+          locale,
           answers: QUESTIONS.reduce((acc, qq) => {
             const oi = answers[qq.id];
             acc[qq.id] = oi != null ? qq.options[oi].label : null;
             return acc;
           }, {}),
           recommended_pillar: PILLAR_PLAYS[roadmap.primary].name,
+          variant: mod.selectVariant(roadmap.primary, roadmap.secondary),
+          tags,
+          roadmap_url: roadmapUrl,
           estimated_hours_saved: `${roadmap.hoursLow}-${roadmap.hoursHigh}/week`,
           timestamp: new Date().toISOString(),
         }),
@@ -349,8 +375,20 @@ export default function OpportunityFinder() {
     } catch (err) {
       console.error("Finder capture error", err);
     }
-    // Generate + download the personalised PDF instantly.
-    await buildPdf(roadmap);
+    // Generate + download the personalised PDF instantly (cover + playbook body).
+    try {
+      await mod.generateRoadmapPdf({
+        name,
+        sector: sectorLabel(),
+        primary: roadmap.primary,
+        secondary: roadmap.secondary,
+        hoursLow: roadmap.hoursLow,
+        hoursHigh: roadmap.hoursHigh,
+        locale,
+      });
+    } catch (err) {
+      console.error("PDF generation error", err);
+    }
     setStatus({ loading: false, error: null });
     setStep(total + 1);
   };
