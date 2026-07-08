@@ -13,6 +13,10 @@ const CF_ROADMAP_URL = "HhlNjlKkTj8bEtWew4xA"; // contact.roadmap_url
 const CF_RECOMMENDED_PILLAR = "8Upb1lCetqUpDzWhiCyn"; // contact.recommended_pillar
 const CF_HOURS_SAVED = "FZ6gVGj8yaCegdM3990C"; // contact.hours_saved
 
+// GHL notes are attributed to a user; default to the Automis admin account
+// (admin@automis.ai), overridable via GHL_USER_ID.
+const GHL_NOTE_USER_ID = process.env.GHL_USER_ID || "YabuGXVJOw3apas82kit"; // Admin Automis
+
 // Compose the human-readable finder note that lands on the GHL contact timeline,
 // so whoever takes the booked call can see exactly what the lead answered.
 function buildFinderNote({ answers_detail, recommended_pillar, estimated_hours_saved, roadmap_url }) {
@@ -82,7 +86,7 @@ export async function POST(req) {
                 },
                 body: JSON.stringify({
                   body: buildFinderNote(body),
-                  ...(process.env.GHL_USER_ID ? { userId: process.env.GHL_USER_ID } : {}),
+                  userId: GHL_NOTE_USER_ID,
                 }),
               });
               if (!noteRes.ok) {
