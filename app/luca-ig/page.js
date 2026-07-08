@@ -94,14 +94,14 @@ export default function LucaIgLanding() {
         </div>
 
         <nav className="ctas">
-          <a className="cta primary" href="https://automis.ai/it?utm_source=luca-ig" target="_blank" rel="noopener">
+          <a className="cta primary" href="https://automis.ai/it?utm_source=luca-ig#opportunity-finder" target="_blank" rel="noopener">
             <span className="ico" aria-hidden="true">🎯</span>
             <span className="txt"><span className="lab">Scopri le tue 3 opportunità AI</span><span className="sm">test gratuito di 2 min, roadmap personalizzata</span></span>
             <span className="arrow" aria-hidden="true">→</span>
           </a>
-          <a className="cta" href="https://api.leadconnectorhq.com/widget/bookings/automis-it" target="_blank" rel="noopener">
+          <a className="cta" href="https://api.leadconnectorhq.com/widget/bookings/luca-automis" target="_blank" rel="noopener">
             <span className="ico" aria-hidden="true">📅</span>
-            <span className="txt"><span className="lab">Preferisci parlarne? Prenota una call di 15 min</span><span className="sm">nessun impegno</span></span>
+            <span className="txt"><span className="lab">Preferisci parlarne? Prenota una call di 30 min</span><span className="sm">gratis, nessun impegno</span></span>
             <span className="arrow" aria-hidden="true">→</span>
           </a>
         </nav>
