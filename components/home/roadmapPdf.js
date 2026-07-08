@@ -189,8 +189,27 @@ const COVER = {
   },
 };
 
+// Load the Automis brand lockup (same logo the playbook body uses) as a data URL
+// so it can be embedded into the jsPDF cover. Returns null if unavailable, so the
+// cover falls back to the plain wordmark.
+async function loadLogoDataUrl() {
+  try {
+    const res = await fetch("/playbooks/automis-logo.png");
+    if (!res.ok) return null;
+    const blob = await res.blob();
+    return await new Promise((resolve, reject) => {
+      const fr = new FileReader();
+      fr.onload = () => resolve(fr.result);
+      fr.onerror = reject;
+      fr.readAsDataURL(blob);
+    });
+  } catch {
+    return null;
+  }
+}
+
 // ---- Cover page (jsPDF) ---------------------------------------------------
-function buildCover({ name, sector, primary, secondary, hoursLow, hoursHigh, locale, variant }) {
+async function buildCover({ name, sector, primary, secondary, hoursLow, hoursHigh, locale, variant }) {
   const L = STR[locale] || STR.en;
   const names = PILLAR_NAME[locale] || PILLAR_NAME.en;
   const doc = new jsPDF({ unit: "pt", format: "a4" });
@@ -204,11 +223,18 @@ function buildCover({ name, sector, primary, secondary, hoursLow, hoursHigh, loc
   doc.setFillColor(...DEEP);
   doc.rect(0, 0, W, H, "F");
 
-  // Wordmark
-  doc.setTextColor(...WHITE);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(20);
-  doc.text("AUTOMIS", M, 64);
+  // Brand lockup (matches the playbook body). Falls back to a plain wordmark.
+  const logo = await loadLogoDataUrl();
+  if (logo) {
+    // logo asset is 2953x1969 (1.5:1); the visible mark sits inside transparent padding.
+    const logoW = 132;
+    doc.addImage(logo, "PNG", M - 6, 30, logoW, logoW / 1.5);
+  } else {
+    doc.setTextColor(...WHITE);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text("AUTOMIS", M, 64);
+  }
   doc.setTextColor(...MUTE);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8.5);
@@ -331,7 +357,7 @@ function buildCover({ name, sector, primary, secondary, hoursLow, hoursHigh, loc
 // Build the full merged PDF bytes (cover + playbook body, sample cover dropped).
 export async function buildRoadmapBytes({ name, sector, primary, secondary, hoursLow, hoursHigh, locale = "en" }) {
   const variant = selectVariant(primary, secondary);
-  const coverBytes = buildCover({ name, sector, primary, secondary, hoursLow, hoursHigh, locale, variant });
+  const coverBytes = await buildCover({ name, sector, primary, secondary, hoursLow, hoursHigh, locale, variant });
 
   const merged = await PDFDocument.create();
   const coverDoc = await PDFDocument.load(coverBytes);
