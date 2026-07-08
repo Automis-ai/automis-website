@@ -368,6 +368,11 @@ export default function OpportunityFinder() {
             acc[qq.id] = oi != null ? qq.options[oi].label : null;
             return acc;
           }, {}),
+          // Ordered, readable Q&A so the API can write it as a GHL contact note.
+          answers_detail: QUESTIONS.map((qq) => {
+            const oi = answers[qq.id];
+            return { q: qq.q, a: oi != null ? qq.options[oi].label : null };
+          }),
           recommended_pillar: PILLAR_PLAYS[roadmap.primary].name,
           variant: mod.selectVariant(roadmap.primary, roadmap.secondary),
           tags,
