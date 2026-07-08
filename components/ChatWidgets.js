@@ -46,6 +46,19 @@ export default function ChatWidgets() {
           />
         </>
       )}
+
+      {/* ElevenLabs widget for /en (Lana — EN lead-gen + demo booking) */}
+      {pathname === "/en" && (
+        <>
+          <elevenlabs-convai agent-id="agent_4001k7szwpqcetwvp9de8c3dqm25"></elevenlabs-convai>
+          <Script
+            src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+            async
+            type="text/javascript"
+            strategy="afterInteractive"
+          />
+        </>
+      )}
     </>
   );
 }
