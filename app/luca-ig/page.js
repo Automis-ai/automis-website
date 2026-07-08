@@ -14,9 +14,9 @@ const open = Open_Sans({
 });
 
 export const metadata = {
-  title: { absolute: "Luca · AI & Marketing @ Automis" },
+  title: { absolute: "Luca | Sistemi AI @ Automis" },
   description:
-    "AI e automazioni per marketing e vendite, senza fuffa. Demo, risorse gratuite e call con Automis.",
+    "AI e automazioni per più clienti e meno lavoro manuale, senza fuffa. Scopri le tue 3 opportunità AI in 2 minuti.",
 };
 
 const css = `
@@ -59,11 +59,6 @@ const css = `
 #lucaig .cta.primary { background:var(--gold); border-color:var(--gold); color:var(--on-gold); box-shadow:0 14px 30px -14px rgba(254,196,88,0.7); }
 #lucaig .cta.primary .sm { color:rgba(0,10,20,0.62); }
 #lucaig .cta.primary .arrow { color:var(--on-gold); opacity:0.8; }
-#lucaig .res { margin-top:22px; padding:18px; border-radius:16px; background:rgba(60,145,230,0.08); border:1px dashed var(--bright); }
-#lucaig .res .rtag { font-family:var(--head); font-weight:700; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--bright); }
-#lucaig .res h2 { font-family:var(--head); font-weight:700; font-size:16px; line-height:1.3; margin:7px 0 13px; }
-#lucaig .res .dl { display:inline-flex; align-items:center; gap:8px; text-decoration:none; background:var(--bright); color:#fff; font-family:var(--head); font-weight:600; font-size:13px; padding:11px 16px; border-radius:11px; }
-#lucaig .res .more { margin:12px 0 0; font-size:12px; color:var(--faint); }
 #lucaig .foot { margin-top:34px; padding-top:20px; border-top:1px solid var(--hair); text-align:center; }
 #lucaig .foot img { height:20px; opacity:0.9; margin-bottom:10px; }
 #lucaig .foot p { margin:0; font-size:12px; color:var(--faint); line-height:1.6; }
@@ -99,29 +94,17 @@ export default function LucaIgLanding() {
         </div>
 
         <nav className="ctas">
-          <a className="cta primary" href="https://voice.automis.ai" target="_blank" rel="noopener">
-            <span className="ico" aria-hidden="true">🎬</span>
-            <span className="txt"><span className="lab">Guarda la demo del nostro Centralino AI</span><span className="sm">voice.automis.ai</span></span>
+          <a className="cta primary" href="https://automis.ai/it?utm_source=luca-ig" target="_blank" rel="noopener">
+            <span className="ico" aria-hidden="true">🎯</span>
+            <span className="txt"><span className="lab">Scopri le tue 3 opportunità AI</span><span className="sm">test gratuito di 2 min, roadmap personalizzata</span></span>
             <span className="arrow" aria-hidden="true">→</span>
           </a>
           <a className="cta" href="https://api.leadconnectorhq.com/widget/bookings/automis-it" target="_blank" rel="noopener">
             <span className="ico" aria-hidden="true">📅</span>
-            <span className="txt"><span className="lab">Prenota una call gratuita di 15 min</span><span className="sm">nessun impegno</span></span>
-            <span className="arrow" aria-hidden="true">→</span>
-          </a>
-          <a className="cta" href="https://www.linkedin.com/in/vincenzo-luca-casillo/" target="_blank" rel="noopener">
-            <span className="ico" aria-hidden="true">💼</span>
-            <span className="txt"><span className="lab">Connettiti su LinkedIn</span><span className="sm">contenuti esclusivi e approfondimenti</span></span>
+            <span className="txt"><span className="lab">Preferisci parlarne? Prenota una call di 15 min</span><span className="sm">nessun impegno</span></span>
             <span className="arrow" aria-hidden="true">→</span>
           </a>
         </nav>
-
-        <section className="res">
-          <span className="rtag">📥 Risorsa gratuita</span>
-          <h2>I 7 punti dove la tua azienda sta perdendo lead e vendite</h2>
-          <a className="dl" href="/luca-ig/risorse/01-titolare.pdf" download>Scarica il PDF →</a>
-          <p className="more">Sei manager, professionista o già smanetti con l'AI? Scrivimi in DM: ti mando la risorsa giusta per te.</p>
-        </section>
 
         <footer className="foot">
           <img src="/luca-ig/automis-logo.png" alt="Automis" />
