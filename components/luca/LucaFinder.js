@@ -17,6 +17,8 @@ const QUESTIONS = [
       { label: "Sanità / studio medico o clinica", w: { sales: 2, admin: 2 }, h: 6 },
       { label: "Servizi professionali / finanziari", w: { sales: 2, admin: 3 }, h: 7 },
       { label: "Immobiliare", w: { sales: 3, marketing: 1 }, h: 5 },
+      { label: "E-commerce / retail", w: { sales: 2, marketing: 2 }, h: 5 },
+      { label: "Ristorazione / hotel", w: { sales: 3, admin: 1 }, h: 5 },
       { label: "Attività locale / servizi", w: { sales: 2, marketing: 1 }, h: 4 },
     ],
   },
@@ -255,7 +257,7 @@ export default function LucaFinder() {
               <p className="lead">Vedi subito la tua roadmap con le 3 opportunità AI e le ore che potresti recuperare.</p>
               <input className="field" placeholder="Il tuo nome" value={name} onChange={(e) => setName(e.target.value)} required />
               <input className="field" type="email" placeholder="La tua email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-              <button className="sub" type="submit" disabled={status.loading}>{status.loading ? "Un attimo..." : "Ricevi la mia roadmap"}</button>
+              <button className="sub" type="submit" disabled={status.loading} style={{ color: "#000A14" }}>{status.loading ? "Un attimo..." : "Ricevi la mia roadmap"}</button>
               {status.error && <div className="err">{status.error}</div>}
               <button className="back" type="button" onClick={() => setStep((s) => s - 1)}>← indietro</button>
             </form>
@@ -268,7 +270,7 @@ export default function LucaFinder() {
               <div className="hrs">Potresti recuperare circa {r.hoursLow}-{r.hoursHigh} ore a settimana.</div>
               <ul>{r.plays.map((p, i) => <li key={i}>{p}</li>)}</ul>
               <div className="actions">
-                <a className="btn gold" href={BOOKING} target="_blank" rel="noopener">Prenota una call di 30 min</a>
+                <a className="btn gold" href={BOOKING} target="_blank" rel="noopener" style={{ color: "#000A14" }}>Prenota una call di 30 min</a>
               </div>
               <p className="lead" style={{ marginTop: 12 }}>Ti ricontattiamo con la roadmap completa. Se vuoi accelerare, prenota la call qui sopra.</p>
             </div>
