@@ -26,7 +26,7 @@ const COPY = {
     focusPillar: "Focus pillar",
     unlockTitle: "Unlock your top 3 automations + PDF roadmap",
     unlockSubtitle: "Get the full personalized roadmap on screen and a copy in your inbox.",
-    namePlaceholder: "Your name (optional)",
+    namePlaceholder: "Your name",
     emailPlaceholder: "Your email",
     buildingRoadmap: "Building your roadmap…",
     unlockCta: "Unlock my roadmap",
@@ -147,7 +147,7 @@ const COPY = {
     focusPillar: "Pilastro prioritario",
     unlockTitle: "Sblocca le tue 3 automazioni + roadmap PDF",
     unlockSubtitle: "Vedi la roadmap completa su misura a schermo e ricevine una copia via email.",
-    namePlaceholder: "Il tuo nome (facoltativo)",
+    namePlaceholder: "Il tuo nome",
     emailPlaceholder: "La tua email",
     buildingRoadmap: "Sto preparando la tua roadmap…",
     unlockCta: "Sblocca la mia roadmap",
@@ -517,6 +517,7 @@ export default function OpportunityFinder() {
                   <div className="mt-4 space-y-3">
                     <input
                       type="text"
+                      required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder={t.namePlaceholder}
