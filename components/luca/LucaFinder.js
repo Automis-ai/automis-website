@@ -213,6 +213,20 @@ export default function LucaFinder() {
     } catch (err) {
       console.error("Finder capture error", err);
     }
+    try {
+      const { generateRoadmapPdf } = await import("@/components/home/roadmapPdf");
+      await generateRoadmapPdf({
+        name,
+        sector: sectorLabel(),
+        primary: r.primary,
+        secondary: r.secondary,
+        hoursLow: r.hoursLow,
+        hoursHigh: r.hoursHigh,
+        locale: "it",
+      });
+    } catch (err) {
+      console.error("PDF error", err);
+    }
     setStatus({ loading: false, error: null });
     setStep(total + 1);
   };
@@ -254,7 +268,7 @@ export default function LucaFinder() {
             <form onSubmit={submit}>
               <div className="qn">Ci siamo</div>
               <div className="qq">Dove ti mandiamo la tua roadmap?</div>
-              <p className="lead">Vedi subito la tua roadmap con le 3 opportunità AI e le ore che potresti recuperare.</p>
+              <p className="lead">Ricevi subito la tua roadmap in PDF, con le 3 opportunità AI e le ore che potresti recuperare.</p>
               <input className="field" placeholder="Il tuo nome" value={name} onChange={(e) => setName(e.target.value)} required />
               <input className="field" type="email" placeholder="La tua email" value={email} onChange={(e) => setEmail(e.target.value)} required />
               <button className="sub" type="submit" disabled={status.loading} style={{ color: "#000A14" }}>{status.loading ? "Un attimo..." : "Ricevi la mia roadmap"}</button>
@@ -272,7 +286,7 @@ export default function LucaFinder() {
               <div className="actions">
                 <a className="btn gold" href={BOOKING} target="_blank" rel="noopener" style={{ color: "#000A14" }}>Prenota una call di 30 min</a>
               </div>
-              <p className="lead" style={{ marginTop: 12 }}>Ti ricontattiamo con la roadmap completa. Se vuoi accelerare, prenota la call qui sopra.</p>
+              <p className="lead" style={{ marginTop: 12 }}>La tua roadmap in PDF è stata scaricata. Se vuoi accelerare, prenota la call qui sopra.</p>
             </div>
           )}
         </div>
