@@ -113,8 +113,8 @@ const CSS = `
 .lf .box:hover { transform:translateY(-2px); border-color:var(--gold); }
 .lf .box .bico { font-size:24px; flex:none; }
 .lf .box .btxt { flex:1; min-width:0; }
-.lf .box .bt { font-weight:700; font-size:16px; line-height:1.25; }
-.lf .box .bs { font-size:12.5px; color:var(--soft); margin-top:3px; }
+.lf .box .bt { display:block; font-weight:700; font-size:16px; line-height:1.25; }
+.lf .box .bs { display:block; font-size:12.5px; color:var(--soft); margin-top:3px; }
 .lf .box .bgo { font-weight:700; font-size:13px; color:var(--gold); flex:none; }
 .lf .card { border:1px solid var(--border); border-radius:16px; background:var(--deep-1); padding:18px; }
 .lf .bar { height:5px; border-radius:4px; background:rgba(180,194,255,0.14); overflow:hidden; margin-bottom:14px; }

@@ -80,8 +80,8 @@ export default function LucaIgLanding() {
 
         <span className="kicker"><span className="sq" />Luca · Co-founder di Automis</span>
         <h1>Più clienti, follow-up puntuali, <em>meno lavoro manuale.</em></h1>
-        <p className="sub">Aiutiamo le aziende a usare AI e automazioni dove serve davvero: acquisizione, risposte, appuntamenti, processi.</p>
-        <p className="antifuffa">Niente fuffa: qui sotto ti mostro cosa facciamo davvero.</p>
+        <p className="sub">Aiutiamo aziende e professionisti a integrare l'IA dove serve davvero: acquisire clienti, snellire i processi interni e ritrovare ogni informazione in secondi.</p>
+        <p className="antifuffa">Niente fuffa. Guarda il video qui sotto: chi siamo e come lavoriamo davvero, in 40 secondi.</p>
 
         {/* Video: quando pronto, metti public/luca-ig/intro.mp4 e sostituisci .ph con
             <video controls playsInline preload="metadata" poster="/luca-ig/intro-poster.jpg"><source src="/luca-ig/intro.mp4" type="video/mp4" /></video> */}
