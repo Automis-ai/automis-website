@@ -86,7 +86,8 @@ const PILLAR_PLAYS = {
     ],
   },
   admin: {
-    name: "Admin & Company Brain",
+    // Deve combaciare con PILLAR_NAME.it in roadmapPdf (valore scritto in GHL).
+    name: "Operations & Company Brain",
     plays: [
       "Un Company Brain (RAG) che cerca nei tuoi documenti",
       "Scan-to-Brain: digitalizza i documenti con OCR",
@@ -187,10 +188,42 @@ export default function LucaFinder() {
     return oi != null ? QUESTIONS[0].options[oi].label : "";
   };
 
+  // Stesso link del Finder del sito: rigenera online la roadmap personalizzata
+  // (e' il valore del custom field contact.roadmap_url che GHL manda via email).
+  const roadmapLink = (r) => {
+    const params = new URLSearchParams({
+      n: name || "",
+      s: sectorLabel(),
+      p: r.primary,
+      x: r.secondary || "",
+      lo: String(r.hoursLow),
+      hi: String(r.hoursHigh),
+      l: "it",
+    });
+    const origin = typeof window !== "undefined" ? window.location.origin : "https://automis.ai";
+    return `${origin}/roadmap?${params.toString()}`;
+  };
+
   const submit = async (e) => {
     e.preventDefault();
     setStatus({ loading: true, error: null });
     const r = roadmap();
+
+    let mod = null;
+    try {
+      mod = await import("@/components/home/roadmapPdf");
+    } catch (err) {
+      console.error("roadmapPdf import error", err);
+    }
+
+    // Tag identici al Finder del sito (sono questi a far scattare le automazioni
+    // GHL), piu' un tag sorgente per l'attribuzione della landing di Luca.
+    const tags = [
+      "opportunity-finder-it",
+      ...(mod ? [mod.variantTag(r.primary, r.secondary)] : []),
+      "luca-ig",
+    ];
+
     try {
       await fetch("/api/audit", {
         method: "POST",
@@ -206,27 +239,39 @@ export default function LucaFinder() {
             acc[qq.id] = oi != null ? qq.options[oi].label : null;
             return acc;
           }, {}),
-          recommended_pillar: PILLAR_PLAYS[r.primary].name,
-          estimated_hours_saved: `${r.hoursLow}-${r.hoursHigh}/settimana`,
+          // Q&A ordinate: la route le scrive come nota sul contatto GHL.
+          answers_detail: QUESTIONS.map((qq) => {
+            const oi = answers[qq.id];
+            return { q: qq.q, a: oi != null ? qq.options[oi].label : null };
+          }),
+          recommended_pillar: mod ? mod.pillarLabel(r.primary, "it") : PILLAR_PLAYS[r.primary].name,
+          variant: mod ? mod.selectVariant(r.primary, r.secondary) : undefined,
+          tags,
+          roadmap_url: roadmapLink(r),
+          estimated_hours_saved: `${r.hoursLow}-${r.hoursHigh}/week`,
+          timestamp: new Date().toISOString(),
         }),
       });
     } catch (err) {
       console.error("Finder capture error", err);
     }
+
     try {
-      const { generateRoadmapPdf } = await import("@/components/home/roadmapPdf");
-      await generateRoadmapPdf({
-        name,
-        sector: sectorLabel(),
-        primary: r.primary,
-        secondary: r.secondary,
-        hoursLow: r.hoursLow,
-        hoursHigh: r.hoursHigh,
-        locale: "it",
-      });
+      if (mod) {
+        await mod.generateRoadmapPdf({
+          name,
+          sector: sectorLabel(),
+          primary: r.primary,
+          secondary: r.secondary,
+          hoursLow: r.hoursLow,
+          hoursHigh: r.hoursHigh,
+          locale: "it",
+        });
+      }
     } catch (err) {
       console.error("PDF error", err);
     }
+
     setStatus({ loading: false, error: null });
     setStep(total + 1);
   };
