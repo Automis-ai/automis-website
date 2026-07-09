@@ -9,28 +9,31 @@ import { useState } from "react";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/luca-automis";
 
+// Domande, opzioni, pesi e plays allineati VERBATIM a COPY.it del Finder del sito
+// (components/home/OpportunityFinder.js), così scoring, pilastro e variante
+// coincidono al 100% e le automazioni GHL ricevono gli stessi identici valori.
 const QUESTIONS = [
   {
     id: "sector",
-    q: "Che tipo di attività hai?",
+    q: "Che tipo di attività gestisci?",
     options: [
-      { label: "Sanità / studio medico o clinica", w: { sales: 2, admin: 2 }, h: 6 },
+      { label: "Sanità / clinica", w: { sales: 2, admin: 2 }, h: 6 },
       { label: "Servizi professionali / finanziari", w: { sales: 2, admin: 3 }, h: 7 },
       { label: "Immobiliare", w: { sales: 3, marketing: 1 }, h: 5 },
-      { label: "E-commerce / retail", w: { sales: 2, marketing: 2 }, h: 5 },
-      { label: "Ristorazione / hotel", w: { sales: 3, admin: 1 }, h: 5 },
       { label: "Attività locale / servizi", w: { sales: 2, marketing: 1 }, h: 4 },
+      { label: "E-commerce / retail", w: { marketing: 2, sales: 2 }, h: 5 },
+      { label: "Ristorazione / hotel", w: { sales: 3, admin: 1 }, h: 5 },
     ],
   },
   {
     id: "leak",
     q: "Dove perdi più tempo o denaro?",
     options: [
-      { label: "Chiamate perse e senza risposta", w: { sales: 3 }, h: 6 },
-      { label: "Follow-up lento sui lead", w: { sales: 2, marketing: 1 }, h: 5 },
-      { label: "Burocrazia e lavoro manuale", w: { admin: 3 }, h: 8 },
+      { label: "Chiamate perse o senza risposta", w: { sales: 3 }, h: 6 },
+      { label: "Follow-up lenti sui contatti", w: { sales: 2, marketing: 1 }, h: 5 },
+      { label: "Pratiche e attività manuali", w: { admin: 3 }, h: 8 },
       { label: "Marketing che non converte", w: { marketing: 3 }, h: 4 },
-      { label: "Informazioni aziendali sparse", w: { admin: 3 }, h: 6 },
+      { label: "Informazioni aziendali sparse ovunque", w: { admin: 3 }, h: 6 },
     ],
   },
   {
@@ -38,9 +41,9 @@ const QUESTIONS = [
     q: "Come ti contattano di solito i clienti?",
     options: [
       { label: "Telefonate", w: { sales: 3 }, h: 5 },
-      { label: "Form sul sito", w: { sales: 1, marketing: 2 }, h: 3 },
-      { label: "Social e WhatsApp", w: { sales: 2, marketing: 1 }, h: 4 },
-      { label: "Un po' di tutto", w: { sales: 2, marketing: 1, admin: 1 }, h: 5 },
+      { label: "Moduli sul sito", w: { sales: 1, marketing: 2 }, h: 3 },
+      { label: "Social & WhatsApp", w: { sales: 2, marketing: 1 }, h: 4 },
+      { label: "Un mix di tutto", w: { sales: 2, marketing: 1, admin: 1 }, h: 5 },
     ],
   },
   {
@@ -50,56 +53,56 @@ const QUESTIONS = [
       { label: "Meno di 20", w: {}, h: 2 },
       { label: "Da 20 a 100", w: {}, h: 4 },
       { label: "Da 100 a 500", w: {}, h: 7 },
-      { label: "Più di 500", w: {}, h: 10 },
+      { label: "500+", w: {}, h: 10 },
     ],
   },
   {
     id: "tried",
-    q: "Cosa hai già provato?",
+    q: "Cosa hai provato finora?",
     options: [
       { label: "Ancora niente", w: {}, h: 3 },
-      { label: "Assunto più persone", w: { admin: 1 }, h: 4 },
+      { label: "Ho assunto più personale", w: { admin: 1 }, h: 4 },
       { label: "Strumenti base / un chatbot", w: { sales: 1 }, h: 2 },
-      { label: "Lavorato con un'agenzia", w: { marketing: 1 }, h: 2 },
+      { label: "Mi sono affidato a un'agenzia", w: { marketing: 1 }, h: 2 },
     ],
   },
   {
     id: "goal",
     q: "Qual è il tuo obiettivo n.1 per i prossimi 90 giorni?",
     options: [
-      { label: "Più appuntamenti fissati", w: { sales: 3 }, h: 6 },
-      { label: "Rispondere più in fretta ai lead", w: { sales: 2, marketing: 1 }, h: 5 },
-      { label: "Liberare tempo al team", w: { admin: 3 }, h: 7 },
-      { label: "Migliore ROI dal marketing", w: { marketing: 3 }, h: 4 },
-      { label: "Organizzare le informazioni aziendali", w: { admin: 3 }, h: 5 },
+      { label: "Più appuntamenti prenotati", w: { sales: 3 }, h: 6 },
+      { label: "Rispondere più in fretta ai contatti", w: { sales: 2, marketing: 1 }, h: 5 },
+      { label: "Liberare tempo al mio team", w: { admin: 3 }, h: 7 },
+      { label: "Un marketing che rende di più", w: { marketing: 3 }, h: 4 },
+      { label: "Mettere ordine nelle informazioni aziendali", w: { admin: 3 }, h: 5 },
     ],
   },
 ];
 
+// Nomi pilastro = PILLAR_NAME.it di roadmapPdf (valore scritto nel custom field GHL).
 const PILLAR_PLAYS = {
   sales: {
     name: "Vendite & Acquisizione",
     plays: [
-      "Centralino AI 24/7 che risponde e qualifica ogni chiamata",
-      "Recupero chiamate perse con follow-up SMS immediato",
-      "Automazioni social e WhatsApp collegate al CRM",
+      "Agente vocale IA 24/7 che risponde e qualifica ogni chiamata",
+      "Recupero delle chiamate perse con SMS di follow-up immediato",
+      "Automazioni social & WhatsApp che alimentano il tuo CRM",
     ],
   },
   admin: {
-    // Deve combaciare con PILLAR_NAME.it in roadmapPdf (valore scritto in GHL).
     name: "Operations & Company Brain",
     plays: [
-      "Un Company Brain (RAG) che cerca nei tuoi documenti",
-      "Scan-to-Brain: digitalizza i documenti con OCR",
-      "Note vocali trascritte e salvate in automatico nel CRM",
+      "Un “Second Brain” RAG sui tuoi documenti",
+      "OCR Scan-to-Brain per digitalizzare le pratiche",
+      "Note vocali trascritte e portate nel CRM in automatico",
     ],
   },
   marketing: {
     name: "Marketing & Crescita",
     plays: [
-      "Agente AI per ads e creatività su Meta e Google",
-      "Visibilità SEO / GEO su Google e nelle ricerche AI",
-      "Contenuti e reputazione gestiti in automatico",
+      "Agente IA per ads e creatività su Meta e Google",
+      "Visibilità SEO / GEO su Google e sulle ricerche IA",
+      "Workflow automatici per contenuti e reputazione online",
     ],
   },
 };
