@@ -11,6 +11,7 @@ import "@css/style.css";
 import { Montserrat, Open_Sans } from "next/font/google";
 import Script from "next/script";
 import ChatWidgets from "@/components/ChatWidgets";
+import AnalyticsListeners from "@/components/AnalyticsListeners";
 
 const montserrat = Montserrat({
   weight: ["700"],
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
 
         <Preloader />
         <LocaleBootstrapper />
+        <AnalyticsListeners />
         {children}
 
         {/* LeadConnector Chatbot */}

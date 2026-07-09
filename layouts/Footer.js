@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, hrefFor, PATHNAMES } from "@/utility/pathnames";
+import { openCookieSettings } from "@/lib/cookieConsent";
 
 const Footer = ({ footer }) => {
   return (
@@ -57,6 +58,8 @@ const DefaultFooter = () => {
       locale === "it" ? "· Tutti i diritti riservati" : "· All Rights Reserved",
     privacy: locale === "it" ? "Privacy Policy" : "Privacy Policy",
     terms: locale === "it" ? "Termini di Servizio" : "Terms of Service",
+    cookies: locale === "it" ? "Cookie Policy" : "Cookie Policy",
+    manageCookies: locale === "it" ? "Gestisci cookie" : "Manage cookies",
   };
 
   const homeHref = hrefFor(PATHNAMES.home, locale);
@@ -75,6 +78,7 @@ const DefaultFooter = () => {
       : "https://www.facebook.com/automisai";
   const privacyHref = hrefFor(PATHNAMES.pages.privacyPolicy, locale);
   const termsHref = hrefFor(PATHNAMES.pages.termsOfService, locale);
+  const cookieHref = hrefFor(PATHNAMES.pages.cookiePolicy, locale);
 
   return (
     <footer className="container main-footer footer-one relative z-1">
@@ -185,6 +189,21 @@ const DefaultFooter = () => {
                 <Link href={termsHref} className="hover:text-white transition">
                   {t.terms}
                 </Link>
+              </li>
+              <li>
+                <Link href={cookieHref} className="hover:text-white transition">
+                  {t.cookies}
+                </Link>
+              </li>
+              {/* Withdrawing consent must be as easy as giving it. */}
+              <li>
+                <button
+                  type="button"
+                  onClick={() => openCookieSettings()}
+                  className="hover:text-white transition"
+                >
+                  {t.manageCookies}
+                </button>
               </li>
             </ul>
           </div>
