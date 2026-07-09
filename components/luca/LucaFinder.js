@@ -6,106 +6,15 @@
 // Se la prova convince, si consolida con Arcangelo in un componente condiviso.
 
 import { useState } from "react";
+import { FINDER_COPY, hoursLabel } from "@/components/home/finderCopy";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/luca-automis";
 
-// Domande, opzioni, pesi e plays allineati VERBATIM a COPY.it del Finder del sito
-// (components/home/OpportunityFinder.js), così scoring, pilastro e variante
-// coincidono al 100% e le automazioni GHL ricevono gli stessi identici valori.
-const QUESTIONS = [
-  {
-    id: "sector",
-    q: "Che tipo di attività gestisci?",
-    options: [
-      { label: "Sanità / clinica", w: { sales: 2, admin: 2 }, h: 6 },
-      { label: "Servizi professionali / finanziari", w: { sales: 2, admin: 3 }, h: 7 },
-      { label: "Immobiliare", w: { sales: 3, marketing: 1 }, h: 5 },
-      { label: "Attività locale / servizi", w: { sales: 2, marketing: 1 }, h: 4 },
-      { label: "E-commerce / retail", w: { marketing: 2, sales: 2 }, h: 5 },
-      { label: "Ristorazione / hotel", w: { sales: 3, admin: 1 }, h: 5 },
-    ],
-  },
-  {
-    id: "leak",
-    q: "Dove perdi più tempo o denaro?",
-    options: [
-      { label: "Chiamate perse o senza risposta", w: { sales: 3 }, h: 6 },
-      { label: "Follow-up lenti sui contatti", w: { sales: 2, marketing: 1 }, h: 5 },
-      { label: "Pratiche e attività manuali", w: { admin: 3 }, h: 8 },
-      { label: "Marketing che non converte", w: { marketing: 3 }, h: 4 },
-      { label: "Informazioni aziendali sparse ovunque", w: { admin: 3 }, h: 6 },
-    ],
-  },
-  {
-    id: "channel",
-    q: "Come ti contattano di solito i clienti?",
-    options: [
-      { label: "Telefonate", w: { sales: 3 }, h: 5 },
-      { label: "Moduli sul sito", w: { sales: 1, marketing: 2 }, h: 3 },
-      { label: "Social & WhatsApp", w: { sales: 2, marketing: 1 }, h: 4 },
-      { label: "Un mix di tutto", w: { sales: 2, marketing: 1, admin: 1 }, h: 5 },
-    ],
-  },
-  {
-    id: "volume",
-    q: "Quanti contatti o richieste ricevi a settimana?",
-    options: [
-      { label: "Meno di 20", w: {}, h: 2 },
-      { label: "Da 20 a 100", w: {}, h: 4 },
-      { label: "Da 100 a 500", w: {}, h: 7 },
-      { label: "500+", w: {}, h: 10 },
-    ],
-  },
-  {
-    id: "tried",
-    q: "Cosa hai provato finora?",
-    options: [
-      { label: "Ancora niente", w: {}, h: 3 },
-      { label: "Ho assunto più personale", w: { admin: 1 }, h: 4 },
-      { label: "Strumenti base / un chatbot", w: { sales: 1 }, h: 2 },
-      { label: "Mi sono affidato a un'agenzia", w: { marketing: 1 }, h: 2 },
-    ],
-  },
-  {
-    id: "goal",
-    q: "Qual è il tuo obiettivo n.1 per i prossimi 90 giorni?",
-    options: [
-      { label: "Più appuntamenti prenotati", w: { sales: 3 }, h: 6 },
-      { label: "Rispondere più in fretta ai contatti", w: { sales: 2, marketing: 1 }, h: 5 },
-      { label: "Liberare tempo al mio team", w: { admin: 3 }, h: 7 },
-      { label: "Un marketing che rende di più", w: { marketing: 3 }, h: 4 },
-      { label: "Mettere ordine nelle informazioni aziendali", w: { admin: 3 }, h: 5 },
-    ],
-  },
-];
-
-// Nomi pilastro = PILLAR_NAME.it di roadmapPdf (valore scritto nel custom field GHL).
-const PILLAR_PLAYS = {
-  sales: {
-    name: "Vendite & Acquisizione",
-    plays: [
-      "Agente vocale IA 24/7 che risponde e qualifica ogni chiamata",
-      "Recupero delle chiamate perse con SMS di follow-up immediato",
-      "Automazioni social & WhatsApp che alimentano il tuo CRM",
-    ],
-  },
-  admin: {
-    name: "Operations & Company Brain",
-    plays: [
-      "Un “Second Brain” RAG sui tuoi documenti",
-      "OCR Scan-to-Brain per digitalizzare le pratiche",
-      "Note vocali trascritte e portate nel CRM in automatico",
-    ],
-  },
-  marketing: {
-    name: "Marketing & Crescita",
-    plays: [
-      "Agente IA per ads e creatività su Meta e Google",
-      "Visibilità SEO / GEO su Google e sulle ricerche IA",
-      "Workflow automatici per contenuti e reputazione online",
-    ],
-  },
-};
+// Fonte unica: la stessa copy (domande, pesi, pilastri) del Finder del sito.
+// Niente duplicazione, niente deriva: se cambia li, cambia anche qui.
+const t = FINDER_COPY.it;
+const QUESTIONS = t.questions;
+const PILLAR_PLAYS = t.pillars;
 
 const CSS = `
 .lf { --deep:#000A14; --deep-1:#051F33; --bright:#3C91E6; --soft:#B4C2FF; --gold:#FEC458; --white:#fff;
@@ -251,7 +160,7 @@ export default function LucaFinder() {
           variant: mod ? mod.selectVariant(r.primary, r.secondary) : undefined,
           tags,
           roadmap_url: roadmapLink(r),
-          estimated_hours_saved: `${r.hoursLow}-${r.hoursHigh}/week`,
+          estimated_hours_saved: hoursLabel(r.hoursLow, r.hoursHigh, "it"),
           timestamp: new Date().toISOString(),
         }),
       });
