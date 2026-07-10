@@ -171,18 +171,8 @@ export default function ArcangeloLanding() {
               Arcangelo · AI Automation
             </span>
             <h1 className="font-montserrat mt-6 text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.6rem]">
-              I build the AI systems that{" "}
-              <span
-                style={{
-                  backgroundImage: GRAD,
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  color: "transparent",
-                }}
-              >
-                answer your calls, book your appointments, and chase your leads
-              </span>
+              I build the AI systems that answer your calls, book your appointments, and chase your
+              leads
             </h1>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/60">
               Daily AI for real owners, no hype. Grab the free playbooks, hear the Voice AI live, or
