@@ -12,11 +12,17 @@ import {
   FileDown,
   PlayCircle,
   CalendarDays,
-  Globe,
 } from "lucide-react";
 
 // Signature gradient, kept local so this landing has zero cross-page deps.
 const GRAD = "linear-gradient(120deg,#3C91E6 0%,#57C7E3 55%,#B4C2FF 100%)";
+// Brand gold (#FEC458 → #F5CD79). On the main site gold = scarcity + reserved
+// for the primary CTA / "wow" moments, and appears on interaction. This is an
+// IG landing (mostly mobile, where hover never fires), so we use gold as an
+// ambient + accent layer that's visible at rest: warm glows behind the boxes
+// and a warmed border on the key elements. Blue stays the identity color.
+const GOLD = "#FEC458";
+const GOLD_GRAD = "linear-gradient(90deg,#FEC458 0%,#F5CD79 100%)";
 
 // Minimal self-contained scroll-reveal (IntersectionObserver + CSS).
 function Reveal({ children, delay = 0, y = 24, className = "" }) {
@@ -75,7 +81,7 @@ const NICHES = [
 const CTAS = [
   {
     key: "playbooks",
-    label: "Get the free AI Playbooks",
+    label: "Get the free AI Playbook",
     sub: "Pick your niche · delivered to your inbox",
     icon: FileDown,
     href: "#playbooks",
@@ -84,7 +90,7 @@ const CTAS = [
   {
     key: "voice",
     label: "Test our Voice AI live",
-    sub: "Hear the agent answer & qualify a call",
+    sub: "Hear the agent that handles 85% of calls",
     icon: PlayCircle,
     href: VOICE,
     external: true,
@@ -95,14 +101,6 @@ const CTAS = [
     sub: "30 minutes, no pitch",
     icon: CalendarDays,
     href: BOOKING,
-    external: true,
-  },
-  {
-    key: "site",
-    label: "Visit automis.ai",
-    sub: "See what we build",
-    icon: Globe,
-    href: WEBSITE,
     external: true,
   },
 ];
@@ -143,11 +141,22 @@ export default function ArcangeloLanding() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#000a14]">
-      {/* ambient glow */}
+      {/* ambient glows — blue up top (identity), gold lower + off-axis so the
+          page warms as you scroll toward the offer (visible at rest on mobile). */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full opacity-[0.18] blur-[120px]"
         style={{ background: GRAD }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-[42%] -right-32 h-[460px] w-[460px] rounded-full opacity-[0.13] blur-[130px]"
+        style={{ background: GOLD_GRAD }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-[6%] -left-32 h-[400px] w-[400px] rounded-full opacity-[0.10] blur-[130px]"
+        style={{ background: GOLD_GRAD }}
       />
 
       <div className="relative mx-auto flex min-h-screen max-w-xl flex-col px-5 py-12 sm:px-6 sm:py-16">
@@ -162,7 +171,7 @@ export default function ArcangeloLanding() {
               Arcangelo · AI Automation
             </span>
             <h1 className="font-montserrat mt-6 text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.6rem]">
-              I build the AI systems{" "}
+              I build the AI systems that{" "}
               <span
                 style={{
                   backgroundImage: GRAD,
@@ -172,13 +181,28 @@ export default function ArcangeloLanding() {
                   color: "transparent",
                 }}
               >
-                businesses are missing
+                answer your calls, book your appointments, and chase your leads
               </span>
             </h1>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/60">
-              Daily AI, decoded for real owners, no hype. Grab the free playbooks, see our Voice AI
-              live, or book a call.
+              Daily AI for real owners, no hype. Grab the free playbooks, hear the Voice AI live, or
+              book a call.
             </p>
+            {/* real proof points (brand.md §6) — numbers in gold = "wow numbers" */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+              {[
+                ["85%", "of calls handled"],
+                ["+18-25", "appointments a month"],
+                ["-35%", "no-shows"],
+              ].map(([n, l]) => (
+                <span key={l} className="inline-flex items-baseline gap-1.5">
+                  <span className="text-[15px] font-bold" style={{ color: GOLD }}>
+                    {n}
+                  </span>
+                  <span className="text-[12.5px] text-white/50">{l}</span>
+                </span>
+              ))}
+            </div>
           </div>
         </Reveal>
 
@@ -191,10 +215,15 @@ export default function ArcangeloLanding() {
                 <a
                   href={c.href}
                   {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  style={
+                    c.primary
+                      ? { boxShadow: "0 14px 44px -18px rgba(254,196,88,0.45)" }
+                      : undefined
+                  }
                   className={`group flex items-center gap-4 rounded-2xl border px-5 py-4 transition-all duration-200 ${
                     c.primary
-                      ? "border-[#3C91E6]/40 bg-[#3C91E6]/[0.10] hover:border-[#57C7E3]/60 hover:bg-[#3C91E6]/[0.16]"
-                      : "border-white/[0.1] bg-white/[0.03] hover:border-white/25 hover:bg-white/[0.06]"
+                      ? "border-[#FEC458]/45 bg-[#3C91E6]/[0.10] hover:border-[#FEC458]/75 hover:bg-[#3C91E6]/[0.16]"
+                      : "border-white/[0.1] bg-white/[0.03] hover:border-[#FEC458]/35 hover:bg-white/[0.06]"
                   }`}
                 >
                   <span
@@ -228,15 +257,30 @@ export default function ArcangeloLanding() {
         <Reveal delay={120}>
           <div
             id="playbooks"
-            className="mt-6 scroll-mt-6 overflow-hidden rounded-3xl border border-white/[0.1] bg-[#04101c]/70 backdrop-blur-md"
+            style={{ boxShadow: "0 22px 64px -34px rgba(254,196,88,0.45)" }}
+            className="relative mt-6 scroll-mt-6 overflow-hidden rounded-3xl border border-[#FEC458]/15 bg-[#04101c]/70 backdrop-blur-md"
           >
+            {/* gold top-line — the conversion box is the "wow" moment, so it
+                carries the warm accent at rest (mirrors the site's card-gold). */}
+            <div
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-[2px]"
+              style={{ background: GOLD_GRAD }}
+            />
             <div className="border-b border-white/[0.06] px-6 py-4">
-              <p className="text-[12px] font-semibold uppercase tracking-wide text-[#8fe0f0]">
+              <p
+                className="text-[12px] font-semibold uppercase tracking-wide"
+                style={{ color: GOLD }}
+              >
                 Free · 3 automations per niche
               </p>
               <h2 className="font-montserrat mt-1 text-[1.25rem] font-bold text-white">
-                Get your free AI Playbook
+                The 3 AI automations you can run this month
               </h2>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-white/50">
+                A 7-page playbook plus a 1-page cheat sheet, matched to your niche. Steal them, no
+                call needed.
+              </p>
             </div>
 
             <div className="p-6">
