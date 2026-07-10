@@ -52,6 +52,13 @@ const script = `
           personalization_storage: 'denied',
           security_storage: 'granted'
         });
+
+        // The container triggers GA4 / Clarity / Meta on this custom event, not
+        // on page view (a CookieYes leftover). A returning visitor who already
+        // consented needs it too, otherwise their pageview is never measured.
+        // Queued now, processed once GTM loads, still gated by each tag's
+        // consent check.
+        window.dataLayer.push({ event: 'cookie_consent_update' });
       }
     }
   } catch (e) {}
