@@ -111,7 +111,7 @@ export default function TryAIDemoSection() {
           }`}
         >
           <CTAButton
-            href="https://api.leadconnectorhq.com/widget/bookings/automis-pt"
+            href="https://api.leadconnectorhq.com/widget/bookings/pt-automis"
             external={true}
             variant="primary"
             size="large"
