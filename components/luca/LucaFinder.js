@@ -7,6 +7,8 @@
 
 import { useState } from "react";
 import { FINDER_COPY, hoursLabel } from "@/components/home/finderCopy";
+import { pushEvent } from "@/lib/analytics";
+import { getAttribution } from "@/lib/utm";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/luca-automis";
 
@@ -73,6 +75,9 @@ export default function LucaFinder() {
   const isRes = step === total + 1;
 
   const pick = (qi, oi) => {
+    if (Object.keys(answers).length === 0) {
+      pushEvent("finder_started", { locale: "it", finder: "luca-ig" });
+    }
     setAnswers((a) => ({ ...a, [QUESTIONS[qi].id]: oi }));
     setTimeout(() => setStep((s) => s + 1), 160);
   };
@@ -161,6 +166,7 @@ export default function LucaFinder() {
           tags,
           roadmap_url: roadmapLink(r),
           estimated_hours_saved: hoursLabel(r.hoursLow, r.hoursHigh, "it"),
+          attribution: getAttribution(),
           timestamp: new Date().toISOString(),
         }),
       });
@@ -186,6 +192,14 @@ export default function LucaFinder() {
 
     setStatus({ loading: false, error: null });
     setStep(total + 1);
+
+    pushEvent("finder_completed", {
+      locale: "it",
+      finder: "luca-ig",
+      sector: sectorLabel(),
+      recommended_pillar: PILLAR_PLAYS[r.primary].name,
+      utm_source: getAttribution().utm_source || "luca-ig",
+    });
   };
 
   const r = isRes ? roadmap() : null;
