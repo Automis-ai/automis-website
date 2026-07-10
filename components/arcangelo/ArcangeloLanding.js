@@ -12,7 +12,6 @@ import {
   FileDown,
   PlayCircle,
   CalendarDays,
-  Globe,
 } from "lucide-react";
 
 // Signature gradient, kept local so this landing has zero cross-page deps.
@@ -82,7 +81,7 @@ const NICHES = [
 const CTAS = [
   {
     key: "playbooks",
-    label: "Get the free AI Playbooks",
+    label: "Get the free AI Playbook",
     sub: "Pick your niche · delivered to your inbox",
     icon: FileDown,
     href: "#playbooks",
@@ -91,7 +90,7 @@ const CTAS = [
   {
     key: "voice",
     label: "Test our Voice AI live",
-    sub: "Hear the agent answer & qualify a call",
+    sub: "Hear the agent that handles 85% of calls",
     icon: PlayCircle,
     href: VOICE,
     external: true,
@@ -102,14 +101,6 @@ const CTAS = [
     sub: "30 minutes, no pitch",
     icon: CalendarDays,
     href: BOOKING,
-    external: true,
-  },
-  {
-    key: "site",
-    label: "Visit automis.ai",
-    sub: "See what we build",
-    icon: Globe,
-    href: WEBSITE,
     external: true,
   },
 ];
@@ -180,7 +171,7 @@ export default function ArcangeloLanding() {
               Arcangelo · AI Automation
             </span>
             <h1 className="font-montserrat mt-6 text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.6rem]">
-              I build the AI systems{" "}
+              I build the AI systems that{" "}
               <span
                 style={{
                   backgroundImage: GRAD,
@@ -190,13 +181,28 @@ export default function ArcangeloLanding() {
                   color: "transparent",
                 }}
               >
-                businesses are missing
+                answer your calls, book your appointments, and chase your leads
               </span>
             </h1>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/60">
-              Daily AI, decoded for real owners, no hype. Grab the free playbooks, see our Voice AI
-              live, or book a call.
+              Daily AI for real owners, no hype. Grab the free playbooks, hear the Voice AI live, or
+              book a call.
             </p>
+            {/* real proof points (brand.md §6) — numbers in gold = "wow numbers" */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+              {[
+                ["85%", "of calls handled"],
+                ["+18-25", "appointments a month"],
+                ["-35%", "no-shows"],
+              ].map(([n, l]) => (
+                <span key={l} className="inline-flex items-baseline gap-1.5">
+                  <span className="text-[15px] font-bold" style={{ color: GOLD }}>
+                    {n}
+                  </span>
+                  <span className="text-[12.5px] text-white/50">{l}</span>
+                </span>
+              ))}
+            </div>
           </div>
         </Reveal>
 
@@ -269,8 +275,12 @@ export default function ArcangeloLanding() {
                 Free · 3 automations per niche
               </p>
               <h2 className="font-montserrat mt-1 text-[1.25rem] font-bold text-white">
-                Get your free AI Playbook
+                The 3 AI automations you can run this month
               </h2>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-white/50">
+                A 7-page playbook plus a 1-page cheat sheet, matched to your niche. Steal them, no
+                call needed.
+              </p>
             </div>
 
             <div className="p-6">
