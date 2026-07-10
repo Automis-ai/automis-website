@@ -182,7 +182,7 @@ export default function ArcangeloLanding() {
               {[
                 ["85%", "of calls handled"],
                 ["+18-25", "appointments a month"],
-                ["-35%", "no-shows"],
+                ["30+", "hours saved a week"],
               ].map(([n, l]) => (
                 <span key={l} className="inline-flex items-baseline gap-1.5">
                   <span className="text-[15px] font-bold" style={{ color: GOLD }}>
