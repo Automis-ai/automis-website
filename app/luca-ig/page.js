@@ -1,4 +1,5 @@
 import { Montserrat, Open_Sans } from "next/font/google";
+import LucaFinder from "@/components/luca/LucaFinder";
 
 const mont = Montserrat({
   subsets: ["latin"],
@@ -78,9 +79,9 @@ export default function LucaIgLanding() {
         </div>
 
         <span className="kicker"><span className="sq" />Luca · Co-founder di Automis</span>
-        <h1>Più clienti, follow-up puntuali, <em>meno lavoro manuale.</em></h1>
-        <p className="sub">Aiutiamo le aziende a usare AI e automazioni dove serve davvero: acquisizione, risposte, appuntamenti, processi.</p>
-        <p className="antifuffa">Niente fuffa: qui sotto ti mostro cosa facciamo davvero.</p>
+        <h1>L'IA integrata nella tua azienda, <em>dove serve davvero.</em></h1>
+        <p className="sub">Aiutiamo aziende e professionisti a integrare l'IA dove serve davvero: acquisire clienti, snellire i processi interni e ritrovare ogni informazione in secondi.</p>
+        <p className="antifuffa">Guarda il video qui sotto: chi siamo e come lavoriamo davvero, in 40 secondi.</p>
 
         {/* Video: quando pronto, metti public/luca-ig/intro.mp4 e sostituisci .ph con
             <video controls playsInline preload="metadata" poster="/luca-ig/intro-poster.jpg"><source src="/luca-ig/intro.mp4" type="video/mp4" /></video> */}
@@ -93,15 +94,12 @@ export default function LucaIgLanding() {
           </div>
         </div>
 
+        <LucaFinder />
+
         <nav className="ctas">
-          <a className="cta primary" href="https://automis.ai/it?utm_source=luca-ig" target="_blank" rel="noopener">
-            <span className="ico" aria-hidden="true">🎯</span>
-            <span className="txt"><span className="lab">Scopri le tue 3 opportunità AI</span><span className="sm">test gratuito di 2 min, roadmap personalizzata</span></span>
-            <span className="arrow" aria-hidden="true">→</span>
-          </a>
-          <a className="cta" href="https://api.leadconnectorhq.com/widget/bookings/automis-it" target="_blank" rel="noopener">
+          <a className="cta" href="https://api.leadconnectorhq.com/widget/bookings/luca-automis" target="_blank" rel="noopener">
             <span className="ico" aria-hidden="true">📅</span>
-            <span className="txt"><span className="lab">Preferisci parlarne? Prenota una call di 15 min</span><span className="sm">nessun impegno</span></span>
+            <span className="txt"><span className="lab">Preferisci parlarne? Prenota una call di 30 min</span><span className="sm">gratis, nessun impegno</span></span>
             <span className="arrow" aria-hidden="true">→</span>
           </a>
         </nav>
