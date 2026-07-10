@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { Send, CheckCircle } from "lucide-react";
 import { GRAD } from "@/components/home/_ui";
+import { pushEvent } from "@/lib/analytics";
 
 /*
   Contact form for the rebuilt /contact page (new EN design system).
@@ -118,6 +119,9 @@ export default function ContactForm() {
       }
 
       setFormStatus({ loading: false, success: true, error: null });
+
+      // Conversion signal only. Never the submitted name/email/phone/message.
+      pushEvent("contact_form_submitted", { locale, form_id: "contact" });
 
       timerRef.current = setTimeout(() => {
         setFormStatus({ loading: false, success: false, error: null });

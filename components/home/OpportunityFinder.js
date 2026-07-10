@@ -5,6 +5,7 @@ import { Section, SectionHeading, Reveal, GRAD } from "./_ui";
 import CTAButton from "@/components/CTAButton";
 import { Sparkles, ArrowRight, ArrowLeft, Check, Clock, TrendingUp, Loader2, Download, Lock } from "lucide-react";
 import { FINDER_COPY, hoursLabel } from "./finderCopy";
+import { pushEvent } from "@/lib/analytics";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
@@ -154,6 +155,13 @@ export default function OpportunityFinder() {
     }
     setStatus({ loading: false, error: null });
     setStep(total + 1);
+
+    // Lead captured + roadmap delivered. Nothing identifying goes in the dataLayer.
+    pushEvent("finder_completed", {
+      locale,
+      sector: sectorLabel(),
+      recommended_pillar: PILLAR_PLAYS[roadmap.primary].name,
+    });
   };
 
   const partial = isEmail ? computeRoadmap() : null;

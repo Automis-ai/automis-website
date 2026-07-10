@@ -11,6 +11,17 @@ import "@css/style.css";
 import { Montserrat, Open_Sans } from "next/font/google";
 import Script from "next/script";
 import ChatWidgets from "@/components/ChatWidgets";
+import AnalyticsListeners from "@/components/AnalyticsListeners";
+import ConsentModeInit from "@/components/consent/ConsentModeInit";
+import ConsentBanner from "@/components/consent/ConsentBanner";
+
+/*
+  Our first-party consent banner ships behind a flag, so this can be merged and
+  deployed without changing production. Turn NEXT_PUBLIC_CONSENT_V2 on only
+  AFTER the CookieYes tag is removed from the GTM container: otherwise two
+  banners, and two `consent default` calls, would fight each other.
+*/
+const CONSENT_V2 = process.env.NEXT_PUBLIC_CONSENT_V2 === "true";
 
 const montserrat = Montserrat({
   weight: ["700"],
@@ -42,6 +53,9 @@ export default function RootLayout({ children }) {
         className={`${montserrat.variable} ${openSans.variable} bg-[#000a14]`}
         style={{ color: "white" }}
       >
+        {/* Consent Mode v2 defaults. Must execute before GTM loads. */}
+        {CONSENT_V2 && <ConsentModeInit />}
+
         {/* Google Tag Manager */}
         <Script
           id="gtm-base"
@@ -59,10 +73,13 @@ export default function RootLayout({ children }) {
 
         <Preloader />
         <LocaleBootstrapper />
+        <AnalyticsListeners />
         {children}
 
         {/* LeadConnector Chatbot */}
         <ChatWidgets />
+
+        {CONSENT_V2 && <ConsentBanner />}
       </body>
     </html>
   );
