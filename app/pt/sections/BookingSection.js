@@ -69,7 +69,7 @@ export default function BookingSection() {
         >
           <iframe
             ref={iframeRef}
-            src="https://api.leadconnectorhq.com/widget/bookings/automis-pt"
+            src="https://api.leadconnectorhq.com/widget/bookings/pt-automis"
             title="Agende uma demonstração Automis"
             className="min-h-[640px] w-full rounded-xl border-0 bg-white"
             allowFullScreen
