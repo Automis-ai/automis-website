@@ -81,17 +81,12 @@ export default function LucaIgLanding() {
         <span className="kicker"><span className="sq" />Luca · Co-founder di Automis</span>
         <h1>L'IA integrata nella tua azienda, <em>dove serve davvero.</em></h1>
         <p className="sub">Aiutiamo aziende e professionisti a integrare l'IA dove serve davvero: acquisire clienti, snellire i processi interni e ritrovare ogni informazione in secondi.</p>
-        <p className="antifuffa">Guarda il video qui sotto: chi siamo e come lavoriamo davvero, in 40 secondi.</p>
+        <p className="antifuffa">Guarda il video qui sotto: chi siamo e come lavoriamo davvero, in 30 secondi.</p>
 
-        {/* Video: quando pronto, metti public/luca-ig/intro.mp4 e sostituisci .ph con
-            <video controls playsInline preload="metadata" poster="/luca-ig/intro-poster.jpg"><source src="/luca-ig/intro.mp4" type="video/mp4" /></video> */}
         <div className="video">
-          <div className="ph">
-            <span className="play" aria-hidden="true">
-              <svg width="20" height="22" viewBox="0 0 16 18" fill="currentColor"><path d="M0 1.3v15.4c0 1 1.1 1.6 2 1L15 9.9c.8-.5.8-1.7 0-2.2L2 .3C1.1-.3 0 .3 0 1.3z" /></svg>
-            </span>
-            <span className="vlabel">Chi siamo in 40 secondi</span>
-          </div>
+          <video controls playsInline preload="metadata" poster="/luca-ig/intro-poster.jpg">
+            <source src="/luca-ig/intro.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <LucaFinder />
