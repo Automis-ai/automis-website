@@ -117,11 +117,13 @@ export async function POST(request) {
   }
 
   // GHL webhooks vary; accept common field names.
+  // GHL's workflow webhook varies in shape; accept the common field names.
   const normalized = {
-    email: payload.email || payload.contact?.email,
-    phone: payload.phone || payload.contact?.phone,
+    email: payload.email || payload.contact?.email || payload.contact_email,
+    phone: payload.phone || payload.contact?.phone || payload.contact_phone,
     locale: payload.locale,
-    value: payload.value,
+    // Custom-data values arrive as strings ("297"); coerce for GA4/Meta.
+    value: payload.value != null ? Number(payload.value) || 0 : 0,
     currency: payload.currency,
     ga_client_id: payload.ga_client_id,
     fbp: payload.fbp,
@@ -142,5 +144,17 @@ export async function POST(request) {
     results.meta = "exception";
   }
 
-  return NextResponse.json({ ok: true, ...results });
+  // Debug echo: field NAMES received + whether the match keys were found.
+  // No personal data (no address/number), just names and booleans, so it is
+  // safe to read in GHL's execution logs while wiring the webhook.
+  return NextResponse.json({
+    ok: true,
+    ...results,
+    received: {
+      keys: Object.keys(payload || {}).slice(0, 40),
+      has_email: !!normalized.email,
+      has_phone: !!normalized.phone,
+      value: normalized.value,
+    },
+  });
 }
