@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { Send, CheckCircle } from "lucide-react";
 import { GRAD } from "@/components/home/_ui";
 import { pushEvent } from "@/lib/analytics";
+import { getAttribution } from "@/lib/utm";
 
 /*
   Contact form for the rebuilt /contact page (new EN design system).
@@ -106,6 +107,7 @@ export default function ContactForm() {
         message: formData.message,
         timestamp: new Date().toISOString(),
         source: "contact-form",
+        attribution: getAttribution(),
       };
 
       const response = await fetch("/api/contact", {

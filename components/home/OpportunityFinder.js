@@ -6,6 +6,7 @@ import CTAButton from "@/components/CTAButton";
 import { Sparkles, ArrowRight, ArrowLeft, Check, Clock, TrendingUp, Loader2, Download, Lock } from "lucide-react";
 import { FINDER_COPY, hoursLabel } from "./finderCopy";
 import { pushEvent } from "@/lib/analytics";
+import { getAttribution } from "@/lib/utm";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
@@ -30,6 +31,11 @@ export default function OpportunityFinder() {
   const progress = Math.min(step, total) / total;
 
   const pick = (qIndex, optIndex) => {
+    // First answer of the session = an engaged start. Fires once (answers is
+    // still empty here); going back to change Q1 later won't re-fire it.
+    if (Object.keys(answers).length === 0) {
+      pushEvent("finder_started", { locale });
+    }
     const next = { ...answers, [QUESTIONS[qIndex].id]: optIndex };
     setAnswers(next);
     setTimeout(() => setStep((s) => s + 1), 180);
@@ -82,6 +88,7 @@ export default function OpportunityFinder() {
 
   // Re-download the personalised roadmap (used by the "Download again" button).
   const buildPdf = async (roadmap) => {
+    pushEvent("roadmap_downloaded", { locale, reason: "redownload" });
     try {
       const { generateRoadmapPdf } = await import("./roadmapPdf");
       await generateRoadmapPdf({
@@ -133,6 +140,9 @@ export default function OpportunityFinder() {
           tags,
           roadmap_url: roadmapUrl,
           estimated_hours_saved: hoursLabel(roadmap.hoursLow, roadmap.hoursHigh, locale),
+          // First-touch attribution so GHL knows which channel/content produced
+          // the lead (utm_source/medium/campaign/content, gclid/fbclid, referrer).
+          attribution: getAttribution(),
           timestamp: new Date().toISOString(),
         }),
       });
@@ -161,6 +171,7 @@ export default function OpportunityFinder() {
       locale,
       sector: sectorLabel(),
       recommended_pillar: PILLAR_PLAYS[roadmap.primary].name,
+      utm_source: getAttribution().utm_source || null,
     });
   };
 
