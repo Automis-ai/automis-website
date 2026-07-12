@@ -41,6 +41,9 @@ export async function POST(req) {
         name: name || undefined,
         tags,
         source: "arcangelo-ig-landing",
+        // Store the niche id (clinic/online/realestate/local) so a single GHL
+        // delivery email can link the right PDFs via {{contact.playbook_niche}}.
+        customFields: [{ id: "BAaDWAqOd88h9ES3I8pT", value: niche }],
       }),
     });
 
