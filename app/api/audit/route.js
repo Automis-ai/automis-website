@@ -12,11 +12,39 @@ const ghlNotesUrl = (contactId) => `https://services.leadconnectorhq.com/contact
 const CF_ROADMAP_URL = "HhlNjlKkTj8bEtWew4xA"; // contact.roadmap_url
 const CF_RECOMMENDED_PILLAR = "8Upb1lCetqUpDzWhiCyn"; // contact.recommended_pillar
 const CF_HOURS_SAVED = "FZ6gVGj8yaCegdM3990C"; // contact.hours_saved
-// Per-post attribution (see personal-brands/utm-tagging.md): the id of the
-// "lead_source_content" custom field. Set GHL_CF_LEAD_SOURCE_CONTENT once the
-// field exists in GHL; until then the sorgente:/pilastro: tags still apply,
-// only the per-post field write is skipped.
-const CF_LEAD_SOURCE_CONTENT = process.env.GHL_CF_LEAD_SOURCE_CONTENT;
+// Per-post attribution (personal-brands/utm-tagging.md): utm_content is written
+// into the "lead_source_content" custom field, and the GHL API needs the field's
+// id. GHL_CF_LEAD_SOURCE_CONTENT can pin it; otherwise we resolve it once at
+// runtime by name (the server already holds the GHL token) and cache it for the
+// life of the process, so no manual id wiring is needed.
+const CF_LEAD_SOURCE_CONTENT_ENV = process.env.GHL_CF_LEAD_SOURCE_CONTENT;
+let cachedLeadSourceFieldId; // undefined = not looked up yet; "" = looked up, not found
+
+async function resolveLeadSourceFieldId(token, locationId) {
+  if (CF_LEAD_SOURCE_CONTENT_ENV) return CF_LEAD_SOURCE_CONTENT_ENV;
+  if (cachedLeadSourceFieldId !== undefined) return cachedLeadSourceFieldId || undefined;
+  cachedLeadSourceFieldId = ""; // pessimistic default so a failure isn't retried every request
+  try {
+    const res = await fetch(
+      `https://services.leadconnectorhq.com/locations/${locationId}/customFields`,
+      { headers: { Authorization: `Bearer ${token}`, Version: "2021-07-28", Accept: "application/json" } }
+    );
+    if (res.ok) {
+      const data = await res.json();
+      const match = (data.customFields || []).find((f) => {
+        const key = String(f.fieldKey || "").toLowerCase();
+        const name = String(f.name || "").toLowerCase().replace(/\s+/g, "_");
+        return key.endsWith("lead_source_content") || name === "lead_source_content";
+      });
+      cachedLeadSourceFieldId = match ? match.id : "";
+    } else {
+      console.error("GHL custom-field lookup failed:", res.status);
+    }
+  } catch (err) {
+    console.error("GHL custom-field lookup error:", err);
+  }
+  return cachedLeadSourceFieldId || undefined;
+}
 
 // GHL tag values: short, lowercase, slug-safe.
 const slug = (v) =>
@@ -71,11 +99,15 @@ export async function POST(req) {
       if (attr.utm_campaign) utmTags.push(`pilastro:${slug(attr.utm_campaign)}`);
       const allTags = [...(Array.isArray(tags) ? tags : []), ...utmTags];
 
+      // Resolve the lead_source_content field id (env override, else looked up
+      // once by name). Only needed when there is a utm_content to store.
+      const leadSourceFieldId = attr.utm_content ? await resolveLeadSourceFieldId(token, locationId) : null;
+
       const customFields = [
         roadmap_url && { id: CF_ROADMAP_URL, field_value: roadmap_url },
         recommended_pillar && { id: CF_RECOMMENDED_PILLAR, field_value: recommended_pillar },
         estimated_hours_saved && { id: CF_HOURS_SAVED, field_value: estimated_hours_saved },
-        CF_LEAD_SOURCE_CONTENT && attr.utm_content && { id: CF_LEAD_SOURCE_CONTENT, field_value: String(attr.utm_content).slice(0, 200) },
+        leadSourceFieldId && { id: leadSourceFieldId, field_value: String(attr.utm_content).slice(0, 200) },
       ].filter(Boolean);
       try {
         const res = await fetch(GHL_UPSERT_URL, {
