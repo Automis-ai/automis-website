@@ -9,7 +9,7 @@ const LEAD_TAG = "audit form IT";
 const LEAD_SOURCE = "jumpstart-audit-sample-it";
 
 const INSIDE = [
-  { icon: Target, t: "Matrice impatto vs sforzo", p: "Ogni opportunita' ordinata, cosi' i quick win vengono per primi." },
+  { icon: Target, t: "Matrice impatto vs sforzo", p: "Ogni opportunità ordinata, così i quick win vengono per primi." },
   { icon: LineChart, t: "Una money slide con il ritorno", p: "Ritorno stimato, ammortamento e ore risparmiate." },
   { icon: BarChart3, t: "Un vero audit della spesa ads", p: "Costo per contatto per servizio e dove riallocare." },
 ];
@@ -65,10 +65,10 @@ export default function SampleAuditDownloadIT() {
               Campione gratuito
             </span>
             <h2 className="font-display mt-5 text-[2rem] font-bold leading-tight text-white sm:text-[2.6rem]">
-              Guarda com&apos;e&apos; fatto un <GradientText>vero audit</GradientText>
+              Guarda com&apos;è fatto un <GradientText>vero audit</GradientText>
             </h2>
             <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/65">
-              Scarica un vero Jumpstart Audit, reso anonimo. Nove pagine che mostrano dove un&apos;attivita&apos; perde tempo e denaro, un piano a fasi e il ritorno stimato. E&apos; esattamente la profondita&apos; che ottieni per la tua attivita&apos;.
+              Scarica una vera Jumpstart Audit, resa anonima. Nove pagine che mostrano dove un&apos;attività perde tempo e denaro, un piano a fasi e il ritorno stimato. È esattamente la profondità che ottieni per la tua attività.
             </p>
             <ul className="mt-8 space-y-4">
               {INSIDE.map((v) => {
@@ -101,7 +101,7 @@ export default function SampleAuditDownloadIT() {
                 <>
                   <h3 className="font-display text-[1.5rem] font-semibold text-white">Ricevi l&apos;audit di esempio</h3>
                   <p className="mt-2 text-[14px] leading-relaxed text-white/55">
-                    Gratis. Download immediato piu&apos; una copia nella tua inbox.
+                    Gratis. Download immediato più una copia nella tua inbox.
                   </p>
                   <form onSubmit={onSubmit} className="mt-7 space-y-4">
                     <div>
@@ -149,10 +149,10 @@ export default function SampleAuditDownloadIT() {
                     <Check className="h-7 w-7 text-[#FEC458]" strokeWidth={2.6} />
                   </span>
                   <h3 className="font-display mt-5 text-[1.4rem] font-semibold text-white">
-                    Il tuo download e&apos; pronto
+                    Il tuo download è pronto
                   </h3>
                   <p className="mt-2 text-[14px] leading-relaxed text-white/60">
-                    Se non si e&apos; aperto in automatico, usa il pulsante qui sotto. Una copia sta arrivando anche nella tua inbox.
+                    Se non si è aperto in automatico, usa il pulsante qui sotto. Una copia sta arrivando anche nella tua inbox.
                   </p>
                   <button
                     onClick={triggerDownload}

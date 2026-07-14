@@ -10,20 +10,20 @@ import JumpstartBookingIT from "@/components/it/jumpstart/JumpstartBookingIT";
 export const metadata = {
   title: "Jumpstart Audit Marketing e IA | Automis, scopri dove perdi tempo e denaro",
   description:
-    "Si parte con una call gratuita. Il Jumpstart Audit completo (1.450 euro) e' un'analisi di due settimane: intervistiamo il tuo team, analizziamo funnel e spesa ads e ti consegniamo un piano basato sui dati piu' un'automazione live.",
+    "Si parte con una call gratuita. La Jumpstart Audit completa (1.450 euro) è un'analisi di due settimane: intervistiamo il tuo team, analizziamo funnel e spesa ads e ti consegniamo un piano basato sui dati più un'automazione live.",
   keywords: [
     "Jumpstart Audit",
     "audit marketing e IA",
     "consulenza IA gratuita",
     "audit automazione aziendale",
-    "analisi opportunita' IA",
+    "analisi opportunità IA",
     "call strategica automazione",
   ],
   alternates: { canonical: "https://automis.ai/it/jumpstart-audit" },
   openGraph: {
     title: "Jumpstart Audit Marketing e IA | Automis",
     description:
-      "Una call gratuita per iniziare, poi un Jumpstart Audit di due settimane (1.450 euro): interviste, analisi reale e un piano concreto su cui agire.",
+      "Una call gratuita per iniziare, poi una Jumpstart Audit di due settimane (1.450 euro): interviste, analisi reale e un piano concreto su cui agire.",
     url: "https://automis.ai/it/jumpstart-audit",
     siteName: "Automis",
     type: "website",
@@ -40,7 +40,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Jumpstart Audit Marketing e IA | Automis",
     description:
-      "Consulenza gratuita di 30 minuti, poi un Jumpstart Audit approfondito (1.450 euro) con un piano basato sui dati e un'automazione live in 14 giorni.",
+      "Consulenza gratuita di 30 minuti, poi una Jumpstart Audit approfondita (1.450 euro) con un piano basato sui dati e un'automazione live in 14 giorni.",
     images: ["/assets/og/home-en.png"],
   },
 };

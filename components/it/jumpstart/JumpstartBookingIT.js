@@ -9,8 +9,8 @@ const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/automis-it";
 
 const BULLETS = [
   "Si parte gratis: una consulenza di 30 minuti, senza impegno",
-  "Mappiamo dove la tua attivita' perde tempo e denaro",
-  "Pronto ad andare a fondo? Passa al Jumpstart Audit da 1.450 euro",
+  "Mappiamo dove la tua attività perde tempo e denaro",
+  "Pronto ad andare a fondo? Passa alla Jumpstart Audit da 1.450 euro",
 ];
 
 export default function JumpstartBookingIT() {
@@ -50,10 +50,10 @@ export default function JumpstartBookingIT() {
             <div>
               <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">Parti con una call gratuita</span>
               <h2 className="font-display mt-4 text-[2.1rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.7rem]">
-                Trova i sistemi IA <GradientText>che mancano alla tua attivita&apos;</GradientText>.
+                Trova i sistemi IA <GradientText>che mancano alla tua attività</GradientText>.
               </h2>
               <p className="mt-5 max-w-md text-[1.05rem] leading-relaxed text-white/60">
-                Scegli un orario che ti va bene e ti mostriamo esattamente dove l&apos;IA puo&apos;
+                Scegli un orario che ti va bene e ti mostriamo esattamente dove l&apos;IA può
                 farti recuperare tempo, chiamate e fatturato. Parti con una consulenza gratuita
                 di 30 minuti, senza tecnicismi e senza impegno, poi passa all&apos;audit completo quando sei pronto.
               </p>
@@ -86,7 +86,7 @@ export default function JumpstartBookingIT() {
               <div className="flex items-center justify-between px-3 pb-2 pt-1.5">
                 <span className="flex items-center gap-2 text-[13px] font-semibold text-white/85">
                   <span className="h-2 w-2 rounded-full" style={{ background: GRAD, boxShadow: "0 0 8px rgba(87,199,227,0.8)" }} />
-                  Disponibilita&apos; live &middot; consulenza gratuita di 30 min
+                  Disponibilità live &middot; consulenza gratuita di 30 min
                 </span>
                 <span className="text-[12px] text-white/50">Conferma immediata</span>
               </div>
