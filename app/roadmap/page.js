@@ -101,7 +101,7 @@ function RoadmapInner() {
         </button>
 
         <div className="mt-8">
-          <a href={t.booking} style={{ color: "#3C91E6" }} className="font-semibold underline">
+          <a href={t.booking} target="_blank" rel="noopener noreferrer" style={{ color: "#3C91E6" }} className="font-semibold underline">
             {t.book}
           </a>
         </div>

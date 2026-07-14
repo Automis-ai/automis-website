@@ -105,6 +105,8 @@ export default function JumpstartHero() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <InteractiveHoverButton
                 href={BOOKING}
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="solid"
                 text="Book a Free Discovery Call"
               />

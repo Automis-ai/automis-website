@@ -75,6 +75,8 @@ export default function ConsultationPage() {
               <div className="mt-8 flex justify-center">
                 <InteractiveHoverButton
                   href={BOOKING}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="solid"
                   text="Book a free call"
                 />

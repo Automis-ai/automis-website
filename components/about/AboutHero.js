@@ -60,7 +60,7 @@ export default function AboutHero() {
           </Reveal>
           <Reveal immediate delay={180}>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <InteractiveHoverButton href={booking} variant="solid" text={t.ctaPrimary} />
+              <InteractiveHoverButton href={booking} target="_blank" rel="noopener noreferrer" variant="solid" text={t.ctaPrimary} />
               <InteractiveHoverButton href="#process" variant="ghost" text={t.ctaSecondary} />
             </div>
           </Reveal>

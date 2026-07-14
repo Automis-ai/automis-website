@@ -70,6 +70,8 @@ export default function JumpstartBookingIT() {
               <div className="mt-8 flex lg:hidden">
                 <InteractiveHoverButton
                   href={BOOKING}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="solid"
                   text="Prenota una Call Gratuita"
                 />

@@ -173,6 +173,8 @@ export default function CaseStudyDetail({ slug, locale = "en" }) {
             <div className="flex justify-center">
               <InteractiveHoverButton
                 href={booking}
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="solid"
                 text={t.ctaButton}
               />

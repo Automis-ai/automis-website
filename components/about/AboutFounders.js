@@ -121,6 +121,8 @@ export default function AboutFounders() {
                   </a>
                   <InteractiveHoverButton
                     href={booking}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variant="ghost"
                     text={t.bookCta}
                     className="px-5 py-2.5 text-[13.5px]"

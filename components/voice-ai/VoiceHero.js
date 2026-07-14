@@ -72,6 +72,8 @@ export default function VoiceHero() {
             <div className="mt-8 flex justify-center">
               <InteractiveHoverButton
                 href={booking}
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="solid"
                 text={t.cta}
               />

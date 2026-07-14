@@ -185,6 +185,8 @@ export default function VoicePricing() {
               <div className="mt-auto flex pt-8">
                 <InteractiveHoverButton
                   href={booking}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant={tier.featured ? "solid" : "ghost"}
                   text={t.bookCta}
                   className="w-full"
@@ -209,6 +211,8 @@ export default function VoicePricing() {
           </div>
           <InteractiveHoverButton
             href={booking}
+            target="_blank"
+            rel="noopener noreferrer"
             variant="ghost"
             text={t.enterprise.cta}
             className="w-full flex-shrink-0 sm:w-auto"

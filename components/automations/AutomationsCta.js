@@ -121,7 +121,7 @@ export default function AutomationsCta() {
                 ))}
               </ul>
               <div className="mt-8 flex lg:hidden">
-                <InteractiveHoverButton href={booking} variant="solid" text={t.cta} />
+                <InteractiveHoverButton href={booking} target="_blank" rel="noopener noreferrer" variant="solid" text={t.cta} />
               </div>
             </div>
           </Reveal>
@@ -181,7 +181,7 @@ export default function AutomationsCta() {
         {/* Prominent primary CTA under the two columns, always visible. */}
         <Reveal delay={140}>
           <div className="mt-12 flex justify-center">
-            <InteractiveHoverButton href={booking} variant="solid" text={t.cta} />
+            <InteractiveHoverButton href={booking} target="_blank" rel="noopener noreferrer" variant="solid" text={t.cta} />
           </div>
         </Reveal>
       </div>
