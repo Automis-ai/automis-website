@@ -34,16 +34,16 @@ const AUDITS = [
         p: "Decisioni chiare su cosa fermare, ottimizzare e scalare su Google, Meta e LinkedIn.",
       },
       {
-        h: "Targeting e funnel piu' efficaci",
+        h: "Targeting e funnel più efficaci",
         p: "Ottimizzazioni su pubblico, offerta e landing per aumentare le conversioni.",
       },
       {
-        h: "Tracking che dice la verita'",
+        h: "Tracking che dice la verità",
         p: "Correzioni semplici all'attribuzione per decisioni davvero basate sui dati.",
       },
     ],
     deliverables:
-      "Scorecard per canale, note su targeting e creativita', checklist di tracking, Top 3 raccomandazioni.",
+      "Scorecard per canale, note su targeting e creatività, checklist di tracking, Top 3 raccomandazioni.",
   },
   {
     icon: Brain,
@@ -55,7 +55,7 @@ const AUDITS = [
         p: "Mappiamo l'intero flusso contatto-prenotazione (speed-to-lead, chiamate perse, follow-up, no-show).",
       },
       {
-        h: "Opportunita' ad alto ROI",
+        h: "Opportunità ad alto ROI",
         p: "Una shortlist prioritaria e breve di automazioni che fanno la differenza.",
       },
       {
@@ -64,7 +64,7 @@ const AUDITS = [
       },
     ],
     deliverables:
-      "Mappa dei flussi, shortlist opportunita' (impatto vs sforzo), linee guida di implementazione.",
+      "Mappa dei flussi, shortlist opportunità (impatto vs sforzo), linee guida di implementazione.",
   },
 ];
 
@@ -73,7 +73,7 @@ const DELIVERABLES = [
   {
     icon: LineChart,
     title: "Previsione Money Slide",
-    body: "Proiezioni chiare su riduzione CPL/CPA e ore risparmiate, cosi' la leadership vede l'impatto in euro.",
+    body: "Proiezioni chiare su riduzione CPL/CPA e ore risparmiate, così la leadership vede l'impatto in euro.",
   },
   {
     icon: Calendar,
@@ -110,16 +110,16 @@ const BONUSES = [
     value: "500 euro di valore",
     title: "Previsione Money Slide",
     tag: "Pronta per il management",
-    body: "Proiezioni chiare su riduzione CPL/CPA e ore risparmiate, cosi' la leadership vede l'impatto economico reale.",
+    body: "Proiezioni chiare su riduzione CPL/CPA e ore risparmiate, così la leadership vede l'impatto economico reale.",
     gold: true,
   },
 ];
 
 /* Le due garanzie, condizioni riprese fedelmente. */
 const CLARITY_OUTCOMES = [
-  "Riduzione dei costi di acquisizione del 10% o piu'",
-  "Aumento delle prenotazioni del 5% o piu'",
-  "10 o piu' ore a settimana risparmiate",
+  "Riduzione dei costi di acquisizione del 10% o più",
+  "Aumento delle prenotazioni del 5% o più",
+  "10 o più ore a settimana risparmiate",
 ];
 
 /* Aspettative oneste: cosa comprende davvero l'audit approfondito. */
@@ -127,7 +127,7 @@ const INVOLVES = [
   {
     icon: Users,
     title: "Intervistiamo il tuo team",
-    body: "Parliamo con chi gestisce marketing, vendite e operazioni, cosi' il piano si adatta a come lavora davvero la tua attivita'.",
+    body: "Parliamo con chi gestisce marketing, vendite e operazioni, così il piano si adatta a come lavora davvero la tua attività.",
   },
   {
     icon: Shield,
@@ -137,7 +137,7 @@ const INVOLVES = [
   {
     icon: CalendarClock,
     title: "Circa due settimane per un piano vero",
-    body: "Un'analisi seria richiede tempo. In circa due settimane trasformiamo cio' che troviamo in un piano chiaro e basato sui dati.",
+    body: "Un'analisi seria richiede tempo. In circa due settimane trasformiamo ciò che troviamo in un piano chiaro e basato sui dati.",
   },
 ];
 
@@ -147,7 +147,7 @@ const TIMELINE = [
     day: "Giorno 0-1",
     icon: Rocket,
     title: "Kickoff (obiettivi e accessi)",
-    body: "Allineamento su obiettivi e KPI; conferma di ICP, offerte e criteri di successo. Raccogliamo gli accessi in sola lettura e inviamo un riepilogo call piu' una checklist di cio' che manca.",
+    body: "Allineamento su obiettivi e KPI; conferma di ICP, offerte e criteri di successo. Raccogliamo gli accessi in sola lettura e inviamo un riepilogo call più una checklist di ciò che manca.",
   },
   {
     day: "Giorno 1-3",
@@ -164,14 +164,14 @@ const TIMELINE = [
   {
     day: "Giorno 6-9",
     icon: Target,
-    title: "Shortlist opportunita' (impatto vs sforzo)",
-    body: "Selezioniamo 3-6 azioni ad alto ROI (marketing e IA) e le ordiniamo per impatto e sforzo. Fix pratici su targeting, creativita', landing e tracking; piu' automazioni operative.",
+    title: "Shortlist opportunità (impatto vs sforzo)",
+    body: "Selezioniamo 3-6 azioni ad alto ROI (marketing e IA) e le ordiniamo per impatto e sforzo. Fix pratici su targeting, creatività, landing e tracking; più automazioni operative.",
   },
   {
     day: "Giorno 10",
     icon: Users,
-    title: "Allineamento di meta' audit (30-45 min)",
-    body: "Rivediamo la mappa dei flussi e la shortlist. Validiamo le priorita' col tuo team e scegliamo insieme il quick win da implementare. Via libera su cio' che conta, senza supposizioni.",
+    title: "Allineamento di metà audit (30-45 min)",
+    body: "Rivediamo la mappa dei flussi e la shortlist. Validiamo le priorità col tuo team e scegliamo insieme il quick win da implementare. Via libera su ciò che conta, senza supposizioni.",
   },
   {
     day: "Giorno 10-12",
@@ -183,7 +183,7 @@ const TIMELINE = [
     day: "Giorno 12-13",
     icon: LineChart,
     title: "Previsioni e piano 90 giorni",
-    body: "Modelliamo risparmi e aumento attesi piu' il payback; prepariamo la Previsione Money Slide. Creiamo un Piano d'Azione 90 Giorni settimana per settimana con responsabili e milestone.",
+    body: "Modelliamo risparmi e aumento attesi più il payback; prepariamo la Previsione Money Slide. Creiamo un Piano d'Azione 90 Giorni settimana per settimana con responsabili e milestone.",
   },
   {
     day: "Giorno 14",
@@ -205,8 +205,8 @@ export default function Step2JumpstartAuditIT() {
       </div>
 
       <SectionHeading
-        title={<>Il <GradientText>Jumpstart Audit</GradientText></>}
-        lead="Questa e' l'analisi profonda, non una call veloce. In circa due settimane intervistiamo il tuo team, analizziamo funnel e spesa pubblicitaria e trasformiamo cio' che troviamo in due audit completi piu' un piano su cui agire. Nessuna supposizione, nessun template generico."
+        title={<><GradientText>Jumpstart Audit</GradientText></>}
+        lead="Questa è l'analisi profonda, non una call veloce. In circa due settimane intervistiamo il tuo team, analizziamo funnel e spesa pubblicitaria e trasformiamo ciò che troviamo in due audit completi più un piano su cui agire. Nessuna supposizione, nessun template generico."
       />
 
       {/* Aspettative oneste: cosa comprende l'audit */}
@@ -274,7 +274,7 @@ export default function Step2JumpstartAuditIT() {
       {/* Deliverable pronti per il management */}
       <Reveal>
         <h3 className="font-display mt-20 text-center text-[1.5rem] font-semibold text-white sm:text-[1.8rem]">
-          Piu&apos; i <GradientText>deliverable pronti per il management</GradientText>
+          Più i <GradientText>deliverable pronti per il management</GradientText>
         </h3>
       </Reveal>
       <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -297,7 +297,7 @@ export default function Step2JumpstartAuditIT() {
         })}
       </div>
 
-      {/* Prezzo + credito 500 euro + scarsita' + CTA */}
+      {/* Prezzo + credito 500 euro + scarsità + CTA */}
       <div className="mt-24">
         <Reveal>
           <div className="card-glow relative overflow-hidden rounded-3xl border border-[#FEC458]/25 bg-white/[0.03] p-8 text-center backdrop-blur-sm sm:p-12">
@@ -329,12 +329,12 @@ export default function Step2JumpstartAuditIT() {
               </div>
 
               <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <InteractiveHoverButton href={BOOKING} variant="solid" text="Candidati al Jumpstart Audit" />
+                <InteractiveHoverButton href={BOOKING} variant="solid" text="Richiedi Jumpstart Audit" />
                 <InteractiveHoverButton href="#book" variant="ghost" text="Prima una call gratuita" />
               </div>
 
               <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px] text-white/55">
-                <span className="inline-flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.2} /> Garanzie di Idoneita&apos; e Chiarezza</span>
+                <span className="inline-flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.2} /> Garanzie di Idoneità e Chiarezza</span>
                 <span className="inline-flex items-center gap-1.5"><Gift className="h-3.5 w-3.5 text-[#FEC458]" strokeWidth={2.2} /> 1.850 euro di bonus</span>
                 <span className="inline-flex items-center gap-1.5"><Zap className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.2} /> Quick win live in 14 giorni</span>
               </div>
@@ -355,7 +355,7 @@ export default function Step2JumpstartAuditIT() {
               <span className="text-[#FEC458]">1.850 euro</span> di valore, gratis
             </h3>
             <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/60">
-              Tre bonus inclusi in ogni audit, cosi&apos; esci con qualcosa che gia&apos; funziona, non solo un documento.
+              Tre bonus inclusi in ogni audit, così esci con qualcosa che già funziona, non solo un documento.
             </p>
           </div>
         </Reveal>
@@ -409,7 +409,7 @@ export default function Step2JumpstartAuditIT() {
         </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {/* Garanzia di Idoneita' (kickoff) */}
+          {/* Garanzia di Idoneità (kickoff) */}
           <Reveal>
             <div className="card-glow group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 backdrop-blur-sm transition-all hover:-translate-y-1">
               <div className="flex items-center gap-4">
@@ -417,7 +417,7 @@ export default function Step2JumpstartAuditIT() {
                   <Shield className="h-5 w-5 text-[#57C7E3]" strokeWidth={1.8} />
                 </span>
                 <div>
-                  <h4 className="font-display text-[1.3rem] font-semibold text-white">Garanzia di Idoneita&apos;</h4>
+                  <h4 className="font-display text-[1.3rem] font-semibold text-white">Garanzia di Idoneità</h4>
                   <p className="text-[13px] font-semibold text-[#57C7E3]">Verificata al kickoff</p>
                 </div>
               </div>

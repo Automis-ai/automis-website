@@ -37,7 +37,7 @@ export default function JumpstartHeroIT() {
             <p className="mx-auto mt-7 max-w-2xl text-[1.1rem] leading-relaxed text-white/70 md:text-[1.2rem]">
               Si parte con una call gratuita in cui condividiamo un paio di quick win e ti
               mostriamo come funziona l&apos;audit. Per capire dove stai davvero perdendo,
-              il Jumpstart Audit completo va in profondit&agrave;: intervistiamo il tuo team,
+              la Jumpstart Audit completa va in profondit&agrave;: intervistiamo il tuo team,
               analizziamo i tuoi numeri e ti consegniamo un piano basato sui dati in circa due settimane.
             </p>
           </Reveal>
@@ -92,7 +92,7 @@ export default function JumpstartHeroIT() {
                   </span>
                 </div>
                 <h2 className="font-display mt-4 text-[1.15rem] font-semibold leading-tight text-white">
-                  Il Jumpstart Audit
+                  Jumpstart Audit
                 </h2>
                 <p className="mt-2 text-[13.5px] leading-relaxed text-white/60">
                   Due settimane di analisi: interviste, dati reali e un piano concreto su cui agire.

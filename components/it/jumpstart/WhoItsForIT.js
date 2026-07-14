@@ -5,14 +5,14 @@ import { Check, X } from "lucide-react";
 const FOR = [
   "Aziende che vivono di contatti e prenotazioni",
   "Team che investono in Google, Meta o LinkedIn Ads",
-  "Titolari che vogliono piu' prenotazioni senza aumentare il personale",
+  "Titolari che vogliono più prenotazioni senza aumentare il personale",
   "Chi affoga tra chiamate perse, follow-up lenti o lavoro manuale",
 ];
 
 const NOT_FOR = [
   "Nessun sistema di tracking ancora attivo",
-  "Nessuna attivita' pubblicitaria da analizzare",
-  "Nessuna disponibilita' a concedere accessi in sola lettura",
+  "Nessuna attività pubblicitaria da analizzare",
+  "Nessuna disponibilità a concedere accessi in sola lettura",
 ];
 
 export default function WhoItsForIT() {
@@ -20,8 +20,8 @@ export default function WhoItsForIT() {
     <Section id="who-its-for" className="bg-[#020a12]">
       <SectionHeading
         eyebrow="Verifica del fit"
-        title="Il Jumpstart Audit fa per te?"
-        lead="E' una sessione di lavoro, quindi rende di piu' quando c'e' un'attivita' vera da analizzare. Ecco chi ne trae il massimo."
+        title="Jumpstart Audit fa per te?"
+        lead="È una sessione di lavoro, quindi rende di più quando c'è un'attività vera da analizzare. Ecco chi ne trae il massimo."
       />
       <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-6 lg:grid-cols-2">
         <Reveal>

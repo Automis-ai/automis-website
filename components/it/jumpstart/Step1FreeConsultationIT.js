@@ -5,24 +5,24 @@ import { Phone, Lightbulb, Route, Handshake } from "lucide-react";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/automis-it";
 
-/* Inquadramento onesto: la call gratuita e' una vera prima conversazione, non
+/* Inquadramento onesto: la call gratuita è una vera prima conversazione, non
    un mini-audit. Diamo un paio di consigli reali, spieghiamo come funziona
    l'audit e verifichiamo il fit. */
 const POINTS = [
   {
     icon: Lightbulb,
     title: "Un paio di consigli veloci",
-    body: "Guardiamo cosa ci racconti e ti segnaliamo gia' una o due cose da sistemare. Utile di per se', senza impegno.",
+    body: "Guardiamo cosa ci racconti e ti segnaliamo già una o due cose da sistemare. Utile di per sé, senza impegno.",
   },
   {
     icon: Route,
     title: "Come funziona l'audit",
-    body: "Ti spieghiamo cosa comprende il Jumpstart Audit completo, cosa analizzeremmo e cosa ti porti a casa.",
+    body: "Ti spieghiamo cosa comprende la Jumpstart Audit completa, cosa analizzeremmo e cosa ti porti a casa.",
   },
   {
     icon: Handshake,
     title: "Verifichiamo se siamo un fit",
-    body: "Se la tua struttura non e' ancora pronta per l'audit approfondito, te lo diciamo con chiarezza. Gratis, senza obbligo di proseguire.",
+    body: "Se la tua struttura non è ancora pronta per l'audit approfondito, te lo diciamo con chiarezza. Gratis, senza obbligo di proseguire.",
   },
 ];
 
@@ -38,7 +38,7 @@ export default function Step1FreeConsultationIT() {
 
       <SectionHeading
         title={<>Prima, una <GradientText>call conoscitiva</GradientText></>}
-        lead="Una conversazione gratuita di 30 minuti. Condividiamo un paio di quick win, spieghiamo esattamente come funziona l'audit e capiamo insieme se e' la mossa giusta per te. Tutto qui, senza pressione e senza una diagnosi completa sul momento."
+        lead="Una conversazione gratuita di 30 minuti. Condividiamo un paio di quick win, spieghiamo esattamente come funziona l'audit e capiamo insieme se è la mossa giusta per te. Tutto qui, senza pressione e senza una diagnosi completa sul momento."
       />
 
       <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">

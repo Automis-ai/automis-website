@@ -5,28 +5,28 @@ import { Plus } from "lucide-react";
 
 const FAQS = [
   {
-    q: "Che differenza c'e' tra la call gratuita e l'audit a pagamento?",
-    a: "La call conoscitiva gratuita di 30 minuti e' il primo passo a basso attrito: una chiamata veloce per mappare i tuoi colli di bottiglia principali e vedere cosa e' possibile, senza costi e senza impegno. Il Jumpstart Audit (1.450 euro) e' l'analisi profonda: due audit completi, un piano e una previsione pronti per il management, e un'automazione quick win attivata in live in 14 giorni.",
+    q: "Che differenza c'è tra la call gratuita e l'audit a pagamento?",
+    a: "La call conoscitiva gratuita di 30 minuti è il primo passo a basso attrito: una chiamata veloce per mappare i tuoi punti critici principali e vedere cosa è possibile, senza costi e senza impegno. La Jumpstart Audit (1.450 euro) è l'analisi profonda: due audit completi, un piano e una previsione pronti per il management, e un'automazione quick win attivata in live in 14 giorni.",
   },
   {
     q: "Quanto velocemente vedremo impatto?",
-    a: "Entro 14 giorni sull'audit a pagamento. Entro il giorno 10 avrai baseline, mappa delle perdite e una shortlist prioritaria. Il giorno 14 attiviamo il tuo quick win in live, cosi' chiudi la call finale con qualcosa gia' operativo. Segnali iniziali tipici: speed-to-lead piu' rapido, recupero delle chiamate perse, o piu' risposte e prenotazioni da reminder e riattivazioni, a seconda del quick win che installiamo.",
+    a: "Entro 14 giorni sull'audit a pagamento. Entro il giorno 10 avrai baseline, mappa delle perdite e una shortlist prioritaria. Il giorno 14 attiviamo il tuo quick win in live, così chiudi la call finale con qualcosa già operativo. Segnali iniziali tipici: speed-to-lead più rapido, recupero delle chiamate perse, o più risposte e prenotazioni da reminder e riattivazioni, a seconda del quick win che installiamo.",
   },
   {
     q: "Eseguite voi il piano 90 giorni?",
-    a: "Si', se lo desideri. L'audit e' completo di per se': ricevi piano, previsioni e pacchetto di consegna. Se vuoi che sia il nostro team a implementare, offriamo un retainer e accreditiamo 500 euro del costo dell'audit se inizi entro 14 giorni. In ogni caso il tuo quick win include 14 giorni di supporto, cosi' continua a generare risultati.",
+    a: "Sì, se lo desideri. L'audit è completo di per sé: ricevi piano, previsioni e pacchetto di consegna. Se vuoi che sia il nostro team a implementare, offriamo un retainer e accreditiamo 500 euro del costo dell'audit se inizi entro 14 giorni. In ogni caso il tuo quick win include 14 giorni di supporto, così continua a generare risultati.",
   },
   {
     q: "Che accessi vi servono?",
-    a: "Accessi in sola lettura per analizzare senza modificare nulla. Piattaforme ads (Google, Meta, LinkedIn, in vista), CRM (stati contatti, timestamp, esiti, export o vista), sistema telefonico e call log (chiamate perse, metriche base, registrazioni opzionali) e calendario o scheduling (prenotazioni e no-show, vista o API). In piu' un referente per domande e approvazioni rapide. Forniamo una checklist breve al kickoff.",
+    a: "Accessi in sola lettura per analizzare senza modificare nulla. Piattaforme ads (Google, Meta, LinkedIn, in vista), CRM (stati contatti, timestamp, esiti, export o vista), sistema telefonico e call log (chiamate perse, metriche base, registrazioni opzionali) e calendario o scheduling (prenotazioni e no-show, vista o API). In più un referente per domande e approvazioni rapide. Forniamo una checklist breve al kickoff.",
   },
   {
     q: "Healthcare o compliance? I miei dati sono al sicuro?",
-    a: "Si'. Supportiamo configurazioni conformi al GDPR dove serve. Progettiamo le automazioni per minimizzare l'esposizione dei dati, limitare la retention e usare canali sicuri, con opzioni come nessuna registrazione o trascrizioni redatte, accessi a privilegi minimi e linguaggio di consenso chiaro. Segnaliamo cosa e' sicuro e cosa no nel tuo stack e condividiamo una checklist compliance su richiesta.",
+    a: "Sì. Supportiamo configurazioni conformi al GDPR dove serve. Progettiamo le automazioni per minimizzare l'esposizione dei dati, limitare la retention e usare canali sicuri, con opzioni come nessuna registrazione o trascrizioni redatte, accessi a privilegi minimi e linguaggio di consenso chiaro. Segnaliamo cosa è sicuro e cosa no nel tuo stack e condividiamo una checklist compliance su richiesta.",
   },
   {
     q: "E se non potete aiutarci?",
-    a: "Riduciamo il rischio con due tutele. Garanzia di Idoneita' (kickoff): se scopriamo che i tuoi dati o il tuo stack non ci permettono di muovere i KPI principali in modo significativo, rimborsiamo subito. Garanzia di Chiarezza (finale): se l'audit non traccia un percorso basato sui dati verso una riduzione dei costi del 10%, un aumento delle prenotazioni del 5% o 10 ore a settimana risparmiate, rimborsiamo l'audit. Le garanzie richiedono accessi tempestivi in sola lettura e dati storici accurati.",
+    a: "Riduciamo il rischio con due tutele. Garanzia di Idoneità (kickoff): se scopriamo che i tuoi dati o il tuo stack non ci permettono di muovere i KPI principali in modo significativo, rimborsiamo subito. Garanzia di Chiarezza (finale): se l'audit non traccia un percorso basato sui dati verso una riduzione dei costi del 10%, un aumento delle prenotazioni del 5% o 10 ore a settimana risparmiate, rimborsiamo l'audit. Le garanzie richiedono accessi tempestivi in sola lettura e dati storici accurati.",
   },
 ];
 
