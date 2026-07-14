@@ -104,7 +104,7 @@ useEffect(() => {
   const menus = useMemo(() => {
     const t = {
       home: locale === "it" ? "Home" : "Home",
-      jumpstart: locale === "it" ? "Audit Jumpstart" : "Jumpstart Audit",
+      jumpstart: "Jumpstart Audit",
       services: locale === "it" ? "Servizi" : "Services",
       paidAds: locale === "it" ? "Gestione Ads" : "Paid Ads Management",
       voiceAI: locale === "it" ? "Assistente Vocale IA" : "Voice AI",
