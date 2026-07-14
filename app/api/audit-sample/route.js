@@ -1,9 +1,15 @@
-// Lead-magnet capture for the /jumpstart-audit "sample audit" form.
+// Lead-magnet capture for the jumpstart-audit "sample audit" forms (EN + IT).
 // Upserts the contact into GoHighLevel via the API v2 (no webhook needed) and
-// tags it "audit form". A GHL workflow triggered by that tag can send the
-// delivery email and start a nurture. The PDF is also delivered as an instant
-// download on the page.
+// tags it. A GHL workflow triggered by that tag can send the delivery email and
+// start a nurture. The PDF is also delivered as an instant download on the page.
+//
+// The locale forms pass their own `tags` + `source` in the body so IT leads land
+// with tag "audit form IT" and can be segmented; when absent we default to the
+// original EN values, so the EN form keeps working unchanged.
 const GHL_UPSERT_URL = "https://services.leadconnectorhq.com/contacts/upsert";
+
+const DEFAULT_TAGS = ["audit form"];
+const DEFAULT_SOURCE = "jumpstart-audit-sample";
 
 export async function POST(req) {
   try {
@@ -13,6 +19,19 @@ export async function POST(req) {
     if (!name || !email) {
       return new Response("Missing name or email", { status: 400 });
     }
+
+    // Only accept a clean array of non-empty strings from the client; otherwise
+    // fall back to the EN defaults so a malformed body can't drop the tag.
+    const tags =
+      Array.isArray(body?.tags) &&
+      body.tags.length > 0 &&
+      body.tags.every((t) => typeof t === "string" && t.trim())
+        ? body.tags.map((t) => t.trim())
+        : DEFAULT_TAGS;
+    const source =
+      typeof body?.source === "string" && body.source.trim()
+        ? body.source.trim()
+        : DEFAULT_SOURCE;
 
     const token = process.env.GHL_API_KEY;
     const locationId = process.env.GHL_LOCATION_ID;
@@ -35,8 +54,8 @@ export async function POST(req) {
         locationId,
         email,
         name,
-        tags: ["audit form"],
-        source: "jumpstart-audit-sample",
+        tags,
+        source,
       }),
     });
 
