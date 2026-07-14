@@ -109,9 +109,9 @@ export default function JumpstartHero() {
                 text="Book a Free Discovery Call"
               />
               <InteractiveHoverButton
-                href="#step-2"
+                href="#sample-audit"
                 variant="ghost"
-                text="How the audit works"
+                text="Download the Free Sample"
               />
             </div>
           </Reveal>
