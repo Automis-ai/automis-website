@@ -2,6 +2,7 @@ import AutomisEnShell from "@/components/site/AutomisEnShell";
 import JumpstartHero from "@/components/jumpstart/JumpstartHero";
 import Step1FreeConsultation from "@/components/jumpstart/Step1FreeConsultation";
 import Step2JumpstartAudit from "@/components/jumpstart/Step2JumpstartAudit";
+import SampleAuditDownload from "@/components/jumpstart/SampleAuditDownload";
 import WhoItsFor from "@/components/jumpstart/WhoItsFor";
 import JumpstartFaq from "@/components/jumpstart/JumpstartFaq";
 import JumpstartBooking from "@/components/jumpstart/JumpstartBooking";
@@ -50,6 +51,7 @@ export default function JumpstartAuditPage() {
       <JumpstartHero />
       <Step1FreeConsultation />
       <Step2JumpstartAudit />
+      <SampleAuditDownload />
       <WhoItsFor />
       <JumpstartFaq />
       <JumpstartBooking />
