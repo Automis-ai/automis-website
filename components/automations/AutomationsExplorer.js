@@ -259,7 +259,7 @@ export default function AutomationsExplorer() {
               {t.emptyBody}
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <InteractiveHoverButton href={booking} variant="solid" text={t.bookCta} />
+              <InteractiveHoverButton href={booking} target="_blank" rel="noopener noreferrer" variant="solid" text={t.bookCta} />
               <button
                 type="button"
                 onClick={clearAll}

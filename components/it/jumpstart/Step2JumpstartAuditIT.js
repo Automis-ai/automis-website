@@ -329,7 +329,7 @@ export default function Step2JumpstartAuditIT() {
               </div>
 
               <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <InteractiveHoverButton href={BOOKING} variant="solid" text="Richiedi Jumpstart Audit" />
+                <InteractiveHoverButton href={BOOKING} target="_blank" rel="noopener noreferrer" variant="solid" text="Richiedi Jumpstart Audit" />
                 <InteractiveHoverButton href="#book" variant="ghost" text="Prima una call gratuita" />
               </div>
 

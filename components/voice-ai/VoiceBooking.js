@@ -113,7 +113,7 @@ export default function VoiceBooking() {
                 ))}
               </ul>
               <div className="mt-8 flex lg:hidden">
-                <InteractiveHoverButton href={booking} variant="solid" text={t.cta} />
+                <InteractiveHoverButton href={booking} target="_blank" rel="noopener noreferrer" variant="solid" text={t.cta} />
               </div>
             </div>
           </Reveal>

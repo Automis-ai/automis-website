@@ -60,7 +60,7 @@ export default function Step1FreeConsultation() {
 
       <Reveal delay={120}>
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <InteractiveHoverButton href={BOOKING} variant="solid" text="Book a Free Discovery Call" />
+          <InteractiveHoverButton href={BOOKING} target="_blank" rel="noopener noreferrer" variant="solid" text="Book a Free Discovery Call" />
           <p className="text-[13px] text-white/50">Free · 30 minutes · no obligation</p>
         </div>
       </Reveal>
