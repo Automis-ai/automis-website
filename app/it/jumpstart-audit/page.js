@@ -10,7 +10,7 @@ import JumpstartBookingIT from "@/components/it/jumpstart/JumpstartBookingIT";
 export const metadata = {
   title: "Jumpstart Audit Marketing e IA | Automis, scopri dove perdi tempo e denaro",
   description:
-    "Si parte con una call gratuita. La Jumpstart Audit completa (1.450 euro) è un'analisi di due settimane: intervistiamo il tuo team, analizziamo funnel e spesa ads e ti consegniamo un piano basato sui dati più un'automazione live.",
+    "Parti con una call gratuita, poi la Jumpstart Audit (1.450 euro): due settimane di interviste, analisi di funnel e ads e un piano basato sui dati.",
   keywords: [
     "Jumpstart Audit",
     "audit marketing e IA",

@@ -18,6 +18,7 @@ export const metadata = {
     url: "https://automis.ai/cookie-policy",
     siteName: "Automis",
     type: "website",
+    images: ["/assets/og/home-en.png"],
   },
 };
 

@@ -10,7 +10,7 @@ import JumpstartBooking from "@/components/jumpstart/JumpstartBooking";
 export const metadata = {
   title: "Jumpstart Marketing & AI Audit | Automis, Find Where You Leak Time & Money",
   description:
-    "It starts with a free discovery call. The full Jumpstart Audit (€1,450) is a two-week deep dive: we interview your team, analyze your funnel and ad spend, and hand you a data-backed plan plus a live automation.",
+    "Start with a free discovery call, then the Jumpstart Audit (€1,450): a two-week deep dive with a data-backed plan and a live automation.",
   keywords: [
     "Jumpstart Audit",
     "marketing and AI audit",

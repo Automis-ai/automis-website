@@ -10,6 +10,7 @@ export const metadata = {
     description: "Free niche AI Playbooks + a live Voice AI demo. No hype.",
     url: "https://automis.ai/playbook",
     type: "website",
+    images: ["/assets/og/home-en.png"],
   },
   robots: { index: true, follow: true },
 };

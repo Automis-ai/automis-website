@@ -3,7 +3,7 @@ import UseCasesIndex from "@/components/use-cases/UseCasesIndex";
 export const metadata = {
   title: "Casi studio | Sistemi IA già attivi per i clienti Automis",
   description:
-    "Casi studio di Automis: una segretaria IA attiva 24/7 per una clinica dentistica di Lisbona e un'automazione contatti su Meta per un'azienda finanziaria italiana. Clienti veri, sistemi veri.",
+    "Casi studio Automis: una segretaria IA 24/7 per una clinica dentistica di Lisbona e un'automazione contatti su Meta per una finanziaria italiana.",
   keywords: [
     "casi studio automazione IA",
     "caso studio segretaria IA",
@@ -27,6 +27,7 @@ export const metadata = {
     siteName: "Automis",
     locale: "it_IT",
     type: "website",
+    images: ["/assets/og/home-en.png"],
   },
   twitter: {
     card: "summary_large_image",

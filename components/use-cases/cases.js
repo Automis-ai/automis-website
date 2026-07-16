@@ -26,6 +26,8 @@ export const CASES = [
     // detail: outcome-led hero line
     headline:
       "An AI receptionist that never lets a patient call go unanswered.",
+    metaDescription:
+      "A 24/7 Voice AI receptionist for a Lisbon dental clinic: it answers every call, books check-ups, and captures the after-hours calls once lost.",
     challenge: {
       lead: "A busy dental practice loses patients the moment the phone goes unanswered.",
       points: [
@@ -62,6 +64,8 @@ export const CASES = [
         "Una segretaria IA attiva 24/7 che risponde a ogni chiamata, prenota i check-up e recupera le chiamate fuori orario che prima restavano senza risposta.",
       headline:
         "Una segretaria IA che non lascia mai senza risposta la chiamata di un paziente.",
+      metaDescription:
+        "Segretaria IA 24/7 per una clinica dentistica di Lisbona: risponde a ogni chiamata, prenota i check-up e recupera le chiamate fuori orario.",
       challenge: {
         lead: "Uno studio dentistico pieno di lavoro perde pazienti nel momento in cui il telefono resta senza risposta.",
         points: [
@@ -104,6 +108,8 @@ export const CASES = [
       "Meta automation that auto-replies to every Facebook and Instagram comment and DM, qualifies the interest, and routes clean leads to the sales team.",
     headline:
       "Every Facebook and Instagram lead answered and qualified, automatically.",
+    metaDescription:
+      "Meta automation for an Italian finance business: auto-replies to every Facebook and Instagram comment and DM, qualifies interest, routes clean leads.",
     challenge: {
       lead: "A finance business running salary-backed loan campaigns on Meta was drowning in comments and DMs.",
       points: [
@@ -140,6 +146,8 @@ export const CASES = [
         "Automazione Meta che risponde in automatico a ogni commento e DM su Facebook e Instagram, qualifica l'interesse e smista i contatti puliti al team commerciale.",
       headline:
         "Ogni contatto da Facebook e Instagram gestito e qualificato, in automatico.",
+      metaDescription:
+        "Automazione Meta per una finanziaria italiana: risponde a ogni commento e DM su Facebook e Instagram, qualifica l'interesse e smista i contatti.",
       challenge: {
         lead: "Un'azienda finanziaria che gestiva campagne di cessione del quinto su Meta era sommersa da commenti e DM.",
         points: [

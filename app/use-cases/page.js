@@ -3,7 +3,7 @@ import UseCasesIndex from "@/components/use-cases/UseCasesIndex";
 export const metadata = {
   title: "Use Cases | Real AI systems, already running for Automis clients",
   description:
-    "Case studies from Automis: a 24/7 Voice AI receptionist for a Lisbon dental clinic and Meta lead automation for an Italian finance business. Real clients, real systems.",
+    "Case studies from Automis: a 24/7 Voice AI receptionist for a Lisbon dental clinic and Meta lead automation for an Italian finance business.",
   keywords: [
     "AI automation case studies",
     "AI voice receptionist case study",
@@ -26,6 +26,7 @@ export const metadata = {
     url: "https://automis.ai/use-cases",
     siteName: "Automis",
     type: "website",
+    images: ["/assets/og/home-en.png"],
   },
   twitter: {
     card: "summary_large_image",

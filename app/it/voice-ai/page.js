@@ -12,7 +12,7 @@ import VoiceBooking from "@/components/voice-ai/VoiceBooking";
 export const metadata = {
   title: "Assistente Vocale IA | Segretaria e agenti vocali 24/7 | Automis",
   description:
-    "L'assistente vocale IA di Automis risponde a ogni chiamata 24/7, qualifica i contatti, fissa gli appuntamenti e li sincronizza sul tuo CRM. Piani da 297€/mese, garanzia 30 giorni.",
+    "L'assistente vocale IA di Automis risponde 24/7, qualifica i contatti, prenota e sincronizza il CRM. Piani da 297€/mese, garanzia 30 giorni.",
   keywords: [
     "agente vocale IA",
     "segretaria IA",

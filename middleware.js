@@ -36,6 +36,15 @@ export function middleware(req) {
     return NextResponse.next();
   }
 
+  // Espone il path corrente ai Server Component, così il root layout può impostare
+  // il corretto <html lang> lato server per ogni locale (vedi app/layout.js). Qui
+  // arrivano solo le route "pagina" (asset/API sono già usciti sopra). I redirect
+  // non ne hanno bisogno: la richiesta reindirizzata rientra nel middleware e riceve
+  // l'header allora.
+  const requestHeaders = new Headers(req.headers);
+  requestHeaders.set("x-pathname", pathname);
+  const pass = () => NextResponse.next({ request: { headers: requestHeaders } });
+
   // ✅ LOGICA PER SOTTODOMINIO VOICE (voice.automis.ai)
   if (isVoiceHost) {
     // Se root ("/") -> reindirizza a /ita (che è la lander Voice AI in italiano)
@@ -51,7 +60,7 @@ export function middleware(req) {
     }
 
     // Altrimenti procedi normalmente per /ita, /en, /fr, /de, /es, /pt, /voice-ai
-    return NextResponse.next();
+    return pass();
   }
 
   // ✅ LOGICA PER DOMINIO PRINCIPALE (automis.ai)
@@ -75,15 +84,15 @@ export function middleware(req) {
   const maybeLocale = segments[0];
 
   if (LOCALES.includes(maybeLocale)) {
-    return NextResponse.next();
+    return pass();
   }
 
   // Se non è un locale e non è una "English root page", permetti il passaggio (o gestisci redirect)
   if (ENGLISH_ROOT_PAGES.has(maybeLocale) || maybeLocale === undefined) {
-    return NextResponse.next();
+    return pass();
   }
 
-  return NextResponse.next();
+  return pass();
 }
 
 // Limita il middleware alle route "pagina"

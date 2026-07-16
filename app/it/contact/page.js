@@ -30,6 +30,7 @@ export const metadata = {
     siteName: "Automis",
     locale: "it_IT",
     type: "website",
+    images: ["/assets/og/home-en.png"],
   },
   twitter: {
     card: "summary_large_image",

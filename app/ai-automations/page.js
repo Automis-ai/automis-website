@@ -8,7 +8,7 @@ import AutomationsCta from "@/components/automations/AutomationsCta";
 export const metadata = {
   title: "Automations | Automis",
   description:
-    "Browse the AI automations Automis builds, from 24/7 voice receptionists to social-DM-to-CRM and your own Company Brain. Filter by industry and goal to see what fits your business.",
+    "Browse the AI automations Automis builds, from 24/7 voice receptionists to social-DM-to-CRM to your own Company Brain. Filter by industry and goal.",
   alternates: {
     canonical: "https://automis.ai/ai-automations",
     languages: {
@@ -24,6 +24,7 @@ export const metadata = {
     url: "https://automis.ai/ai-automations",
     siteName: "Automis",
     type: "website",
+    images: ["/assets/og/home-en.png"],
   },
 };
 

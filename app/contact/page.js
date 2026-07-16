@@ -7,7 +7,7 @@ import ContactAside from "@/components/contact/ContactAside";
 export const metadata = {
   title: "Contact Automis | Talk to a Strategic AI Automation Partner",
   description:
-    "Get in touch with Automis. Send us a message or book a 30-minute discovery call and we'll show you where AI can win back time, calls, and revenue for your business.",
+    "Get in touch with Automis. Send a message or book a 30-minute discovery call and see where AI can win back time, calls, and revenue for your business.",
   alternates: {
     canonical: "https://automis.ai/contact",
     languages: {
@@ -23,6 +23,7 @@ export const metadata = {
     url: "https://automis.ai/contact",
     siteName: "Automis",
     type: "website",
+    images: ["/assets/og/home-en.png"],
   },
   twitter: {
     card: "summary_large_image",

@@ -12,7 +12,7 @@ import VoiceBooking from "@/components/voice-ai/VoiceBooking";
 export const metadata = {
   title: "Automis Voice AI | The 24/7 AI Receptionist That Books Appointments",
   description:
-    "Automis Voice AI answers every call 24/7, qualifies leads, books appointments, and syncs to your CRM. Full dashboard transparency, plans from €297/mo, 30-day performance guarantee.",
+    "Automis Voice AI answers every call 24/7, qualifies leads, books appointments, and syncs to your CRM. Plans from €297/mo, 30-day guarantee.",
   keywords: [
     "AI voice agent",
     "AI receptionist",

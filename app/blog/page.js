@@ -45,7 +45,7 @@ const BlogPage = async () => {
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: "url(assets/images/backgrounds/wave-shape.png)",
+            backgroundImage: "url(/assets/images/backgrounds/wave-shape.png)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -199,7 +199,7 @@ const BlogPage = async () => {
                   </CTAButton>
                   <div className="absolute bottom-0 right-0 w-32 h-32 opacity-30">
                     <img
-                      src="assets/images/widget/cta-man.png"
+                      src="/assets/images/widget/cta-man.png"
                       alt="Call-to-action promotional graphic"
                       className="w-full h-full object-contain opacity-60"
                       loading="lazy"
@@ -208,7 +208,7 @@ const BlogPage = async () => {
                   <div
                     className="absolute inset-0 opacity-10"
                     style={{
-                      backgroundImage: "url(assets/images/widget/cta-bg.png)",
+                      backgroundImage: "url(/assets/images/widget/cta-bg.png)",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}

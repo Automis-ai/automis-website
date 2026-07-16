@@ -8,7 +8,7 @@ import AutomationsCta from "@/components/automations/AutomationsCta";
 export const metadata = {
   title: "Automazioni IA | Sistemi su misura per il tuo business | Automis",
   description:
-    "Esplora le automazioni IA che costruisce Automis: dalle segretarie vocali 24/7 ai flussi da DM social a CRM, fino al tuo Company Brain. Filtra per settore e obiettivo.",
+    "Esplora le automazioni IA di Automis: segretarie vocali 24/7, flussi da DM social a CRM e il tuo Company Brain. Filtra per settore e obiettivo.",
   keywords: [
     "automazioni IA",
     "automazione aziendale IA",
@@ -33,6 +33,7 @@ export const metadata = {
     siteName: "Automis",
     locale: "it_IT",
     type: "website",
+    images: ["/assets/og/home-en.png"],
   },
 };
 

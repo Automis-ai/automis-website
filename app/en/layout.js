@@ -5,13 +5,14 @@ import HtmlLang from "@/components/HtmlLang";
 //
 // Voice-AI lander (voice.automis.ai). Kept out of Google (noindex): it is sent to
 // prospects privately, must not be publicly discoverable/scraped, and must not
-// duplicate the main site. Paired with a sitemap exclude in next-sitemap.config.js.
+// duplicate the English root site (/). Paired with a sitemap exclude in
+// next-sitemap.config.js.
 export const metadata = { robots: { index: false, follow: false } };
 
-export default function ItaLayout({ children }) {
+export default function EnLayout({ children }) {
   return (
     <>
-      <HtmlLang lang="it" />
+      <HtmlLang lang="en" />
       {children}
     </>
   );

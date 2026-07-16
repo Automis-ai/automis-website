@@ -13,7 +13,7 @@ import FinalCta from "@/components/home/FinalCta";
 export const metadata = {
   title: "Automis | Agenzia di automazione IA per il tuo business",
   description:
-    "Automis è un'agenzia strategica di automazione IA. Costruiamo gli assistenti vocali IA, le automazioni e i sistemi “company brain” che mancano al tuo business, dall'inizio alla fine.",
+    "Automis è un'agenzia strategica di automazione IA. Costruiamo gli assistenti vocali IA, le automazioni e i sistemi che mancano al tuo business.",
   alternates: {
     canonical: "https://automis.ai/it",
     languages: {
