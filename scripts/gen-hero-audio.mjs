@@ -29,9 +29,10 @@ const H = { "xi-api-key": KEY };
 const SR = 22050; // mono 16-bit WAV — universally supported & seekable; small enough for voice
 
 // EUROPEAN PORTUGUESE (pt-PT) voices — override via env if desired.
-const AGENT = process.env.AGENT_VOICE || "bBNhdwrIjl4fcVYiRbT2"; // Marta – Warm Confident (f, pt-PT)
-const CALLER = process.env.CALLER_VOICE || "5tqq6ewvJtcNtaffrqUJ"; // Duarte – Friendly & casual (m, pt-PT)
-const MODEL = "eleven_multilingual_v2";
+// Picked by ear (2026-07-17): Marta/Duarte read as Brazilian despite "european" labels.
+const AGENT = process.env.AGENT_VOICE || "NkpT2jezTenCDRKHkWiX"; // Benedita – casual (f, pt-PT, european)
+const CALLER = process.env.CALLER_VOICE || "UkO7OCLgMp3WYf4UPjE5"; // João – European Portuguese (m, pt-PT)
+const MODEL = "eleven_v3"; // most realistic / expressive model (matches the EN/IT heroes)
 
 // The call (European Portuguese). Agent answers first (inbound).
 const LINES = [
@@ -106,7 +107,7 @@ async function ttsLine(line) {
       body: JSON.stringify({
         text: line.text,
         model_id: MODEL,
-        voice_settings: { stability: 0.5, similarity_boost: 0.8, style: 0.0 },
+        voice_settings: { stability: 0.5, similarity_boost: 0.75 },
       }),
     }
   );

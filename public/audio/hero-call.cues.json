@@ -1,49 +1,49 @@
 [
   {
     "start": 0,
-    "end": 2.12,
+    "end": 2.19,
     "speaker": "agent",
     "name": "Automis",
     "text": "Automis, boa noite. Em que posso ajudar?"
   },
   {
-    "start": 2.57,
-    "end": 5.26,
+    "start": 2.64,
+    "end": 5.07,
     "speaker": "caller",
     "name": "Cliente",
     "text": "Boa noite. Queria marcar uma consulta."
   },
   {
-    "start": 5.71,
-    "end": 10.15,
+    "start": 5.52,
+    "end": 10.04,
     "speaker": "agent",
     "name": "Automis",
     "text": "Com certeza. Tenho uma vaga na quinta-feira, às dez e meia. Fica-lhe bem?"
   },
   {
-    "start": 10.6,
-    "end": 11.88,
+    "start": 10.49,
+    "end": 11.64,
     "speaker": "caller",
     "name": "Cliente",
     "text": "Sim, é perfeito."
   },
   {
-    "start": 12.33,
-    "end": 17,
+    "start": 12.09,
+    "end": 16.85,
     "speaker": "agent",
     "name": "Automis",
     "text": "Combinado. Acabei de lhe enviar um SMS com a confirmação. Mais alguma coisa?"
   },
   {
-    "start": 17.45,
-    "end": 18.79,
+    "start": 17.3,
+    "end": 18.71,
     "speaker": "caller",
     "name": "Cliente",
     "text": "Não, muito obrigado."
   },
   {
-    "start": 19.24,
-    "end": 21.35,
+    "start": 19.16,
+    "end": 20.88,
     "speaker": "agent",
     "name": "Automis",
     "text": "De nada. Tenha uma excelente noite!"
