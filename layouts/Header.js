@@ -111,6 +111,7 @@ useEffect(() => {
       automations: locale === "it" ? "Automazioni IA" : "AI Automations",
       caseStudies: locale === "it" ? "Casi Studio" : "Case Studies",
       blog: locale === "it" ? "Blog" : "Blog",
+      tools: locale === "it" ? "Strumenti" : "Tools",
       about: locale === "it" ? "Chi siamo" : "About",
       contact: locale === "it" ? "Contatti" : "Contact",
     };
@@ -131,6 +132,7 @@ useEffect(() => {
 
       { id: 2, key: "use-cases", title: t.caseStudies, href: hrefFor(PATHNAMES.pages.useCases, locale) },
       { id: 6, key: "blog", title: t.blog, href: hrefFor(PATHNAMES.pages.blog, locale) },
+      { id: 9, key: "tools", title: t.tools, href: hrefFor(PATHNAMES.pages.tools, locale) },
       { id: 8, key: "about", title: t.about, href: hrefFor(PATHNAMES.pages.about, locale) },
       { id: 7, key: "contact", title: t.contact, href: hrefFor(PATHNAMES.pages.contact, locale) },
     ];
