@@ -89,9 +89,9 @@ const DefaultFooter = () => {
             <div className="widget-about text-center lg:!text-left flex flex-col items-center lg:items-start">
               <Link href={homeHref}>
                 <img
-                  src="/assets/images/logos/logo.png"
+                  src="/assets/images/logos/logo-white.png"
                   alt="Automis AI Logo"
-                  style={{ height: "3rem" }}
+                  style={{ height: "2.25rem" }}
                   className="mb-4"
                   loading="lazy"
                 />
