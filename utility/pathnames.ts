@@ -41,6 +41,10 @@ export const PATHNAMES = {
       en: "/cookie-policy",
       it: "/it/cookie-policy",
     },
+    tools: {
+      en: "/tools",
+      it: "/it/tools",
+    },
   },
 
   services: {
