@@ -9,6 +9,7 @@ export const metadata = {
     languages: {
       en: "https://automis.ai/cookie-policy",
       "it-IT": "https://automis.ai/it/cookie-policy",
+      "pt-PT": "https://automis.ai/pt/cookie-policy",
       "x-default": "https://automis.ai/cookie-policy",
     },
   },

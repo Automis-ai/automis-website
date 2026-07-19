@@ -201,6 +201,93 @@ const COPY = {
       ],
     },
   },
+  pt: {
+    heading: {
+      eyebrow: "Inbound e outbound",
+      title: (
+        <>
+          Um sistema, <GradientText>dois agentes especializados</GradientText>.
+        </>
+      ),
+      lead: "Um agente atende as chamadas que entram, como uma rececionista ativa 24/7. Um segundo trabalha as chamadas que saem e transforma os contactos que já pagou em consultas marcadas.",
+    },
+    inbound: {
+      eyebrow: "Inbound",
+      title: "A sua rececionista ativa 24/7",
+      intro:
+        "Atende cada chamada que entra com uma voz natural, de dia ou de noite, para que ninguém caia no atendedor nem ligue a um concorrente.",
+      items: [
+        {
+          title: "Atender cada chamada de imediato",
+          what: "Atende ao primeiro toque com uma voz natural, para que quem liga seja ajudado logo em vez de ficar em espera ou cair no atendedor.",
+          outcome: "Nenhuma chamada perdida por telefone ocupado ou a tocar em vazio",
+        },
+        {
+          title: "Cobertura fora de horário e ao fim de semana",
+          what: "Trata as chamadas à noite, aos fins de semana e nos feriados, e capta os pedidos que ficariam sem resposta com o consultório fechado.",
+          outcome: "Cobertura mesmo quando a sua equipa está offline",
+        },
+        {
+          title: "Marcar e remarcar consultas",
+          what: "Verifica a disponibilidade da agenda em tempo real e marca, muda ou cancela consultas, depois confirma e sincroniza com o seu sistema de marcações.",
+          outcome: "Mais horários preenchidos sem esforço da equipa",
+        },
+        {
+          title: "Responder às perguntas mais comuns",
+          what: "Responde a perguntas de rotina como horários, morada, serviços e preços indicativos, para que a sua equipa não seja interrompida.",
+          outcome: "Menos chamadas de rotina a ocupar a sua equipa",
+        },
+        {
+          title: "Qualificar e encaminhar quem liga",
+          what: "Faz algumas perguntas de qualificação, percebe o motivo da chamada e encaminha os contactos quentes ou urgentes para a pessoa certa.",
+          outcome: "Quem liga chega sempre à pessoa certa",
+        },
+        {
+          title: "Recuperar chamadas perdidas e em excesso",
+          what: "Entra em ação quando a equipa já está ao telefone ou com um paciente e recolhe os dados de quem liga, para que nada se perca nos momentos de pico.",
+          outcome: "Cada pedido captado, não perdido",
+        },
+      ],
+    },
+    outbound: {
+      eyebrow: "Outbound",
+      title: "O seu motor de crescimento",
+      intro:
+        "Liga aos contactos que já pagou: os novos em poucos segundos, os frios reativados e os follow-ups para não deixar nada arrefecer.",
+      items: [
+        {
+          title: "Retorno imediato ao novo contacto",
+          what: "No momento em que entra um contacto por um formulário, um anúncio ou pelo site, o agente liga de volta em poucos segundos para qualificar e marcar enquanto o interesse está alto.",
+          outcome: "Chega aos contactos antes dos seus concorrentes",
+        },
+        {
+          title: "Reativar contactos frios",
+          what: "Trabalha as listas antigas ou adormecidas do CRM, reacende os contactos anteriores com uma voz natural e volta a marcar quem ainda tem interesse.",
+          outcome: "Novas consultas a partir de contactos já presentes na sua base de dados",
+        },
+        {
+          title: "Lembretes e confirmações",
+          what: "Liga antes de cada consulta para confirmar, responder a perguntas rápidas e remarcar em vez de perder o horário.",
+          outcome: "Menos faltas, uma agenda mais cheia",
+        },
+        {
+          title: "Follow-up de orçamentos e estimativas",
+          what: "Depois de enviado um orçamento, uma proposta ou um plano de tratamento, o agente faz follow-up por telefone para responder a objeções e fazer avançar o negócio.",
+          outcome: "Mais orçamentos que se tornam clientes fechados",
+        },
+        {
+          title: "Retorno automático a chamadas perdidas",
+          what: "Cada chamada perdida ou abandonada aciona um retorno automático, para que quem liga seja contactado em poucos minutos em vez de cair no atendedor.",
+          outcome: "Recupera receita que iria para um concorrente",
+        },
+        {
+          title: "Chamadas de avaliação e reativação",
+          what: "Depois de uma visita o agente pede uma opinião ou uma avaliação, e volta a contactar os pacientes perdidos para os trazer de volta.",
+          outcome: "Mais avaliações e clientes que voltam",
+        },
+      ],
+    },
+  },
 };
 
 function ModePanel({ data, accent }) {
@@ -248,7 +335,7 @@ function ModePanel({ data, accent }) {
 }
 
 export default function InboundOutbound() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
 
   const inbound = {

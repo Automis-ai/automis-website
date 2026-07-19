@@ -9,8 +9,12 @@ const CaseStudyCard = ({
   readMoreLabel = "Read Full Story"
 }) => {
     const pathname = usePathname();
-  const isItalian = pathname.startsWith('/it');
-  const href = `${isItalian ? '/it' : ''}/use-cases/${caseStudy.slug}`;
+  const localePrefix = pathname.startsWith('/it')
+    ? '/it'
+    : pathname.startsWith('/pt')
+      ? '/pt'
+      : '';
+  const href = `${localePrefix}/use-cases/${caseStudy.slug}`;
   const {
     slug,
     industry,

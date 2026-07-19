@@ -66,7 +66,7 @@ export const metadata = {
 function localeFromPath(pathname) {
   if (pathname === "/it" || pathname.startsWith("/it/")) return "it";
   if (pathname === "/ita" || pathname.startsWith("/ita/")) return "it";
-  if (pathname === "/pt" || pathname.startsWith("/pt/")) return "pt";
+  if (pathname === "/pt" || pathname.startsWith("/pt/")) return "pt-PT";
   if (pathname === "/fr" || pathname.startsWith("/fr/")) return "fr";
   if (pathname === "/de" || pathname.startsWith("/de/")) return "de";
   if (pathname === "/es" || pathname.startsWith("/es/")) return "es";

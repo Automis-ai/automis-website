@@ -56,10 +56,39 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "O processo",
+    title: "Como decorre de facto um projeto",
+    lead: "Três fases, sempre ao seu lado desde a primeira chamada até à otimização mensal. Sabe sempre o que está a acontecer, e o que construímos é seu.",
+    steps: [
+      {
+        step: "Fase 1",
+        title: "Descoberta e diagnóstico",
+        body: "Conhecemos o seu negócio antes de tocar numa única ferramenta. Mapeamos exatamente onde perde tempo e dinheiro, e decidimos juntos o que vale a pena automatizar primeiro.",
+        meta: "Chamada de descoberta + auditoria",
+      },
+      {
+        step: "Fase 2",
+        title: "Desenho, construção e lançamento",
+        body: "Desenhamos e construímos o seu sistema, e você testa-o antes de entrar em funcionamento. Nada é lançado até funcionar tal como o seu negócio funciona de facto.",
+        meta: "~7 dias para Voice e casos simples · à medida para os complexos",
+      },
+      {
+        step: "Fase 3",
+        title: "Lançamento, monitorização e otimização",
+        body: "Não desaparecemos depois do arranque. Melhoria contínua mês a mês com supervisão humana, para que o seu sistema fique mais afinado a cada mês, em vez de estagnar.",
+        meta: "Contínuo, com supervisão humana",
+      },
+    ],
+  },
 };
 
 export default function AboutProcess() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt")
+    ? "pt"
+    : usePathname()?.startsWith("/it")
+    ? "it"
+    : "en";
   const t = COPY[locale];
   return (
     <Section id="process" className="bg-deep-blue">

@@ -27,14 +27,28 @@ const COPY = {
     iframeTitle: "Prenota una call con Automis",
     perks: ["Senza impegno", "Zero pressioni commerciali", "Conforme al GDPR"],
   },
+  pt: {
+    availability: "Disponibilidade em tempo real · chamada de 30 min",
+    confirmation: "Confirmação imediata",
+    loading: "A carregar o calendário...",
+    iframeTitle: "Agende uma chamada com a Automis",
+    perks: ["Sem compromisso", "Zero pressão comercial", "Em conformidade com o RGPD"],
+  },
 };
 
 export default function BookingEmbed() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const pathname = usePathname();
+  const locale = pathname?.startsWith("/pt")
+    ? "pt"
+    : pathname?.startsWith("/it")
+      ? "it"
+      : "en";
   const t = COPY[locale];
   const booking =
     locale === "it"
       ? "https://api.leadconnectorhq.com/widget/bookings/automis-it"
+      : locale === "pt"
+      ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis"
       : BOOKING;
   const holderRef = useRef(null);
   const [inView, setInView] = useState(false);

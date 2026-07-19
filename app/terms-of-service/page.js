@@ -1,14 +1,19 @@
-"use client";
-
-import { useEffect } from "react";
 import Link from "next/link";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 
-const TermsOfService = () => {
-  useEffect(() => {
-    document.querySelector("body").classList.add("home-nine");
-  }, []);
+export const metadata = {
+  alternates: {
+    canonical: "https://automis.ai/terms-of-service",
+    languages: {
+      en: "https://automis.ai/terms-of-service",
+      "it-IT": "https://automis.ai/it/terms-of-service",
+      "pt-PT": "https://automis.ai/pt/terms-of-service",
+      "x-default": "https://automis.ai/terms-of-service",
+    },
+  },
+};
 
+const TermsOfService = () => {
   return (
     <AkpagerLayout header={6} footer={1} bodyClass="home-nine" onePage={false}>
       <section className="hero-padding bg-bg-primary relative z-1">

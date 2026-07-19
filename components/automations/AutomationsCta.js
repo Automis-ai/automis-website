@@ -51,17 +51,44 @@ const COPY = {
     gdpr: "Conforme al GDPR",
     noObligation: "Senza impegno",
   },
+  pt: {
+    eyebrow: "Vamos construir o seu",
+    headingPre: "Transforme uma destas no ",
+    headingGrad: "seu sistema",
+    headingPost: ".",
+    lead:
+      "Agende uma chamada de descoberta e mostramos-lhe qual a automação que compensa primeiro, e como a construímos em torno da forma como o seu negócio funciona de facto. Sem jargão, sem compromisso.",
+    bullets: [
+      "Uma chamada de descoberta de 30 minutos, sem pressão",
+      "Mapeamos qual a automação que lhe poupa mais tempo e faturação",
+      "Sai com um plano claro e à medida, construído para o seu negócio",
+    ],
+    cta: "Agende uma chamada",
+    liveAvailability: "Disponibilidade em tempo real · chamada de 30 min",
+    instantConfirmation: "Confirmação imediata",
+    loadingCalendar: "A carregar o calendário…",
+    iframeTitle: "Agende uma chamada de descoberta com a Automis",
+    guarantee: "Garantia de resultados a 30 dias",
+    gdpr: "Conforme com o RGPD",
+    noObligation: "Sem compromisso",
+  },
 };
 
 // Closing CTA for the Automations catalog. It is the last, most prominent block
 // on the page: a booking pitch driven by the standard InteractiveHoverButton,
 // paired with the live LeadConnector calendar so a visitor can book on the spot.
 export default function AutomationsCta() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt")
+    ? "pt"
+    : usePathname()?.startsWith("/it")
+    ? "it"
+    : "en";
   const t = COPY[locale];
   const booking =
     locale === "it"
       ? "https://api.leadconnectorhq.com/widget/bookings/automis-it"
+      : locale === "pt"
+      ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis"
       : BOOKING;
 
   const holderRef = useRef(null);

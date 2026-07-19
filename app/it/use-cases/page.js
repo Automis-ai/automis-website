@@ -16,6 +16,7 @@ export const metadata = {
     languages: {
       en: "https://automis.ai/use-cases",
       "it-IT": "https://automis.ai/it/use-cases",
+      "pt-PT": "https://automis.ai/pt/use-cases",
       "x-default": "https://automis.ai/use-cases",
     },
   },

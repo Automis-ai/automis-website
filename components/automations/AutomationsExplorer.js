@@ -68,6 +68,32 @@ const COPY = {
     emptyBody: "Molto probabilmente lo costruiamo comunque. Rimuovi un filtro, oppure prenota una call e lo definiamo intorno al tuo business.",
     bookCta: "Prenota una call",
   },
+  pt: {
+    pillars: {
+      sales: { name: "Vendas e aquisição", blurb: "Atenda, qualifique e nunca perca um contacto." },
+      marketing: { name: "Marketing e crescimento", blurb: "Traga os clientes certos, em piloto automático." },
+      admin: { name: "Admin e cérebro da empresa", blurb: "Tire à sua equipa o trabalho repetitivo e a gestão do conhecimento." },
+    },
+    eyebrow: "Filtre para o seu mundo",
+    title: <>Encontre as automações certas para si</>,
+    lead: "Escolha o seu setor, escolha o seu objetivo, ou combine ambos para reduzir a lista. Cada cartão é algo que construímos de facto.",
+    byIndustry: "Por setor",
+    allIndustries: "Todos os setores",
+    byGoal: "Por objetivo",
+    allGoals: "Todos os objetivos",
+    showingPrefix: "",
+    automationSing: "automação",
+    automationPlural: "automações",
+    clearFilters: "Limpar filtros",
+    problemLabel: "O problema: ",
+    automateLabel: "O que automatizamos: ",
+    hideDetails: "Ocultar detalhes",
+    seeHow: "Veja como funciona",
+    seeLive: "Veja ao vivo",
+    emptyTitle: "Sem correspondência exata, para já",
+    emptyBody: "É muito provável que o construamos na mesma. Remova um filtro, ou agende uma chamada e definimo-lo em torno do seu negócio.",
+    bookCta: "Agende uma chamada",
+  },
 };
 
 // A single filter pill. Active state uses the signature blue accent.
@@ -142,9 +168,13 @@ function AutomationCard({ item, t }) {
 }
 
 export default function AutomationsExplorer() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt")
+    ? "pt"
+    : usePathname()?.startsWith("/it")
+    ? "it"
+    : "en";
   const t = COPY[locale];
-  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
+  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
   const { NICHES, GOALS, AUTOMATIONS } = getAutomationsData(locale);
 
   const [niche, setNiche] = useState("all"); // "all" | niche id

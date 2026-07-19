@@ -2,11 +2,14 @@
 // for an individual tool page (one script, array of nodes = valid schema.org).
 import { TOOLS, toolUrl, hubUrl, SITE } from "@/utility/toolsData";
 
+const TOOLS_LABEL = { en: "Tools", it: "Strumenti", pt: "Ferramentas" };
+
 export default function ToolJsonLd({ toolKey, locale }) {
   const tool = TOOLS[toolKey];
   const c = tool[locale];
   const url = toolUrl(toolKey, locale);
-  const isIt = locale === "it";
+  const homeItem = locale === "it" ? `${SITE}/it` : locale === "pt" ? `${SITE}/pt` : SITE;
+  const toolsLabel = TOOLS_LABEL[locale] || TOOLS_LABEL.en;
 
   const softwareApp = {
     "@context": "https://schema.org",
@@ -35,8 +38,8 @@ export default function ToolJsonLd({ toolKey, locale }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: isIt ? `${SITE}/it` : SITE },
-      { "@type": "ListItem", position: 2, name: isIt ? "Strumenti" : "Tools", item: hubUrl(locale) },
+      { "@type": "ListItem", position: 1, name: "Home", item: homeItem },
+      { "@type": "ListItem", position: 2, name: toolsLabel, item: hubUrl(locale) },
       { "@type": "ListItem", position: 3, name: c.name, item: url },
     ],
   };

@@ -61,10 +61,32 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "A equipa por trás",
+    heading: "Dois founders, com as mãos no seu projeto",
+    intro:
+      "Liderado pelos founders e com as mãos na massa: desenhamos, construímos e colocamos os sistemas online nós próprios, moldados à forma como o seu negócio realmente funciona.",
+    roles: ["Co-Founder", "Co-Founder"],
+    follow: "Siga @automis.ai",
+    trust: [
+      {
+        title: "A Garantia Automis",
+        body: "Uma garantia de desempenho de 30 dias em todos os planos Voice, e o reembolso do custo de setup nos projetos à medida. Tiramos o risco do primeiro passo para que não tenha de o assumir.",
+      },
+      {
+        title: "Privacidade primeiro, desde a raiz",
+        body: "Em conformidade com o RGPD, com opções de servidor na UE ou local para dados de saúde e financeiros. A sua informação fica onde deve ficar.",
+      },
+      {
+        title: "Sempre uma pessoa no processo",
+        body: "Os casos complexos ou sensíveis vão diretamente para a sua equipa. A IA trata do volume, as pessoas tratam das nuances.",
+      },
+    ],
+  },
 };
 
 export default function Authority() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   return (
     <Section id="authority" className="bg-[#020a12]">

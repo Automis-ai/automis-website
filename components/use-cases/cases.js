@@ -5,10 +5,12 @@
   data (GDPR / privacy-first positioning). Keep this the single source of truth
   for both /use-cases and /use-cases/[slug].
 
-  Localization: each case carries an `it` object with the Italian of every
-  user-facing field. Non-translatable logic keys (slug, client, shortClient,
-  logo) stay language-neutral. Use getCases(locale) / getCase(slug, locale);
-  localize() shallow-merges `it` over the base object for locale === "it".
+  Localization: each case carries an `it` (Italian) and `pt` (European
+  Portuguese) object with the translated version of every user-facing field.
+  Non-translatable logic keys (slug, client, shortClient, logo) stay
+  language-neutral. Use getCases(locale) / getCase(slug, locale);
+  localize() shallow-merges the matching locale object over the base object
+  for locale === "it" or "pt".
 */
 
 export const CASES = [
@@ -95,6 +97,45 @@ export const CASES = [
         "I pazienti ricevono risposta all'istante, di giorno e di notte, e le prenotazioni non si perdono più quando la reception è impegnata.",
       quoteAttribution: "Storia del cliente, citazione provvisoria in attesa di approvazione",
     },
+    pt: {
+      industry: "Clínica dentária",
+      location: "Lisboa, Portugal",
+      tag: "Assistente de voz IA",
+      summary:
+        "Um assistente de voz IA disponível 24/7 que atende todas as chamadas, marca as consultas de rotina e recupera as chamadas fora de horário que antes ficavam sem resposta.",
+      headline:
+        "Um assistente IA que nunca deixa a chamada de um paciente sem resposta.",
+      metaDescription:
+        "Assistente de voz IA 24/7 para uma clínica dentária de Lisboa: atende todas as chamadas, marca as consultas de rotina e recupera as chamadas fora de horário que antes se perdiam.",
+      challenge: {
+        lead: "Uma clínica dentária com muito movimento perde pacientes no momento em que o telefone fica sem resposta.",
+        points: [
+          "As chamadas que chegavam durante os tratamentos, à hora de almoço e fora de horário iam para o atendimento automático, e a maioria de quem ligava nunca voltava a ligar.",
+          "A equipa da receção era interrompida a meio das tarefas para tratar de pedidos de rotina sobre marcações e remarcações.",
+          "Os pedidos de novos pacientes competiam com o atendimento na cadeira, por isso as primeiras impressões e as marcações escapavam por entre os dedos.",
+        ],
+      },
+      solution: {
+        lead: "Colocámos a funcionar o assistente de voz IA da Automis, configurado com as regras de marcação e o tom reais da clínica.",
+        points: [
+          "Atendimento de chamadas recebidas 24/7, que saúda de imediato quem liga, de dia ou de noite.",
+          "Marcação e remarcação de consultas em tempo real no calendário da clínica, com confirmações.",
+          "Recolha estruturada dos dados do paciente, para que a informação certa fique registada antes da visita.",
+          "Cobertura fora de horário que marca as chamadas de noites e fins de semana que antes ficavam sem resposta.",
+        ],
+      },
+      results: {
+        lead: "O assistente IA atende sempre, por isso não há chamadas perdidas por definição. Os tempos indicados são estimativas prudentes baseadas em implementações comparáveis de assistentes de voz IA e variam consoante o volume de chamadas e a configuração.",
+        metrics: [
+          { value: "0", label: "chamadas perdidas: todas as chamadas atendidas em direto, 24/7" },
+          { value: "Fora de horário", label: "chamadas de noites e fins de semana recuperadas e marcadas em vez de perdidas" },
+          { value: "<30s", label: "tempo médio para atender uma chamada recebida (estimativa)" },
+        ],
+      },
+      quote:
+        "Os pacientes recebem resposta ao instante, de dia ou de noite, e as marcações já não se perdem quando a receção está ocupada.",
+      quoteAttribution: "História de cliente, citação provisória a aguardar aprovação",
+    },
   },
   {
     slug: "adifesa",
@@ -177,11 +218,52 @@ export const CASES = [
         "I contatti vengono raccolti e qualificati prima ancora di muovere un dito, e il team commerciale vede solo quelli che meritano una call.",
       quoteAttribution: "Storia del cliente, citazione provvisoria in attesa di approvazione",
     },
+    pt: {
+      industry: "Finanças, cessione del quinto",
+      location: "Monza, Itália",
+      tag: "Automação Meta",
+      summary:
+        "Automação Meta que responde automaticamente a cada comentário e DM no Facebook e no Instagram, qualifica o interesse e encaminha os contactos qualificados para a equipa comercial.",
+      headline:
+        "Todos os contactos do Facebook e do Instagram atendidos e qualificados, automaticamente.",
+      metaDescription:
+        "Automação Meta para uma empresa financeira italiana: responde a cada comentário e DM no Facebook e no Instagram, qualifica o interesse e encaminha os contactos qualificados.",
+      challenge: {
+        lead: "Uma empresa financeira que geria campanhas de crédito com garantia salarial na Meta estava a afogar-se em comentários e DMs.",
+        points: [
+          "Os comentários aos anúncios e as mensagens diretas chegavam em grande volume, mais depressa do que a equipa conseguia responder, e as respostas lentas fazem perder os contactos mais quentes.",
+          "Os pedidos de crédito genuínos ficavam soterrados numa caixa de entrada ruidosa, ao lado de spam e mensagens fora do tema.",
+          "Não havia uma forma consistente de qualificar o interesse antes de uma pessoa intervir, por isso a equipa comercial perdia tempo com contactos que ainda não estavam prontos.",
+        ],
+      },
+      solution: {
+        lead: "Construímos uma automação Meta da Automis que aborda cada potencial cliente no momento em que este interage.",
+        points: [
+          "Respostas automáticas aos comentários e DMs no Facebook e no Instagram, com o tom da marca.",
+          "Qualificação dos contactos que reúne os dados essenciais para um pedido de cessione del quinto.",
+          "Encaminhamento limpo dos contactos qualificados para a equipa comercial, fora da caixa de entrada pública ruidosa.",
+          "Um fluxo de contactos constante e organizado, em vez da correria manual por baixo de cada anúncio.",
+        ],
+      },
+      results: {
+        lead: "Os dados abaixo são estimativas prudentes baseadas em implementações comparáveis de automação Meta. Os resultados reais variam consoante o investimento em anúncios, o público e a configuração.",
+        metrics: [
+          { value: "<30s", label: "resposta média a um novo comentário ou DM (estimativa)" },
+          { value: "24/7", label: "cobertura, para que nenhum contacto espere pelo horário de expediente" },
+          { value: "100%", label: "dos comentários e DMs recebidos atendidos automaticamente" },
+        ],
+      },
+      quote:
+        "Os contactos são captados e qualificados antes de alguém mexer um dedo, e a equipa comercial só vê aqueles que valem uma chamada.",
+      quoteAttribution: "História de cliente, citação provisória a aguardar aprovação",
+    },
   },
 ];
 
 function localize(c, locale) {
-  return locale === "it" ? { ...c, ...c.it } : c;
+  if (locale === "it") return { ...c, ...c.it };
+  if (locale === "pt") return { ...c, ...c.pt };
+  return c;
 }
 
 export function getCases(locale) {

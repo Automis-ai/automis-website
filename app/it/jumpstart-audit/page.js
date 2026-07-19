@@ -19,7 +19,15 @@ export const metadata = {
     "analisi opportunità IA",
     "call strategica automazione",
   ],
-  alternates: { canonical: "https://automis.ai/it/jumpstart-audit" },
+  alternates: {
+    canonical: "https://automis.ai/it/jumpstart-audit",
+    languages: {
+      en: "https://automis.ai/jumpstart-audit",
+      "it-IT": "https://automis.ai/it/jumpstart-audit",
+      "pt-PT": "https://automis.ai/pt/jumpstart-audit",
+      "x-default": "https://automis.ai/jumpstart-audit",
+    },
+  },
   openGraph: {
     title: "Jumpstart Audit Marketing e IA | Automis",
     description:

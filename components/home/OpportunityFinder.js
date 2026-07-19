@@ -12,9 +12,9 @@ const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automi
 
 
 export default function OpportunityFinder() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = FINDER_COPY[locale];
-  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
+  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
   const QUESTIONS = t.questions;
   const PILLAR_PLAYS = t.pillars;
 

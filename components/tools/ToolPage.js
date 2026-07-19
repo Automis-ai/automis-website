@@ -10,10 +10,16 @@ import { TOOLS, hubPath } from "@/utility/toolsData";
 import ToolJsonLd from "@/components/tools/ToolJsonLd";
 import FaqAccordion from "@/components/tools/FaqAccordion";
 
+const LABELS = {
+  en: { tools: "Tools", why: "Why it matters", faq: "Frequently asked questions" },
+  it: { tools: "Strumenti", why: "Perche' conta", faq: "Domande frequenti" },
+  pt: { tools: "Ferramentas", why: "Porque é importante", faq: "Perguntas frequentes" },
+};
+
 export default function ToolPage({ toolKey, locale, children }) {
   const tool = TOOLS[toolKey];
   const c = tool[locale];
-  const isIt = locale === "it";
+  const l = LABELS[locale] || LABELS.en;
 
   const ctaHref =
     tool.ctaTarget === "voiceai"
@@ -29,7 +35,7 @@ export default function ToolPage({ toolKey, locale, children }) {
           <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/50">
             <Link href={hrefFor(PATHNAMES.home, locale)} className="hover:text-white">Home</Link>
             <span className="mx-2">/</span>
-            <Link href={hubPath(locale)} className="hover:text-white">{isIt ? "Strumenti" : "Tools"}</Link>
+            <Link href={hubPath(locale)} className="hover:text-white">{l.tools}</Link>
             <span className="mx-2">/</span>
             <span className="text-white/70">{c.name}</span>
           </nav>
@@ -40,7 +46,7 @@ export default function ToolPage({ toolKey, locale, children }) {
           <div className="mt-10">{children}</div>
 
           <div className="mt-16">
-            <h2 className="mb-4 text-2xl font-semibold">{isIt ? "Perche' conta" : "Why it matters"}</h2>
+            <h2 className="mb-4 text-2xl font-semibold">{l.why}</h2>
             <div className="space-y-4 leading-relaxed text-white/70">
               {c.why.map((p, i) => (
                 <p key={i}>{p}</p>
@@ -49,7 +55,7 @@ export default function ToolPage({ toolKey, locale, children }) {
           </div>
 
           <div className="mt-16">
-            <h2 className="mb-4 text-2xl font-semibold">{isIt ? "Domande frequenti" : "Frequently asked questions"}</h2>
+            <h2 className="mb-4 text-2xl font-semibold">{l.faq}</h2>
             <FaqAccordion faqs={c.faqs} />
           </div>
 

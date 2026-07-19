@@ -249,11 +249,132 @@ export const FINDER_COPY = {
       },
     },
   },
+  pt: {
+    eyebrow: "Grátis · 60 segundos · sem chamada",
+    title: "Descubra as suas oportunidades IA",
+    lead: "Responda a 6 perguntas rápidas e receba, na hora, um roadmap personalizado com as automações que mais contam para o seu negócio, e quanto tempo lhe podem devolver.",
+    yourResults: "Os seus resultados",
+    question: "Pergunta",
+    of: "de",
+    back: "Voltar",
+    hereIsWhatWeFound: "Foi isto que encontrámos",
+    startWith: "Comece por",
+    timeBack: "Tempo devolvido / semana",
+    hrs: "h",
+    focusPillar: "Pilar prioritário",
+    unlockTitle: "Desbloqueie as suas 3 automações + roadmap em PDF",
+    unlockSubtitle: "Veja o roadmap completo personalizado no ecrã e receba uma cópia na sua caixa de entrada.",
+    namePlaceholder: "O seu nome",
+    emailPlaceholder: "O seu email",
+    buildingRoadmap: "A preparar o seu roadmap…",
+    unlockCta: "Desbloquear o meu roadmap",
+    noSpam: "Sem spam. Sem cartão de crédito. Cancele quando quiser.",
+    roadmapReady: "O seu roadmap está pronto",
+    top3Title: "As suas 3 automações principais",
+    pdfDownloaded: "O seu roadmap em PDF acabou de ser descarregado. Uma cópia está a caminho da sua caixa de entrada.",
+    newsletterNote: "Passa também a fazer parte da lista Automis, por isso vai receber, de vez em quando, novidades, dicas e atualizações sobre IA. Cancele quando quiser.",
+    spamNote: "Não vê o email? Verifique a pasta de spam ou promoções.",
+    buildCta: "Quer que os construamos? Agende uma chamada",
+    downloadAgain: "Descarregar o PDF de novo",
+    disclaimer: "As estimativas são indicativas e dependem do seu volume e configuração.",
+    questions: [
+      {
+        id: "sector",
+        q: "Que tipo de negócio gere?",
+        options: [
+          { label: "Saúde / clínica", w: { sales: 2, admin: 2 }, h: 6 },
+          { label: "Serviços profissionais / financeiros", w: { sales: 2, admin: 3 }, h: 7 },
+          { label: "Imobiliário", w: { sales: 3, marketing: 1 }, h: 5 },
+          { label: "Negócio local / serviços", w: { sales: 2, marketing: 1 }, h: 4 },
+          { label: "E-commerce / retalho", w: { marketing: 2, sales: 2 }, h: 5 },
+          { label: "Hotelaria / restauração", w: { sales: 3, admin: 1 }, h: 5 },
+        ],
+      },
+      {
+        id: "leak",
+        q: "Onde perde mais tempo ou dinheiro?",
+        options: [
+          { label: "Chamadas perdidas e sem resposta", w: { sales: 3 }, h: 6 },
+          { label: "Follow-up lento aos contactos", w: { sales: 2, marketing: 1 }, h: 5 },
+          { label: "Burocracia e tarefas manuais", w: { admin: 3 }, h: 8 },
+          { label: "Marketing que não converte", w: { marketing: 3 }, h: 4 },
+          { label: "Conhecimento da empresa disperso", w: { admin: 3 }, h: 6 },
+        ],
+      },
+      {
+        id: "channel",
+        q: "Como é que os clientes costumam contactá-lo?",
+        options: [
+          { label: "Chamadas telefónicas", w: { sales: 3 }, h: 5 },
+          { label: "Formulários no site", w: { sales: 1, marketing: 2 }, h: 3 },
+          { label: "Redes sociais & WhatsApp", w: { sales: 2, marketing: 1 }, h: 4 },
+          { label: "Uma mistura de tudo", w: { sales: 2, marketing: 1, admin: 1 }, h: 5 },
+        ],
+      },
+      {
+        id: "volume",
+        q: "Quantos contactos ou pedidos recebe por semana?",
+        options: [
+          { label: "Menos de 20", w: {}, h: 2 },
+          { label: "De 20 a 100", w: {}, h: 4 },
+          { label: "De 100 a 500", w: {}, h: 7 },
+          { label: "500+", w: {}, h: 10 },
+        ],
+      },
+      {
+        id: "tried",
+        q: "O que já experimentou até agora?",
+        options: [
+          { label: "Ainda nada", w: {}, h: 3 },
+          { label: "Contratei mais pessoal", w: { admin: 1 }, h: 4 },
+          { label: "Ferramentas básicas / um chatbot", w: { sales: 1 }, h: 2 },
+          { label: "Trabalhei com uma agência", w: { marketing: 1 }, h: 2 },
+        ],
+      },
+      {
+        id: "goal",
+        q: "Qual é o seu objetivo n.º 1 para os próximos 90 dias?",
+        options: [
+          { label: "Mais marcações confirmadas", w: { sales: 3 }, h: 6 },
+          { label: "Responder mais depressa aos contactos", w: { sales: 2, marketing: 1 }, h: 5 },
+          { label: "Libertar tempo à minha equipa", w: { admin: 3 }, h: 7 },
+          { label: "Melhor ROI de marketing", w: { marketing: 3 }, h: 4 },
+          { label: "Organizar o conhecimento da empresa", w: { admin: 3 }, h: 5 },
+        ],
+      },
+    ],
+    pillars: {
+      sales: {
+        name: "Vendas & Aquisição",
+        plays: [
+          "Assistente de voz IA 24/7 para atender e qualificar cada chamada",
+          "Recuperação de chamadas perdidas com SMS de follow-up imediato",
+          "Automação de redes sociais & WhatsApp a alimentar o seu CRM",
+        ],
+      },
+      admin: {
+        name: "Administração & Company Brain",
+        plays: [
+          "Um “Second Brain” RAG à medida sobre os seus documentos",
+          "OCR Scan-to-Brain para digitalizar a papelada",
+          "Notas de voz escritas no CRM, automaticamente",
+        ],
+      },
+      marketing: {
+        name: "Marketing & Crescimento",
+        plays: [
+          "Agente IA de anúncios e criatividades no Meta e Google",
+          "Visibilidade SEO / GEO no Google e na pesquisa por IA",
+          "Workflows automáticos de conteúdo e reputação",
+        ],
+      },
+    },
+  },
 };
 
 // Etichetta delle ore risparmiate, localizzata. Finisce nel custom field GHL
 // contact.hours_saved (e quindi nelle email automatiche).
 export function hoursLabel(hoursLow, hoursHigh, locale) {
-  const unit = locale === "it" ? "settimana" : "week";
+  const unit = locale === "it" ? "settimana" : locale === "pt" ? "semana" : "week";
   return `${hoursLow}-${hoursHigh}/${unit}`;
 }

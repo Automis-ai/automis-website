@@ -44,10 +44,33 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "Quem somos",
+    title: "Construímos os sistemas que faltam ao seu negócio",
+    lead: "A Automis nasceu de uma frustração simples: as empresas queriam que a IA gerisse de facto as suas operações, mas recebiam demos e dashboards em vez de sistemas a funcionar. Por isso construímos a coisa real, de ponta a ponta, e construímo-la em torno da forma como o seu negócio já trabalha.",
+    beliefs: [
+      {
+        title: "Sistemas que são seus",
+        body: "Construímos sistemas à medida e interligados que lhe pertencem, não uma caixa negra que aluga. Quando terminamos, a infraestrutura é sua: sem dependência de fornecedor, sem uma subscrição cujo interior não consegue ver.",
+      },
+      {
+        title: "Privacidade primeiro, por princípio",
+        body: "Alinhados com o RGPD desde o primeiro dia, com opções de servidor na UE e locais para dados de saúde e financeiros. As suas informações ficam onde devem ficar, tratadas como um negócio regulado precisa que sejam tratadas.",
+      },
+      {
+        title: "A pessoa mantém-se no processo",
+        body: "A IA trata do volume, as pessoas tratam da nuance. Os casos complexos ou sensíveis chegam diretamente à sua equipa, para que nada de importante se perca na automação.",
+      },
+    ],
+  },
 };
 
 export default function AboutBeliefs() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt")
+    ? "pt"
+    : usePathname()?.startsWith("/it")
+    ? "it"
+    : "en";
   const t = COPY[locale];
   return (
     <Section id="who-we-are" className="bg-[#020a12]">

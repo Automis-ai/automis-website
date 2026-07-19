@@ -8,45 +8,63 @@ import QrBlock from "@/components/tools/QrBlock";
 const inputClass =
   "w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-white outline-none focus:border-blue-middle";
 
+const SNIPPET_LABEL = { it: "Scrivici su WhatsApp", pt: "Fale connosco no WhatsApp", en: "Chat on WhatsApp" };
+
 export default function WhatsAppLinkGenerator({ locale }) {
-  const isIt = locale === "it";
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
   const digits = phone.replace(/\D/g, "");
+  const snippetLabel = SNIPPET_LABEL[locale] || SNIPPET_LABEL.en;
   const waLink = digits ? `https://wa.me/${digits}${message.trim() ? `?text=${encodeURIComponent(message.trim())}` : ""}` : "";
   const telLink = digits ? `tel:+${digits}` : "";
-  const snippet = waLink ? `<a href="${waLink}" target="_blank" rel="noopener">${isIt ? "Scrivici su WhatsApp" : "Chat on WhatsApp"}</a>` : "";
+  const snippet = waLink ? `<a href="${waLink}" target="_blank" rel="noopener">${snippetLabel}</a>` : "";
 
-  const t = isIt
-    ? {
-        phone: "Il tuo numero (con prefisso internazionale)",
-        phoneHint: "Solo cifre, es. 39320...",
-        phonePlaceholder: "39320...",
-        message: "Messaggio precompilato (facoltativo)",
-        messagePlaceholder: "Ciao, vorrei prenotare un appuntamento",
-        waLink: "Link chat WhatsApp",
-        telLink: "Link click-to-call",
-        snippet: "HTML pulsante chat (incollalo sul tuo sito)",
-        copy: "Copia",
-        copied: "Copiato",
-        copyHtml: "Copia HTML",
-        download: "Scarica QR (PNG)",
-      }
-    : {
-        phone: "Your phone number (with country code)",
-        phoneHint: "Digits only, e.g. 351912345678",
-        phonePlaceholder: "351912345678",
-        message: "Pre-filled message (optional)",
-        messagePlaceholder: "Hi, I would like to book an appointment",
-        waLink: "WhatsApp chat link",
-        telLink: "Click-to-call link",
-        snippet: "Chat button HTML (paste on your site)",
-        copy: "Copy",
-        copied: "Copied",
-        copyHtml: "Copy HTML",
-        download: "Download QR (PNG)",
-      };
+  const strings = {
+    it: {
+      phone: "Il tuo numero (con prefisso internazionale)",
+      phoneHint: "Solo cifre, es. 39320...",
+      phonePlaceholder: "39320...",
+      message: "Messaggio precompilato (facoltativo)",
+      messagePlaceholder: "Ciao, vorrei prenotare un appuntamento",
+      waLink: "Link chat WhatsApp",
+      telLink: "Link click-to-call",
+      snippet: "HTML pulsante chat (incollalo sul tuo sito)",
+      copy: "Copia",
+      copied: "Copiato",
+      copyHtml: "Copia HTML",
+      download: "Scarica QR (PNG)",
+    },
+    pt: {
+      phone: "O seu número (com indicativo internacional)",
+      phoneHint: "Apenas dígitos, ex. 351912...",
+      phonePlaceholder: "351912345678",
+      message: "Mensagem já preenchida (opcional)",
+      messagePlaceholder: "Olá, gostaria de fazer uma marcação",
+      waLink: "Link de conversa WhatsApp",
+      telLink: "Link click-to-call",
+      snippet: "HTML do botão de conversa (cole no seu site)",
+      copy: "Copiar",
+      copied: "Copiado",
+      copyHtml: "Copiar HTML",
+      download: "Descarregar QR (PNG)",
+    },
+    en: {
+      phone: "Your phone number (with country code)",
+      phoneHint: "Digits only, e.g. 351912345678",
+      phonePlaceholder: "351912345678",
+      message: "Pre-filled message (optional)",
+      messagePlaceholder: "Hi, I would like to book an appointment",
+      waLink: "WhatsApp chat link",
+      telLink: "Click-to-call link",
+      snippet: "Chat button HTML (paste on your site)",
+      copy: "Copy",
+      copied: "Copied",
+      copyHtml: "Copy HTML",
+      download: "Download QR (PNG)",
+    },
+  };
+  const t = strings[locale] || strings.en;
 
   const btnClass = "rounded-lg bg-gradient-to-r from-blue-middle to-blue-lightest px-5 py-3 font-semibold text-white transition-transform hover:-translate-y-0.5";
 

@@ -4,6 +4,8 @@ export const CTA_LINKS = {
   booking: {
     en: "https://api.leadconnectorhq.com/widget/bookings/discover-automis",
     it: "https://api.leadconnectorhq.com/widget/bookings/automis-it",
+    // Dedicated European-Portuguese calendar.
+    pt: "https://api.leadconnectorhq.com/widget/bookings/pt-automis",
   },
 
   // Example for future:

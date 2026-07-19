@@ -34,12 +34,24 @@ const COPY = {
     ctaPrimary: "Prenota una call",
     ctaSecondary: "Scopri le tue opportunità IA",
   },
+  pt: {
+    eyebrow: "Agência de automação IA",
+    h1_pre: "Construímos os ",
+    h1_word1: "sistemas",
+    h1_mid: " que faltam ao seu ",
+    h1_word2: "negócio",
+    h1_post: ".",
+    subhead:
+      "Descobrimos exatamente onde o seu negócio perde tempo e dinheiro: as chamadas que perde, os contactos que arrefecem, a burocracia que se acumula. Depois construímos os agentes IA e as automações que resolvem o problema.",
+    ctaPrimary: "Agende uma chamada",
+    ctaSecondary: "Descubra as suas oportunidades IA",
+  },
 };
 
 export default function HeroEN() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
-  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
+  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
   return (
     <section id="hero" className="relative overflow-hidden bg-deep-blue">
       {/* Animated wavy background (brand palette) — an aurora ribbon confined to

@@ -65,10 +65,40 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "FAQ",
+    title: "Respostas diretas antes de marcar",
+    faqs: [
+      {
+        q: "Em quanto tempo entramos em produção?",
+        a: "Os assistentes de voz e as automações simples ficam normalmente ativos em cerca de 7 dias. Os sistemas complexos e multi-pilar seguem um calendário à medida, que definimos com precisão na chamada de descoberta antes de arrancar.",
+      },
+      {
+        q: "Quanto custa?",
+        a: "O nosso assistente de voz IA tem planos mensais de valor fixo (veja os preços na página Assistente de Voz). Todo o resto é orçamentado à medida após uma chamada de descoberta, porque construímos à volta dos seus processos específicos e não de um pacote igual para todos.",
+      },
+      {
+        q: "Os meus dados estão seguros? E o RGPD?",
+        a: "Sim. Pomos a privacidade em primeiro lugar desde a raiz, com opções de servidor na UE ou local para dados de saúde e financeiros, e encaminhamento com human-in-the-loop para tudo o que é sensível. A sua informação fica onde deve ficar.",
+      },
+      {
+        q: "Preciso de pessoal técnico para gerir isto?",
+        a: "Não. Nós desenhamos, construímos, colocamos online e mantemos o sistema, e a si resta apenas usá-lo. E a infraestrutura que entregamos é sua, não uma caixa negra da qual fica de fora.",
+      },
+      {
+        q: "O que acontece depois do lançamento?",
+        a: "Não desaparecemos. Cada projeto inclui otimização mensal contínua com supervisão humana, para que o seu sistema continue a melhorar em vez de estagnar. É isso que a parceria contínua cobre.",
+      },
+      {
+        q: "E se não funcionar para nós?",
+        a: "Todos os planos Voice têm uma garantia de desempenho de 30 dias, e os projetos à medida que incluem custo de setup vêm com reembolso desse valor. O risco do primeiro passo ficamos nós com ele.",
+      },
+    ],
+  },
 };
 
 export default function FaqEN() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   const [open, setOpen] = useState(0);
 

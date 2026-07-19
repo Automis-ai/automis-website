@@ -8,6 +8,8 @@ import { FileAudio, FileText, Sparkles } from "lucide-react";
 const SHOTS = {
   en: { overview: "/assets/images/dashboard/clean/overview-en.png", callDetail: "/assets/images/dashboard/clean/call-detail.png" },
   it: { overview: "/assets/images/dashboard/clean/it/overview.png", callDetail: "/assets/images/dashboard/clean/it/call-detail.png" },
+  // pt reuses the EN captures until dedicated pt-PT dashboard screenshots exist.
+  pt: { overview: "/assets/images/dashboard/clean/overview-en.png", callDetail: "/assets/images/dashboard/clean/call-detail.png" },
 };
 
 const COPY = {
@@ -39,6 +41,20 @@ const COPY = {
     callDetailAlt: "Una chiamata aperta: registrazione, trascrizione e riepilogo IA",
     callDetailCaption: "Una chiamata, aperta: registrazione, trascrizione e riepilogo IA",
   },
+  pt: {
+    eyebrow: "Vê tudo",
+    title: "Transparência total sobre cada chamada que a sua IA trata.",
+    lead: "Sem caixa negra. Comece por uma visão geral em tempo real das suas chamadas, taxa de sucesso e tendências, depois abra qualquer chamada para ouvir a gravação, ler a transcrição e ver o resumo da IA.",
+    leadCaption: "A visão geral da sua dashboard: chamadas, taxa de sucesso e tendências, em tempo real",
+    detailTitle: "Abra qualquer chamada para ver a história completa",
+    detailBody:
+      "Abra uma única chamada e tem a gravação completa, uma transcrição pesquisável e um resumo da IA do que aconteceu e do que fazer a seguir. Nada fica escondido, por isso sabe sempre exatamente como está a trabalhar a sua receção.",
+    tagRecording: "Gravação",
+    tagTranscript: "Transcrição",
+    tagSummary: "Resumo IA",
+    callDetailAlt: "Uma chamada aberta: gravação, transcrição e resumo da IA",
+    callDetailCaption: "Uma chamada, aberta: gravação, transcrição e resumo da IA",
+  },
 };
 
 // Subtle browser-chrome frame wrapper for a screenshot.
@@ -59,7 +75,7 @@ function BrowserFrame({ children }) {
 }
 
 export default function DashboardWalk() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   const shots = SHOTS[locale];
 

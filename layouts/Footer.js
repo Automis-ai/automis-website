@@ -48,18 +48,19 @@ const DefaultFooter = () => {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
 
+  const pick = (en, it, pt) => (locale === "it" ? it : locale === "pt" ? pt : en);
   const t = {
-    tagline:
-      locale === "it"
-        ? "Automis costruisce i sistemi di IA che mancano al tuo business, tra marketing, vendite e operations."
-        : "Automis builds the AI systems your business is missing, across marketing, sales, and operations.",
-    emailLabel: locale === "it" ? "Email:" : "Email:",
-    rights:
-      locale === "it" ? "· Tutti i diritti riservati" : "· All Rights Reserved",
-    privacy: locale === "it" ? "Privacy Policy" : "Privacy Policy",
-    terms: locale === "it" ? "Termini di Servizio" : "Terms of Service",
-    cookies: locale === "it" ? "Cookie Policy" : "Cookie Policy",
-    manageCookies: locale === "it" ? "Gestisci cookie" : "Manage cookies",
+    tagline: pick(
+      "Automis builds the AI systems your business is missing, across marketing, sales, and operations.",
+      "Automis costruisce i sistemi di IA che mancano al tuo business, tra marketing, vendite e operations.",
+      "A Automis constrói os sistemas de IA que faltam ao seu negócio, entre marketing, vendas e operações."
+    ),
+    emailLabel: "Email:",
+    rights: pick("· All Rights Reserved", "· Tutti i diritti riservati", "· Todos os direitos reservados"),
+    privacy: pick("Privacy Policy", "Privacy Policy", "Política de Privacidade"),
+    terms: pick("Terms of Service", "Termini di Servizio", "Termos de Serviço"),
+    cookies: pick("Cookie Policy", "Cookie Policy", "Política de Cookies"),
+    manageCookies: pick("Manage cookies", "Gestisci cookie", "Gerir cookies"),
   };
 
   const homeHref = hrefFor(PATHNAMES.home, locale);

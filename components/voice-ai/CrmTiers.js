@@ -17,6 +17,12 @@ const TIER_SHOTS = {
     "/assets/images/dashboard/clean/it/light-crm.png",
     "/assets/images/dashboard/clean/it/pipeline.png",
   ],
+  // pt reuses the EN captures until dedicated pt-PT screenshots exist.
+  pt: [
+    "/assets/images/dashboard/clean/bookings.png",
+    "/assets/images/dashboard/clean/light-crm.png",
+    "/assets/images/dashboard/clean/pipeline.png",
+  ],
 };
 
 const COPY = {
@@ -78,6 +84,35 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "O CRM",
+    title: "Três níveis de visibilidade, da marcação ao negócio fechado.",
+    lead: "Comece com uma vista limpa das suas marcações e cresça até uma pipeline completa, à medida que cresce a sua operação de vendas.",
+    privacy: "Nomes e números dos clientes estão desfocados por privacidade.",
+    tiers: [
+      {
+        kicker: "Nível 1",
+        title: "Marcações",
+        body: "Cada consulta que a IA marcou, num único sítio. Veja o que está na agenda sem tocar numa folha de cálculo.",
+        points: ["Cada consulta marcada pela IA", "Data, hora e contacto num relance", "Sincronizadas com a sua agenda"],
+        caption: "Marcações: cada consulta marcada pela IA, com o resultado da chamada",
+      },
+      {
+        kicker: "Nível 2",
+        title: "CRM leve",
+        body: "Contactos com o resultado e o sentimento de cada chamada, para saber quem contactar e porquê.",
+        points: ["Contactos + resultados das chamadas", "Sentimento em cada interação", "Contexto de follow-up, pronto a usar"],
+        caption: "CRM leve: resultados das chamadas e sentimento em cada contacto",
+      },
+      {
+        kicker: "Nível 3",
+        title: "Pipeline",
+        body: "Um verdadeiro quadro kanban de vendas. Arraste os negócios pelas fases e veja a IA a alimentar o topo do funnel.",
+        points: ["Fases de venda em kanban", "Negócios que avançam fase a fase", "A IA mantém o funnel cheio"],
+        caption: "Pipeline: um quadro kanban que a IA alimenta a partir do topo",
+      },
+    ],
+  },
 };
 
 // Subtle browser-chrome frame wrapper for a screenshot.
@@ -98,7 +133,7 @@ function BrowserFrame({ src, alt }) {
 }
 
 export default function CrmTiers() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   const shots = TIER_SHOTS[locale];
 

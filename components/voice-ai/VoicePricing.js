@@ -135,12 +135,76 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "Preços",
+    title: "Planos simples que se pagam a si próprios em consultas marcadas.",
+    lead: "Escolha o nível que corresponde à forma como vende. Passe a um plano superior quando quiser, à medida que cresce.",
+    mostPopular: "O mais escolhido",
+    bookCta: "Agende uma chamada",
+    enterprise: {
+      label: "Enterprise / À medida",
+      heading: "Grandes volumes, várias localizações ou integrações à medida?",
+      body: "Volume de chamadas personalizado, suporte dedicado e um sistema pensado e orçamentado exatamente à volta de como o seu negócio funciona.",
+      cta: "Vamos falar",
+    },
+    guarantee: {
+      title: "Garantia de resultados de 30 dias",
+      body: "Cada plano é coberto pela nossa garantia de resultados de 30 dias. Se não funcionar, está protegido.",
+    },
+    tiers: [
+      {
+        name: "Starter",
+        price: "€297",
+        period: "/mês",
+        tagline: "Tudo o que precisa para deixar de perder chamadas.",
+        features: [
+          "200 minutos / mês",
+          "Atendimento de chamadas inbound 24/7",
+          "Marcação + sincronização da agenda",
+          "Recuperação de chamadas perdidas",
+          "Notificações de chamadas",
+        ],
+        featured: false,
+      },
+      {
+        name: "Growth",
+        price: "€497",
+        period: "/mês",
+        tagline: "Transforme as chamadas atendidas numa máquina de follow-up.",
+        features: [
+          "600 minutos / mês",
+          "Tudo o que inclui o Starter",
+          "Sincronização com CRM (GoHighLevel / HubSpot)",
+          "Lembretes por SMS e WhatsApp",
+          "Follow-ups automáticos",
+          "Multi-agenda / multi-profissional",
+        ],
+        featured: true,
+      },
+      {
+        name: "Scale",
+        price: "€697",
+        period: "/mês",
+        tagline: "Um motor de aquisição completo: voz e muito mais.",
+        features: [
+          "1.500 minutos / mês",
+          "Tudo o que inclui o Growth",
+          "Chatbot WhatsApp",
+          "Campanhas outbound",
+          "Integrações à medida",
+          "Prioridade + supervisão humana",
+          "Estatísticas avançadas",
+        ],
+        featured: false,
+      },
+    ],
+  },
 };
 
 export default function VoicePricing() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
-  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
+  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
 
   return (
     <Section id="voice-pricing" className="bg-[#020a12]">

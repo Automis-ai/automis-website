@@ -44,10 +44,29 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "O problema",
+    title: <>Cada chamada perdida e cada contacto deixado a arrefecer é uma marcação que nunca chega a ver.</>,
+    lead: "As chamadas entram quando não há ninguém livre para atender: à noite, aos fins de semana, nas tardes mais preenchidas. E os novos contactos entram mais depressa do que qualquer pessoa consegue ligar de volta. Em ambos os casos, a consulta fica para quem atende primeiro.",
+    pains: [
+      {
+        title: "Uma chamada perdida é um cliente perdido",
+        body: "Cada chamada sem resposta é um potencial cliente que liga logo para o próximo nome da lista. Quase ninguém deixa mensagem no atendedor, e a marcação já se perdeu antes mesmo de saber que o telefone tocou.",
+      },
+      {
+        title: "Fora de horário não atende ninguém",
+        body: "A maioria dos pedidos chega fora do 9-18, à noite e aos fins de semana. Se não há ninguém para atender, a procura fora de horas que pagou para gerar dissipa-se em silêncio.",
+      },
+      {
+        title: "Um follow-up lento faz perder o negócio",
+        body: "Os contactos arrefecem em poucos minutos. Quando demora horas a ligar de volta, o interesse já desapareceu e a consulta fica para quem atendeu primeiro.",
+      },
+    ],
+  },
 };
 
 export default function VoiceProblem() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   return (
     <Section id="voice-problem" className="bg-[#020a12]">

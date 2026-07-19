@@ -28,6 +28,7 @@ const HAIR = [40, 55, 75];
 const PILLAR_NAME = {
   en: { sales: "Sales & Acquisition", admin: "Admin & Company Brain", marketing: "Marketing & Growth" },
   it: { sales: "Vendite & Acquisizione", admin: "Operations & Company Brain", marketing: "Marketing & Crescita" },
+  pt: { sales: "Vendas & Aquisição", admin: "Administração & Company Brain", marketing: "Marketing & Crescimento" },
 };
 
 // Static cover labels, per locale
@@ -55,6 +56,18 @@ const STR = {
       "In base alle tue risposte, ecco i tre sistemi che ti farebbero recuperare più tempo e fatturato, nell'ordine in cui li costruiremmo. Le pagine che seguono mostrano come funziona ognuno.",
     top3Title: "LE TUE 3 AUTOMAZIONI DA CUI PARTIRE",
     footer: "AUTOMIS · ROADMAP DI OPPORTUNITÀ IA",
+  },
+  pt: {
+    eyebrow: "O SEU ROADMAP DE OPORTUNIDADES IA",
+    startWith: "Comece por",
+    preparedFor: "Preparado para",
+    timeBack: "TEMPO DEVOLVIDO / SEMANA",
+    hrs: "h",
+    focus: (p, s) => (s ? `Pilar prioritário: ${p},\ncom ganhos também em ${s}.` : `Pilar prioritário: ${p}.`),
+    bridge:
+      "Com base nas suas respostas, estes são os três sistemas que lhe devolveriam mais tempo e faturação, pela ordem em que os construiríamos. As páginas seguintes mostram exatamente como cada um funciona.",
+    top3Title: "AS SUAS 3 AUTOMAÇÕES POR ONDE COMEÇAR",
+    footer: "AUTOMIS · ROADMAP DE OPORTUNIDADES IA",
   },
 };
 
@@ -185,6 +198,56 @@ const COVER = {
         ["Automazione recensioni e reputazione", "Fa crescere le recensioni e mantiene forti valutazione e profili, in silenzio."],
       ],
       whisper: "Dato che i clienti non ti trovano facilmente e non hai tempo per i contenuti, partiremmo dalla visibilità SEO e GEO.",
+    },
+  },
+  pt: {
+    "sales-x-marketing": {
+      top3: [
+        ["Assistente de voz IA 24/7 (outbound + recuperação)", "Liga a cada novo contacto em segundos e retrabalha meses de contactos frios em grande escala."],
+        ["Speed-to-lead: chamada e SMS imediatos", "Assim que chega um contacto de formulário ou anúncio, recebe uma chamada e um SMS antes de um concorrente responder."],
+        ["Campanha de reativação de contactos", "Transforma a sua lista morta no CRM em chamadas agendadas, totalmente automatizada."],
+      ],
+      whisper: "Como a maioria dos seus contactos chega por anúncios e formulários e está a perder tempo com follow-up lento, começaríamos pelo Assistente de Voz em outbound.",
+    },
+    "sales-x-admin": {
+      top3: [
+        ["Assistente de voz IA 24/7 (inbound)", "Atende cada chamada a entrar, qualifica quem liga e marca-o diretamente no seu calendário."],
+        ["Recuperação de chamadas perdidas por SMS", "Qualquer chamada que não possa atender dispara um SMS imediato, para que o contacto nunca vá para um concorrente."],
+        ["Encaminhamento de pedidos web e WhatsApp", "Cada formulário e mensagem captado, respondido e transformado numa marcação confirmada."],
+      ],
+      whisper: "Como a maioria dos seus contactos chega por telefone e está a perder tempo com chamadas perdidas, começaríamos pelo Assistente de Voz em inbound.",
+    },
+    "admin-x-sales": {
+      top3: [
+        ["Second Brain RAG à medida", "Uma IA privada treinada nos seus documentos, para que qualquer pessoa obtenha uma resposta rigorosa e com fontes em segundos."],
+        ["Notas de voz para o CRM", "Dite uma nota depois de um contacto com um cliente e ela é transcrita e escrita no CRM automaticamente."],
+        ["Follow-up e orçamentos em rascunho", "O sistema prepara o follow-up ou o orçamento a partir do contexto, para que uma pessoa apenas reveja e envie."],
+      ],
+      whisper: "Como a sua equipa perde mais tempo com burocracia manual e conhecimento disperso, começaríamos pelo seu Second Brain à medida.",
+    },
+    "admin-x-marketing": {
+      top3: [
+        ["Second Brain RAG à medida", "Uma IA privada sobre os seus ficheiros e know-how; pergunte em linguagem natural e obtenha respostas com fontes na hora."],
+        ["OCR Scan-to-Brain", "Digitalize ou fotografe a papelada e ela é digitalizada, estruturada e arquivada no brain automaticamente."],
+        ["Conteúdo e relatórios automáticos", "Transforme o seu conhecimento organizado em rascunhos de relatórios e conteúdo, com um fluxo de revisão e envio."],
+      ],
+      whisper: "Como o seu conhecimento está disperso e os relatórios lhe consomem a semana, começaríamos pelo seu Second Brain à medida.",
+    },
+    "marketing-x-sales": {
+      top3: [
+        ["Agente IA de anúncios e criatividades", "Gera, testa e otimiza criatividades no Meta e no Google, para mais contactos qualificados por cada euro."],
+        ["Speed-to-lead + recuperação vocal outbound", "Cada contacto recebe um SMS, uma chamada e um follow-up vocal imediatos, para que a procura que pagou converta."],
+        ["Automação de funil e nurturing", "Landing pages e sequências de nurturing automáticas que aquecem os contactos até marcarem."],
+      ],
+      whisper: "Como está a investir em marketing mas os contactos escapam antes de converter, começaríamos pelo Agente IA de anúncios e criatividades.",
+    },
+    "marketing-x-admin": {
+      top3: [
+        ["Visibilidade SEO e GEO", "Seja encontrado por quem pesquisa no Google e pelos assistentes de IA quando recomendam um negócio como o seu."],
+        ["Motor de conteúdo automático", "Um pipeline hands-off que transforma a sua competência num fluxo constante de conteúdo on-brand."],
+        ["Automação de avaliações e reputação", "Faz crescer as suas avaliações e mantém a classificação e os perfis fortes, de forma discreta."],
+      ],
+      whisper: "Como os clientes não o encontram facilmente e não tem tempo para conteúdo, começaríamos pela visibilidade SEO e GEO.",
     },
   },
 };

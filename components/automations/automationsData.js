@@ -8,17 +8,17 @@
 
 // By niche. `all` is the implicit default (handled in the explorer).
 export const NICHES = [
-  { id: "healthcare", label: "Healthcare", label_it: "Sanità" },
-  { id: "professional", label: "Professional Services", label_it: "Servizi professionali" },
-  { id: "real-estate", label: "Real Estate", label_it: "Immobiliare" },
-  { id: "local", label: "Local / Online business", label_it: "Attività locali / online" },
+  { id: "healthcare", label: "Healthcare", label_it: "Sanità", label_pt: "Saúde" },
+  { id: "professional", label: "Professional Services", label_it: "Servizi professionali", label_pt: "Serviços profissionais" },
+  { id: "real-estate", label: "Real Estate", label_it: "Immobiliare", label_pt: "Imobiliário" },
+  { id: "local", label: "Local / Online business", label_it: "Attività locali / online", label_pt: "Negócios locais / online" },
 ];
 
 // By goal (pillar). Plain-language goal labels map onto the 3 Automis pillars.
 export const GOALS = [
-  { id: "marketing", label: "Get more customers", pillar: "Marketing & Growth", label_it: "Trova più clienti", pillar_it: "Marketing e crescita" },
-  { id: "sales", label: "Never miss a lead", pillar: "Sales & Acquisition", label_it: "Non perdere un contatto", pillar_it: "Vendite e acquisizione" },
-  { id: "admin", label: "Run the back office", pillar: "Admin & Company Brain", label_it: "Gestisci il back office", pillar_it: "Admin e cervello aziendale" },
+  { id: "marketing", label: "Get more customers", pillar: "Marketing & Growth", label_it: "Trova più clienti", pillar_it: "Marketing e crescita", label_pt: "Ter mais clientes", pillar_pt: "Marketing e crescimento" },
+  { id: "sales", label: "Never miss a lead", pillar: "Sales & Acquisition", label_it: "Non perdere un contatto", pillar_it: "Vendite e acquisizione", label_pt: "Nunca perder um contacto", pillar_pt: "Vendas e aquisição" },
+  { id: "admin", label: "Run the back office", pillar: "Admin & Company Brain", label_it: "Gestisci il back office", pillar_it: "Admin e cervello aziendale", label_pt: "Gerir o back office", pillar_pt: "Admin e cérebro da empresa" },
 ];
 
 // Small helper so cards can show a friendly pillar tag.
@@ -50,6 +50,13 @@ export const AUTOMATIONS = [
       outcome: "Nessuna chiamata resta senza risposta, e più chiamate si trasformano in appuntamenti fissati.",
       liveLabel: "Guardala dal vivo",
     },
+    pt: {
+      title: "Assistente de voz IA",
+      problem: "As chamadas entram enquanto está com um cliente, fora de horas ou ao fim de semana, e vão para o voicemail.",
+      automate: "Um agente de voz IA atende todas as chamadas 24/7, qualifica quem liga, marca a consulta e sincroniza-a com o seu calendário e o CRM.",
+      outcome: "Nenhuma chamada fica sem resposta, e mais chamadas se transformam em marcações.",
+      liveLabel: "Veja ao vivo",
+    },
   },
   {
     id: "missed-call-recovery",
@@ -67,6 +74,13 @@ export const AUTOMATIONS = [
       automate: "Nel momento in cui una chiamata viene persa, parte un SMS automatico che riapre la conversazione e propone di essere richiamati o un link per prenotare.",
       outcome: "Recuperi una quota significativa di chiamate perse che altrimenti se ne andrebbero.",
       liveLabel: "Guardala dal vivo",
+    },
+    pt: {
+      title: "Recuperação de chamadas perdidas",
+      problem: "Uma chamada perdida é normalmente um cliente perdido, que simplesmente liga para o negócio seguinte da lista.",
+      automate: "No momento em que uma chamada é perdida, parte um SMS automático que reabre a conversa e propõe um retorno de chamada ou um link para marcar.",
+      outcome: "Recupera uma parte significativa das chamadas perdidas que de outra forma se iriam embora.",
+      liveLabel: "Veja ao vivo",
     },
   },
   {
@@ -86,6 +100,13 @@ export const AUTOMATIONS = [
       outcome: "Ogni richiesta dai social diventa un contatto tracciato su cui il tuo team può agire.",
       liveLabel: "Guardala dal vivo",
     },
+    pt: {
+      title: "Comentários e DMs do Instagram e Facebook para o CRM",
+      problem: "Os contactos chegam aos comentários e DMs das suas redes sociais e ficam soterrados antes de alguém os conseguir qualificar e dar seguimento.",
+      automate: "Um agente IA responde a cada comentário e DM do Instagram e do Facebook, qualifica o contacto e escreve-o diretamente no seu CRM com todo o contexto.",
+      outcome: "Cada pedido vindo das redes sociais torna-se um contacto registado sobre o qual a sua equipa pode agir.",
+      liveLabel: "Veja ao vivo",
+    },
   },
   {
     id: "inquiry-response-247",
@@ -101,6 +122,12 @@ export const AUTOMATIONS = [
       problem: "Chi risponde per primo di solito conquista il cliente, ma le richieste arrivano a qualsiasi ora.",
       automate: "L'IA risponde all'istante alle richieste da form web, chat e WhatsApp, giorno e notte, e smista quelle qualificate alla persona giusta.",
       outcome: "Tempo di risposta al lead misurato in secondi anziché in ore.",
+    },
+    pt: {
+      title: "Resposta a pedidos 24/7",
+      problem: "Quem responde primeiro costuma ganhar o negócio, mas os pedidos chegam a qualquer hora.",
+      automate: "A IA responde no instante aos pedidos por formulário web, chat e WhatsApp, de dia ou de noite, e encaminha os qualificados para a pessoa certa.",
+      outcome: "Speed-to-lead medido em segundos, em vez de horas.",
     },
   },
   {
@@ -118,6 +145,12 @@ export const AUTOMATIONS = [
       automate: "L'IA valuta ogni contatto in base ai tuoi criteri, gli assegna un punteggio e smista in automatico quelli qualificati alla persona giusta del team.",
       outcome: "Il tempo delle vendite va ai contatti con più probabilità di chiudere.",
     },
+    pt: {
+      title: "Qualificação e encaminhamento de contactos",
+      problem: "A sua equipa gasta tempo em contactos não qualificados e demora com os bons.",
+      automate: "A IA avalia cada contacto face aos seus critérios, atribui-lhe uma pontuação e encaminha automaticamente os qualificados para a pessoa certa da equipa.",
+      outcome: "O tempo das vendas vai para os contactos com maior probabilidade de fechar.",
+    },
   },
   {
     id: "audio-to-crm",
@@ -133,6 +166,12 @@ export const AUTOMATIONS = [
       problem: "Gli appunti da chiamate e sopralluoghi restano nella tua testa o su foglietti e non arrivano mai nel sistema.",
       automate: "Registri una nota vocale al volo e l'IA la trascrive, la struttura e scrive l'aggiornamento direttamente nella scheda giusta del CRM.",
       outcome: "Il tuo CRM resta aggiornato senza che nessuno debba digitarlo.",
+    },
+    pt: {
+      title: "Notas de voz de áudio para o CRM",
+      problem: "As notas de chamadas e visitas ficam na sua cabeça ou em papelinhos e nunca chegam ao sistema.",
+      automate: "Grava uma nota de voz rápida e a IA transcreve-a, estrutura-a e escreve a atualização diretamente na ficha certa do CRM.",
+      outcome: "O seu CRM mantém-se atualizado sem ninguém ter de o digitar.",
     },
   },
 
@@ -152,6 +191,12 @@ export const AUTOMATIONS = [
       automate: "Un sistema IA genera e testa le creatività degli annunci su Meta e Google, e sposta il budget verso ciò che converte davvero.",
       outcome: "Una fetta maggiore di ogni euro speso va agli annunci che funzionano.",
     },
+    pt: {
+      title: "Agente IA para ads e criativos",
+      problem: "O investimento em publicidade escorre em criativos gastos e em campanhas que ninguém tem tempo de otimizar.",
+      automate: "Um sistema IA gera e testa criativos de anúncios no Meta e no Google, e desloca o orçamento para aquilo que está de facto a converter.",
+      outcome: "Uma fatia maior de cada euro gasto vai para os anúncios que funcionam.",
+    },
   },
   {
     id: "seo-geo-agent",
@@ -167,6 +212,12 @@ export const AUTOMATIONS = [
       problem: "Sei invisibile su Google e nelle nuove risposte dell'IA, dove ora cercano i clienti.",
       automate: "Un flusso di contenuti basato su IA ricerca, scrive e pubblica pagine pensate per posizionarsi su Google ed essere citate nelle ricerche IA.",
       outcome: "Visibilità organica costante senza un team di contenuti a tempo pieno.",
+    },
+    pt: {
+      title: "Agente de visibilidade SEO e GEO",
+      problem: "Está invisível no Google e nas novas respostas de IA, onde os clientes agora procuram.",
+      automate: "Um fluxo de conteúdos com IA pesquisa, redige e publica páginas pensadas para posicionar no Google e para serem citadas na pesquisa por IA.",
+      outcome: "Visibilidade orgânica constante sem uma equipa de conteúdos a tempo inteiro.",
     },
   },
   {
@@ -184,6 +235,12 @@ export const AUTOMATIONS = [
       automate: "L'IA chiede le recensioni al momento giusto, ti gira in privato i feedback negativi e prepara le risposte alle recensioni pubbliche.",
       outcome: "Un flusso di recensioni positive più forte e costante.",
     },
+    pt: {
+      title: "Motor de avaliações e reputação",
+      problem: "Os clientes satisfeitos raramente deixam avaliações, e a negativa ocasional fica sem resposta.",
+      automate: "A IA pede avaliações no momento certo, encaminha-lhe em privado os feedbacks negativos e prepara as respostas às avaliações públicas.",
+      outcome: "Um fluxo de avaliações positivas mais forte e constante.",
+    },
   },
   {
     id: "content-social-workflow",
@@ -200,6 +257,12 @@ export const AUTOMATIONS = [
       automate: "L'IA trasforma ogni materiale di partenza in una serie di post in linea con il brand, programmati sui tuoi canali con una cadenza prestabilita.",
       outcome: "Una presenza costante che va avanti da sola.",
     },
+    pt: {
+      title: "Fluxo de conteúdos e redes sociais",
+      problem: "Publicar com regularidade cai por terra no momento em que as coisas ficam agitadas.",
+      automate: "A IA transforma cada material de origem num conjunto de publicações alinhadas com a marca, agendadas nos seus canais com uma cadência definida.",
+      outcome: "Uma presença constante que continua a funcionar sozinha.",
+    },
   },
   {
     id: "reactivation-campaigns",
@@ -215,6 +278,12 @@ export const AUTOMATIONS = [
       problem: "La tua lista di ex clienti è una miniera d'oro lasciata intatta.",
       automate: "L'IA segmenta i tuoi contatti esistenti e lancia sequenze personalizzate via SMS ed email per riconquistarli e farli tornare.",
       outcome: "Nuovo fatturato da clienti che avevi già.",
+    },
+    pt: {
+      title: "Campanhas de reativação da base de dados",
+      problem: "A sua lista de antigos clientes é uma mina de ouro por explorar.",
+      automate: "A IA segmenta os seus contactos existentes e lança sequências personalizadas por SMS e email para os reconquistar e trazer de volta.",
+      outcome: "Nova faturação de clientes que já tinha.",
     },
   },
 
@@ -236,6 +305,13 @@ export const AUTOMATIONS = [
       outcome: "La conoscenza aziendale diventa subito reperibile, invece di andare persa.",
       liveLabel: "Guardala dal vivo",
     },
+    pt: {
+      title: "Company Brain (RAG sobre os seus documentos)",
+      problem: "A resposta a qualquer pergunta está soterrada numa pasta, numa caixa de email ou na memória de uma só pessoa.",
+      automate: "Construímos um cérebro privado e pesquisável sobre os seus documentos: a sua equipa faz uma pergunta em linguagem natural e obtém uma resposta com as fontes.",
+      outcome: "O conhecimento da empresa fica logo localizável, em vez de se perder.",
+      liveLabel: "Veja ao vivo",
+    },
   },
   {
     id: "scan-to-brain-ocr",
@@ -251,6 +327,12 @@ export const AUTOMATIONS = [
       problem: "Moduli cartacei, contratti e PDF si accumulano come dati in cui nessuno può cercare.",
       automate: "L'IA legge i documenti scansionati con OCR e visione artificiale, estrae i campi chiave e li archivia come dati strutturati e ricercabili.",
       outcome: "Le scartoffie diventano dati che puoi davvero interrogare.",
+    },
+    pt: {
+      title: "OCR de digitalização para o Brain",
+      problem: "Formulários em papel, contratos e PDFs acumulam-se como dados em que ninguém consegue pesquisar.",
+      automate: "A IA lê os documentos digitalizados com OCR e visão, extrai os campos chave e arquiva-os como dados estruturados e pesquisáveis.",
+      outcome: "A papelada torna-se dados que pode de facto consultar.",
     },
   },
   {
@@ -268,6 +350,12 @@ export const AUTOMATIONS = [
       automate: "L'IA legge ogni documento in arrivo, lo classifica, lo rinomina e lo instrada nel posto giusto, con la scheda corretta collegata.",
       outcome: "Ore di archiviazione manuale tolte dalla settimana.",
     },
+    pt: {
+      title: "Entrada e triagem automática de documentos",
+      problem: "Os documentos e anexos que chegam precisam de alguém que os abra, nomeie e arquive um a um.",
+      automate: "A IA lê cada documento que chega, classifica-o, renomeia-o e encaminha-o para o sítio certo, com a ficha correta associada.",
+      outcome: "Horas de arquivo manual retiradas da semana.",
+    },
   },
   {
     id: "property-matching",
@@ -283,6 +371,12 @@ export const AUTOMATIONS = [
       problem: "Abbinare a mano le nuove richieste degli acquirenti ai tuoi annunci è lento e facile da sbagliare.",
       automate: "L'IA confronta i criteri di ogni acquirente con il tuo portafoglio aggiornato e fa emergere gli annunci più adatti nel momento in cui vengono inseriti.",
       outcome: "L'immobile giusto arriva per primo all'acquirente giusto.",
+    },
+    pt: {
+      title: "Correspondência de imóveis para imobiliárias",
+      problem: "Cruzar à mão os novos pedidos dos compradores com os seus anúncios é lento e fácil de falhar.",
+      automate: "A IA compara os critérios de cada comprador com o seu portefólio atualizado e faz surgir os anúncios mais adequados no momento em que são adicionados.",
+      outcome: "O imóvel certo chega primeiro ao comprador certo.",
     },
   },
   {
@@ -300,17 +394,25 @@ export const AUTOMATIONS = [
       automate: "L'IA gestisce i flussi di routine del back office: prepara le fatture, invia i promemoria e aggiorna le schede sui tuoi strumenti.",
       outcome: "L'amministrazione va avanti da sola, così il tuo team lavora sulle cose che contano davvero.",
     },
+    pt: {
+      title: "Automação das operações de back office",
+      problem: "Faturação, lembretes e atualizações de estado consomem o dia em pequenas tarefas repetitivas.",
+      automate: "A IA trata dos fluxos de rotina do back office: prepara faturas, envia lembretes e atualiza fichas nas suas ferramentas.",
+      outcome: "A administração corre sozinha, para que a sua equipa trabalhe no que importa de facto.",
+    },
   },
 ];
 
-// Locale-aware accessor. For "it" it swaps in the Italian labels/pillars and
-// spreads each automation's `it` fields over its English base. Any other locale
-// returns the English data untouched.
+// Locale-aware accessor. For "it"/"pt" it swaps in the localized labels/pillars
+// and spreads each automation's locale fields over its English base. Any other
+// locale returns the English data untouched.
 export function getAutomationsData(locale) {
-  if (locale !== "it") return { NICHES, GOALS, GOAL_BY_ID, AUTOMATIONS };
-  const niches = NICHES.map((n) => ({ ...n, label: n.label_it }));
-  const goals = GOALS.map((g) => ({ ...g, label: g.label_it, pillar: g.pillar_it }));
+  if (locale !== "it" && locale !== "pt") return { NICHES, GOALS, GOAL_BY_ID, AUTOMATIONS };
+  const labelKey = `label_${locale}`;
+  const pillarKey = `pillar_${locale}`;
+  const niches = NICHES.map((n) => ({ ...n, label: n[labelKey] }));
+  const goals = GOALS.map((g) => ({ ...g, label: g[labelKey], pillar: g[pillarKey] }));
   const goalById = goals.reduce((acc, g) => { acc[g.id] = g; return acc; }, {});
-  const automations = AUTOMATIONS.map((a) => ({ ...a, ...a.it }));
+  const automations = AUTOMATIONS.map((a) => ({ ...a, ...a[locale] }));
   return { NICHES: niches, GOALS: goals, GOAL_BY_ID: goalById, AUTOMATIONS: automations };
 }

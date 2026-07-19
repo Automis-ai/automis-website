@@ -27,6 +27,7 @@ export const metadata = {
     languages: {
       en: "https://automis.ai/voice-ai",
       "it-IT": "https://automis.ai/it/voice-ai",
+      "pt-PT": "https://automis.ai/pt/voice-ai",
       "x-default": "https://automis.ai/voice-ai",
     },
   },

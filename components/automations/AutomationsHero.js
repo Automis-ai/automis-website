@@ -20,10 +20,22 @@ const COPY = {
       "Un catalogo concreto di sistemi IA che mettiamo in produzione, dalle receptionist vocali al tuo Company Brain. Filtra per settore e obiettivo e scopri cosa fa al caso tuo.",
     cta: "Esplora il catalogo",
   },
+  pt: {
+    eyebrow: "O catálogo",
+    headlinePre: "As automações ",
+    headlineAccent: "que construímos",
+    subhead:
+      "Um catálogo concreto de sistemas de IA que colocamos em produção, desde assistentes de voz até ao seu próprio Company Brain. Filtre pelo seu setor e pelo seu objetivo para ver o que lhe serve.",
+    cta: "Explore o catálogo",
+  },
 };
 
 export default function AutomationsHero() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt")
+    ? "pt"
+    : usePathname()?.startsWith("/it")
+    ? "it"
+    : "en";
   const t = COPY[locale];
   return (
     <section id="automations-hero" className="relative overflow-hidden bg-deep-blue">

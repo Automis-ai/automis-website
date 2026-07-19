@@ -77,13 +77,51 @@ const COPY = {
     ctaText: "Non sai quale automazione fa per te, o vuoi qualcosa che non è nella lista? La call conoscitiva serve esattamente a questo. La costruiamo attorno al tuo business, gratis.",
     ctaButton: "Prenota una call",
   },
+  pt: {
+    eyebrow: "Exemplos, não um menu fixo",
+    titlePre: "Cada cartão acima é um ",
+    titleGradient: "ponto de partida",
+    titlePost: "",
+    lead: "O catálogo mostra o tipo de automações que construímos. Não aplicamos um template ao seu negócio. Pegamos no exemplo mais próximo, e depois desenhamos e construímos um sistema à medida em torno dos seus processos, ferramentas e objetivos específicos.",
+    steps: [
+      {
+        step: "Fase 1",
+        title: "Descoberta e diagnóstico",
+        body: "Percebemos como o seu negócio funciona de facto antes de tocar numa única ferramenta. Na chamada de descoberta e na auditoria mapeamos onde perde tempo, chamadas e faturação, e depois decidimos qual a automação que vale a pena construir primeiro.",
+        points: ["Chamada de descoberta + auditoria de processos", "Encontrar o verdadeiro ponto crítico, não o óbvio"],
+        meta: "Sai a saber qual é a sua automação com o ROI mais alto",
+      },
+      {
+        step: "Fase 2",
+        title: "Desenho, construção e lançamento",
+        body: "Pegamos no exemplo mais próximo do catálogo e reconstruímo-lo em torno das suas ferramentas, dos seus scripts e do seu CRM. Você testa-o antes de entrar em funcionamento. Nada é lançado até funcionar tal como a sua equipa trabalha de facto.",
+        points: ["Construída sobre o seu stack, não sobre um template", "Você aprova-a antes de entrar em funcionamento"],
+        meta: "~7 dias para projetos simples · à medida para os complexos",
+      },
+      {
+        step: "Fase 3",
+        title: "Lançamento, monitorização e otimização",
+        body: "Não desaparecemos depois do arranque. Acompanhamos o desempenho da automação, mantemos uma pessoa no processo e afinamo-la todos os meses, para que fique mais afinada à medida que o seu negócio cresce, em vez de estagnar.",
+        points: ["Supervisão humana em cada automação", "Otimização mensal à medida que o seu negócio muda"],
+        meta: "Contínua, com uma pessoa sempre no processo",
+      },
+    ],
+    ctaText: "Não sabe qual a automação certa para si, ou quer algo que não está na lista? É exatamente para isso que serve a chamada de descoberta. Definimo-la em torno do seu negócio, de forma gratuita.",
+    ctaButton: "Agende uma chamada",
+  },
 };
 
 export default function CustomAutomations() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt")
+    ? "pt"
+    : usePathname()?.startsWith("/it")
+    ? "it"
+    : "en";
   const t = COPY[locale];
   const booking = locale === "it"
     ? "https://api.leadconnectorhq.com/widget/bookings/automis-it"
+    : locale === "pt"
+    ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis"
     : BOOKING;
 
   return (

@@ -64,10 +64,38 @@ const COPY = {
     send: "Invia",
     footer: "Rispondiamo entro 24 ore. Niente spam, mai.",
   },
+  pt: {
+    successTitle: "Mensagem enviada",
+    successBody: "Obrigado. Entramos em contacto consigo dentro de 24 horas.",
+    error:
+      "Não foi possível enviar a mensagem. Tente novamente ou escreva-nos para info@automis.ai.",
+    nameLabel: "Nome completo",
+    namePlaceholder: "João Silva",
+    emailLabel: "Email",
+    emailPlaceholder: "joao@empresa.com",
+    phoneLabel: "Telefone",
+    optional: "(opcional)",
+    phonePlaceholder: "+351 912 345 678",
+    companyLabel: "Empresa",
+    companyPlaceholder: "A sua empresa",
+    subjectLabel: "Assunto",
+    subjectPlaceholder: "Como podemos ajudar?",
+    messageLabel: "Mensagem",
+    messagePlaceholder:
+      "Fale-nos do seu negócio e do problema que quer resolver...",
+    sending: "A enviar...",
+    send: "Enviar mensagem",
+    footer: "Respondemos dentro de 24 horas. Sem spam, nunca.",
+  },
 };
 
 export default function ContactForm() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const pathname = usePathname();
+  const locale = pathname?.startsWith("/pt")
+    ? "pt"
+    : pathname?.startsWith("/it")
+      ? "it"
+      : "en";
   const t = COPY[locale];
 
   const [formData, setFormData] = useState({

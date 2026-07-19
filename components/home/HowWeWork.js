@@ -55,12 +55,37 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "Como trabalhamos",
+    title: "Um integrador estratégico, não um fornecedor",
+    lead: "Diagnosticamos o ponto crítico antes de construir. A infraestrutura que entregamos é sua: é o seu sistema, não uma subscrição à qual fica preso às cegas.",
+    steps: [
+      {
+        step: "Passo 1",
+        title: "Descobrir & Diagnosticar",
+        body: "Conhecemos o seu negócio antes de tocar numa única ferramenta. Mapeamos exatamente onde perde tempo e dinheiro, depois decidimos o que vale a pena automatizar primeiro.",
+        meta: "Chamada de descoberta + auditoria",
+      },
+      {
+        step: "Passo 2",
+        title: "Desenhar, Construir & Ativar",
+        body: "Construímos o seu sistema e testa-o antes de entrar em produção. Nada arranca até funcionar como o seu negócio realmente funciona.",
+        meta: "~7 dias para Voice e sistemas simples · à medida para os complexos",
+      },
+      {
+        step: "Passo 3",
+        title: "Lançar, Monitorizar & Otimizar",
+        body: "Não desaparecemos depois do arranque. Melhoria mensal contínua com supervisão humana, para que o seu sistema fique mais afinado todos os meses, em vez de estagnar.",
+        meta: "Contínuo, com human-in-the-loop",
+      },
+    ],
+  },
 };
 
 const STEP_ICONS = [Search, Wrench, LineChart];
 
 export default function HowWeWork() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   return (
     <Section id="how" className="bg-deep-blue">

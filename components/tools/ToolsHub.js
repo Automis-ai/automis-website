@@ -5,9 +5,13 @@ import Link from "next/link";
 import { PATHNAMES, hrefFor } from "@/utility/pathnames";
 import { TOOLS, TOOLS_ORDER, toolPath, toolUrl, HUB, hubUrl, SITE } from "@/utility/toolsData";
 
+const TOOLS_LABEL = { en: "Tools", it: "Strumenti", pt: "Ferramentas" };
+const homeItem = (locale) =>
+  locale === "it" ? `${SITE}/it` : locale === "pt" ? `${SITE}/pt` : SITE;
+
 export default function ToolsHub({ locale }) {
   const h = HUB[locale];
-  const isIt = locale === "it";
+  const toolsLabel = TOOLS_LABEL[locale] || TOOLS_LABEL.en;
 
   const itemList = {
     "@context": "https://schema.org",
@@ -23,8 +27,8 @@ export default function ToolsHub({ locale }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: isIt ? `${SITE}/it` : SITE },
-      { "@type": "ListItem", position: 2, name: isIt ? "Strumenti" : "Tools", item: hubUrl(locale) },
+      { "@type": "ListItem", position: 1, name: "Home", item: homeItem(locale) },
+      { "@type": "ListItem", position: 2, name: toolsLabel, item: hubUrl(locale) },
     ],
   };
 
@@ -39,7 +43,7 @@ export default function ToolsHub({ locale }) {
           <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/50">
             <Link href={hrefFor(PATHNAMES.home, locale)} className="hover:text-white">Home</Link>
             <span className="mx-2">/</span>
-            <span className="text-white/70">{isIt ? "Strumenti" : "Tools"}</span>
+            <span className="text-white/70">{toolsLabel}</span>
           </nav>
 
           <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">{h.h1}</h1>

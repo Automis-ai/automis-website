@@ -51,14 +51,37 @@ const COPY = {
     gdpr: "Conforme al GDPR",
     noObligation: "Senza impegno",
   },
+  pt: {
+    eyebrow: "Ponha-o a trabalhar",
+    headingPre: "Ponha o seu agente de voz IA ",
+    headingGrad: "a atender, qualificar e marcar 24/7",
+    headingPost: ".",
+    paragraph:
+      "Agende uma chamada e configuramos um agente de voz que atende cada chamada, qualifica o contacto e marca-o diretamente na sua agenda, de dia, de noite e ao fim de semana. Sem chamadas perdidas, sem receita perdida.",
+    bullets: [
+      "Uma chamada de 30 minutos: ouça o seu agente de voz IA ao vivo",
+      "Analisamos as suas chamadas, os horários e onde perde marcações",
+      "Sai com um plano para um agente de voz que atende 24/7",
+    ],
+    cta: "Agende uma chamada",
+    calHeader: "Disponibilidade em tempo real · chamada de 30 min",
+    calConfirm: "Confirmação imediata",
+    calLoading: "A carregar a agenda…",
+    iframeTitle: "Agende uma chamada com a Automis",
+    guarantee: "Garantia de resultados de 30 dias",
+    gdpr: "Conforme ao RGPD",
+    noObligation: "Sem compromisso",
+  },
 };
 
 export default function VoiceBooking() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   const booking =
     locale === "it"
       ? "https://api.leadconnectorhq.com/widget/bookings/automis-it"
+      : locale === "pt"
+      ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis"
       : BOOKING;
 
   const holderRef = useRef(null);
