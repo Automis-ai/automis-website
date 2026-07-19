@@ -130,7 +130,7 @@ useEffect(() => {
       contact: pick("Contact", "Contatti", "Contactos"),
     };
 
-    return [
+    const items = [
       { id: 1, key: "home", title: t.home, href: hrefFor(PATHNAMES.home, locale) },
 
       {
@@ -150,6 +150,10 @@ useEffect(() => {
       { id: 8, key: "about", title: t.about, href: hrefFor(PATHNAMES.pages.about, locale) },
       { id: 7, key: "contact", title: t.contact, href: hrefFor(PATHNAMES.pages.contact, locale) },
     ];
+
+    // The Portuguese blog isn't built yet (deferred to the SEO content sprint),
+    // so /pt/blog would 404. Hide the Blog nav item on PT until it exists.
+    return locale === "pt" ? items.filter((m) => m.key !== "blog") : items;
   }, [locale]);
 
   // Logo-only header (quando hideHeaderNav = true)
