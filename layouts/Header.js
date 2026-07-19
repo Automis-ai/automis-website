@@ -36,6 +36,15 @@ useEffect(() => {
   const saved = typeof window !== "undefined" ? localStorage.getItem("automis_locale") : null;
   if (saved) return;
 
+  // If already on a locale-prefixed page (/it, /pt), respect it and do NOT
+  // auto-redirect: a shared /pt link (or the language toggle, which pushes /pt)
+  // must stay on /pt. Without this, an Italian/English browser rewrites /pt to
+  // /it/pt (normalized only strips /it) -> 404. Persist the explicit choice.
+  if (locale !== "en") {
+    if (typeof window !== "undefined") localStorage.setItem("automis_locale", locale);
+    return;
+  }
+
   // Detect browser language
   const browserLang =
     typeof navigator !== "undefined" ? (navigator.language || "").toLowerCase() : "";
