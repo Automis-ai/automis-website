@@ -50,6 +50,25 @@ const COPY = {
     automationRunning: "Automazione al lavoro",
     zeroStaff: "Zero lavoro per il team · attivo 24/7",
   },
+  pt: {
+    chat: [
+      { from: "bot", text: "Olá! Sou a Automis da Clínica Santa Maria. Quer marcar um check-up?" },
+      { from: "user", text: "Sim, é possível na quinta de manhã?" },
+      { from: "bot", text: "Quinta às 9:30 está livre. Marcado, vai receber um SMS de confirmação. 👋" },
+    ],
+    steps: [
+      { label: "Chamada atendida e qualificada", meta: "0s" },
+      { label: "Marcação feita no calendário", meta: "4s" },
+      { label: "Confirmação por SMS + WhatsApp", meta: "6s" },
+      { label: "Contacto guardado no CRM + follow-up pronto", meta: "8s" },
+    ],
+    incomingCall: "Chamada a entrar",
+    callerMeta: "+351 · novo paciente",
+    aiAnswering: "A IA a atender",
+    bookedBanner: "Marcação feita · sincronizada no calendário · CRM atualizado",
+    automationRunning: "Automação a trabalhar",
+    zeroStaff: "Zero tempo da equipa · ativo 24/7",
+  },
 };
 
 // Icons stay paired to the automation rows by index; labels/meta come from COPY.
@@ -66,7 +85,7 @@ const VISIBLE_AT = { 0: 0, 1: 0, 2: 1, 3: 1, 4: 2, 5: 2, 6: 3, 7: 3, 8: 3 };
 const TYPING_AT = { 1: "bot", 3: "user", 5: "bot" };
 
 export default function HeroDemo() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   const [step, setStep] = useState(0);
   const rootRef = useRef(null);

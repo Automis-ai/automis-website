@@ -11,6 +11,10 @@ const COPY = {
     eyebrow: "Si integra con gli strumenti che usi già",
     tagline: "Se ha un'API, la colleghiamo.",
   },
+  pt: {
+    eyebrow: "Liga-se às ferramentas que já utiliza",
+    tagline: "Se tiver uma API, ligamo-nos a ela.",
+  },
 };
 
 function Mark({ item }) {
@@ -37,7 +41,7 @@ function GHLMark() {
 }
 
 export default function ToolsStrip() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   const items = [
     ...TOOL_ICONS.slice(0, 4).map((it) => <Mark key={it.name} item={it} />),

@@ -60,10 +60,37 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "Como funciona",
+    title: "Do toque à consulta marcada, em piloto automático.",
+    lead: "Um único fluxo ligado que trata cada chamada da mesma forma, sempre.",
+    steps: [
+      {
+        title: "Atende cada chamada",
+        body: "Atende ao primeiro toque, 24/7, com uma voz natural. Sem música de espera, sem atendedor, sem chamadas perdidas.",
+      },
+      {
+        title: "Qualifica o contacto",
+        body: "Faz as suas perguntas, percebe o pedido e recolhe os dados que importam antes de marcar.",
+      },
+      {
+        title: "Marca a consulta",
+        body: "Verifica a disponibilidade em tempo real e marca diretamente na sua agenda, com confirmação para quem liga.",
+      },
+      {
+        title: "Sincroniza com o seu CRM",
+        body: "Contacto, resultado e notas seguem direto para o seu CRM, sem nada para reescrever e sem nada que se perca.",
+      },
+      {
+        title: "Recupera chamadas perdidas",
+        body: "Se alguma chamada escapar, liga de volta ao número automaticamente para conquistar a marcação na mesma.",
+      },
+    ],
+  },
 };
 
 export default function HowItWorks() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   return (
     <Section id="voice-how" className="bg-[#000a14]">

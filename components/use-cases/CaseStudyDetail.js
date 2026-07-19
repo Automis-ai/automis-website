@@ -33,6 +33,17 @@ const COPY = {
     ctaLine: "Vuoi un sistema come questo per il tuo business?",
     ctaButton: "Prenota una call",
   },
+  pt: {
+    back: "Voltar aos casos de estudo",
+    labelClient: "Cliente",
+    labelIndustry: "Setor",
+    labelLocation: "Localização",
+    challenge: "O desafio",
+    solution: "O que construímos",
+    results: "Resultados",
+    ctaLine: "Quer um sistema como este construído para o seu negócio?",
+    ctaButton: "Agende uma chamada",
+  },
 };
 
 export default function CaseStudyDetail({ slug, locale = "en" }) {
@@ -43,6 +54,8 @@ export default function CaseStudyDetail({ slug, locale = "en" }) {
   const booking =
     locale === "it"
       ? "https://api.leadconnectorhq.com/widget/bookings/automis-it"
+      : locale === "pt"
+      ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis"
       : "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
   return (
@@ -58,7 +71,7 @@ export default function CaseStudyDetail({ slug, locale = "en" }) {
         <div className="relative z-10">
           <Reveal>
             <Link
-              href={locale === "it" ? "/it/use-cases" : "/use-cases"}
+              href={locale === "it" ? "/it/use-cases" : locale === "pt" ? "/pt/use-cases" : "/use-cases"}
               className="inline-flex items-center gap-2 text-[13px] font-medium text-white/60 transition-colors hover:text-[#8fe0f0]"
             >
               <ArrowLeft className="h-4 w-4" strokeWidth={2} />

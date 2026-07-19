@@ -29,28 +29,36 @@ const STORAGE_KEY = "automis_locale";
 const LANGS = [
   { code: "en", label: "EN", flag: "🇬🇧" },
   { code: "it", label: "IT", flag: "🇮🇹" },
+  { code: "pt", label: "PT", flag: "🇵🇹" },
 ];
+
+// Prefixed locales (English is the un-prefixed root). Keep this list in sync with LANGS.
+const PREFIXED = ["it", "pt"];
 
 /** Helpers */
 function getActiveLangFromPath(pathname) {
-  // If path starts with /it or is exactly /it => Italian, else English
-  if (pathname === "/it" || pathname.startsWith("/it/")) return "it";
+  // If path starts with a locale prefix (/it, /pt) => that language, else English
+  for (const code of PREFIXED) {
+    if (pathname === `/${code}` || pathname.startsWith(`/${code}/`)) return code;
+  }
   return "en";
 }
 
 function stripLangPrefix(pathname) {
-  // Convert /it/voice-ai -> /voice-ai, /it -> /
-  if (pathname === "/it") return "/";
-  if (pathname.startsWith("/it/")) return pathname.replace("/it", "");
+  // Convert /it/voice-ai -> /voice-ai, /pt -> /, etc.
+  for (const code of PREFIXED) {
+    if (pathname === `/${code}`) return "/";
+    if (pathname.startsWith(`/${code}/`)) return pathname.replace(`/${code}`, "");
+  }
   return pathname;
 }
 
 function addLangPrefix(pathnameNoLang, targetLang) {
-  // Convert /voice-ai -> /it/voice-ai (for it), or keep /voice-ai (for en)
-  // Ensure root stays clean: "/" -> "/it" (for it)
-  if (targetLang === "it") {
-    if (pathnameNoLang === "/") return "/it";
-    return `/it${pathnameNoLang}`;
+  // Convert /voice-ai -> /it/voice-ai or /pt/voice-ai; keep clean for EN.
+  // Ensure root stays clean: "/" -> "/it" | "/pt"
+  if (PREFIXED.includes(targetLang)) {
+    if (pathnameNoLang === "/") return `/${targetLang}`;
+    return `/${targetLang}${pathnameNoLang}`;
   }
   // EN
   return pathnameNoLang;
@@ -142,10 +150,14 @@ export default function LanguageSwitcher({
 
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored === "en" || stored === "it") return; // user already chose
+      if (stored === "en" || stored === "it" || stored === "pt") return; // user already chose
 
       const browserLang = (navigator.language || "").toLowerCase();
-      const preferred = browserLang.startsWith("it") ? "it" : "en";
+      const preferred = browserLang.startsWith("it")
+        ? "it"
+        : browserLang.startsWith("pt")
+        ? "pt"
+        : "en";
 
       if (persist) localStorage.setItem(STORAGE_KEY, preferred);
 

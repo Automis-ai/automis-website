@@ -19,7 +19,15 @@ export const metadata = {
     "AI opportunity assessment",
     "automation strategy call",
   ],
-  alternates: { canonical: "https://automis.ai/jumpstart-audit" },
+  alternates: {
+    canonical: "https://automis.ai/jumpstart-audit",
+    languages: {
+      en: "https://automis.ai/jumpstart-audit",
+      "it-IT": "https://automis.ai/it/jumpstart-audit",
+      "pt-PT": "https://automis.ai/pt/jumpstart-audit",
+      "x-default": "https://automis.ai/jumpstart-audit",
+    },
+  },
   openGraph: {
     title: "Jumpstart Marketing & AI Audit | Automis",
     description:

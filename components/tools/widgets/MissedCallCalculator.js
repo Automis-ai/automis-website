@@ -8,15 +8,17 @@ const inputClass =
   "w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-white outline-none focus:border-blue-middle";
 const BUSINESS_DAYS = 22;
 
+const NF_LOCALE = { it: "it-IT", pt: "pt-PT", en: "en-IE" };
+
 export default function MissedCallCalculator({ locale }) {
-  const isIt = locale === "it";
   const [callsPerDay, setCallsPerDay] = useState("20");
   const [missedPct, setMissedPct] = useState("30");
   const [avgValue, setAvgValue] = useState("200");
   const [closeRate, setCloseRate] = useState("40");
 
-  const nfEuro = new Intl.NumberFormat(isIt ? "it-IT" : "en-IE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
-  const nfNum = new Intl.NumberFormat(isIt ? "it-IT" : "en-IE", { maximumFractionDigits: 0 });
+  const nfLocale = NF_LOCALE[locale] || NF_LOCALE.en;
+  const nfEuro = new Intl.NumberFormat(nfLocale, { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+  const nfNum = new Intl.NumberFormat(nfLocale, { maximumFractionDigits: 0 });
   const num = (v) => {
     const n = parseFloat(v);
     return isNaN(n) || n < 0 ? 0 : n;
@@ -28,27 +30,39 @@ export default function MissedCallCalculator({ locale }) {
     return { missedPerMonth: mpm, lostPerMonth: lpm, lostPerYear: lpm * 12 };
   }, [callsPerDay, missedPct, avgValue, closeRate]);
 
-  const t = isIt
-    ? {
-        calls: "Chiamate che ricevi al giorno",
-        missed: "Percentuale che perdi (%)",
-        value: "Valore medio di un cliente (€)",
-        close: "Delle chiamate a cui rispondi, quante diventano clienti (%)",
-        lostMonth: "Fatturato perso stimato al mese",
-        missedMonth: "Chiamate perse al mese",
-        perYear: "All'anno",
-        note: "L'assistente vocale IA di Automis risponde 24 ore su 24 e puo' recuperarne gran parte.",
-      }
-    : {
-        calls: "Calls your business receives per day",
-        missed: "Percentage you miss (%)",
-        value: "Average value of a customer (€)",
-        close: "Of answered calls, how many become customers (%)",
-        lostMonth: "Estimated lost revenue per month",
-        missedMonth: "Missed calls per month",
-        perYear: "Per year",
-        note: "Automis VoiceAI answers 24/7 and can recover most of this.",
-      };
+  const strings = {
+    it: {
+      calls: "Chiamate che ricevi al giorno",
+      missed: "Percentuale che perdi (%)",
+      value: "Valore medio di un cliente (€)",
+      close: "Delle chiamate a cui rispondi, quante diventano clienti (%)",
+      lostMonth: "Fatturato perso stimato al mese",
+      missedMonth: "Chiamate perse al mese",
+      perYear: "All'anno",
+      note: "L'assistente vocale IA di Automis risponde 24 ore su 24 e puo' recuperarne gran parte.",
+    },
+    pt: {
+      calls: "Chamadas que o seu negócio recebe por dia",
+      missed: "Percentagem que perde (%)",
+      value: "Valor médio de um cliente (€)",
+      close: "Das chamadas que atende, quantas se tornam clientes (%)",
+      lostMonth: "Faturação perdida estimada por mês",
+      missedMonth: "Chamadas perdidas por mês",
+      perYear: "Por ano",
+      note: "O assistente de voz da Automis atende 24 horas por dia e pode recuperar grande parte desta.",
+    },
+    en: {
+      calls: "Calls your business receives per day",
+      missed: "Percentage you miss (%)",
+      value: "Average value of a customer (€)",
+      close: "Of answered calls, how many become customers (%)",
+      lostMonth: "Estimated lost revenue per month",
+      missedMonth: "Missed calls per month",
+      perYear: "Per year",
+      note: "Automis VoiceAI answers 24/7 and can recover most of this.",
+    },
+  };
+  const t = strings[locale] || strings.en;
 
   const summary = `${t.missedMonth}: ${nfNum.format(Math.round(missedPerMonth))}. ${t.lostMonth}: ${nfEuro.format(Math.round(lostPerMonth))}. ${t.perYear}: ${nfEuro.format(Math.round(lostPerYear))}.`;
 

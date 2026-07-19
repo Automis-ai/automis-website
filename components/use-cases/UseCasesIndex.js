@@ -25,6 +25,14 @@ const COPY = {
     disclaimer:
       "Le metriche di queste pagine sono stime prudenti basate sulle nostre implementazioni. I tuoi risultati dipendono da volume, mercato e configurazione.",
   },
+  pt: {
+    eyebrow: "Provas, não promessas",
+    title: <>Clientes reais. Sistemas de IA reais. Já a funcionar.</>,
+    lead: "Somos uma equipa de dois fundadores que constrói, antes de mais, para os negócios dos nossos próprios mercados, Portugal e Itália. Aqui está o que já colocámos no terreno e o que faz por eles todos os dias.",
+    readCase: "Ler o caso de estudo",
+    disclaimer:
+      "As métricas destas páginas são estimativas prudentes baseadas nas nossas implementações. Os seus resultados dependem do volume, do mercado e da configuração.",
+  },
 };
 
 export default function UseCasesIndex({ locale = "en" }) {
@@ -56,7 +64,7 @@ export default function UseCasesIndex({ locale = "en" }) {
           {cases.map((c, i) => (
             <Reveal key={c.slug} delay={i * 120}>
               <Link
-                href={`${locale === "it" ? "/it" : ""}/use-cases/${c.slug}`}
+                href={`${locale === "it" ? "/it" : locale === "pt" ? "/pt" : ""}/use-cases/${c.slug}`}
                 className="card-glow group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 backdrop-blur-sm transition-transform hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between">

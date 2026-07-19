@@ -22,6 +22,7 @@ export const metadata = {
     languages: {
       en: "https://automis.ai/ai-automations",
       "it-IT": "https://automis.ai/it/ai-automations",
+      "pt-PT": "https://automis.ai/pt/ai-automations",
       "x-default": "https://automis.ai/ai-automations",
     },
   },

@@ -67,6 +67,37 @@ const COPY = {
     disclaimer:
       "I dati sono stime tipiche e prudenti basate sui nostri progetti. I tuoi risultati dipendono dal volume di chiamate, dal mercato e dalla configurazione.",
   },
+  pt: {
+    cases: [
+      {
+        client: "Clínica Santa Maria dos Olivais",
+        meta: "Clínica dentária · Lisboa, PT",
+        tag: "Rececionista de voz IA",
+        result:
+          "Uma rececionista IA que atende as chamadas a toda a hora, marca check-ups e recupera as chamadas fora de horas que antes iam para o voicemail.",
+        quote: "Os pacientes são atendidos de imediato, de dia ou de noite, sem perder nenhuma marcação.",
+      },
+      {
+        client: "Adifesa",
+        meta: "Finanças · cessione del quinto · IT",
+        tag: "Automação Meta",
+        result:
+          "Cada comentário e DM no Meta respondido e qualificado automaticamente, alimentando um fluxo constante e organizado de contactos para a equipa de vendas, em vez de uma caixa de entrada caótica.",
+        quote: "Os contactos são captados e qualificados antes de alguém mexer um dedo.",
+      },
+    ],
+    stats: [
+      { value: "30-50%", label: "das chamadas perdidas tipicamente recuperadas" },
+      { value: "<30s", label: "resposta média a um novo contacto" },
+      { value: "24/7", label: "cobertura em noites, fins de semana e feriados" },
+      { value: "~7 dias", label: "para ativar Voice e sistemas simples" },
+    ],
+    eyebrow: "Provas, não promessas",
+    title: <>Negócios reais. Sistemas reais. Já a funcionar.</>,
+    lead: "Somos uma equipa liderada pelos founders a construir para negócios reais. Os sistemas abaixo estão ativos neste momento.",
+    disclaimer:
+      "Os valores são estimativas típicas e conservadoras baseadas nas nossas implementações. Os seus resultados dependem do volume de chamadas, do mercado e da configuração.",
+  },
 };
 
 const CASE_ICONS = [Stethoscope, Landmark];
@@ -94,7 +125,7 @@ function ClientMark({ logo, Icon, name }) {
 }
 
 export default function Proof() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   const CASES = t.cases.map((c, i) => ({ ...c, icon: CASE_ICONS[i], logo: CASE_LOGOS[i] }));
   const STATS = t.stats;

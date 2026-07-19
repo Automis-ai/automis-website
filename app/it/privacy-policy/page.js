@@ -1,14 +1,19 @@
-"use client";
-
-import { useEffect } from "react";
 import Link from "next/link";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 
-const PrivacyPolicy = () => {
-  useEffect(() => {
-    document.querySelector("body").classList.add("home-nine");
-  }, []);
+export const metadata = {
+  alternates: {
+    canonical: "https://automis.ai/it/privacy-policy",
+    languages: {
+      en: "https://automis.ai/privacy-policy",
+      "it-IT": "https://automis.ai/it/privacy-policy",
+      "pt-PT": "https://automis.ai/pt/privacy-policy",
+      "x-default": "https://automis.ai/privacy-policy",
+    },
+  },
+};
 
+const PrivacyPolicy = () => {
   return (
     <AkpagerLayout header={6} footer={1} bodyClass="home-nine" onePage={false}>
       <section className="hero-padding bg-bg-primary relative z-1">

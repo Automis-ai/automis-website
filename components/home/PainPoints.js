@@ -51,12 +51,35 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "O custo de não fazer nada",
+    title: <>As fugas que não vê são as que mais lhe custam.</>,
+    lead: "A maioria dos negócios não tem um problema de marketing. Tem um problema de sistema. É aqui que o dinheiro sai pela porta sem que dê por isso.",
+    pains: [
+      {
+        title: "Chamadas que ficam sem resposta",
+        body: "Entre 30 e 50% das chamadas para negócios locais vão para o voicemail. Cada chamada perdida é uma marcação que o seu concorrente recebe.",
+      },
+      {
+        title: "Contactos que arrefecem",
+        body: "A maioria dos negócios demora horas a responder. Passados os primeiros 5 minutos, a probabilidade de converter esse contacto despenca.",
+      },
+      {
+        title: "A burocracia devora o dia",
+        body: "A sua equipa perde horas todas as semanas a inserir dados, a marcar e a correr atrás de papelada, em vez de cuidar dos clientes.",
+      },
+      {
+        title: "O conhecimento fica preso",
+        body: "A informação crítica vive em caixas de entrada, PDFs e na cabeça das pessoas, impossível de encontrar no momento em que precisa dela.",
+      },
+    ],
+  },
 };
 
 const PAIN_ICONS = [PhoneMissed, Timer, FileStack, Brain];
 
 export default function PainPoints() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   return (
     <Section id="pain" className="bg-deep-blue">

@@ -10,32 +10,43 @@ const inputClass =
 const FINDER = "https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder";
 
 export default function ReviewLinkGenerator({ locale }) {
-  const isIt = locale === "it";
   const [placeId, setPlaceId] = useState("");
   const id = placeId.trim();
   const reviewUrl = id ? `https://search.google.com/local/writereview?placeid=${encodeURIComponent(id)}` : "";
 
-  const t = isIt
-    ? {
-        finder: "Trova il tuo Place ID →",
-        label: "Il tuo Place ID di Google",
-        placeholder: "es. ChIJ...",
-        result: "Il tuo link diretto per le recensioni",
-        copy: "Copia link",
-        copied: "Copiato",
-        open: "Apri il link",
-        download: "Scarica QR (PNG)",
-      }
-    : {
-        finder: "Find your Place ID →",
-        label: "Your Google Place ID",
-        placeholder: "e.g. ChIJ...",
-        result: "Your direct review link",
-        copy: "Copy link",
-        copied: "Copied",
-        open: "Open link",
-        download: "Download QR (PNG)",
-      };
+  const strings = {
+    it: {
+      finder: "Trova il tuo Place ID →",
+      label: "Il tuo Place ID di Google",
+      placeholder: "es. ChIJ...",
+      result: "Il tuo link diretto per le recensioni",
+      copy: "Copia link",
+      copied: "Copiato",
+      open: "Apri il link",
+      download: "Scarica QR (PNG)",
+    },
+    pt: {
+      finder: "Encontre o seu Place ID →",
+      label: "O seu Place ID do Google",
+      placeholder: "ex. ChIJ...",
+      result: "O seu link direto para avaliações",
+      copy: "Copiar link",
+      copied: "Copiado",
+      open: "Abrir o link",
+      download: "Descarregar QR (PNG)",
+    },
+    en: {
+      finder: "Find your Place ID →",
+      label: "Your Google Place ID",
+      placeholder: "e.g. ChIJ...",
+      result: "Your direct review link",
+      copy: "Copy link",
+      copied: "Copied",
+      open: "Open link",
+      download: "Download QR (PNG)",
+    },
+  };
+  const t = strings[locale] || strings.en;
 
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">

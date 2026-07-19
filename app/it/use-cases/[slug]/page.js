@@ -20,6 +20,7 @@ export function generateMetadata({ params }) {
       languages: {
         en: `https://automis.ai/use-cases/${c.slug}`,
         "it-IT": url,
+        "pt-PT": `https://automis.ai/pt/use-cases/${c.slug}`,
         "x-default": `https://automis.ai/use-cases/${c.slug}`,
       },
     },

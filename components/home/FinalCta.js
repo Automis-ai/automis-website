@@ -50,12 +50,33 @@ const COPY = {
     gdpr: "Conforme al GDPR",
     noObligation: "Nessun impegno",
   },
+  pt: {
+    eyebrow: "Vamos construí-lo",
+    h2Pre: "Descubra o sistema IA ",
+    h2Grad: "que falta ao seu negócio",
+    h2Post: ".",
+    lead:
+      "Agende uma chamada de descoberta e mostramos-lhe exatamente onde a IA lhe pode devolver tempo, chamadas e faturação. Sem jargão, sem compromisso.",
+    bullets: [
+      "Uma chamada de descoberta de 30 minutos, sem pressão",
+      "Mapeamos onde o seu negócio perde tempo e dinheiro",
+      "Sai com uma visão clara das suas melhores oportunidades IA",
+    ],
+    cta: "Agende uma chamada",
+    availability: "Disponibilidade em tempo real · chamada de 30 min",
+    instantConfirmation: "Confirmação imediata",
+    loading: "A carregar o calendário…",
+    iframeTitle: "Agende uma chamada de descoberta com a Automis",
+    guarantee: "Garantia de desempenho de 30 dias",
+    gdpr: "Conforme ao RGPD",
+    noObligation: "Sem compromisso",
+  },
 };
 
 export default function FinalCta() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
-  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
+  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
   const holderRef = useRef(null);
   const [inView, setInView] = useState(false);
   const [loaded, setLoaded] = useState(false);

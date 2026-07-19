@@ -40,7 +40,11 @@ useEffect(() => {
   const browserLang =
     typeof navigator !== "undefined" ? (navigator.language || "").toLowerCase() : "";
 
-  const preferred = browserLang.startsWith("it") ? "it" : "en";
+  const preferred = browserLang.startsWith("it")
+    ? "it"
+    : browserLang.startsWith("pt")
+    ? "pt"
+    : "en";
 
   // Save preference so it won't auto-redirect again
   localStorage.setItem("automis_locale", preferred);
@@ -50,10 +54,10 @@ useEffect(() => {
 
   // Redirect keeping the same path (best-effort)
   const target =
-    preferred === "it"
+    preferred === "it" || preferred === "pt"
       ? normalized === "/"
-        ? "/it"
-        : `/it${normalized}`
+        ? `/${preferred}`
+        : `/${preferred}${normalized}`
       : normalized;
 
   router.replace(target);
@@ -102,18 +106,19 @@ useEffect(() => {
 
   // Menus (testi EN/IT + href da PATHNAMES)
   const menus = useMemo(() => {
+    const pick = (en, it, pt) => (locale === "it" ? it : locale === "pt" ? pt : en);
     const t = {
-      home: locale === "it" ? "Home" : "Home",
+      home: pick("Home", "Home", "Início"),
       jumpstart: "Jumpstart Audit",
-      services: locale === "it" ? "Servizi" : "Services",
-      paidAds: locale === "it" ? "Gestione Ads" : "Paid Ads Management",
-      voiceAI: locale === "it" ? "Assistente Vocale IA" : "Voice AI",
-      automations: locale === "it" ? "Automazioni IA" : "AI Automations",
-      caseStudies: locale === "it" ? "Casi Studio" : "Case Studies",
-      blog: locale === "it" ? "Blog" : "Blog",
-      tools: locale === "it" ? "Strumenti" : "Tools",
-      about: locale === "it" ? "Chi siamo" : "About",
-      contact: locale === "it" ? "Contatti" : "Contact",
+      services: pick("Services", "Servizi", "Serviços"),
+      paidAds: pick("Paid Ads Management", "Gestione Ads", "Gestão de Anúncios"),
+      voiceAI: pick("Voice AI", "Assistente Vocale IA", "Assistente de Voz IA"),
+      automations: pick("AI Automations", "Automazioni IA", "Automações IA"),
+      caseStudies: pick("Case Studies", "Casi Studio", "Casos de Estudo"),
+      blog: "Blog",
+      tools: pick("Tools", "Strumenti", "Ferramentas"),
+      about: pick("About", "Chi siamo", "Sobre nós"),
+      contact: pick("Contact", "Contatti", "Contactos"),
     };
 
     return [
@@ -332,7 +337,7 @@ const MobileMenuContent = ({
       <div className="mb-6">
         <div className="flex items-center justify-between">
           <span className="text-white/70 text-sm font-semibold">
-            {locale === "it" ? "Lingua" : "Language"}
+            {locale === "it" ? "Lingua" : locale === "pt" ? "Idioma" : "Language"}
           </span>
           <LanguageSwitcher />
         </div>
@@ -402,11 +407,19 @@ const MobileMenuContent = ({
           className="block w-full bg-gradient-to-r from-[#3C91E6] to-[#5BA3ED] text-white text-center py-4 rounded-2xl font-semibold hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
           onClick={() => setMobileMenuOpen(false)}
         >
-          {locale === "it" ? "Prenota una call" : "Book Discovery Call"}
+          {locale === "it"
+            ? "Prenota una call"
+            : locale === "pt"
+            ? "Agende uma chamada"
+            : "Book Discovery Call"}
         </a>
 
         <p className="text-center text-white/60 text-xs mt-3">
-          {locale === "it" ? "15 minuti • Nessun impegno" : "15 minutes • No commitment"}
+          {locale === "it"
+            ? "15 minuti • Nessun impegno"
+            : locale === "pt"
+            ? "15 minutos • Sem compromisso"
+            : "15 minutes • No commitment"}
         </p>
       </div>
     </div>

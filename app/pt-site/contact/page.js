@@ -1,0 +1,90 @@
+import AutomisEnShell from "@/components/site/AutomisEnShell";
+import FinalCta from "@/components/home/FinalCta";
+import { Section, Reveal, Eyebrow, GradientText } from "@/components/home/_ui";
+import ContactForm from "@/components/contact/ContactForm";
+import ContactAside from "@/components/contact/ContactAside";
+
+export const metadata = {
+  title: "Contactos | Vamos falar do seu projeto de IA | Automis",
+  description:
+    "Contacte a Automis. Envie-nos uma mensagem ou agende uma chamada de descoberta de 30 minutos: mostramos-lhe onde a IA lhe pode devolver tempo, chamadas e faturação.",
+  keywords: [
+    "contactos Automis",
+    "consultoria automação IA",
+    "chamada de descoberta IA",
+    "parceiro automação IA",
+  ],
+  alternates: {
+    canonical: "https://automis.ai/pt/contact",
+    languages: {
+      en: "https://automis.ai/contact",
+      "it-IT": "https://automis.ai/it/contact",
+      "pt-PT": "https://automis.ai/pt/contact",
+      "x-default": "https://automis.ai/contact",
+    },
+  },
+  openGraph: {
+    title: "Contactos Automis | Fale com um parceiro estratégico de automação IA",
+    description:
+      "Envie-nos uma mensagem ou agende uma chamada de descoberta. Identificamos onde a sua empresa perde tempo e dinheiro e depois construímos os sistemas de IA para resolver.",
+    url: "https://automis.ai/pt/contact",
+    siteName: "Automis",
+    locale: "pt_PT",
+    type: "website",
+    images: ["/assets/og/home-en.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contactos Automis",
+    description:
+      "Envie-nos uma mensagem ou agende uma chamada de descoberta com um parceiro estratégico de automação IA.",
+  },
+};
+
+export default function ContactPage() {
+  return (
+    <AutomisEnShell>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-[#000a14]">
+        <div className="pointer-events-none absolute inset-0">
+          <div
+            className="absolute left-1/2 top-0 h-[380px] w-[760px] -translate-x-1/2 opacity-50 blur-3xl"
+            style={{ background: "radial-gradient(50% 50% at 50% 0%, rgba(60,145,230,0.26), transparent 70%)" }}
+          />
+        </div>
+        <div className="container relative z-10 mx-auto px-5 sm:px-6">
+          <div className="mx-auto max-w-3xl pt-32 pb-12 text-center sm:pt-36 md:pt-40">
+            <Reveal immediate>
+              <Eyebrow>Contactos</Eyebrow>
+            </Reveal>
+            <Reveal delay={80} immediate>
+              <h1 className="font-display mx-auto mt-6 max-w-[18ch] text-[2.4rem] font-bold leading-[1.08] tracking-[-0.02em] text-white sm:text-[3.2rem] md:text-[3.6rem]">
+                Vamos falar do <GradientText>sistema que lhe falta</GradientText>.
+              </h1>
+            </Reveal>
+            <Reveal delay={160} immediate>
+              <p className="mx-auto mt-6 max-w-xl text-[1.05rem] leading-relaxed text-white/65 md:text-[1.15rem]">
+                Envie-nos uma mensagem ou escolha um horário no calendário. Identificamos onde a sua
+                empresa perde tempo e dinheiro e depois mostramos-lhe as oportunidades de IA que vale a pena construir.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Form + aside */}
+      <Section inner="max-w-6xl" pad="pt-4 pb-16 sm:pb-20 md:pb-24">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
+          <Reveal>
+            <ContactForm />
+          </Reveal>
+          <Reveal delay={100}>
+            <ContactAside />
+          </Reveal>
+        </div>
+      </Section>
+
+      <FinalCta />
+    </AutomisEnShell>
+  );
+}

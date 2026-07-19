@@ -1,9 +1,11 @@
 // utility/toolsData.js
 //
 // Central registry for the free /tools section. One entry per tool holds all
-// EN + IT copy and SEO, so page files stay thin (they just read from here).
+// EN + IT + PT copy and SEO, so page files stay thin (they just read from here).
 // Keep copy free of em/en dashes; Italian follows house rules (IA not AI,
-// "assistente vocale", informal "tu").
+// "assistente vocale", informal "tu"). Portuguese is European (pt-PT), formal
+// register, "IA" not "AI", "assistente de voz", vocab: utilizador, telemóvel,
+// ecrã, contacto, receção, equipa, gerir, marcação, chamada perdida, avaliação.
 
 export const SITE = "https://automis.ai";
 
@@ -14,7 +16,7 @@ export const TOOLS = {
     widget: "MissedCallCalculator",
     icon: "📞", // 📞
     ctaTarget: "booking",
-    slug: { en: "missed-call-revenue-calculator", it: "calcolatore-chiamate-perse" },
+    slug: { en: "missed-call-revenue-calculator", it: "calcolatore-chiamate-perse", pt: "calculadora-chamadas-perdidas" },
     en: {
       name: "Missed-Call Revenue Calculator",
       metaTitle: "Missed-Call Revenue Calculator: What Missed Calls Cost You | Automis",
@@ -69,6 +71,33 @@ export const TOOLS = {
       ],
       cta: { label: "Prenota una call per fermare la perdita", sub: "15 minuti, nessun impegno" },
     },
+    pt: {
+      name: "Calculadora de chamadas perdidas",
+      metaTitle: "Calculadora de chamadas perdidas: quanto lhe custam mesmo | Automis",
+      metaDescription:
+        "Calculadora gratuita: veja quanto faturação perde todos os meses com as chamadas sem resposta e quanto poderia recuperar com um assistente de voz IA. Sem registo.",
+      keywords: [
+        "calculadora de chamadas perdidas",
+        "quanto custam as chamadas perdidas",
+        "chamadas sem resposta",
+        "assistente de voz IA",
+        "rececionista IA",
+      ],
+      h1: "Calculadora de chamadas perdidas",
+      intro:
+        "Cada chamada sem resposta pode ser uma marcação que nunca acontece. Introduza os seus números e descubra, em segundos, quanto faturação perde todos os meses e quanto poderia recuperar com um assistente de voz IA que atende 24 horas por dia.",
+      why: [
+        "A maioria dos negócios locais perde muito mais chamadas do que imagina: fora de horas, nos períodos de maior movimento e enquanto a equipa está a atender clientes. Cada chamada perdida é, muitas vezes, um cliente que simplesmente liga para o negócio seguinte da lista.",
+        "Esta calculadora transforma essa perda invisível num número. Multiplique as chamadas que perde pelo valor médio de um cliente e pela sua taxa de conversão, e obtém um valor mensal e anual sobre o qual pode agir.",
+        "O assistente de voz da Automis atende todas as chamadas 24 horas por dia, qualifica quem liga e marca a consulta diretamente na sua agenda, para que grande parte dessa faturação perdida seja recuperada em vez de se perder.",
+      ],
+      faqs: [
+        { q: "Como é calculada a faturação perdida?", a: "Multiplicamos as suas chamadas perdidas por mês pelo valor médio de um cliente e pela sua taxa de conversão habitual. É uma estimativa para dimensionar a oportunidade, não um valor contabilístico exato." },
+        { q: "O que conta como chamada perdida?", a: "Qualquer chamada recebida que o seu negócio não atende ao vivo: fora de horas, aos fins de semana, em dias de fecho ou quando já está ocupado com outra chamada ou com um cliente." },
+        { q: "Um assistente de voz IA consegue mesmo recuperá-las?", a: "Um agente de voz IA atende de imediato, a qualquer hora, por isso as chamadas que iam para o atendedor de chamadas (ou para um concorrente) passam a ser tratadas e marcadas. Não recupera todas, mas cobre grande parte da diferença." },
+      ],
+      cta: { label: "Agende uma chamada para travar a perda", sub: "15 minutos, sem compromisso" },
+    },
   },
 
   "no-show-calculator": {
@@ -76,7 +105,7 @@ export const TOOLS = {
     widget: "NoShowCalculator",
     icon: "📅", // 📅
     ctaTarget: "booking",
-    slug: { en: "no-show-cost-calculator", it: "calcolatore-appuntamenti-mancati" },
+    slug: { en: "no-show-cost-calculator", it: "calcolatore-appuntamenti-mancati", pt: "calculadora-faltas-consultas" },
     en: {
       name: "No-Show Cost Calculator",
       metaTitle: "No-Show Cost Calculator for Clinics and Salons | Automis",
@@ -131,6 +160,33 @@ export const TOOLS = {
       ],
       cta: { label: "Prenota una call per ridurre i no-show", sub: "15 minuti, nessun impegno" },
     },
+    pt: {
+      name: "Calculadora de faltas às consultas",
+      metaTitle: "Calculadora de custo das faltas às consultas para clínicas e salões | Automis",
+      metaDescription:
+        "Calculadora gratuita: veja quanto lhe custam todos os meses as faltas às consultas e quanto pode poupar com lembretes e confirmações automáticas. Sem registo.",
+      keywords: [
+        "calculadora de faltas às consultas",
+        "custo das faltas",
+        "reduzir faltas às consultas",
+        "faltas em clínica dentária",
+        "lembretes de marcações IA",
+      ],
+      h1: "Calculadora de faltas às consultas",
+      intro:
+        "As faltas às consultas esvaziam em silêncio uma agenda cheia. Introduza alguns números e descubra quanto lhe custam todos os meses e quanto poderia poupar com lembretes e confirmações automáticas.",
+      why: [
+        "Para clínicas, salões e consultórios, uma falta é um horário que raramente se volta a preencher em cima da hora. A cadeira fica vazia, o tempo da equipa é pago à mesma e a faturação perde-se.",
+        "Ver o custo mensal e anual em euros torna evidente porque compensa automatizar lembretes e confirmações, em vez de os deixar a cargo de uma receção já ocupada.",
+        "O assistente de voz da Automis confirma as marcações, envia lembretes e permite aos clientes remarcar por voz, para que menos horários fiquem vazios e a sua agenda se mantenha cheia.",
+      ],
+      faqs: [
+        { q: "Como é estimado o custo das faltas?", a: "Multiplicamos as suas consultas por semana pela percentagem de faltas e pelo valor médio de uma consulta, e depois projetamos o valor para o mês e para o ano." },
+        { q: "Quanto podem os lembretes reduzir as faltas?", a: "Depende do setor, mas os lembretes automáticos e a possibilidade de remarcar com facilidade reduzem as faltas de forma significativa. Use o resultado como uma estimativa prudente da oportunidade." },
+        { q: "Funciona para qualquer negócio por marcação?", a: "Sim. Clínicas dentárias e médicas, salões e qualquer serviço que trabalhe por horários pode utilizá-la para dimensionar o custo das cadeiras vazias." },
+      ],
+      cta: { label: "Agende uma chamada para reduzir as faltas", sub: "15 minutos, sem compromisso" },
+    },
   },
 
   "google-review-link-generator": {
@@ -138,7 +194,7 @@ export const TOOLS = {
     widget: "ReviewLinkGenerator",
     icon: "⭐", // ⭐
     ctaTarget: "voiceai",
-    slug: { en: "google-review-link-generator", it: "generatore-link-recensioni-google" },
+    slug: { en: "google-review-link-generator", it: "generatore-link-recensioni-google", pt: "gerador-link-avaliacoes-google" },
     en: {
       name: "Google Review Link Generator",
       metaTitle: "Free Google Review Link and QR Code Generator | Automis",
@@ -193,6 +249,33 @@ export const TOOLS = {
       ],
       cta: { label: "Automatizza le richieste di recensione", sub: "Scopri come lo fa l'assistente vocale IA" },
     },
+    pt: {
+      name: "Gerador de link e QR para avaliações Google",
+      metaTitle: "Gerador gratuito de link e QR para avaliações Google | Automis",
+      metaDescription:
+        "Transforme o seu Place ID do Google num link direto para deixar uma avaliação e num QR code para descarregar. Grátis, funciona no seu browser, sem registo.",
+      keywords: [
+        "gerador de link para avaliações google",
+        "qr code avaliações google",
+        "link direto avaliação google",
+        "obter mais avaliações google",
+        "gerador de link de avaliações",
+      ],
+      h1: "Gerador de link e QR para avaliações Google",
+      intro:
+        "Torne muito simples para os clientes satisfeitos deixarem uma avaliação. Cole o seu Place ID do Google para obter um link direto que abre logo o formulário de avaliação, mais um QR code para imprimir ou partilhar.",
+      why: [
+        "Quantos menos toques houver entre um cliente satisfeito e o formulário de avaliação, mais avaliações recolhe. Um link direto salta a pesquisa e abre logo a caixa de avaliação.",
+        "As avaliações são um dos sinais de confiança e de posicionamento local mais fortes, por isso um fluxo constante melhora tanto a sua posição no mapa como a sua taxa de conversão.",
+        "Imprima o QR num cartão na receção, junte o link a uma mensagem de follow-up e peça logo a seguir a uma boa visita. O assistente de voz da Automis pode enviar o link de avaliação automaticamente após cada consulta, para que pedir seja algo automático.",
+      ],
+      faqs: [
+        { q: "Onde encontro o meu Place ID do Google?", a: "Use o Place ID Finder gratuito da Google, com ligação acima do campo. Pesquise o nome do seu negócio e copie o Place ID que aparece." },
+        { q: "O link de avaliação é seguro de partilhar?", a: "Sim. Abre simplesmente o formulário padrão de avaliação Google do seu negócio. Não guardamos nada e tudo acontece no seu browser." },
+        { q: "Posso automatizar os pedidos de avaliação?", a: "Sim. O assistente de voz da Automis e as nossas automações podem enviar este link por SMS ou WhatsApp logo após cada visita, para que o seu fluxo de avaliações funcione em piloto automático." },
+      ],
+      cta: { label: "Automatize os seus pedidos de avaliação", sub: "Veja como o assistente de voz IA o faz" },
+    },
   },
 
   "whatsapp-link-generator": {
@@ -200,7 +283,7 @@ export const TOOLS = {
     widget: "WhatsAppLinkGenerator",
     icon: "💬", // 💬
     ctaTarget: "voiceai",
-    slug: { en: "whatsapp-link-generator", it: "generatore-link-whatsapp" },
+    slug: { en: "whatsapp-link-generator", it: "generatore-link-whatsapp", pt: "gerador-link-whatsapp" },
     en: {
       name: "WhatsApp Link Generator",
       metaTitle: "Free WhatsApp Link and Click-to-Call Generator | Automis",
@@ -255,6 +338,33 @@ export const TOOLS = {
       ],
       cta: { label: "Non perdere piu' una chat o una chiamata", sub: "Scopri come lo gestisce l'assistente vocale IA" },
     },
+    pt: {
+      name: "Gerador de link WhatsApp e click-to-call",
+      metaTitle: "Gerador gratuito de link WhatsApp e click-to-call | Automis",
+      metaDescription:
+        "Crie um link WhatsApp wa.me com mensagem já preenchida, um link click-to-call e um QR code. Grátis, funciona no seu browser, sem registo.",
+      keywords: [
+        "gerador de link whatsapp",
+        "link wa.me",
+        "click to chat whatsapp",
+        "qr code whatsapp",
+        "link click to call",
+      ],
+      h1: "Gerador de link WhatsApp e click-to-call",
+      intro:
+        "Deixe que os clientes o contactem com um toque. Introduza o seu número para criar um link de conversa WhatsApp com mensagem já pronta, um link click-to-call e um QR code para impressão ou web.",
+      why: [
+        "Em Portugal e em toda a Europa, os clientes recorrem ao WhatsApp antes do email. Um link de conversa com um toque no seu site, na bio ou num panfleto elimina o incómodo de ter primeiro de guardar o número.",
+        "Junte o link click-to-call ao seu Perfil de Empresa no Google e aos seus anúncios, para que quem está no telemóvel lhe ligue de imediato, e coloque o QR no material impresso para ligar o offline à conversa.",
+        "Quando o volume cresce, o assistente de voz da Automis e as automações de chat respondem e qualificam essas conversas 24 horas por dia, para que uma linha ou caixa de entrada ocupada nunca signifique um cliente perdido.",
+      ],
+      faqs: [
+        { q: "O que é um link wa.me?", a: "É o formato oficial dos links do WhatsApp. Ao abri-lo, inicia-se uma conversa com o seu número, se quiser com uma mensagem já escrita, no telemóvel ou no computador." },
+        { q: "Preciso de uma conta WhatsApp Business?", a: "Não. O link funciona com qualquer número WhatsApp. Um perfil Business só acrescenta extras como catálogo e respostas rápidas." },
+        { q: "Onde devo usar estes links?", a: "No seu site, nos perfis de Instagram e Google, na assinatura de email, nos anúncios e no material impresso através do QR code. Em qualquer sítio onde um cliente possa querer contactá-lo." },
+      ],
+      cta: { label: "Nunca mais perca uma conversa ou uma chamada", sub: "Veja como o assistente de voz IA a trata" },
+    },
   },
 };
 
@@ -284,6 +394,15 @@ export const HUB = {
       "Strumenti semplici e gratuiti per aiutare le attivita' locali a rispondere a piu' chiamate, riempire piu' appuntamenti e ottenere piu' recensioni. Senza registrazione, non salviamo nulla, tutto funziona nel tuo browser.",
     cardCta: "Apri strumento",
   },
+  pt: {
+    metaTitle: "Ferramentas gratuitas para negócios locais | Automis",
+    metaDescription:
+      "Ferramentas gratuitas e sem registo para negócios locais: calcule o custo das chamadas perdidas e das faltas às consultas, gere um link para avaliações Google e crie links WhatsApp e click-to-call.",
+    h1: "Ferramentas gratuitas para negócios locais",
+    intro:
+      "Ferramentas simples e gratuitas para ajudar os negócios locais a atender mais chamadas, preencher mais marcações e conquistar mais avaliações. Sem registo, não guardamos nada, tudo funciona no seu browser.",
+    cardCta: "Abrir ferramenta",
+  },
 };
 
 export function getTool(key) {
@@ -292,7 +411,9 @@ export function getTool(key) {
 
 export function toolPath(key, locale) {
   const t = TOOLS[key];
-  return locale === "it" ? `/it/tools/${t.slug.it}` : `/tools/${t.slug.en}`;
+  if (locale === "it") return `/it/tools/${t.slug.it}`;
+  if (locale === "pt") return `/pt/tools/${t.slug.pt}`;
+  return `/tools/${t.slug.en}`;
 }
 
 export function toolUrl(key, locale) {
@@ -300,7 +421,9 @@ export function toolUrl(key, locale) {
 }
 
 export function hubPath(locale) {
-  return locale === "it" ? "/it/tools" : "/tools";
+  if (locale === "it") return "/it/tools";
+  if (locale === "pt") return "/pt/tools";
+  return "/tools";
 }
 
 export function hubUrl(locale) {
@@ -308,9 +431,9 @@ export function hubUrl(locale) {
 }
 
 function ogImageAlt(locale) {
-  return locale === "it"
-    ? "Strumenti gratuiti Automis per attivita' locali"
-    : "Free Automis tools for local businesses";
+  if (locale === "it") return "Strumenti gratuiti Automis per attivita' locali";
+  if (locale === "pt") return "Ferramentas gratuitas Automis para negócios locais";
+  return "Free Automis tools for local businesses";
 }
 
 // Build a Next.js metadata object for an individual tool page.
@@ -318,14 +441,16 @@ export function toolMetadata(key, locale) {
   const c = TOOLS[key][locale];
   const enUrl = toolUrl(key, "en");
   const itUrl = toolUrl(key, "it");
-  const canonical = locale === "it" ? itUrl : enUrl;
+  const ptUrl = toolUrl(key, "pt");
+  const canonical = locale === "it" ? itUrl : locale === "pt" ? ptUrl : enUrl;
+  const ogLocale = locale === "it" ? { locale: "it_IT" } : locale === "pt" ? { locale: "pt_PT" } : {};
   return {
     title: c.metaTitle,
     description: c.metaDescription,
     keywords: c.keywords,
     alternates: {
       canonical,
-      languages: { en: enUrl, "it-IT": itUrl, "x-default": enUrl },
+      languages: { en: enUrl, "it-IT": itUrl, "pt-PT": ptUrl, "x-default": enUrl },
     },
     openGraph: {
       title: c.metaTitle,
@@ -333,7 +458,7 @@ export function toolMetadata(key, locale) {
       url: canonical,
       siteName: "Automis",
       type: "website",
-      ...(locale === "it" ? { locale: "it_IT" } : {}),
+      ...ogLocale,
       images: [{ url: "/assets/og/home-en.png", width: 1200, height: 630, alt: ogImageAlt(locale) }],
     },
     twitter: {
@@ -350,13 +475,15 @@ export function hubMetadata(locale) {
   const h = HUB[locale];
   const enUrl = hubUrl("en");
   const itUrl = hubUrl("it");
-  const canonical = locale === "it" ? itUrl : enUrl;
+  const ptUrl = hubUrl("pt");
+  const canonical = locale === "it" ? itUrl : locale === "pt" ? ptUrl : enUrl;
+  const ogLocale = locale === "it" ? { locale: "it_IT" } : locale === "pt" ? { locale: "pt_PT" } : {};
   return {
     title: h.metaTitle,
     description: h.metaDescription,
     alternates: {
       canonical,
-      languages: { en: enUrl, "it-IT": itUrl, "x-default": enUrl },
+      languages: { en: enUrl, "it-IT": itUrl, "pt-PT": ptUrl, "x-default": enUrl },
     },
     openGraph: {
       title: h.metaTitle,
@@ -364,7 +491,7 @@ export function hubMetadata(locale) {
       url: canonical,
       siteName: "Automis",
       type: "website",
-      ...(locale === "it" ? { locale: "it_IT" } : {}),
+      ...ogLocale,
       images: [{ url: "/assets/og/home-en.png", width: 1200, height: 630, alt: ogImageAlt(locale) }],
     },
     twitter: {

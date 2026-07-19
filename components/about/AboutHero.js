@@ -24,14 +24,29 @@ const COPY = {
     ctaPrimary: "Prenota una call",
     ctaSecondary: "Scopri come lavoriamo",
   },
+  pt: {
+    eyebrow: "A equipa por trás da Automis",
+    h1a: "Dois fundadores, envolvidos no ",
+    h1b: "seu projeto",
+    body:
+      "A Automis é um integrador estratégico de IA. Construímos os sistemas de IA que faltam ao seu negócio, de ponta a ponta, moldados à forma como a sua empresa trabalha de facto. Sem entregas a uma equipa júnior: quem desenha o seu sistema é quem o constrói.",
+    ctaPrimary: "Agende uma chamada",
+    ctaSecondary: "Veja como trabalhamos",
+  },
 };
 
 export default function AboutHero() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt")
+    ? "pt"
+    : usePathname()?.startsWith("/it")
+    ? "it"
+    : "en";
   const t = COPY[locale];
   const booking =
     locale === "it"
       ? "https://api.leadconnectorhq.com/widget/bookings/automis-it"
+      : locale === "pt"
+      ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis"
       : BOOKING;
 
   return (

@@ -46,10 +46,34 @@ const COPY = {
       { name: "X", href: "https://x.com/AutomisAI", label: "@AutomisAI" },
     ],
   },
+  pt: {
+    reachTitle: "Fale connosco diretamente",
+    emailLabel: "Email",
+    followLabel: "Siga-nos",
+    talkTitle: "Prefere falar?",
+    talkBody:
+      "Salte o formulário e escolha um horário no calendário. É uma chamada de descoberta de 30 minutos, sem pressão, com confirmação imediata.",
+    duration: "30 minutos · sem compromisso",
+    cta: "Ver horários disponíveis",
+    // No confirmed dedicated PT social handles yet: reuse the main/global
+    // Automis accounts (per pt-PT copy-style §6). Flag to Arcangelo if a
+    // dedicated PT presence is created.
+    socials: [
+      { name: "Instagram", href: "https://www.instagram.com/automis.ai/", label: "automis.ai" },
+      { name: "LinkedIn", href: "https://www.linkedin.com/company/automisai", label: "automisai" },
+      { name: "Facebook", href: "https://www.facebook.com/automisai", label: "automisai" },
+      { name: "X", href: "https://x.com/AutomisAI", label: "@AutomisAI" },
+    ],
+  },
 };
 
 export default function ContactAside() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const pathname = usePathname();
+  const locale = pathname?.startsWith("/pt")
+    ? "pt"
+    : pathname?.startsWith("/it")
+      ? "it"
+      : "en";
   const t = COPY[locale];
 
   return (

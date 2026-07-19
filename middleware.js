@@ -66,7 +66,18 @@ export function middleware(req) {
 
   // ✅ LOGICA PER DOMINIO PRINCIPALE (automis.ai)
   // Su automis.ai vogliamo le pagine principali, non quelle di voice
-  
+
+  // 🇵🇹 Sito principale in portoghese su /pt.
+  // La cartella app/pt è la lander Voice-AI (solo voice.automis.ai, noindex) e NON si tocca.
+  // Perciò il sito PT vive in app/pt-site e qui, SOLO sul dominio principale, riscriviamo
+  // /pt e /pt/* -> /pt-site/* mantenendo l'URL pubblico /pt. `x-pathname` resta "/pt" così
+  // <html lang> (app/layout.js) e usePathname() lato client vedono ancora /pt.
+  if (pathname === "/pt" || pathname.startsWith("/pt/")) {
+    const url = nextUrl.clone();
+    url.pathname = pathname.replace(/^\/pt/, "/pt-site");
+    return NextResponse.rewrite(url, { request: { headers: requestHeaders } });
+  }
+
   // Se root ("/") -> rimani sulla pagina inglese (non reindirizzare a /it automaticamente se preferisci l'inglese come base)
   // Se invece vuoi che automis.ai redirecti a /it di default, scommenta qui sotto:
   /*

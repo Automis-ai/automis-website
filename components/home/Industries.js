@@ -93,10 +93,53 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "Para quem construímos",
+    title: "Feito à volta do seu setor, não de um template",
+    lead: "Sistemas à medida, moldados aos verdadeiros pontos críticos de cada setor, às suas exigências de conformidade e à sua forma de conquistar clientes. Nunca um template igual para todos.",
+    icps: [
+      {
+        title: "Saúde",
+        sub: "Clínicas · dentistas · medspas",
+        body: "IA que põe a privacidade em primeiro lugar, atende e marca 24/7 e gere o acolhimento de pacientes, para que nenhuma chamada vá para o voicemail e nenhuma ficha se perca.",
+        proven: "Comprovado com a Clínica Santa Maria dos Olivais",
+      },
+      {
+        title: "Serviços Profissionais e Financeiros",
+        sub: "Advogados · contabilistas · finanças",
+        body: "Qualificação instantânea de contactos, mais um Company Brain sobre os seus documentos jurídicos e financeiros, e notas de voz escritas diretamente no seu CRM.",
+        proven: "Comprovado com a Adifesa",
+      },
+      {
+        title: "Imobiliário",
+        sub: "Agências · consultores",
+        body: "Respostas 24/7 a cada pedido e IA que cruza o que o comprador procura com os imóveis certos. A rapidez de resposta que fecha o negócio.",
+        proven: null,
+      },
+      {
+        title: "Negócios Locais",
+        sub: "Serviços · ofícios · lojas locais",
+        body: "Deixe de perder chamadas e automatize os DMs das redes sociais, com um sistema que capta cada contacto enquanto se dedica ao trabalho.",
+        proven: null,
+      },
+      {
+        title: "E-commerce e Retalho",
+        sub: "Lojas online · retalho",
+        body: "IA que responde a dúvidas sobre encomendas, envios e devoluções a toda a hora, mais fluxos de WhatsApp e redes sociais que transformam quem só espreita em quem compra.",
+        proven: null,
+      },
+      {
+        title: "Hotelaria e Restauração",
+        sub: "Restaurantes · hotéis · reservas",
+        body: "Um agente de voz que faz reservas e responde às perguntas frequentes 24/7, reduzindo os no-shows e libertando o pessoal de sala para cuidar dos clientes.",
+        proven: null,
+      },
+    ],
+  },
 };
 
 export default function Industries() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   return (
     <Section id="industries" className="bg-deep-blue">

@@ -54,6 +54,27 @@ const INDEXABLE_PATHS = [
   "/it/tools/calcolatore-appuntamenti-mancati",
   "/it/tools/generatore-link-recensioni-google",
   "/it/tools/generatore-link-whatsapp",
+  // Portuguese (European Portuguese main site; served at /pt via the middleware
+  // rewrite to app/pt-site). The voice.automis.ai/pt lander is a different host
+  // and is not part of this automis.ai sitemap.
+  "/pt",
+  "/pt/about",
+  "/pt/ai-automations",
+  "/pt/voice-ai",
+  "/pt/jumpstart-audit",
+  "/pt/use-cases",
+  "/pt/use-cases/clinica-santa-maria",
+  "/pt/use-cases/adifesa",
+  "/pt/contact",
+  "/pt/privacy-policy",
+  "/pt/terms-of-service",
+  "/pt/cookie-policy",
+  // Portuguese tools
+  "/pt/tools",
+  "/pt/tools/calculadora-chamadas-perdidas",
+  "/pt/tools/calculadora-faltas-consultas",
+  "/pt/tools/gerador-link-avaliacoes-google",
+  "/pt/tools/gerador-link-whatsapp",
 ];
 
 module.exports = {
@@ -69,7 +90,10 @@ module.exports = {
   exclude: [
     "/consultation", // 302 -> /jumpstart-audit
     "/ita", // 302 -> /it; the real page lives on voice.automis.ai
-    "/en", "/fr", "/de", "/es", "/pt", // Voice-AI landers, noindex (prospect-only)
+    "/en", "/fr", "/de", "/es", // Voice-AI landers, noindex (prospect-only)
+    // NB: /pt is NO LONGER excluded — on automis.ai it is the European-Portuguese
+    // main site (indexable, listed above). The /pt Voice-AI lander lives only on
+    // voice.automis.ai (a different host, noindex, not in this sitemap).
     "/roadmap", // transactional finder-results page, noindex
     "/luca-ig", // Instagram bio lander (traffic comes from IG, not search)
   ],

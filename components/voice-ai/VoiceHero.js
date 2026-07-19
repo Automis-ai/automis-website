@@ -6,7 +6,8 @@ import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
 // "How Automis Voice AI works" walkthrough (locale-specific video).
-const VIDEO_ID = { en: "qWSaK2kS7uo", it: "ViE-j9SqENA" };
+// pt reuses the EN walkthrough until a dedicated pt-PT video exists.
+const VIDEO_ID = { en: "qWSaK2kS7uo", it: "ViE-j9SqENA", pt: "qWSaK2kS7uo" };
 
 const COPY = {
   en: {
@@ -33,13 +34,25 @@ const COPY = {
     cta: "Prenota una call",
     videoTitle: "Come funziona l'assistente vocale di Automis",
   },
+  pt: {
+    eyebrow: "Produto de referência · Assistente de Voz Automis",
+    headline: {
+      pre: "O assistente de voz que transforma cada chamada numa ",
+      grad: "consulta marcada",
+      post: ".",
+    },
+    subhead:
+      "O assistente de voz da Automis atende cada chamada 24/7, qualifica o contacto, marca-o na sua agenda e sincroniza-o com o seu CRM. Noites, fins de semana, feriados. Sem chamadas perdidas, sem receita perdida.",
+    cta: "Agende uma chamada",
+    videoTitle: "Como funciona o assistente de voz da Automis",
+  },
 };
 
 export default function VoiceHero() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   const videoId = VIDEO_ID[locale];
-  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : BOOKING;
+  const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
 
   return (
     <section id="voice-hero" className="relative overflow-hidden bg-[#000a14] pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24">

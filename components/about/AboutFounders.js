@@ -71,16 +71,54 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "Os fundadores",
+    title: "As pessoas que constroem o seu sistema",
+    lead: "Liderada pelos fundadores e no terreno: desenhamos, construímos e lançamos os sistemas nós próprios. Quando trabalha com a Automis, trabalha diretamente connosco.",
+    bookCta: "Agende uma chamada",
+    follow: "Siga @automis.ai",
+    profileAria: (label, name) => `Perfil de ${label} de ${name}`,
+    founders: [
+      {
+        name: "Vincenzo Luca Casillo",
+        role: "Crescimento e marketing orientados por IA",
+        image: "/assets/images/headshots/luca.jpeg",
+        bio: "O Vincenzo lidera o crescimento e o marketing, com IA em cada passo. Gere e otimiza a publicidade orientada por IA no Meta e no Google (melhorando de forma mensurável o CAC e o ROAS), usa a IA para ganhar visibilidade no Google e nas pesquisas por IA (SEO e GEO), e constrói os funnels orientados à conversão e os conteúdos que transformam atenção em procura marcada. Combina a aquisição paga com follow-up orientado por IA, para que o tráfego que gera nunca arrefeça. Os clientes não recebem métricas de vaidade: recebem um motor de marketing potenciado por IA que traz procura real e qualificada.",
+        social: {
+          type: "linkedin",
+          url: "https://www.linkedin.com/in/vincenzo-luca-casillo/",
+          label: "LinkedIn",
+        },
+      },
+      {
+        name: "Arcangelo Bianco",
+        role: "Automação de IA e auditoria",
+        image: "/assets/images/headshots/arcangelo.jpeg",
+        bio: "O Arcangelo está envolvido em cada camada de um projeto de IA, desde agentes à medida e automações de vários passos até aos sistemas de Second Brain que correm sobre os seus próprios dados. É obcecado por encontrar o ponto de maior alavancagem para automatizar: entra num negócio, mapeia onde escorrem tempo e dinheiro, e identifica com precisão quais os processos prontos para serem automatizados, a tarefa repetitiva, a passagem lenta, o follow-up que nunca acontece. Essa abordagem que parte da auditoria transforma-se em infraestrutura real e sua, que continua a produzir resultados muito depois de o projeto terminar.",
+        social: {
+          type: "instagram",
+          url: "https://instagram.com/arcangelobianco.ai",
+          label: "Instagram",
+        },
+      },
+    ],
+  },
 };
 
 const SOCIAL_ICONS = { linkedin: Linkedin, instagram: Instagram };
 
 export default function AboutFounders() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt")
+    ? "pt"
+    : usePathname()?.startsWith("/it")
+    ? "it"
+    : "en";
   const t = COPY[locale];
   const booking =
     locale === "it"
       ? "https://api.leadconnectorhq.com/widget/bookings/automis-it"
+      : locale === "pt"
+      ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis"
       : BOOKING;
   const brandInstagram =
     locale === "it"

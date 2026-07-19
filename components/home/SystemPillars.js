@@ -89,10 +89,41 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "Um sistema ligado · três pilares",
+    titlePre: "Não vendemos ferramentas. Construímos o ",
+    titleGrad: "sistema que faz o seu negócio funcionar",
+    titlePost: ".",
+    lead: "O marketing traz as pessoas. As vendas garantem que nenhuma escapa. A administração transforma tudo numa operação que cresce sem contratar mais gente.",
+    flagship: "Flagship",
+    pillars: [
+      {
+        kicker: "Marketing & Crescimento",
+        title: "Sistemas que fazem o seu marketing andar",
+        body: "Não mais uma agência a gerir os seus anúncios. Sistemas IA que otimizam criatividades e orçamento no Meta e no Google, ganham visibilidade no Google e na pesquisa por IA, e mantêm o conteúdo a fluir sozinho.",
+        points: ["Anúncios otimizados por IA no Meta e Google", "Ser encontrado no Google e na pesquisa por IA (SEO / GEO)", "Workflows de conteúdo e reputação"],
+        cta: null,
+      },
+      {
+        kicker: "Vendas & Aquisição",
+        title: "Uma receção que nunca dorme",
+        body: "O Assistente de Voz Automis atende todas as chamadas 24/7. Qualifica, marca e recupera as chamadas perdidas. A par da automação de redes sociais e WhatsApp que transforma DMs em contactos qualificados no seu CRM.",
+        points: ["Assistente de voz IA 24/7, o nosso flagship", "Recuperação de chamadas perdidas + marcações", "Redes sociais & WhatsApp → contactos qualificados no CRM"],
+        cta: "Descubra o Assistente de Voz",
+      },
+      {
+        kicker: "Administração & Company Brain",
+        title: "O seu conhecimento, finalmente pesquisável",
+        body: "A parte mais difícil de copiar. Um Second Brain à medida sobre os dados da sua empresa, OCR que transforma papel em dados pesquisáveis, e notas de voz que se escrevem sozinhas no seu CRM. A camada operacional que nenhum concorrente compra pronta.",
+        points: ["Um cérebro pesquisável sobre os seus dados (RAG à medida)", "Transforme papel e PDFs em dados (OCR / vision)", "Notas de voz escritas no seu CRM"],
+        cta: null,
+      },
+    ],
+  },
 };
 
 export default function SystemPillars() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   return (
     <Section id="system" className="bg-[#020a12]">

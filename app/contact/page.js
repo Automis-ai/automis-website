@@ -13,6 +13,7 @@ export const metadata = {
     languages: {
       en: "https://automis.ai/contact",
       "it-IT": "https://automis.ai/it/contact",
+      "pt-PT": "https://automis.ai/pt/contact",
       "x-default": "https://automis.ai/contact",
     },
   },

@@ -57,6 +57,32 @@ const COPY = {
       },
     ],
   },
+  pt: {
+    eyebrow: "Perguntas frequentes",
+    title: "As suas perguntas, respondidas.",
+    faqs: [
+      {
+        q: "Então, o que é ao certo este assistente de voz?",
+        a: "Imagine o assistente de voz da Automis como uma rececionista virtual super inteligente para o seu negócio. Trata as chamadas dos clientes, marca consultas, responde a perguntas e até faz chamadas outbound, tudo com uma voz surpreendentemente humana. É como ter um membro da equipa a mais que nunca dorme.",
+      },
+      {
+        q: "Percebe mesmo o que os clientes estão a dizer?",
+        a: "Sim. O nosso assistente de voz usa tecnologia de reconhecimento de voz avançada para perceber o contexto, os sotaques e até o jargão do setor. Não se limita a ouvir as palavras: capta o significado por detrás delas. Por isso, quer o seu cliente tenha um sotaque marcado ou use muitos termos técnicos, a IA safa-se sem problemas.",
+      },
+      {
+        q: "Funciona com os sistemas que já usamos?",
+        a: "Sem dúvida. O assistente de voz integra-se com o seu CRM, a agenda e as restantes ferramentas do negócio. A nossa equipa configura tudo para que encaixe perfeitamente no seu fluxo de trabalho atual, sem necessidade de revolucionar todo o sistema.",
+      },
+      {
+        q: "E se a IA ficar sem resposta para uma pergunta?",
+        a: "Por muito inteligente que seja, sabemos que a IA não consegue tratar de tudo. Quando encontra uma pergunta a que não sabe responder, passa a chamada a uma pessoa de forma natural, sem atritos. Os seus clientes recebem sempre a ajuda de que precisam, de uma maneira ou de outra.",
+      },
+      {
+        q: "Como acompanhamos os resultados?",
+        a: "Tem à disposição uma dashboard de análise completa: volume de chamadas, taxas de resolução, satisfação dos clientes e muito mais. É uma visão de conjunto das interações com os seus clientes que o ajuda a identificar tendências e áreas a melhorar, com cada chamada gravada, transcrita e resumida.",
+      },
+    ],
+  },
 };
 
 function FaqItem({ item, isOpen, onToggle }) {
@@ -90,7 +116,7 @@ function FaqItem({ item, isOpen, onToggle }) {
 }
 
 export default function VoiceFaq() {
-  const locale = usePathname()?.startsWith("/it") ? "it" : "en";
+  const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   const [open, setOpen] = useState(0);
   return (
