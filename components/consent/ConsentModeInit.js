@@ -36,7 +36,18 @@ const script = `
   gtag('set', 'ads_data_redaction', true);
   gtag('set', 'url_passthrough', true);
 
+  // Internal team self-exclusion (?internal=1 sets it, ?internal=0 clears it).
+  // A flagged browser stays fully denied: no consent replay, no
+  // cookie_consent_update -> GA4 / Clarity / Meta never fire on it.
+  var __internal = false;
   try {
+    var __qp = new URLSearchParams(window.location.search);
+    if (__qp.get('internal') === '1') localStorage.setItem('automis_internal', '1');
+    if (__qp.get('internal') === '0') localStorage.removeItem('automis_internal');
+    __internal = localStorage.getItem('automis_internal') === '1';
+  } catch (e) {}
+
+  if (!__internal) try {
     var m = document.cookie.match(/(?:^|; )${CONSENT_COOKIE}=([^;]*)/);
     if (m) {
       var stored = JSON.parse(decodeURIComponent(m[1]));

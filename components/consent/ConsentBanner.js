@@ -7,6 +7,7 @@ import {
   readConsent,
   writeConsent,
   applyConsent,
+  isInternalTraffic,
   DENY_ALL,
   GRANT_ALL,
   OPEN_PREFERENCES_EVENT,
@@ -127,7 +128,14 @@ export default function ConsentBanner() {
 
   useEffect(() => {
     setMounted(true);
-    if (!readConsent()) setOpen(true);
+    // Don't show the banner to internal team browsers (they're excluded from
+    // tracking entirely) — but honor ?internal=1/0 first so the flag can be set.
+    try {
+      const p = new URLSearchParams(window.location.search);
+      if (p.get("internal") === "1") localStorage.setItem("automis_internal", "1");
+      if (p.get("internal") === "0") localStorage.removeItem("automis_internal");
+    } catch {}
+    if (!readConsent() && !isInternalTraffic()) setOpen(true);
 
     const reopen = () => {
       const existing = readConsent();
