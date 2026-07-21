@@ -80,10 +80,11 @@ const COPY = {
   },
 };
 
-// /ita is the Italian voice lander. de/es/fr landers fall back to English.
+// /ita is the Italian voice lander; /luca-ig is Luca's Italian IG lander.
+// de/es/fr landers fall back to English.
 function localeFrom(pathname) {
   const seg = (pathname || "/").split("/").filter(Boolean)[0];
-  if (seg === "it" || seg === "ita") return "it";
+  if (seg === "it" || seg === "ita" || seg === "luca-ig") return "it";
   if (seg === "pt") return "pt";
   return "en";
 }
