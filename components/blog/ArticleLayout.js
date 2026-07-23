@@ -92,8 +92,56 @@ export default function ArticleLayout({
       )
     : null;
 
+  // ── JSON-LD (server-rendered): Article + FAQPage for rich results / AI extraction ──
+  const canonical = `https://automis.ai${basePath}/${post.slug}`;
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription || post.description,
+    ...(post.image ? { image: [post.image] } : {}),
+    ...(post.date ? { datePublished: post.date, dateModified: post.date } : {}),
+    author: {
+      "@type": "Person",
+      name: author.name,
+      ...(socialUrl ? { url: socialUrl } : {}),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Automis",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://automis.ai/assets/images/logos/favicon.png",
+      },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+    inLanguage: locale === "it" ? "it-IT" : "en",
+  };
+  const faqLd =
+    post.faqs && post.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: { "@type": "Answer", text: f.answer },
+          })),
+        }
+      : null;
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+      />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
       {/* ── DARK HERO BAND (on-brand) ── */}
       <section className="bg-bg-primary relative z-1 pt-32 pb-14 md:pt-40 md:pb-16">
         <div className="container mx-auto px-4">
