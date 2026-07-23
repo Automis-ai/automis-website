@@ -646,3 +646,31 @@ html { scroll-behavior: smooth; }
   background: linear-gradient(to right, #FEC458, #FEC458);
   color: #000a14 !important;
 }
+
+/* ── IMMAGINI nel corpo dell'articolo ──
+   Reso come <span> a blocco: react-markdown mette le immagini dentro un <p>,
+   dove un <figure> sarebbe HTML non valido. */
+.blog-prose .blog-figure {
+  display: block;
+  margin: 2.5rem 0;
+}
+
+.blog-prose .blog-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* aspect-ratio riserva lo spazio prima del caricamento: zero layout shift (CLS) */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(60, 145, 230, 0.25);
+}
+
+.blog-prose .blog-figcaption {
+  display: block;
+  margin-top: 0.65rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+}
