@@ -794,8 +794,9 @@ html { scroll-behavior: smooth; }
   font-weight: 700;
 }
 
-/* images inside the body */
+/* images inside the body — span-based (valid inside markdown's <p>) */
 .blog-figure {
+  display: block;
   margin: 2rem 0;
 }
 .blog-figure img {
@@ -805,7 +806,8 @@ html { scroll-behavior: smooth; }
   border-radius: 12px;
   border: 1px solid #e6e9ee;
 }
-.blog-figure figcaption {
+.blog-figcaption {
+  display: block;
   margin-top: 0.6rem;
   font-size: 0.85rem;
   color: #6b7482;

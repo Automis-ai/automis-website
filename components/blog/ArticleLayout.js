@@ -33,13 +33,15 @@ const mdComponents = {
     <h3 id={slugifyHeading(nodeText(node))}>{children}</h3>
   ),
   // Images are enabled here (the old template stripped them). Alt doubles as caption.
+  // NOTE: react-markdown wraps images in a <p>, so a block <figure> here is invalid
+  // HTML and breaks hydration. Use <span>s (display:block via CSS) instead.
   img: ({ src, alt }) =>
     src ? (
-      <figure className="blog-figure">
+      <span className="blog-figure">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt || ""} loading="lazy" />
-        {alt ? <figcaption>{alt}</figcaption> : null}
-      </figure>
+        <img src={src} alt={alt || ""} loading="lazy" decoding="async" />
+        {alt ? <span className="blog-figcaption">{alt}</span> : null}
+      </span>
     ) : null,
   a: ({ href, children }) => {
     const external = href && /^https?:\/\//.test(href);
