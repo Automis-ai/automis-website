@@ -681,10 +681,12 @@ body.blog-article-page .automis-en {
 
 /* ── HERO ── */
 .blog-hero {
-  padding: 130px 0 3.5rem;
-  /* brand light-blue (blue-lightest #B4C2FF), a more intense but not dark blue,
-     easing the jump from the dark index; fades to white for the reading column. */
-  background: linear-gradient(180deg, #b4c2ff 0%, #cdd8f6 45%, #eef2fd 100%);
+  padding: 130px 0 2.5rem;
+  /* Dark brand shell continues THROUGH the hero so entering an article from the
+     dark index feels seamless (top = #000a14, the exact index background).
+     Bottom ends on #0a1c30, which the .blog-body dawn-fade picks up and eases
+     into white, so there is no hard dark/white line. */
+  background: linear-gradient(180deg, #000a14 0%, #04101d 58%, #0a1c30 100%);
 }
 .blog-hero-inner {
   max-width: 1180px;
@@ -701,31 +703,31 @@ body.blog-article-page .automis-en {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  color: #6b7482;
+  color: rgba(255, 255, 255, 0.62);
   margin-bottom: 1.1rem;
 }
-.blog-hero-meta .dot { color: #c2c8d2; }
+.blog-hero-meta .dot { color: rgba(255, 255, 255, 0.3); }
 .blog-hero-cat {
-  color: #c99a1e;
+  color: #f5cd79;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: 0.82rem;
   text-decoration: none;
 }
-.blog-hero-cat:hover { color: #a87f12; }
+.blog-hero-cat:hover { color: #f49f01; }
 .blog-hero-title {
   font-size: clamp(2rem, 3.2vw, 3rem);
   line-height: 1.08;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #0f1720;
+  color: #f6f9ff;
   margin: 0 0 1.1rem;
 }
 .blog-hero-sub {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #55606f;
+  color: rgba(255, 255, 255, 0.74);
   margin: 0 0 1.75rem;
   max-width: 34em;
 }
@@ -739,19 +741,19 @@ body.blog-article-page .automis-en {
   height: 46px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid #e6e9ee;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .blog-author-line {
   font-weight: 600;
-  color: #16202c;
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: 0.45rem;
 }
-.blog-author-line a { color: #2f7ed8; }
+.blog-author-line a { color: #7fb2ee; }
 .blog-author-sub {
   display: block;
-  color: #6b7482;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.85rem;
 }
 .blog-hero-media img {
@@ -760,13 +762,28 @@ body.blog-article-page .automis-en {
   aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: 18px;
-  border: 1px solid #eef0f3;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
 }
 
 /* ── BODY: sticky Contents + reading column ── */
 .blog-body {
-  background: #ffffff;
-  padding: 3rem 0 4rem;
+  /* Dawn-fade from the dark hero into the white reading surface. The top band
+     ramps #0a1c30 (the hero's exact bottom colour) -> slate -> white over ~160px,
+     desaturating as it lightens so it reads as soft atmosphere, not muddy blue.
+     Body content starts on solid white (padding-top clears the ramp), so there
+     is no hard dark/white line, just a gentle transition. */
+  background: linear-gradient(
+    180deg,
+    #0a1c30 0px,
+    #12283f 30px,
+    #24384f 62px,
+    #47566b 96px,
+    #8590a1 124px,
+    #cfd5df 146px,
+    #ffffff 164px
+  );
+  padding: 172px 0 4rem;
 }
 .blog-body-inner {
   max-width: 1180px;
