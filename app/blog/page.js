@@ -1,6 +1,6 @@
+import { Suspense } from "react";
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import Link from "next/link";
-import CTAButton from "@/components/CTAButton";
+import BlogIndex from "@/components/blog/BlogIndex";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata = {
@@ -86,139 +86,14 @@ const BlogPage = async () => {
         </div>
       </section>
 
-      {/* ── POSTS ── */}
-      <section className="section-padding bg-bg-primary">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap -mx-4">
-            {/* LEFT: posts */}
-            <div className="px-4 lg:w-2/3">
-              <div className="space-y-8">
-                {posts.map((post, index) => (
-                  <div
-                    key={post.slug}
-                    className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl overflow-hidden hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300 group"
-                    data-aos="fade-up"
-                    data-aos-duration={800}
-                    data-aos-delay={100 + index * 100}
-                    data-aos-offset={50}
-                  >
-                    {/* Image */}
-                    {post.image && (
-                      <div className="relative overflow-hidden h-80">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
-
-                    {/* Content */}
-                    <div className="p-8">
-                      <ul className="flex flex-wrap items-center gap-4 mb-4">
-                        {post.category && (
-                          <li>
-                            <span className="px-3 py-1 bg-blue-middle/20 text-blue-middle rounded-full hover:bg-yellow-light/20 hover:text-yellow-light transition-all duration-300 small-text">
-                              {post.category}
-                            </span>
-                          </li>
-                        )}
-                        {post.date && (
-                          <li className="flex items-center gap-2 text-white/90">
-                            <i className="far fa-calendar-alt" />
-                            <span className="small-text">
-                              {new Date(post.date).toLocaleDateString("en-US", {
-                                month: "long",
-                                year: "numeric",
-                              })}
-                            </span>
-                          </li>
-                        )}
-                      </ul>
-
-                      <h2 className="card-heading font-medium mb-4">
-                        <Link
-                          href={`/blog/${post.slug}`}
-                          className="text-white hover:text-yellow-light transition-all duration-300"
-                          dangerouslySetInnerHTML={{
-                            __html: post.htmlTitle || post.title,
-                          }}
-                        />
-                      </h2>
-
-                      <p className="body-text text-white/90 mb-6 leading-relaxed">
-                        {post.description}
-                      </p>
-
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="inline-flex items-center gap-2 text-blue-middle hover:text-yellow-light transition-all duration-300 font-medium group"
-                      >
-                        Read More{" "}
-                        <i className="far fa-arrow-right transform group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-
-                {posts.length === 0 && (
-                  <p className="body-text text-white/60 text-center py-12">
-                    No articles published yet. Check back soon.
-                  </p>
-                )}
-              </div>
-            </div>
-
-            {/* RIGHT: CTA sidebar */}
-            <div className="px-4 lg:w-1/3">
-              <div className="space-y-8 mt-8 lg:mt-0">
-                <div
-                  className="relative bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 p-8 rounded-2xl overflow-hidden hover:border-yellow-light/30 transition-all duration-300 group"
-                  data-aos="fade-left"
-                  data-aos-delay={400}
-                  data-aos-duration={800}
-                  data-aos-offset={50}
-                >
-                  <h3 className="sub-heading font-medium text-white mb-4 relative z-10">
-                    Ready to Transform Your Business with AI?
-                  </h3>
-                  <p className="body-text text-white/90 mb-6 relative z-10">
-                    Book a free consultation to discover how AI automations can
-                    help you scale faster and more efficiently.
-                  </p>
-                  <CTAButton
-                    href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
-                    external={true}
-                    variant="primary"
-                    size="medium"
-                    icon="fas fa-angle-double-right"
-                    className="relative z-10"
-                  >
-                    Book Discovery Call
-                  </CTAButton>
-                  <div className="absolute bottom-0 right-0 w-32 h-32 opacity-30">
-                    <img
-                      src="/assets/images/widget/cta-man.png"
-                      alt="Call-to-action promotional graphic"
-                      className="w-full h-full object-contain opacity-60"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage: "url(/assets/images/widget/cta-bg.png)",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── POSTS + CATEGORY FILTER ── */}
+      <Suspense fallback={null}>
+        <BlogIndex
+          posts={posts}
+          basePath="/blog"
+          labels={{ readMore: "Read More", empty: "No articles published yet. Check back soon." }}
+        />
+      </Suspense>
     </AutomisEnShell>
   );
 };
