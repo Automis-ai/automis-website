@@ -20,6 +20,7 @@ const INDEXABLE_PATHS = [
   "/blog/voice-ai-receptionists",
   "/blog/ai-automations",
   "/blog/ai-optimized-paid-ads",
+  "/blog/ai-receptionist-cost",
   "/playbook",
   "/contact",
   "/privacy-policy",
