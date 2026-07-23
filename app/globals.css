@@ -658,19 +658,25 @@ html { scroll-behavior: smooth; }
 
 /* On the light article, the white-text nav needs a solid dark bar to stay visible
    (it is transparent-over-dark by default). Keeps the dark brand nav shell. */
-body.blog-article-page .main-header.header-white.fixed-header.transparent-header,
-body.blog-article-page .main-header.fixed-header.transparent-header .header-upper {
-  background-color: #060f1b !important;
+/* Paint ONLY the rounded pill (.main-header) so it matches the scrolled state.
+   Do NOT paint .header-upper (a square inner div) or its corners poke out past
+   the pill's rounded corners (the pill has overflow: visible). */
+body.blog-article-page .main-header.header-white.fixed-header.transparent-header {
+  background-color: rgba(10, 61, 98, 0.98) !important;
 }
-body.blog-article-page .main-header.transparent-header .header-inner {
-  border-bottom-color: rgba(255, 255, 255, 0.07) !important;
+/* Ancestors set overflow:hidden / auto, which breaks position:sticky (the TOC).
+   overflow:clip keeps the horizontal-overflow guard without a scroll container. */
+body.blog-article-page .page-wrapper,
+body.blog-article-page .automis-en {
+  overflow: clip !important;
 }
 
 /* ── HERO ── */
 .blog-hero {
   padding: 130px 0 3rem;
-  background: #ffffff;
-  border-bottom: 1px solid #eef0f3;
+  /* soft brand light-blue fading to white, so the dark nav does not smash into
+     a pure-white page. The reading area below stays white. */
+  background: linear-gradient(180deg, #e7ecfb 0%, #eef2fd 55%, #ffffff 100%);
 }
 .blog-hero-inner {
   max-width: 1180px;
@@ -761,11 +767,14 @@ body.blog-article-page .main-header.transparent-header .header-inner {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
   gap: 64px;
-  align-items: start;
+  /* default align-items:stretch makes the aside cell as tall as the article,
+     so the sticky TOC inside it follows the whole scroll instead of dropping. */
 }
 .blog-body-main { max-width: 760px; }
 
-.blog-toc2 { position: sticky; top: 110px; }
+/* the sticky sidebar is the ASIDE (align-self:start so it sizes to its content
+   and can follow); the ancestors' overflow is neutralized to clip below. */
+.blog-body-aside { position: sticky; top: 110px; align-self: start; }
 .blog-toc2-title {
   text-transform: uppercase;
   letter-spacing: 0.08em;
