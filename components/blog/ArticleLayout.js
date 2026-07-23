@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CTAButton from "@/components/CTAButton";
 import FAQSection from "@/components/FAQSection";
-import { getAuthor } from "@/lib/authors";
+import { getAuthor, SOCIAL_ICON } from "@/lib/authors";
 import { slugifyHeading } from "@/lib/blog";
 
 /* Flatten a react-markdown node's text content (for heading anchor ids). */
@@ -76,6 +76,12 @@ export default function ArticleLayout({
   basePath = "/blog",
 }) {
   const author = getAuthor(post.author);
+  const authorRole =
+    locale === "it" ? author.roleIt || author.role : author.role;
+  const authorBio = locale === "it" ? author.bioIt || author.bio : author.bio;
+  const socialIcon =
+    (author.social && SOCIAL_ICON[author.social.type]) || "fab fa-linkedin";
+  const socialUrl = author.social && author.social.url;
   const embed = youtubeEmbed(post.youtube);
   const dateStr = post.date
     ? new Date(post.date).toLocaleDateString(
@@ -116,19 +122,19 @@ export default function ArticleLayout({
                 <div className="leading-tight">
                   <div className="flex items-center gap-2">
                     <span className="text-white font-medium">{author.name}</span>
-                    {author.linkedin && (
+                    {socialUrl && (
                       <a
-                        href={author.linkedin}
+                        href={socialUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`${author.name} on LinkedIn`}
+                        aria-label={`${author.name} on ${author.social.type}`}
                         className="text-white/60 hover:text-yellow-light transition"
                       >
-                        <i className="fab fa-linkedin" />
+                        <i className={socialIcon} />
                       </a>
                     )}
                   </div>
-                  <span className="text-white/60 text-sm">{author.role}</span>
+                  <span className="text-white/60 text-sm">{authorRole}</span>
                 </div>
               </div>
               <span className="text-white/30">•</span>
@@ -198,19 +204,19 @@ export default function ArticleLayout({
               <div>
                 <p className="blog-author-name">
                   {author.name}
-                  {author.linkedin && (
+                  {socialUrl && (
                     <a
-                      href={author.linkedin}
+                      href={socialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`${author.name} on LinkedIn`}
+                      aria-label={`${author.name} on ${author.social.type}`}
                     >
-                      <i className="fab fa-linkedin" />
+                      <i className={socialIcon} />
                     </a>
                   )}
                 </p>
-                <p className="blog-author-role">{author.role}</p>
-                {author.bio && <p className="blog-author-text">{author.bio}</p>}
+                <p className="blog-author-role">{authorRole}</p>
+                {authorBio && <p className="blog-author-text">{authorBio}</p>}
               </div>
             </div>
 

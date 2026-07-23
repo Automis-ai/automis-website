@@ -4,7 +4,7 @@ htmlTitle: "Voice AI Receptionists <br/> The Future of Customer Calls & Bookings
 description: "Discover how Voice AI Receptionists answer calls 24/7, qualify leads, and book more appointments. Never miss a call again with AI-powered receptionists."
 slug: "voice-ai-receptionists"
 date: "2025-01-15"
-author: "automis.ai"
+author: "arcangelo"
 lang: "en"
 category: "Voice AI"
 image: "https://images.unsplash.com/photo-1590650213165-c1fef80648c4?w=800&h=600&fit=crop"
