@@ -31,7 +31,7 @@ const BlogPage = async () => {
   return (
     <AutomisEnShell>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden bg-bg-primary hero-padding">
+      <section className="relative overflow-hidden bg-bg-primary pt-36 pb-10">
         {/* background blobs */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-middle/5 rounded-full blur-3xl" />

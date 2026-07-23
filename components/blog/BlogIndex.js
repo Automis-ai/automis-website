@@ -26,7 +26,7 @@ export default function BlogIndex({ posts, basePath = "/blog", labels }) {
     active === "All" ? posts : posts.filter((p) => p.category === active);
 
   return (
-    <section className="section-padding bg-bg-primary">
+    <section className="bg-bg-primary pt-2 pb-24">
       <div className="container mx-auto px-4">
         {/* category filter bar */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">

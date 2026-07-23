@@ -660,7 +660,7 @@ html { scroll-behavior: smooth; }
 
 /* hero image at the top of the reading column */
 .blog-hero-figure {
-  margin: -5.5rem 0 2.25rem; /* pull up so it overlaps the dark hero band */
+  margin: 0 0 2.5rem; /* sits cleanly in the light column, below the dark hero band */
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 20px 45px -20px rgba(0, 10, 20, 0.45);
@@ -743,6 +743,15 @@ html { scroll-behavior: smooth; }
 }
 .blog-article p {
   margin: 0 0 1.4rem;
+  color: #2b3644;
+}
+/* the dark site sets a global white text color; force dark on the light column */
+.blog-article,
+.blog-article li,
+.blog-article blockquote,
+.blog-article blockquote p,
+.blog-article td {
+  color: #2b3644;
 }
 .blog-article h2 {
   font-size: clamp(1.5rem, 2.4vw, 2rem);
