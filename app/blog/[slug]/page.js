@@ -95,7 +95,15 @@ const BlogPostPage = ({ params }) => {
 <ReactMarkdown
   remarkPlugins={[remarkGfm]}
   components={{
-    img: () => null
+    // Immagini nel corpo dell'articolo. Nota: react-markdown avvolge le immagini in
+    // un <p>, quindi qui si usa <span> (display:block via CSS) e non <figure>:
+    // un <figure> dentro un <p> e' HTML non valido e rompe l'hydration di React.
+    img: ({ src, alt, title }) => (
+      <span className="blog-figure">
+        <img src={src} alt={alt || ""} loading="lazy" decoding="async" />
+        {title ? <span className="blog-figcaption">{title}</span> : null}
+      </span>
+    )
   }}
 >
   {post.body}
