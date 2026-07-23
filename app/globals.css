@@ -647,6 +647,225 @@ html { scroll-behavior: smooth; }
   color: #000a14 !important;
 }
 
+/* ═══════════════════════════════════════════
+   Blog ARTICLE v2 — light, structured (moonb layout)
+   2-col hero + sticky Contents sidebar + reading column
+═══════════════════════════════════════════ */
+.blog-light {
+  background: #ffffff;
+  color: #1b2430;
+}
+
+/* On the light article, the white-text nav needs a solid dark bar to stay visible
+   (it is transparent-over-dark by default). Keeps the dark brand nav shell. */
+body.blog-article-page .main-header.header-white.fixed-header.transparent-header,
+body.blog-article-page .main-header.fixed-header.transparent-header .header-upper {
+  background-color: #060f1b !important;
+}
+body.blog-article-page .main-header.transparent-header .header-inner {
+  border-bottom-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* ── HERO ── */
+.blog-hero {
+  padding: 130px 0 3rem;
+  background: #ffffff;
+  border-bottom: 1px solid #eef0f3;
+}
+.blog-hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+.blog-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #6b7482;
+  margin-bottom: 1.1rem;
+}
+.blog-hero-meta .dot { color: #c2c8d2; }
+.blog-hero-cat {
+  color: #c99a1e;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+.blog-hero-cat:hover { color: #a87f12; }
+.blog-hero-title {
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #0f1720;
+  margin: 0 0 1.1rem;
+}
+.blog-hero-sub {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #55606f;
+  margin: 0 0 1.75rem;
+  max-width: 34em;
+}
+.blog-author-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.blog-author-row img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #e6e9ee;
+}
+.blog-author-line {
+  font-weight: 600;
+  color: #16202c;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.blog-author-line a { color: #2f7ed8; }
+.blog-author-sub {
+  display: block;
+  color: #6b7482;
+  font-size: 0.85rem;
+}
+.blog-hero-media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid #eef0f3;
+}
+
+/* ── BODY: sticky Contents + reading column ── */
+.blog-body {
+  background: #ffffff;
+  padding: 3rem 0 4rem;
+}
+.blog-body-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+.blog-body-main { max-width: 760px; }
+
+.blog-toc2 { position: sticky; top: 110px; }
+.blog-toc2-title {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #8a93a3;
+  margin: 0 0 1rem;
+}
+.blog-toc2 ul { list-style: none; margin: 0; padding: 0; }
+.blog-toc2 li { margin: 0; }
+.blog-toc2 a {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  color: #6b7482;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  padding: 0.32rem 0;
+  border-left: 2px solid transparent;
+  padding-left: 0.9rem;
+  margin-left: -0.9rem;
+  transition: color 0.15s, border-color 0.15s;
+}
+.blog-toc2 .toc2-h3 a {
+  padding-left: 2.1rem;
+  font-size: 0.85rem;
+  color: #99a1ae;
+}
+.blog-toc2 .toc2-num {
+  color: #c2c8d2;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+}
+.blog-toc2 a:hover { color: #16202c; }
+.blog-toc2 .is-active > a {
+  color: #0f1720;
+  font-weight: 600;
+  border-left-color: #2f7ed8;
+}
+.blog-toc2 .is-active .toc2-num { color: #2f7ed8; }
+
+/* ── FAQ (light) ── */
+.blog-faq { margin-top: 3.5rem; }
+.blog-faq h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f1720;
+  margin: 0 0 0.5rem;
+}
+.blog-faq-item { border-top: 1px solid #e9ecf1; padding: 1rem 0; }
+.blog-faq-item summary {
+  font-weight: 600;
+  color: #16202c;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 1.5rem;
+}
+.blog-faq-item summary::-webkit-details-marker { display: none; }
+.blog-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  color: #9aa2b0;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.blog-faq-item[open] summary::after { content: "\2212"; }
+.blog-faq-item p { color: #4b5563; margin: 0.7rem 0 0; line-height: 1.65; }
+
+/* ── CTA (contained brand card) ── */
+.blog-cta {
+  margin-top: 3.5rem;
+  background: linear-gradient(135deg, #0b1a2e 0%, #143257 100%);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.blog-cta h2 { color: #ffffff; font-size: 1.6rem; font-weight: 700; margin: 0 0 0.6rem; }
+.blog-cta p { color: rgba(255, 255, 255, 0.82); max-width: 34em; margin: 0 auto; line-height: 1.6; }
+.blog-cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .blog-body-inner { grid-template-columns: 1fr; gap: 0; }
+  .blog-body-aside { display: none; }
+}
+@media (max-width: 860px) {
+  .blog-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .blog-hero { padding-top: 112px; }
+}
+
 /* ─────────────────────────────────────────
    Blog ARTICLE — light reading surface
    Dark brand shell wraps this; the reading

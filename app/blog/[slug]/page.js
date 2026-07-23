@@ -48,7 +48,7 @@ export async function generateMetadata({ params }) {
 
 const EN_LABELS = {
   minRead: "min read",
-  toc: "In this article",
+  toc: "Contents",
   related: "Related articles",
   faqTitle: "Frequently Asked Questions",
   ctaTitle: "Ready to Transform Your Business?",
@@ -67,7 +67,7 @@ const BlogPostPage = ({ params }) => {
   const related = getRelatedPosts(params.slug, "en", 3);
 
   return (
-    <AutomisEnShell>
+    <AutomisEnShell bodyClass="blog-article-page">
       <ArticleLayout
         post={post}
         toc={toc}

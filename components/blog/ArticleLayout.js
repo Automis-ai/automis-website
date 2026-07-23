@@ -2,7 +2,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CTAButton from "@/components/CTAButton";
-import FAQSection from "@/components/FAQSection";
+import BlogToc from "@/components/blog/BlogToc";
 import { getAuthor, SOCIAL_ICON } from "@/lib/authors";
 import { slugifyHeading } from "@/lib/blog";
 
@@ -14,7 +14,6 @@ function nodeText(node) {
   return "";
 }
 
-/* Accepts a YouTube id or any YouTube URL, returns the embed URL (or null). */
 function youtubeEmbed(input) {
   if (!input) return null;
   const s = String(input).trim();
@@ -32,9 +31,7 @@ const mdComponents = {
   h3: ({ node, children }) => (
     <h3 id={slugifyHeading(nodeText(node))}>{children}</h3>
   ),
-  // Images are enabled here (the old template stripped them). Alt doubles as caption.
-  // NOTE: react-markdown wraps images in a <p>, so a block <figure> here is invalid
-  // HTML and breaks hydration. Use <span>s (display:block via CSS) instead.
+  // react-markdown wraps images in a <p>, so use <span>s (display:block via CSS).
   img: ({ src, alt }) =>
     src ? (
       <span className="blog-figure">
@@ -57,16 +54,8 @@ const mdComponents = {
 };
 
 /**
- * Full moonb-style article page.
- * Dark brand shell (hero band + FAQ/CTA footer) with a LIGHT reading column.
- *
- * @param post    frontmatter + body
- * @param toc     [{ level, text, id }]
- * @param minutes reading time
- * @param related related posts
- * @param locale  "en" | "it"
- * @param labels  UI strings for the locale
- * @param basePath "/blog" | "/it/blog"
+ * moonb-style article: fully light, 2-column hero (text + illustration),
+ * sticky "Contents" sidebar with the reading column beside it.
  */
 export default function ArticleLayout({
   post,
@@ -92,7 +81,7 @@ export default function ArticleLayout({
       )
     : null;
 
-  // ── JSON-LD (server-rendered): Article + FAQPage for rich results / AI extraction ──
+  // ── JSON-LD ──
   const canonical = `https://automis.ai${basePath}/${post.slug}`;
   const articleLd = {
     "@context": "https://schema.org",
@@ -130,8 +119,31 @@ export default function ArticleLayout({
         }
       : null;
 
+  const authorBlock = (
+    <div className="blog-author-row">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={author.avatar} alt={author.name} loading="lazy" />
+      <div>
+        <span className="blog-author-line">
+          {author.name}
+          {socialUrl && (
+            <a
+              href={socialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${author.name} on ${author.social.type}`}
+            >
+              <i className={socialIcon} />
+            </a>
+          )}
+        </span>
+        <span className="blog-author-sub">{authorRole}</span>
+      </div>
+    </div>
+  );
+
   return (
-    <>
+    <div className="blog-light">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
@@ -142,92 +154,52 @@ export default function ArticleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       )}
-      {/* ── DARK HERO BAND (on-brand) ── */}
-      <section className="bg-bg-primary relative z-1 pt-32 pb-14 md:pt-40 md:pb-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            {post.category && (
-              <Link
-                href={`${basePath}?category=${encodeURIComponent(post.category)}`}
-                className="inline-block text-yellow-light text-sm font-semibold uppercase tracking-wide mb-4 hover:opacity-80 transition"
-              >
-                {post.category}
-              </Link>
-            )}
-            <h1
-              className="hero-heading text-white mb-6"
-              dangerouslySetInnerHTML={{ __html: post.htmlTitle || post.title }}
-            />
 
-            {/* meta row: author + date + reading time */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-              <div className="flex items-center gap-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={author.avatar}
-                  alt={author.name}
-                  className="w-11 h-11 rounded-full object-cover border border-white/20"
-                  loading="lazy"
-                />
-                <div className="leading-tight">
-                  <div className="flex items-center gap-2">
-                    <span className="text-white font-medium">{author.name}</span>
-                    {socialUrl && (
-                      <a
-                        href={socialUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${author.name} on ${author.social.type}`}
-                        className="text-white/60 hover:text-yellow-light transition"
-                      >
-                        <i className={socialIcon} />
-                      </a>
-                    )}
-                  </div>
-                  <span className="text-white/60 text-sm">{authorRole}</span>
-                </div>
-              </div>
-              <span className="text-white/30">•</span>
-              <span className="text-white/70 text-sm">
-                {dateStr}
-                {dateStr ? " · " : ""}
+      {/* ── HERO (light, 2 columns) ── */}
+      <section className="blog-hero">
+        <div className="blog-hero-inner">
+          <div className="blog-hero-text">
+            <div className="blog-hero-meta">
+              {post.category && (
+                <Link
+                  href={`${basePath}?category=${encodeURIComponent(
+                    post.category
+                  )}`}
+                  className="blog-hero-cat"
+                >
+                  {post.category}
+                </Link>
+              )}
+              {dateStr && <span className="dot">·</span>}
+              {dateStr && <span>{dateStr}</span>}
+              <span className="dot">·</span>
+              <span>
                 {minutes} {labels.minRead}
               </span>
             </div>
+            <h1 className="blog-hero-title">{post.title}</h1>
+            {post.description && (
+              <p className="blog-hero-sub">{post.description}</p>
+            )}
+            {authorBlock}
           </div>
+          {post.image && (
+            <div className="blog-hero-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={post.image} alt={post.title} loading="eager" />
+            </div>
+          )}
         </div>
       </section>
 
-      {/* ── LIGHT READING COLUMN ── */}
-      <section className="blog-article-surface">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            {/* hero image */}
-            {post.image && (
-              <figure className="blog-hero-figure">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={post.image} alt={post.title} loading="eager" />
-              </figure>
-            )}
+      {/* ── BODY: sticky Contents sidebar + reading column ── */}
+      <section className="blog-body">
+        <div className="blog-body-inner">
+          <aside className="blog-body-aside">
+            <BlogToc toc={toc} label={labels.toc} />
+          </aside>
 
-            {/* table of contents */}
-            {toc.length > 1 && (
-              <nav className="blog-toc" aria-label={labels.toc}>
-                <p className="blog-toc-title">{labels.toc}</p>
-                <ol>
-                  {toc.map((h, i) => (
-                    <li
-                      key={`${h.id}-${i}`}
-                      className={h.level === 3 ? "toc-sub" : ""}
-                    >
-                      <a href={`#${h.id}`}>{h.text}</a>
-                    </li>
-                  ))}
-                </ol>
-              </nav>
-            )}
-
-            {/* optional video */}
+          <div className="blog-body-main">
             {embed && (
               <div className="blog-video">
                 <iframe
@@ -240,7 +212,6 @@ export default function ArticleLayout({
               </div>
             )}
 
-            {/* article body (light prose) */}
             <div className="blog-article">
               <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
                 {post.body}
@@ -270,7 +241,43 @@ export default function ArticleLayout({
               </div>
             </div>
 
-            {/* related posts */}
+            {/* FAQ (light) */}
+            {post.faqs && post.faqs.length > 0 && (
+              <div className="blog-faq">
+                <h2>{labels.faqTitle}</h2>
+                {post.faqs.map((f, i) => (
+                  <details key={i} className="blog-faq-item">
+                    <summary>{f.question}</summary>
+                    <p>{f.answer}</p>
+                  </details>
+                ))}
+              </div>
+            )}
+
+            {/* CTA (contained brand card) */}
+            <div className="blog-cta">
+              <h2>{labels.ctaTitle}</h2>
+              <p>{labels.ctaText}</p>
+              <div className="blog-cta-actions">
+                <CTAButton
+                  href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                  external={true}
+                  variant="primary"
+                  size="large"
+                >
+                  {labels.ctaPrimary}
+                </CTAButton>
+                <CTAButton
+                  href={locale === "it" ? "/it/contact" : "/contact"}
+                  variant="secondary"
+                  size="large"
+                >
+                  {labels.ctaSecondary}
+                </CTAButton>
+              </div>
+            </div>
+
+            {/* related */}
             {related.length > 0 && (
               <div className="blog-related">
                 <h2>{labels.related}</h2>
@@ -299,53 +306,6 @@ export default function ArticleLayout({
           </div>
         </div>
       </section>
-
-      {/* ── DARK FOOTER BAND: FAQ + CTA (brand shell resumes) ── */}
-      <section className="section-padding bg-bg-primary">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            {post.faqs && post.faqs.length > 0 && (
-              <FAQSection
-                sectionTitle={labels.faqTitle}
-                sectionSubtitle="FAQ"
-                sectionDescription=""
-                iconClass="fas fa-robot"
-                bgColor="bg-bg-primary"
-                accentColor="var(--blue-middle)"
-                faqs={post.faqs}
-              />
-            )}
-
-            <div className="mt-12 text-center">
-              <div className="bg-gradient-to-r from-blue-middle/20 to-blue-lightest/20 backdrop-blur-lg border border-blue-middle/30 rounded-3xl p-8 md:p-12">
-                <h2 className="section-heading text-white mb-4">
-                  {labels.ctaTitle}
-                </h2>
-                <p className="body-text text-white/90 mb-8 max-w-xl mx-auto">
-                  {labels.ctaText}
-                </p>
-                <div className="flex flex-wrap gap-4 justify-center">
-                  <CTAButton
-                    href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
-                    external={true}
-                    variant="primary"
-                    size="large"
-                  >
-                    {labels.ctaPrimary}
-                  </CTAButton>
-                  <CTAButton
-                    href={locale === "it" ? "/it/contact" : "/contact"}
-                    variant="secondary"
-                    size="large"
-                  >
-                    {labels.ctaSecondary}
-                  </CTAButton>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+    </div>
   );
 }

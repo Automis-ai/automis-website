@@ -11,14 +11,14 @@ import "@/components/site/design-system.css";
     - the old-template Header/Footer/sticky-CTA via AkpagerLayout
   Keep page-level `export const metadata` in the page file (server component).
 */
-export default function AutomisEnShell({ children }) {
+export default function AutomisEnShell({ children, bodyClass }) {
   return (
     <div className="automis-en">
       <PointerGlow />
       {/* Preload the two most critical font weights for a fast first paint. */}
       <link rel="preload" href="/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       <link rel="preload" href="/fonts/general-sans-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-      <AkpagerLayout>{children}</AkpagerLayout>
+      <AkpagerLayout bodyClass={bodyClass}>{children}</AkpagerLayout>
     </div>
   );
 }
