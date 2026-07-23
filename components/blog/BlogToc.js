@@ -4,14 +4,15 @@ import { useEffect, useState } from "react";
 
 /**
  * Sticky left "Contents" sidebar with scroll-spy.
- * H2 items are numbered (01, 02...), H3 items are indented sub-items.
- * The active section is highlighted as you scroll.
+ * Shows ONLY the main sections (H2), numbered 01, 02... so the list stays short
+ * enough to fit the viewport. The active section is highlighted as you scroll.
  */
 export default function BlogToc({ toc, label }) {
-  const [active, setActive] = useState(toc && toc.length ? toc[0].id : null);
+  const items = (toc || []).filter((h) => h.level === 2);
+  const [active, setActive] = useState(items.length ? items[0].id : null);
 
   useEffect(() => {
-    if (!toc || !toc.length) return;
+    if (!items.length) return;
     const obs = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -21,39 +22,31 @@ export default function BlogToc({ toc, label }) {
       },
       { rootMargin: "-96px 0px -66% 0px", threshold: 0 }
     );
-    toc.forEach((h) => {
+    items.forEach((h) => {
       const el = document.getElementById(h.id);
       if (el) obs.observe(el);
     });
     return () => obs.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toc]);
 
-  if (!toc || toc.length < 2) return null;
+  if (items.length < 2) return null;
 
-  let n = 0;
   return (
     <nav className="blog-toc2" aria-label={label}>
       <p className="blog-toc2-title">{label}</p>
       <ul>
-        {toc.map((h) => {
-          const isH2 = h.level === 2;
-          if (isH2) n += 1;
-          const num = isH2 ? String(n).padStart(2, "0") : null;
-          return (
-            <li
-              key={h.id}
-              className={
-                (isH2 ? "toc2-h2" : "toc2-h3") +
-                (active === h.id ? " is-active" : "")
-              }
-            >
-              <a href={`#${h.id}`}>
-                {num && <span className="toc2-num">{num}</span>}
-                <span className="toc2-text">{h.text}</span>
-              </a>
-            </li>
-          );
-        })}
+        {items.map((h, i) => (
+          <li
+            key={h.id}
+            className={"toc2-h2" + (active === h.id ? " is-active" : "")}
+          >
+            <a href={`#${h.id}`}>
+              <span className="toc2-num">{String(i + 1).padStart(2, "0")}</span>
+              <span className="toc2-text">{h.text}</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   );

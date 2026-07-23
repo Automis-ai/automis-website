@@ -664,6 +664,11 @@ html { scroll-behavior: smooth; }
 body.blog-article-page .main-header.header-white.fixed-header.transparent-header {
   background-color: rgba(10, 61, 98, 0.98) !important;
 }
+/* the square .header-upper casts a square box-shadow behind the rounded pill
+   (the "pointy shade"); remove it so only the pill's own rounded shadow shows. */
+body.blog-article-page .main-header.fixed-header .header-upper {
+  box-shadow: none !important;
+}
 /* Ancestors set overflow:hidden / auto, which breaks position:sticky (the TOC).
    overflow:clip keeps the horizontal-overflow guard without a scroll container. */
 body.blog-article-page .page-wrapper,
@@ -673,10 +678,10 @@ body.blog-article-page .automis-en {
 
 /* ── HERO ── */
 .blog-hero {
-  padding: 130px 0 3rem;
-  /* soft brand light-blue fading to white, so the dark nav does not smash into
-     a pure-white page. The reading area below stays white. */
-  background: linear-gradient(180deg, #e7ecfb 0%, #eef2fd 55%, #ffffff 100%);
+  padding: 130px 0 3.5rem;
+  /* a clearly-present brand light-blue that eases the jump from the dark index,
+     fading to white where the reading column begins. */
+  background: linear-gradient(180deg, #c6d3f2 0%, #d9e2f8 50%, #f4f7fd 100%);
 }
 .blog-hero-inner {
   max-width: 1180px;
@@ -867,8 +872,14 @@ body.blog-article-page .automis-en {
 }
 
 @media (max-width: 1024px) {
-  .blog-body-inner { grid-template-columns: 1fr; gap: 0; }
+  /* minmax(0,1fr), not 1fr: a plain 1fr is minmax(auto,1fr) and a wide child
+     (table/image) blows the column past the viewport, then overflow:clip cuts it. */
+  .blog-body-inner { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .blog-body-aside { display: none; }
+}
+/* wide comparison tables scroll within the reading column on small screens */
+@media (max-width: 640px) {
+  .blog-article table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }
 @media (max-width: 860px) {
   .blog-hero-inner { grid-template-columns: 1fr; gap: 32px; }
