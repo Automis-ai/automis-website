@@ -51,6 +51,12 @@ const mdComponents = {
       </a>
     );
   },
+  // wrap tables so wide comparison tables scroll horizontally on mobile
+  table: ({ children }) => (
+    <div className="blog-table-wrap">
+      <table>{children}</table>
+    </div>
+  ),
 };
 
 /**

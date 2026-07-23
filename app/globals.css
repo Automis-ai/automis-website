@@ -664,10 +664,13 @@ html { scroll-behavior: smooth; }
 body.blog-article-page .main-header.header-white.fixed-header.transparent-header {
   background-color: rgba(10, 61, 98, 0.98) !important;
 }
-/* the square .header-upper casts a square box-shadow behind the rounded pill
-   (the "pointy shade"); remove it so only the pill's own rounded shadow shows. */
+/* the square .header-upper (no border-radius) has a box-shadow AND a
+   backdrop-filter blur; inside the rounded pill (overflow:visible) its square
+   corners create the "pointy shade". Kill both; the pill keeps its own rounded blur. */
 body.blog-article-page .main-header.fixed-header .header-upper {
   box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 /* Ancestors set overflow:hidden / auto, which breaks position:sticky (the TOC).
    overflow:clip keeps the horizontal-overflow guard without a scroll container. */
@@ -679,9 +682,9 @@ body.blog-article-page .automis-en {
 /* ── HERO ── */
 .blog-hero {
   padding: 130px 0 3.5rem;
-  /* a clearly-present brand light-blue that eases the jump from the dark index,
-     fading to white where the reading column begins. */
-  background: linear-gradient(180deg, #c6d3f2 0%, #d9e2f8 50%, #f4f7fd 100%);
+  /* brand light-blue (blue-lightest #B4C2FF), a more intense but not dark blue,
+     easing the jump from the dark index; fades to white for the reading column. */
+  background: linear-gradient(180deg, #b4c2ff 0%, #cdd8f6 45%, #eef2fd 100%);
 }
 .blog-hero-inner {
   max-width: 1180px;
@@ -877,10 +880,15 @@ body.blog-article-page .automis-en {
   .blog-body-inner { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .blog-body-aside { display: none; }
 }
-/* wide comparison tables scroll within the reading column on small screens */
-@media (max-width: 640px) {
-  .blog-article table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+/* comparison tables scroll horizontally within the reading column when narrow,
+   with a min-width so the columns stay readable instead of crushing on mobile */
+.blog-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 0 2rem;
+  border-radius: 12px;
 }
+.blog-table-wrap table { margin-bottom: 0; min-width: 560px; }
 @media (max-width: 860px) {
   .blog-hero-inner { grid-template-columns: 1fr; gap: 32px; }
   .blog-hero { padding-top: 112px; }
