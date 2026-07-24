@@ -33,7 +33,7 @@ const COPY = {
         bio: "Arcangelo is hands-on with every layer of an AI build, from custom agents and multi-step automations to the Second Brain systems that run on your own data. He's obsessed with finding the highest-leverage place to automate: he walks into a business, maps where time and money leak, and pinpoints exactly which processes are ready to be automated, the repetitive task, the slow handoff, the follow-up that never happens. That audit-first approach turns into real, owned infrastructure that keeps delivering results long after the build is done.",
         social: {
           type: "instagram",
-          url: "https://instagram.com/arcangelobianco.ai",
+          url: "https://instagram.com/arcangelo.bianco_",
           label: "Instagram",
         },
       },
@@ -65,7 +65,7 @@ const COPY = {
         bio: "Arcangelo è operativo su ogni livello di un progetto IA, dagli agenti su misura alle automazioni a più passaggi, fino ai sistemi di Second Brain che girano sui dati della tua azienda. È ossessionato dal trovare il punto in cui automatizzare rende di più: entra in un business, individua dove si perdono tempo e denaro e capisce con precisione quali processi sono pronti per essere automatizzati, l'attività ripetitiva, il passaggio di consegne lento, il follow-up che non parte mai. Questo approccio che parte dall'audit diventa un'infrastruttura reale e di tua proprietà, che continua a produrre risultati molto dopo la fine del progetto.",
         social: {
           type: "instagram",
-          url: "https://instagram.com/arcangelobianco.ai",
+          url: "https://instagram.com/arcangelo.bianco_",
           label: "Instagram",
         },
       },
@@ -97,7 +97,7 @@ const COPY = {
         bio: "O Arcangelo está envolvido em cada camada de um projeto de IA, desde agentes à medida e automações de vários passos até aos sistemas de Second Brain que correm sobre os seus próprios dados. É obcecado por encontrar o ponto de maior alavancagem para automatizar: entra num negócio, mapeia onde escorrem tempo e dinheiro, e identifica com precisão quais os processos prontos para serem automatizados, a tarefa repetitiva, a passagem lenta, o follow-up que nunca acontece. Essa abordagem que parte da auditoria transforma-se em infraestrutura real e sua, que continua a produzir resultados muito depois de o projeto terminar.",
         social: {
           type: "instagram",
-          url: "https://instagram.com/arcangelobianco.ai",
+          url: "https://instagram.com/arcangelo.bianco_",
           label: "Instagram",
         },
       },
