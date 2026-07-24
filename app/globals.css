@@ -1053,8 +1053,12 @@ body.blog-article-page .automis-en {
 .blog-article ul,
 .blog-article ol {
   margin: 0 0 1.4rem;
-  padding-left: 1.4rem;
+  padding-left: 1.5rem;
 }
+/* the global site reset sets ul/ol list-style:none; restore visible markers
+   inside the article body so bullet/numbered lists show their marker. */
+.blog-article ul { list-style: disc; }
+.blog-article ol { list-style: decimal; }
 .blog-article li {
   margin: 0.4rem 0;
   padding-left: 0.25rem;
