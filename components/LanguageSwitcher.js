@@ -64,6 +64,46 @@ function addLangPrefix(pathnameNoLang, targetLang) {
   return pathnameNoLang;
 }
 
+/** hreflang code emitted per locale (must match lib/blog.js HREFLANG). */
+const HREFLANG = { en: "en", it: "it-IT", pt: "pt-PT" };
+
+/** True for an article URL like /blog/<slug> (prefix already stripped). */
+function isBlogArticle(pathnameNoLang) {
+  return /^\/blog\/[^/]+\/?$/.test(pathnameNoLang);
+}
+
+/**
+ * Resolve where a blog article should go when the reader switches language.
+ *
+ * Articles are written natively per language, so slugs do NOT match across
+ * locales and a blind prefix swap produced 404s (and fed them to Search
+ * Console). The article page already renders the correct set of
+ * <link rel="alternate" hreflang> tags, and only for translations that really
+ * exist, so we read those instead of guessing:
+ *
+ *   1. A real translation exists -> go straight to it.
+ *   2. No translation -> go to the blog index in the target language.
+ *
+ * Never returns a URL that was not proven to exist.
+ */
+function resolveBlogTarget(targetLang) {
+  const code = HREFLANG[targetLang] || targetLang;
+  if (typeof document !== "undefined") {
+    const link = document.querySelector(
+      `link[rel="alternate"][hreflang="${code}"]`
+    );
+    if (link && link.href) {
+      try {
+        // Keep it a same-origin path so the client router handles it.
+        return new URL(link.href).pathname;
+      } catch {
+        // fall through to the index
+      }
+    }
+  }
+  return addLangPrefix("/blog", targetLang);
+}
+
 function getSectionFallback(pathnameNoLang) {
   // Optional fallback: if a specific page doesn't exist in target lang,
   // send user to the section root instead of a 404.
@@ -189,6 +229,14 @@ export default function LanguageSwitcher({
       } catch {
         // ignore
       }
+    }
+
+    // Blog articles never share slugs across languages — resolve via hreflang,
+    // falling back to that language's blog index rather than 404ing.
+    if (isBlogArticle(currentNoLang)) {
+      setOpen(false);
+      router.push(resolveBlogTarget(targetLang));
+      return;
     }
 
     // Optional: validate route existence; otherwise fallback to section root

@@ -151,9 +151,7 @@ useEffect(() => {
       { id: 7, key: "contact", title: t.contact, href: hrefFor(PATHNAMES.pages.contact, locale) },
     ];
 
-    // The Portuguese blog isn't built yet (deferred to the SEO content sprint),
-    // so /pt/blog would 404. Hide the Blog nav item on PT until it exists.
-    return locale === "pt" ? items.filter((m) => m.key !== "blog") : items;
+    return items;
   }, [locale]);
 
   // Logo-only header (quando hideHeaderNav = true)

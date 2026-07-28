@@ -11,20 +11,29 @@ import { useSearchParams } from "next/navigation";
  * posts, so the page fills out as content is published.
  */
 
-// Canonical topic order (EN + IT labels share the ranking).
+// Canonical topic order (EN + IT + PT labels share the ranking).
 const CATEGORY_ORDER = [
-  "Voice AI", "Assistente Vocale",
-  "WhatsApp & Chatbots", "WhatsApp e Chatbot",
-  "Lead Gen & Ads", "Lead e Pubblicità",
-  "AI for Business", "IA per le Aziende",
-  "Getting Started", "Come Iniziare",
+  "Voice AI", "Assistente Vocale", "Assistente de Voz",
+  "WhatsApp & Chatbots", "WhatsApp e Chatbot", "WhatsApp e Chatbots",
+  "Lead Gen & Ads", "Lead e Pubblicità", "Contactos e Publicidade",
+  "AI for Business", "IA per le Aziende", "IA para Empresas",
+  "Getting Started", "Come Iniziare", "Como Começar",
 ];
 const catRank = (c) => {
   const i = CATEGORY_ORDER.indexOf(c);
   return i === -1 ? 900 : i;
 };
 
-function PostCard({ post, basePath, labels, isIt }) {
+/** Intl locale for card dates, derived from the blog's base path. */
+const DATE_LOCALE = { en: "en-US", it: "it-IT", pt: "pt-PT" };
+
+function localeFromBasePath(basePath) {
+  if (basePath.startsWith("/it")) return "it";
+  if (basePath.startsWith("/pt")) return "pt";
+  return "en";
+}
+
+function PostCard({ post, basePath, labels, locale }) {
   return (
     <Link
       href={`${basePath}/${post.slug}`}
@@ -50,10 +59,10 @@ function PostCard({ post, basePath, labels, isIt }) {
           )}
           {post.date && (
             <span className="text-white/50 small-text">
-              {new Date(post.date).toLocaleDateString(isIt ? "it-IT" : "en-US", {
-                month: "short",
-                year: "numeric",
-              })}
+              {new Date(post.date).toLocaleDateString(
+                DATE_LOCALE[locale] || "en-US",
+                { month: "short", year: "numeric" }
+              )}
             </span>
           )}
         </div>
@@ -76,8 +85,11 @@ function PostCard({ post, basePath, labels, isIt }) {
 export default function BlogIndex({ posts, basePath = "/blog", labels }) {
   const searchParams = useSearchParams();
   const initial = searchParams.get("category") || "All";
-  const isIt = basePath.startsWith("/it");
-  const viewAll = labels.viewAll || (isIt ? "Vedi tutti" : "View all");
+  const locale = localeFromBasePath(basePath);
+  const viewAll =
+    labels.viewAll ||
+    { it: "Vedi tutti", pt: "Ver todos" }[locale] ||
+    "View all";
 
   const categories = useMemo(() => {
     const set = new Set();
@@ -148,7 +160,7 @@ export default function BlogIndex({ posts, basePath = "/blog", labels }) {
                       post={post}
                       basePath={basePath}
                       labels={labels}
-                      isIt={isIt}
+                      locale={locale}
                     />
                   ))}
                 </div>
@@ -164,7 +176,7 @@ export default function BlogIndex({ posts, basePath = "/blog", labels }) {
                 post={post}
                 basePath={basePath}
                 labels={labels}
-                isIt={isIt}
+                locale={locale}
               />
             ))}
           </div>

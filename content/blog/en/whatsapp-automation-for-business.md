@@ -4,7 +4,7 @@ htmlTitle: "WhatsApp Automation for Business:<br/>What It Does and How to Set It
 description: "WhatsApp automation replies to enquiries instantly, qualifies contacts, and books appointments 24/7. What it does for a business and how to set it up."
 slug: "whatsapp-automation-for-business"
 date: "2026-07-27"
-author: "luca"
+author: "arcangelo"
 lang: "en"
 category: "WhatsApp & Chatbots"
 image: "/assets/images/blog/whatsapp-automation-for-business-hero.webp"

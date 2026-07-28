@@ -3,8 +3,35 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CTAButton from "@/components/CTAButton";
 import BlogToc from "@/components/blog/BlogToc";
-import { getAuthor, SOCIAL_ICON } from "@/lib/authors";
+import {
+  getAuthor,
+  getAuthorBio,
+  getAuthorRole,
+  getAuthorSocials,
+  SOCIAL_ICON,
+  SOCIAL_LABEL,
+} from "@/lib/authors";
 import { slugifyHeading } from "@/lib/blog";
+
+/**
+ * Booking calendars are per-market in GoHighLevel — an Italian reader must land
+ * on the Italian calendar, not the English one. Keep in sync with the rest of
+ * the site (VoiceBooking, CaseStudyDetail, the jumpstart flows).
+ */
+const BOOKING_URL = {
+  en: "https://api.leadconnectorhq.com/widget/bookings/discover-automis",
+  it: "https://api.leadconnectorhq.com/widget/bookings/automis-it",
+  pt: "https://api.leadconnectorhq.com/widget/bookings/pt-automis",
+};
+
+/** Contact page path per locale. */
+const CONTACT_PATH = { en: "/contact", it: "/it/contact", pt: "/pt/contact" };
+
+/** Intl locale used to format the publish date. */
+const DATE_LOCALE = { en: "en-US", it: "it-IT", pt: "pt-PT" };
+
+/** schema.org inLanguage value per locale (pt = European Portuguese). */
+const SCHEMA_LANG = { en: "en", it: "it-IT", pt: "pt-PT" };
 
 /* Flatten a react-markdown node's text content (for heading anchor ids). */
 function nodeText(node) {
@@ -73,18 +100,18 @@ export default function ArticleLayout({
   basePath = "/blog",
 }) {
   const author = getAuthor(post.author);
-  const authorRole =
-    locale === "it" ? author.roleIt || author.role : author.role;
-  const authorBio = locale === "it" ? author.bioIt || author.bio : author.bio;
-  const socialIcon =
-    (author.social && SOCIAL_ICON[author.social.type]) || "fab fa-linkedin";
-  const socialUrl = author.social && author.social.url;
+  const authorRole = getAuthorRole(author, locale);
+  const authorBio = getAuthorBio(author, locale);
+  const socials = getAuthorSocials(author);
+  // JSON-LD takes a single canonical author URL: the first listed profile.
+  const socialUrl = socials.length ? socials[0].url : null;
   const embed = youtubeEmbed(post.youtube);
   const dateStr = post.date
-    ? new Date(post.date).toLocaleDateString(
-        locale === "it" ? "it-IT" : "en-US",
-        { day: "numeric", month: "long", year: "numeric" }
-      )
+    ? new Date(post.date).toLocaleDateString(DATE_LOCALE[locale] || "en-US", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
     : null;
 
   // ── JSON-LD ──
@@ -110,7 +137,7 @@ export default function ArticleLayout({
       },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-    inLanguage: locale === "it" ? "it-IT" : "en",
+    inLanguage: SCHEMA_LANG[locale] || "en",
   };
   const faqLd =
     post.faqs && post.faqs.length > 0
@@ -132,16 +159,17 @@ export default function ArticleLayout({
       <div>
         <span className="blog-author-line">
           {author.name}
-          {socialUrl && (
+          {socials.map((s) => (
             <a
-              href={socialUrl}
+              key={s.url}
+              href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${author.name} on ${author.social.type}`}
+              aria-label={`${author.name} on ${SOCIAL_LABEL[s.type] || s.type}`}
             >
-              <i className={socialIcon} />
+              <i className={SOCIAL_ICON[s.type] || "fab fa-link"} />
             </a>
-          )}
+          ))}
         </span>
         <span className="blog-author-sub">{authorRole}</span>
       </div>
@@ -231,16 +259,17 @@ export default function ArticleLayout({
               <div>
                 <p className="blog-author-name">
                   {author.name}
-                  {socialUrl && (
+                  {socials.map((s) => (
                     <a
-                      href={socialUrl}
+                      key={s.url}
+                      href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`${author.name} on ${author.social.type}`}
+                      aria-label={`${author.name} on ${SOCIAL_LABEL[s.type] || s.type}`}
                     >
-                      <i className={socialIcon} />
+                      <i className={SOCIAL_ICON[s.type] || "fab fa-link"} />
                     </a>
-                  )}
+                  ))}
                 </p>
                 <p className="blog-author-role">{authorRole}</p>
                 {authorBio && <p className="blog-author-text">{authorBio}</p>}
@@ -266,7 +295,7 @@ export default function ArticleLayout({
               <p>{labels.ctaText}</p>
               <div className="blog-cta-actions">
                 <CTAButton
-                  href="https://api.leadconnectorhq.com/widget/bookings/discover-automis"
+                  href={BOOKING_URL[locale] || BOOKING_URL.en}
                   external={true}
                   variant="primary"
                   size="large"
@@ -274,7 +303,7 @@ export default function ArticleLayout({
                   {labels.ctaPrimary}
                 </CTAButton>
                 <CTAButton
-                  href={locale === "it" ? "/it/contact" : "/contact"}
+                  href={CONTACT_PATH[locale] || CONTACT_PATH.en}
                   variant="secondary"
                   size="large"
                 >

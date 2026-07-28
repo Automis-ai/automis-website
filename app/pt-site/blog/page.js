@@ -3,12 +3,13 @@ import AutomisEnShell from "@/components/site/AutomisEnShell";
 import BlogIndex from "@/components/blog/BlogIndex";
 import { getAllPosts } from "@/lib/blog";
 
+// Served publicly at /pt/blog (middleware rewrites /pt/* -> /pt-site/*).
 export const metadata = {
-  title: "Blog | Guide su automazione e IA per il tuo business | Automis",
+  title: "Blog | Guias de automação e IA para o seu negócio | Automis",
   description:
-    "Guide pratiche su agenti vocali IA, automazioni e sistemi per i contatti, pensate per attività locali e professionisti. Dal team di Automis.",
+    "Guias práticos sobre agentes de voz com IA, automações e sistemas de contactos, pensados para negócios locais e profissionais. Da equipa da Automis.",
   alternates: {
-    canonical: "https://automis.ai/it/blog",
+    canonical: "https://automis.ai/pt/blog",
     languages: {
       en: "https://automis.ai/blog",
       "it-IT": "https://automis.ai/it/blog",
@@ -17,17 +18,17 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Blog Automis | Guide su automazione e IA per il tuo business",
+    title: "Blog Automis | Guias de automação e IA para o seu negócio",
     description:
-      "Guide pratiche su agenti vocali IA, automazioni e sistemi per i contatti, per attività locali e professionisti.",
-    url: "https://automis.ai/it/blog",
+      "Guias práticos sobre agentes de voz com IA, automações e sistemas de contactos, para negócios locais e profissionais.",
+    url: "https://automis.ai/pt/blog",
     siteName: "Automis",
     type: "website",
   },
 };
 
 const BlogPage = async () => {
-  const posts = getAllPosts("it");
+  const posts = getAllPosts("pt");
 
   return (
     <AutomisEnShell>
@@ -60,7 +61,7 @@ const BlogPage = async () => {
               data-aos-duration={1500}
             >
               <i className="fas fa-blog" />
-              Articoli &amp; Aggiornamenti
+              Artigos &amp; Novidades
             </span>
 
             <h1
@@ -69,8 +70,8 @@ const BlogPage = async () => {
               data-aos-delay={100}
               data-aos-duration={1500}
             >
-              <span className="text-white">Scopri le nostre</span>{" "}
-              <span className="text-text-blue">ultime novità</span>
+              <span className="text-white">Descubra as nossas</span>{" "}
+              <span className="text-text-blue">últimas novidades</span>
             </h1>
 
             <p
@@ -79,9 +80,9 @@ const BlogPage = async () => {
               data-aos-delay={200}
               data-aos-duration={1500}
             >
-              Esplora articoli su marketing potenziato dall&apos;AI, strategie
-              di automazione e <br /> tattiche di crescita per trasformare il
-              tuo business
+              Explore artigos sobre marketing potenciado por IA, estratégias de{" "}
+              <br /> automação e táticas de crescimento para transformar o seu
+              negócio
             </p>
           </div>
         </div>
@@ -91,8 +92,11 @@ const BlogPage = async () => {
       <Suspense fallback={null}>
         <BlogIndex
           posts={posts}
-          basePath="/it/blog"
-          labels={{ readMore: "Leggi di più", empty: "Nessun articolo pubblicato. Torna presto." }}
+          basePath="/pt/blog"
+          labels={{
+            readMore: "Ler mais",
+            empty: "Ainda não há artigos publicados. Volte em breve.",
+          }}
         />
       </Suspense>
     </AutomisEnShell>

@@ -4,7 +4,7 @@ htmlTitle: "Recuperare le chiamate perse <br/> Quanto ti costano e come smettere
 description: "Ogni chiamata persa è un cliente che va dalla concorrenza. Ecco quanto ti costano le chiamate perse e come recuperarle con un assistente vocale IA."
 slug: "recupero-chiamate-perse"
 date: "2026-07-24"
-author: "arcangelo"
+author: "luca"
 lang: "it"
 category: "Assistente Vocale"
 image: "/assets/images/blog/recupero-chiamate-perse-hero.webp"

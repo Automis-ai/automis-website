@@ -73,6 +73,8 @@ const INDEXABLE_PATHS = [
   "/pt/privacy-policy",
   "/pt/terms-of-service",
   "/pt/cookie-policy",
+  // Portuguese blog (articles are appended here as the engine publishes them)
+  "/pt/blog",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",

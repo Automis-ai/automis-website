@@ -7,6 +7,7 @@ import {
   extractToc,
   readingTimeMinutes,
   getRelatedPosts,
+  buildBlogAlternates,
 } from "@/lib/blog";
 
 // Tell Next.js which slugs exist at build time
@@ -27,14 +28,7 @@ export async function generateMetadata({ params }) {
   return {
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.description,
-    alternates: {
-      canonical: url,
-      languages: {
-        en: `https://automis.ai/blog/${params.slug}`,
-        "it-IT": `https://automis.ai/it/blog/${params.slug}`,
-        "x-default": `https://automis.ai/blog/${params.slug}`,
-      },
-    },
+    alternates: buildBlogAlternates(params.slug, "en"),
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.description,
