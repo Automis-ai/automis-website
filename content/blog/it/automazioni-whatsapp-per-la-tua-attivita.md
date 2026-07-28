@@ -3,6 +3,8 @@ title: "Automazioni WhatsApp per la tua attività: cosa automatizzare e come ini
 htmlTitle: "Automazioni WhatsApp per la tua attività <br/> Cosa automatizzare e come iniziare"
 description: "Le automazioni WhatsApp rispondono ai messaggi in pochi secondi, qualificano i contatti e prenotano da sole. Cosa automatizzare e come iniziare, passo per passo."
 slug: "automazioni-whatsapp-per-la-tua-attivita"
+translations:
+  en: "whatsapp-automation-for-business"
 date: "2026-07-28"
 author: "luca"
 lang: "it"

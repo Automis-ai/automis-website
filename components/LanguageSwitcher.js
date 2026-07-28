@@ -67,41 +67,51 @@ function addLangPrefix(pathnameNoLang, targetLang) {
 /** hreflang code emitted per locale (must match lib/blog.js HREFLANG). */
 const HREFLANG = { en: "en", it: "it-IT", pt: "pt-PT" };
 
-/** True for an article URL like /blog/<slug> (prefix already stripped). */
-function isBlogArticle(pathnameNoLang) {
-  return /^\/blog\/[^/]+\/?$/.test(pathnameNoLang);
+/**
+ * Sections whose slugs are localised, so the same page has a DIFFERENT path per
+ * language (/blog/<slug>, /tools/<slug>). Swapping only the language prefix
+ * lands on a URL that does not exist. When we cannot find a real translation we
+ * send the reader to this section's index in the target language instead.
+ */
+const LOCALISED_SECTIONS = new Set(["blog", "tools", "use-cases"]);
+
+/** Pages that exist in English only. Nothing to switch to, so go to the home. */
+const EN_ONLY = new Set(["playbook", "consultation", "roadmap", "luca-ig"]);
+
+/** First path segment, e.g. "/blog/foo" -> "blog". */
+function firstSegment(pathnameNoLang) {
+  return pathnameNoLang.split("/").filter(Boolean)[0] || "";
+}
+
+/** True for a detail page inside a localised section, e.g. /blog/<slug>. */
+function isLocalisedDetail(pathnameNoLang) {
+  const parts = pathnameNoLang.split("/").filter(Boolean);
+  return parts.length >= 2 && LOCALISED_SECTIONS.has(parts[0]);
 }
 
 /**
- * Resolve where a blog article should go when the reader switches language.
+ * The translation this page itself declares for `targetLang`, or null.
  *
- * Articles are written natively per language, so slugs do NOT match across
- * locales and a blind prefix swap produced 404s (and fed them to Search
- * Console). The article page already renders the correct set of
- * <link rel="alternate" hreflang> tags, and only for translations that really
- * exist, so we read those instead of guessing:
- *
- *   1. A real translation exists -> go straight to it.
- *   2. No translation -> go to the blog index in the target language.
- *
- * Never returns a URL that was not proven to exist.
+ * Pages render <link rel="alternate" hreflang> for their real translations, and
+ * (since the hreflang fix in lib/blog.js) only for translations that actually
+ * exist. So the page is the authority on where its twin lives, and reading it
+ * beats reconstructing a URL: it gets localised slugs right for free
+ * (/tools/missed-call-revenue-calculator -> /it/tools/calcolatore-chiamate-perse),
+ * which a prefix swap turns into a 404.
  */
-function resolveBlogTarget(targetLang) {
+function declaredTranslation(targetLang) {
+  if (typeof document === "undefined") return null;
   const code = HREFLANG[targetLang] || targetLang;
-  if (typeof document !== "undefined") {
-    const link = document.querySelector(
-      `link[rel="alternate"][hreflang="${code}"]`
-    );
-    if (link && link.href) {
-      try {
-        // Keep it a same-origin path so the client router handles it.
-        return new URL(link.href).pathname;
-      } catch {
-        // fall through to the index
-      }
-    }
+  const link = document.querySelector(
+    `link[rel="alternate"][hreflang="${code}"]`
+  );
+  if (!link || !link.href) return null;
+  try {
+    // Keep it a same-origin path so the client router handles it.
+    return new URL(link.href).pathname;
+  } catch {
+    return null;
   }
-  return addLangPrefix("/blog", targetLang);
 }
 
 function getSectionFallback(pathnameNoLang) {
@@ -231,11 +241,32 @@ export default function LanguageSwitcher({
       }
     }
 
-    // Blog articles never share slugs across languages — resolve via hreflang,
-    // falling back to that language's blog index rather than 404ing.
-    if (isBlogArticle(currentNoLang)) {
+    // Prefer what the page itself declares — it is the only source that knows
+    // about localised slugs and missing translations.
+    const declared = declaredTranslation(targetLang);
+    if (declared) {
       setOpen(false);
-      router.push(resolveBlogTarget(targetLang));
+      router.push(declared);
+      return;
+    }
+
+    // No declared twin. Anything below here would be a guess, so only guess
+    // where a guess is safe.
+    const section = firstSegment(currentNoLang);
+
+    // English-only pages have nothing to switch to; send them to the home page
+    // of the target language rather than a guaranteed 404.
+    if (EN_ONLY.has(section)) {
+      setOpen(false);
+      router.push(addLangPrefix("/", targetLang));
+      return;
+    }
+
+    // A detail page in a localised section (an article, a tool) with no
+    // declared twin: that translation does not exist. Go to the section index.
+    if (isLocalisedDetail(currentNoLang)) {
+      setOpen(false);
+      router.push(addLangPrefix(`/${section}`, targetLang));
       return;
     }
 
