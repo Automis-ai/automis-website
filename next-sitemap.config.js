@@ -47,6 +47,7 @@ const INDEXABLE_PATHS = [
   "/it/blog/ai-automations",
   "/it/blog/ai-optimized-paid-ads",
   "/it/blog/recupero-chiamate-perse",
+  "/it/blog/automazioni-whatsapp-per-la-tua-attivita",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
