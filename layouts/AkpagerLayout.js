@@ -23,12 +23,24 @@ const AkpagerLayout = ({
   const localeFromPath = pathname?.split("/")?.[1];
   const locale = supportedLocales.includes(localeFromPath) ? localeFromPath : "en";
 
-  const stickyCtaHref =
-    locale === "it"
-      ? "https://api.leadconnectorhq.com/widget/bookings/automis-it"
-      : "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
-
-  const stickyCtaLabel = locale === "it" ? "Prenota una call" : "Book Discovery Call";
+  // Per-market GoHighLevel calendars. PT was missing, so Portuguese readers on
+  // mobile were sent to the English calendar with an English label.
+  const STICKY_CTA = {
+    en: {
+      href: "https://api.leadconnectorhq.com/widget/bookings/discover-automis",
+      label: "Book Discovery Call",
+    },
+    it: {
+      href: "https://api.leadconnectorhq.com/widget/bookings/automis-it",
+      label: "Prenota una call",
+    },
+    pt: {
+      href: "https://api.leadconnectorhq.com/widget/bookings/pt-automis",
+      label: "Agende uma chamada",
+    },
+  };
+  const { href: stickyCtaHref, label: stickyCtaLabel } =
+    STICKY_CTA[locale] || STICKY_CTA.en;
 
   useEffect(() => {
     akpagerUtility.animation();
