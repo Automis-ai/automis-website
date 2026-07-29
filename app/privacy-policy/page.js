@@ -26,7 +26,7 @@ const PrivacyPolicy = () => {
                 Automis — AI & Marketing Agency
               </p>
               <p className="body-text text-white/70">
-                Last updated: March 30, 2026
+                Last updated: July 29, 2026
               </p>
             </div>
 
@@ -233,6 +233,9 @@ const PrivacyPolicy = () => {
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">GoHighLevel / LeadConnector:</span> CRM and marketing automation platform</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Vercel, GitHub, Supabase:</span> infrastructure and hosting</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Twilio:</span> telephony infrastructure for Voice AI</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">OpenAI, Anthropic:</span> large language model providers used to generate the responses of AI assistants and chatbots</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Hetzner Online GmbH:</span> European server hosting (Germany) for our self-hosted automation infrastructure</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Fathom:</span> recording and transcription of our own sales and client meetings</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Calendly, Cal.com, Google:</span> scheduling and booking services</span></li>
                     </ul>
                   </div>
@@ -258,7 +261,7 @@ const PrivacyPolicy = () => {
                 </h2>
                 <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
                   <p className="body-text text-white/90">
-                    Some of our sub-processors (including Meta Platforms, Inc., Google LLC, and ElevenLabs) are based in the United States or other countries outside the European Economic Area (EEA). Transfers are conducted on the basis of adequate safeguards under Article 46 GDPR (Standard Contractual Clauses), adequacy decisions by the European Commission where applicable, or the explicit consent of the data subject.
+                    The infrastructure we operate ourselves is located in the European Union: our automation servers are hosted in Germany, and our databases and Voice AI call recordings are stored in Ireland. Some of our sub-processors (including Meta Platforms, Inc., Google LLC, OpenAI, Anthropic, and ElevenLabs) are based in the United States or other countries outside the European Economic Area (EEA), which means that AI model processing may take place outside the EEA even where the resulting records are stored within it. Transfers are conducted on the basis of adequate safeguards under Article 46 GDPR (Standard Contractual Clauses), adequacy decisions by the European Commission where applicable, or the explicit consent of the data subject.
                   </p>
                 </div>
               </div>
@@ -276,7 +279,7 @@ const PrivacyPolicy = () => {
                   <ul className="body-text text-white/90 space-y-2 mb-4">
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold"> Contact and commercial data </span>: for the duration of the contractual relationship and for <span className="font-bold">2 years</span> thereafter as required by applicable tax and accounting legislation.</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Data processed via Meta APIs</span>: retained only as long as necessary to deliver the automation service. Upon termination of the Client contract, data will be deleted within  <span className="font-bold">60 days</span>, unless a longer retention is required by law.</span></li>
-                    <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Voice AI call recordings and transcripts</span>: retained for  <span className="font-bold">90 days</span> after the call, then automatically deleted, unless the Client requests longer retention.</span></li>
+                    <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Voice AI call recordings and transcripts</span>: retained for  <span className="font-bold">6 months</span> after the call, then automatically deleted, unless the Client agrees a different retention period in writing.</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Lead and CRM data</span>: for the duration of the Client engagement. Deleted within  <span className="font-bold">90 days</span> of contract termination.</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Ad account data</span>: performance reports are retained for the duration of the engagement plus  <span className="font-bold">3 months</span>. Raw platform data is accessed but not stored long-term by Automis.</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Website analytics and logs</span>: up to 12 months.</span></li>

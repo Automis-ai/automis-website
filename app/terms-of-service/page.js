@@ -23,7 +23,7 @@ const TermsOfService = () => {
             <div className="mb-12">
               <h1 className="hero-heading text-white mb-4">TERMS OF SERVICE</h1>
               <p className="sub-heading text-white/90 mb-2">Automis — AI & Marketing Agency</p>
-              <p className="body-text text-white/60">Last updated: March 30, 2026</p>
+              <p className="body-text text-white/60">Last updated: July 29, 2026</p>
             </div>
 
             <div className="max-w-4xl space-y-12">
@@ -135,7 +135,7 @@ const TermsOfService = () => {
                 <div className="space-y-4">
                   <p className="body-text text-white/80">In addition to the general terms, the following applies specifically to Voice AI Services:</p>
                   <ul className="body-text text-white/80 space-y-4 pl-6">
-                    <li className="list-disc"><span className="font-bold text-white">AI disclosure:</span> Automis’s voice agents are powered by artificial intelligence. Depending on the Client’s preferences and applicable law, the AI may identify itself as an automated system at the beginning of each call.</li>
+                    <li className="list-disc"><span className="font-bold text-white">AI disclosure:</span> Automis’s voice agents are powered by artificial intelligence. In accordance with Article 50 of the EU AI Act, the AI identifies itself as an automated system at the beginning of each interaction. This disclosure is a legal requirement and cannot be disabled at the Client’s request.</li>
                     <li className="list-disc"><span className="font-bold text-white">Call recording:</span> calls may be recorded and transcribed. The Client is responsible for configuring the appropriate consent mechanisms and disclosures as required by applicable law.</li>
                     <li className="list-disc"><span className="font-bold text-white">Human escalation:</span> the AI agent can transfer calls to a human operator when it cannot handle a request. The Client must provide a valid escalation path.</li>
                     <li className="list-disc"><span className="font-bold text-white">No medical/legal/financial advice:</span> AI voice agents do not provide professional, medical, legal, or financial advice. Responses are informational only.</li>

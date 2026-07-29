@@ -23,7 +23,7 @@ const TermsOfServiceIT = () => {
             <div className="mb-12">
               <h1 className="hero-heading text-white mb-4 uppercase">TERMINI E CONDIZIONI DI SERVIZIO</h1>
               <p className="sub-heading text-white/90 mb-2">Automis — AI & Marketing Agency</p>
-              <p className="body-text text-white/60">Ultimo aggiornamento: 30 marzo 2026</p>
+              <p className="body-text text-white/60">Ultimo aggiornamento: 29 luglio 2026</p>
             </div>
 
             <div className="max-w-4xl space-y-12">
@@ -135,7 +135,7 @@ const TermsOfServiceIT = () => {
                 <div className="space-y-4">
                   <p className="body-text text-white/80">Oltre ai termini generali, si applicano specificamente ai Servizi Voice AI:</p>
                   <ul className="body-text text-white/80 space-y-4 pl-6">
-                    <li className="list-disc"><span className="font-bold text-white">Disclosure AI:</span> gli agenti vocali di Automis sono alimentati da intelligenza artificiale. A seconda delle preferenze del Cliente e della legge applicabile, l’AI può identificarsi come sistema automatizzato all’inizio di ogni chiamata.</li>
+                    <li className="list-disc"><span className="font-bold text-white">Disclosure AI:</span> gli agenti vocali di Automis sono alimentati da intelligenza artificiale. In conformità all’Art. 50 del Regolamento europeo sull’IA (AI Act), l’assistente si identifica come sistema automatizzato all’inizio di ogni interazione. Si tratta di un obbligo di legge e non può essere disattivato su richiesta del Cliente.</li>
                     <li className="list-disc"><span className="font-bold text-white">Registrazione chiamate:</span> le chiamate possono essere registrate e trascritte. Il Cliente è responsabile della configurazione dei meccanismi di consenso e delle informative come richiesto dalla legge applicabile.</li>
                     <li className="list-disc"><span className="font-bold text-white">Escalation umana:</span> l’agente IA può trasferire le chiamate a un operatore umano quando non può gestire una richiesta. Il Cliente deve fornire un percorso di escalation valido.</li>
                     <li className="list-disc"><span className="font-bold text-white">Nessuna consulenza professionale:</span> gli agenti vocali IA non forniscono consulenza professionale, medica, legale o finanziaria. Le risposte sono esclusivamente informative.</li>
