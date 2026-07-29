@@ -36,7 +36,7 @@ export default function TermsOfServicePT() {
             <div className="mb-12">
               <h1 className="hero-heading text-white mb-4 uppercase">TERMOS E CONDIÇÕES DE SERVIÇO</h1>
               <p className="sub-heading text-white/90 mb-2">Automis, AI &amp; Marketing Agency</p>
-              <p className="body-text text-white/60">Última atualização: 30 de março de 2026</p>
+              <p className="body-text text-white/60">Última atualização: 29 de julho de 2026</p>
             </div>
 
             <div className="max-w-4xl space-y-12">
@@ -148,7 +148,7 @@ export default function TermsOfServicePT() {
                 <div className="space-y-4">
                   <p className="body-text text-white/80">Para além dos termos gerais, aplicam-se especificamente aos Serviços Voice AI:</p>
                   <ul className="body-text text-white/80 space-y-4 pl-6">
-                    <li className="list-disc"><span className="font-bold text-white">Divulgação de IA:</span> os agentes de voz da Automis são alimentados por inteligência artificial. Consoante as preferências do Cliente e a lei aplicável, a IA pode identificar-se como sistema automatizado no início de cada chamada.</li>
+                    <li className="list-disc"><span className="font-bold text-white">Divulgação de IA:</span> os agentes de voz da Automis são alimentados por inteligência artificial. Em conformidade com o Art. 50.º do Regulamento Europeu de IA (AI Act), o assistente identifica-se como sistema automatizado no início de cada interação. Trata-se de uma obrigação legal e não pode ser desativada a pedido do Cliente.</li>
                     <li className="list-disc"><span className="font-bold text-white">Gravação de chamadas:</span> as chamadas podem ser gravadas e transcritas. O Cliente é responsável pela configuração dos mecanismos de consentimento e das informações exigidas pela lei aplicável.</li>
                     <li className="list-disc"><span className="font-bold text-white">Escalonamento humano:</span> o agente IA pode transferir as chamadas para um operador humano quando não puder tratar um pedido. O Cliente deve fornecer um caminho de escalonamento válido.</li>
                     <li className="list-disc"><span className="font-bold text-white">Sem aconselhamento profissional:</span> os agentes de voz IA não prestam aconselhamento profissional, médico, jurídico ou financeiro. As respostas são exclusivamente informativas.</li>
