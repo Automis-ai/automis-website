@@ -78,6 +78,7 @@ const INDEXABLE_PATHS = [
   // Portuguese blog (articles are appended here as the engine publishes them)
   "/pt/blog",
   "/pt/blog/reduzir-faltas-consultas-clinica-dentaria",
+  "/pt/blog/software-gestao-clinica-dentaria-com-ia",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",
