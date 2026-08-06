@@ -53,6 +53,7 @@ const INDEXABLE_PATHS = [
   "/it/blog/automazioni-whatsapp-per-la-tua-attivita",
   "/it/blog/segreteria-telefonica-virtuale-cosa-fa",
   "/it/blog/ia-per-aziende-da-dove-iniziare",
+  "/it/blog/miglior-centralino-virtuale-come-scegliere",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
