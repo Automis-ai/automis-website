@@ -13,6 +13,21 @@ const nextConfig = {
       { source: "/consultation", destination: "/jumpstart-audit", permanent: false },
     ];
   },
+  async rewrites() {
+    // /it/prova non e' una pagina del sito: e' l'app della demo porta a porta, servita da un
+    // progetto Vercel separato. Cosi' si itera sulla demo senza toccare automis.ai.
+    // Il :path* serve anche alle sue API interne, che vivono sotto /it/prova/api/.
+    return [
+      {
+        source: "/it/prova",
+        destination: "https://automis-prova-attivita-automis-team.vercel.app/it/prova",
+      },
+      {
+        source: "/it/prova/:path*",
+        destination: "https://automis-prova-attivita-automis-team.vercel.app/it/prova/:path*",
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
