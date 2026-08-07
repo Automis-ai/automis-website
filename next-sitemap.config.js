@@ -81,6 +81,7 @@ const INDEXABLE_PATHS = [
   "/pt/cookie-policy",
   // Portuguese blog (articles are appended here as the engine publishes them)
   "/pt/blog",
+  "/pt/blog/crm-imobiliario-com-ia",
   "/pt/blog/reduzir-faltas-consultas-clinica-dentaria",
   "/pt/blog/software-gestao-clinica-dentaria-com-ia",
   // Portuguese tools
