@@ -25,6 +25,7 @@ const INDEXABLE_PATHS = [
   "/blog/diy-vs-done-for-you-ai-automation",
   "/blog/best-whatsapp-automation-tool",
   "/blog/ai-lead-generation-for-small-business",
+  "/blog/ai-receptionist-for-dental-clinics",
   "/playbook",
   "/contact",
   "/privacy-policy",
