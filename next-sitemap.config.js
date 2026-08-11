@@ -144,7 +144,11 @@ for (const [lang, base] of Object.entries(BLOG_BASE_PATH)) {
   if (dates.length) LASTMOD.set(base, dates.sort().at(-1));
 }
 
-const INDEXABLE_PATHS = [...STATIC_PATHS, ...POSTS.map((p) => p.loc)];
+// Deduplicated on purpose. The publishing bot's writer prompt still appends each new
+// article's path by hand (it predates this file reading the folder), and until that
+// prompt is updated on the box the same article can arrive from both sources. Without
+// the Set that would ship a sitemap listing the URL twice.
+const INDEXABLE_PATHS = [...new Set([...STATIC_PATHS, ...POSTS.map((p) => p.loc)])];
 
 module.exports = {
   siteUrl: "https://automis.ai",
