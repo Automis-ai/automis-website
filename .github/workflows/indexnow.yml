@@ -1,0 +1,53 @@
+name: IndexNow
+
+# Announce newly published or updated articles to Bing/Yandex instead of waiting
+# for the next crawl. Runs only when an article actually changes on main.
+#
+# The job deliberately does NOT race the deploy: scripts/indexnow.mjs polls each URL
+# until it is served before submitting it, so a URL is never announced while it still
+# 404s. That is why the timeout below is generous.
+#
+# Google is not reachable this way — see the header of scripts/indexnow.mjs.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/blog/**/*.md"
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Submit every article (one-off backfill) instead of just the changed ones"
+        type: boolean
+        default: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history: the script diffs against the previous commit to find which
+          # articles changed. A shallow clone would make that diff fail.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # No npm install: the script uses only Node built-ins and global fetch.
+      - name: Submit changed articles
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.all }}" = "true" ]; then
+            node scripts/indexnow.mjs --all
+            exit 0
+          fi
+          BEFORE="${{ github.event.before }}"
+          # A new branch or a force-push reports an all-zero "before"; fall back to
+          # the previous commit so we still submit something sensible.
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            BEFORE="$(git rev-parse HEAD~1)"
+          fi
+          node scripts/indexnow.mjs --since "$BEFORE"
