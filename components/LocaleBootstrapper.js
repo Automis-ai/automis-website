@@ -2,35 +2,9 @@
 
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { localeFromPath, stripLangPrefix, addLangPrefix, isSingleLanguagePage } from "@/lib/locales";
 
 const STORAGE_KEY = "automis_locale";
-// Prefixed locales (English is the un-prefixed root). Keep in sync with the
-// LanguageSwitcher / pathnames helpers. NOTE: "pt" MUST be here — otherwise this
-// bootstrapper treats /pt as English, and on an Italian/English browser it
-// "corrects" it by prepending the browser locale, producing /it/pt -> 404.
-const PREFIXED = ["it", "pt"];
-
-function localeFromPath(pathname) {
-  for (const code of PREFIXED) {
-    if (pathname === `/${code}` || pathname.startsWith(`/${code}/`)) return code;
-  }
-  return "en";
-}
-
-function stripLangPrefix(pathname) {
-  for (const code of PREFIXED) {
-    if (pathname === `/${code}`) return "/";
-    if (pathname.startsWith(`/${code}/`)) return pathname.slice(code.length + 1);
-  }
-  return pathname;
-}
-
-function addLangPrefix(pathnameNoLang, targetLang) {
-  if (PREFIXED.includes(targetLang)) {
-    return pathnameNoLang === "/" ? `/${targetLang}` : `/${targetLang}${pathnameNoLang}`;
-  }
-  return pathnameNoLang;
-}
 
 export default function LocaleBootstrapper() {
   const pathname = usePathname();
@@ -62,6 +36,14 @@ export default function LocaleBootstrapper() {
         localStorage.setItem(STORAGE_KEY, currentLang);
         return;
       }
+
+      // Un-prefixed page that exists in English ONLY (see lib/locales.js). The
+      // auto-detect below would "correct" /playbook into /it/playbook, which does
+      // not exist — the exact 404 that hit /luca-ig, and before it /ita and /pt.
+      // Do nothing at all here, deliberately including the persistence step: this
+      // visitor has not landed on a page that says anything about their language,
+      // so let the next normal page auto-detect as usual.
+      if (isSingleLanguagePage(pathname || "/")) return;
 
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored === "en" || stored === "it" || stored === "pt") return;

@@ -112,7 +112,8 @@ module.exports = {
     // main site (indexable, listed above). The /pt Voice-AI lander lives only on
     // voice.automis.ai (a different host, noindex, not in this sitemap).
     "/roadmap", // transactional finder-results page, noindex
-    "/luca-ig", // Instagram bio lander (traffic comes from IG, not search)
+    "/luca-ig", // 308 -> /it/luca-ig
+    "/it/luca-ig", // Instagram bio lander (traffic comes from IG, not search)
   ],
   // Explicitly feed the route list (auto-detection is empty, see note above).
   additionalPaths: async (config) => {
