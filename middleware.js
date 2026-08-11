@@ -91,6 +91,24 @@ export function middleware(req) {
     return NextResponse.redirect(new URL("/it", req.url));
   }
 
+  // 🇮🇹 La bio-landing di Luca è in italiano, quindi la sua casa è /it/luca-ig.
+  // Stando su un path SENZA prefisso veniva letta come "inglese" e il
+  // LocaleBootstrapper la "correggeva" anteponendo la lingua del browser:
+  // /luca-ig -> /it/luca-ig -> 404 per ogni visitatore IT/PT al primo accesso
+  // (cioè quasi tutto il traffico dal browser in-app di Instagram, che parte con
+  // localStorage vuoto). Ora la pagina vive sotto /it e il vecchio URL — che è il
+  // link in bio, già in giro — redirige qui.
+  //
+  // Questo redirect è server-side, quindi scatta PRIMA del JS: il bootstrapper
+  // riceve un path già prefissato e per sua regola non lo tocca. È ciò che rende
+  // il vecchio link sicuro e non solo funzionante.
+  //
+  // NB: gli asset (/luca-ig/intro.mp4, automis-logo.png) restano in public/ e non
+  // passano di qui — il matcher esclude tutto ciò che ha un'estensione.
+  if (pathname === "/luca-ig") {
+    return NextResponse.redirect(new URL("/it/luca-ig", req.url), 308);
+  }
+
   // Gestione altri segmenti (privacy-policy, about, etc.)
   const segments = pathname.split("/").filter(Boolean);
   const maybeLocale = segments[0];

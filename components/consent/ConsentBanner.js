@@ -81,8 +81,9 @@ const COPY = {
   },
 };
 
-// /ita is the Italian voice lander; /luca-ig is Luca's Italian IG lander.
-// de/es/fr landers fall back to English.
+// /ita is the Italian voice lander. Luca's IG lander now lives at /it/luca-ig and
+// is already covered by the "it" case; the bare "luca-ig" clause is kept only as a
+// safety net for the old un-prefixed URL. de/es/fr landers fall back to English.
 function localeFrom(pathname) {
   const seg = (pathname || "/").split("/").filter(Boolean)[0];
   if (seg === "it" || seg === "ita" || seg === "luca-ig") return "it";

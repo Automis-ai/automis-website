@@ -2,6 +2,13 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import {
+  SINGLE_LANGUAGE_PAGES,
+  firstSegment,
+  localeFromPath,
+  stripLangPrefix,
+  addLangPrefix,
+} from "@/lib/locales";
 
 /**
  * LanguageSwitcher
@@ -32,37 +39,10 @@ const LANGS = [
   { code: "pt", label: "PT", flag: "🇵🇹" },
 ];
 
-// Prefixed locales (English is the un-prefixed root). Keep this list in sync with LANGS.
-const PREFIXED = ["it", "pt"];
-
-/** Helpers */
-function getActiveLangFromPath(pathname) {
-  // If path starts with a locale prefix (/it, /pt) => that language, else English
-  for (const code of PREFIXED) {
-    if (pathname === `/${code}` || pathname.startsWith(`/${code}/`)) return code;
-  }
-  return "en";
-}
-
-function stripLangPrefix(pathname) {
-  // Convert /it/voice-ai -> /voice-ai, /pt -> /, etc.
-  for (const code of PREFIXED) {
-    if (pathname === `/${code}`) return "/";
-    if (pathname.startsWith(`/${code}/`)) return pathname.replace(`/${code}`, "");
-  }
-  return pathname;
-}
-
-function addLangPrefix(pathnameNoLang, targetLang) {
-  // Convert /voice-ai -> /it/voice-ai or /pt/voice-ai; keep clean for EN.
-  // Ensure root stays clean: "/" -> "/it" | "/pt"
-  if (PREFIXED.includes(targetLang)) {
-    if (pathnameNoLang === "/") return `/${targetLang}`;
-    return `/${targetLang}${pathnameNoLang}`;
-  }
-  // EN
-  return pathnameNoLang;
-}
+// The prefix list and the path helpers (localeFromPath, stripLangPrefix,
+// addLangPrefix) now live in lib/locales.js, shared with LocaleBootstrapper.
+// Keeping a second copy here is what let the two drift apart. Keep LANGS in sync
+// with PREFIXED there.
 
 /** hreflang code emitted per locale (must match lib/blog.js HREFLANG). */
 const HREFLANG = { en: "en", it: "it-IT", pt: "pt-PT" };
@@ -74,14 +54,6 @@ const HREFLANG = { en: "en", it: "it-IT", pt: "pt-PT" };
  * send the reader to this section's index in the target language instead.
  */
 const LOCALISED_SECTIONS = new Set(["blog", "tools", "use-cases"]);
-
-/** Pages that exist in English only. Nothing to switch to, so go to the home. */
-const EN_ONLY = new Set(["playbook", "consultation", "roadmap", "luca-ig"]);
-
-/** First path segment, e.g. "/blog/foo" -> "blog". */
-function firstSegment(pathnameNoLang) {
-  return pathnameNoLang.split("/").filter(Boolean)[0] || "";
-}
 
 /** True for a detail page inside a localised section, e.g. /blog/<slug>. */
 function isLocalisedDetail(pathnameNoLang) {
@@ -180,7 +152,7 @@ export default function LanguageSwitcher({
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
 
-  const activeLang = useMemo(() => getActiveLangFromPath(pathname || "/"), [pathname]);
+  const activeLang = useMemo(() => localeFromPath(pathname || "/"), [pathname]);
 
   const active = LANGS.find((l) => l.code === activeLang) || LANGS[0];
 
@@ -254,9 +226,11 @@ export default function LanguageSwitcher({
     // where a guess is safe.
     const section = firstSegment(currentNoLang);
 
-    // English-only pages have nothing to switch to; send them to the home page
-    // of the target language rather than a guaranteed 404.
-    if (EN_ONLY.has(section)) {
+    // Single-language pages have nothing to switch to; send them to the home page
+    // of the target language rather than a guaranteed 404. Works in both
+    // directions: /playbook (EN only) and /it/luca-ig (IT only) alike, because
+    // `section` is read after the prefix has been stripped.
+    if (SINGLE_LANGUAGE_PAGES.has(section)) {
       setOpen(false);
       router.push(addLangPrefix("/", targetLang));
       return;
