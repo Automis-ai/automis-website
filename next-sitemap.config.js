@@ -1,12 +1,61 @@
 /** @type {import('next-sitemap').IConfig} */
 
+const fs = require("fs");
+const path = require("path");
+const matter = require("gray-matter");
+
 // IMPORTANT: next-sitemap v4 auto-detection returns 0 routes for this site because
 // every page renders dynamically (the root layout reads request headers to set the
 // per-locale <html lang>), so the prerender manifest is empty. That produced an
-// empty sitemap.xml index and a stale sitemap-0.xml. Until/if that is revisited,
-// this list is the source of truth for indexable routes. Add a line when you add a
-// page. Keep excluded (redirect / noindex / voice-only) URLs OUT of this list.
-const INDEXABLE_PATHS = [
+// empty sitemap.xml index. So the route list is fed explicitly, from two sources:
+//
+//   1. STATIC_PATHS below — pages that are hand-built. Add a line when you add one.
+//   2. Blog articles — DISCOVERED from content/blog/**/*.md at build time (see
+//      blogPosts()). They are deliberately NOT listed by hand: the publishing bot
+//      used to append each new article here, which worked but had no way to fail
+//      loudly. If an append were ever missed the article would go live and quietly
+//      never enter the sitemap. Reading the folder removes that failure mode.
+//
+// Keep excluded (redirect / noindex / voice-only) URLs out of both.
+
+// Mirrors BLOG_BASE_PATH in lib/blog.js — same mapping, but that file is ESM and
+// this config is CommonJS, so it cannot be imported here. Keep the two in sync.
+const BLOG_BASE_PATH = { en: "/blog", it: "/it/blog", pt: "/pt/blog" };
+
+/**
+ * Every article on disk, with its real publication date.
+ *
+ * Mirrors getAllPosts() in lib/blog.js: the slug is the filename minus ".md", and
+ * every .md in the folder is published (there is no draft flag). If that ever
+ * changes, filter here too or the sitemap will advertise unpublished URLs.
+ */
+function blogPosts() {
+  const posts = [];
+  for (const [lang, base] of Object.entries(BLOG_BASE_PATH)) {
+    const dir = path.join(process.cwd(), "content/blog", lang);
+    if (!fs.existsSync(dir)) continue;
+    for (const file of fs.readdirSync(dir).filter((f) => f.endsWith(".md"))) {
+      const slug = file.replace(/\.md$/, "");
+      const { data } = matter(fs.readFileSync(path.join(dir, file), "utf8"));
+      posts.push({ loc: `${base}/${slug}`, date: toIsoDay(data.date), lang });
+    }
+  }
+  return posts;
+}
+
+/**
+ * "2026-08-11" (or a YAML-parsed Date) -> "2026-08-11". Null when unusable, so a
+ * malformed date omits lastmod rather than inventing one.
+ */
+function toIsoDay(value) {
+  if (!value) return null;
+  const d = value instanceof Date ? value : new Date(String(value));
+  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+}
+
+// Hand-maintained pages. Blog ARTICLES do not belong here (they are discovered);
+// the three blog index pages do, since they are real routes with no .md of their own.
+const STATIC_PATHS = [
   // English
   "/",
   "/about",
@@ -17,15 +66,6 @@ const INDEXABLE_PATHS = [
   "/use-cases/clinica-santa-maria",
   "/use-cases/adifesa",
   "/blog",
-  "/blog/voice-ai-receptionists",
-  "/blog/ai-automations",
-  "/blog/ai-optimized-paid-ads",
-  "/blog/ai-receptionist-cost",
-  "/blog/whatsapp-automation-for-business",
-  "/blog/diy-vs-done-for-you-ai-automation",
-  "/blog/best-whatsapp-automation-tool",
-  "/blog/ai-lead-generation-for-small-business",
-  "/blog/ai-receptionist-for-dental-clinics",
   "/playbook",
   "/contact",
   "/privacy-policy",
@@ -47,15 +87,6 @@ const INDEXABLE_PATHS = [
   "/it/use-cases/clinica-santa-maria",
   "/it/use-cases/adifesa",
   "/it/blog",
-  "/it/blog/voice-ai-receptionists",
-  "/it/blog/ai-automations",
-  "/it/blog/ai-optimized-paid-ads",
-  "/it/blog/recupero-chiamate-perse",
-  "/it/blog/automazioni-whatsapp-per-la-tua-attivita",
-  "/it/blog/segreteria-telefonica-virtuale-cosa-fa",
-  "/it/blog/ia-per-aziende-da-dove-iniziare",
-  "/it/blog/miglior-centralino-virtuale-come-scegliere",
-  "/it/blog/centralino-virtuale-prezzi-confronto",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
@@ -81,11 +112,7 @@ const INDEXABLE_PATHS = [
   "/pt/privacy-policy",
   "/pt/terms-of-service",
   "/pt/cookie-policy",
-  // Portuguese blog (articles are appended here as the engine publishes them)
   "/pt/blog",
-  "/pt/blog/crm-imobiliario-com-ia",
-  "/pt/blog/reduzir-faltas-consultas-clinica-dentaria",
-  "/pt/blog/software-gestao-clinica-dentaria-com-ia",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",
@@ -93,6 +120,31 @@ const INDEXABLE_PATHS = [
   "/pt/tools/gerador-link-avaliacoes-google",
   "/pt/tools/gerador-link-whatsapp",
 ];
+
+const POSTS = blogPosts();
+
+/**
+ * Per-URL lastmod.
+ *
+ * Previously every URL got `new Date()` at build time, so each deploy told Google
+ * that all ~76 pages had just changed. That is a signal Google learns to distrust,
+ * and it buried the one page that genuinely was new. Now only pages whose real
+ * modification date we actually know carry a lastmod:
+ *   - articles      -> the `date` in their frontmatter
+ *   - blog indexes  -> the newest article date in that language
+ *   - everything else -> no lastmod at all, which is honest and permitted.
+ * Never reintroduce a build-time fallback here; an absent lastmod beats a fake one.
+ */
+const LASTMOD = new Map();
+for (const post of POSTS) {
+  if (post.date) LASTMOD.set(post.loc, post.date);
+}
+for (const [lang, base] of Object.entries(BLOG_BASE_PATH)) {
+  const dates = POSTS.filter((p) => p.lang === lang && p.date).map((p) => p.date);
+  if (dates.length) LASTMOD.set(base, dates.sort().at(-1));
+}
+
+const INDEXABLE_PATHS = [...STATIC_PATHS, ...POSTS.map((p) => p.loc)];
 
 module.exports = {
   siteUrl: "https://automis.ai",
@@ -102,8 +154,8 @@ module.exports = {
   sitemapSize: 5000,
   // Redirecting, transactional, and voice.automis.ai-only lander URLs are kept out
   // of the sitemap (each paired with the real fix at its source). These are simply
-  // never added to INDEXABLE_PATHS above; the exclude list is a second safety net
-  // for any that auto-detection might one day surface.
+  // never added to the lists above; the exclude list is a second safety net for any
+  // that discovery might one day surface.
   exclude: [
     "/consultation", // 302 -> /jumpstart-audit
     "/ita", // 302 -> /it; the real page lives on voice.automis.ai
@@ -115,10 +167,18 @@ module.exports = {
     "/luca-ig", // 308 -> /it/luca-ig
     "/it/luca-ig", // Instagram bio lander (traffic comes from IG, not search)
   ],
+  // Attach the real lastmod (or none) instead of next-sitemap's build-time default.
+  transform: async (config, loc) => ({
+    loc,
+    changefreq: config.changefreq,
+    priority: config.priority,
+    lastmod: LASTMOD.get(loc) || undefined,
+    alternateRefs: config.alternateRefs || [],
+  }),
   // Explicitly feed the route list (auto-detection is empty, see note above).
   additionalPaths: async (config) => {
     const results = await Promise.all(
-      INDEXABLE_PATHS.map((path) => config.transform(config, path))
+      INDEXABLE_PATHS.map((p) => config.transform(config, p))
     );
     return results.filter(Boolean);
   },
