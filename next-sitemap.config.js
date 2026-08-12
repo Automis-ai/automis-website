@@ -66,6 +66,7 @@ const STATIC_PATHS = [
   "/use-cases/clinica-santa-maria",
   "/use-cases/adifesa",
   "/blog",
+  "/blog/private-ai-vs-chatgpt-for-company-documents",
   "/playbook",
   "/contact",
   "/privacy-policy",
