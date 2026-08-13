@@ -42,10 +42,14 @@ const asJson = args.includes("--json");
 // vercel.com/sso-api, which would read as "every page is broken". The bypass secret
 // (Vercel project settings -> Deployment Protection) is sent only to the base host,
 // never to third-party assets.
+// Deliberately NOT sending x-vercel-set-bypass-cookie: that asks Vercel to hand back
+// a 307 that sets a cookie (it exists so a browser can stop sending the header), which
+// made the very first request — the sitemap — fail with a redirect. The header alone is
+// sent on every request, so no cookie is needed.
 const bypass = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
 const headersFor = (url) =>
   bypass && url.startsWith(base)
-    ? { "User-Agent": UA, "x-vercel-protection-bypass": bypass, "x-vercel-set-bypass-cookie": "true" }
+    ? { "User-Agent": UA, "x-vercel-protection-bypass": bypass }
     : { "User-Agent": UA };
 
 function argValue(flag) {
@@ -135,8 +139,20 @@ async function sitemapUrls() {
   const urls = [];
   while (queue.length) {
     const sm = queue.shift();
-    const { status, body } = await fetchText(sm);
-    if (status !== 200) throw new Error(`sitemap ${sm} returned ${status}`);
+    let { status, body, location } = await fetchText(sm);
+    // Follow one redirect: the sitemap URL itself is plumbing, not a page under audit.
+    if (status >= 300 && status < 400 && location) {
+      ({ status, body } = await fetchText(new URL(location, sm).href));
+    }
+    if (status !== 200) {
+      console.error(
+        `✗ ${sm} returned ${status}.\n` +
+          (status === 401 || status === 403 || status === 307
+            ? "  Looks like Vercel deployment protection: check VERCEL_AUTOMATION_BYPASS_SECRET."
+            : "  Check the sitemap generator or --base.")
+      );
+      process.exit(1);
+    }
     const locs = [...body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
     const isIndex = /<sitemapindex/.test(body);
     for (const loc of locs) {
