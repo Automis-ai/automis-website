@@ -32,6 +32,16 @@ const args = process.argv.slice(2);
 const base = (argValue("--base") || SITE).replace(/\/$/, "");
 const asJson = args.includes("--json");
 
+// Preview deployments sit behind Vercel's deployment protection and answer 302 to
+// vercel.com/sso-api, which would read as "every page is broken". The bypass secret
+// (Vercel project settings -> Deployment Protection) is sent only to the base host,
+// never to third-party assets.
+const bypass = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
+const headersFor = (url) =>
+  bypass && url.startsWith(base)
+    ? { "User-Agent": UA, "x-vercel-protection-bypass": bypass, "x-vercel-set-bypass-cookie": "true" }
+    : { "User-Agent": UA };
+
 function argValue(flag) {
   const i = args.indexOf(flag);
   return i === -1 ? null : args[i + 1];
@@ -47,7 +57,7 @@ const warn = (url, rule, detail) => warnings.push({ url, rule, detail });
 const statusCache = new Map();
 
 async function fetchText(url) {
-  const res = await fetch(url, { headers: { "User-Agent": UA }, redirect: "manual" });
+  const res = await fetch(url, { headers: headersFor(url), redirect: "manual" });
   const body = res.status < 300 ? await res.text() : "";
   return { status: res.status, location: res.headers.get("location"), body };
 }
@@ -59,7 +69,7 @@ async function statusOf(url) {
     for (let attempt = 0; attempt < 2; attempt++) {
       try {
         const res = await fetch(url, {
-          headers: { "User-Agent": UA },
+          headers: headersFor(url),
           redirect: "follow",
           signal: AbortSignal.timeout(20000),
         });

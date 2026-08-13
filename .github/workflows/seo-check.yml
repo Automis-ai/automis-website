@@ -42,14 +42,34 @@ jobs:
 
       - name: Resolve base URL
         id: base
+        env:
+          BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         run: |
           if [ "${{ github.event_name }}" = "deployment_status" ]; then
             BASE="${{ github.event.deployment_status.environment_url }}"
           else
             BASE="${{ inputs.base || 'https://automis.ai' }}"
           fi
+
+          # Preview deployments are behind Vercel deployment protection: without the
+          # bypass secret every page answers 302 to vercel.com/sso-api and the run
+          # would fail for a reason that has nothing to do with SEO. Skipping loudly
+          # beats failing wrongly; production is checked either way.
+          case "$BASE" in
+            *automis.ai*) ;;
+            *)
+              if [ -z "$BYPASS" ]; then
+                echo "::notice::Skipping $BASE — preview deployments need VERCEL_AUTOMATION_BYPASS_SECRET (Vercel → project → Deployment Protection → Protection Bypass for Automation). Add it as a repo secret to check PRs before merge."
+                echo "skip=true" >> "$GITHUB_OUTPUT"
+              fi
+              ;;
+          esac
+
           echo "base=$BASE" >> "$GITHUB_OUTPUT"
           echo "Checking $BASE"
 
       - name: Run SEO check
+        if: steps.base.outputs.skip != 'true'
+        env:
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         run: node scripts/seo-check.mjs --base "${{ steps.base.outputs.base }}"
