@@ -120,6 +120,9 @@ function metaContent(html, name, key = "name") {
   return tag ? attr(tag[0], "content") : null;
 }
 
+/** Production URL -> the base being checked. Identity when checking production. */
+const toBase = (url) => url.replace(/^https?:\/\/[^/]+/, base);
+
 async function sitemapUrls() {
   const seen = new Set();
   const queue = [`${base}/sitemap.xml`];
@@ -131,7 +134,7 @@ async function sitemapUrls() {
     const locs = [...body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
     const isIndex = /<sitemapindex/.test(body);
     for (const loc of locs) {
-      const url = loc.replace(/^https?:\/\/[^/]+/, base).replace(/\/$/, "") || base;
+      const url = toBase(loc).replace(/\/$/, "") || base;
       if (isIndex) queue.push(url);
       else if (!seen.has(url)) (seen.add(url), urls.push(url));
     }
@@ -190,9 +193,11 @@ async function checkPage(url) {
   if (h1s.length === 0) err(url, "h1-missing", "page has no <h1>");
   if (h1s.length > 1) err(url, "h1-multiple", `${h1s.length} <h1> tags`);
 
-  // Ahrefs: "Canonical points to a different page"
+  // Ahrefs: "Canonical points to a different page". A canonical is always absolute
+  // and always production, so off-production runs compare it origin-normalised —
+  // otherwise every page on a preview or a local build would fail this rule.
   if (!canonical) err(url, "canonical-missing", "no rel=canonical");
-  else if (canonical.replace(/\/$/, "") !== url.replace(/\/$/, ""))
+  else if (toBase(canonical).replace(/\/$/, "") !== url.replace(/\/$/, ""))
     err(url, "canonical-not-self", `canonical -> ${canonical}`);
 
   // Ahrefs: "Hreflang and HTML lang mismatch" — regressed once already (July 2026).
