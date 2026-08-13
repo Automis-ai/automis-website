@@ -8,7 +8,7 @@ import FinalCta from "@/components/home/FinalCta";
 export const metadata = {
   title: "Sobre nós | Automis, agência de automação de IA",
   description:
-    "A Automis é um integrador estratégico de IA, liderado pelos fundadores. Conheça os dois founders que desenham e lançam os sistemas de IA que faltam ao seu negócio.",
+    "A Automis é um integrador estratégico de IA. Conheça os dois fundadores que desenham e lançam os sistemas de IA que faltam ao seu negócio.",
   keywords: [
     "quem é a Automis",
     "integrador de IA",

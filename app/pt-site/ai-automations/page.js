@@ -8,7 +8,7 @@ import AutomationsCta from "@/components/automations/AutomationsCta";
 export const metadata = {
   title: "Automações de IA | Sistemas à medida para o seu negócio | Automis",
   description:
-    "Explore as automações de IA da Automis: assistentes de voz 24/7, fluxos de DMs das redes sociais para o CRM e o seu Company Brain. Filtre por setor e objetivo.",
+    "Automações de IA da Automis: assistentes de voz 24/7, fluxos de DMs das redes sociais para o CRM e o seu Company Brain. Filtre por setor e objetivo.",
   keywords: [
     "automações de IA",
     "automação empresarial com IA",

@@ -2,6 +2,9 @@ import Link from "next/link";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 
 export const metadata = {
+  title: "Termini di servizio | Automis",
+  description:
+    "I termini che regolano l'uso di automis.ai e dei sistemi e servizi IA forniti da Automis.",
   alternates: {
     canonical: "https://automis.ai/it/terms-of-service",
     languages: {

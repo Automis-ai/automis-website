@@ -1,7 +1,7 @@
 import CookiePolicy from "@/components/legal/CookiePolicy";
 
 export const metadata = {
-  title: "Cookie Policy | Automis",
+  title: "Informativa sui cookie | Automis",
   description:
     "Quali cookie usa automis.ai, a cosa servono, quanto durano e come cambiare o revocare il consenso in qualsiasi momento.",
   alternates: {
@@ -14,7 +14,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Cookie Policy | Automis",
+    title: "Informativa sui cookie | Automis",
     description: "Quali cookie usa automis.ai, a cosa servono e come cambiare o revocare il consenso.",
     url: "https://automis.ai/it/cookie-policy",
     siteName: "Automis",

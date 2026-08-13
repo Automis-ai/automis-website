@@ -48,7 +48,7 @@ export const TOOLS = {
       name: "Calcolatore delle chiamate perse",
       metaTitle: "Calcolatore chiamate perse: quanto ti costano davvero | Automis",
       metaDescription:
-        "Calcolatore gratuito: scopri quanto fatturato perdi ogni mese per le chiamate senza risposta e quanto potresti recuperare con un assistente vocale IA. Senza registrazione.",
+        "Calcolatore gratuito: scopri quanto fatturato perdi ogni mese per le chiamate senza risposta e quanto recuperi con un assistente vocale IA.",
       keywords: [
         "calcolatore chiamate perse",
         "quanto costano le chiamate perse",
@@ -75,7 +75,7 @@ export const TOOLS = {
       name: "Calculadora de chamadas perdidas",
       metaTitle: "Calculadora de chamadas perdidas: quanto lhe custam mesmo | Automis",
       metaDescription:
-        "Calculadora gratuita: veja quanto faturação perde todos os meses com as chamadas sem resposta e quanto poderia recuperar com um assistente de voz IA. Sem registo.",
+        "Calculadora gratuita: veja quanta faturação perde por mês com as chamadas sem resposta e quanto pode recuperar com um assistente de voz IA.",
       keywords: [
         "calculadora de chamadas perdidas",
         "quanto custam as chamadas perdidas",
@@ -137,7 +137,7 @@ export const TOOLS = {
       name: "Calcolatore degli appuntamenti mancati",
       metaTitle: "Calcolatore costo appuntamenti mancati per studi e cliniche | Automis",
       metaDescription:
-        "Calcolatore gratuito: scopri quanto ti costano ogni mese gli appuntamenti mancati e quanto puoi risparmiare con promemoria e conferme automatiche. Senza registrazione.",
+        "Calcolatore gratuito: scopri quanto ti costano ogni mese gli appuntamenti mancati e quanto risparmi con promemoria e conferme automatiche.",
       keywords: [
         "calcolatore appuntamenti mancati",
         "costo no-show",
@@ -164,7 +164,7 @@ export const TOOLS = {
       name: "Calculadora de faltas às consultas",
       metaTitle: "Calculadora de custo das faltas às consultas para clínicas e salões | Automis",
       metaDescription:
-        "Calculadora gratuita: veja quanto lhe custam todos os meses as faltas às consultas e quanto pode poupar com lembretes e confirmações automáticas. Sem registo.",
+        "Calculadora gratuita: veja quanto lhe custam por mês as faltas às consultas e quanto pode poupar com lembretes e confirmações automáticas.",
       keywords: [
         "calculadora de faltas às consultas",
         "custo das faltas",
@@ -226,7 +226,7 @@ export const TOOLS = {
       name: "Generatore di link e QR per recensioni Google",
       metaTitle: "Generatore gratuito di link e QR per recensioni Google | Automis",
       metaDescription:
-        "Trasforma il tuo Place ID di Google in un link diretto per lasciare una recensione e in un QR code da scaricare. Gratis, funziona nel browser, senza registrazione.",
+        "Trasforma il Place ID di Google in un link diretto per lasciare una recensione e in un QR code da scaricare. Gratis, senza registrazione.",
       keywords: [
         "generatore link recensioni google",
         "qr code recensioni google",
@@ -379,7 +379,7 @@ export const HUB = {
   en: {
     metaTitle: "Free Tools for Local Businesses | Automis",
     metaDescription:
-      "Free, no-signup tools for local businesses: calculate missed-call and no-show costs, generate a Google review link, and create WhatsApp and click-to-call links.",
+      "Free, no-signup tools for local businesses: calculate missed-call and no-show costs, and generate Google review, WhatsApp and click-to-call links.",
     h1: "Free Tools for Local Businesses",
     intro:
       "Simple, free tools to help local businesses answer more calls, fill more appointments, and win more reviews. No signup, nothing stored, everything runs in your browser.",
@@ -388,7 +388,7 @@ export const HUB = {
   it: {
     metaTitle: "Strumenti gratuiti per attivita' locali | Automis",
     metaDescription:
-      "Strumenti gratuiti e senza registrazione per attivita' locali: calcola il costo di chiamate perse e appuntamenti mancati, genera un link per le recensioni Google e crea link WhatsApp e click-to-call.",
+      "Strumenti gratuiti e senza registrazione: calcola il costo di chiamate perse e appuntamenti mancati, genera link per recensioni Google e WhatsApp.",
     h1: "Strumenti gratuiti per attivita' locali",
     intro:
       "Strumenti semplici e gratuiti per aiutare le attivita' locali a rispondere a piu' chiamate, riempire piu' appuntamenti e ottenere piu' recensioni. Senza registrazione, non salviamo nulla, tutto funziona nel tuo browser.",
@@ -397,7 +397,7 @@ export const HUB = {
   pt: {
     metaTitle: "Ferramentas gratuitas para negócios locais | Automis",
     metaDescription:
-      "Ferramentas gratuitas e sem registo para negócios locais: calcule o custo das chamadas perdidas e das faltas às consultas, gere um link para avaliações Google e crie links WhatsApp e click-to-call.",
+      "Ferramentas gratuitas e sem registo: calcule o custo das chamadas perdidas e das faltas às consultas, gere links para avaliações Google e WhatsApp.",
     h1: "Ferramentas gratuitas para negócios locais",
     intro:
       "Ferramentas simples e gratuitas para ajudar os negócios locais a atender mais chamadas, preencher mais marcações e conquistar mais avaliações. Sem registo, não guardamos nada, tudo funciona no seu browser.",

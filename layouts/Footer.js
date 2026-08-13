@@ -163,7 +163,11 @@ const DefaultFooter = () => {
               {t.rights}
             </p>
 
-            {/* CENTER: BADGES (ElevenLabs Grant + ShowMeBestAI) */}
+            {/* CENTER: BADGES (ElevenLabs Grant) */}
+            {/* The ShowMeBestAI badge was removed: showmebest.ai now answers 403 to
+                every request (image and homepage alike), so it rendered as a broken
+                image on all 78 pages and Ahrefs flagged a site-wide broken resource.
+                Re-add it only against a self-hosted copy of the image. */}
             <div className="flex flex-col items-center gap-2">
               <a
                 href="https://elevenlabs.io/startup-grants"
@@ -175,20 +179,6 @@ const DefaultFooter = () => {
                   src="https://eleven-public-cdn.elevenlabs.io/payloadcms/cy7rxce8uki-IIElevenLabsGrants%201.webp"
                   alt="ElevenLabs Grants"
                   className="h-5 md:h-5 w-auto opacity-90 hover:opacity-100 transition"
-                />
-              </a>
-              <a
-                href="https://showmebest.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Featured on ShowMeBestAI"
-              >
-                <img
-                  src="https://showmebest.ai/badge/feature-badge-white.webp"
-                  alt="Featured on ShowMeBestAI"
-                  width="220"
-                  height="60"
-                  className="h-6 w-auto opacity-80 hover:opacity-100 transition"
                 />
               </a>
             </div>

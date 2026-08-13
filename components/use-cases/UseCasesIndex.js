@@ -51,6 +51,7 @@ export default function UseCasesIndex({ locale = "en" }) {
         </div>
         <div className="relative z-10">
           <SectionHeading
+            as="h1"
             eyebrow={t.eyebrow}
             title={t.title}
             lead={t.lead}

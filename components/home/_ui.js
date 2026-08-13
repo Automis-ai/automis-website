@@ -122,7 +122,9 @@ export function GradientText({ children, className = "" }) {
 }
 
 // Section heading block: eyebrow + h2 + optional lead paragraph.
-export function SectionHeading({ eyebrow, title, lead, align = "center", className = "", titleClassName = "" }) {
+// `as` lets a page hero render its heading as the page's single <h1>. It stays
+// "h2" everywhere else, since most uses are section headings further down a page.
+export function SectionHeading({ eyebrow, title, lead, align = "center", className = "", titleClassName = "", as: Tag = "h2" }) {
   const alignCls = align === "center" ? "text-center items-center mx-auto" : "text-left items-start";
   // Default title width caps; override per-instance with titleClassName (e.g. a
   // long headline that would otherwise wrap to too many lines).
@@ -131,11 +133,11 @@ export function SectionHeading({ eyebrow, title, lead, align = "center", classNa
     <div className={`flex flex-col ${alignCls} ${className}`}>
       {eyebrow ? <Reveal><Eyebrow>{eyebrow}</Eyebrow></Reveal> : null}
       <Reveal delay={60}>
-        <h2
+        <Tag
           className={`font-display mt-5 text-[1.75rem] leading-[1.14] tracking-[-0.02em] text-white [text-wrap:balance] sm:text-[2.6rem] sm:leading-[1.12] md:text-[3rem] ${titleWidth}`}
         >
           {title}
-        </h2>
+        </Tag>
       </Reveal>
       {lead ? (
         <Reveal delay={120}>

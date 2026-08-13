@@ -106,7 +106,7 @@ export const CASES = [
       headline:
         "Um assistente IA que nunca deixa a chamada de um paciente sem resposta.",
       metaDescription:
-        "Assistente de voz IA 24/7 para uma clínica dentária de Lisboa: atende todas as chamadas, marca as consultas de rotina e recupera as chamadas fora de horário que antes se perdiam.",
+        "Assistente de voz IA 24/7 para uma clínica dentária de Lisboa: atende todas as chamadas, marca consultas e recupera as chamadas fora de horário.",
       challenge: {
         lead: "Uma clínica dentária com muito movimento perde pacientes no momento em que o telefone fica sem resposta.",
         points: [
@@ -227,7 +227,7 @@ export const CASES = [
       headline:
         "Todos os contactos do Facebook e do Instagram atendidos e qualificados, automaticamente.",
       metaDescription:
-        "Automação Meta para uma empresa financeira italiana: responde a cada comentário e DM no Facebook e no Instagram, qualifica o interesse e encaminha os contactos qualificados.",
+        "Automação Meta para uma financeira italiana: responde a cada comentário e DM no Facebook e no Instagram, qualifica e encaminha os contactos.",
       challenge: {
         lead: "Uma empresa financeira que geria campanhas de crédito com garantia salarial na Meta estava a afogar-se em comentários e DMs.",
         points: [
