@@ -1,6 +1,6 @@
 ---
 title: "How Much Does an AI Receptionist Cost? (2026 Pricing Guide)"
-description: "An AI receptionist costs from EUR 297/mo, far less than a full-time hire. Here is what drives the price, how it compares to a human receptionist and an answering service, and how to work out your own number."
+description: "An AI receptionist costs from EUR 297/mo, far less than a full-time hire. Here is what drives the price and how to work out your own number."
 slug: "ai-receptionist-cost"
 date: "2026-07-23"
 author: "arcangelo"
@@ -9,7 +9,7 @@ category: "Voice AI"
 cluster: "AI Voice Receptionist"
 keyword_primary: "ai receptionist cost"
 metaTitle: "AI Receptionist Cost: 2026 Pricing Guide (from EUR 297)"
-metaDescription: "Wondering about AI receptionist cost? Plans start from EUR 297/mo, a fraction of a full-time hire. See what drives the price and how to size your own number."
+metaDescription: "AI receptionist cost: plans start from EUR 297/mo, a fraction of a full-time hire. See what drives the price and how to size your own number."
 image: "/assets/images/blog/ai-receptionist-cost-hero.webp"
 references:
   - label: "Occupational Employment and Wage Statistics: Receptionists and Information Clerks (43-4171)"

@@ -23,6 +23,7 @@ export const metadata = {
     url: "https://automis.ai/blog",
     siteName: "Automis",
     type: "website",
+    images: ["/assets/og/home-en.png"],
   },
 };
 

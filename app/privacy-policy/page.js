@@ -2,6 +2,9 @@ import Link from "next/link";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 
 export const metadata = {
+  title: "Privacy Policy | Automis",
+  description:
+    "How Automis collects, uses, stores and protects personal data across its services. GDPR compliant.",
   alternates: {
     canonical: "https://automis.ai/privacy-policy",
     languages: {

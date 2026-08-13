@@ -7,7 +7,7 @@ import ContactAside from "@/components/contact/ContactAside";
 export const metadata = {
   title: "Contatti | Parliamo del tuo progetto IA | Automis",
   description:
-    "Contatta Automis. Scrivici un messaggio o prenota una call conoscitiva di 30 minuti: ti mostriamo dove l'IA può farti recuperare tempo, chiamate e fatturato.",
+    "Contatta Automis. Prenota una call conoscitiva di 30 minuti: ti mostriamo dove l'IA può farti recuperare tempo, chiamate e fatturato.",
   keywords: [
     "contatti Automis",
     "consulenza automazione IA",

@@ -1,0 +1,75 @@
+name: SEO check
+
+# Guards the technical SEO rules that a manual sweep cannot hold.
+#
+# In July 2026 every Ahrefs issue was fixed by hand and the site hit a 100 health
+# score. Six weeks later it was 62: the PT site shipped without the <=155 char meta
+# description rule, three blog indexes lost their og:image to Next's shallow merge of
+# nested openGraph, and a partner badge started answering 403 on all 78 pages. No
+# single change was careless; nothing was checking, and the site publishes five bot
+# articles a week.
+#
+# It runs on `deployment_status` rather than on push, so it always tests a URL Vercel
+# has finished deploying, never a half-landed one. That covers both paths into
+# production: a pull-request preview, and the blog bot committing straight to main.
+# The weekly run catches rot that no commit causes, such as an external image that
+# starts 403ing.
+
+on:
+  deployment_status:
+  schedule:
+    # Mondays 06:00 UTC, before the weekly Ahrefs crawl rather than after it.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      base:
+        description: "Base URL to check"
+        default: "https://automis.ai"
+
+jobs:
+  seo-check:
+    # deployment_status fires for every state (pending, error, success); only a live
+    # deployment is worth crawling.
+    if: github.event_name != 'deployment_status' || github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Resolve base URL
+        id: base
+        env:
+          BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: |
+          if [ "${{ github.event_name }}" = "deployment_status" ]; then
+            BASE="${{ github.event.deployment_status.environment_url }}"
+          else
+            BASE="${{ inputs.base || 'https://automis.ai' }}"
+          fi
+
+          # Preview deployments are behind Vercel deployment protection: without the
+          # bypass secret every page answers 302 to vercel.com/sso-api and the run
+          # would fail for a reason that has nothing to do with SEO. Skipping loudly
+          # beats failing wrongly; production is checked either way.
+          case "$BASE" in
+            *automis.ai*) ;;
+            *)
+              if [ -z "$BYPASS" ]; then
+                echo "::notice::Skipping $BASE — preview deployments need VERCEL_AUTOMATION_BYPASS_SECRET (Vercel → project → Deployment Protection → Protection Bypass for Automation). Add it as a repo secret to check PRs before merge."
+                echo "skip=true" >> "$GITHUB_OUTPUT"
+              fi
+              ;;
+          esac
+
+          echo "base=$BASE" >> "$GITHUB_OUTPUT"
+          echo "Checking $BASE"
+
+      - name: Run SEO check
+        if: steps.base.outputs.skip != 'true'
+        env:
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: node scripts/seo-check.mjs --base "${{ steps.base.outputs.base }}"

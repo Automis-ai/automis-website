@@ -2,7 +2,7 @@ import Link from "next/link";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 
 export const metadata = {
-  title: "Cookie Policy | Automis",
+  title: "Política de Cookies | Automis",
   description:
     "Que cookies o automis.ai usa, para que servem, quanto duram e como alterar ou retirar o consentimento a qualquer momento.",
   alternates: {
@@ -15,7 +15,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Cookie Policy | Automis",
+    title: "Política de Cookies | Automis",
     description: "Que cookies o automis.ai usa, para que servem e como alterar ou retirar o consentimento.",
     url: "https://automis.ai/pt/cookie-policy",
     siteName: "Automis",

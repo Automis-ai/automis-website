@@ -3,7 +3,7 @@ import UseCasesIndex from "@/components/use-cases/UseCasesIndex";
 export const metadata = {
   title: "Casos de estudo | Sistemas de IA já a funcionar para clientes Automis",
   description:
-    "Casos de estudo Automis: um assistente de voz IA 24/7 para uma clínica dentária de Lisboa e uma automação de contactos na Meta para uma empresa financeira italiana.",
+    "Casos de estudo Automis: um assistente de voz IA 24/7 para uma clínica dentária de Lisboa e automação de contactos na Meta para uma financeira italiana.",
   keywords: [
     "casos de estudo automação IA",
     "caso de estudo assistente de voz IA",
