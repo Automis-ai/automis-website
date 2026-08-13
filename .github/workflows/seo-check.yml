@@ -66,12 +66,24 @@ jobs:
           # voice-automis-it (voice.automis.ai). Both fire deployment_status here, and
           # the voice site has its own sitemap, so crawling it with this config would
           # fail for the wrong reason. Only the main site is in scope.
-          case "$TARGET_URL" in
-            */automis-website/*) ;;
-            *)
-              echo "::notice::Ignoring a deployment from another Vercel project ($TARGET_URL)."
+          #
+          # The project name lives in `environment`, which Vercel sets to e.g.
+          # "Production – automis-website". target_url and environment_url are both
+          # just the deployment URL, so neither can tell the projects apart.
+          echo "environment: $ENVIRONMENT"
+          case "$ENVIRONMENT" in
+            *voice-automis*)
+              echo "::notice::Ignoring a voice.automis.ai deployment ($ENVIRONMENT); this workflow covers automis.ai."
               echo "skip=true" >> "$GITHUB_OUTPUT"
               exit 0
+              ;;
+            *automis-website*) ;;
+            *)
+              # Deliberately loud, not skipped. An unrecognised environment string
+              # (a Vercel project rename) would otherwise disable this guard silently,
+              # which is the exact failure it exists to catch.
+              echo "::error::Unrecognised deployment environment '$ENVIRONMENT'. Update the project filter in this workflow, or the SEO check is silently no longer running."
+              exit 1
               ;;
           esac
 

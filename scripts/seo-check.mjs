@@ -16,6 +16,7 @@
  *   node scripts/seo-check.mjs                          # check production
  *   node scripts/seo-check.mjs --base http://localhost:3000
  *   node scripts/seo-check.mjs --json                   # machine-readable report
+ *   node scripts/seo-check.mjs --min-pages 5            # smaller expected sitemap
  *
  * URLs come from the sitemap, with the origin rewritten to --base, so the same run
  * works against production, a Vercel preview, or a local `next start`.
@@ -26,6 +27,11 @@ const MAX_DESCRIPTION = 155; // Ahrefs: "Meta description too long"
 const MAX_TITLE = 60; // Ahrefs: "Title too long" (warning here, it is a judgement call)
 const MIN_DESCRIPTION = 70; // Ahrefs: "Meta description too short"
 const CONCURRENCY = 8;
+// A guard that silently checks nothing still reports success — that is how the CI
+// workflow went green 8 times while skipping every run. If the sitemap ever returns
+// a handful of URLs (empty index, broken generator, wrong base), that is a failure,
+// not a clean bill of health.
+const MIN_PAGES = 20;
 const UA = "Mozilla/5.0 (compatible; AutomisSeoCheck/1.0; +https://automis.ai)";
 
 const args = process.argv.slice(2);
@@ -231,6 +237,14 @@ async function checkPage(url) {
 /* ── run ──────────────────────────────────────────────────────────────────── */
 
 const urls = await sitemapUrls();
+const minPages = Number(argValue("--min-pages") ?? MIN_PAGES);
+if (urls.length < minPages) {
+  console.error(
+    `✗ Only ${urls.length} URL(s) in ${base}/sitemap.xml, expected at least ${minPages}.\n` +
+      `  Refusing to report a pass on a crawl this small — check the sitemap generator or --base.`
+  );
+  process.exit(1);
+}
 const pages = (await mapLimit(urls, CONCURRENCY, checkPage)).filter(Boolean);
 
 // Ahrefs: "Duplicate title tag" / "Duplicate meta description"
