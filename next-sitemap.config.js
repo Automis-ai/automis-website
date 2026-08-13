@@ -88,6 +88,7 @@ const STATIC_PATHS = [
   "/it/use-cases/clinica-santa-maria",
   "/it/use-cases/adifesa",
   "/it/blog",
+  "/it/blog/centralino-con-risponditore-automatico",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
