@@ -115,6 +115,7 @@ const STATIC_PATHS = [
   "/pt/terms-of-service",
   "/pt/cookie-policy",
   "/pt/blog",
+  "/pt/blog/gestao-documental-com-ia",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",
