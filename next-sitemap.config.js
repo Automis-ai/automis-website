@@ -67,6 +67,7 @@ const STATIC_PATHS = [
   "/use-cases/adifesa",
   "/blog",
   "/blog/private-ai-vs-chatgpt-for-company-documents",
+  "/blog/where-to-start-with-ai-automation",
   "/playbook",
   "/contact",
   "/privacy-policy",
