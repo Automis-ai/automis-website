@@ -90,6 +90,7 @@ const STATIC_PATHS = [
   "/it/use-cases/adifesa",
   "/it/blog",
   "/it/blog/centralino-con-risponditore-automatico",
+  "/it/blog/centralino-virtuale-studio-dentistico",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
