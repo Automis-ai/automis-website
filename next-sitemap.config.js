@@ -120,6 +120,7 @@ const STATIC_PATHS = [
   "/pt/cookie-policy",
   "/pt/blog",
   "/pt/blog/gestao-documental-com-ia",
+  "/pt/blog/inteligencia-artificial-para-empresas-portugal",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",
