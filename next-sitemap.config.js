@@ -66,6 +66,7 @@ const STATIC_PATHS = [
   "/use-cases/clinica-santa-maria",
   "/use-cases/adifesa",
   "/blog",
+  "/blog/facebook-lead-ads-follow-up-for-real-estate",
   "/blog/ai-receptionist-for-medspas",
   "/blog/whatsapp-appointment-reminders-for-salons",
   "/blog/private-ai-vs-chatgpt-for-company-documents",
