@@ -8,6 +8,8 @@ import {
   localeFromPath,
   stripLangPrefix,
   addLangPrefix,
+  isLocalisedDetail,
+  resolveTarget,
 } from "@/lib/locales";
 
 /**
@@ -46,20 +48,6 @@ const LANGS = [
 
 /** hreflang code emitted per locale (must match lib/blog.js HREFLANG). */
 const HREFLANG = { en: "en", it: "it-IT", pt: "pt-PT" };
-
-/**
- * Sections whose slugs are localised, so the same page has a DIFFERENT path per
- * language (/blog/<slug>, /tools/<slug>). Swapping only the language prefix
- * lands on a URL that does not exist. When we cannot find a real translation we
- * send the reader to this section's index in the target language instead.
- */
-const LOCALISED_SECTIONS = new Set(["blog", "tools", "use-cases"]);
-
-/** True for a detail page inside a localised section, e.g. /blog/<slug>. */
-function isLocalisedDetail(pathnameNoLang) {
-  const parts = pathnameNoLang.split("/").filter(Boolean);
-  return parts.length >= 2 && LOCALISED_SECTIONS.has(parts[0]);
-}
 
 /**
  * The translation this page itself declares for `targetLang`, or null.
@@ -151,6 +139,25 @@ export default function LanguageSwitcher({
 
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
+
+  // Destinazioni dichiarate dalla pagina stessa (<link rel="alternate" hreflang>),
+  // riempite DOPO il mount. Il primo render - server e client - deve restare quello
+  // puro di resolveTarget, altrimenti e' un mismatch di idratazione; ma lasciare
+  // l'href fermo li' faceva divergere i gesti fra loro. Su
+  // /tools/whatsapp-link-generator il click semplice passa da switchTo() e atterra
+  // sulla traduzione vera, mentre cmd-click, shift-click e tasto centrale escono
+  // prima del preventDefault e seguono l'href, cioe' /it/tools: stesso elemento,
+  // due destinazioni. Riguarda le ~26 pagine che dichiarano un gemello reale.
+  const [declaredHrefs, setDeclaredHrefs] = useState({});
+
+  useEffect(() => {
+    const next = {};
+    for (const lang of LANGS) {
+      const declared = declaredTranslation(lang.code);
+      if (declared) next[lang.code] = declared;
+    }
+    setDeclaredHrefs(next);
+  }, [pathname]);
 
   const activeLang = useMemo(() => localeFromPath(pathname || "/"), [pathname]);
 
@@ -288,45 +295,80 @@ export default function LanguageSwitcher({
         </span>
       </button>
 
-      {/* Dropdown */}
-      {open && (
-        <div
-          className={`
-            absolute z-50 mt-2 min-w-[140px]
-            rounded-2xl
-            border border-blue-middle/20
-            bg-blue-darkest/90
-            backdrop-blur-lg
-            shadow-lg shadow-yellow-light/10
-            overflow-hidden
-            ${align === "left" ? "left-0" : "right-0"}
-          `}
-          role="menu"
-        >
-          {LANGS.map((lang) => {
-            const isActive = lang.code === activeLang;
-            return (
-              <button
-                key={lang.code}
-                type="button"
-                role="menuitem"
-                onClick={() => switchTo(lang.code)}
-                className={`
-                  w-full text-left px-4 py-3
-                  flex items-center gap-2
-                  text-sm font-semibold
-                  transition-all
-                  ${isActive ? "text-yellow-light bg-yellow-light/10" : "text-white/90 hover:bg-white/5"}
-                `}
-              >
-                <span className="text-base leading-none">{lang.flag}</span>
-                <span>{lang.label}</span>
-                {isActive && <span className="ml-auto text-xs text-yellow-light">●</span>}
-              </button>
-            );
-          })}
-        </div>
-      )}
+      {/* Dropdown.
+          Rendered on every page, hidden with CSS rather than unmounted: as
+          `{open && ...}` the three language links existed only after a click, so
+          the served HTML carried no link at all to /it or /pt. Google read that
+          literally — 21 of the 27 URLs it had "discovered but not indexed" were
+          Italian or Portuguese pages nothing linked to. The menu behaves exactly
+          as before; it is only its markup that is now always present. */}
+      <div
+        className={`
+          absolute z-50 mt-2 min-w-[140px]
+          rounded-2xl
+          border border-blue-middle/20
+          bg-blue-darkest/90
+          backdrop-blur-lg
+          shadow-lg shadow-yellow-light/10
+          overflow-hidden
+          ${open ? "" : "hidden"}
+          ${align === "left" ? "left-0" : "right-0"}
+        `}
+        role="menu"
+      >
+        {LANGS.map((lang) => {
+          const isActive = lang.code === activeLang;
+          return (
+            <a
+              key={lang.code}
+              role="menuitem"
+              href={
+                declaredHrefs[lang.code] || resolveTarget(pathname || "/", lang.code)
+              }
+              onClick={(e) => {
+                // Let the browser do its job for the gestures that mean "not here":
+                // cmd/ctrl-click, shift-click, middle-click all open elsewhere and
+                // must keep working now that this is a real link.
+                if (
+                  e.metaKey ||
+                  e.ctrlKey ||
+                  e.shiftKey ||
+                  e.altKey ||
+                  (typeof e.button === "number" && e.button !== 0)
+                ) {
+                  return;
+                }
+                // A plain click keeps the richer client path: it persists the
+                // preference and reads the page's own hreflang, which knows the
+                // localised slug the href cannot (/tools/whatsapp-link-generator
+                // -> /it/tools/generatore-link-whatsapp, not /it/tools).
+                e.preventDefault();
+                switchTo(lang.code);
+              }}
+              onKeyDown={(e) => {
+                // Un <a> si attiva solo con Enter; il <button> che c'era prima
+                // rispondeva anche alla barra spaziatrice, e dentro un role="menu"
+                // NVDA e JAWS passano lo Spazio all'elemento invece di scrollare.
+                // Senza questo, da tastiera la voce sembra morta.
+                if (e.key !== " " && e.key !== "Spacebar") return;
+                e.preventDefault();
+                switchTo(lang.code);
+              }}
+              className={`
+                w-full text-left px-4 py-3
+                flex items-center gap-2
+                text-sm font-semibold
+                transition-all
+                ${isActive ? "text-yellow-light bg-yellow-light/10" : "text-white/90 hover:bg-white/5"}
+              `}
+            >
+              <span className="text-base leading-none">{lang.flag}</span>
+              <span>{lang.label}</span>
+              {isActive && <span className="ml-auto text-xs text-yellow-light">●</span>}
+            </a>
+          );
+        })}
+      </div>
     </div>
   );
 }
