@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 /**
  * Blog listing. Dark, on-brand. `posts` is frontmatter-only (from getAllPosts).
@@ -83,8 +82,6 @@ function PostCard({ post, basePath, labels, locale }) {
 }
 
 export default function BlogIndex({ posts, basePath = "/blog", labels }) {
-  const searchParams = useSearchParams();
-  const initial = searchParams.get("category") || "All";
   const locale = localeFromBasePath(basePath);
   const viewAll =
     labels.viewAll ||
@@ -108,9 +105,30 @@ export default function BlogIndex({ posts, basePath = "/blog", labels }) {
     return Array.from(map.entries()).sort((a, b) => catRank(a[0]) - catRank(b[0]));
   }, [posts]);
 
-  const [active, setActive] = useState(
-    categories.includes(initial) ? initial : "All"
-  );
+  const [active, setActive] = useState("All");
+
+  // Il filtro parte da "All" e si sposta dopo il mount se l'URL chiede una categoria.
+  //
+  // Prima questa riga era `useSearchParams()`, e la differenza non e' stilistica:
+  // useSearchParams() obbliga Next a fare bail-out al client del <Suspense> che
+  // avvolge questo componente, ma SOLO quando l'app e' resa staticamente. Finche' il
+  // root layout ha letto headers() ogni pagina era dinamica, il boundary si risolveva
+  // in SSR e non si vedeva niente. Il giorno che il sito torna statico, l'HTML servito
+  // dei tre indici blog conterrebbe il fallback — cioe' `null` — e sparirebbero i link
+  // a TUTTI gli articoli: le pagine che stiamo cercando di far indicizzare
+  // resterebbero raggiungibili solo dalla sitemap, che e' esattamente il buco da cui
+  // veniamo. Leggere la query string qui evita l'intera categoria di problema.
+  //
+  // Il prezzo: su un link profondo con ?category=X la griglia appare un istante su
+  // "All" e poi filtra. Vale il cambio.
+  useEffect(() => {
+    try {
+      const richiesta = new URLSearchParams(window.location.search).get("category");
+      if (richiesta && categories.includes(richiesta)) setActive(richiesta);
+    } catch {
+      // location non disponibile: si resta su "All", che e' una vista valida.
+    }
+  }, [categories]);
 
   const filtered =
     active === "All" ? posts : posts.filter((p) => p.category === active);
