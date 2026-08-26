@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import BlogIndex from "@/components/blog/BlogIndex";
+import BlogLanguageLinks from "@/components/blog/BlogLanguageLinks";
 import { getAllPosts } from "@/lib/blog";
 
 // Served publicly at /pt/blog (middleware rewrites /pt/* -> /pt-site/*).
@@ -90,6 +91,8 @@ const BlogPage = async () => {
       </section>
 
       {/* ── POSTS + CATEGORY FILTER ── */}
+      <BlogLanguageLinks locale="pt" />
+
       <Suspense fallback={null}>
         <BlogIndex
           posts={posts}

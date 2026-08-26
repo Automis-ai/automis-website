@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import BlogIndex from "@/components/blog/BlogIndex";
+import BlogLanguageLinks from "@/components/blog/BlogLanguageLinks";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata = {
@@ -89,6 +90,8 @@ const BlogPage = async () => {
       </section>
 
       {/* ── POSTS + CATEGORY FILTER ── */}
+      <BlogLanguageLinks locale="en" />
+
       <Suspense fallback={null}>
         <BlogIndex
           posts={posts}
