@@ -1,5 +1,6 @@
 "use client";
 import VideoPopup from "@/components/VideoPopup";
+import { publicPath } from "@/lib/locales";
 import { akpagerUtility } from "@/utility";
 import { Fragment, useEffect, useState } from "react";
 import niceSelect from "react-nice-select";
@@ -20,7 +21,9 @@ const AkpagerLayout = ({
 
   const pathname = usePathname();
   const supportedLocales = ["it", "en", "fr", "de", "es", "pt"];
-  const localeFromPath = pathname?.split("/")?.[1];
+  // publicPath: su /pt-site/* il segmento grezzo sarebbe "pt-site", che non e' nella
+  // lista e faceva cadere la pagina portoghese sul calendario inglese.
+  const localeFromPath = publicPath(pathname)?.split("/")?.[1];
   const locale = supportedLocales.includes(localeFromPath) ? localeFromPath : "en";
 
   // Per-market GoHighLevel calendars. PT was missing, so Portuguese readers on

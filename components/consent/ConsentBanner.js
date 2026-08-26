@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { publicPath } from "@/lib/locales";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -85,7 +86,9 @@ const COPY = {
 // is already covered by the "it" case; the bare "luca-ig" clause is kept only as a
 // safety net for the old un-prefixed URL. de/es/fr landers fall back to English.
 function localeFrom(pathname) {
-  const seg = (pathname || "/").split("/").filter(Boolean)[0];
+  // publicPath: /pt-site/* dava seg="pt-site" e quindi banner inglese su tutto il
+  // sito portoghese raggiunto dalla route interna.
+  const seg = publicPath(pathname).split("/").filter(Boolean)[0];
   if (seg === "it" || seg === "ita" || seg === "luca-ig") return "it";
   if (seg === "pt") return "pt";
   return "en";
