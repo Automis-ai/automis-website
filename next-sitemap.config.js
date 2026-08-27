@@ -96,6 +96,7 @@ const STATIC_PATHS = [
   "/it/blog/centralino-virtuale-studio-dentistico",
   "/it/blog/promemoria-whatsapp-centri-estetici",
   "/it/blog/lead-ads-facebook-agenzie-immobiliari",
+  "/it/blog/ia-per-commercialisti-gestione-documenti",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
