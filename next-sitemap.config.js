@@ -125,6 +125,7 @@ const STATIC_PATHS = [
   "/pt/blog",
   "/pt/blog/gestao-documental-com-ia",
   "/pt/blog/inteligencia-artificial-para-empresas-portugal",
+  "/pt/blog/mensagens-automaticas-whatsapp-clinica",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",
