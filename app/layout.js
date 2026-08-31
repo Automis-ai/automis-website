@@ -16,6 +16,7 @@ import ConsentModeInit from "@/components/consent/ConsentModeInit";
 import ConsentBanner from "@/components/consent/ConsentBanner";
 import { headers } from "next/headers";
 import { publicPath } from "@/lib/locales";
+import OrganizationJsonLd from "@/components/site/OrganizationJsonLd";
 
 /*
   Our first-party consent banner ships behind a flag, so this can be merged and
@@ -88,6 +89,16 @@ export default function RootLayout({ children }) {
         className={`${montserrat.variable} ${openSans.variable} bg-[#000a14]`}
         style={{ color: "white" }}
       >
+        {/* Sitewide: Google deduplica per @id, quindi ripeterlo su ogni pagina non
+            crea entita' multiple. Sta ovunque e non solo in home perche' l'entita'
+            va dichiarata dove la si cita — vedi i publisher/provider che puntano al
+            suo @id da articoli e pagine tool.
+
+            Nel <body> e non in un <head> scritto a mano: in App Router il <head> lo
+            gestisce Next, e renderizzarlo a mano rischia di rompere l'hoisting di
+            canonical e hreflang. JSON-LD e' valido in entrambi i posti, quindi non
+            c'e' ragione di correre quel rischio per un pareggio. */}
+        <OrganizationJsonLd />
         {/* Consent Mode v2 defaults. Must execute before GTM loads. */}
         {CONSENT_V2 && <ConsentModeInit />}
 

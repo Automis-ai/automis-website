@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ORG_ID } from "@/components/site/OrganizationJsonLd";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CTAButton from "@/components/CTAButton";
@@ -128,14 +129,11 @@ export default function ArticleLayout({
       name: author.name,
       ...(socialUrl ? { url: socialUrl } : {}),
     },
-    publisher: {
-      "@type": "Organization",
-      name: "Automis",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://automis.ai/assets/images/logos/favicon.png",
-      },
-    },
+    // Riferimento al nodo Organization dichiarato nel root layout. Prima qui c'era
+    // una seconda descrizione della stessa azienda, per giunta con un logo diverso
+    // (favicon.png invece di logo.png): due descrizioni dello stesso soggetto sono
+    // esattamente cio' che rende un'entita' difficile da riconoscere.
+    publisher: { "@id": ORG_ID },
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     inLanguage: SCHEMA_LANG[locale] || "en",
   };

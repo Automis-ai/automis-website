@@ -1,6 +1,7 @@
 // Server component: emits SoftwareApplication + FAQPage + BreadcrumbList JSON-LD
 // for an individual tool page (one script, array of nodes = valid schema.org).
 import { TOOLS, toolUrl, hubUrl, SITE } from "@/utility/toolsData";
+import { ORG_ID } from "@/components/site/OrganizationJsonLd";
 
 const TOOLS_LABEL = { en: "Tools", it: "Strumenti", pt: "Ferramentas" };
 
@@ -21,7 +22,9 @@ export default function ToolJsonLd({ toolKey, locale }) {
     description: c.metaDescription,
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-    provider: { "@type": "Organization", name: "Automis", url: SITE },
+    // Riferimento al nodo dichiarato una volta sola nel root layout, invece di
+    // una seconda descrizione anonima della stessa organizzazione.
+    provider: { "@id": ORG_ID },
   };
 
   const faqPage = {
