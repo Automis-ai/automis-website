@@ -13,11 +13,18 @@ const nextConfig = {
       { source: "/consultation", destination: "/jumpstart-audit", permanent: false },
     ];
   },
-  // SPIKE, non da tenere se non funziona. Domanda: la CDN di Vercel accetta di
-  // cachare le risposte di pagine rese dinamicamente? Oggi ogni pagina esce con
-  // `cache-control: private, no-store` e `x-vercel-cache: MISS` perche' il root
-  // layout legge headers(). Se questi due header bastano, si ottiene il beneficio
-  // (cache CDN, TTFB, crawl budget) senza spostare 158 file in route group.
+  // Queste due righe hanno risparmiato una ristrutturazione da 158 file.
+  //
+  // Il root layout legge headers() per l'attributo <html lang>, il che rende dinamica
+  // ogni pagina del sito: `cache-control: private, no-store` e `x-vercel-cache: MISS`
+  // su ogni richiesta, Googlebot compreso. L'unico modo per tornare statici sarebbe
+  // spezzare l'app in sette root layout con i route group — 158 file spostati, e
+  // niente di verificabile prima del deploy.
+  //
+  // MISURATO in produzione il 31/08/2026: con questi header la seconda richiesta alla
+  // stessa URL risponde `x-vercel-cache: HIT` su tutte le pagine provate (/, /blog,
+  // /it/blog, /pt/blog, un articolo, /it/voice-ai), mentre /api/* resta MISS e il
+  // browser continua a ricevere no-store. Beneficio preso, ristrutturazione annullata.
   //
   // CDN-Cache-Control e Vercel-CDN-Cache-Control sono letti dalla CDN e NON vengono
   // inoltrati al browser, quindi non cambiano il comportamento del client: per
