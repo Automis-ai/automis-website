@@ -15,6 +15,7 @@ import AnalyticsListeners from "@/components/AnalyticsListeners";
 import ConsentModeInit from "@/components/consent/ConsentModeInit";
 import ConsentBanner from "@/components/consent/ConsentBanner";
 import { headers } from "next/headers";
+import { publicPath } from "@/lib/locales";
 
 /*
   Our first-party consent banner ships behind a flag, so this can be merged and
@@ -63,7 +64,13 @@ export const metadata = {
 // this SSR value; it was previously hard-coded "en", so every Italian page shipped
 // lang="en" and Ahrefs flagged an hreflang/HTML-lang mismatch on the 13 /it/* URLs.
 // Reading headers() opts the app into dynamic rendering (accepted trade-off).
-function localeFromPath(pathname) {
+// NB: questa mappa e' piu' larga di PREFIXED in lib/locales.js — copre anche le
+// lander mono-lingua (/ita, /fr, /de, /es) e restituisce "pt-PT", non "pt". Sono due
+// domande diverse: qui serve il codice per <html lang>, li' il prefisso di URL. Cio'
+// che invece DEVE essere identico e' il riconoscimento della route interna del
+// portoghese, e infatti publicPath() arriva da li' invece di essere riscritto qui.
+function localeFromPath(rawPathname) {
+  const pathname = publicPath(rawPathname);
   if (pathname === "/it" || pathname.startsWith("/it/")) return "it";
   if (pathname === "/ita" || pathname.startsWith("/ita/")) return "it";
   if (pathname === "/pt" || pathname.startsWith("/pt/")) return "pt-PT";

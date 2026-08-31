@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import BlogIndex from "@/components/blog/BlogIndex";
 import BlogLanguageLinks from "@/components/blog/BlogLanguageLinks";
@@ -92,13 +91,16 @@ const BlogPage = async () => {
       {/* ── POSTS + CATEGORY FILTER ── */}
       <BlogLanguageLinks locale="en" />
 
-      <Suspense fallback={null}>
-        <BlogIndex
-          posts={posts}
-          basePath="/blog"
-          labels={{ readMore: "Read More", empty: "No articles published yet. Check back soon." }}
-        />
-      </Suspense>
+      {/* Niente <Suspense> qui: BlogIndex non usa piu' useSearchParams,
+          e un boundary attorno a un componente che non sospende e' solo una
+          trappola — chi reintroducesse un hook dinamico perderebbe i link
+          agli articoli dall'HTML servito in silenzio, invece di far
+          fallire la build. */}
+      <BlogIndex
+        posts={posts}
+        basePath="/blog"
+        labels={{ readMore: "Read More", empty: "No articles published yet. Check back soon." }}
+      />
     </AutomisEnShell>
   );
 };

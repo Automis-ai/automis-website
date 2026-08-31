@@ -81,7 +81,16 @@ type LocalizedPath = { en: string; it: string; pt: string };
 // Prefixed locales (English is the un-prefixed root). Keep in sync with Locale.
 const PREFIXED: Exclude<Locale, "en">[] = ["it", "pt"];
 
+// Il sito portoghese e' servito su /pt/* riscrivendo a /pt-site/*. Senza questo,
+// /pt-site/about si legge come inglese: vedi il commento esteso su publicPath() in
+// lib/locales.js. La regola e' una sola, ripetuta qui solo perche' questo modulo e'
+// TypeScript e non importa dal gemello JS; se la cambi, cambiala in entrambi.
+function publicPath(pathname: string): string {
+  return (pathname || "/").replace(/^\/pt-site(?=\/|$)/, "/pt");
+}
+
 export function getLocaleFromPathname(pathname: string): Locale {
+  pathname = publicPath(pathname);
   for (const code of PREFIXED) {
     if (pathname === `/${code}` || pathname.startsWith(`/${code}/`)) return code;
   }
@@ -89,6 +98,7 @@ export function getLocaleFromPathname(pathname: string): Locale {
 }
 
 export function normalizePathname(pathname: string): string {
+  pathname = publicPath(pathname);
   for (const code of PREFIXED) {
     if (pathname === `/${code}`) return "/";
     if (pathname.startsWith(`/${code}/`)) return pathname.replace(`/${code}`, "");
