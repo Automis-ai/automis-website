@@ -43,7 +43,7 @@ const openSans = Open_Sans({
 export const metadata = {
   metadataBase: new URL("https://automis.ai"),
   title: {
-    default: "Automis | AI Automation Agency for Business",
+    default: "Automis | AI Agency for Business",
   },
   description:
     "Automis is a strategic AI automation agency. We build the AI voice agents, automations, and company-brain systems your business is missing, end to end.",
