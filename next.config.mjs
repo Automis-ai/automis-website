@@ -13,6 +13,30 @@ const nextConfig = {
       { source: "/consultation", destination: "/jumpstart-audit", permanent: false },
     ];
   },
+  // SPIKE, non da tenere se non funziona. Domanda: la CDN di Vercel accetta di
+  // cachare le risposte di pagine rese dinamicamente? Oggi ogni pagina esce con
+  // `cache-control: private, no-store` e `x-vercel-cache: MISS` perche' il root
+  // layout legge headers(). Se questi due header bastano, si ottiene il beneficio
+  // (cache CDN, TTFB, crawl budget) senza spostare 158 file in route group.
+  //
+  // CDN-Cache-Control e Vercel-CDN-Cache-Control sono letti dalla CDN e NON vengono
+  // inoltrati al browser, quindi non cambiano il comportamento del client: per
+  // questo possono convivere con il no-store che Next emette dalla lambda.
+  //
+  // /api/* resta fuori: sono route con effetti (consent, contact, conversions) e
+  // cacharle sarebbe un errore, non un'ottimizzazione.
+  async headers() {
+    return [
+      {
+        source: "/((?!api/).*)",
+        headers: [
+          { key: "Vercel-CDN-Cache-Control", value: "max-age=3600" },
+          { key: "CDN-Cache-Control", value: "max-age=3600" },
+        ],
+      },
+    ];
+  },
+
   async rewrites() {
     // /it/prova non e' una pagina del sito: e' l'app della demo porta a porta, servita da un
     // progetto Vercel separato. Cosi' si itera sulla demo senza toccare automis.ai.
