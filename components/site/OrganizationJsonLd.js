@@ -15,8 +15,15 @@
  *   - `description`: descrivere Automis e' posizionamento, e il posizionamento vive in
  *     knowledge/brand.md e business.md, che non si toccano senza accordo. Lo schema
  *     funziona identico senza: a consolidare l'entita' sono name, url, logo e sameAs.
- *   - `legalName` e `foundingDate`: in business.md sono ancora [TBD]. Meglio assenti
- *     che inventati — un dato sbagliato qui lo si porta dietro per anni.
+ *   - `legalName`: i terms scrivono "Automis" senza forma societaria. In Estonia sarebbe
+ *     presumibilmente "Automis OU", ma presumibilmente non basta: si aggiunge quando
+ *     qualcuno lo legge sul certificato di registrazione.
+ *   - `foundingDate`: i terms danno il numero di registro, non la data di costituzione.
+ *   - `vatID`: la partita IVA e' in rilascio (Luca, 31/08/2026). Va aggiunta qui appena
+ *     arriva — e' un altro dato che solo l'azienda vera possiede.
+ *
+ * Sede legale e codice di registro invece ci sono: confermati da Luca il 31/08/2026 e
+ * gia' pubblici nei terms of service del sito.
  *
  * I quattro profili sono quelli gia' linkati nel footer del sito, non un elenco nuovo:
  * verificati uno per uno il 31/08/2026, rispondono tutti 200. Se un profilo cambia
@@ -55,6 +62,23 @@ export default function OrganizationJsonLd() {
           height: 255,
         },
         sameAs: SAME_AS,
+        // Sede legale e numero di registro: rafforzano l'entita' con dati che solo
+        // l'azienda vera possiede, ed e' il tipo di segnale che aiuta a distinguerci
+        // dagli omonimi (theautomis.com e AutoMIS di AutoSoft Dynamics).
+        // Fonte: i terms of service di questo stesso sito, in tutte e tre le lingue.
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Järvevana tee 9",
+          addressLocality: "Tallinn",
+          addressRegion: "Harju maakond",
+          postalCode: "11314",
+          addressCountry: "EE",
+        },
+        identifier: {
+          "@type": "PropertyValue",
+          name: "Estonian business registry code",
+          value: "17179196",
+        },
       },
       {
         "@type": "WebSite",
