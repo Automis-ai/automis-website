@@ -98,6 +98,7 @@ const STATIC_PATHS = [
   "/it/blog/promemoria-whatsapp-centri-estetici",
   "/it/blog/lead-ads-facebook-agenzie-immobiliari",
   "/it/blog/ia-per-commercialisti-gestione-documenti",
+  "/it/blog/quanto-costa-automatizzare-uno-studio-legale",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
