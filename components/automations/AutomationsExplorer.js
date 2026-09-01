@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { addLangPrefix } from "@/lib/locales";
 import { Section, SectionHeading, Reveal } from "@/components/home/_ui";
 import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 import { getAutomationsData } from "./automationsData";
@@ -115,7 +116,7 @@ function FilterPill({ active, onClick, children }) {
 
 // Compact, outcome-first card. Detail (problem + what we automate) is tucked
 // behind a "See how it works" toggle so the grid scans cleanly.
-function AutomationCard({ item, t }) {
+function AutomationCard({ item, t, locale }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="card-gold group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-sm transition-transform hover:-translate-y-1">
@@ -154,8 +155,10 @@ function AutomationCard({ item, t }) {
           <Plus className={`h-3.5 w-3.5 transition-transform duration-300 ${open ? "rotate-45" : ""}`} strokeWidth={2.4} />
         </button>
         {item.liveHref && (
+          // liveHref e' scritto senza prefisso nei dati: la lingua la mette qui
+          // addLangPrefix, altrimenti /it/ai-automations manda al caso studio inglese.
           <Link
-            href={item.liveHref}
+            href={addLangPrefix(item.liveHref, locale)}
             className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-white/60 transition-colors hover:text-white"
           >
             {item.liveLabel || t.seeLive}
@@ -275,7 +278,7 @@ export default function AutomationsExplorer() {
                 <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {g.items.map((item, i) => (
                     <Reveal key={item.id} delay={Math.min(i, 5) * 40}>
-                      <AutomationCard item={item} t={t} />
+                      <AutomationCard item={item} t={t} locale={locale} />
                     </Reveal>
                   ))}
                 </div>
