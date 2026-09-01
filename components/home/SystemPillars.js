@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Section, SectionHeading, GradientText, GRAD } from "./_ui";
 import SwipeRow from "./SwipeRow";
+import { addLangPrefix } from "@/lib/locales";
 import { TrendingUp, Headphones, Database, ArrowUpRight, Check } from "lucide-react";
 
 const PILLARS = [
@@ -15,6 +16,9 @@ const PILLARS = [
   {
     n: "02",
     icon: Headphones,
+    // Path senza prefisso: la lingua la mette addLangPrefix al render. Scritto
+    // "/voice-ai" e basta, la home italiana mandava gli italiani sulla pagina
+    // inglese, e /it/voice-ai restava senza un solo link che ci puntasse.
     href: "/voice-ai",
     featured: true,
   },
@@ -174,7 +178,7 @@ export default function SystemPillars() {
                 </ul>
                 {p.href ? (
                   <Link
-                    href={p.href}
+                    href={addLangPrefix(p.href, locale)}
                     className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-white transition-colors hover:text-[#8fe0f0]"
                   >
                     {c.cta}
