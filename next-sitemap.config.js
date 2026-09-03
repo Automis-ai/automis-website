@@ -100,6 +100,7 @@ const STATIC_PATHS = [
   "/it/blog/lead-ads-facebook-agenzie-immobiliari",
   "/it/blog/ia-per-commercialisti-gestione-documenti",
   "/it/blog/quanto-costa-automatizzare-uno-studio-legale",
+  "/it/blog/ridurre-no-show-studi-medici",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
