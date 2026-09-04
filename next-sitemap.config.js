@@ -130,6 +130,7 @@ const STATIC_PATHS = [
   "/pt/blog/gestao-documental-com-ia",
   "/pt/blog/inteligencia-artificial-para-empresas-portugal",
   "/pt/blog/mensagens-automaticas-whatsapp-clinica",
+  "/pt/blog/recuperar-chamadas-perdidas-clinica-estetica",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",
