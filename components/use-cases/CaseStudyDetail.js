@@ -6,6 +6,7 @@ import FinalCta from "@/components/home/FinalCta";
 import { Section, Reveal, Eyebrow, GRAD } from "@/components/home/_ui";
 import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 import ClientMark from "@/components/use-cases/ClientMark";
+import ClinicaStory from "@/components/use-cases/clinica/ClinicaStory";
 import { getCase } from "@/components/use-cases/cases";
 
 // UI copy resolved by locale. English values are byte-identical to the
@@ -50,6 +51,16 @@ export default function CaseStudyDetail({ slug, locale = "en" }) {
   const t = COPY[locale];
   const c = getCase(slug, locale);
   if (!c) notFound();
+
+  // Casi con una pagina scritta per intero: niente template, niente CTA finale
+  // del sito (la pagina ha gia' la sua).
+  if (c.longForm) {
+    return (
+      <AutomisEnShell>
+        <ClinicaStory locale={locale} />
+      </AutomisEnShell>
+    );
+  }
 
   const booking =
     locale === "it"

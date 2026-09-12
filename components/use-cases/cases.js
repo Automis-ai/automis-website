@@ -1,9 +1,13 @@
 /*
   Shared case-study data for the use-cases list + detail pages.
-  Facts are real (two live Automis clients); every quantitative metric is a
-  conservative, clearly-labeled estimate, we do not publish real client/caller
-  data (GDPR / privacy-first positioning). Keep this the single source of truth
-  for both /use-cases and /use-cases/[slug].
+  Two live Automis clients. Clínica Santa Maria now carries production figures
+  (aggregates only: no caller, patient or calendar data ever leaves the client's
+  systems); Adifesa's metrics are still conservative, clearly-labeled estimates.
+  Keep this the single source of truth for both /use-cases and /use-cases/[slug].
+
+  A case with `longForm: true` has its own written page and is rendered by a
+  dedicated component instead of the shared challenge/solution/results template,
+  so it only needs the list-card fields here (see components/use-cases/clinica).
 
   Localization: each case carries an `it` (Italian) and `pt` (European
   Portuguese) object with the translated version of every user-facing field.
@@ -22,119 +26,32 @@ export const CASES = [
     location: "Lisbon, Portugal",
     tag: "Voice AI receptionist",
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
-    // list-card one-liner
+    // Written case study with production figures: rendered by ClinicaStory, not the template.
+    longForm: true,
     summary:
-      "A 24/7 Voice AI receptionist that answers every call, books check-ups, and captures the after-hours calls that used to go unanswered.",
-    // detail: outcome-led hero line
-    headline:
-      "An AI receptionist that never lets a patient call go unanswered.",
+      "872 calls in seven months, 527 closed without reaching the front desk and 114 appointments booked. What changed month by month, once the clinic started trusting it.",
+    headline: "7 months on a dental clinic's phone line",
     metaDescription:
-      "A 24/7 Voice AI receptionist for a Lisbon dental clinic: it answers every call, books check-ups, and captures the after-hours calls once lost.",
-    challenge: {
-      lead: "A busy dental practice loses patients the moment the phone goes unanswered.",
-      points: [
-        "Calls arriving during treatments, lunch, and after hours went to voicemail, and most callers never called back.",
-        "Front-desk staff were interrupted mid-task to handle routine booking and rescheduling questions.",
-        "New-patient enquiries competed with in-chair care, so first impressions and bookings slipped through the cracks.",
-      ],
-    },
-    solution: {
-      lead: "We deployed the Automis Voice AI receptionist, configured for the clinic's real booking rules and tone.",
-      points: [
-        "24/7 inbound answering that greets every caller instantly, day or night.",
-        "Live appointment booking and rescheduling into the clinic's calendar, with confirmations.",
-        "Structured patient intake so the right details are captured before the visit.",
-        "After-hours coverage that books the nights-and-weekends calls that used to go unanswered.",
-      ],
-    },
-    results: {
-      lead: "The AI receptionist always answers, so there are no missed calls by design. Timing figures are conservative estimates from comparable Voice AI deployments and vary with call volume and setup.",
-      metrics: [
-        { value: "0", label: "missed calls, every call answered live, 24/7" },
-        { value: "After hours", label: "nights-and-weekends calls captured and booked instead of lost" },
-        { value: "<30s", label: "average time to answer an inbound call (estimate)" },
-      ],
-    },
-    quote:
-      "Patients get answered instantly, day or night, and bookings no longer slip through when the front desk is busy.",
-    quoteAttribution: "Client story - quote placeholder, pending approval",
+      "872 calls, 527 closed without reaching the front desk and 114 appointments: how a voice assistant answers the phone at a Lisbon dental clinic.",
     it: {
-      industry: "Clinica dentistica",
+      industry: "Clinica dentale",
       location: "Lisbona, Portogallo",
       tag: "Segretaria IA",
       summary:
-        "Una segretaria IA attiva 24/7 che risponde a ogni chiamata, prenota i check-up e recupera le chiamate fuori orario che prima restavano senza risposta.",
-      headline:
-        "Una segretaria IA che non lascia mai senza risposta la chiamata di un paziente.",
+        "872 chiamate in sette mesi, 527 chiuse senza passare dalla segretaria e 114 appuntamenti presi. Cosa è cambiato mese per mese, da quando la clinica si è fidata.",
+      headline: "7 mesi al telefono di una clinica dentale",
       metaDescription:
-        "Segretaria IA 24/7 per una clinica dentistica di Lisbona: risponde a ogni chiamata, prenota i check-up e recupera le chiamate fuori orario.",
-      challenge: {
-        lead: "Uno studio dentistico pieno di lavoro perde pazienti nel momento in cui il telefono resta senza risposta.",
-        points: [
-          "Le chiamate in arrivo durante i trattamenti, la pausa pranzo e fuori orario finivano in segreteria, e la maggior parte di chi chiamava non richiamava più.",
-          "Il personale alla reception veniva interrotto mentre lavorava per gestire richieste di routine su prenotazioni e spostamenti di appuntamento.",
-          "Le richieste dei nuovi pazienti competevano con l'assistenza alla poltrona, così prime impressioni e prenotazioni andavano perse.",
-        ],
-      },
-      solution: {
-        lead: "Abbiamo attivato la segretaria IA di Automis, configurata sulle regole di prenotazione e sul tono reali della clinica.",
-        points: [
-          "Risposta alle chiamate in entrata 24/7, che accoglie subito chi chiama, di giorno e di notte.",
-          "Prenotazione e spostamento degli appuntamenti in tempo reale sul calendario della clinica, con conferme.",
-          "Raccolta strutturata dei dati del paziente, così le informazioni giuste vengono acquisite prima della visita.",
-          "Copertura fuori orario che prenota le chiamate di sere e fine settimana che prima restavano senza risposta.",
-        ],
-      },
-      results: {
-        lead: "La segretaria IA risponde sempre, quindi non ci sono chiamate perse per definizione. I tempi indicati sono stime prudenti basate su implementazioni comparabili di segretarie IA e variano in base al volume di chiamate e alla configurazione.",
-        metrics: [
-          { value: "0", label: "chiamate perse: ogni chiamata gestita in diretta, 24/7" },
-          { value: "Fuori orario", label: "chiamate di sere e fine settimana recuperate e prenotate invece che perse" },
-          { value: "<30s", label: "tempo medio di risposta a una chiamata in entrata (stima)" },
-        ],
-      },
-      quote:
-        "I pazienti ricevono risposta all'istante, di giorno e di notte, e le prenotazioni non si perdono più quando la reception è impegnata.",
-      quoteAttribution: "Storia del cliente, citazione provvisoria in attesa di approvazione",
+        "872 chiamate, 527 chiuse senza passare dalla segretaria e 114 appuntamenti: come un assistente vocale risponde al telefono di una clinica dentale a Lisbona.",
     },
     pt: {
       industry: "Clínica dentária",
       location: "Lisboa, Portugal",
       tag: "Assistente de voz IA",
       summary:
-        "Um assistente de voz IA disponível 24/7 que atende todas as chamadas, marca as consultas de rotina e recupera as chamadas fora de horário que antes ficavam sem resposta.",
-      headline:
-        "Um assistente IA que nunca deixa a chamada de um paciente sem resposta.",
+        "872 chamadas em sete meses, 527 resolvidas sem passar pela receção e 114 marcações. O que mudou mês a mês, desde que a clínica passou a confiar.",
+      headline: "7 meses ao telefone de uma clínica dentária",
       metaDescription:
-        "Assistente de voz IA 24/7 para uma clínica dentária de Lisboa: atende todas as chamadas, marca consultas e recupera as chamadas fora de horário.",
-      challenge: {
-        lead: "Uma clínica dentária com muito movimento perde pacientes no momento em que o telefone fica sem resposta.",
-        points: [
-          "As chamadas que chegavam durante os tratamentos, à hora de almoço e fora de horário iam para o atendimento automático, e a maioria de quem ligava nunca voltava a ligar.",
-          "A equipa da receção era interrompida a meio das tarefas para tratar de pedidos de rotina sobre marcações e remarcações.",
-          "Os pedidos de novos pacientes competiam com o atendimento na cadeira, por isso as primeiras impressões e as marcações escapavam por entre os dedos.",
-        ],
-      },
-      solution: {
-        lead: "Colocámos a funcionar o assistente de voz IA da Automis, configurado com as regras de marcação e o tom reais da clínica.",
-        points: [
-          "Atendimento de chamadas recebidas 24/7, que saúda de imediato quem liga, de dia ou de noite.",
-          "Marcação e remarcação de consultas em tempo real no calendário da clínica, com confirmações.",
-          "Recolha estruturada dos dados do paciente, para que a informação certa fique registada antes da visita.",
-          "Cobertura fora de horário que marca as chamadas de noites e fins de semana que antes ficavam sem resposta.",
-        ],
-      },
-      results: {
-        lead: "O assistente IA atende sempre, por isso não há chamadas perdidas por definição. Os tempos indicados são estimativas prudentes baseadas em implementações comparáveis de assistentes de voz IA e variam consoante o volume de chamadas e a configuração.",
-        metrics: [
-          { value: "0", label: "chamadas perdidas: todas as chamadas atendidas em direto, 24/7" },
-          { value: "Fora de horário", label: "chamadas de noites e fins de semana recuperadas e marcadas em vez de perdidas" },
-          { value: "<30s", label: "tempo médio para atender uma chamada recebida (estimativa)" },
-        ],
-      },
-      quote:
-        "Os pacientes recebem resposta ao instante, de dia ou de noite, e as marcações já não se perdem quando a receção está ocupada.",
-      quoteAttribution: "História de cliente, citação provisória a aguardar aprovação",
+        "872 chamadas, 527 resolvidas sem passar pela receção e 114 marcações: como um assistente de voz atende o telefone de uma clínica dentária em Lisboa.",
     },
   },
   {
