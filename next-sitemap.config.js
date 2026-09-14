@@ -75,6 +75,7 @@ const STATIC_PATHS = [
   "/blog/ai-automation-cost-for-dental-clinics",
   "/blog/missed-call-text-back-for-restaurants",
   "/blog/ai-receptionist-vs-answering-service",
+  "/blog/whatsapp-automation-for-real-estate-agencies",
   "/playbook",
   "/contact",
   "/privacy-policy",
