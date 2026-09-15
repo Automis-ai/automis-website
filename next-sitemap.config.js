@@ -106,6 +106,7 @@ const STATIC_PATHS = [
   "/it/blog/ridurre-no-show-studi-medici",
   "/it/blog/assistente-vocale-ristoranti-prenotazioni",
   "/it/blog/bot-whatsapp-prenotazioni-parrucchieria",
+  "/it/blog/note-vocali-crm-agenti-immobiliari",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
