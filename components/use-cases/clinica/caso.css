@@ -1,0 +1,174 @@
+/* Generato da build.py del secondo cervello (--sito). Non modificare a mano:
+   il testo si cambia in testo-articolo.md, lo stile in stile.css. */
+.caso-clinica{--notte:#000a14; --notte-2:#07162a; --blu:#3C91E6; --blu-tenue:rgba(60,145,230,.34);
+  --lavanda:#B4C2FF; --oro:#F5CD79; --testo:rgba(255,255,255,.88); --tenue:rgba(255,255,255,.62);
+  --linea:rgba(255,255,255,.12);
+  --display:Montserrat,system-ui,sans-serif; --corpo:"Open Sans",system-ui,sans-serif;
+  --dati:"IBM Plex Mono",ui-monospace,monospace; --gap-barre:clamp(4px,1.4vw,14px);}
+.caso-clinica *{box-sizing:border-box}
+.caso-clinica{-webkit-text-size-adjust:100%}
+.caso-clinica{margin:0;background:var(--notte);color:var(--testo);font:400 18px/1.72 var(--corpo);overflow-x:clip}
+.caso-clinica a{color:var(--lavanda);text-underline-offset:3px}
+.caso-clinica a:hover{color:#fff}
+.caso-clinica a:focus-visible,.caso-clinica summary:focus-visible{outline:2px solid var(--oro);outline-offset:3px;border-radius:6px}
+.caso-clinica .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.caso-clinica .btn{display:inline-block;background:var(--blu);color:#fff;text-decoration:none;font:600 16px/1.2 var(--display);padding:13px 22px;border-radius:999px;white-space:nowrap}
+.caso-clinica .btn:hover{background:#5ba5ee;color:#fff}
+.caso-clinica .btn:focus-visible{outline:2px solid var(--oro);outline-offset:3px}
+.caso-clinica .hero,.caso-clinica .corpo{max-width:760px;margin:0 auto;padding-left:20px;padding-right:20px}
+.caso-clinica .hero{padding-top:34px}
+.caso-clinica .briciole{font:500 12px/1.5 var(--dati);letter-spacing:.12em;text-transform:uppercase;color:var(--tenue)}
+.caso-clinica .briciole ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.caso-clinica .briciole li+li::before{content:"›";margin-right:6px;color:var(--lavanda)}
+.caso-clinica .briciole a{color:var(--tenue);text-decoration:none}
+.caso-clinica .briciole a:hover{color:#fff}
+.caso-clinica h1{font:700 clamp(36px,5.6vw,62px)/1.04 var(--display);letter-spacing:-.025em;color:#fff;margin:18px 0;text-wrap:balance}
+.caso-clinica .sub{font-size:clamp(18px,2.2vw,21px);line-height:1.55;color:rgba(255,255,255,.74);margin:0;max-width:680px}
+.caso-clinica .clinica{display:flex;align-items:center;gap:14px;margin-top:26px}
+.caso-clinica .clinica .tile{background:#fff;border-radius:14px;padding:8px 12px;display:inline-flex;flex:none}
+.caso-clinica .clinica .tile img{height:48px;width:auto;display:block}
+.caso-clinica .clinica b{display:block;font:700 18px/1.3 var(--display);color:#fff}
+.caso-clinica .clinica .dove{display:block;font-size:14px;line-height:1.4;color:var(--tenue)}
+.caso-clinica .curva{--largo:min(1040px,calc(100vw - 40px));width:var(--largo);margin:44px 0 0 calc((100% - var(--largo)) / 2);
+  padding:24px 26px 18px;border:1px solid var(--linea);border-radius:20px;
+  background:linear-gradient(180deg,rgba(60,145,230,.08),rgba(60,145,230,0) 72%)}
+.caso-clinica .curva-testa{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 44px;
+  font:500 12px/1.4 var(--dati);letter-spacing:.12em;text-transform:uppercase;color:var(--lavanda)}
+.caso-clinica .curva-testa .tot{color:var(--tenue)}
+.caso-clinica .barre,.caso-clinica .mesi,.caso-clinica .anni{display:grid;grid-template-columns:repeat(var(--n,11),1fr);column-gap:var(--gap-barre)}
+.caso-clinica .barre{height:clamp(150px,22vw,230px);align-items:end;border-bottom:1px solid var(--linea)}
+.caso-clinica .col{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.caso-clinica .col .v{font:500 clamp(10px,1.25vw,13px)/1 var(--dati);color:var(--tenue);margin-bottom:7px}
+.caso-clinica .col .b{display:block;width:100%;max-width:58px;height:var(--h);min-height:3px;background:var(--blu-tenue);
+  border-radius:6px 6px 0 0;transform-origin:bottom;animation:cresci .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 55ms)}
+.caso-clinica .col.dopo .b{background:var(--blu)}
+.caso-clinica .col.dopo .v{color:#fff}
+.caso-clinica .col.svolta::before{content:"";position:absolute;left:calc(var(--gap-barre) / -2 - 1px);top:-34px;bottom:0;border-left:2px dashed var(--oro)}
+.caso-clinica .svolta-et{position:absolute;top:-38px;right:calc(100% + var(--gap-barre) / 2 + 8px);white-space:nowrap;
+  font:600 clamp(10px,1.15vw,12px)/1 var(--dati);letter-spacing:.08em;text-transform:uppercase;color:var(--oro)}
+.caso-clinica .mesi{margin-top:8px;font:500 clamp(10px,1.15vw,12px)/1.4 var(--dati);color:var(--tenue);text-align:center}
+.caso-clinica .anni{margin-top:6px;font:500 11px/1.4 var(--dati);color:rgba(255,255,255,.42)}
+.caso-clinica .anni span{border-top:1px solid var(--linea);padding-top:4px}
+.caso-clinica .anni span{grid-column:1 / -1}
+.caso-clinica .curva .nota{margin:14px 0 0;font:400 14px/1.5 var(--corpo);color:var(--tenue)}
+@keyframes cresci{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.caso-clinica .breve{margin:30px 0 8px;padding:18px 22px;border-left:3px solid var(--blu);background:rgba(255,255,255,.035);border-radius:0 14px 14px 0}
+.caso-clinica .breve .et{display:block;font:600 12px/1.4 var(--dati);letter-spacing:.14em;text-transform:uppercase;color:var(--lavanda);margin-bottom:6px}
+.caso-clinica .breve p{margin:0;font-size:17px;line-height:1.65}
+.caso-clinica .corpo section h2{font:700 clamp(24px,3vw,30px)/1.22 var(--display);letter-spacing:-.012em;color:#fff;margin:64px 0 14px}
+.caso-clinica .corpo p{margin:0 0 16px}
+.caso-clinica .corpo strong{color:#fff;font-weight:600}
+.caso-clinica .corpo p.nota{font-size:15px;color:var(--tenue)}
+.caso-clinica .corpo ul{padding-left:22px;margin:0 0 18px}
+.caso-clinica .corpo li{margin-bottom:10px}
+.caso-clinica .corpo li::marker{color:var(--blu)}
+.caso-clinica table{width:100%;border-collapse:collapse}
+.caso-clinica .tab{overflow-x:auto;margin:22px 0 14px;border:1px solid var(--linea);border-radius:14px}
+.caso-clinica .tab table{font-size:16px}
+.caso-clinica .tab th,.caso-clinica .tab td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;vertical-align:top}
+.caso-clinica .tab tr:last-child td{border-bottom:0}
+.caso-clinica .tab th{font:600 12px/1.4 var(--dati);letter-spacing:.1em;text-transform:uppercase;color:var(--lavanda)}
+.caso-clinica .tab td:last-child,.caso-clinica .tab th:last-child{text-align:right;white-space:nowrap}
+.caso-clinica .tab td strong{color:var(--blu);font-family:var(--display);font-weight:700}
+.caso-clinica .motivi td.num{font-family:var(--dati);color:var(--testo)}
+.caso-clinica .motivi .barra{display:inline-block;vertical-align:middle;width:calc(80px * var(--f));min-width:4px;height:6px;margin-right:10px;border-radius:3px;background:var(--blu-tenue)}
+.caso-clinica .motivi tr:first-child .barra{background:var(--blu)}
+.caso-clinica .settimana{margin:22px 0 20px;padding:6px 8px 12px;border:1px solid var(--linea);border-radius:14px;overflow-x:auto}
+.caso-clinica .settimana table{min-width:440px}
+.caso-clinica .settimana th,.caso-clinica .settimana td{padding:11px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.06)}
+.caso-clinica .settimana thead th{font:600 12px/1.4 var(--dati);letter-spacing:.1em;text-transform:uppercase;color:var(--lavanda)}
+.caso-clinica .settimana tbody th{text-align:left;font:600 15px/1.3 var(--corpo);color:#fff;white-space:nowrap;padding-left:10px}
+.caso-clinica .settimana tbody tr:last-child th,.caso-clinica .settimana tbody tr:last-child td{border-bottom:0}
+.caso-clinica .punto{display:inline-block;width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.1);vertical-align:middle}
+.caso-clinica .punto.on{background:var(--blu);box-shadow:0 0 0 5px rgba(60,145,230,.16)}
+.caso-clinica .settimana figcaption{font:400 14px/1.5 var(--corpo);color:var(--tenue);padding:8px 10px 0}
+.caso-clinica .faq{border-top:1px solid var(--linea)}
+.caso-clinica .faq details{border-bottom:1px solid var(--linea)}
+.caso-clinica .faq summary{cursor:pointer;list-style:none;position:relative;padding:16px 40px 16px 0;font:600 18px/1.4 var(--display);color:#fff}
+.caso-clinica .faq summary::-webkit-details-marker{display:none}
+.caso-clinica .faq summary::after{content:"+";position:absolute;right:6px;top:13px;font:400 24px/1 var(--dati);color:var(--blu);transition:transform .2s}
+.caso-clinica .faq details[open] summary::after{transform:rotate(45deg)}
+.caso-clinica .faq details p{margin:0 0 18px}
+.caso-clinica .cta{margin:30px 0 0;padding:24px 26px;border:1px solid var(--linea);border-radius:20px;background:var(--notte-2);display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.caso-clinica .cta p{margin:0;color:rgba(255,255,255,.74)}
+.caso-clinica .ripartizione{margin:22px 0 18px}
+.caso-clinica .barra-tot{display:flex;gap:3px;height:18px;border-radius:9px;overflow:hidden}
+.caso-clinica .barra-tot .seg{display:block;width:var(--p)}
+.caso-clinica .s0{background:var(--blu)}
+.caso-clinica .s1{background:var(--blu-tenue)}
+.caso-clinica .s2{background:rgba(255,255,255,.18)}
+.caso-clinica .corpo .ripartizione ul{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.caso-clinica .corpo .ripartizione li{display:flex;align-items:baseline;gap:10px;margin:0;font-size:16px}
+.caso-clinica .ripartizione .pal{flex:none;display:inline-block;width:12px;height:12px;border-radius:3px;transform:translateY(1px)}
+.caso-clinica .ripartizione b{min-width:3ch;font:700 18px var(--display);color:#fff}
+.caso-clinica .ripartizione .perc{margin-left:auto;font:500 13px var(--dati);color:var(--tenue)}
+.caso-clinica .stima{margin:24px 0 16px;padding:20px 22px 14px;border:1px solid var(--linea);border-radius:16px}
+.caso-clinica .stima .passo{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1.2fr) 10em;align-items:center;gap:14px;padding:9px 0}
+.caso-clinica .stima .et{font-size:15px;line-height:1.35}
+.caso-clinica .stima .traccia{position:relative;height:14px;border-radius:7px;background:rgba(255,255,255,.06)}
+.caso-clinica .stima .pezzo{position:absolute;top:0;bottom:0;left:var(--da);width:var(--l);border-radius:7px;background:var(--blu-tenue)}
+.caso-clinica .stima .pezzo.primo,.caso-clinica .stima .pezzo.pieno{background:var(--blu)}
+.caso-clinica .stima .pezzo.fantasma{background:transparent;border:1.5px dashed var(--blu-tenue)}
+.caso-clinica .stima .val{font:600 15px var(--dati);text-align:right;white-space:nowrap;color:var(--testo)}
+.caso-clinica .stima .passo.totale{margin-top:6px;padding-top:14px;border-top:1px solid var(--linea)}
+.caso-clinica .stima .totale .et{font:700 16px/1.3 var(--display);color:#fff}
+.caso-clinica .stima .totale .val{font:700 19px var(--display);color:var(--blu)}
+.caso-clinica .stima-max{margin:8px 0 0;font:500 13px/1.5 var(--dati);color:var(--tenue);text-align:right}
+@media (max-width:600px){.caso-clinica .stima{padding:16px 14px 12px}
+.caso-clinica .stima .passo{grid-template-columns:1fr auto;row-gap:7px}
+.caso-clinica .stima .et{grid-column:1;grid-row:1}
+.caso-clinica .stima .val{grid-column:2;grid-row:1}
+.caso-clinica .stima .traccia{grid-column:1 / -1;grid-row:2}
+.caso-clinica .stima-max{text-align:left}
+.caso-clinica{font-size:17px}
+.caso-clinica .curva{padding:18px 12px 14px}
+.caso-clinica .curva-testa{margin-bottom:46px}
+.caso-clinica .corpo section h2{margin-top:52px}
+.caso-clinica .tab th,.caso-clinica .tab td{padding:11px 12px}
+.caso-clinica .tab:not(.motivi) td:last-child{white-space:normal;width:40%}}
+@media (prefers-reduced-motion:reduce){.caso-clinica .col .b{animation:none}
+.caso-clinica .faq summary::after{transition:none}}
+.caso-clinica{background:#fff}
+.caso-clinica .hero{background:#000a14;box-shadow:0 0 0 100vmax #000a14;clip-path:inset(0 -100vmax)}
+.caso-clinica .hero{margin-top:-1px;padding-top:35px}
+.caso-clinica .hero{padding-bottom:56px}
+.caso-clinica .corpo{color:#243241}
+.caso-clinica .corpo section h2,.caso-clinica .corpo strong,.caso-clinica .corpo .settimana tbody th,.caso-clinica .corpo .faq summary{color:#101B27}
+.caso-clinica .corpo p.nota,.caso-clinica .corpo .settimana figcaption{color:#5B6B7C}
+.caso-clinica .corpo a{color:#1F6FC0}
+.caso-clinica .corpo li::marker,.caso-clinica .corpo .tab th,.caso-clinica .corpo .tab td strong,.caso-clinica .corpo .settimana thead th,.caso-clinica .corpo .faq summary::after{color:#1F6FC0}
+.caso-clinica .corpo .tab,.caso-clinica .corpo .settimana,.caso-clinica .corpo .cta{background:#fff;border-color:rgba(16,27,39,.12)}
+.caso-clinica .corpo .tab th,.caso-clinica .corpo .tab td{border-bottom-color:rgba(16,27,39,.08)}
+.caso-clinica .corpo .motivi td.num{color:#243241}
+.caso-clinica .corpo .motivi .barra{background:rgba(31,111,192,.22)}
+.caso-clinica .corpo .motivi tr:first-child .barra{background:#1F6FC0}
+.caso-clinica .corpo .settimana th,.caso-clinica .corpo .settimana td{border-bottom-color:rgba(16,27,39,.06)}
+.caso-clinica .corpo .punto{background:rgba(16,27,39,.10)}
+.caso-clinica .corpo .punto.on{background:#1F6FC0;box-shadow:0 0 0 5px rgba(31,111,192,.14)}
+.caso-clinica .corpo .faq,.caso-clinica .corpo .faq details{border-color:rgba(16,27,39,.12)}
+.caso-clinica .corpo .cta{box-shadow:0 8px 24px rgba(16,27,39,.06)}
+.caso-clinica .corpo .cta p{color:#3E4C5A}
+.caso-clinica .corpo .btn{background:#1F6FC0;color:#fff}
+.caso-clinica .corpo .cta a.btn:hover{color:#fff}
+.caso-clinica .corpo .stima{background:#fff;border-color:rgba(16,27,39,.12)}
+.caso-clinica .corpo .stima .traccia{background:rgba(16,27,39,.06)}
+.caso-clinica .corpo .stima .pezzo,.caso-clinica .corpo .s1{background:rgba(31,111,192,.22)}
+.caso-clinica .corpo .stima .pezzo.primo,.caso-clinica .corpo .stima .pezzo.pieno,.caso-clinica .corpo .s0{background:#1F6FC0}
+.caso-clinica .corpo .stima .pezzo.fantasma{background:transparent;border-color:rgba(31,111,192,.35)}
+.caso-clinica .corpo .stima .val{color:#243241}
+.caso-clinica .corpo .stima .totale .et,.caso-clinica .corpo .ripartizione b{color:#101B27}
+.caso-clinica .corpo .stima .totale .val{color:#1F6FC0}
+.caso-clinica .corpo .stima-max,.caso-clinica .corpo .ripartizione .perc{color:#5B6B7C}
+.caso-clinica .corpo .s2{background:rgba(16,27,39,.15)}
+/* innesto nel sito: sotto l'header fisso, e reset di Tailwind da rimettere a posto */
+.caso-clinica .hero{margin-top:0;padding-top:126px}
+.caso-clinica .corpo ul{list-style:disc}
+.caso-clinica .corpo ol{list-style:decimal}
+.caso-clinica img{display:block;max-width:100%}
+.caso-clinica table{border-collapse:collapse}
+/* il vecchio style.css del sito colora ogni <section> di scuro, e i titoli e il testo dentro
+   di bianco: dentro l'articolo va rimesso a posto, altrimenti i capitoli tornano scuri */
+.caso-clinica section{background-color:transparent;color:inherit}
+.caso-clinica section h1,.caso-clinica section h2,.caso-clinica section h3,
+.caso-clinica section p,.caso-clinica section li,.caso-clinica section td,.caso-clinica section th{color:inherit}
+@media (max-width:768px){.caso-clinica .hero{padding-top:104px}}

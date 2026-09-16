@@ -15,7 +15,7 @@ const COPY = {
     lead: "We are a two-founder team building for businesses in our own markets first, Portugal and Italy. Here is what we have shipped and what it does for them every day.",
     readCase: "Read the case study",
     disclaimer:
-      "Metrics on these pages are conservative estimates based on our deployments. Your results depend on volume, market, and setup.",
+      "The Clínica Santa Maria numbers are production data. The Adifesa metrics are conservative estimates based on our deployments. Your results depend on volume, market, and setup.",
   },
   it: {
     eyebrow: "Fatti concreti, non promesse",
@@ -23,7 +23,7 @@ const COPY = {
     lead: "Siamo un team di due founder che costruisce prima di tutto per i business dei nostri mercati, Portogallo e Italia. Ecco cosa abbiamo messo in campo e cosa fa per loro ogni giorno.",
     readCase: "Leggi il caso studio",
     disclaimer:
-      "Le metriche di queste pagine sono stime prudenti basate sulle nostre implementazioni. I tuoi risultati dipendono da volume, mercato e configurazione.",
+      "I numeri della Clínica Santa Maria sono dati di produzione. Le metriche di Adifesa sono stime prudenti basate sulle nostre implementazioni. I tuoi risultati dipendono da volume, mercato e configurazione.",
   },
   pt: {
     eyebrow: "Provas, não promessas",
@@ -31,7 +31,7 @@ const COPY = {
     lead: "Somos uma equipa de dois fundadores que constrói, antes de mais, para os negócios dos nossos próprios mercados, Portugal e Itália. Aqui está o que já colocámos no terreno e o que faz por eles todos os dias.",
     readCase: "Ler o caso de estudo",
     disclaimer:
-      "As métricas destas páginas são estimativas prudentes baseadas nas nossas implementações. Os seus resultados dependem do volume, do mercado e da configuração.",
+      "Os números da Clínica Santa Maria são dados de produção. As métricas da Adifesa são estimativas prudentes baseadas nas nossas implementações. Os seus resultados dependem do volume, do mercado e da configuração.",
   },
 };
 
