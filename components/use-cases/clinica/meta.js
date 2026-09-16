@@ -16,7 +16,7 @@ export const CASO = {
           "headline": "7 mesi al telefono di una clinica dentale",
           "description": "872 chiamate, 527 chiuse senza la segretaria e 114 appuntamenti: come un assistente vocale IA risponde al telefono di uno studio dentistico di Lisbona.",
           "inLanguage": "it-IT",
-          "dateModified": "2026-09-11",
+          "dateModified": "2026-09-16",
           "image": [
             "https://automis.ai/assets/og/caso-clinica-santa-maria-it.png"
           ],
@@ -40,7 +40,7 @@ export const CASO = {
               "addressCountry": "PT"
             }
           },
-          "datePublished": "2026-09-12"
+          "datePublished": "2026-09-16"
         },
         {
           "@type": "FAQPage",
@@ -60,7 +60,7 @@ export const CASO = {
               "name": "In quali lingue risponde?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "In portoghese europeo, inglese, italiano, spagnolo, francese e tedesco. La chiamata parte in portoghese, e se chi chiama usa un'altra lingua l'assistente la cambia nella risposta successiva, senza passare la chiamata a nessuno."
+                "text": "Può rispondere in portoghese europeo, inglese, italiano, spagnolo, francese e tedesco, e volendo anche in altre lingue. La chiamata parte in portoghese, e se chi chiama usa un'altra lingua l'assistente la cambia nella risposta successiva, senza passare la chiamata a nessuno."
               }
             },
             {
@@ -130,7 +130,7 @@ export const CASO = {
           "headline": "7 months on a dental clinic's phone line",
           "description": "872 calls, 527 handled without the front desk and 114 appointments booked: how an AI voice receptionist answers the phone at a dental clinic in Lisbon.",
           "inLanguage": "en",
-          "dateModified": "2026-09-11",
+          "dateModified": "2026-09-16",
           "image": [
             "https://automis.ai/assets/og/caso-clinica-santa-maria-en.png"
           ],
@@ -154,7 +154,7 @@ export const CASO = {
               "addressCountry": "PT"
             }
           },
-          "datePublished": "2026-09-12"
+          "datePublished": "2026-09-16"
         },
         {
           "@type": "FAQPage",
@@ -174,7 +174,7 @@ export const CASO = {
               "name": "Which languages does it speak?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "European Portuguese, English, Italian, Spanish, French and German. Every call starts in Portuguese, and if the caller uses another language the assistant switches in its next reply, without transferring the call."
+                "text": "It can answer in European Portuguese, English, Italian, Spanish, French and German, and in other languages too if needed. Every call starts in Portuguese, and if the caller uses another language the assistant switches in its next reply, without transferring the call."
               }
             },
             {
@@ -244,7 +244,7 @@ export const CASO = {
           "headline": "7 meses ao telefone de uma clínica dentária",
           "description": "872 chamadas, 527 resolvidas sem passar pela receção e 114 marcações: como um assistente de voz atende o telefone de uma clínica dentária em Lisboa.",
           "inLanguage": "pt-PT",
-          "dateModified": "2026-09-11",
+          "dateModified": "2026-09-16",
           "image": [
             "https://automis.ai/assets/og/caso-clinica-santa-maria-pt.png"
           ],
@@ -268,7 +268,7 @@ export const CASO = {
               "addressCountry": "PT"
             }
           },
-          "datePublished": "2026-09-12"
+          "datePublished": "2026-09-16"
         },
         {
           "@type": "FAQPage",
@@ -288,7 +288,7 @@ export const CASO = {
               "name": "Em que línguas atende?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Em português europeu, inglês, italiano, espanhol, francês e alemão. A chamada começa em português e, se quem liga usar outra língua, o assistente muda na resposta seguinte, sem passar a chamada a ninguém."
+                "text": "Pode atender em português europeu, inglês, italiano, espanhol, francês e alemão, e noutras línguas, se for preciso. A chamada começa em português e, se quem liga usar outra língua, o assistente muda na resposta seguinte, sem passar a chamada a ninguém."
               }
             },
             {
