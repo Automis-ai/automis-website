@@ -57,6 +57,16 @@ const nextConfig = {
         source: "/it/prova/:path*",
         destination: "https://automis-prova-attivita-automis-team.vercel.app/it/prova/:path*",
       },
+      // /en/try is the English twin of /it/prova: a separate Vercel project
+      // (automis-try-en) so the Italian demo is never touched by English changes.
+      {
+        source: "/en/try",
+        destination: "https://automis-try-en-automis-team.vercel.app/en/try",
+      },
+      {
+        source: "/en/try/:path*",
+        destination: "https://automis-try-en-automis-team.vercel.app/en/try/:path*",
+      },
     ];
   },
   images: {
