@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Section, SectionHeading, Reveal, GRAD } from "./_ui";
-import { Stethoscope, Landmark, Quote } from "lucide-react";
+import { Stethoscope, Landmark, ArrowRight } from "lucide-react";
 
 const COPY = {
   en: {
@@ -12,8 +13,7 @@ const COPY = {
         meta: "Dental clinic · Lisbon, PT",
         tag: "Voice AI receptionist",
         result:
-          "An AI receptionist that answers inbound calls around the clock, booking check-ups and recovering the after-hours calls that used to hit voicemail.",
-        quote: "Patients get answered instantly, day or night, with no missed bookings.",
+          "A voice assistant on the clinic's phone line: 872 calls in seven months, 527 closed without reaching the front desk and 114 appointments booked.",
       },
       {
         client: "Adifesa",
@@ -21,20 +21,20 @@ const COPY = {
         tag: "Meta automation",
         result:
           "Every comment and DM across Meta answered and qualified automatically, feeding a steady, organized flow of leads to the sales team instead of a noisy inbox.",
-        quote: "Leads are captured and qualified before anyone lifts a finger.",
       },
     ],
     stats: [
-      { value: "30-50%", label: "of missed calls typically recovered" },
+      { value: "60%", label: "of the clinic's calls closed without reaching the front desk" },
       { value: "<30s", label: "average response to a new lead" },
       { value: "24/7", label: "coverage across nights, weekends, holidays" },
       { value: "~7 days", label: "to launch Voice & simple systems" },
     ],
+    readCase: "Read the case study",
     eyebrow: "Proof, not promises",
     title: <>Real businesses. Real systems. Already running.</>,
     lead: "We're a founder-led team building for real businesses. The systems below are live right now.",
     disclaimer:
-      "Figures are typical, conservative estimates based on our deployments. Your results depend on call volume, market, and setup.",
+      "The 60% is Clínica Santa Maria production data. The other figures are typical, conservative estimates based on our deployments. Your results depend on call volume, market, and setup.",
   },
   it: {
     cases: [
@@ -43,8 +43,7 @@ const COPY = {
         meta: "Clinica dentale · Lisbona, PT",
         tag: "Segretaria IA",
         result:
-          "Una segretaria IA che risponde alle chiamate 24 ore su 24, fissa le visite e recupera anche le chiamate fuori orario che prima finivano in segreteria.",
-        quote: "I pazienti trovano sempre risposta, di giorno e di notte, senza perdere una prenotazione.",
+          "Un assistente vocale sul telefono della clinica: 872 chiamate in sette mesi, 527 chiuse senza passare dalla segretaria e 114 appuntamenti presi.",
       },
       {
         client: "Adifesa",
@@ -52,20 +51,20 @@ const COPY = {
         tag: "Automazione Meta",
         result:
           "Ogni commento e messaggio su Meta viene gestito e qualificato in automatico: al team commerciale arriva un flusso di contatti costante e ordinato, non più una inbox ingestibile.",
-        quote: "I contatti vengono raccolti e qualificati prima ancora che qualcuno muova un dito.",
       },
     ],
     stats: [
-      { value: "30-50%", label: "delle chiamate perse tipicamente recuperate" },
+      { value: "60%", label: "delle chiamate alla clinica chiuse senza passare dalla segretaria" },
       { value: "<30s", label: "risposta media a un nuovo contatto" },
       { value: "24/7", label: "copertura tra notti, weekend e festivi" },
       { value: "~7 giorni", label: "per attivare l'assistente vocale e i sistemi semplici" },
     ],
+    readCase: "Leggi il caso studio",
     eyebrow: "I risultati dei nostri clienti",
     title: <>Business veri. Sistemi veri. Già attivi.</>,
     lead: "Siamo un team guidato dai founder che costruisce per business reali. I sistemi qui sotto sono attivi in questo momento.",
     disclaimer:
-      "I dati sono stime tipiche e prudenti basate sui nostri progetti. I tuoi risultati dipendono dal volume di chiamate, dal mercato e dalla configurazione.",
+      "Il 60% viene dai dati di produzione della Clínica Santa Maria. Gli altri numeri sono stime tipiche e prudenti basate sui nostri progetti. I tuoi risultati dipendono dal volume di chiamate, dal mercato e dalla configurazione.",
   },
   pt: {
     cases: [
@@ -74,8 +73,7 @@ const COPY = {
         meta: "Clínica dentária · Lisboa, PT",
         tag: "Rececionista de voz IA",
         result:
-          "Uma rececionista IA que atende as chamadas a toda a hora, marca check-ups e recupera as chamadas fora de horas que antes iam para o voicemail.",
-        quote: "Os pacientes são atendidos de imediato, de dia ou de noite, sem perder nenhuma marcação.",
+          "Um assistente de voz no telefone da clínica: 872 chamadas em sete meses, 527 resolvidas sem passar pela receção e 114 marcações.",
       },
       {
         client: "Adifesa",
@@ -83,24 +81,26 @@ const COPY = {
         tag: "Automação Meta",
         result:
           "Cada comentário e DM no Meta respondido e qualificado automaticamente, alimentando um fluxo constante e organizado de contactos para a equipa de vendas, em vez de uma caixa de entrada caótica.",
-        quote: "Os contactos são captados e qualificados antes de alguém mexer um dedo.",
       },
     ],
     stats: [
-      { value: "30-50%", label: "das chamadas perdidas tipicamente recuperadas" },
+      { value: "60%", label: "das chamadas da clínica resolvidas sem passar pela receção" },
       { value: "<30s", label: "resposta média a um novo contacto" },
       { value: "24/7", label: "cobertura em noites, fins de semana e feriados" },
       { value: "~7 dias", label: "para ativar Voice e sistemas simples" },
     ],
+    readCase: "Ler o caso de estudo",
     eyebrow: "Provas, não promessas",
     title: <>Negócios reais. Sistemas reais. Já a funcionar.</>,
     lead: "Somos uma equipa liderada pelos founders a construir para negócios reais. Os sistemas abaixo estão ativos neste momento.",
     disclaimer:
-      "Os valores são estimativas típicas e conservadoras baseadas nas nossas implementações. Os seus resultados dependem do volume de chamadas, do mercado e da configuração.",
+      "Os 60% vêm dos dados de produção da Clínica Santa Maria. Os restantes valores são estimativas típicas e conservadoras baseadas nas nossas implementações. Os seus resultados dependem do volume de chamadas, do mercado e da configuração.",
   },
 };
 
 const CASE_ICONS = [Stethoscope, Landmark];
+// Le schede portano al caso studio completo: niente citazioni dei clienti finche' non ce ne danno una vera.
+const CASE_SLUGS = ["clinica-santa-maria", "adifesa"];
 const CASE_LOGOS = [
   "/assets/images/client-logos/clinica-santa-maria.png",
   "/assets/images/client-logos/adifesa.png",
@@ -127,7 +127,7 @@ function ClientMark({ logo, Icon, name }) {
 export default function Proof() {
   const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
-  const CASES = t.cases.map((c, i) => ({ ...c, icon: CASE_ICONS[i], logo: CASE_LOGOS[i] }));
+  const CASES = t.cases.map((c, i) => ({ ...c, icon: CASE_ICONS[i], logo: CASE_LOGOS[i], slug: CASE_SLUGS[i] }));
   const STATS = t.stats;
   return (
     <Section id="proof" className="bg-[#020a12]">
@@ -152,10 +152,13 @@ export default function Proof() {
                 <h3 className="font-display mt-5 text-xl font-semibold text-white">{c.client}</h3>
                 <p className="mt-1 text-[13px] text-white/60">{c.meta}</p>
                 <p className="mt-4 text-[14.5px] leading-relaxed text-white/65">{c.result}</p>
-                <div className="mt-auto flex items-start gap-2.5 border-t border-white/[0.06] pt-5">
-                  <Quote className="h-4 w-4 flex-shrink-0 text-[#57C7E3]" strokeWidth={2} />
-                  <p className="text-[14px] italic text-white/70">{c.quote}</p>
-                </div>
+                <Link
+                  href={`${locale === "en" ? "" : `/${locale}`}/use-cases/${c.slug}`}
+                  className="mt-auto flex items-center gap-1.5 border-t border-white/[0.06] pt-5 text-[14px] font-semibold text-[#8fe0f0] transition-colors hover:text-white"
+                >
+                  {t.readCase}
+                  <ArrowRight className="h-4 w-4 flex-shrink-0 text-[#57C7E3] transition-transform group-hover:translate-x-1" strokeWidth={2} />
+                </Link>
               </div>
             </Reveal>
           );
