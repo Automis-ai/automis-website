@@ -35,7 +35,9 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/((?!api/).*)",
+        // /en/try is a live demo served from another project via rewrite. A 1h CDN cache
+        // there serves stale HTML after a redeploy, so it is excluded alongside /api.
+        source: "/((?!api/|en/try).*)",
         headers: [
           { key: "Vercel-CDN-Cache-Control", value: "max-age=3600" },
           { key: "CDN-Cache-Control", value: "max-age=3600" },
