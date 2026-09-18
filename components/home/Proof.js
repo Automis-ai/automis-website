@@ -20,12 +20,12 @@ const COPY = {
         meta: "Consumer-protection association · Lissone, IT",
         tag: "Meta automation",
         result:
-          "Comments and DMs on Facebook and Instagram, handled and qualified: 2,329 conversations in five months, 1,033 qualified contacts and 524 complete records.",
+          "Comments and DMs on Facebook and Instagram, handled and qualified: 2,329 conversations in five months and 524 complete records, 8 in 10 of which become clients.",
       },
     ],
     stats: [
       { value: "60%", label: "of the clinic's calls closed without reaching the front desk" },
-      { value: "95%", label: "of ADifesa's Meta conversations handled without a person" },
+      { value: "8 in 10", label: "of ADifesa's complete records become clients (their figure)" },
       { value: "47%", label: "of those messages arrive when the office is closed" },
       { value: "~7 days", label: "to launch Voice & simple systems" },
     ],
@@ -34,7 +34,7 @@ const COPY = {
     title: <>Real businesses. Real systems. Already running.</>,
     lead: "We're a founder-led team building for real businesses. The systems below are live right now.",
     disclaimer:
-      "The 60%, 95% and 47% are production data from Clínica Santa Maria and ADifesa. The launch time is a typical, conservative estimate. Your results depend on volume, market, and setup.",
+      "The 60% and 47% are production data from Clínica Santa Maria and ADifesa; the 8 in 10 is reported by ADifesa from their own system. The launch time is a conservative estimate. Your results depend on volume, market, and setup.",
   },
   it: {
     cases: [
@@ -50,12 +50,12 @@ const COPY = {
         meta: "Associazione di tutela · Lissone, Italia",
         tag: "Automazione Meta",
         result:
-          "Commenti e messaggi su Facebook e Instagram, gestiti e qualificati: 2.329 conversazioni in cinque mesi, 1.033 contatti qualificati e 524 schede complete.",
+          "Commenti e messaggi su Facebook e Instagram, gestiti e qualificati: 2.329 conversazioni in cinque mesi e 524 schede complete, di cui 8 su 10 diventano clienti.",
       },
     ],
     stats: [
       { value: "60%", label: "delle chiamate alla clinica chiuse senza passare dalla segretaria" },
-      { value: "95%", label: "delle conversazioni Meta di ADifesa gestite senza una persona" },
+      { value: "8 su 10", label: "delle schede complete di ADifesa diventa cliente (dato loro)" },
       { value: "47%", label: "di quei messaggi arriva quando l'ufficio è chiuso" },
       { value: "~7 giorni", label: "per attivare l'assistente vocale e i sistemi semplici" },
     ],
@@ -64,7 +64,7 @@ const COPY = {
     title: <>Business veri. Sistemi veri. Già attivi.</>,
     lead: "Siamo un team guidato dai founder che costruisce per business reali. I sistemi qui sotto sono attivi in questo momento.",
     disclaimer:
-      "Il 60%, il 95% e il 47% vengono dai dati di produzione della Clínica Santa Maria e di ADifesa. Il tempo di attivazione è una stima prudente. I tuoi risultati dipendono dal volume, dal mercato e dalla configurazione.",
+      "Il 60% e il 47% vengono dai dati di produzione della Clínica Santa Maria e di ADifesa; l'8 su 10 lo dichiara ADifesa, dal suo sistema. Il tempo di attivazione è una stima prudente. I tuoi risultati dipendono dal volume, dal mercato e dalla configurazione.",
   },
   pt: {
     cases: [
@@ -80,12 +80,12 @@ const COPY = {
         meta: "Associação de defesa do consumidor · Lissone, IT",
         tag: "Automação Meta",
         result:
-          "Comentários e mensagens no Facebook e no Instagram, tratados e qualificados: 2.329 conversas em cinco meses, 1.033 contactos qualificados e 524 fichas completas.",
+          "Comentários e mensagens no Facebook e no Instagram, tratados e qualificados: 2.329 conversas em cinco meses e 524 fichas completas, das quais 8 em cada 10 se tornam clientes.",
       },
     ],
     stats: [
       { value: "60%", label: "das chamadas da clínica resolvidas sem passar pela receção" },
-      { value: "95%", label: "das conversas Meta da ADifesa tratadas sem uma pessoa" },
+      { value: "8 em 10", label: "das fichas completas da ADifesa torna-se cliente (dado deles)" },
       { value: "47%", label: "dessas mensagens chega com o escritório fechado" },
       { value: "~7 dias", label: "para ativar Voice e sistemas simples" },
     ],
@@ -94,7 +94,7 @@ const COPY = {
     title: <>Negócios reais. Sistemas reais. Já a funcionar.</>,
     lead: "Somos uma equipa liderada pelos founders a construir para negócios reais. Os sistemas abaixo estão ativos neste momento.",
     disclaimer:
-      "Os 60%, os 95% e os 47% vêm dos dados de produção da Clínica Santa Maria e da ADifesa. O tempo de ativação é uma estimativa prudente. Os seus resultados dependem do volume, do mercado e da configuração.",
+      "Os 60% e os 47% vêm dos dados de produção da Clínica Santa Maria e da ADifesa; os 8 em 10 são declarados pela ADifesa, a partir do sistema deles. O tempo de ativação é uma estimativa prudente. Os seus resultados dependem do volume, do mercado e da configuração.",
   },
 };
 

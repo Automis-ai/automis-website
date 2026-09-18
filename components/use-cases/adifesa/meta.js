@@ -3,7 +3,7 @@
 export const CASO = {
   "it": {
     "titolo": "Automazione Meta per commenti e DM: caso studio | Automis",
-    "descrizione": "2.329 conversazioni, 1.033 contatti qualificati e 524 schede complete: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
+    "descrizione": "2.329 conversazioni e 524 schede complete, di cui 8 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
     "h1": "Cinque mesi nei commenti di Facebook e Instagram",
     "url": "https://automis.ai/it/use-cases/adifesa",
     "og": "https://automis.ai/assets/og/caso-adifesa-it.png",
@@ -14,7 +14,7 @@ export const CASO = {
           "@type": "Article",
           "@id": "https://automis.ai/it/use-cases/adifesa#article",
           "headline": "Cinque mesi nei commenti di Facebook e Instagram",
-          "description": "2.329 conversazioni, 1.033 contatti qualificati e 524 schede complete: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
+          "description": "2.329 conversazioni e 524 schede complete, di cui 8 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
           "inLanguage": "it-IT",
           "dateModified": "2026-09-18",
           "image": [
@@ -82,6 +82,14 @@ export const CASO = {
             },
             {
               "@type": "Question",
+              "name": "Quanti di quei contatti diventano clienti?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Secondo l'associazione, 8 schede complete su 10 diventano clienti con almeno una pratica aperta. È un dato loro, dal loro sistema: il nostro database si ferma alla scheda completa, cioè nome, telefono, email e prodotto."
+              }
+            },
+            {
+              "@type": "Question",
               "name": "Quanto ci vuole a metterla in piedi?",
               "acceptedAnswer": {
                 "@type": "Answer",
@@ -118,7 +126,7 @@ export const CASO = {
   },
   "en": {
     "titolo": "Meta Comment and DM Automation: Case Study | Automis",
-    "descrizione": "2,329 conversations, 1,033 qualified contacts and 524 complete records: how an automation handles Facebook and Instagram comments and DMs.",
+    "descrizione": "2,329 conversations and 524 complete records, 8 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
     "h1": "Five months in the comments on Facebook and Instagram",
     "url": "https://automis.ai/use-cases/adifesa",
     "og": "https://automis.ai/assets/og/caso-adifesa-en.png",
@@ -129,7 +137,7 @@ export const CASO = {
           "@type": "Article",
           "@id": "https://automis.ai/use-cases/adifesa#article",
           "headline": "Five months in the comments on Facebook and Instagram",
-          "description": "2,329 conversations, 1,033 qualified contacts and 524 complete records: how an automation handles Facebook and Instagram comments and DMs.",
+          "description": "2,329 conversations and 524 complete records, 8 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
           "inLanguage": "en",
           "dateModified": "2026-09-18",
           "image": [
@@ -197,6 +205,14 @@ export const CASO = {
             },
             {
               "@type": "Question",
+              "name": "How many of those contacts become clients?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "According to the association, 8 out of every 10 complete records become clients with at least one case opened. That is their figure, from their system: our database stops at the complete record, meaning name, phone, email and product."
+              }
+            },
+            {
+              "@type": "Question",
               "name": "How long does it take to set up?",
               "acceptedAnswer": {
                 "@type": "Answer",
@@ -233,7 +249,7 @@ export const CASO = {
   },
   "pt": {
     "titolo": "Automação de comentários e DM na Meta: caso | Automis",
-    "descrizione": "2.329 conversas, 1.033 contactos qualificados e 524 fichas completas: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
+    "descrizione": "2.329 conversas e 524 fichas completas, das quais 8 em cada 10 se tornam clientes: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
     "h1": "Cinco meses nos comentários do Facebook e do Instagram",
     "url": "https://automis.ai/pt/use-cases/adifesa",
     "og": "https://automis.ai/assets/og/caso-adifesa-pt.png",
@@ -244,7 +260,7 @@ export const CASO = {
           "@type": "Article",
           "@id": "https://automis.ai/pt/use-cases/adifesa#article",
           "headline": "Cinco meses nos comentários do Facebook e do Instagram",
-          "description": "2.329 conversas, 1.033 contactos qualificados e 524 fichas completas: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
+          "description": "2.329 conversas e 524 fichas completas, das quais 8 em cada 10 se tornam clientes: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
           "inLanguage": "pt-PT",
           "dateModified": "2026-09-18",
           "image": [
@@ -308,6 +324,14 @@ export const CASO = {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Quando o cliente decide: a partir do painel de controlo a automação é desligada naquela conversa e a equipa continua à mão. Aconteceu em 111 conversas em 2.329, menos de uma em vinte."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quantos desses contactos se tornam clientes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Segundo a associação, 8 em cada 10 fichas completas tornam-se clientes com pelo menos um processo aberto. É um dado deles, do sistema deles: a nossa base de dados para na ficha completa, ou seja nome, telefone, email e produto."
               }
             },
             {

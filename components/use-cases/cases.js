@@ -64,29 +64,29 @@ export const CASES = [
     // Written case study with production figures: rendered by AdifesaStory, not the template.
     longForm: true,
     summary:
-      "2,329 conversations across Facebook and Instagram comments and DMs in five months, 1,033 qualified contacts and 524 complete records. Fewer than one in twenty needed a person.",
+      "2,329 conversations across Facebook and Instagram comments and DMs in five months, and 524 complete records. Eight in ten of those become clients, according to the association.",
     headline: "Five months in the comments on Facebook and Instagram",
     metaDescription:
-      "2,329 conversations, 1,033 qualified contacts and 524 complete records: how an automation handles Facebook and Instagram comments and DMs.",
+      "2,329 conversations and 524 complete records, 8 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
     it: {
       industry: "Associazione di tutela",
       location: "Lissone, Italia",
       tag: "Automazione Meta",
       summary:
-        "2.329 conversazioni fra commenti e messaggi su Facebook e Instagram in cinque mesi, 1.033 contatti qualificati e 524 schede complete. Meno di una su venti ha avuto bisogno di una persona.",
+        "2.329 conversazioni fra commenti e messaggi su Facebook e Instagram in cinque mesi, e 524 schede complete. Di quelle, secondo l'associazione, 8 su 10 diventano clienti.",
       headline: "Cinque mesi nei commenti di Facebook e Instagram",
       metaDescription:
-        "2.329 conversazioni, 1.033 contatti qualificati e 524 schede complete: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
+        "2.329 conversazioni e 524 schede complete, di cui 8 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
     },
     pt: {
       industry: "Associação de defesa do consumidor",
       location: "Lissone, Itália",
       tag: "Automação Meta",
       summary:
-        "2.329 conversas entre comentários e mensagens no Facebook e no Instagram em cinco meses, 1.033 contactos qualificados e 524 fichas completas. Menos de uma em vinte precisou de uma pessoa.",
+        "2.329 conversas entre comentários e mensagens no Facebook e no Instagram em cinco meses, e 524 fichas completas. Dessas, segundo a associação, 8 em cada 10 tornam-se clientes.",
       headline: "Cinco meses nos comentários do Facebook e do Instagram",
       metaDescription:
-        "2.329 conversas, 1.033 contactos qualificados e 524 fichas completas: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
+        "2.329 conversas e 524 fichas completas, das quais 8 em cada 10 se tornam clientes: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
     },
   },
 ];
