@@ -16,17 +16,17 @@ const COPY = {
           "A voice assistant on the clinic's phone line: 872 calls in seven months, 527 closed without reaching the front desk and 114 appointments booked.",
       },
       {
-        client: "Adifesa",
-        meta: "Finance · cessione del quinto · IT",
+        client: "ADifesa",
+        meta: "Consumer-protection association · Lissone, IT",
         tag: "Meta automation",
         result:
-          "Every comment and DM across Meta answered and qualified automatically, feeding a steady, organized flow of leads to the sales team instead of a noisy inbox.",
+          "Comments and DMs on Facebook and Instagram, handled and qualified: 2,329 conversations in five months, 1,033 qualified contacts and 524 complete records.",
       },
     ],
     stats: [
       { value: "60%", label: "of the clinic's calls closed without reaching the front desk" },
-      { value: "<30s", label: "average response to a new lead" },
-      { value: "24/7", label: "coverage across nights, weekends, holidays" },
+      { value: "95%", label: "of ADifesa's Meta conversations handled without a person" },
+      { value: "47%", label: "of those messages arrive when the office is closed" },
       { value: "~7 days", label: "to launch Voice & simple systems" },
     ],
     readCase: "Read the case study",
@@ -34,7 +34,7 @@ const COPY = {
     title: <>Real businesses. Real systems. Already running.</>,
     lead: "We're a founder-led team building for real businesses. The systems below are live right now.",
     disclaimer:
-      "The 60% is Clínica Santa Maria production data. The other figures are typical, conservative estimates based on our deployments. Your results depend on call volume, market, and setup.",
+      "The 60%, 95% and 47% are production data from Clínica Santa Maria and ADifesa. The launch time is a typical, conservative estimate. Your results depend on volume, market, and setup.",
   },
   it: {
     cases: [
@@ -46,17 +46,17 @@ const COPY = {
           "Un assistente vocale sul telefono della clinica: 872 chiamate in sette mesi, 527 chiuse senza passare dalla segretaria e 114 appuntamenti presi.",
       },
       {
-        client: "Adifesa",
-        meta: "Finanza · cessione del quinto · Monza, Italia",
+        client: "ADifesa",
+        meta: "Associazione di tutela · Lissone, Italia",
         tag: "Automazione Meta",
         result:
-          "Ogni commento e messaggio su Meta viene gestito e qualificato in automatico: al team commerciale arriva un flusso di contatti costante e ordinato, non più una inbox ingestibile.",
+          "Commenti e messaggi su Facebook e Instagram, gestiti e qualificati: 2.329 conversazioni in cinque mesi, 1.033 contatti qualificati e 524 schede complete.",
       },
     ],
     stats: [
       { value: "60%", label: "delle chiamate alla clinica chiuse senza passare dalla segretaria" },
-      { value: "<30s", label: "risposta media a un nuovo contatto" },
-      { value: "24/7", label: "copertura tra notti, weekend e festivi" },
+      { value: "95%", label: "delle conversazioni Meta di ADifesa gestite senza una persona" },
+      { value: "47%", label: "di quei messaggi arriva quando l'ufficio è chiuso" },
       { value: "~7 giorni", label: "per attivare l'assistente vocale e i sistemi semplici" },
     ],
     readCase: "Leggi il caso studio",
@@ -64,7 +64,7 @@ const COPY = {
     title: <>Business veri. Sistemi veri. Già attivi.</>,
     lead: "Siamo un team guidato dai founder che costruisce per business reali. I sistemi qui sotto sono attivi in questo momento.",
     disclaimer:
-      "Il 60% viene dai dati di produzione della Clínica Santa Maria. Gli altri numeri sono stime tipiche e prudenti basate sui nostri progetti. I tuoi risultati dipendono dal volume di chiamate, dal mercato e dalla configurazione.",
+      "Il 60%, il 95% e il 47% vengono dai dati di produzione della Clínica Santa Maria e di ADifesa. Il tempo di attivazione è una stima prudente. I tuoi risultati dipendono dal volume, dal mercato e dalla configurazione.",
   },
   pt: {
     cases: [
@@ -76,17 +76,17 @@ const COPY = {
           "Um assistente de voz no telefone da clínica: 872 chamadas em sete meses, 527 resolvidas sem passar pela receção e 114 marcações.",
       },
       {
-        client: "Adifesa",
-        meta: "Finanças · cessione del quinto · IT",
+        client: "ADifesa",
+        meta: "Associação de defesa do consumidor · Lissone, IT",
         tag: "Automação Meta",
         result:
-          "Cada comentário e DM no Meta respondido e qualificado automaticamente, alimentando um fluxo constante e organizado de contactos para a equipa de vendas, em vez de uma caixa de entrada caótica.",
+          "Comentários e mensagens no Facebook e no Instagram, tratados e qualificados: 2.329 conversas em cinco meses, 1.033 contactos qualificados e 524 fichas completas.",
       },
     ],
     stats: [
       { value: "60%", label: "das chamadas da clínica resolvidas sem passar pela receção" },
-      { value: "<30s", label: "resposta média a um novo contacto" },
-      { value: "24/7", label: "cobertura em noites, fins de semana e feriados" },
+      { value: "95%", label: "das conversas Meta da ADifesa tratadas sem uma pessoa" },
+      { value: "47%", label: "dessas mensagens chega com o escritório fechado" },
       { value: "~7 dias", label: "para ativar Voice e sistemas simples" },
     ],
     readCase: "Ler o caso de estudo",
@@ -94,7 +94,7 @@ const COPY = {
     title: <>Negócios reais. Sistemas reais. Já a funcionar.</>,
     lead: "Somos uma equipa liderada pelos founders a construir para negócios reais. Os sistemas abaixo estão ativos neste momento.",
     disclaimer:
-      "Os 60% vêm dos dados de produção da Clínica Santa Maria. Os restantes valores são estimativas típicas e conservadoras baseadas nas nossas implementações. Os seus resultados dependem do volume de chamadas, do mercado e da configuração.",
+      "Os 60%, os 95% e os 47% vêm dos dados de produção da Clínica Santa Maria e da ADifesa. O tempo de ativação é uma estimativa prudente. Os seus resultados dependem do volume, do mercado e da configuração.",
   },
 };
 

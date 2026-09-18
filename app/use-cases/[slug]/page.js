@@ -1,6 +1,6 @@
 import { CASES, getCase } from "@/components/use-cases/cases";
 import CaseStudyDetail from "@/components/use-cases/CaseStudyDetail";
-import { CASO } from "@/components/use-cases/clinica/meta";
+import { metaLongForm } from "@/components/use-cases/longform";
 
 export function generateStaticParams() {
   return CASES.map((c) => ({ slug: c.slug }));
@@ -11,7 +11,7 @@ export function generateMetadata({ params }) {
   if (!c) return {};
   const url = `https://automis.ai/use-cases/${c.slug}`;
   // I casi con pagina propria portano title, description e immagine social del pezzo.
-  const m = c.longForm ? CASO["en"] : null;
+  const m = c.longForm ? metaLongForm(c.slug, "en") : null;
   const title = m ? m.titolo : `${c.shortClient} | ${c.tag} case study, Automis`;
   const description = m
     ? m.descrizione
