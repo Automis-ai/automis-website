@@ -135,6 +135,7 @@ const STATIC_PATHS = [
   "/pt/terms-of-service",
   "/pt/cookie-policy",
   "/pt/blog",
+  "/pt/blog/bot-whatsapp-marcacoes-clinica-dentaria-porto",
   "/pt/blog/gestao-documental-com-ia",
   "/pt/blog/inteligencia-artificial-para-empresas-portugal",
   "/pt/blog/mensagens-automaticas-whatsapp-clinica",
