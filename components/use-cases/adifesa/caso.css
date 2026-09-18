@@ -22,44 +22,67 @@
   padding:11px 20px;border-radius:999px;font-weight:700;font-size:15px;
   transition:transform .15s ease,background .15s ease}
 .caso-adifesa .btn:hover{background:#2F7FD0;transform:translateY(-1px)}
-.caso-adifesa .hero{max-width:1120px;margin:0 auto;padding:44px 32px 20px}
+.caso-adifesa .hero{max-width:1120px;margin:0 auto;padding:44px 32px 48px;position:relative}
+.caso-adifesa .hero::before{content:"";position:absolute;inset:0 -100vw;z-index:0;
+  background:radial-gradient(90% 120% at 15% 0%,#051F33 0%,#000A14 62%)}
+.caso-adifesa .hero>*{position:relative;z-index:1}
 .caso-adifesa .briciole ol{list-style:none;display:flex;gap:10px;padding:0;margin:0 0 26px;
   font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grigio)}
-.caso-adifesa .briciole a{color:var(--grigio);text-decoration:none}
-.caso-adifesa .briciole a:hover{color:var(--blu-cupo)}
-.caso-adifesa .briciole li+li::before{content:"›";margin-right:10px;color:var(--filo)}
+.caso-adifesa .hero .briciole ol{color:rgba(255,255,255,.55)}
+.caso-adifesa .briciole a{color:rgba(255,255,255,.55);text-decoration:none}
+.caso-adifesa .briciole a:hover{color:#fff}
+.caso-adifesa .briciole li+li::before{content:"›";margin-right:10px;color:rgba(255,255,255,.3)}
 .caso-adifesa .hero-griglia{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
   gap:52px;align-items:start}
 .caso-adifesa h1{font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.04;letter-spacing:-.025em;
   font-weight:800;margin:0 0 18px}
-.caso-adifesa .hero .sub{font-size:1.2rem;line-height:1.5;color:#26384C;font-weight:400;margin:0 0 28px;max-width:34ch}
-.caso-adifesa .cliente{display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1px solid var(--filo)}
+.caso-adifesa .hero h1{color:#fff}
+.caso-adifesa .hero .sub{font-size:1.2rem;line-height:1.5;color:var(--soft);font-weight:400;margin:0 0 28px;max-width:34ch}
+.caso-adifesa .cliente{display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);color:#fff}
 .caso-adifesa .cliente .tile{background:#fff;border:1px solid var(--filo);border-radius:12px;padding:8px 10px;display:inline-flex}
 .caso-adifesa .cliente b{display:block;font-size:15px}
-.caso-adifesa .cliente .dove{color:var(--grigio);font-size:13.5px}
+.caso-adifesa .cliente .dove{color:rgba(255,255,255,.6);font-size:13.5px}
 .caso-adifesa .thread{margin:0;display:flex;flex-direction:column;gap:10px}
 .caso-adifesa .thread .et{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--grigio);margin:0 0 2px}
-.caso-adifesa .bolla{background:var(--carta);border:1px solid var(--filo);border-radius:18px 18px 18px 6px;
-  padding:16px 18px;font-size:15.5px;line-height:1.5;box-shadow:0 1px 2px rgba(0,20,45,.05)}
-.caso-adifesa .bolla .chi{display:block;font-weight:700;font-size:13px;color:var(--grigio);margin-bottom:5px}
-.caso-adifesa .coperto{display:inline-block;background:var(--inchiostro);color:transparent;border-radius:3px;
-  padding:0 2px;position:relative;user-select:none}
-.caso-adifesa .coperto::after{content:attr(data-et);position:absolute;inset:0;display:grid;place-items:center;
-  color:var(--oro);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.caso-adifesa .bolla.nostra{background:var(--blu);border-color:var(--blu);color:#fff;
-  border-radius:18px 18px 6px 18px;margin-left:44px}
-.caso-adifesa .bolla.nostra .chi{color:rgba(255,255,255,.8)}
-.caso-adifesa .giunto{display:flex;align-items:center;gap:9px;margin:8px 0 4px 6px;color:var(--grigio);
-  font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.caso-adifesa .giunto::before{content:"";width:2px;height:22px;background:var(--filo);border-radius:2px}
+  color:rgba(255,255,255,.55);margin:0 0 2px}
+.caso-adifesa .post{background:var(--carta);border-radius:14px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.28)}
+.caso-adifesa .post-testa{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--filo)}
+.caso-adifesa .post-testa .pagina{width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--filo);
+  display:grid;place-items:center;overflow:hidden}
+.caso-adifesa .post-testa .pagina img{width:26px;height:auto}
+.caso-adifesa .post-testa b{font-size:14px;display:block;line-height:1.25}
+.caso-adifesa .post-testa .spons{font-size:11.5px;color:var(--grigio);display:flex;align-items:center;gap:5px}
+.caso-adifesa .commenti{padding:13px 15px 15px;display:flex;flex-direction:column;gap:12px}
+.caso-adifesa .cm{display:flex;gap:9px;align-items:flex-start}
+.caso-adifesa .cm .av{width:32px;height:32px;border-radius:50%;flex:0 0 32px;
+  background:linear-gradient(135deg,#9aa9bd,#c6d2e0);filter:blur(4px)}
+.caso-adifesa .cm .corpo-cm{min-width:0}
+.caso-adifesa .cm .bolla{background:#F0F2F5;border-radius:16px;padding:9px 13px;font-size:14.5px;line-height:1.45;
+  color:var(--inchiostro);display:inline-block}
+.caso-adifesa .cm .chi{display:block;font-weight:700;font-size:13px;margin-bottom:2px}
+.caso-adifesa .cm .chi .blur{filter:blur(4.5px);user-select:none}
+.caso-adifesa .cm .azioni-cm{font-size:12px;color:var(--grigio);font-weight:600;padding:5px 13px 0;display:flex;gap:14px}
+.caso-adifesa .blur{filter:blur(4.5px);user-select:none;-webkit-user-select:none}
+.caso-adifesa .cm.nostra .av{background:linear-gradient(135deg,#3C91E6,#0A3D62);filter:none}
+.caso-adifesa .cm.nostra .bolla{background:#E7F0FB}
+.caso-adifesa .cm.nostra .chi{filter:none}
+.caso-adifesa .cm .spunta{color:var(--blu);font-size:12px;font-weight:700}
+.caso-adifesa .giunto{display:flex;align-items:center;gap:9px;margin:10px 0 6px 8px;color:rgba(255,255,255,.6);
+  font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.caso-adifesa .giunto::before{content:"";width:2px;height:20px;background:rgba(255,255,255,.22);border-radius:2px}
 .caso-adifesa .giunto::after{content:"↓";color:var(--blu);font-size:14px}
-.caso-adifesa .privato{background:var(--inchiostro);border-radius:18px;padding:20px;color:#fff}
-.caso-adifesa .privato .et{color:var(--soft)}
-.caso-adifesa .privato .bolla{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);color:#fff}
-.caso-adifesa .privato .bolla .chi{color:var(--soft)}
-.caso-adifesa .thread figcaption{font-size:12.5px;color:var(--grigio);line-height:1.45;margin-top:2px}
-.caso-adifesa .breve{max-width:1120px;margin:34px auto 0;padding:22px 26px;background:var(--carta);
+.caso-adifesa .privato{background:var(--carta);border-radius:14px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.28)}
+.caso-adifesa .privato-testa{display:flex;align-items:center;gap:9px;padding:11px 15px;border-bottom:1px solid var(--filo);
+  font-size:13px;font-weight:700}
+.caso-adifesa .privato-testa .av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#9aa9bd,#c6d2e0);filter:blur(4px)}
+.caso-adifesa .privato-testa .dove{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--grigio)}
+.caso-adifesa .dm{padding:14px 15px 16px;display:flex;flex-direction:column;gap:8px}
+.caso-adifesa .dm .b{max-width:86%;padding:10px 14px;border-radius:18px;font-size:14.5px;line-height:1.45}
+.caso-adifesa .dm .b.loro{background:#F0F2F5;border-bottom-left-radius:5px;align-self:flex-start}
+.caso-adifesa .dm .b.noi{background:var(--blu);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.caso-adifesa .thread figcaption{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.45;margin-top:6px}
+.caso-adifesa .breve{max-width:1120px;margin:40px auto 0;padding:22px 26px;background:var(--carta);
   border:1px solid var(--filo);border-left:4px solid var(--blu);border-radius:4px 14px 14px 4px}
 .caso-adifesa .breve .et{display:block;font-size:11.5px;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--blu-cupo);margin-bottom:8px}
@@ -152,12 +175,10 @@
 @media (prefers-reduced-motion:reduce){.caso-adifesa *{animation:none!important;transition:none!important}
 .caso-adifesa{scroll-behavior:auto}}
 /* innesto nel sito: sotto l'header fisso, e reset di Tailwind da rimettere a posto */
-/* Il menu del sito e' bianco, pensato per pagine scure: questa pagina e' chiara, quindi
-   dietro l'header ci va una fascia scura, alta quanto lui, che sfuma nel feed. */
+/* Il menu del sito e' bianco e presuppone pagine scure: l'apertura di questa pagina e' scura
+   come il resto di automis.ai, e ci passa sotto. Il corpo invece e' chiaro, ed e' il feed. */
 .caso-adifesa{position:relative;background:#EEF2F8}
-.caso-adifesa::before{content:"";position:absolute;left:0;right:0;top:0;height:150px;
-  background:linear-gradient(#000A14 0%,#000A14 72%,rgba(0,10,20,0) 100%);z-index:0}
-.caso-adifesa .hero{position:relative;z-index:1;margin-top:0;padding-top:172px}
+.caso-adifesa .hero{margin-top:0;padding-top:150px}
 /* il piede dell'anteprima qui non c'e': almeno 3 cm di bianco fra il box finale e il footer del sito */
 .caso-adifesa .corpo{padding-bottom:200px}
 .caso-adifesa .corpo ul{list-style:disc}
@@ -169,4 +190,4 @@
 .caso-adifesa section{background-color:transparent;color:inherit}
 .caso-adifesa section h1,.caso-adifesa section h2,.caso-adifesa section h3,
 .caso-adifesa section p,.caso-adifesa section li,.caso-adifesa section td,.caso-adifesa section th{color:inherit}
-@media (max-width:768px){.caso-adifesa::before{height:118px}.caso-adifesa .hero{padding-top:136px}}
+@media (max-width:768px){.caso-adifesa .hero{padding-top:120px}}
