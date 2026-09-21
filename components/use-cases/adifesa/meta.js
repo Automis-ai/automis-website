@@ -16,7 +16,7 @@ export const CASO = {
           "headline": "Cinque mesi nei commenti di Facebook e Instagram",
           "description": "2.329 conversazioni e 524 schede complete, di cui 8 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
           "inLanguage": "it-IT",
-          "dateModified": "2026-09-18",
+          "dateModified": "2026-09-21",
           "image": [
             "https://automis.ai/assets/og/caso-adifesa-it.png"
           ],
@@ -41,7 +41,7 @@ export const CASO = {
               "addressCountry": "IT"
             }
           },
-          "datePublished": "2026-09-18"
+          "datePublished": "2026-09-21"
         },
         {
           "@type": "FAQPage",
@@ -139,7 +139,7 @@ export const CASO = {
           "headline": "Five months in the comments on Facebook and Instagram",
           "description": "2,329 conversations and 524 complete records, 8 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
           "inLanguage": "en",
-          "dateModified": "2026-09-18",
+          "dateModified": "2026-09-21",
           "image": [
             "https://automis.ai/assets/og/caso-adifesa-en.png"
           ],
@@ -164,7 +164,7 @@ export const CASO = {
               "addressCountry": "IT"
             }
           },
-          "datePublished": "2026-09-18"
+          "datePublished": "2026-09-21"
         },
         {
           "@type": "FAQPage",
@@ -262,7 +262,7 @@ export const CASO = {
           "headline": "Cinco meses nos comentários do Facebook e do Instagram",
           "description": "2.329 conversas e 524 fichas completas, das quais 8 em cada 10 se tornam clientes: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
           "inLanguage": "pt-PT",
-          "dateModified": "2026-09-18",
+          "dateModified": "2026-09-21",
           "image": [
             "https://automis.ai/assets/og/caso-adifesa-pt.png"
           ],
@@ -287,7 +287,7 @@ export const CASO = {
               "addressCountry": "IT"
             }
           },
-          "datePublished": "2026-09-18"
+          "datePublished": "2026-09-21"
         },
         {
           "@type": "FAQPage",
