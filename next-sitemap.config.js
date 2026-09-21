@@ -67,6 +67,7 @@ const STATIC_PATHS = [
   "/use-cases/adifesa",
   "/blog",
   "/blog/ai-document-processing-for-accountants",
+  "/blog/ai-document-processing-for-law-firms",
   "/blog/facebook-lead-ads-follow-up-for-real-estate",
   "/blog/ai-receptionist-for-medspas",
   "/blog/whatsapp-appointment-reminders-for-salons",
