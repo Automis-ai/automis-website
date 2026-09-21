@@ -1,0 +1,167 @@
+/* Generato da build.py del secondo cervello (--sito). Non modificare a mano:
+   il testo si cambia in testo-articolo.md, lo stile in stile.css. */
+.caso-adifesa{/* l'apertura scura */
+  --notte:#000A14;
+  --blu:#3C91E6;             /* il blu sul fondo scuro */
+  --lavanda:#B4C2FF;
+  --oro:#F5CD79;             /* due volte in tutta la pagina: la svolta di luglio, e l'8 su 10 */
+  --linea:rgba(255,255,255,.12);
+  --tenue:rgba(255,255,255,.62);
+  /* il corpo chiaro */
+  --carta:#FFFFFF;
+  --testo:#243241;           /* il testo corrente */
+  --scuro:#101B27;           /* titoli e grassetti */
+  --grigio:#5B6B7C;          /* note e testo secondario */
+  --blu-corpo:#1F6FC0;       /* il blu leggibile su bianco */
+  --blu-tenue:rgba(31,111,192,.22);
+  --filo:rgba(16,27,39,.12); /* bordo delle schede */
+  --riga:rgba(16,27,39,.08); /* righe delle tabelle */}
+.caso-adifesa *{box-sizing:border-box}
+.caso-adifesa{scroll-behavior:smooth}
+.caso-adifesa{margin:0;background:var(--carta);color:var(--testo);overflow-x:clip;
+  font-family:"Open Sans",system-ui,sans-serif;font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;}
+.caso-adifesa h1,.caso-adifesa h2,.caso-adifesa h3,.caso-adifesa .cifra,.caso-adifesa .btn,.caso-adifesa .sub{font-family:Montserrat,system-ui,sans-serif}
+.caso-adifesa a{color:var(--blu-corpo);text-underline-offset:3px}
+.caso-adifesa .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.caso-adifesa :focus-visible{outline:2px solid var(--blu-corpo);outline-offset:3px;border-radius:6px}
+.caso-adifesa .hero :focus-visible{outline-color:var(--oro)}
+.caso-adifesa .btn{display:inline-block;white-space:nowrap;background:var(--blu-corpo);color:#fff;text-decoration:none;
+  padding:11px 20px;border-radius:999px;font-weight:700;font-size:15px;
+  transition:transform .15s ease,background .15s ease}
+.caso-adifesa .btn:hover{background:#1A5EA6;color:#fff;transform:translateY(-1px)}
+.caso-adifesa .hero{max-width:760px;margin:0 auto;padding:44px 20px 48px;position:relative;color:rgba(255,255,255,.88)}
+.caso-adifesa .hero::before{content:"";position:absolute;inset:0 -100vw;z-index:0;background:var(--notte)}
+.caso-adifesa .hero>*{position:relative;z-index:1}
+.caso-adifesa .briciole ol{list-style:none;display:flex;gap:10px;padding:0;margin:0 0 26px;
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tenue)}
+.caso-adifesa .briciole a{color:var(--tenue);text-decoration:none}
+.caso-adifesa .briciole a:hover{color:#fff}
+.caso-adifesa .briciole li+li::before{content:"›";margin-right:10px;color:var(--lavanda)}
+.caso-adifesa .hero-griglia{display:block}
+.caso-adifesa h1{font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.04;letter-spacing:-.025em;
+  font-weight:800;margin:0 0 18px}
+.caso-adifesa .hero h1{color:#fff}
+.caso-adifesa .hero .sub{font-size:1.2rem;line-height:1.5;color:rgba(255,255,255,.74);font-weight:400;margin:0 0 28px;max-width:680px}
+.caso-adifesa .cliente{display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1px solid var(--linea);color:#fff}
+.caso-adifesa .cliente .tile{background:#fff;border-radius:12px;padding:8px 10px;display:inline-flex}
+.caso-adifesa .cliente b{display:block;font-size:15px}
+.caso-adifesa .cliente .dove{color:var(--tenue);font-size:13.5px}
+.caso-adifesa .thread{margin:38px 0 0;display:flex;flex-direction:column;gap:10px}
+.caso-adifesa .thread .et{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--lavanda);margin:0 0 2px}
+.caso-adifesa .scatto-img{display:block;width:auto;max-width:100%;height:auto;margin:0 auto;
+  border-radius:12px;background:#fff}
+.caso-adifesa .thread .scatto-img{box-shadow:0 10px 34px rgba(0,0,0,.45)}
+.caso-adifesa .thread figcaption{font-size:12.5px;color:var(--tenue);line-height:1.45;margin-top:10px}
+.caso-adifesa .scatto{margin:6px 0 28px}
+.caso-adifesa .scatto .scatto-img{border:1px solid var(--filo);box-shadow:0 8px 24px rgba(16,27,39,.06)}
+.caso-adifesa .scatto figcaption{font-size:12.5px;color:var(--grigio);line-height:1.45;margin-top:10px}
+.caso-adifesa .breve{margin:34px 0 0;padding:18px 22px;background:rgba(255,255,255,.035);
+  border-left:3px solid var(--blu);border-radius:0 14px 14px 0;color:rgba(255,255,255,.88)}
+.caso-adifesa .breve .et{display:block;font-size:11.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lavanda);margin-bottom:8px}
+.caso-adifesa .breve p{margin:0;font-size:1.03rem}
+.caso-adifesa .corpo{max-width:760px;margin:0 auto;padding:16px 32px 120px;position:relative}
+.caso-adifesa .corpo section{position:relative;padding:34px 0 0 30px;background:transparent;color:inherit}
+.caso-adifesa .corpo section::before{content:"";position:absolute;left:0;top:0;bottom:-34px;width:2px;background:var(--filo)}
+.caso-adifesa .corpo section:last-child::before{bottom:auto;height:46px}
+.caso-adifesa .corpo section::after{content:"";position:absolute;left:-5px;top:46px;width:12px;height:12px;
+  border-radius:50%;background:var(--carta);border:2px solid var(--blu-corpo)}
+.caso-adifesa h2{font-size:clamp(1.42rem,2.7vw,1.95rem);line-height:1.18;letter-spacing:-.018em;
+  font-weight:800;margin:0 0 14px;color:var(--scuro)}
+.caso-adifesa .corpo p{margin:0 0 17px}
+.caso-adifesa .corpo strong{font-weight:700;color:var(--scuro)}
+.caso-adifesa .corpo ul{margin:0 0 20px;padding-left:20px}
+.caso-adifesa .corpo li{margin-bottom:11px}
+.caso-adifesa .corpo li::marker{color:var(--blu-corpo)}
+.caso-adifesa .corpo .nota{font-size:14px;color:var(--grigio);font-style:italic}
+.caso-adifesa .imbuto{margin:4px 0 26px;padding:0;display:flex;flex-direction:column;gap:9px}
+.caso-adifesa .imbuto .passo{display:flex;align-items:center;gap:14px}
+.caso-adifesa .imbuto .gradino{background:var(--carta);border:1px solid var(--filo);border-radius:14px;
+  padding:11px 16px;display:flex;align-items:baseline;gap:10px;min-width:0;
+  animation:cresci .7s cubic-bezier(.2,.8,.3,1) both}
+.caso-adifesa .imbuto .cifra{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--scuro)}
+.caso-adifesa .imbuto .et{font-size:13.5px;color:var(--grigio);line-height:1.3}
+.caso-adifesa .imbuto .passo.esito .gradino{background:var(--notte);border-color:var(--notte);color:#fff;margin-top:6px}
+.caso-adifesa .imbuto .passo.esito .cifra{color:var(--oro)}
+.caso-adifesa .imbuto .passo.esito .et{color:var(--lavanda)}
+.caso-adifesa .imbuto figcaption{font-size:12.5px;color:var(--grigio);margin-top:6px}
+@keyframes cresci{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+.caso-adifesa .tab{background:var(--carta);border:1px solid var(--filo);border-radius:14px;
+  overflow:hidden;margin:0 0 24px}
+.caso-adifesa .tab table{width:100%;border-collapse:collapse;font-size:15.5px}
+.caso-adifesa .tab th{text-align:left;font-family:Montserrat,sans-serif;font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--blu-corpo);padding:12px 18px;border-bottom:1px solid var(--riga)}
+.caso-adifesa .tab td{padding:13px 18px;border-bottom:1px solid var(--riga)}
+.caso-adifesa .tab tr:last-child td{border-bottom:0}
+.caso-adifesa .tab td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+.caso-adifesa .tab td strong{color:var(--blu-corpo)}
+.caso-adifesa .tab.motivi td.num{position:relative}
+.caso-adifesa .tab.motivi td.num .barra{position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  height:7px;width:calc(var(--f)*120px);background:var(--blu-tenue);border-radius:4px;
+  margin-right:46px}
+.caso-adifesa .tab.motivi tr:first-child .barra{background:var(--blu-corpo)}
+.caso-adifesa .curva{margin:4px 0 26px;padding:18px 20px 14px;background:var(--carta);
+  border:1px solid var(--filo);border-radius:14px}
+.caso-adifesa .curva-testa{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grigio);
+  margin-bottom:14px}
+.caso-adifesa .curva-testa .tot{color:var(--scuro)}
+.caso-adifesa .curva .barre{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:10px;
+  align-items:end;height:130px;margin-top:22px}
+.caso-adifesa .curva .col{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
+  align-items:center;height:100%}
+.caso-adifesa .curva .col .v{font-size:12.5px;font-weight:700;margin-bottom:5px;color:var(--grigio)}
+.caso-adifesa .curva .col.dopo .v{color:var(--scuro)}
+.caso-adifesa .curva .col .b{width:100%;max-width:54px;height:var(--h);background:var(--blu-tenue);border-radius:6px 6px 0 0;
+  animation:sali .6s cubic-bezier(.2,.8,.3,1) both;animation-delay:calc(var(--i)*70ms)}
+.caso-adifesa .curva .col.dopo .b{background:var(--blu-corpo)}
+.caso-adifesa .curva .col.svolta::before{content:"";position:absolute;left:-6px;top:0;bottom:0;
+  border-left:2px dashed #C99A2E}
+.caso-adifesa .curva .svolta-et{position:absolute;top:-22px;left:-4px;font-size:10.5px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:#8A6A1F;white-space:nowrap}
+.caso-adifesa .curva .mesi{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:10px;
+  border-top:1px solid var(--riga);padding-top:8px;margin-top:6px;
+  font-size:12px;color:var(--grigio);text-align:center}
+.caso-adifesa .curva .anni{font-size:11px;color:var(--grigio);opacity:.7}
+.caso-adifesa .curva .nota{font-size:12.5px;color:var(--grigio);margin:8px 0 0;font-style:normal}
+@keyframes sali{from{height:0}to{height:var(--h)}}
+.caso-adifesa .faq{margin:0 0 24px}
+.caso-adifesa .faq details{background:var(--carta);border:1px solid var(--filo);border-radius:14px;
+  padding:4px 18px;margin-bottom:10px}
+.caso-adifesa .faq summary{cursor:pointer;font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;
+  padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center;
+  color:var(--scuro)}
+.caso-adifesa .faq summary::-webkit-details-marker{display:none}
+.caso-adifesa .faq summary::after{content:"+";color:var(--blu-corpo);font-size:20px;font-weight:700;line-height:1}
+.caso-adifesa .faq details[open] summary::after{content:"×"}
+.caso-adifesa .faq p{margin:0 0 16px;color:var(--testo)}
+.caso-adifesa .cta{background:var(--carta);border:1px solid var(--filo);border-radius:18px;padding:30px;margin:26px 0 0;
+  box-shadow:0 8px 24px rgba(16,27,39,.06)}
+.caso-adifesa .cta p{margin:14px 0 0;color:#3E4C5A;font-size:15px}
+@media (max-width:640px){.caso-adifesa{font-size:16px}
+.caso-adifesa .hero{padding:28px 18px 14px}
+.caso-adifesa .corpo{padding:10px 18px 90px}
+.caso-adifesa .corpo section{padding-left:22px}
+.caso-adifesa .imbuto .passo{gap:10px}
+.caso-adifesa .cta{padding:22px}}
+@media (prefers-reduced-motion:reduce){.caso-adifesa *{animation:none!important;transition:none!important}
+.caso-adifesa{scroll-behavior:auto}}
+/* innesto nel sito: sotto l'header fisso, e reset di Tailwind da rimettere a posto */
+/* Il menu del sito e' bianco e presuppone pagine scure: l'apertura di questa pagina e' scura
+   e ci passa sotto, il corpo e' bianco - lo stesso impianto del caso Clinica online. */
+.caso-adifesa{position:relative;background:#FFFFFF}
+.caso-adifesa .hero{margin-top:0;padding-top:150px}
+/* il piede dell'anteprima qui non c'e': almeno 3 cm di respiro fra il box finale e il footer del sito */
+.caso-adifesa .corpo{padding-bottom:200px}
+.caso-adifesa .corpo ul{list-style:disc}
+.caso-adifesa .corpo ol{list-style:decimal}
+.caso-adifesa img{display:block;max-width:100%}
+.caso-adifesa table{border-collapse:collapse}
+/* il vecchio style.css del sito colora ogni <section> di scuro, e i titoli e il testo dentro
+   di bianco: dentro l'articolo va rimesso a posto, altrimenti i capitoli tornano scuri */
+.caso-adifesa section{background-color:transparent;color:inherit}
+.caso-adifesa section h1,.caso-adifesa section h2,.caso-adifesa section h3,
+.caso-adifesa section p,.caso-adifesa section li,.caso-adifesa section td,.caso-adifesa section th{color:inherit}
+@media (max-width:768px){.caso-adifesa .hero{padding-top:120px}}

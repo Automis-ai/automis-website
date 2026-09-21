@@ -1,8 +1,7 @@
 /*
   Shared case-study data for the use-cases list + detail pages.
-  Two live Automis clients. Clínica Santa Maria now carries production figures
-  (aggregates only: no caller, patient or calendar data ever leaves the client's
-  systems); Adifesa's metrics are still conservative, clearly-labeled estimates.
+  Two live Automis clients. Both carry production figures, aggregates only:
+  no caller, patient, contact or calendar data ever leaves the client's systems.
   Keep this the single source of truth for both /use-cases and /use-cases/[slug].
 
   A case with `longForm: true` has its own written page and is rendered by a
@@ -56,123 +55,38 @@ export const CASES = [
   },
   {
     slug: "adifesa",
-    client: "Adifesa",
-    shortClient: "Adifesa",
-    industry: "Finance - cessione del quinto",
-    location: "Italy",
+    client: "Associazione ADifesa",
+    shortClient: "ADifesa",
+    industry: "Consumer-protection association",
+    location: "Lissone, Italy",
     tag: "Meta automation",
     logo: "/assets/images/client-logos/adifesa.png",
+    // Written case study with production figures: rendered by AdifesaStory, not the template.
+    longForm: true,
     summary:
-      "Meta automation that auto-replies to every Facebook and Instagram comment and DM, qualifies the interest, and routes clean leads to the sales team.",
-    headline:
-      "Every Facebook and Instagram lead answered and qualified, automatically.",
+      "2,329 conversations across Facebook and Instagram comments and DMs in five months, and 524 complete records. Eight in ten of those become clients, according to the association.",
+    headline: "Five months in the comments on Facebook and Instagram",
     metaDescription:
-      "Meta automation for an Italian finance business: auto-replies to every Facebook and Instagram comment and DM, qualifies interest, routes clean leads.",
-    challenge: {
-      lead: "A finance business running salary-backed loan campaigns on Meta was drowning in comments and DMs.",
-      points: [
-        "High-volume ad comments and direct messages arrived faster than the team could reply, and slow replies lose warm leads.",
-        "Genuine loan enquiries were buried in a noisy inbox alongside spam and off-topic messages.",
-        "No consistent way to qualify interest before a human stepped in, so the sales team spent time on unready contacts.",
-      ],
-    },
-    solution: {
-      lead: "We built an Automis Meta automation that meets every prospect the moment they engage.",
-      points: [
-        "Automatic replies to Facebook and Instagram comments and DMs, in the brand's voice.",
-        "Lead qualification that gathers the key details for a cessione del quinto enquiry.",
-        "Clean routing of qualified leads to the sales team, out of the noisy public inbox.",
-        "A steady, organized flow of leads instead of a manual scramble under each ad.",
-      ],
-    },
-    results: {
-      lead: "Figures below are conservative estimates from comparable Meta automation deployments. Actual results vary with ad spend, audience, and setup.",
-      metrics: [
-        { value: "<30s", label: "average response to a new comment or DM (estimate)" },
-        { value: "24/7", label: "coverage, so no lead waits for office hours" },
-        { value: "100%", label: "of inbound comments and DMs answered automatically" },
-      ],
-    },
-    quote:
-      "Leads are captured and qualified before anyone lifts a finger, and the sales team only sees the ones worth a call.",
-    quoteAttribution: "Client story - quote placeholder, pending approval",
+      "2,329 conversations and 524 complete records, 8 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
     it: {
-      industry: "Finanza, cessione del quinto",
-      location: "Monza, Italia",
+      industry: "Associazione di tutela",
+      location: "Lissone, Italia",
       tag: "Automazione Meta",
       summary:
-        "Automazione Meta che risponde in automatico a ogni commento e DM su Facebook e Instagram, qualifica l'interesse e smista i contatti puliti al team commerciale.",
-      headline:
-        "Ogni contatto da Facebook e Instagram gestito e qualificato, in automatico.",
+        "2.329 conversazioni fra commenti e messaggi su Facebook e Instagram in cinque mesi, e 524 schede complete. Di quelle, secondo l'associazione, 8 su 10 diventano clienti.",
+      headline: "Cinque mesi nei commenti di Facebook e Instagram",
       metaDescription:
-        "Automazione Meta per una finanziaria italiana: risponde a ogni commento e DM su Facebook e Instagram, qualifica l'interesse e smista i contatti.",
-      challenge: {
-        lead: "Un'azienda finanziaria che gestiva campagne di cessione del quinto su Meta era sommersa da commenti e DM.",
-        points: [
-          "Commenti agli annunci e messaggi diretti arrivavano in gran volume, più in fretta di quanto il team riuscisse a rispondere, e le risposte lente fanno perdere i contatti caldi.",
-          "Le richieste di finanziamento reali finivano sepolte in una casella rumorosa, insieme a spam e messaggi fuori tema.",
-          "Nessun modo coerente di qualificare l'interesse prima dell'intervento di una persona, così il team commerciale perdeva tempo su contatti non pronti.",
-        ],
-      },
-      solution: {
-        lead: "Abbiamo costruito un'automazione Meta di Automis che intercetta ogni potenziale cliente nel momento in cui interagisce.",
-        points: [
-          "Risposte automatiche ai commenti e ai DM su Facebook e Instagram, con il tono dell'azienda.",
-          "Qualificazione dei contatti che raccoglie i dati chiave per una richiesta di cessione del quinto.",
-          "Smistamento pulito dei contatti qualificati al team commerciale, fuori dalla casella pubblica rumorosa.",
-          "Un flusso di contatti costante e organizzato, invece della corsa manuale sotto ogni annuncio.",
-        ],
-      },
-      results: {
-        lead: "I dati qui sotto sono stime prudenti basate su implementazioni comparabili di automazione Meta. I risultati reali variano in base a budget pubblicitario, pubblico e configurazione.",
-        metrics: [
-          { value: "<30s", label: "risposta media a un nuovo commento o DM (stima)" },
-          { value: "24/7", label: "copertura, così nessun contatto aspetta gli orari d'ufficio" },
-          { value: "100%", label: "dei commenti e DM in entrata gestiti in automatico" },
-        ],
-      },
-      quote:
-        "I contatti vengono raccolti e qualificati prima ancora di muovere un dito, e il team commerciale vede solo quelli che meritano una call.",
-      quoteAttribution: "Storia del cliente, citazione provvisoria in attesa di approvazione",
+        "2.329 conversazioni e 524 schede complete, di cui 8 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
     },
     pt: {
-      industry: "Finanças, cessione del quinto",
-      location: "Monza, Itália",
+      industry: "Associação de defesa do consumidor",
+      location: "Lissone, Itália",
       tag: "Automação Meta",
       summary:
-        "Automação Meta que responde automaticamente a cada comentário e DM no Facebook e no Instagram, qualifica o interesse e encaminha os contactos qualificados para a equipa comercial.",
-      headline:
-        "Todos os contactos do Facebook e do Instagram atendidos e qualificados, automaticamente.",
+        "2.329 conversas entre comentários e mensagens no Facebook e no Instagram em cinco meses, e 524 fichas completas. Dessas, segundo a associação, 8 em cada 10 tornam-se clientes.",
+      headline: "Cinco meses nos comentários do Facebook e do Instagram",
       metaDescription:
-        "Automação Meta para uma financeira italiana: responde a cada comentário e DM no Facebook e no Instagram, qualifica e encaminha os contactos.",
-      challenge: {
-        lead: "Uma empresa financeira que geria campanhas de crédito com garantia salarial na Meta estava a afogar-se em comentários e DMs.",
-        points: [
-          "Os comentários aos anúncios e as mensagens diretas chegavam em grande volume, mais depressa do que a equipa conseguia responder, e as respostas lentas fazem perder os contactos mais quentes.",
-          "Os pedidos de crédito genuínos ficavam soterrados numa caixa de entrada ruidosa, ao lado de spam e mensagens fora do tema.",
-          "Não havia uma forma consistente de qualificar o interesse antes de uma pessoa intervir, por isso a equipa comercial perdia tempo com contactos que ainda não estavam prontos.",
-        ],
-      },
-      solution: {
-        lead: "Construímos uma automação Meta da Automis que aborda cada potencial cliente no momento em que este interage.",
-        points: [
-          "Respostas automáticas aos comentários e DMs no Facebook e no Instagram, com o tom da marca.",
-          "Qualificação dos contactos que reúne os dados essenciais para um pedido de cessione del quinto.",
-          "Encaminhamento limpo dos contactos qualificados para a equipa comercial, fora da caixa de entrada pública ruidosa.",
-          "Um fluxo de contactos constante e organizado, em vez da correria manual por baixo de cada anúncio.",
-        ],
-      },
-      results: {
-        lead: "Os dados abaixo são estimativas prudentes baseadas em implementações comparáveis de automação Meta. Os resultados reais variam consoante o investimento em anúncios, o público e a configuração.",
-        metrics: [
-          { value: "<30s", label: "resposta média a um novo comentário ou DM (estimativa)" },
-          { value: "24/7", label: "cobertura, para que nenhum contacto espere pelo horário de expediente" },
-          { value: "100%", label: "dos comentários e DMs recebidos atendidos automaticamente" },
-        ],
-      },
-      quote:
-        "Os contactos são captados e qualificados antes de alguém mexer um dedo, e a equipa comercial só vê aqueles que valem uma chamada.",
-      quoteAttribution: "História de cliente, citação provisória a aguardar aprovação",
+        "2.329 conversas e 524 fichas completas, das quais 8 em cada 10 se tornam clientes: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
     },
   },
 ];
