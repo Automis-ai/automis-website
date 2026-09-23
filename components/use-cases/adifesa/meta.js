@@ -249,7 +249,7 @@ export const CASO = {
   },
   "pt": {
     "titolo": "Automação de comentários e DM na Meta: caso | Automis",
-    "descrizione": "2.329 conversas e 524 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
+    "descrizione": "2.329 conversas e 524 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e DMs no Facebook e no Instagram.",
     "h1": "Cinco meses nos comentários do Facebook e do Instagram",
     "url": "https://automis.ai/pt/use-cases/adifesa",
     "og": "https://automis.ai/assets/og/caso-adifesa-pt.png",
@@ -260,7 +260,7 @@ export const CASO = {
           "@type": "Article",
           "@id": "https://automis.ai/pt/use-cases/adifesa#article",
           "headline": "Cinco meses nos comentários do Facebook e do Instagram",
-          "description": "2.329 conversas e 524 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
+          "description": "2.329 conversas e 524 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e DMs no Facebook e no Instagram.",
           "inLanguage": "pt-PT",
           "dateModified": "2026-09-21",
           "image": [
