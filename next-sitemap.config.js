@@ -112,6 +112,7 @@ const STATIC_PATHS = [
   "/it/blog/note-vocali-crm-agenti-immobiliari",
   "/it/blog/ia-privata-cartelle-cliniche-studio-medico",
   "/it/blog/da-dove-iniziare-automazione-ia-salone-bellezza",
+  "/it/blog/centralino-ia-costo-agenzia-immobiliare",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
