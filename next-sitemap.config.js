@@ -145,6 +145,7 @@ const STATIC_PATHS = [
   "/pt/blog/mensagens-automaticas-whatsapp-clinica",
   "/pt/blog/recuperar-chamadas-perdidas-clinica-estetica",
   "/pt/blog/rececionista-ia-imobiliarias-lisboa",
+  "/pt/blog/leads-facebook-imobiliaria-algarve",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",
