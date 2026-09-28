@@ -70,6 +70,7 @@ const STATIC_PATHS = [
   "/blog/ai-document-processing-for-law-firms",
   "/blog/facebook-lead-ads-follow-up-for-real-estate",
   "/blog/ai-receptionist-for-medspas",
+  "/blog/reduce-no-shows-for-medspas",
   "/blog/whatsapp-appointment-reminders-for-salons",
   "/blog/private-ai-vs-chatgpt-for-company-documents",
   "/blog/where-to-start-with-ai-automation",
