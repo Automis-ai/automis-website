@@ -114,6 +114,7 @@ const STATIC_PATHS = [
   "/it/blog/ia-privata-cartelle-cliniche-studio-medico",
   "/it/blog/da-dove-iniziare-automazione-ia-salone-bellezza",
   "/it/blog/centralino-ia-costo-agenzia-immobiliare",
+  "/it/blog/assistente-vocale-centro-estetico-chiamate-perse",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
