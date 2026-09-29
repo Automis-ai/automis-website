@@ -4,6 +4,7 @@ import { Reveal } from "./_ui";
 import { InteractiveHoverButton } from "@/components/ui/InteractiveHoverButton";
 import { WavyBackground } from "@/components/ui/WavyBackground";
 import HeroDemo from "./HeroDemo";
+import LoopVideo from "@/components/ui/LoopVideo";
 import ToolsStrip from "./ToolsStrip";
 import { ArrowRight, Sparkles } from "lucide-react";
 
@@ -132,7 +133,7 @@ export default function HeroEN() {
               style={{ background: "radial-gradient(60% 60% at 50% 0%, rgba(60,145,230,0.25), transparent 70%)" }}
             />
             <div className="relative">
-              <HeroDemo />
+              {locale === "en" ? <LoopVideo base="/media/homepage-journey/en" /> : <HeroDemo />}
             </div>
           </div>
         </Reveal>
