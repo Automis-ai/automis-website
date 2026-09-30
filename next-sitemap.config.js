@@ -80,6 +80,7 @@ const STATIC_PATHS = [
   "/blog/ai-receptionist-vs-answering-service",
   "/blog/whatsapp-automation-for-real-estate-agencies",
   "/blog/speed-to-lead-for-real-estate",
+  "/blog/missed-call-text-back-for-real-estate",
   "/playbook",
   "/contact",
   "/privacy-policy",
