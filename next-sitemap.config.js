@@ -116,6 +116,7 @@ const STATIC_PATHS = [
   "/it/blog/da-dove-iniziare-automazione-ia-salone-bellezza",
   "/it/blog/centralino-ia-costo-agenzia-immobiliare",
   "/it/blog/assistente-vocale-centro-estetico-chiamate-perse",
+  "/it/blog/prenotazioni-whatsapp-ristorante-automatiche",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
