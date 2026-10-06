@@ -118,6 +118,7 @@ const STATIC_PATHS = [
   "/it/blog/centralino-ia-costo-agenzia-immobiliare",
   "/it/blog/assistente-vocale-centro-estetico-chiamate-perse",
   "/it/blog/prenotazioni-whatsapp-ristorante-automatiche",
+  "/it/blog/lead-ads-facebook-studio-dentistico",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
