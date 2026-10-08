@@ -120,6 +120,7 @@ const STATIC_PATHS = [
   "/it/blog/assistente-vocale-centro-estetico-chiamate-perse",
   "/it/blog/prenotazioni-whatsapp-ristorante-automatiche",
   "/it/blog/lead-ads-facebook-studio-dentistico",
+  "/it/blog/ia-privata-documenti-studio-legale",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
