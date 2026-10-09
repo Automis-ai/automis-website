@@ -155,6 +155,7 @@ const STATIC_PATHS = [
   "/pt/blog/rececionista-ia-imobiliarias-lisboa",
   "/pt/blog/leads-facebook-imobiliaria-algarve",
   "/pt/blog/ia-para-contabilistas-gestao-faturas",
+  "/pt/blog/por-onde-comecar-automatizar-ia-pequena-empresa",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",
