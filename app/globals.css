@@ -1255,3 +1255,19 @@ body.blog-article-page .automis-en {
   font-weight: 600;
   line-height: 1.4;
 }
+
+/* Movimento ridotto: niente preloader a schermo intero, niente scivolata dell'header fisso, niente alone pulsante. */
+@media (prefers-reduced-motion: reduce) {
+  .preloader {
+    display: none !important;
+  }
+  .custom-loader {
+    animation: none !important;
+  }
+  .main-header.fixed-header .header-upper {
+    animation: none !important;
+  }
+  .animate-pulse-glow {
+    animation: none !important;
+  }
+}

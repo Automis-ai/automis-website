@@ -5,6 +5,8 @@
 // simple tag-triggered GHL workflow deliver a personalized email with no premium
 // Inbound Webhook trigger. Best effort: the finder still shows the instant
 // download regardless of the upsert result.
+import { isProduction, previewResponse } from "@/lib/v2/env";
+
 const GHL_UPSERT_URL = "https://services.leadconnectorhq.com/contacts/upsert";
 const ghlNotesUrl = (contactId) => `https://services.leadconnectorhq.com/contacts/${contactId}/notes`;
 
@@ -81,6 +83,9 @@ function buildFinderNote({ answers_detail, recommended_pillar, estimated_hours_s
 }
 
 export async function POST(req) {
+  // Fuori dalla produzione (preview, locale) niente esce verso l'esterno: stessa risposta di successo
+  // che il client si aspetta, piu' preview: true. Vedi lib/v2/env.js.
+  if (!isProduction()) return previewResponse();
   try {
     const body = await req.json();
     const { name, email, tags, source, roadmap_url, recommended_pillar, estimated_hours_saved, answers_detail, attribution } = body || {};

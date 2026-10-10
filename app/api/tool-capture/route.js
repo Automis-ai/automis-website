@@ -3,6 +3,8 @@
 // tool-specific tag, and (best effort) writes the computed result as a note so
 // whoever follows up sees the numbers. The tool always shows its result
 // regardless of the upsert outcome; this is a soft, optional capture.
+import { isProduction, previewResponse } from "@/lib/v2/env";
+
 const GHL_UPSERT_URL = "https://services.leadconnectorhq.com/contacts/upsert";
 const ghlNotesUrl = (contactId) => `https://services.leadconnectorhq.com/contacts/${contactId}/notes`;
 
@@ -17,6 +19,9 @@ const slug = (v) =>
     .slice(0, 60);
 
 export async function POST(req) {
+  // Fuori dalla produzione (preview, locale) niente esce verso l'esterno: stessa risposta di successo
+  // che il client si aspetta, piu' preview: true. Vedi lib/v2/env.js.
+  if (!isProduction()) return previewResponse();
   try {
     const body = (await req.json()) || {};
     const { email, name, toolName, locale, resultSummary } = body;

@@ -1,0 +1,228 @@
+/* Parliamo (prefisso v2c-). Colori dalle variabili --v2-* di <Section>. */
+
+/* Il Finder segue subito la Hero: meno aria sotto la Hero, il Finder ha già la sua. */
+.v2-hero.v2c-hero {
+  padding-bottom: 16px;
+}
+@media (min-width: 1024px) {
+  .v2-hero.v2c-hero {
+    padding-bottom: 24px;
+  }
+}
+
+/* Scheda a destra della Hero: solo da 1024 (sotto, la pagina va dritta al Finder). */
+.v2-hero .v2c-herocard {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .v2-hero .v2c-herocard {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    max-width: 26rem;
+    margin-left: auto;
+    padding: 28px;
+  }
+  .v2c-herocard .v2-tile {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+  }
+  .v2-hero .v2c-herocard__title {
+    margin: 0;
+    font-family: var(--v2-display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    word-spacing: 0.08em;
+    color: var(--v2-ink);
+    text-wrap: balance;
+  }
+  .v2c-herocard .v2c-checks {
+    margin-top: 4px;
+  }
+}
+
+/* ---------- Calendario ---------- */
+.v2c-book {
+  display: grid;
+  gap: 28px;
+}
+.v2c-book__intro .v2-head {
+  margin-bottom: 20px;
+}
+.v2c-checks {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.v2c-checks li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
+.v2c-checks .v2c-tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--v2-tile-bg);
+  color: var(--v2-accent);
+}
+/* Il calendario del fornitore è chiaro dentro e il suo guscio è pensato per fondo scuro: pannello blu notte. */
+.v2c-frame {
+  overflow: hidden;
+  border-radius: 20px;
+  background: #04101c;
+  box-shadow: var(--v2-shadow);
+}
+.v2c-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  padding: 24px;
+  text-align: center;
+}
+.v2c-ph__inner {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  max-width: 22rem;
+}
+.v2c-ph__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(60, 145, 230, 0.16);
+  color: #8fd3f4;
+}
+.v2-section .v2c-ph__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+}
+@media (min-width: 1024px) {
+  .v2c-book {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 56px;
+    align-items: start;
+  }
+  .v2c-book__intro {
+    position: sticky;
+    top: 104px;
+  }
+}
+
+/* ---------- Messaggio ---------- */
+.v2c-form {
+  display: grid;
+  gap: 28px;
+}
+.v2c-formhead .v2-title {
+  font-size: 1.5rem;
+}
+@media (min-width: 768px) {
+  .v2c-formhead .v2-title {
+    font-size: 1.875rem;
+  }
+}
+.v2c-reach {
+  align-self: start;
+  gap: 18px;
+  padding: 20px;
+}
+.v2c-reach__title {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+}
+.v2-section .v2c-reach__label {
+  margin: 0 0 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--v2-ink-3);
+}
+.v2c-mail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 8px 14px 8px 8px;
+  border: 1px solid var(--v2-card-line);
+  border-radius: 14px;
+  color: var(--v2-ink);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.v2c-mail .v2-tile {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+}
+.v2c-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.v2c-socials li {
+  margin: 0;
+}
+.v2c-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--v2-card-line);
+  border-radius: 12px;
+  color: var(--v2-ink-2);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+@media (hover: hover) {
+  .v2c-socials a:hover,
+  .v2c-mail:hover {
+    border-color: var(--v2-card-line-hover);
+    color: var(--v2-ink);
+  }
+}
+@media (min-width: 1024px) {
+  .v2c-form {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+  }
+  .v2c-reach {
+    margin-top: 0;
+    padding: 24px;
+  }
+}

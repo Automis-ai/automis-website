@@ -3,9 +3,14 @@
 // tags it by niche + newsletter consent. A GHL workflow triggered by the
 // `lead-magnet` tag sends the delivery email and starts the nurture sequence.
 // The PDF itself is also delivered as an instant download on the page.
+import { isProduction, previewResponse } from "@/lib/v2/env";
+
 const GHL_UPSERT_URL = "https://services.leadconnectorhq.com/contacts/upsert";
 
 export async function POST(req) {
+  // Fuori dalla produzione (preview, locale) niente esce verso l'esterno: stessa risposta di successo
+  // che il client si aspetta, piu' preview: true. Vedi lib/v2/env.js.
+  if (!isProduction()) return previewResponse();
   try {
     const body = await req.json();
     const { name, email, niche, niche_label, newsletter } = body || {};

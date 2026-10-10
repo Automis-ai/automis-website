@@ -27,6 +27,8 @@ coverage/
 .next/
 # scripts/verify.sh builds here so it never clobbers a running `next dev`
 .next-verify/
+# Cartelle di build/dev per agente o per prova (.next-integ, .next-dev-main, ...)
+.next-*/
 
 # Parcel build cache
 .cache/

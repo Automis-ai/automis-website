@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { isProduction, previewResponse } from "@/lib/v2/env";
 
 /*
   Proof of consent.
@@ -18,6 +19,9 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 export async function POST(request) {
+  // Fuori dalla produzione (preview, locale) niente esce verso l'esterno: stessa risposta di successo
+  // che il client si aspetta, piu' preview: true. Vedi lib/v2/env.js.
+  if (!isProduction()) return previewResponse();
   let body;
   try {
     body = await request.json();

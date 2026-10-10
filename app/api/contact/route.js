@@ -1,4 +1,9 @@
+import { isProduction, previewResponse } from "@/lib/v2/env";
+
 export async function POST(req) {
+  // Fuori dalla produzione (preview, locale) niente esce verso l'esterno: stessa risposta di successo
+  // che il client si aspetta, piu' preview: true. Vedi lib/v2/env.js.
+  if (!isProduction()) return previewResponse();
   try {
     const body = await req.json();
     const response = await fetch(

@@ -2,7 +2,6 @@
 import { useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { Send, CheckCircle } from "lucide-react";
-import { GRAD } from "@/components/home/_ui";
 import { pushEvent } from "@/lib/analytics";
 import { getAttribution } from "@/lib/utm";
 
@@ -14,7 +13,7 @@ import { getAttribution } from "@/lib/utm";
 */
 
 const FIELD =
-  "w-full rounded-xl border border-white/[0.1] bg-white/[0.03] px-4 py-3 text-[15px] text-white placeholder-white/35 outline-none transition-colors duration-300 focus:border-[#3C91E6]/60 focus:bg-white/[0.05] focus:ring-1 focus:ring-[#3C91E6]/40";
+  "w-full rounded-xl border border-white/[0.1] bg-white/[0.03] px-4 py-3 text-[15px] text-white placeholder-white/[0.62] outline-none transition-colors duration-300 focus:border-[#3C91E6]/60 focus:bg-white/[0.05] focus:ring-1 focus:ring-[#3C91E6]/40";
 const LABEL = "mb-2 block text-[13px] font-medium text-white/75";
 
 const COPY = {
@@ -89,14 +88,16 @@ const COPY = {
   },
 };
 
-export default function ContactForm() {
+// `copy` (opzionale): i testi della pagina (components/v2/copy/contact.*.js, chiave `form`), che
+// prevalgono su quelli di default qui sotto, così bottone e segnaposto sono quelli scritti nel copy.
+export default function ContactForm({ copy } = {}) {
   const pathname = usePathname();
   const locale = pathname?.startsWith("/pt")
     ? "pt"
     : pathname?.startsWith("/it")
       ? "it"
       : "en";
-  const t = COPY[locale];
+  const t = { ...COPY[locale], ...(copy || {}) };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -235,7 +236,7 @@ export default function ContactForm() {
           <div>
             <label htmlFor="phone" className={LABEL}>
               {t.phoneLabel}{" "}
-              <span className="text-white/40">{t.optional}</span>
+              <span className="text-white/[0.64]">{t.optional}</span>
             </label>
             <input
               id="phone"
@@ -250,7 +251,7 @@ export default function ContactForm() {
           <div>
             <label htmlFor="company" className={LABEL}>
               {t.companyLabel}{" "}
-              <span className="text-white/40">{t.optional}</span>
+              <span className="text-white/[0.64]">{t.optional}</span>
             </label>
             <input
               id="company"
@@ -299,12 +300,12 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={formStatus.loading}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-[15px] font-bold text-[#04101c] transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
-          style={{ background: GRAD }}
+          className="inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-4 text-[15px] font-bold text-[#00121f] transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+          style={{ background: "linear-gradient(120deg, #3c91e6 0%, #57c7e3 60%, #8fd3f4 100%)" }}
         >
           {formStatus.loading ? (
             <>
-              <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#04101c]/40 border-t-[#04101c]" />
+              <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#00121f]/40 border-t-[#00121f]" />
               <span>{t.sending}</span>
             </>
           ) : (
@@ -315,7 +316,7 @@ export default function ContactForm() {
           )}
         </button>
 
-        <p className="text-center text-[12px] text-white/40">{t.footer}</p>
+        <p className="text-center text-[12px] text-white/[0.62]">{t.footer}</p>
       </form>
     </div>
   );

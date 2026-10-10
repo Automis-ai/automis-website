@@ -1,0 +1,172 @@
+/* Pagina prodotto AI E-commerce Manager: parti locali che il kit non ha.
+   Prefisso .v2e-*. I colori arrivano dalle variabili --v2-* che <Section> imposta per tono, così
+   lo stesso pezzo vale su fondo scuro e su fondo chiaro. Mobile first: si scrive per 390 px. */
+
+/* ---------- Hero: «una notte nel tuo negozio» (esempio fisso, senza dati) ---------- */
+.v2e-report {
+  width: 100%;
+  max-width: 30rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--v2-card-line);
+  border-radius: 18px;
+  background: var(--v2-win-bg);
+}
+.v2e-report__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--v2-card-line);
+  font-family: var(--v2-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.3;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+}
+.v2e-report__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--v2-accent);
+}
+.v2e-report__list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 12px;
+  list-style: none;
+}
+.v2e-row {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-items: start;
+  gap: 8px 12px;
+  padding: 12px;
+  border: 1px solid var(--v2-card-line);
+  border-radius: 12px;
+  background: var(--v2-card);
+}
+.v2e-row__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--v2-tile-bg);
+  color: var(--v2-tile-fg);
+}
+.v2e-row__area {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--v2-accent);
+}
+.v2e-row__text {
+  display: block;
+  margin-top: 2px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--v2-ink);
+}
+.v2e-chip {
+  grid-column: 2;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px 4px 9px;
+  border: 1px solid var(--v2-chip-line);
+  border-radius: 999px;
+  background: var(--v2-chip-bg);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--v2-chip-fg);
+}
+.v2e-chip--wait {
+  border-style: dashed;
+  border-color: var(--v2-line-strong);
+  background: transparent;
+  color: var(--v2-ink-2);
+}
+.v2e-report__note {
+  margin: 0;
+  padding: 0 16px 14px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--v2-ink-3);
+}
+
+/* ---------- Piattaforme ---------- */
+/* Le due schede hanno la stessa altezza anche se una riga va a capo (il kit non allunga la scheda dentro il <li>). */
+.v2e-plat > li {
+  display: flex;
+}
+.v2e-plat .v2-plat__item {
+  width: 100%;
+}
+
+/* cosa seguiamo, a richiesta */
+.v2e-mods {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 4px 16px;
+  margin-top: 8px;
+}
+@media (min-width: 640px) {
+  .v2e-mods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 12px;
+  }
+}
+.v2e-mods__tag {
+  margin: 0 0 12px;
+  font-family: var(--v2-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+}
+.v2e-mods__list {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+.v2e-mods__list li {
+  padding-left: 14px;
+  border-left: 2px solid var(--v2-card-line);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+.v2e-mods__list b {
+  display: block;
+  font-weight: 600;
+  color: var(--v2-ink);
+}
+.v2e-other {
+  margin-top: 20px;
+}
+.v2e-other .v2-btn {
+  height: auto;
+  text-align: left;
+}
+
+/* ---------- Nota sui marchi ---------- */
+.v2e-legal {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--v2-ink-3);
+}

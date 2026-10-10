@@ -6,12 +6,17 @@
 // The locale forms pass their own `tags` + `source` in the body so IT leads land
 // with tag "audit form IT" and can be segmented; when absent we default to the
 // original EN values, so the EN form keeps working unchanged.
+import { isProduction, previewResponse } from "@/lib/v2/env";
+
 const GHL_UPSERT_URL = "https://services.leadconnectorhq.com/contacts/upsert";
 
 const DEFAULT_TAGS = ["audit form"];
 const DEFAULT_SOURCE = "jumpstart-audit-sample";
 
 export async function POST(req) {
+  // Fuori dalla produzione (preview, locale) niente esce verso l'esterno: stessa risposta di successo
+  // che il client si aspetta, piu' preview: true. Vedi lib/v2/env.js.
+  if (!isProduction()) return previewResponse();
   try {
     const body = await req.json();
     const { name, email } = body || {};

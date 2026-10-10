@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Section, SectionHeading, Reveal, GRAD } from "./_ui";
+import { SectionHeading, Reveal, GRAD } from "./_ui";
 import CTAButton from "@/components/CTAButton";
 import { Sparkles, ArrowRight, ArrowLeft, Check, Clock, TrendingUp, Loader2, Download, Lock } from "lucide-react";
 import { FINDER_COPY, hoursLabel } from "./finderCopy";
@@ -11,7 +11,7 @@ import { getAttribution } from "@/lib/utm";
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
 
-export default function OpportunityFinder() {
+export default function OpportunityFinder({ title: titleOverride, lead: leadOverride } = {}) {
   const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = FINDER_COPY[locale];
   const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
@@ -179,15 +179,19 @@ export default function OpportunityFinder() {
   const roadmap = isRoadmap ? computeRoadmap() : null;
 
   return (
-    <Section id="opportunity-finder" className="bg-deep-blue">
+    <section id="opportunity-finder" className="home-section relative bg-deep-blue py-16 sm:py-20 md:py-24">
+      {/* Stesso contenitore e stesso bordo sinistro del resto del sito v2 (.v2-wrap); da 1024 titolo e scheda affiancati. */}
+      <div className="v2-wrap">
+      <div className="lg:grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start lg:gap-14">
       <SectionHeading
+        align="start"
         eyebrow={t.eyebrow}
-        title={<>{t.title}</>}
-        lead={t.lead}
+        title={<>{titleOverride || t.title}</>}
+        lead={leadOverride || t.lead}
       />
 
       <Reveal delay={80}>
-        <div className="mx-auto mt-12 max-w-2xl overflow-hidden rounded-3xl border border-white/[0.1] bg-[#04101c]/70 backdrop-blur-md">
+        <div className="mt-10 max-w-2xl overflow-hidden lg:mt-0 rounded-3xl border border-white/[0.1] bg-[#04101c]/70 backdrop-blur-md">
           {/* progress */}
           {!isRoadmap && (
             <div className="border-b border-white/[0.06] px-6 py-4 sm:px-8">
@@ -211,7 +215,7 @@ export default function OpportunityFinder() {
             {/* Questions */}
             {inQuestions && (
               <div>
-                <h3 className="font-display text-xl font-semibold text-white sm:text-[1.4rem]">
+                <h3 className="font-display text-xl font-semibold text-white sm:text-[1.4rem]" style={{ textWrap: "balance" }}>
                   {QUESTIONS[step].q}
                 </h3>
                 <div className="mt-6 grid gap-2.5">
@@ -404,6 +408,8 @@ export default function OpportunityFinder() {
           </div>
         </div>
       </Reveal>
-    </Section>
+      </div>
+      </div>
+    </section>
   );
 }

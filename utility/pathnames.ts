@@ -30,10 +30,15 @@ export const PATHNAMES = {
       it: "/it/use-cases",
       pt: "/pt/use-cases",
     },
-    jumpstartAudit: {
-      en: "/jumpstart-audit",
-      it: "/it/jumpstart-audit",
-      pt: "/pt/jumpstart-audit",
+    howWeWork: {
+      en: "/how-we-work",
+      it: "/it/how-we-work",
+      pt: "/pt/how-we-work",
+    },
+    training: {
+      en: "/training",
+      it: "/it/training",
+      pt: "/pt/training",
     },
     termsOfService: {
       en: "/terms-of-service",
@@ -68,11 +73,22 @@ export const PATHNAMES = {
       it: "/it/voice-ai",
       pt: "/pt/voice-ai",
     },
-    aiAutomations: {
-      en: "/ai-automations",
-      it: "/it/ai-automations",
-      pt: "/pt/ai-automations",
+    ecommerce: {
+      en: "/ecommerce",
+      it: "/it/ecommerce",
+      pt: "/pt/ecommerce",
     },
+  },
+
+  // Sito v2: l'hub dei sistemi e le cinque categorie (slug inglesi in tutte le lingue).
+  // /jumpstart-audit e /ai-automations sono usciti: next.config.mjs li reindirizza a /contact e /systems.
+  systems: {
+    hub: { en: "/systems", it: "/it/systems", pt: "/pt/systems" },
+    marketing: { en: "/systems/marketing", it: "/it/systems/marketing", pt: "/pt/systems/marketing" },
+    sales: { en: "/systems/sales", it: "/it/systems/sales", pt: "/pt/systems/sales" },
+    support: { en: "/systems/support", it: "/it/systems/support", pt: "/pt/systems/support" },
+    admin: { en: "/systems/admin", it: "/it/systems/admin", pt: "/pt/systems/admin" },
+    hr: { en: "/systems/hr", it: "/it/systems/hr", pt: "/pt/systems/hr" },
   },
 } as const;
 

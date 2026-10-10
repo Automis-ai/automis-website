@@ -5,17 +5,22 @@ const VOICE_HOST = "voice.automis.ai";
 const DEV_HOSTS = new Set(["localhost", "127.0.0.1"]);
 const LOCALES = ["it", "ita", "en", "fr", "de", "pt", "es"];
 const DEFAULT_LOCALE = "it";
+// Le pagine inglesi senza prefisso (l'elenco e' informativo: il middleware le lascia passare tutte).
+// Jumpstart Audit, AI Automations e Consultation sono uscite col sito v2: next.config.mjs le
+// reindirizza (308) verso /contact e /systems prima che la richiesta arrivi qui.
 const ENGLISH_ROOT_PAGES = new Set([
   "privacy-policy",
   "terms-of-service",
+  "cookie-policy",
   "contact",
   "about",
   "blog",
   "use-cases",
-  "jumpstart-audit",
-  "ai-automations",
+  "systems",
+  "how-we-work",
+  "training",
+  "ecommerce",
   "voice-ai",
-  "consultation",
   "playbook",
   "tools"
 ]);
@@ -24,7 +29,10 @@ export function middleware(req) {
   const { nextUrl } = req;
   const { pathname, hostname } = nextUrl;
 
-  const isVoiceHost = hostname === VOICE_HOST || DEV_HOSTS.has(hostname);
+  // AUTOMIS_DEV_MAIN=1 in locale fa rispondere localhost come il dominio principale, così /it e /pt
+  // si provano senza preview. Mai impostata su Vercel: lì non cambia niente.
+  const devAsMain = process.env.AUTOMIS_DEV_MAIN === "1";
+  const isVoiceHost = hostname === VOICE_HOST || (DEV_HOSTS.has(hostname) && !devAsMain);
 
   // Ignora asset e API
   if (

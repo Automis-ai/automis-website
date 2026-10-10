@@ -5,15 +5,29 @@ const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || ".next",
   async redirects() {
     // Pages retired in the 2026-07 site rollout — keep old links alive.
+    //
+    // Sito v2 (10/2026): escono /jumpstart-audit, /consultation e /ai-automations. I redirect di
+    // next.config girano PRIMA del middleware, quindi valgono sui percorsi pubblici, /pt compreso
+    // (il middleware riscrive /pt -> /pt-site solo dopo). 308 permanenti, query string conservata
+    // (le UTM dei link gia' in giro arrivano a destinazione).
     return [
-      { source: "/paid-ads-management", destination: "/ai-automations", permanent: true },
+      { source: "/paid-ads-management", destination: "/systems", permanent: true },
       { source: "/it/paid-ads-management", destination: "/it", permanent: true },
       { source: "/coming-soon", destination: "/", permanent: true },
       { source: "/blog-details", destination: "/blog", permanent: true },
       // IG-bio landing renamed: /arcangelo -> /playbook.
       { source: "/arcangelo", destination: "/playbook", permanent: true },
-      // Free consultation now lives as step 1 of the Jumpstart Audit ladder.
-      { source: "/consultation", destination: "/jumpstart-audit", permanent: false },
+      // Jumpstart Audit e consulenza gratuita: la prenotazione e il Finder vivono in /contact.
+      { source: "/jumpstart-audit", destination: "/contact", permanent: true },
+      { source: "/it/jumpstart-audit", destination: "/it/contact", permanent: true },
+      { source: "/pt/jumpstart-audit", destination: "/pt/contact", permanent: true },
+      { source: "/consultation", destination: "/contact", permanent: true },
+      { source: "/it/consultation", destination: "/it/contact", permanent: true },
+      { source: "/pt/consultation", destination: "/pt/contact", permanent: true },
+      // La vecchia pagina delle automazioni lascia il posto all'hub dei sistemi.
+      { source: "/ai-automations", destination: "/systems", permanent: true },
+      { source: "/it/ai-automations", destination: "/it/systems", permanent: true },
+      { source: "/pt/ai-automations", destination: "/pt/systems", permanent: true },
     ];
   },
   // Queste due righe hanno risparmiato una ristrutturazione da 158 file.
@@ -71,6 +85,17 @@ const nextConfig = {
       {
         source: "/en/try/:path*",
         destination: "https://automis-try-en-automis-team.vercel.app/en/try/:path*",
+      },
+      // Sito v2: le due landing e-commerce (solo in italiano) sono file statici in
+      // public/ecommerce-static, portati cosi' come sono dalla cartella di lavoro. Il percorso
+      // pubblico resta quello del sito: /it/ecommerce/<piattaforma>.
+      {
+        source: "/it/ecommerce/shopify",
+        destination: "/ecommerce-static/shopify/index.html",
+      },
+      {
+        source: "/it/ecommerce/woocommerce",
+        destination: "/ecommerce-static/woocommerce/index.html",
       },
     ];
   },

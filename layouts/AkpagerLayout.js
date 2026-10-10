@@ -1,6 +1,6 @@
 "use client";
 import VideoPopup from "@/components/VideoPopup";
-import { publicPath } from "@/lib/locales";
+import { addLangPrefix, publicPath, stripLangPrefix } from "@/lib/locales";
 import { akpagerUtility } from "@/utility";
 import { Fragment, useEffect, useState } from "react";
 import niceSelect from "react-nice-select";
@@ -26,24 +26,18 @@ const AkpagerLayout = ({
   const localeFromPath = publicPath(pathname)?.split("/")?.[1];
   const locale = supportedLocales.includes(localeFromPath) ? localeFromPath : "en";
 
-  // Per-market GoHighLevel calendars. PT was missing, so Portuguese readers on
-  // mobile were sent to the English calendar with an English label.
+  // Sito v2: il bottone fisso porta a /contact (Finder + calendario), con il nome fisso della
+  // CTA del menu. Il percorso passa da addLangPrefix, mai scritto a mano col prefisso.
   const STICKY_CTA = {
-    en: {
-      href: "https://api.leadconnectorhq.com/widget/bookings/discover-automis",
-      label: "Book Discovery Call",
-    },
-    it: {
-      href: "https://api.leadconnectorhq.com/widget/bookings/automis-it",
-      label: "Prenota una call",
-    },
-    pt: {
-      href: "https://api.leadconnectorhq.com/widget/bookings/pt-automis",
-      label: "Agende uma chamada",
-    },
+    en: { label: "Tell us about your business" },
+    it: { label: "Raccontaci il tuo caso" },
+    pt: { label: "Conte-nos o seu caso" },
   };
-  const { href: stickyCtaHref, label: stickyCtaLabel } =
-    STICKY_CTA[locale] || STICKY_CTA.en;
+  const stickyLocale = STICKY_CTA[locale] ? locale : "en";
+  const stickyCtaHref = addLangPrefix("/contact", stickyLocale);
+  const stickyCtaLabel = STICKY_CTA[stickyLocale].label;
+  // Su /contact il bottone porterebbe alla pagina in cui si e' gia'.
+  const onContactPage = stripLangPrefix(pathname) === "/contact";
 
   useEffect(() => {
     akpagerUtility.animation();
@@ -67,7 +61,7 @@ const AkpagerLayout = ({
         : documentHeight - windowHeight * 1.5;
 
       // Don't cover / compete with the Opportunity Finder or the booking calendar.
-      const covered = ["#opportunity-finder", "#book"].some((sel) => {
+      const covered = ["#opportunity-finder", "#book", ".v2-win"].some((sel) => {
         const el = document.querySelector(sel);
         if (!el) return false;
         const r = el.getBoundingClientRect();
@@ -95,7 +89,7 @@ const AkpagerLayout = ({
         <Footer footer={footer} />
       </div>
 
-      {!hideHeaderNav && (
+      {!hideHeaderNav && !onContactPage && (
         <div
           className={`md:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
             showStickyButton
@@ -110,9 +104,8 @@ const AkpagerLayout = ({
             <div className="relative rounded-xl bg-[#000a14]">
               <CTAButton
                 href={stickyCtaHref}
-                variant="secondary"
+                variant="v2"
                 size="medium"
-                external={true}
                 className="!text-base !py-4 !px-10 !font-semibold !w-full"
               >
                 {stickyCtaLabel}

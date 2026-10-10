@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
+import { isProduction, previewResponse } from "@/lib/v2/env";
 
 /*
   Server-side "call booked" conversion.
@@ -99,6 +100,9 @@ async function sendMeta(payload, request) {
 }
 
 export async function POST(request) {
+  // Fuori dalla produzione (preview, locale) niente esce verso l'esterno: stessa risposta di successo
+  // che il client si aspetta, piu' preview: true. Vedi lib/v2/env.js.
+  if (!isProduction()) return previewResponse({ ga4: "skipped", meta: "skipped" });
   const secret = process.env.CONVERSION_WEBHOOK_SECRET;
   if (secret) {
     const provided =

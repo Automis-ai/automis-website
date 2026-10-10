@@ -1,12 +1,18 @@
+import { LangTwins } from "@/components/LanguageSwitcher";
 import { CASES, getCase } from "@/components/use-cases/cases";
 import CaseStudyDetail from "@/components/use-cases/CaseStudyDetail";
 import { metaLongForm } from "@/components/use-cases/longform";
+import AlbumAiCase from "@/components/v2/use-cases/AlbumAiCase";
+import { ALBUM_AI_SLUG } from "@/components/v2/use-cases/constants";
+import { albumMetadata } from "@/components/v2/use-cases/meta";
 
 export function generateStaticParams() {
-  return CASES.map((c) => ({ slug: c.slug }));
+  // Album AI non sta in CASES (non ha il template sfida/soluzione/risultati): lo slug si aggiunge qui.
+  return [...CASES.map((c) => ({ slug: c.slug })), { slug: ALBUM_AI_SLUG }];
 }
 
 export function generateMetadata({ params }) {
+  if (params.slug === ALBUM_AI_SLUG) return albumMetadata("pt");
   const c = getCase(params.slug, "pt");
   if (!c) return {};
   const url = `https://automis.ai/pt/use-cases/${c.slug}`;
@@ -34,5 +40,10 @@ export function generateMetadata({ params }) {
 }
 
 export default function CaseStudyDetailPagePt({ params }) {
-  return <CaseStudyDetail slug={params.slug} locale="pt" />;
+  // Lo slug è lo stesso in tutte le lingue: lo dichiariamo al selettore e al piede già sul server.
+  return (
+    <LangTwins path={`/use-cases/${params.slug}`}>
+      {params.slug === ALBUM_AI_SLUG ? <AlbumAiCase locale="pt" /> : <CaseStudyDetail slug={params.slug} locale="pt" />}
+    </LangTwins>
+  );
 }

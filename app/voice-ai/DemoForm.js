@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Lottie from "lottie-react";
 import CTAButton from "@/components/CTAButton";
+import { isProductionHost } from "@/lib/v2/env";
 
 const FreeTestCallForm = () => {
   const [animationData, setAnimationData] = useState(null);
@@ -124,6 +125,12 @@ const FreeTestCallForm = () => {
 
     setSubmitStatus("loading");
     setErrorMessage("");
+
+    // Preview e localhost: nessuna chiamata vera verso il webhook di terzi, si simula il successo.
+    if (!isProductionHost()) {
+      setSubmitStatus("success");
+      return;
+    }
 
     try {
       const response = await fetch(

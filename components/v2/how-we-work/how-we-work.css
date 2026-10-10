@@ -1,0 +1,26 @@
+/* Come lavoriamo (prefisso v2h-). I passi riusano le classi .v2-step del kit e aggiungono
+   la riga di contesto (tempi) e il testo che si apre. Colori dalle variabili --v2-*. */
+
+.v2h-step .v2-step__line {
+  max-width: 34rem;
+}
+.v2-section .v2h-meta {
+  display: inline-block;
+  margin: 12px 0 0;
+  padding: 7px 12px;
+  border: 1px solid var(--v2-chip-line);
+  border-radius: 12px;
+  background: var(--v2-chip-bg);
+  color: var(--v2-chip-fg);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.v2h-step .v2-disc {
+  margin-top: 6px;
+}
+@media (min-width: 768px) {
+  .v2h-step .v2-step__line {
+    font-size: 16px;
+  }
+}

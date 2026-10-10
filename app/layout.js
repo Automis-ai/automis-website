@@ -17,6 +17,7 @@ import ConsentBanner from "@/components/consent/ConsentBanner";
 import { headers } from "next/headers";
 import { publicPath } from "@/lib/locales";
 import OrganizationJsonLd from "@/components/site/OrganizationJsonLd";
+import { isProduction } from "@/lib/v2/env";
 
 /*
   Our first-party consent banner ships behind a flag, so this can be merged and
@@ -102,28 +103,32 @@ export default function RootLayout({ children }) {
         {/* Consent Mode v2 defaults. Must execute before GTM loads. */}
         {CONSENT_V2 && <ConsentModeInit />}
 
-        {/* Google Tag Manager */}
-        <Script
-          id="gtm-base"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+        {/* Google Tag Manager. Solo in produzione (lib/v2/env.js): da qui passano GA4, Meta e
+            Clarity, quindi la preview del sito non manda nemmeno un evento all'esterno. */}
+        {isProduction() && (
+          <Script
+            id="gtm-base"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
               })(window,document,'script','dataLayer','GTM-MKNX6CK9');
             `,
-          }}
-        />
+            }}
+          />
+        )}
 
         <Preloader />
         <LocaleBootstrapper />
         <AnalyticsListeners />
         {children}
 
-        {/* LeadConnector Chatbot */}
-        <ChatWidgets />
+        {/* Widget vocale delle lander: con AUTOMIS_DEV_MAIN=1 localhost risponde come automis.ai,
+            che il widget non lo carica mai (vedi ChatWidgets). */}
+        {process.env.AUTOMIS_DEV_MAIN !== "1" && <ChatWidgets />}
 
         {CONSENT_V2 && <ConsentBanner />}
       </body>

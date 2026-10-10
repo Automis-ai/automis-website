@@ -59,12 +59,20 @@ const STATIC_PATHS = [
   // English
   "/",
   "/about",
-  "/ai-automations",
+  "/systems",
+  "/systems/marketing",
+  "/systems/sales",
+  "/systems/support",
+  "/systems/admin",
+  "/systems/hr",
+  "/how-we-work",
+  "/training",
+  "/ecommerce",
   "/voice-ai",
-  "/jumpstart-audit",
   "/use-cases",
   "/use-cases/clinica-santa-maria",
   "/use-cases/adifesa",
+  "/use-cases/album-ai",
   "/blog",
   "/blog/ai-document-processing-for-accountants",
   "/blog/ai-document-processing-for-law-firms",
@@ -97,12 +105,20 @@ const STATIC_PATHS = [
   // Italian
   "/it",
   "/it/about",
-  "/it/ai-automations",
+  "/it/systems",
+  "/it/systems/marketing",
+  "/it/systems/sales",
+  "/it/systems/support",
+  "/it/systems/admin",
+  "/it/systems/hr",
+  "/it/how-we-work",
+  "/it/training",
+  "/it/ecommerce",
   "/it/voice-ai",
-  "/it/jumpstart-audit",
   "/it/use-cases",
   "/it/use-cases/clinica-santa-maria",
   "/it/use-cases/adifesa",
+  "/it/use-cases/album-ai",
   "/it/blog",
   "/it/blog/centralino-con-risponditore-automatico",
   "/it/blog/centralino-virtuale-studio-dentistico",
@@ -136,12 +152,20 @@ const STATIC_PATHS = [
   // and is not part of this automis.ai sitemap.
   "/pt",
   "/pt/about",
-  "/pt/ai-automations",
+  "/pt/systems",
+  "/pt/systems/marketing",
+  "/pt/systems/sales",
+  "/pt/systems/support",
+  "/pt/systems/admin",
+  "/pt/systems/hr",
+  "/pt/how-we-work",
+  "/pt/training",
+  "/pt/ecommerce",
   "/pt/voice-ai",
-  "/pt/jumpstart-audit",
   "/pt/use-cases",
   "/pt/use-cases/clinica-santa-maria",
   "/pt/use-cases/adifesa",
+  "/pt/use-cases/album-ai",
   "/pt/contact",
   "/pt/privacy-policy",
   "/pt/terms-of-service",
@@ -162,6 +186,28 @@ const STATIC_PATHS = [
   "/pt/tools/calculadora-faltas-consultas",
   "/pt/tools/gerador-link-avaliacoes-google",
   "/pt/tools/gerador-link-whatsapp",
+];
+
+// Redirecting, transactional, and voice.automis.ai-only lander URLs are kept out of the sitemap.
+// One list, used twice: as next-sitemap's `exclude` and as a filter on INDEXABLE_PATHS.
+const EXCLUDED_PATHS = [
+  // Pagine uscite col sito v2: ora sono 308 verso /contact e /systems (next.config.mjs).
+  "/jumpstart-audit", "/it/jumpstart-audit", "/pt/jumpstart-audit",
+  "/ai-automations", "/it/ai-automations", "/pt/ai-automations",
+  "/consultation", "/it/consultation", "/pt/consultation",
+  "/v2-kit", // pagina di prova del kit di componenti v2, mai in indice
+  // Landing statiche solo italiane (e-commerce per piattaforma): si raggiungono dalla pagina
+  // di prodotto /ecommerce, non si chiede di indicizzarle.
+  "/it/ecommerce/shopify",
+  "/it/ecommerce/woocommerce",
+  "/ita", // 302 -> /it; the real page lives on voice.automis.ai
+  "/en", "/fr", "/de", "/es", // Voice-AI landers, noindex (prospect-only)
+  // NB: /pt is NO LONGER excluded — on automis.ai it is the European-Portuguese
+  // main site (indexable, listed above). The /pt Voice-AI lander lives only on
+  // voice.automis.ai (a different host, noindex, not in this sitemap).
+  "/roadmap", // transactional finder-results page, noindex
+  "/luca-ig", // 308 -> /it/luca-ig
+  "/it/luca-ig", // Instagram bio lander (traffic comes from IG, not search)
 ];
 
 const POSTS = blogPosts();
@@ -191,7 +237,9 @@ for (const [lang, base] of Object.entries(BLOG_BASE_PATH)) {
 // article's path by hand (it predates this file reading the folder), and until that
 // prompt is updated on the box the same article can arrive from both sources. Without
 // the Set that would ship a sitemap listing the URL twice.
-const INDEXABLE_PATHS = [...new Set([...STATIC_PATHS, ...POSTS.map((p) => p.loc)])];
+const INDEXABLE_PATHS = [...new Set([...STATIC_PATHS, ...POSTS.map((p) => p.loc)])].filter(
+  (p) => !EXCLUDED_PATHS.includes(p)
+);
 
 module.exports = {
   siteUrl: "https://automis.ai",
@@ -200,20 +248,10 @@ module.exports = {
   priority: 0.7,
   sitemapSize: 5000,
   // Redirecting, transactional, and voice.automis.ai-only lander URLs are kept out
-  // of the sitemap (each paired with the real fix at its source). These are simply
-  // never added to the lists above; the exclude list is a second safety net for any
-  // that discovery might one day surface.
-  exclude: [
-    "/consultation", // 302 -> /jumpstart-audit
-    "/ita", // 302 -> /it; the real page lives on voice.automis.ai
-    "/en", "/fr", "/de", "/es", // Voice-AI landers, noindex (prospect-only)
-    // NB: /pt is NO LONGER excluded — on automis.ai it is the European-Portuguese
-    // main site (indexable, listed above). The /pt Voice-AI lander lives only on
-    // voice.automis.ai (a different host, noindex, not in this sitemap).
-    "/roadmap", // transactional finder-results page, noindex
-    "/luca-ig", // 308 -> /it/luca-ig
-    "/it/luca-ig", // Instagram bio lander (traffic comes from IG, not search)
-  ],
+  // of the sitemap. next-sitemap applies `exclude` BEFORE `additionalPaths`, so on its own
+  // it would not filter the hand-fed list above: EXCLUDED_PATHS (top of this file) is applied
+  // to that list too, which is what makes this list a real guarantee.
+  exclude: EXCLUDED_PATHS,
   // Attach the real lastmod (or none) instead of next-sitemap's build-time default.
   transform: async (config, loc) => ({
     loc,

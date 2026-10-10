@@ -8,9 +8,9 @@
 
 export const FINDER_COPY = {
   en: {
-    eyebrow: "Free · 60 seconds · no call required",
+    eyebrow: "Free · no call required",
     title: "The AI Opportunity Finder",
-    lead: "Answer 6 quick questions and get an instant, personalized roadmap of the top automations for your business, plus how much time they could give you back.",
+    lead: "Six questions, then your roadmap: the automations that matter most for your business.",
     yourResults: "Your results",
     question: "Question",
     of: "of",
@@ -129,9 +129,9 @@ export const FINDER_COPY = {
     },
   },
   it: {
-    eyebrow: "Gratis · 60 secondi · senza call",
+    eyebrow: "Gratis · senza call",
     title: "Trova le tue opportunità IA",
-    lead: "Rispondi a 6 domande veloci e ottieni subito una roadmap su misura: le automazioni che contano di più per il tuo business e quanto tempo ti fanno risparmiare.",
+    lead: "Sei domande e ricevi subito la tua roadmap: le automazioni che contano di più per la tua attività.",
     yourResults: "I tuoi risultati",
     question: "Domanda",
     of: "di",
@@ -250,9 +250,9 @@ export const FINDER_COPY = {
     },
   },
   pt: {
-    eyebrow: "Grátis · 60 segundos · sem chamada",
+    eyebrow: "Grátis · sem chamada",
     title: "Descubra as suas oportunidades IA",
-    lead: "Responda a 6 perguntas rápidas e receba, na hora, um roadmap personalizado com as automações que mais contam para o seu negócio, e quanto tempo lhe podem devolver.",
+    lead: "Seis perguntas e recebe logo o seu roadmap: as automações que mais contam para o seu negócio.",
     yourResults: "Os seus resultados",
     question: "Pergunta",
     of: "de",
