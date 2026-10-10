@@ -5,7 +5,7 @@
 #   scripts/verify.sh --hook   per l'hook Stop di Claude Code (legge il JSON da stdin):
 #                              salta se niente e' cambiato dall'ultimo verde, altrimenti fa
 #                              la build; se fallisce esce 2 e l'errore torna all'agente,
-#                              che corregge. Dopo 3 rossi di fila nella stessa sessione
+#                              che corregge. Dopo 3 rossi di fila nello stesso turno
 #                              smette di bloccare e avvisa: a quel punto decide un umano.
 #
 # Niente lint: il repo non ha una config ESLint e `next lint` aprirebbe il wizard.
@@ -24,8 +24,12 @@ LOG="$STATE/last-build.log"
 mkdir -p "$STATE"
 export NEXT_TELEMETRY_DISABLED=1
 
+# SWC colora i suoi errori anche con NO_COLOR: i codici ANSI si tolgono quando il log torna all'agente.
 build() {
-  NEXT_DIST_DIR="$DIST" node_modules/.bin/next build >"$LOG" 2>&1
+  # Su Vercel `npm run build` lancia anche il postbuild (next-sitemap), che legge
+  # content/blog/*.md: caricare la config basta a far emergere quegli errori, senza scrivere file.
+  NO_COLOR=1 FORCE_COLOR=0 NEXT_DIST_DIR="$DIST" node_modules/.bin/next build >"$LOG" 2>&1 &&
+    node -e 'require("./next-sitemap.config.js")' >>"$LOG" 2>&1
 }
 
 # Impronta dello stato del codice: HEAD + modifiche tracciate + file nuovi non ignorati.
@@ -39,8 +43,10 @@ fingerprint() {
 
 if [ "$MODE" = "--hook" ]; then
   INPUT="$(cat)"
-  SESSION="$(printf '%s' "$INPUT" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{process.stdout.write(JSON.parse(s).session_id||"nosession")}catch{process.stdout.write("nosession")}})')"
+  read -r SESSION ACTIVE <<<"$(printf '%s' "$INPUT" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{let j={};try{j=JSON.parse(s)}catch{};process.stdout.write((j.session_id||"nosession")+" "+(j.stop_hook_active?"1":"0"))})')"
   RED_FILE="$STATE/red-$SESSION"
+  # stop_hook_active falso = primo stop di un turno nuovo: il limite di 3 vale per turno.
+  [ "$ACTIVE" = "0" ] && rm -f "$RED_FILE"
 
   # Niente da verificare: albero pulito e nessun commit oltre main.
   if [ -z "$(git status --porcelain)" ] && [ "$(git rev-list --count origin/main..HEAD 2>/dev/null || echo 1)" = "0" ]; then
@@ -70,13 +76,13 @@ if [ "$MODE" = "--hook" ]; then
     echo "verify.sh: la build di produzione fallisce (tentativo $RED di $MAX_RED). Non dire che e' fatto."
     echo "Correggi la causa e chiudi di nuovo il turno; l'hook rilancia la build da solo."
     echo "--- ultime righe di next build ---"
-    tail -40 "$LOG"
+    tail -40 "$LOG" | sed $'s/\x1b\[[0-9;]*m//g'
   } >&2
   exit 2
 fi
 
 if ! build; then
-  echo "✗ build fallita — ultime righe:"; tail -40 "$LOG"; exit 1
+  echo "✗ build fallita — ultime righe:"; tail -40 "$LOG" | sed $'s/\x1b\[[0-9;]*m//g'; exit 1
 fi
 echo "$(fingerprint)" >"$STATE/last-green"
 echo "✓ build ok"
