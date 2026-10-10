@@ -25,6 +25,8 @@ coverage/
 
 # Next.js build output (if using Next.js in future)
 .next/
+# scripts/verify.sh builds here so it never clobbers a running `next dev`
+.next-verify/
 
 # Parcel build cache
 .cache/

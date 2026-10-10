@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // scripts/verify.sh builds into .next-verify so it never clobbers a running `next dev`.
+  // Unset everywhere else (Vercel included), so production still builds into .next.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   async redirects() {
     // Pages retired in the 2026-07 site rollout — keep old links alive.
     return [
