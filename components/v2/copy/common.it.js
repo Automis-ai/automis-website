@@ -3,7 +3,7 @@
    Le altre pagine non li ripetono: li leggono da qui (getCopy("common", "it")). */
 export default {
   nav: {
-    systems: "Sistemi",
+    systems: "Sistemi IA",
     allSystems: "Tutti i sistemi",
     training: "Formazione",
     cases: "Casi studio",
@@ -11,11 +11,11 @@ export default {
   },
   cta: "Raccontaci il tuo caso",
   categories: {
-    marketing: "Sistemi di Marketing",
-    sales: "Sistemi di Vendita",
-    support: "Sistemi di Assistenza",
-    admin: "Sistemi di Amministrazione",
-    hr: "Sistemi di Risorse umane",
+    marketing: "Sistemi IA per il Marketing",
+    sales: "Sistemi IA per la Vendita",
+    support: "Sistemi IA per l'Assistenza",
+    admin: "Sistemi IA per l'Amministrazione",
+    hr: "Sistemi IA per le Risorse umane",
   },
   products: {
     voice: "Voice AI",
@@ -23,6 +23,7 @@ export default {
   },
   caseBadge: "Caso reale →",
   ui: {
+    learnMore: "Scopri di più",
     more: "Altro",
     less: "Meno",
     replay: "Rivedi",

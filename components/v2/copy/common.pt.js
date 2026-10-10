@@ -3,7 +3,7 @@
    e dettagli del calendario. Le altre pagine non li ripetono: li leggono da qui. */
 export default {
   nav: {
-    systems: "Sistemas",
+    systems: "Sistemas de IA",
     allSystems: "Todos os sistemas",
     training: "Formação",
     cases: "Casos de estudo",
@@ -11,11 +11,11 @@ export default {
   },
   cta: "Conte-nos o seu caso",
   categories: {
-    marketing: "Sistemas de Marketing",
-    sales: "Sistemas de Vendas",
-    support: "Sistemas de Apoio ao Cliente",
-    admin: "Sistemas de Administração",
-    hr: "Sistemas de Recursos Humanos",
+    marketing: "Sistemas de IA para Marketing",
+    sales: "Sistemas de IA para Vendas",
+    support: "Sistemas de IA para Apoio ao Cliente",
+    admin: "Sistemas de IA para Administração",
+    hr: "Sistemas de IA para Recursos Humanos",
   },
   products: {
     voice: "Voice AI",
@@ -23,6 +23,7 @@ export default {
   },
   caseBadge: "Caso real →",
   ui: {
+    learnMore: "Saiba mais",
     more: "Mais",
     less: "Menos",
     replay: "Repetir",

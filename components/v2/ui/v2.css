@@ -16,6 +16,7 @@
   --v2-body: "General Sans", "Satoshi", "Open Sans", system-ui, sans-serif;
 
   --v2-bg: #000a14;
+  --v2-bg-rgb: 0 10 20; /* lo stesso colore come terna, per sfumature e veli */
   --v2-ink: #ffffff;
   --v2-ink-2: rgba(255, 255, 255, 0.76); /* 10,8 : 1 su #000a14 */
   --v2-ink-3: rgba(255, 255, 255, 0.6); /* 6,9 : 1 */
@@ -27,6 +28,9 @@
   --v2-card-line: rgba(255, 255, 255, 0.1);
   --v2-card-line-hover: rgba(87, 199, 227, 0.5);
   --v2-shadow: none;
+  --v2-glow: rgba(60, 145, 230, 0.22); /* alone interno delle schede al passaggio */
+  --v2-lift: 0 0 0 1px rgba(87, 199, 227, 0.22), 0 24px 48px -24px rgba(60, 145, 230, 0.7);
+  --v2-hero-accent: #3c91e6; /* parola blu dei titoli di PageHero: 6,0 : 1 su #000a14 (testo grande) */
 
   --v2-accent: #57c7e3; /* testo di accento: 10,1 : 1 */
   --v2-accent-solid: #3c91e6;
@@ -57,6 +61,7 @@
 
 .v2-tone-deep {
   --v2-bg: #0a2647;
+  --v2-bg-rgb: 10 38 71;
   --v2-ink-2: rgba(255, 255, 255, 0.8);
   --v2-ink-3: rgba(255, 255, 255, 0.64);
   --v2-line: rgba(255, 255, 255, 0.16);
@@ -64,12 +69,16 @@
   --v2-card-hover: rgba(255, 255, 255, 0.1);
   --v2-card-line: rgba(255, 255, 255, 0.15);
   --v2-card-line-hover: rgba(143, 211, 244, 0.6);
+  --v2-glow: rgba(143, 211, 244, 0.16);
+  --v2-lift: 0 0 0 1px rgba(143, 211, 244, 0.28), 0 24px 48px -24px rgba(0, 10, 20, 0.7);
+  --v2-hero-accent: #5aa9f0; /* 5,1 : 1 su #0a2647 */
   --v2-win-bg: rgba(0, 10, 20, 0.28);
   --v2-bubble-agent-bg: rgba(255, 255, 255, 0.12);
 }
 
 .v2-tone-light {
   --v2-bg: #f3f6fa;
+  --v2-bg-rgb: 243 246 250;
   --v2-ink: #06182b;
   --v2-ink-2: #3b4d61; /* 8,0 : 1 su #f3f6fa */
   --v2-ink-3: #566a7f; /* 5,1 : 1 */
@@ -81,6 +90,9 @@
   --v2-card-line: #d8e1ec;
   --v2-card-line-hover: #1d66b8;
   --v2-shadow: 0 1px 2px rgba(6, 24, 43, 0.05), 0 14px 30px -20px rgba(6, 24, 43, 0.28);
+  --v2-glow: rgba(29, 102, 184, 0.09);
+  --v2-lift: 0 0 0 1px rgba(29, 102, 184, 0.4), 0 22px 40px -22px rgba(29, 102, 184, 0.5);
+  --v2-hero-accent: #1d66b8; /* 5,5 : 1 su #f3f6fa */
 
   --v2-accent: #155fb0; /* 5,9 : 1 su #f3f6fa */
   --v2-accent-solid: #1d66b8;
@@ -106,6 +118,135 @@
   --v2-bubble-agent-fg: #06182b;
 }
 
+/* ---------- Toni di pagina: .v2-tone-a e .v2-tone-b ----------
+   Due varianti da confrontare. Si attivano con UNA classe su un contenitore che racchiude le sezioni
+   (es. <div className="v2-tone-b">…</div>): <Section tone> non cambia, cambiano le variabili che usa.
+   Le sfumature tra una sezione e l'altra funzionano tra sezioni SORELLE (Hero e CtaBand comprese):
+   tieni tutte le fasce nello stesso contenitore.
+   A: niente bianco. `light` diventa blu medio (#1a4f8c), `deep` e `dark` restano: gradini di blu notte.
+   B: `light` diventa grigio-azzurro (#e1e9f2); dark e deep restano blu notte. */
+.v2-tone-a {
+  --v2-rgb-dark: 0 10 20;
+  --v2-rgb-deep: 10 38 71;
+  --v2-rgb-light: 26 79 140;
+}
+.v2-tone-b {
+  --v2-rgb-dark: 0 10 20;
+  --v2-rgb-deep: 10 38 71;
+  --v2-rgb-light: 225 233 242;
+}
+
+/* A · la fascia "light" è un blu medio con testo chiaro: stesso set di variabili del tono scuro, fondo diverso.
+   Contrasti (testo su #1a4f8c, sulla pagina vera): ink 8,3 · ink-2 6,6 · ink-3 5,2 · accento 6,2 · giallo 5,5 · minimo 4,9 */
+.v2-tone-a .v2-tone-light {
+  --v2-bg: #1a4f8c;
+  --v2-bg-rgb: 26 79 140;
+  --v2-ink: #ffffff;
+  --v2-ink-2: rgba(255, 255, 255, 0.86);
+  --v2-ink-3: rgba(255, 255, 255, 0.72);
+  --v2-line: rgba(255, 255, 255, 0.2);
+  --v2-line-strong: rgba(255, 255, 255, 0.4);
+
+  --v2-card: rgba(255, 255, 255, 0.075);
+  --v2-card-hover: rgba(255, 255, 255, 0.12);
+  --v2-card-line: rgba(255, 255, 255, 0.2);
+  --v2-card-line-hover: rgba(169, 220, 247, 0.8);
+  --v2-shadow: none;
+  --v2-glow: rgba(169, 220, 247, 0.16);
+  --v2-lift: 0 0 0 1px rgba(169, 220, 247, 0.32), 0 24px 48px -24px rgba(0, 10, 30, 0.75);
+  --v2-hero-accent: #8fc4f5;
+
+  --v2-accent: #c4e9fb;
+  --v2-accent-solid: #57a6ee;
+  --v2-num: #c4e9fb;
+
+  --v2-tile-bg: rgba(255, 255, 255, 0.14);
+  --v2-tile-fg: #ffffff;
+  --v2-chip-bg: rgba(0, 10, 30, 0.3);
+  --v2-chip-fg: #e4f3fd;
+  --v2-chip-line: rgba(255, 255, 255, 0.34);
+
+  --v2-btn-bg: linear-gradient(120deg, #3c91e6 0%, #57c7e3 60%, #8fd3f4 100%);
+  --v2-btn-fg: #00121f;
+  --v2-btn-shadow: 0 14px 32px -14px rgba(0, 10, 30, 0.7);
+  --v2-ghost-line: rgba(255, 255, 255, 0.4);
+
+  --v2-focus: #f5cd79;
+  --v2-accent-text: #f5cd79;
+  --v2-accent-bg: transparent;
+
+  --v2-win-bg: rgba(0, 10, 20, 0.3);
+  --v2-bubble-agent-bg: rgba(255, 255, 255, 0.14);
+  --v2-bubble-agent-fg: #ffffff;
+  --v2-bubble-user-bg: #0a2647;
+  --v2-bubble-user-fg: #ffffff;
+}
+.v2-tone-a .v2-tone-light .v2-badge--gold {
+  border-color: rgba(245, 205, 121, 0.5);
+  background: rgba(245, 205, 121, 0.14);
+  color: #f5cd79;
+}
+.v2-tone-a .v2-tone-light.v2-hero::before {
+  background: radial-gradient(70% 55% at 88% 0%, rgba(143, 211, 244, 0.2), transparent 70%),
+    radial-gradient(45% 40% at 0% 35%, rgba(87, 199, 227, 0.1), transparent 70%);
+}
+
+/* B · la fascia "light" è un grigio-azzurro morbido, mai bianco. Le schede restano bianche e si staccano dal fondo.
+   Contrasti (testo su #e1e9f2): ink 14,6 · ink-2 7,1 · ink-3 5,2 · accento 5,2 */
+.v2-tone-b .v2-tone-light {
+  --v2-bg: #e1e9f2;
+  --v2-bg-rgb: 225 233 242;
+  --v2-ink-3: #4d6176;
+  --v2-line: #c3d0e0;
+  --v2-line-strong: #8ea3ba;
+  --v2-card-line: #cbd7e6;
+  --v2-shadow: 0 1px 2px rgba(6, 24, 43, 0.06), 0 16px 32px -20px rgba(6, 24, 43, 0.34);
+  --v2-chip-bg: #f1f6fc;
+  --v2-chip-line: #b4cbe6;
+}
+
+/* Nei toni A e B la fascia deep tiene solo l'alone in alto: quello in basso a sinistra faceva un gradino
+   contro la fascia che segue. */
+.v2-tone-a .v2-tone-deep,
+.v2-tone-b .v2-tone-deep {
+  background-image: radial-gradient(70% 90% at 85% 0%, rgba(60, 145, 230, 0.3), transparent 70%);
+}
+
+/* Sfumatura d'ingresso: i primi pixel di ogni fascia partono dal colore della fascia che la precede e si sciolgono
+   nel suo. Mai un taglio netto. L'altezza coincide col padding alto della fascia: nella sfumatura non c'è testo. */
+.v2-tone-a .v2-section::after,
+.v2-tone-b .v2-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  height: var(--v2-fade-h, 52px);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--v2-prev) / 1) 0%,
+    rgb(var(--v2-prev) / 0.86) 16%,
+    rgb(var(--v2-prev) / 0.55) 42%,
+    rgb(var(--v2-prev) / 0.2) 72%,
+    rgb(var(--v2-prev) / 0) 100%
+  );
+}
+.v2-tone-a .v2-tone-dark + .v2-section::after,
+.v2-tone-b .v2-tone-dark + .v2-section::after {
+  --v2-prev: var(--v2-rgb-dark);
+}
+.v2-tone-a .v2-tone-deep + .v2-section::after,
+.v2-tone-b .v2-tone-deep + .v2-section::after {
+  --v2-prev: var(--v2-rgb-deep);
+}
+.v2-tone-a .v2-tone-light + .v2-section::after,
+.v2-tone-b .v2-tone-light + .v2-section::after {
+  --v2-prev: var(--v2-rgb-light);
+}
+/* Il Footer del sito sta fuori dal kit: l'ultima fascia non ha bisogno di sfumatura in uscita. */
+
 /* ---------- Section / contenitore ---------- */
 .v2-section {
   position: relative;
@@ -114,6 +255,7 @@
   color: var(--v2-ink);
   font-family: var(--v2-body);
   padding-block: 56px;
+  --v2-fade-h: 52px;
   overflow-x: clip;
   scroll-margin-top: 88px; /* per i link a #ancora sotto l'header fisso */
 }
@@ -129,33 +271,42 @@
 }
 .v2-section--sm {
   padding-block: 32px;
+  --v2-fade-h: 28px;
 }
 .v2-section--lg {
   padding-block: 72px;
+  --v2-fade-h: 68px;
 }
 .v2-section--flush {
   padding-block: 0;
+  --v2-fade-h: 0px;
 }
 @media (min-width: 768px) {
   .v2-section {
     padding-block: 80px;
+    --v2-fade-h: 76px;
   }
   .v2-section--sm {
     padding-block: 40px;
+    --v2-fade-h: 36px;
   }
   .v2-section--lg {
     padding-block: 104px;
+    --v2-fade-h: 100px;
   }
 }
 @media (min-width: 1024px) {
   .v2-section {
     padding-block: 96px;
+    --v2-fade-h: 92px;
   }
   .v2-section--sm {
     padding-block: 48px;
+    --v2-fade-h: 44px;
   }
   .v2-section--lg {
     padding-block: 120px;
+    --v2-fade-h: 116px;
   }
 }
 .v2-wrap {
@@ -402,7 +553,9 @@
   }
 }
 /* Link "esteso": il titolo è il link, ::after lo allarga a tutta la scheda. */
-.v2-card__link {
+.v2-card__link,
+.v2-card__link:hover,
+.v2-card__link:focus {
   color: inherit;
   text-decoration: none;
 }
@@ -516,10 +669,20 @@
   padding: 16px 12px 16px 16px;
   min-height: 92px;
 }
+.v2-cat--cta {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  padding: 18px 16px 6px;
+}
 .v2-cat .v2-tile {
   width: 48px;
   height: 48px;
   border-radius: 14px;
+}
+.v2-cat__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 .v2-cat__title {
   margin: 0;
@@ -546,6 +709,18 @@
     min-height: 196px;
     padding: 24px;
   }
+  .v2-cat--cta {
+    min-height: 248px;
+    padding: 24px 24px 14px;
+  }
+  .v2-cat--cta .v2-cat__body {
+    flex: 1;
+    width: 100%;
+  }
+  .v2-cat .v2-tile {
+    width: 52px;
+    height: 52px;
+  }
   .v2-cat__title {
     font-size: 1.25rem;
     letter-spacing: -0.005em;
@@ -563,6 +738,206 @@
   }
 }
 
+/* CTA testuale della scheda: è il link vero (il suo ::after copre tutta la scheda), il titolo resta un titolo.
+   Il nome accessibile è «CTA: titolo» (testo nascosto .v2-sr): l'etichetta che si vede è dentro il nome che si legge. */
+.v2-more {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 4px;
+  font-family: var(--v2-body);
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--v2-accent);
+}
+.v2-more,
+.v2-more:hover,
+.v2-more:focus,
+.v2-more:active {
+  /* il sito colora di giallo ogni a:hover: qui il colore resta quello del tono */
+  color: var(--v2-accent);
+  text-decoration: none;
+}
+.v2-more svg {
+  flex: none;
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.v2-more__t {
+  padding-bottom: 2px;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat;
+  transition: background-size 0.3s ease;
+}
+@media (min-width: 640px) {
+  .v2-cat--cta .v2-more {
+    margin-top: auto;
+  }
+}
+
+/* ---------- Schede vive: passaggio del mouse, focus da tastiera, tocco ----------
+   - mouse: solo dove esiste davvero (@media hover), così sul telefono non resta mai "appiccicato";
+   - tastiera: :focus-within (più l'anello del link, definito sopra);
+   - tocco: :active (finché il dito è giù).
+   Con prefers-reduced-motion cambiano bordo e alone ma niente si muove (blocco in fondo al file). */
+.v2-cat,
+.v2-sys--link {
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.3s ease,
+    transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.v2-cat::before,
+.v2-sys--link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(120% 90% at 0% 0%, var(--v2-glow) 0%, transparent 62%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.v2-tile--anim {
+  position: relative;
+  isolation: isolate;
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+.v2-tile--anim::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--v2-btn-bg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.v2-tile--anim svg {
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@media (hover: hover) {
+  .v2-cat:hover {
+    border-color: var(--v2-card-line-hover);
+    background-color: var(--v2-card-hover);
+    box-shadow: var(--v2-lift);
+    transform: translateY(-3px);
+  }
+  .v2-cat:hover::before {
+    opacity: 1;
+  }
+  .v2-cat:hover .v2-tile--anim {
+    color: var(--v2-btn-fg);
+    box-shadow: var(--v2-btn-shadow);
+  }
+  .v2-cat:hover .v2-tile--anim::before {
+    opacity: 1;
+  }
+  .v2-cat:hover .v2-tile--anim svg {
+    transform: scale(1.1) rotate(-7deg);
+  }
+  .v2-cat:hover .v2-more svg {
+    transform: translateX(4px);
+  }
+  .v2-cat:hover .v2-more__t {
+    background-size: 100% 1.5px;
+  }
+  .v2-cat:hover .v2-go {
+    background: var(--v2-tile-bg);
+  }
+  .v2-sys--link:hover {
+    border-color: var(--v2-card-line-hover);
+    background-color: var(--v2-card-hover);
+    box-shadow: var(--v2-lift);
+    transform: translateY(-2px);
+  }
+  .v2-sys--link:hover::before {
+    opacity: 1;
+  }
+  .v2-sys--link:hover .v2-tile--anim {
+    color: var(--v2-btn-fg);
+    box-shadow: var(--v2-btn-shadow);
+  }
+  .v2-sys--link:hover .v2-tile--anim::before {
+    opacity: 1;
+  }
+  .v2-sys--link:hover .v2-tile--anim svg {
+    transform: scale(1.1) rotate(-7deg);
+  }
+  .v2-sys--link:hover .v2-more svg {
+    transform: translateX(4px);
+  }
+  .v2-sys--link:hover .v2-more__t {
+    background-size: 100% 1.5px;
+  }
+  .v2-sys--link:hover .v2-go {
+    background: var(--v2-tile-bg);
+  }
+}
+.v2-cat:focus-within {
+  border-color: var(--v2-card-line-hover);
+  background-color: var(--v2-card-hover);
+  box-shadow: var(--v2-lift);
+  transform: translateY(-3px);
+}
+.v2-cat:focus-within::before {
+  opacity: 1;
+}
+.v2-cat:focus-within .v2-tile--anim {
+  color: var(--v2-btn-fg);
+  box-shadow: var(--v2-btn-shadow);
+}
+.v2-cat:focus-within .v2-tile--anim::before {
+  opacity: 1;
+}
+.v2-cat:focus-within .v2-tile--anim svg {
+  transform: scale(1.1) rotate(-7deg);
+}
+.v2-cat:focus-within .v2-more svg {
+  transform: translateX(4px);
+}
+.v2-cat:focus-within .v2-more__t {
+  background-size: 100% 1.5px;
+}
+.v2-cat:focus-within .v2-go {
+  background: var(--v2-tile-bg);
+}
+.v2-sys--link:focus-within {
+  border-color: var(--v2-card-line-hover);
+  background-color: var(--v2-card-hover);
+  box-shadow: var(--v2-lift);
+  transform: translateY(-2px);
+}
+.v2-sys--link:focus-within::before {
+  opacity: 1;
+}
+.v2-sys--link:focus-within .v2-tile--anim {
+  color: var(--v2-btn-fg);
+  box-shadow: var(--v2-btn-shadow);
+}
+.v2-sys--link:focus-within .v2-tile--anim::before {
+  opacity: 1;
+}
+.v2-sys--link:focus-within .v2-tile--anim svg {
+  transform: scale(1.1) rotate(-7deg);
+}
+.v2-sys--link:focus-within .v2-more svg {
+  transform: translateX(4px);
+}
+.v2-sys--link:focus-within .v2-more__t {
+  background-size: 100% 1.5px;
+}
+.v2-sys--link:focus-within .v2-go {
+  background: var(--v2-tile-bg);
+}
+.v2-cat:active,
+.v2-sys--link:active {
+  transform: translateY(0) scale(0.985);
+  box-shadow: 0 0 0 1px var(--v2-card-line-hover);
+}
+
 /* ---------- SystemCard ---------- */
 .v2-sys {
   display: grid;
@@ -573,6 +948,13 @@
 }
 .v2-sys--icon {
   grid-template-columns: auto minmax(0, 1fr) auto;
+}
+.v2-sys--cta {
+  grid-template-columns: minmax(0, 1fr);
+  padding-bottom: 8px;
+}
+.v2-sys--cta.v2-sys--icon {
+  grid-template-columns: auto minmax(0, 1fr);
 }
 .v2-sys__body {
   min-width: 0;
@@ -596,6 +978,11 @@
 .v2-sys__case {
   margin-top: 8px;
 }
+.v2-sys .v2-more {
+  display: flex;
+  margin-top: 4px;
+  font-size: 15px;
+}
 .v2-sys .v2-go {
   align-self: center;
   width: 28px;
@@ -604,6 +991,9 @@
 @media (min-width: 768px) {
   .v2-sys {
     padding: 20px;
+  }
+  .v2-sys--cta {
+    padding-bottom: 10px;
   }
   .v2-sys__title {
     letter-spacing: -0.005em;
@@ -1181,6 +1571,305 @@
   }
 }
 
+/* ---------- PageHero (centrata) ---------- */
+.v2-phero {
+  padding-top: 112px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+.v2-phero--full {
+  padding-top: 120px;
+  padding-bottom: 48px;
+}
+.v2-phero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(62% 50% at 50% 0%, rgba(60, 145, 230, 0.26), transparent 72%),
+    radial-gradient(38% 36% at 10% 42%, rgba(87, 199, 227, 0.08), transparent 70%);
+}
+.v2-tone-light.v2-phero::before {
+  background: radial-gradient(62% 50% at 50% 0%, rgba(60, 145, 230, 0.16), transparent 72%),
+    radial-gradient(38% 36% at 10% 42%, rgba(245, 205, 121, 0.2), transparent 70%);
+}
+.v2-phero__copy {
+  max-width: 56rem;
+  margin-inline: auto;
+}
+.v2-phero__copy > * {
+  animation: v2-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.v2-phero__copy > :nth-child(2) {
+  animation-delay: 0.08s;
+}
+.v2-phero__copy > :nth-child(3) {
+  animation-delay: 0.16s;
+}
+.v2-phero__copy > :nth-child(4) {
+  animation-delay: 0.24s;
+}
+@keyframes v2-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.v2-phero__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  margin: 0 0 22px;
+  padding: 8px 16px;
+  border: 1px solid var(--v2-line);
+  border-radius: 999px;
+  background: var(--v2-card);
+  font-family: var(--v2-body);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--v2-ink-2);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.v2-phero__dot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, #3c91e6, #57c7e3);
+  box-shadow: 0 0 10px rgba(87, 199, 227, 0.8);
+}
+.v2-phero__h1 {
+  max-width: 17ch;
+  margin: 0 auto;
+  font-family: var(--v2-display);
+  font-size: 2.375rem;
+  font-weight: 700;
+  line-height: 1.07;
+  letter-spacing: 0.005em;
+  word-spacing: 0.09em;
+  color: var(--v2-ink);
+  text-wrap: balance;
+}
+.v2-phero__hl,
+.v2-phero__h1 .v2-accent--blue {
+  background: none;
+  color: var(--v2-hero-accent);
+}
+.v2-phero__sub {
+  max-width: 40rem;
+  margin: 18px auto 0;
+  font-size: 1.0625rem;
+  line-height: 1.58;
+  color: var(--v2-ink-2);
+  text-wrap: pretty;
+}
+.v2-phero__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  max-width: 24rem;
+  margin: 28px auto 0;
+}
+.v2-phero__extra {
+  margin-top: 22px;
+  font-size: 14.5px;
+  color: var(--v2-ink-3);
+}
+.v2-phero__below {
+  position: relative;
+  isolation: isolate;
+  max-width: 64rem;
+  margin: 36px auto 0;
+  text-align: left;
+}
+.v2-phero__below::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -24px -24px 0;
+  border-radius: 2rem;
+  background: radial-gradient(60% 60% at 50% 0%, rgba(60, 145, 230, 0.28), transparent 70%);
+  filter: blur(24px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* sfondo animato dietro il testo + velatura per il contrasto (come nell'originale: raggi scuri dietro il titolo,
+   dissolvenza verso il fondo della pagina in alto e in basso) */
+.v2-phero__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  max-height: 560px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.v2-phero__bg > video,
+.v2-phero__bg > img,
+.v2-phero__bg > picture,
+.v2-phero__bg > picture > img,
+.v2-phero__bg > canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.v2-phero__still {
+  display: none !important;
+}
+.v2-phero__veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(115% 66% at 50% 36%, rgb(var(--v2-bg-rgb) / 0.74) 0%, rgb(var(--v2-bg-rgb) / 0.34) 46%, transparent 74%),
+    linear-gradient(to bottom, rgb(var(--v2-bg-rgb)) 0, transparent 110px),
+    linear-gradient(to top, rgb(var(--v2-bg-rgb)) 0, transparent 220px);
+}
+.v2-phero__veil--strong {
+  background: radial-gradient(120% 74% at 50% 36%, rgb(var(--v2-bg-rgb) / 0.88) 0%, rgb(var(--v2-bg-rgb) / 0.55) 52%, rgb(var(--v2-bg-rgb) / 0.3) 100%),
+    linear-gradient(to bottom, rgb(var(--v2-bg-rgb)) 0, transparent 110px),
+    linear-gradient(to top, rgb(var(--v2-bg-rgb)) 0, transparent 220px);
+}
+
+/* variante compatta: pagine interne, meno altezza */
+.v2-phero--compact {
+  padding-top: 104px;
+  padding-bottom: 32px;
+}
+.v2-phero--compact .v2-phero__pill {
+  margin-bottom: 18px;
+}
+.v2-phero--compact .v2-phero__h1 {
+  max-width: 22ch;
+  font-size: 1.875rem;
+  line-height: 1.1;
+}
+.v2-phero--compact .v2-phero__sub {
+  margin-top: 14px;
+  font-size: 1rem;
+}
+.v2-phero--compact .v2-phero__actions {
+  margin-top: 22px;
+}
+.v2-phero--compact .v2-phero__bg {
+  max-height: 380px;
+}
+
+@media (min-width: 640px) {
+  .v2-phero--full {
+    padding-top: 136px;
+    padding-bottom: 64px;
+  }
+  .v2-phero--compact {
+    padding-top: 116px;
+    padding-bottom: 40px;
+  }
+  .v2-phero__pill {
+    padding: 8px 18px;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+  }
+  .v2-phero__h1 {
+    font-size: 3.25rem;
+  }
+  .v2-phero__sub {
+    margin-top: 22px;
+    font-size: 1.1875rem;
+  }
+  .v2-phero__actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: none;
+    margin-top: 34px;
+  }
+  .v2-phero--compact .v2-phero__h1 {
+    font-size: 2.5rem;
+  }
+  .v2-phero--compact .v2-phero__sub {
+    font-size: 1.0625rem;
+  }
+  .v2-phero--compact .v2-phero__actions {
+    margin-top: 26px;
+  }
+  .v2-phero__below {
+    margin-top: 48px;
+  }
+  .v2-phero__bg {
+    max-height: 620px;
+  }
+}
+@media (min-width: 768px) {
+  .v2-phero__h1 {
+    letter-spacing: -0.02em;
+    word-spacing: 0.05em;
+  }
+}
+@media (min-width: 1024px) {
+  .v2-phero--full {
+    padding-top: 152px;
+    padding-bottom: 88px;
+  }
+  .v2-phero--compact {
+    padding-top: 132px;
+    padding-bottom: 56px;
+  }
+  .v2-phero__h1 {
+    max-width: 16ch;
+    font-size: 4.125rem;
+  }
+  .v2-phero__sub {
+    font-size: 1.25rem;
+  }
+  .v2-phero--compact .v2-phero__h1 {
+    max-width: 24ch;
+    font-size: 3rem;
+  }
+  .v2-phero--compact .v2-phero__sub {
+    font-size: 1.125rem;
+  }
+  .v2-phero__bg {
+    max-height: 700px;
+  }
+}
+@media (min-width: 1280px) {
+  .v2-phero__h1 {
+    font-size: 4.5rem;
+  }
+  .v2-phero--compact .v2-phero__h1 {
+    font-size: 3.25rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2-phero__copy > * {
+    animation: none;
+  }
+  .v2-phero__bg > video {
+    display: none !important;
+  }
+  .v2-phero__still {
+    display: block !important;
+  }
+}
+
 /* ---------- MediaFrame ---------- */
 .v2-media {
   position: relative;
@@ -1636,6 +2325,22 @@
   }
   .v2-caret {
     display: none;
+  }
+  /* schede vive: restano bordo e alone, niente si muove */
+  .v2-cat,
+  .v2-sys--link,
+  .v2-tile--anim,
+  .v2-tile--anim svg,
+  .v2-more svg,
+  .v2-more__t {
+    transition: none !important;
+  }
+  .v2-cat,
+  .v2-sys--link,
+  .v2-tile--anim svg,
+  .v2-more svg,
+  .v2-go {
+    transform: none !important;
   }
 }
 

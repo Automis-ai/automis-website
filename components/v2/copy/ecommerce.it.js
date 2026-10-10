@@ -1,4 +1,4 @@
-/* AI E-commerce Manager (IT). Prodotto dei Sistemi di Marketing: la pagina descrive il prodotto e
+/* AI E-commerce Manager (IT). Prodotto dei Sistemi IA per il Marketing: la pagina descrive il prodotto e
    porta, per piattaforma, alle due landing già fatte (solo in italiano, servite come file statici).
    Moduli e angolo per piattaforma ripresi dalle landing, senza le promesse da non ripetere.
    Nessun prezzo finché Luca non decide il «da». Percorsi senza prefisso di lingua, tranne le due landing. */
@@ -10,7 +10,7 @@ export default {
   },
 
   hero: {
-    eyebrow: "Sistemi di Marketing",
+    eyebrow: "Sistemi IA per il Marketing",
     title: "AI E-commerce Manager",
     lead: "Agenti IA che guardano il tuo negozio online giorno e notte e ti scrivono solo quando serve.",
     cta: "Scegli la piattaforma",

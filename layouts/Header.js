@@ -9,7 +9,7 @@ import { addLangPrefix, stripLangPrefix } from "@/lib/locales";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 /*
-  Menu del sito v2: Sistemi ▾ · Formazione · Casi studio · Chi siamo · CTA verso /contact.
+  Menu del sito v2: Sistemi IA ▾ · Formazione · Casi studio · Chi siamo · CTA verso /contact.
 
   - I nomi sono quelli fissati nel brief (inbox/sito-v2-brief.md): non si riscrivono qui.
   - Ogni href passa da addLangPrefix() di lib/locales.js, mai un prefisso di lingua scritto a mano.
@@ -22,7 +22,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const COPY = {
   en: {
-    systems: "Systems",
+    systems: "AI Systems",
     training: "Training",
     useCases: "Case studies",
     about: "About",
@@ -30,11 +30,11 @@ const COPY = {
     categories: "Categories",
     products: "Products",
     cat: {
-      marketing: "Marketing systems",
-      sales: "Sales systems",
-      support: "Customer service systems",
-      admin: "Admin systems",
-      hr: "HR systems",
+      marketing: "AI Systems for Marketing",
+      sales: "AI Systems for Sales",
+      support: "AI Systems for Customer Service",
+      admin: "AI Systems for Admin",
+      hr: "AI Systems for HR",
     },
     nav: "Main",
     menu: "Menu",
@@ -44,7 +44,7 @@ const COPY = {
     language: "Language",
   },
   it: {
-    systems: "Sistemi",
+    systems: "Sistemi IA",
     training: "Formazione",
     useCases: "Casi studio",
     about: "Chi siamo",
@@ -52,11 +52,11 @@ const COPY = {
     categories: "Categorie",
     products: "Prodotti",
     cat: {
-      marketing: "Sistemi di Marketing",
-      sales: "Sistemi di Vendita",
-      support: "Sistemi di Assistenza",
-      admin: "Sistemi di Amministrazione",
-      hr: "Sistemi di Risorse umane",
+      marketing: "Sistemi IA per il Marketing",
+      sales: "Sistemi IA per la Vendita",
+      support: "Sistemi IA per l'Assistenza",
+      admin: "Sistemi IA per l'Amministrazione",
+      hr: "Sistemi IA per le Risorse umane",
     },
     nav: "Principale",
     menu: "Menù",
@@ -66,7 +66,7 @@ const COPY = {
     language: "Lingua",
   },
   pt: {
-    systems: "Sistemas",
+    systems: "Sistemas de IA",
     training: "Formação",
     useCases: "Casos de estudo",
     about: "Sobre nós",
@@ -74,11 +74,11 @@ const COPY = {
     categories: "Categorias",
     products: "Produtos",
     cat: {
-      marketing: "Sistemas de Marketing",
-      sales: "Sistemas de Vendas",
-      support: "Sistemas de Apoio ao Cliente",
-      admin: "Sistemas de Administração",
-      hr: "Sistemas de Recursos Humanos",
+      marketing: "Sistemas de IA para Marketing",
+      sales: "Sistemas de IA para Vendas",
+      support: "Sistemas de IA para Apoio ao Cliente",
+      admin: "Sistemas de IA para Administração",
+      hr: "Sistemas de IA para Recursos Humanos",
     },
     nav: "Principal",
     menu: "Menu",

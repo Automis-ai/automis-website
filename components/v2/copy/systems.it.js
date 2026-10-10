@@ -16,18 +16,18 @@ export default {
 
   hub: {
     hero: {
-      eyebrow: "Sistemi",
+      eyebrow: "Sistemi IA",
       title: "I sistemi che mancano alla tua azienda",
       highlight: "che mancano",
       lead: "Scegli un'area. Ogni sistema nasce dal tuo modo di lavorare.",
     },
     categories: {
       items: [
-        { slug: "marketing", title: "Sistemi di Marketing", line: "Ads, SEO, contenuti, recensioni e negozio online." },
-        { slug: "sales", title: "Sistemi di Vendita", line: "Ogni contatto riceve risposta e viene seguito." },
-        { slug: "support", title: "Sistemi di Assistenza", line: "Chiamate, chat e messaggi con risposta a ogni ora." },
-        { slug: "admin", title: "Sistemi di Amministrazione", line: "Documenti, dati e routine in carico al sistema." },
-        { slug: "hr", title: "Sistemi di Risorse umane", line: "Un Brain aziendale per i nuovi colleghi." },
+        { slug: "marketing", title: "Sistemi IA per il Marketing", line: "Ads, SEO, contenuti, recensioni e negozio online." },
+        { slug: "sales", title: "Sistemi IA per la Vendita", line: "Ogni contatto riceve risposta e viene seguito." },
+        { slug: "support", title: "Sistemi IA per l'Assistenza", line: "Chiamate, chat e messaggi con risposta a ogni ora." },
+        { slug: "admin", title: "Sistemi IA per l'Amministrazione", line: "Documenti, dati e routine in carico al sistema." },
+        { slug: "hr", title: "Sistemi IA per le Risorse umane", line: "Un Brain aziendale per i nuovi colleghi." },
       ],
       cta: "Scopri",
     },
@@ -60,12 +60,12 @@ export default {
 
   marketing: {
     meta: {
-      title: "Sistemi IA di marketing: ads, SEO e negozio online | Automis",
+      title: "Sistemi IA per il Marketing: ads, SEO e negozio online | Automis",
       description:
         "Sistemi IA per il tuo marketing: ads e creatività, SEO e GEO, recensioni, contenuti, riattivazione clienti e un manager IA per il negozio online.",
     },
     hero: {
-      eyebrow: "Sistemi di Marketing",
+      eyebrow: "Sistemi IA per il Marketing",
       title: "Sistemi che mandano avanti il tuo marketing",
       highlight: "il tuo marketing",
       lead: "Ads, SEO, contenuti, recensioni e negozio online, gestiti da un'IA costruita sul tuo modo di lavorare.",
@@ -180,12 +180,12 @@ export default {
 
   sales: {
     meta: {
-      title: "Sistemi IA di vendita: CRM, contatti e DM dei social | Automis",
+      title: "Sistemi IA per la Vendita: CRM, contatti e DM dei social | Automis",
       description:
         "Sistemi IA per vendere: CRM su misura, dashboard, qualifica dei contatti, commenti e DM di Instagram e Facebook nel CRM, immobili e note vocali.",
     },
     hero: {
-      eyebrow: "Sistemi di Vendita",
+      eyebrow: "Sistemi IA per la Vendita",
       title: "Sistemi che seguono ogni contatto",
       highlight: "ogni contatto",
       lead: "Dal primo messaggio al CRM, ogni contatto riceve risposta, viene qualificato e tracciato.",
@@ -284,12 +284,12 @@ export default {
 
   support: {
     meta: {
-      title: "Sistemi IA di assistenza: voce, chat e messaggi | Automis",
+      title: "Sistemi IA per l'Assistenza: voce, chat e messaggi | Automis",
       description:
         "Sistemi IA che rispondono ai clienti giorno e notte: receptionist vocale, recupero delle chiamate perse, risposte 24/7 e assistenza e-commerce.",
     },
     hero: {
-      eyebrow: "Sistemi di Assistenza",
+      eyebrow: "Sistemi IA per l'Assistenza",
       title: "Sistemi che rispondono ai tuoi clienti",
       highlight: "ai tuoi clienti",
       lead: "Al telefono, in chat e nei messaggi, giorno e notte, con una persona pronta per i casi delicati.",
@@ -368,12 +368,12 @@ export default {
 
   admin: {
     meta: {
-      title: "Sistemi IA per documenti, contabilità e back office | Automis",
+      title: "Sistemi IA per l'Amministrazione: documenti, contabilità e back office | Automis",
       description:
         "Sistemi IA per il back office: gestionali contabili, Scan-to-Brain per la carta, raccolta e smistamento dei documenti, automazione della routine.",
     },
     hero: {
-      eyebrow: "Sistemi di Amministrazione",
+      eyebrow: "Sistemi IA per l'Amministrazione",
       title: "Sistemi che mandano avanti il tuo back office",
       highlight: "il tuo back office",
       lead: "Documenti, dati e lavoro di routine passano all'IA: il tuo team si occupa delle cose importanti.",
@@ -427,7 +427,7 @@ export default {
     case: null,
     crossLink: {
       title: "Company Brain",
-      line: "Un cervello privato sui tuoi documenti: il tuo team fa una domanda e riceve una risposta con la fonte. Lo trovi nei Sistemi di Risorse umane.",
+      line: "Un cervello privato sui tuoi documenti: il tuo team fa una domanda e riceve una risposta con la fonte. Lo trovi nei Sistemi IA per le Risorse umane.",
       cta: "Scopri il Company Brain",
       href: "/systems/hr",
     },
@@ -439,12 +439,12 @@ export default {
 
   hr: {
     meta: {
-      title: "Sistemi IA per le risorse umane: il Company Brain | Automis",
+      title: "Sistemi IA per le Risorse umane: il Company Brain | Automis",
       description:
         "Un Company Brain privato sui tuoi documenti: i nuovi colleghi trovano da soli le risposte, e ognuna arriva con la sua fonte.",
     },
     hero: {
-      eyebrow: "Sistemi di Risorse umane",
+      eyebrow: "Sistemi IA per le Risorse umane",
       title: "Sistemi per il tuo personale",
       highlight: "il tuo personale",
       lead: "Un cervello aziendale che aiuta i nuovi colleghi a trovare da soli le risposte.",

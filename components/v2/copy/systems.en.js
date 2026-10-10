@@ -5,7 +5,7 @@
    short è la riga visibile (al massimo ~9 parole); line (cosa fa) e more (il problema) si aprono a richiesta (Disclosure). Percorsi senza prefisso di lingua. */
 export default {
   meta: {
-    title: "AI Systems for Marketing, Sales, Support and Admin | Automis",
+    title: "AI Systems for Marketing, Sales, Customer Service and Admin | Automis",
     description:
       "Five areas where AI can take work off your hands: marketing, sales, customer service, admin and HR. Systems built around how your business works.",
   },
@@ -16,18 +16,18 @@ export default {
 
   hub: {
     hero: {
-      eyebrow: "Systems",
+      eyebrow: "AI Systems",
       title: "The systems your business is missing",
       highlight: "missing",
       lead: "Pick an area. Every system is built around how you already work.",
     },
     categories: {
       items: [
-        { slug: "marketing", title: "Marketing systems", line: "Ads, search, content, reviews and your store." },
-        { slug: "sales", title: "Sales systems", line: "Every contact answered and tracked." },
-        { slug: "support", title: "Customer service systems", line: "Calls, chats and messages answered day and night." },
-        { slug: "admin", title: "Admin systems", line: "Documents, data and routine tasks handled for you." },
-        { slug: "hr", title: "HR systems", line: "A company brain for new colleagues." },
+        { slug: "marketing", title: "AI Systems for Marketing", line: "Ads, search, content, reviews and your store." },
+        { slug: "sales", title: "AI Systems for Sales", line: "Every contact answered and tracked." },
+        { slug: "support", title: "AI Systems for Customer Service", line: "Calls, chats and messages answered day and night." },
+        { slug: "admin", title: "AI Systems for Admin", line: "Documents, data and routine tasks handled for you." },
+        { slug: "hr", title: "AI Systems for HR", line: "A company brain for new colleagues." },
       ],
       cta: "Explore",
     },
@@ -60,12 +60,12 @@ export default {
 
   marketing: {
     meta: {
-      title: "AI Marketing Systems for Ads, SEO and Online Stores | Automis",
+      title: "AI Systems for Marketing: Ads, SEO and Online Stores | Automis",
       description:
         "AI systems that run your marketing: ads and creative, SEO and GEO, reviews, content, reactivation campaigns and an AI manager for your online store.",
     },
     hero: {
-      eyebrow: "Marketing systems",
+      eyebrow: "AI Systems for Marketing",
       title: "Systems that run your marketing",
       highlight: "your marketing",
       lead: "Ads, search visibility, content, reviews and your online store, handled by AI built around your business.",
@@ -180,12 +180,12 @@ export default {
 
   sales: {
     meta: {
-      title: "AI Sales Systems: CRM, Lead Qualification and Social DMs | Automis",
+      title: "AI Systems for Sales: CRM, Lead Qualification and Social DMs | Automis",
       description:
         "AI systems for sales: a custom CRM, dashboards, lead qualification, Instagram and Facebook comments and DMs in your CRM, property matching and voice notes.",
     },
     hero: {
-      eyebrow: "Sales systems",
+      eyebrow: "AI Systems for Sales",
       title: "Systems that follow every lead",
       highlight: "every lead",
       lead: "From the first message to your CRM, contacts are answered, qualified and tracked.",
@@ -284,12 +284,12 @@ export default {
 
   support: {
     meta: {
-      title: "AI Customer Service Systems: Voice, Chat and Messages | Automis",
+      title: "AI Systems for Customer Service: Voice, Chat and Messages | Automis",
       description:
         "AI systems that answer your customers day and night: a voice receptionist, missed-call recovery, 24/7 chat answers and e-commerce customer service.",
     },
     hero: {
-      eyebrow: "Customer service systems",
+      eyebrow: "AI Systems for Customer Service",
       title: "Systems that answer your customers",
       highlight: "your customers",
       lead: "By phone, chat and message, day and night, with a person ready for whatever needs one.",
@@ -368,12 +368,12 @@ export default {
 
   admin: {
     meta: {
-      title: "AI Admin Systems: Documents, Back Office and Accounting | Automis",
+      title: "AI Systems for Admin: Documents, Back Office and Accounting | Automis",
       description:
         "AI systems for the back office: accounting management software, scan-to-brain for paper documents, document intake and sorting, and routine admin automation.",
     },
     hero: {
-      eyebrow: "Admin systems",
+      eyebrow: "AI Systems for Admin",
       title: "Systems that run your back office",
       highlight: "your back office",
       lead: "Documents, data and routine tasks handled by AI, so your team can work on the work that matters.",
@@ -427,7 +427,7 @@ export default {
     case: null,
     crossLink: {
       title: "Company Brain",
-      line: "A private brain over your documents, where your team asks and gets an answer with its source. You will find it under HR systems.",
+      line: "A private brain over your documents, where your team asks and gets an answer with its source. You will find it under AI Systems for HR.",
       cta: "See the Company Brain",
       href: "/systems/hr",
     },
@@ -439,12 +439,12 @@ export default {
 
   hr: {
     meta: {
-      title: "AI HR Systems: A Company Brain for Onboarding | Automis",
+      title: "AI Systems for HR: A Company Brain for Onboarding | Automis",
       description:
         "A private Company Brain over your documents. New colleagues ask it instead of asking a colleague, and every answer comes with its source.",
     },
     hero: {
-      eyebrow: "HR systems",
+      eyebrow: "AI Systems for HR",
       title: "Systems for your people",
       highlight: "your people",
       lead: "A company brain that helps new colleagues find their own answers.",

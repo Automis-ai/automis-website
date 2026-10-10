@@ -3,7 +3,7 @@
    Le altre pagine non li ripetono: li leggono da qui (getCopy("common", lang)). */
 export default {
   nav: {
-    systems: "Systems",
+    systems: "AI Systems",
     allSystems: "All systems",
     training: "Training",
     cases: "Case studies",
@@ -11,11 +11,11 @@ export default {
   },
   cta: "Tell us about your business",
   categories: {
-    marketing: "Marketing systems",
-    sales: "Sales systems",
-    support: "Customer service systems",
-    admin: "Admin systems",
-    hr: "HR systems",
+    marketing: "AI Systems for Marketing",
+    sales: "AI Systems for Sales",
+    support: "AI Systems for Customer Service",
+    admin: "AI Systems for Admin",
+    hr: "AI Systems for HR",
   },
   products: {
     voice: "Voice AI",
@@ -23,6 +23,7 @@ export default {
   },
   caseBadge: "Real case →",
   ui: {
+    learnMore: "Learn more",
     more: "More",
     less: "Less",
     replay: "Replay",
