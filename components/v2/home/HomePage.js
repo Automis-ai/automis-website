@@ -1,173 +1,91 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import Hero from "@/components/v2/ui/Hero";
-import Accent from "@/components/v2/ui/Accent";
+import PageHero from "@/components/v2/ui/PageHero";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
-import ProofStrip from "@/components/v2/ui/ProofStrip";
 import CategoryGrid from "@/components/v2/ui/CategoryGrid";
 import CategoryCard from "@/components/v2/ui/CategoryCard";
-import Steps from "@/components/v2/ui/Steps";
-import Button from "@/components/v2/ui/Button";
-import CardGrid from "@/components/v2/ui/CardGrid";
-import CaseTeaser from "@/components/v2/ui/CaseTeaser";
-import Faq from "@/components/v2/ui/Faq";
-import CtaBand from "@/components/v2/ui/CtaBand";
-import Icon from "@/components/v2/ui/icons";
-import OpportunityFinder from "@/components/home/OpportunityFinder";
-import FinalCta from "@/components/home/FinalCta";
+import { toneClass } from "@/components/v2/ui/toneClass";
+import LoopVideo from "@/components/ui/LoopVideo";
+import HowWeWork from "@/components/home/HowWeWork";
+import Authority from "@/components/home/Authority";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
 import { isProduction } from "@/lib/v2/env";
-import CallDemo from "./CallDemo";
+import CasesClassic from "./CasesClassic";
+import OpportunityFinderClassic from "./OpportunityFinderClassic";
+import FinalCtaClassic from "./FinalCtaClassic";
 import "./home.css";
 
 /*
-  Home v2, nelle tre lingue (stessa pagina, testi da getCopy("home", lang)).
-  Ordine della §6 del brief: apertura, riga di prova, categorie, come lavoriamo, due casi, Finder, chiusura.
-  Toni che si alternano: dark (Hero + prova) · light · deep · light · dark (Finder) · deep · light · dark (calendario).
-  Finder e calendario sono i componenti esistenti, avvolti e non toccati: portano i loro testi.
-  Il calendario (FinalCta) c'è solo in produzione; sulla preview il suo posto è una CtaBand verso /contact.
+  Home v2, giro 2 (decisioni di Luca, §13 del brief). Stessa pagina nelle tre lingue.
+  Ordine: hero centrata · categorie con l'animazione «journey» sotto il titolo · come lavoriamo ·
+  casi studio (quattro) · Opportunity Finder · founder · call in fondo. Niente FAQ, niente settori.
+
+  Dal sito originale, come sono: HowWeWork (i tempi dentro sono già «~7 giorni / su misura»), Authority (founder).
+  Copie in questa cartella: CasesClassic (quattro casi, meno testo), OpportunityFinderClassic (la versione di origin/main),
+  FinalCtaClassic (la call in fondo; il calendario si carica solo in produzione).
+
+  Toni: la pagina sta dentro .v2-tone-a (default) o .v2-tone-b (?tono=b). L'unica fascia chiara è quella delle categorie
+  (A: blu medio, B: grigio-azzurro); tutto il resto è il blu notte del sito originale. La sfumatura fra la fascia chiara
+  e le sezioni originali la fa il «ponte» (.v2hp-bridge): le sezioni originali non sono fasce del kit e la sfumatura
+  d'ingresso del kit non le vede.
 */
 
-const LOGOS = {
-  "clinica-santa-maria": { src: "/assets/images/client-logos/clinica-santa-maria.png", width: 67, height: 48, alt: "" },
-  adifesa: { src: "/assets/images/client-logos/adifesa.png", width: 89, height: 48, alt: "" },
-};
-
-const PHOTOS = {
-  "Vincenzo Luca Casillo": "/assets/images/headshots/luca.jpeg",
-  "Arcangelo Bianco": "/assets/images/headshots/arcangelo.jpeg",
-};
-
-// "Costruiamo il sistema IA che…" con "sistema IA" evidenziato: le parole di `highlight` stanno dentro il titolo.
-function withAccent(text, words = []) {
-  let nodes = [text];
-  words.forEach((w) => {
-    nodes = nodes.flatMap((n) => {
-      if (typeof n !== "string") return [n];
-      const i = n.indexOf(w);
-      if (i < 0) return [n];
-      return [n.slice(0, i), <Accent key={w}>{w}</Accent>, n.slice(i + w.length)];
-    });
-  });
-  return nodes;
-}
-
-export default function HomePage({ lang = "en" }) {
+export default function HomePage({ lang = "en", tono }) {
   const L = lang;
   const c = getCopy("home", L);
+  const common = getCopy("common", L);
   const link = (path) => addLangPrefix(path, L);
+  // Senza ?tono= vale il tono A; qualunque altro valore (es. "x") è il sito di oggi, senza toni.
+  const tone = toneClass(tono === undefined ? "a" : tono);
 
   return (
     <AutomisEnShell>
-      <Hero
-        eyebrow={c.hero.eyebrow}
-        title={withAccent(c.hero.title, c.hero.highlight)}
-        subtitle={c.hero.lead}
-        primaryCta={{ label: c.hero.cta, href: link("/contact") }}
-        secondaryCta={{ label: c.hero.ctaSecondary, href: link("/use-cases") }}
-        media={<CallDemo lang={L} t={c.hero.call} />}
-      />
-
-      <Section tone="dark" pad="sm" className="v2h-proofband">
-        <ProofStrip
-          caption={c.proof.label}
-          clients={[
-            { name: "Clínica Santa Maria", logo: { src: LOGOS["clinica-santa-maria"].src, width: 67, height: 48, alt: "Clínica Santa Maria" } },
-            { name: "ADifesa", logo: { src: LOGOS.adifesa.src, width: 89, height: 48, alt: "ADifesa" } },
-          ]}
-          number={c.proof.figure}
-          numberLabel={c.proof.figureLabel}
+      <div className={tone}>
+        <PageHero
+          size="full"
+          eyebrow={c.hero.eyebrow}
+          title={c.hero.title}
+          highlight={c.hero.highlight}
+          subtitle={c.hero.lead}
+          primaryCta={{ label: c.hero.cta, href: link("/contact") }}
+          secondaryCta={{ label: c.hero.ctaSecondary, href: "#sistemi" }}
+          bg={
+            // Sfondo statico e sobrio: due nastri sfocati nei colori del brand. Qui andrà il loop HyperFrames scelto da Luca.
+            <div className="v2hp-aurora">
+              <i />
+              <i />
+            </div>
+          }
         />
-      </Section>
 
-      <Section tone="light" id="categories">
-        <SectionHeader title={c.categories.title} lead={c.categories.lead} />
-        <CategoryGrid>
-          {c.categories.items.map((it) => (
-            <CategoryCard key={it.slug} title={it.title} line={it.line} icon={it.slug} href={link(`/systems/${it.slug}`)} />
-          ))}
-        </CategoryGrid>
-        <div className="v2h-more">
-          <Button href={link("/systems")} variant="link">
-            {c.categories.cta}
-          </Button>
-        </div>
-      </Section>
-
-      <Section tone="deep" id="how">
-        <SectionHeader title={c.how.title} />
-        <Steps items={c.how.steps} />
-        <div className="v2h-more">
-          <Button href={link("/how-we-work")} variant="secondary">
-            {c.how.cta}
-          </Button>
-        </div>
-      </Section>
-
-      <Section tone="light" id="cases">
-        <SectionHeader title={c.cases.title} />
-        <CardGrid cols={2}>
-          {c.cases.items.map((it) => (
-            <CaseTeaser
-              key={it.slug}
-              client={it.client}
-              logo={LOGOS[it.slug]}
-              number={it.figure}
-              numberLabel={it.figureLabel}
-              system={it.system}
-              href={link(it.href)}
-              linkLabel={it.cta}
-            />
-          ))}
-        </CardGrid>
-        <div className="v2h-more">
-          <Button href={link("/use-cases")} variant="link">
-            {c.cases.all}
-          </Button>
-        </div>
-      </Section>
-
-      <div className="v2h-legacy">
-        <OpportunityFinder />
-      </div>
-
-      <Section tone="deep" id="founders">
-        <SectionHeader title={c.founders.title} lead={c.founders.line} />
-        <div className="v2h-founders">
-          {c.founders.items.map((f) => (
-            <article className="v2-card v2h-founder" key={f.name}>
-              <img src={PHOTOS[f.name]} alt={f.name} width={72} height={72} loading="lazy" decoding="async" />
-              <div>
-                <h3 className="v2h-founder__name">{f.name}</h3>
-                <p className="v2h-founder__role">{f.role}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div className="v2-card v2h-guarantee">
-          <span className="v2-tile">
-            <Icon name="shield" size={24} />
-          </span>
-          <div>
-            <h3 className="v2h-guarantee__title">{c.guarantee.title}</h3>
-            <p className="v2h-guarantee__line">{c.guarantee.line}</p>
+        <Section tone="light" id="sistemi" className="v2hp-cats">
+          <SectionHeader align="center" title={c.categories.title} lead={c.categories.lead} />
+          <div className="v2hp-journey" role="img" aria-label={c.categories.journeyLabel}>
+            <LoopVideo base={`/media/homepage-journey/${L}`} />
           </div>
-        </div>
-      </Section>
+          <CategoryGrid>
+            {c.categories.items.map((it) => (
+              <CategoryCard
+                key={it.slug}
+                title={it.title}
+                line={it.line}
+                icon={it.slug}
+                cta={common.ui.learnMore}
+                href={link(`/systems/${it.slug}`)}
+              />
+            ))}
+          </CategoryGrid>
+        </Section>
 
-      <Section tone="light" width="narrow" id="faq">
-        <SectionHeader title={c.faq.title} />
-        <Faq jsonLd items={c.faq.items.map((q) => ({ question: q.q, answer: q.a }))} />
-      </Section>
+        <div className="v2hp-bridge" aria-hidden="true" />
 
-      {/* Il calendario (iframe + script di LeadConnector) esce verso l'esterno: lo carica solo la produzione.
-          Sulla preview al suo posto c'è l'invito a /contact, così nessuna richiesta parte e nessuno prenota per sbaglio. */}
-      {isProduction() ? (
-        <FinalCta />
-      ) : (
-        <CtaBand id="book" title={c.book.title} line={c.book.lead} button={{ label: c.hero.cta, href: link("/contact") }} />
-      )}
+        <HowWeWork />
+        <CasesClassic locale={L} copy={c.cases} />
+        <OpportunityFinderClassic />
+        <Authority />
+        <FinalCtaClassic live={isProduction()} />
+      </div>
     </AutomisEnShell>
   );
 }

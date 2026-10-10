@@ -11,7 +11,7 @@ export default {
   },
 
   labels: {
-    more: "Dettagli",
+    more: "Leggi di più",
   },
 
   hub: {
@@ -25,11 +25,10 @@ export default {
       items: [
         { slug: "marketing", title: "Sistemi IA per il Marketing", line: "Ads, SEO, contenuti, recensioni e negozio online." },
         { slug: "sales", title: "Sistemi IA per la Vendita", line: "Ogni contatto riceve risposta e viene seguito." },
-        { slug: "support", title: "Sistemi IA per l'Assistenza", line: "Chiamate, chat e messaggi con risposta a ogni ora." },
-        { slug: "admin", title: "Sistemi IA per l'Amministrazione", line: "Documenti, dati e routine in carico al sistema." },
+        { slug: "support", title: "Sistemi IA per l'Assistenza", line: "Chiamate, chat e messaggi hanno una risposta a ogni ora." },
+        { slug: "admin", title: "Sistemi IA per l'Amministrazione", line: "Documenti, dati e routine li gestisce il sistema." },
         { slug: "hr", title: "Sistemi IA per le Risorse umane", line: "Un Brain aziendale per i nuovi colleghi." },
       ],
-      cta: "Scopri",
     },
     products: {
       title: "Due prodotti da cui partire",
@@ -108,7 +107,7 @@ export default {
         id: "content-social",
         kicker: null,
         title: "Contenuti e social",
-        short: "Da un materiale di partenza a post programmati.",
+        short: "Parte da un tuo materiale e programma i post.",
         line: "Parte da un tuo materiale e prepara post nello stile del tuo brand, programmati sui tuoi canali.",
         more: "Pubblicare con costanza è la prima cosa che salta quando il lavoro si fa frenetico.",
         href: null,
@@ -130,7 +129,7 @@ export default {
         id: "product-listings",
         kicker: null,
         title: "Schede prodotto da foto",
-        short: "Descrizioni e schede prodotto scritte dalle foto.",
+        short: "Scrive le schede prodotto partendo dalle foto.",
         line: "Scrive descrizioni e schede prodotto partendo dalle foto dei tuoi prodotti.",
         more: "Scrivere una pagina per ogni prodotto richiede tempo, e la foto dice già buona parte di ciò che la pagina deve raccontare.",
         href: null,
@@ -172,6 +171,27 @@ export default {
       },
     ],
     case: null,
+    faq: {
+      title: "Domande frequenti",
+      items: [
+        {
+          q: "Chi segue le campagne, voi o il sistema?",
+          a: "Il sistema fa il lavoro di ogni giorno: prova le creatività e sposta il budget su quelle che convertono. Ogni mese controlliamo i risultati e lo miglioriamo, con una persona che supervisiona.",
+        },
+        {
+          q: "Cos'è il GEO?",
+          a: "Sono i contenuti scritti per essere citati nelle risposte di ChatGPT, Perplexity e simili, oltre che per posizionarsi su Google. Nessuno può garantire una citazione: noi lavoriamo perché i tuoi contenuti siano chiari e pronti a meritarla.",
+        },
+        {
+          q: "L'AI E-commerce Manager può cambiare i prezzi o fare rimborsi?",
+          a: "No. Prezzi, rimborsi e resi non vengono mai lasciati a un'IA, e ciò che costa o tocca il negozio aspetta la tua approvazione.",
+        },
+        {
+          q: "Quanto costa?",
+          a: "Lo preventiviamo dopo aver capito come lavori, perché costruiamo sui tuoi processi e non su pacchetti standard. Raccontaci il tuo caso e ti diciamo da dove partiremmo.",
+        },
+      ],
+    },
     cta: {
       title: "Quale di questi ti servirebbe di più?",
       line: "Raccontaci la tua attività e ti diciamo da dove partiremmo.",
@@ -272,9 +292,30 @@ export default {
     case: {
       eyebrow: "Caso reale",
       title: "ADifesa",
-      line: "Commenti e DM su Facebook e Instagram gestiti e qualificati: 2.329 conversazioni in cinque mesi e 524 schede complete.",
+      line: "Commenti e DM su Facebook e Instagram gestiti e qualificati: 2.329 conversazioni dal 1/5 al 16/9/2026 e 524 schede complete.",
       cta: "Leggi il caso",
       href: "/use-cases/adifesa",
+    },
+    faq: {
+      title: "Domande frequenti",
+      items: [
+        {
+          q: "Funziona con il CRM che uso già?",
+          a: "Se il tuo strumento ha un'API, ci colleghiamo: HubSpot e GoHighLevel, per esempio. Se nessuno fa al caso tuo, costruiamo il CRM sul modo di vendere del tuo team.",
+        },
+        {
+          q: "Chi risponde a commenti e DM, l'IA o una persona?",
+          a: "Risponde l'IA, con le tue regole, e scrive nel CRM il contatto qualificato. I casi delicati arrivano a una persona del tuo team.",
+        },
+        {
+          q: "I dati dei miei contatti sono al sicuro?",
+          a: "Rispettiamo il GDPR dal primo giorno. I dati possono stare su server UE e, prima di partire, ti diciamo quali fornitori trattano quali dati e dove.",
+        },
+        {
+          q: "Quanto costa?",
+          a: "Lo preventiviamo dopo aver capito come lavori, perché costruiamo sui tuoi processi e non su pacchetti standard. Raccontaci il tuo caso e ti diciamo da dove partiremmo.",
+        },
+      ],
     },
     cta: {
       title: "Dove si perdono i tuoi contatti?",
@@ -356,9 +397,30 @@ export default {
     case: {
       eyebrow: "Caso reale",
       title: "Clínica Santa Maria dos Olivais",
-      line: "Un assistente vocale sul telefono di una clinica dentale: 872 chiamate in sette mesi, 527 chiuse senza passare dalla segretaria e 114 appuntamenti presi.",
+      line: "Un assistente vocale sul telefono di una clinica dentale: 872 chiamate dal 1/2 al 9/9/2026, 527 chiuse dall'assistente e 114 appuntamenti presi.",
       cta: "Leggi il caso",
       href: "/use-cases/clinica-santa-maria",
+    },
+    faq: {
+      title: "Domande frequenti",
+      items: [
+        {
+          q: "Quanto costa il receptionist vocale?",
+          a: "Voice AI parte da 297 €/mese. Gli altri sistemi di assistenza li preventiviamo dopo aver capito come lavori, senza pacchetti standard.",
+        },
+        {
+          q: "Quanto ci vuole per attivarlo?",
+          a: "Circa 7 giorni per Voice AI e per le automazioni semplici. Per i sistemi complessi concordiamo i tempi con te prima di iniziare.",
+        },
+        {
+          q: "Che fine fanno le chiamate delicate?",
+          a: "Passano a una persona del tuo team. L'IA si occupa delle richieste ripetitive, i casi delicati arrivano a te.",
+        },
+        {
+          q: "E se non funziona per noi?",
+          a: "Ogni piano Voice AI ha 30 giorni di garanzia sui risultati. Il rischio del primo passo lo prendiamo noi.",
+        },
+      ],
     },
     cta: {
       title: "Chi risponde quando non puoi?",
@@ -425,11 +487,55 @@ export default {
       },
     ],
     case: null,
+    brain: {
+      title: "Chiedi ai tuoi documenti",
+      caption: "Documenti di esempio, già scansionati e archiviati. Tocca una domanda.",
+      windowTitle: "Archivio documenti",
+      sourceLabel: "Fonte",
+      queries: [
+        {
+          q: "Quando scade il contratto di affitto del magazzino?",
+          a: "Il contratto scade a fine anno e si rinnova da solo, salvo disdetta con sei mesi di preavviso.",
+          sources: [{ doc: "Contratto di affitto del magazzino", where: "Scansione · articolo 4, durata" }],
+        },
+        {
+          q: "Dove ho archiviato la fattura del fornitore di giugno?",
+          a: "È in Fatture fornitori, nella cartella di giugno. L'ho rinominata con data e fornitore, e i dati principali sono nella sua scheda.",
+          sources: [{ doc: "Fatture fornitori", where: "Archivio · giugno" }],
+        },
+        {
+          q: "Il fornitore ha già mandato la bolla di consegna?",
+          a: "Sì, è arrivata per email stamattina. L'ho letta, classificata come bolla di consegna e archiviata con le altre.",
+          sources: [{ doc: "Bolle di consegna", where: "Ricevute per email" }],
+        },
+      ],
+    },
     crossLink: {
       title: "Company Brain",
       line: "Un cervello privato sui tuoi documenti: il tuo team fa una domanda e riceve una risposta con la fonte. Lo trovi nei Sistemi IA per le Risorse umane.",
       cta: "Scopri il Company Brain",
       href: "/systems/hr",
+    },
+    faq: {
+      title: "Domande frequenti",
+      items: [
+        {
+          q: "I miei documenti sono al sicuro?",
+          a: "Rispettiamo il GDPR dal primo giorno. I dati possono stare su server UE e, prima di partire, ti diciamo quali fornitori trattano quali dati e dove.",
+        },
+        {
+          q: "Funziona con i documenti cartacei?",
+          a: "Sì. Il sistema legge i documenti scansionati, estrae i campi chiave e li archivia come dati che puoi cercare.",
+        },
+        {
+          q: "Funziona con il gestionale che uso già?",
+          a: "Se il programma ha un'API, ci colleghiamo. Dove i software standard non seguono le tue regole, come nel regime 74-ter, costruiamo il gestionale su misura.",
+        },
+        {
+          q: "Qualcuno controlla il lavoro dell'IA?",
+          a: "Sì. Una persona supervisiona i risultati, i casi delicati arrivano al tuo team e ogni mese miglioriamo il sistema.",
+        },
+      ],
     },
     cta: {
       title: "Quali scartoffie ti rubano la settimana?",
@@ -482,6 +588,27 @@ export default {
           q: "Posso approvare da solo il rimborso a un cliente?",
           a: "Entro il limite standard lo approva direttamente l'assistenza. Oltre quel limite serve il responsabile.",
           sources: [{ doc: "Politica rimborsi", where: "Approvazioni" }],
+        },
+      ],
+    },
+    faq: {
+      title: "Domande frequenti",
+      items: [
+        {
+          q: "Da dove prende le risposte il Brain?",
+          a: "Dai documenti della tua azienda. Ogni risposta indica la fonte, così il nuovo collega può controllarla.",
+        },
+        {
+          q: "I miei documenti restano privati?",
+          a: "Sì, il Brain è privato e lavora sui tuoi documenti. Rispettiamo il GDPR dal primo giorno, i dati possono stare su server UE e, prima di partire, ti diciamo quali fornitori trattano quali dati e dove.",
+        },
+        {
+          q: "Serve personale tecnico?",
+          a: "No. Costruiamo, attiviamo e manteniamo tutto noi, tu lo usi. Quello che consegniamo è tuo.",
+        },
+        {
+          q: "Quanto costa e quanto ci vuole?",
+          a: "Lo preventiviamo dopo aver capito come lavori e i tempi li concordiamo con te prima di iniziare. Non esiste un pacchetto standard.",
         },
       ],
     },

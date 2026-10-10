@@ -502,9 +502,7 @@ const DesktopNav = ({ menu, path, systemsActive }) => {
                 id="systems-panel"
                 className="grid grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] gap-x-6 rounded-2xl p-[16px]"
                 style={{
-                  backgroundColor: "rgba(10,61,98,0.98)",
-                  backdropFilter: "blur(20px)",
-                  WebkitBackdropFilter: "blur(20px)",
+                  backgroundColor: "#0a3d62",
                   border: "1px solid rgba(255,255,255,0.1)",
                   boxShadow: "0 8px 25px rgba(0,0,0,0.25)",
                 }}

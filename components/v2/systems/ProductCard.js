@@ -8,10 +8,11 @@ import { nb } from "@/components/v2/ui/nb";
 /*
   Scheda grande di un prodotto (hub /systems) o di un rimando (Company Brain in /systems/admin).
   Tutta cliccabile: il link è la riga d'invito (`cta`). `price` è opzionale e compare solo dove il copy lo dà.
+  `wide`: a tutta larghezza (da 768 px icona, testo e invito su una riga), per un rimando a fine pagina.
 */
-export default function ProductCard({ icon, title, line, price, cta, href, as: Tag = "h3" }) {
+export default function ProductCard({ icon, title, line, price, cta, href, as: Tag = "h3", wide = false }) {
   return (
-    <article className="v2-card v2-card--link v2sx-prod">
+    <article className={`v2-card v2-card--link v2sx-prod${wide ? " v2sx-prod--wide" : ""}`}>
       <div className="v2sx-prod__top">
         <span className="v2-tile">{renderIcon(icon, 24)}</span>
         {price ? <Badge tone="gold">{price}</Badge> : null}

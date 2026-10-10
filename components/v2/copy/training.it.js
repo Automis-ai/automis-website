@@ -17,35 +17,26 @@ export default {
   hero: {
     eyebrow: "Formazione",
     title: "Fai entrare l'IA nel lavoro della tua azienda",
+    highlight: "l'IA",
     lead: "Formazione pratica per usare Claude o ChatGPT nel lavoro di ogni giorno, dagli usi semplici agli agenti e al second brain.",
-    map: {
-      ariaLabel: "Dagli usi di ogni giorno ai processi dell'azienda",
-      from: {
-        label: "Ogni giorno",
-        chips: ["Scrivere", "Riassumere", "Cercare", "Preparare documenti"],
-      },
-      to: {
-        label: "Nei processi dell'azienda",
-        chips: ["Agenti", "Second brain"],
-      },
-    },
   },
 
   paths: {
     title: "Due modi per partire",
-    moreLabel: "Cosa vediamo",
     items: [
       {
         id: "everyday",
+        chips: ["Scrivere", "Riassumere", "Cercare", "Preparare documenti"],
         title: "L'IA nel lavoro di ogni giorno",
         line: "Modi semplici per usare Claude o ChatGPT nelle attività che ripeti ogni giorno.",
-        more: "Scrivere, riassumere, cercare informazioni, preparare documenti. Partiamo da quello che fai tu ogni giorno.",
+        more: "Partiamo dal tuo lavoro di ogni giorno, non da una presentazione dello strumento.",
       },
       {
         id: "workflows",
+        chips: ["Agenti", "Second brain"],
         title: "L'IA nei processi dell'azienda",
-        line: "Come portare Claude o ChatGPT nei tuoi processi, come agenti e come second brain.",
-        more: "Come dare a un assistente i documenti e gli strumenti dell'azienda, cosa può fare da solo e dove interviene una persona a controllare.",
+        line: "Porta Claude o ChatGPT nei tuoi processi, come agenti e come second brain.",
+        more: "Vediamo come dare a un assistente i documenti e gli strumenti dell'azienda, cosa può fare da solo e dove interviene una persona a controllare.",
       },
     ],
   },
@@ -62,7 +53,6 @@ export default {
   compliance: {
     eyebrow: "AI Act",
     badge: "Articolo 4",
-    moreLabel: "Cosa dice l'articolo",
     title: "Ti mettiamo in regola con la normativa sull'IA",
     line: "L'articolo 4 dell'AI Act chiede alle aziende che usano l'IA di sostenere l'alfabetizzazione in materia di IA del loro personale. La formazione è un modo per farlo.",
     more: "Fornitori e deployer di sistemi di IA adottano misure volte a sostenere lo sviluppo dell'alfabetizzazione in materia di IA del loro personale e di chi usa i sistemi per loro conto, tenendo conto di conoscenze tecniche, esperienza, istruzione e formazione, del contesto d'uso e delle persone su cui i sistemi vengono usati. L'obbligo non fissa un livello preciso da raggiungere. È il testo in vigore dal 27 luglio 2026, introdotto dal Regolamento (UE) 2026/1744. Informazione generale, non consulenza legale.",

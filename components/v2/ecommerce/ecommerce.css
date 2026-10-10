@@ -6,7 +6,7 @@
 .v2e-report {
   width: 100%;
   max-width: 30rem;
-  margin: 0;
+  margin: 0 auto;
   overflow: hidden;
   border: 1px solid var(--v2-card-line);
   border-radius: 18px;

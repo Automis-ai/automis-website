@@ -12,7 +12,7 @@ export default {
   },
 
   labels: {
-    more: "Detalhes",
+    more: "Ler mais",
   },
 
   hub: {
@@ -30,7 +30,6 @@ export default {
         { slug: "admin", title: "Sistemas de IA para Administração", line: "Documentos, dados e rotina a cargo do sistema." },
         { slug: "hr", title: "Sistemas de IA para Recursos Humanos", line: "Um cérebro da empresa para os novos colegas." },
       ],
-      cta: "Explorar",
     },
     products: {
       title: "Dois produtos para começar",
@@ -173,6 +172,27 @@ export default {
       },
     ],
     case: null,
+    faq: {
+      title: "Perguntas frequentes",
+      items: [
+        {
+          q: "Quem trata das campanhas, vocês ou o sistema?",
+          a: "O sistema faz o trabalho de todos os dias: testa criativos e passa o orçamento para os que convertem. Todos os meses revemos os resultados e melhoramo-lo, com uma pessoa a supervisionar.",
+        },
+        {
+          q: "O que é o GEO?",
+          a: "São conteúdos escritos para serem citados nas respostas do ChatGPT, do Perplexity e de ferramentas semelhantes, além de se posicionarem no Google. Ninguém pode garantir uma citação, mas trabalhamos para que os seus conteúdos estejam claros e prontos para a merecer.",
+        },
+        {
+          q: "O AI E-commerce Manager pode mudar preços ou fazer reembolsos?",
+          a: "Não. Preços, reembolsos e devoluções nunca ficam entregues a uma IA, e tudo o que custa dinheiro ou mexe na loja espera pela sua aprovação.",
+        },
+        {
+          q: "Quanto custa?",
+          a: "Orçamentamos depois de ouvirmos como trabalha, porque construímos sobre os seus processos e não sobre um pacote standard. Conte-nos o seu caso e dizemos-lhe por onde começaríamos.",
+        },
+      ],
+    },
     cta: {
       title: "Qual destes ajudaria mais?",
       line: "Conte-nos o seu negócio e dizemos-lhe por onde começaríamos.",
@@ -273,9 +293,30 @@ export default {
     case: {
       eyebrow: "Caso real",
       title: "ADifesa",
-      line: "Comentários e DMs no Facebook e no Instagram, tratados e qualificados: 2.329 conversas em cinco meses e 524 fichas completas.",
+      line: "Comentários e DMs no Facebook e no Instagram, tratados e qualificados: 2.329 conversas de 1 de maio a 16 de setembro de 2026 e 524 fichas completas.",
       cta: "Ler o caso",
       href: "/use-cases/adifesa",
+    },
+    faq: {
+      title: "Perguntas frequentes",
+      items: [
+        {
+          q: "Funciona com o CRM que já uso?",
+          a: "Se a sua ferramenta tiver API, ligamo-nos a ela: o HubSpot e o GoHighLevel, por exemplo. Se nenhuma servir, construímos o CRM à medida da forma como a sua equipa vende.",
+        },
+        {
+          q: "Quem responde aos comentários e às DMs, a IA ou uma pessoa?",
+          a: "A IA responde com as suas regras e escreve o contacto qualificado no CRM. Os casos delicados passam para uma pessoa da sua equipa.",
+        },
+        {
+          q: "Os dados dos meus contactos estão seguros?",
+          a: "Trabalhamos alinhados com o RGPD desde o início. Os dados podem ficar em servidores na UE e, antes de começar, dizemos-lhe que fornecedores tratam o quê e onde.",
+        },
+        {
+          q: "Quanto custa?",
+          a: "Orçamentamos depois de ouvirmos como trabalha, porque construímos sobre os seus processos e não sobre um pacote standard. Conte-nos o seu caso e dizemos-lhe por onde começaríamos.",
+        },
+      ],
     },
     cta: {
       title: "Onde se perdem os seus contactos?",
@@ -357,9 +398,30 @@ export default {
     case: {
       eyebrow: "Caso real",
       title: "Clínica Santa Maria dos Olivais",
-      line: "Um assistente de voz no telefone de uma clínica dentária: 872 chamadas em sete meses, 527 resolvidas sem passar pela receção e 114 marcações.",
+      line: "Um assistente de voz no telefone de uma clínica dentária: 872 chamadas de 1 de fevereiro a 9 de setembro de 2026, 527 resolvidas pelo assistente e 114 marcações.",
       cta: "Ler o caso",
       href: "/use-cases/clinica-santa-maria",
+    },
+    faq: {
+      title: "Perguntas frequentes",
+      items: [
+        {
+          q: "Quanto custa a rececionista de voz?",
+          a: "A Voice AI custa a partir de 297 €/mês. Os outros sistemas de apoio ao cliente são orçamentados depois de ouvirmos como trabalha, sem pacotes standard.",
+        },
+        {
+          q: "Em quanto tempo fica a funcionar?",
+          a: "Cerca de 7 dias para a Voice AI e as automações simples. Nos sistemas complexos, combinamos consigo os prazos antes de começar.",
+        },
+        {
+          q: "O que acontece com as chamadas delicadas?",
+          a: "Passam para uma pessoa da sua equipa. A IA trata dos pedidos repetitivos e os casos delicados chegam até si.",
+        },
+        {
+          q: "E se não funcionar para nós?",
+          a: "Todos os planos Voice AI têm garantia de desempenho de 30 dias. O risco do primeiro passo é nosso.",
+        },
+      ],
     },
     cta: {
       title: "Quem atende quando não pode?",
@@ -426,11 +488,55 @@ export default {
       },
     ],
     case: null,
+    brain: {
+      title: "Pergunte aos seus documentos",
+      caption: "Documentos de exemplo, já digitalizados e arquivados. Toque numa pergunta.",
+      windowTitle: "Arquivo de documentos",
+      sourceLabel: "Fonte",
+      queries: [
+        {
+          q: "Quando termina o contrato de arrendamento do armazém?",
+          a: "O contrato termina no fim do ano e renova-se sozinho, salvo denúncia com seis meses de antecedência.",
+          sources: [{ doc: "Contrato de arrendamento do armazém", where: "Digitalização · cláusula 4, duração" }],
+        },
+        {
+          q: "Onde arquivei a fatura do fornecedor de junho?",
+          a: "Está em Faturas de fornecedores, na pasta de junho. Mudei-lhe o nome para data e fornecedor, e os dados principais estão na ficha.",
+          sources: [{ doc: "Faturas de fornecedores", where: "Arquivo · junho" }],
+        },
+        {
+          q: "O fornecedor já enviou a guia de remessa?",
+          a: "Já, chegou por email esta manhã. Li-a, classifiquei-a como guia de remessa e arquivei-a com as outras.",
+          sources: [{ doc: "Guias de remessa", where: "Recebidas por email" }],
+        },
+      ],
+    },
     crossLink: {
       title: "Company Brain",
       line: "Um cérebro privado sobre os seus documentos, a que a equipa pergunta e recebe uma resposta com a fonte. Encontra-o nos Sistemas de IA para Recursos Humanos.",
       cta: "Ver o Company Brain",
       href: "/systems/hr",
+    },
+    faq: {
+      title: "Perguntas frequentes",
+      items: [
+        {
+          q: "Os meus documentos estão seguros?",
+          a: "Trabalhamos alinhados com o RGPD desde o início. Os dados podem ficar em servidores na UE e, antes de começar, dizemos-lhe que fornecedores tratam o quê e onde.",
+        },
+        {
+          q: "Funciona com documentos em papel?",
+          a: "Sim. O sistema lê os documentos digitalizados, extrai os campos principais e arquiva-os como dados onde pode pesquisar.",
+        },
+        {
+          q: "Funciona com o software que já uso?",
+          a: "Se o seu software tiver API, ligamo-nos a ele. Quando as ferramentas standard não seguem as suas regras, como no regime 74-ter, construímos o software de gestão à medida.",
+        },
+        {
+          q: "Alguém verifica o trabalho da IA?",
+          a: "Sim. Uma pessoa supervisiona os resultados, os casos delicados vão para a sua equipa e todos os meses melhoramos o sistema.",
+        },
+      ],
     },
     cta: {
       title: "Que papelada lhe consome a semana?",
@@ -483,6 +589,27 @@ export default {
           q: "Preciso de autorização para reembolsar um cliente?",
           a: "Até ao limite habitual, o apoio ao cliente aprova diretamente. Acima desse limite, é preciso o responsável.",
           sources: [{ doc: "Política de reembolsos", where: "Aprovações" }],
+        },
+      ],
+    },
+    faq: {
+      title: "Perguntas frequentes",
+      items: [
+        {
+          q: "De onde vêm as respostas do Brain?",
+          a: "Dos documentos da sua empresa. Cada resposta indica a fonte, para o novo colega a poder confirmar.",
+        },
+        {
+          q: "Os meus documentos ficam privados?",
+          a: "Sim, o Brain é privado e trabalha sobre os seus documentos. Trabalhamos alinhados com o RGPD desde o início, os dados podem ficar em servidores na UE e, antes de começar, dizemos-lhe que fornecedores tratam o quê e onde.",
+        },
+        {
+          q: "Preciso de pessoal técnico?",
+          a: "Não. Somos nós que construímos, ativamos e mantemos o sistema. O que entregamos é seu.",
+        },
+        {
+          q: "Quanto custa e quanto tempo demora?",
+          a: "Orçamentamos depois de ouvirmos como trabalha e combinamos consigo o prazo antes de começar. Não há pacote standard.",
         },
       ],
     },

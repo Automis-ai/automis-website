@@ -29,19 +29,8 @@
 .v2sx-tile {
   grid-template-rows: 1fr auto; /* il dettaglio che si apre resta in fondo, sulla stessa linea fra schede vicine */
 }
-/* Una scheda sola in fondo alla griglia resta larga una colonna (non si allunga sulla riga). La scheda
-   unica di una categoria (Risorse umane) sta al centro. */
-.v2sx-solo {
-  max-width: 44rem;
-  margin-inline: auto;
-}
-
 .v2sx-back {
   margin-top: 24px;
-}
-.v2sx-solo + .v2sx-back,
-.v2sx-back--center {
-  text-align: center;
 }
 
 /* ---------- Scheda grande: prodotto o rimando ---------- */
@@ -278,4 +267,80 @@
 
 .v2sx-prod__name {
   text-wrap: balance;
+}
+
+/* ---------- Scheda sola + demo affiancate (Risorse umane) ----------
+   La scheda ha la stessa larghezza di una scheda delle altre pagine; il resto della riga lo prende la demo. */
+.v2sx-duo {
+  display: grid;
+  gap: 20px;
+  align-items: start;
+}
+.v2sx-duo__demo {
+  min-width: 0;
+}
+@media (min-width: 1024px) {
+  .v2sx-duo {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 32px;
+  }
+}
+
+/* ---------- Rimando a fine pagina, a tutta larghezza ---------- */
+@media (min-width: 768px) {
+  .v2sx-prod--wide {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "top name cta" "top line cta";
+    column-gap: 24px;
+    align-items: center;
+  }
+  .v2sx-prod--wide .v2sx-prod__top {
+    grid-area: top;
+  }
+  .v2sx-prod--wide .v2sx-prod__name {
+    grid-area: name;
+    margin: 0;
+    align-self: end;
+  }
+  .v2sx-prod--wide .v2sx-prod__line {
+    grid-area: line;
+    align-self: start;
+    max-width: 44rem;
+  }
+  .v2sx-prod--wide .v2sx-prod__cta {
+    grid-area: cta;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+  }
+}
+
+/* ---------- Titolo a sinistra, contenuto a destra (domande frequenti, conformità): larghezza della pagina ---------- */
+.v2sx-aside {
+  display: grid;
+  gap: 8px;
+}
+.v2sx-aside > .v2-head {
+  margin-bottom: 8px;
+}
+@media (min-width: 1024px) {
+  .v2sx-aside {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: 56px;
+    align-items: start;
+  }
+  .v2sx-aside > .v2-head {
+    margin-bottom: 0;
+  }
+}
+
+/* La scheda con il link «Scopri di più» ha il dettaglio che si apre in fondo, come le altre: stesso padding. */
+.v2sx-tile.v2-sys--cta {
+  padding-bottom: 16px;
+}
+@media (min-width: 768px) {
+  .v2sx-tile.v2-sys--cta {
+    padding-bottom: 20px;
+  }
 }

@@ -11,7 +11,7 @@ export default {
   },
 
   labels: {
-    more: "Details",
+    more: "Read more",
   },
 
   hub: {
@@ -29,7 +29,6 @@ export default {
         { slug: "admin", title: "AI Systems for Admin", line: "Documents, data and routine tasks handled for you." },
         { slug: "hr", title: "AI Systems for HR", line: "A company brain for new colleagues." },
       ],
-      cta: "Explore",
     },
     products: {
       title: "Two products you can start from",
@@ -172,6 +171,27 @@ export default {
       },
     ],
     case: null,
+    faq: {
+      title: "Frequently asked questions",
+      items: [
+        {
+          q: "Who runs the campaigns, you or the system?",
+          a: "The system does the day-to-day work: it tests creatives and moves budget to the ones that convert. Every month we review the results and improve it, with a person overseeing.",
+        },
+        {
+          q: "What is GEO?",
+          a: "It is content written to be cited in the answers of ChatGPT, Perplexity and similar tools, on top of ranking on Google. Nobody can guarantee a citation. We work so your content is clear and ready to earn one.",
+        },
+        {
+          q: "Can the AI E-commerce Manager change prices or issue refunds?",
+          a: "No. Prices, refunds and returns are never left to an AI, and anything that costs money or touches your store waits for your approval.",
+        },
+        {
+          q: "How much does it cost?",
+          a: "We quote after we have heard how your business works, because we build around your processes, not a standard package. Tell us your case and we will say where we would start.",
+        },
+      ],
+    },
     cta: {
       title: "Which of these would help most?",
       line: "Tell us about your business and we will tell you where we would start.",
@@ -272,9 +292,30 @@ export default {
     case: {
       eyebrow: "Real case",
       title: "ADifesa",
-      line: "Comments and DMs on Facebook and Instagram, answered and qualified: 2,329 conversations in five months and 524 complete records.",
+      line: "Comments and DMs on Facebook and Instagram, answered and qualified: 2,329 conversations from 1 May to 16 September 2026 and 524 complete records.",
       cta: "Read the case",
       href: "/use-cases/adifesa",
+    },
+    faq: {
+      title: "Frequently asked questions",
+      items: [
+        {
+          q: "Does it work with the CRM I already use?",
+          a: "If your tool has an API, we connect to it: HubSpot and GoHighLevel, for example. If nothing fits, we build the CRM around how your team sells.",
+        },
+        {
+          q: "Who answers comments and DMs, the AI or a person?",
+          a: "The AI answers with your rules and writes the qualified contact into your CRM. Delicate cases go to a person on your team.",
+        },
+        {
+          q: "Is my contacts' data safe?",
+          a: "We work GDPR-first. Data can be stored on EU servers, and before we start we tell you which providers process what, and where.",
+        },
+        {
+          q: "How much does it cost?",
+          a: "We quote after we have heard how your business works, because we build around your processes, not a standard package. Tell us your case and we will say where we would start.",
+        },
+      ],
     },
     cta: {
       title: "Where do your leads get lost?",
@@ -356,9 +397,30 @@ export default {
     case: {
       eyebrow: "Real case",
       title: "Clínica Santa Maria dos Olivais",
-      line: "A voice assistant on a dental clinic's phone line: 872 calls in seven months, 527 closed without reaching the front desk and 114 appointments booked.",
+      line: "A voice assistant on a dental clinic's phone line: 872 calls from 1 February to 9 September 2026, 527 closed by the assistant and 114 appointments booked.",
       cta: "Read the case",
       href: "/use-cases/clinica-santa-maria",
+    },
+    faq: {
+      title: "Frequently asked questions",
+      items: [
+        {
+          q: "How much does the voice receptionist cost?",
+          a: "Voice AI starts from €297/month. We quote the other support systems after we have heard how your business works, with no standard packages.",
+        },
+        {
+          q: "How long until it goes live?",
+          a: "About 7 days for Voice AI and simple automations. For complex systems we agree a timeline with you before we start.",
+        },
+        {
+          q: "What happens with delicate calls?",
+          a: "They go to a person on your team. The AI handles the repetitive requests, and delicate cases come to you.",
+        },
+        {
+          q: "What if it doesn't work for us?",
+          a: "Every Voice AI plan has a 30-day performance guarantee. We take the risk of the first step.",
+        },
+      ],
     },
     cta: {
       title: "Who answers when you can't?",
@@ -425,11 +487,55 @@ export default {
       },
     ],
     case: null,
+    brain: {
+      title: "Ask your documents",
+      caption: "Sample documents, already scanned and filed. Tap a question.",
+      windowTitle: "Document archive",
+      sourceLabel: "Source",
+      queries: [
+        {
+          q: "When does the warehouse lease end?",
+          a: "The lease ends at the end of the year and renews on its own unless you give six months' notice.",
+          sources: [{ doc: "Warehouse lease", where: "Scan · clause 4, term" }],
+        },
+        {
+          q: "Where did I file the June supplier invoice?",
+          a: "It is in Supplier invoices, in the June folder. I renamed it with the date and supplier, and the key details are on its record.",
+          sources: [{ doc: "Supplier invoices", where: "Archive · June" }],
+        },
+        {
+          q: "Has the supplier sent the delivery note yet?",
+          a: "Yes, it arrived by email this morning. I read it, classed it as a delivery note and filed it with the others.",
+          sources: [{ doc: "Delivery notes", where: "Received by email" }],
+        },
+      ],
+    },
     crossLink: {
       title: "Company Brain",
       line: "A private brain over your documents, where your team asks and gets an answer with its source. You will find it under AI Systems for HR.",
       cta: "See the Company Brain",
       href: "/systems/hr",
+    },
+    faq: {
+      title: "Frequently asked questions",
+      items: [
+        {
+          q: "Are my documents safe?",
+          a: "We work GDPR-first. Data can be stored on EU servers, and before we start we tell you which providers process what, and where.",
+        },
+        {
+          q: "Does it work with paper documents?",
+          a: "Yes. The system reads scanned documents, pulls out the key fields and files them as data you can search.",
+        },
+        {
+          q: "Does it work with the software I already use?",
+          a: "If your software has an API, we connect to it. Where standard tools don't follow your rules, like the 74-ter VAT scheme, we build the accounting software around them.",
+        },
+        {
+          q: "Does anyone check the AI's work?",
+          a: "Yes. A person oversees the results, delicate cases go to your team, and every month we improve the system.",
+        },
+      ],
     },
     cta: {
       title: "Which paperwork eats your week?",
@@ -482,6 +588,27 @@ export default {
           q: "Can I approve a customer refund myself?",
           a: "Within the standard limit, support can approve it directly. Above it, the manager has to approve.",
           sources: [{ doc: "Refund policy", where: "Approvals" }],
+        },
+      ],
+    },
+    faq: {
+      title: "Frequently asked questions",
+      items: [
+        {
+          q: "Where does the Brain get its answers?",
+          a: "From your company's documents. Every answer shows its source, so the new hire can check it.",
+        },
+        {
+          q: "Do my documents stay private?",
+          a: "Yes. The Brain is private and works on your documents. We work GDPR-first, data can be stored on EU servers, and before we start we tell you which providers process what, and where.",
+        },
+        {
+          q: "Do we need technical staff?",
+          a: "No. We build, launch and maintain the system, and you use it. What we deliver is yours.",
+        },
+        {
+          q: "How much does it cost and how long does it take?",
+          a: "We quote after we have heard how your business works, and we agree the timeline with you before we start. There is no standard package.",
         },
       ],
     },

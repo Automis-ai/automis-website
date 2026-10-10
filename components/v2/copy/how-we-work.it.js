@@ -5,13 +5,13 @@ export default {
   meta: {
     title: "Come lavoriamo | Prima ascoltiamo, poi costruiamo | Automis",
     description:
-      "Tre passi: ascoltiamo e facciamo la diagnosi, progettiamo e attiviamo sul tuo processo, poi miglioriamo il sistema ogni mese con supervisione umana.",
+      "Tre passi: ascoltiamo e capiamo dove perdi tempo, costruiamo il sistema sul tuo modo di lavorare, poi lo miglioriamo ogni mese, con una persona che lo supervisiona.",
   },
 
   hero: {
     eyebrow: "Come lavoriamo",
     title: "Prima ascoltiamo, poi costruiamo",
-    lead: "Tre passi, dalla prima call al miglioramento mensile, e sai sempre cosa sta succedendo.",
+    lead: "Tre passi, dalla prima call al miglioramento di ogni mese. E sai sempre a che punto siamo.",
     accent: "poi costruiamo",
   },
 
@@ -27,15 +27,15 @@ export default {
       {
         n: "2",
         title: "Progettazione e attivazione",
-        line: "Lo costruiamo sul tuo processo, e lo provi prima del lancio.",
-        more: "Niente parte finché non funziona come lavora davvero la tua attività.",
+        line: "Lo costruiamo sul tuo modo di lavorare.",
+        more: "Prima del lancio lo provi tu: va online solo quando funziona come lavori davvero.",
         meta: "Circa 7 giorni. Tempi su misura se il sistema è complesso.",
       },
       {
         n: "3",
         title: "Gestione e miglioramento",
         line: "Lo controlliamo e lo miglioriamo ogni mese.",
-        more: "Dopo il lancio restiamo con te. Una persona supervisiona i risultati e il sistema diventa più preciso con il tempo.",
+        more: "Dopo il lancio restiamo con te. Una persona controlla i risultati e il sistema diventa più preciso mese dopo mese.",
       },
     ],
   },
@@ -44,7 +44,7 @@ export default {
     title: "Cosa non cambia da un progetto all'altro",
     items: [
       { title: "È tuo", line: "Quello che costruiamo è tuo. Niente scatole nere, nessun obbligo di restare con noi." },
-      { title: "La privacy viene prima", line: "Rispettiamo il GDPR dal primo giorno, con hosting nell'UE per i dati sensibili." },
+      { title: "La privacy viene prima", line: "Rispettiamo il GDPR dal primo giorno, e i dati sensibili possono stare su server UE." },
       { title: "Una persona c'è sempre", line: "L'IA fa il lavoro ripetitivo. I casi delicati arrivano al tuo team." },
     ],
   },
@@ -57,26 +57,34 @@ export default {
         a: "Dura 30 minuti: ci racconti come lavori e dove perdi tempo e soldi, e ne esci con le idee chiare su dove l'IA ti serve di più.",
       },
       {
-        q: "Quanto ci vuole per andare online?",
-        a: "Circa 7 giorni per Voice AI e automazioni semplici. Per i sistemi complessi concordiamo i tempi con te prima di iniziare.",
+        q: "In quanto tempo si parte?",
+        a: "Voice AI e automazioni semplici partono in circa 7 giorni. Per i sistemi complessi i tempi sono su misura, e li concordiamo con te prima di iniziare.",
       },
       {
-        q: "Chi fa il lavoro?",
-        a: "I due fondatori. Chi progetta il tuo sistema è chi lo costruisce, senza passare il lavoro a dei junior.",
+        q: "Quanto costa?",
+        a: "Voice AI parte da 297 €/mese. Il resto lo preventiviamo dopo aver capito come lavori: costruiamo sui tuoi processi, senza pacchetti standard.",
+      },
+      {
+        q: "I miei dati sono al sicuro?",
+        a: "Rispettiamo il GDPR dal primo giorno. I dati possono stare su server UE, i casi delicati passano a una persona e, prima di partire, ti diciamo quali fornitori trattano quali dati e dove.",
       },
       {
         q: "Serve personale tecnico?",
-        a: "No. Progettiamo, costruiamo, attiviamo e manteniamo tutto noi, tu lo usi. Quello che consegniamo è tuo.",
+        a: "No. Costruiamo, attiviamo e manteniamo tutto noi, tu lo usi. Quello che consegniamo è tuo, senza scatole nere in affitto.",
       },
       {
         q: "Cosa succede dopo il lancio?",
-        a: "Ogni mese rivediamo come va il sistema e lo miglioriamo. È questo lavoro continuo che copre il piano mensile.",
+        a: "Restiamo con te. Ogni mese controlliamo come va il sistema e lo miglioriamo, e una persona ne supervisiona i risultati. Il piano mensile serve a questo.",
+      },
+      {
+        q: "E se non funziona per noi?",
+        a: "Ogni piano Voice AI ha 30 giorni di garanzia sui risultati, e se un progetto su misura ha un costo di setup, te lo rimborsiamo. Il rischio del primo passo lo prendiamo noi.",
       },
     ],
   },
 
   cta: {
     title: "Pronto a fare il primo passo?",
-    line: "Raccontaci come funziona la tua attività. È tutto ciò che ci serve per iniziare.",
+    line: "Raccontaci come funziona la tua attività: per cominciare ci serve solo questo.",
   },
 };

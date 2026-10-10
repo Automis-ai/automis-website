@@ -11,6 +11,7 @@ export const metadata = buildMetadata({
   description: meta.description,
 });
 
-export default function HomeIt() {
-  return <HomePage lang="it" />;
+// ?tono=b mostra la variante B dei toni; senza parametro vale la A (vedi components/v2/ui/toneClass.js).
+export default function HomeIt({ searchParams }) {
+  return <HomePage lang="it" tono={searchParams?.tono} />;
 }

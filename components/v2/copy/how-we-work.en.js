@@ -44,7 +44,7 @@ export default {
     title: "What stays the same on every project",
     items: [
       { title: "You own it", line: "What we build is yours. No black box, no lock-in." },
-      { title: "Privacy first", line: "GDPR-aligned from day one, with EU hosting for sensitive data." },
+      { title: "Privacy first", line: "GDPR-aligned from day one, with EU hosting options for sensitive data." },
       { title: "A person in the loop", line: "AI does the repetitive work. Delicate cases go straight to your team." },
     ],
   },
@@ -58,19 +58,27 @@ export default {
       },
       {
         q: "How long until it goes live?",
-        a: "About 7 days for Voice AI and simple automations. For complex systems we agree a timeline with you before we start.",
+        a: "Voice AI and simple automations go live in about 7 days. Complex systems get a timeline we agree with you before anything starts.",
       },
       {
-        q: "Who does the work?",
-        a: "The two founders. The people who design your system are the people who build it, with no handoff to a junior team.",
+        q: "How much does it cost?",
+        a: "Voice AI starts from €297/month. Everything else is quoted after we have heard how your business works, because we build around your processes, not a standard package.",
+      },
+      {
+        q: "Is my data safe?",
+        a: "We work GDPR-first. Data can be stored on EU servers, sensitive cases go to a person, and before we start we tell you which providers process what, and where.",
       },
       {
         q: "Do we need technical staff?",
-        a: "No. We design, build, launch and maintain the system, and you use it. What we deliver is yours.",
+        a: "No. We build, launch and maintain the system, and you use it. What we deliver is yours, not a black box you rent.",
       },
       {
         q: "What happens after launch?",
-        a: "Every month we review how the system performs and improve it. That ongoing work is what the monthly plan covers.",
+        a: "We stay with you. Every month we review how the system performs and improve it, with a person overseeing the result. That ongoing work is what the monthly plan covers.",
+      },
+      {
+        q: "What if it doesn't work for us?",
+        a: "Every Voice AI plan has a 30-day performance guarantee, and custom projects with a setup fee come with a refund of it. We take the risk of the first step.",
       },
     ],
   },

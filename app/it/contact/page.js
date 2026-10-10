@@ -13,10 +13,10 @@ export const metadata = buildMetadata({
   description: copy.meta.description,
 });
 
-export default function ContactPage() {
+export default function ContactPage({ searchParams }) {
   return (
     <AutomisEnShell>
-      <ContactView lang={LANG} />
+      <ContactView lang={LANG} tono={searchParams?.tono} />
     </AutomisEnShell>
   );
 }

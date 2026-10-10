@@ -1,48 +1,47 @@
-import Hero from "@/components/v2/ui/Hero";
+import PageHero from "@/components/v2/ui/PageHero";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
-import Faq from "@/components/v2/ui/Faq";
 import CtaBand from "@/components/v2/ui/CtaBand";
+import { toneClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
-import { withAccent } from "@/components/v2/about/withAccent";
 import PrincipleCards from "@/components/v2/about/PrincipleCards";
+import FaqSection from "@/components/v2/systems/FaqSection";
+import { heroTitle } from "@/components/v2/systems/heroTitle";
 import HowSteps from "./HowSteps";
-import CategoryArt from "@/components/v2/systems/CategoryArt";
 
-/* Come lavoriamo: i tre passi di business.md, ciò che resta vero in ogni progetto, le domande prima della prima call.
-   Il ritmo: scuro, chiaro, blu, chiaro, chiusura. Cornice e metadati stanno nel file di rotta. */
-export default function HowWeWorkView({ lang }) {
+/* Come lavoriamo: i tre passi di business.md, ciò che resta vero in ogni progetto, le domande generali
+   (tempi, prezzi, dati, come si parte). Il ritmo: scuro, chiaro, blu, chiaro, chiusura.
+   Cornice e metadati stanno nel file di rotta. `tono`: ?tono= della preview. */
+export default function HowWeWorkView({ lang, tono }) {
   const t = getCopy("how-we-work", lang);
   const c = getCopy("common", lang);
+  const moreLabel = getCopy("systems", lang).labels.more;
   const contact = addLangPrefix("/contact", lang);
 
   return (
-    <>
-      <Hero
+    <div className={toneClass(tono)}>
+      <PageHero
+        size="compact"
         eyebrow={t.hero.eyebrow}
-        title={withAccent(t.hero.title, t.hero.accent)}
+        {...heroTitle(t.hero.title, t.hero.accent)}
         subtitle={t.hero.lead}
         primaryCta={{ label: c.cta, href: contact }}
-        media={<CategoryArt icon="spark" items={["contact", "sliders", "repeat"]} />}
       />
 
       <Section tone="light">
         <SectionHeader title={t.steps.title} />
-        <HowSteps items={t.steps.items} moreLabel={c.ui.more} />
+        <HowSteps items={t.steps.items} moreLabel={moreLabel} />
       </Section>
 
       <Section tone="deep">
         <SectionHeader title={t.principles.title} />
-        <PrincipleCards items={t.principles.items} />
+        <PrincipleCards items={t.principles.items} moreLabel={moreLabel} />
       </Section>
 
-      <Section tone="light" width="narrow">
-        <SectionHeader title={t.faq.title} />
-        <Faq jsonLd items={t.faq.items.map((f) => ({ question: f.q, answer: f.a }))} />
-      </Section>
+      <FaqSection tone="light" title={t.faq.title} items={t.faq.items} />
 
       <CtaBand tone="light" title={t.cta.title} line={t.cta.line} button={{ label: c.cta, href: contact }} />
-    </>
+    </div>
   );
 }

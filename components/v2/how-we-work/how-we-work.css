@@ -24,3 +24,23 @@
     font-size: 16px;
   }
 }
+
+/* Da 768 px i tre passi stanno in riga: il testo che si apre resta sulla stessa linea in fondo a ogni passo. */
+@media (min-width: 768px) {
+  .v2h-step {
+    display: flex;
+    flex-direction: column;
+  }
+  .v2h-step > div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+  .v2-section .v2h-meta {
+    align-self: flex-start;
+  }
+  .v2h-step .v2-disc {
+    margin-top: auto;
+    padding-top: 8px;
+  }
+}

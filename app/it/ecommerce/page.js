@@ -11,6 +11,6 @@ export const metadata = buildMetadata({
   description: copy.meta.description,
 });
 
-export default function Page() {
-  return <EcommercePage locale="it" />;
+export default function Page({ searchParams }) {
+  return <EcommercePage locale="it" tono={searchParams?.tono} />;
 }

@@ -1,6 +1,8 @@
-/* Home v2 (IT). Sette sezioni, nell'ordine della §6 del brief:
-   hero, proof, categories, how, cases, finder (il componente esistente porta i suoi testi), chiusura (founders, guarantee, faq, book).
-   I percorsi dei link sono senza prefisso di lingua. */
+/* Home v2 (IT), giro 2. Ordine di Luca (§13 del brief):
+   hero centrata, categorie (con l'animazione «journey» sotto il titolo), come lavoriamo, casi studio,
+   Opportunity Finder, founder, call in fondo.
+   «Come lavoriamo», Finder, founder e call sono i componenti originali del sito: portano i loro testi.
+   Qui stanno hero, categorie e casi. I percorsi dei link sono senza prefisso di lingua. */
 export default {
   meta: {
     title: "Automis | Agenzia IA per marketing, vendite e amministrazione",
@@ -10,137 +12,64 @@ export default {
 
   hero: {
     eyebrow: "Agenzia IA",
-    title: "Costruiamo il sistema IA che manca alla tua azienda.",
-    highlight: ["sistema IA"],
+    // «sistema IA» con uno spazio che non va a capo: il titolo non si spezza fra le due parole evidenziate.
+    title: "Costruiamo il sistema\u00a0IA che manca alla tua azienda.",
+    highlight: ["sistema\u00a0IA"],
     lead: "Prima ascoltiamo come lavori, poi lo costruiamo su misura. Con sistemi che lavorano già ogni giorno per i nostri clienti.",
     cta: "Raccontaci il tuo caso",
-    ctaSecondary: "Guarda i casi",
-    call: {
-      title: "Chiamata dimostrativa",
-      status: "Ascolta come risponde",
-      play: "Ascolta la chiamata",
-      pause: "Metti in pausa",
-      replay: "Riascolta la chiamata",
-      agent: "Automis",
-      caller: "Cliente",
-      transcript: "Leggi la conversazione",
-      note: "Dimostrazione con voci di esempio.",
-      aria: "Chiamata dimostrativa: un assistente vocale fissa un appuntamento",
-      lines: [
-        "Automis, buonasera. Come posso aiutarla?",
-        "Buonasera. Vorrei prenotare un appuntamento.",
-        "Certamente. Ho un posto giovedì, alle dieci e mezza. Le va bene?",
-        "Sì, perfetto.",
-        "Benissimo. Le ho appena inviato un SMS con la conferma. Desidera altro?",
-        "No, grazie mille.",
-        "Di nulla. Le auguro una buona serata!",
-      ],
-    },
-  },
-
-  proof: {
-    label: "Già al lavoro per",
-    figure: "872",
-    figureLabel: "chiamate gestite dall'assistente vocale di una clinica dentale di Lisbona in sette mesi",
+    ctaSecondary: "Scopri i sistemi",
   },
 
   categories: {
     title: "Un sistema per ogni area della tua azienda",
     lead: "Parti dall'area in cui perdi più tempo.",
+    journeyLabel: "Animazione: dal primo contatto al cliente, con i sistemi Automis al lavoro",
     items: [
-      { slug: "marketing", title: "Sistemi IA per il Marketing" },
-      { slug: "sales", title: "Sistemi IA per la Vendita" },
-      { slug: "support", title: "Sistemi IA per l'Assistenza" },
-      { slug: "admin", title: "Sistemi IA per l'Amministrazione" },
-      { slug: "hr", title: "Sistemi IA per le Risorse umane" },
+      { slug: "marketing", title: "Sistemi IA per il Marketing", line: "Ads, SEO, contenuti e recensioni." },
+      { slug: "sales", title: "Sistemi IA per la Vendita", line: "Ogni contatto riceve risposta." },
+      { slug: "support", title: "Sistemi IA per l'Assistenza", line: "Chiamate e chat, a ogni ora." },
+      { slug: "admin", title: "Sistemi IA per l'Amministrazione", line: "Documenti e dati in automatico." },
+      { slug: "hr", title: "Sistemi IA per le Risorse umane", line: "Un Brain per i nuovi colleghi." },
     ],
-    cta: "Vedi tutti i sistemi",
-  },
-
-  how: {
-    title: "Come lavoriamo",
-    steps: [
-      { title: "Ascolto e diagnosi", line: "Capiamo come lavori e dove perdi tempo." },
-      { title: "Progettazione e attivazione", line: "Costruiamo il sistema su misura, tu lo provi per primo." },
-      { title: "Gestione e miglioramento", line: "Controlliamo il sistema e lo miglioriamo ogni mese." },
-    ],
-    cta: "Scopri come lavoriamo",
   },
 
   cases: {
-    title: "Sistemi già al lavoro",
+    eyebrow: "I risultati dei nostri clienti",
+    title: "Business veri. Sistemi veri. Già attivi.",
+    readCase: "Leggi il caso studio",
     items: [
       {
-        slug: "clinica-santa-maria",
+        key: "clinica",
         client: "Clínica Santa Maria dos Olivais",
-        tag: "Receptionist vocale IA",
-        system: "Un assistente vocale risponde e fissa gli appuntamenti.",
-        figure: "872",
-        figureLabel: "chiamate in sette mesi",
-        cta: "Leggi il caso",
+        meta: "Clinica dentale · Lisbona, PT",
+        tag: "Segretaria IA",
+        result: "Un assistente vocale sul telefono della clinica: 872 chiamate in sette mesi e 114 appuntamenti presi.",
         href: "/use-cases/clinica-santa-maria",
       },
       {
-        slug: "adifesa",
+        key: "adifesa",
         client: "ADifesa",
+        meta: "Associazione di tutela · Lissone, Italia",
         tag: "Automazione Meta",
-        system: "Un'automazione risponde su Facebook e Instagram e raccoglie i dati di chi scrive.",
-        figure: "2.329",
-        figureLabel: "conversazioni in cinque mesi",
-        cta: "Leggi il caso",
+        result: "Commenti e messaggi su Facebook e Instagram, gestiti e qualificati: 2.329 conversazioni in cinque mesi.",
         href: "/use-cases/adifesa",
       },
-    ],
-    all: "Tutti i casi studio",
-  },
-
-
-  founders: {
-    title: "Due fondatori che ci mettono le mani",
-    line: "Chi progetta il tuo sistema è lo stesso che lo costruisce.",
-    items: [
-      { name: "Vincenzo Luca Casillo", role: "Crescita e marketing guidati dall'IA" },
-      { name: "Arcangelo Bianco", role: "Automazione IA e audit" },
-    ],
-  },
-
-  guarantee: {
-    title: "La nostra garanzia",
-    line: "30 giorni di garanzia sui risultati per ogni piano Voice AI.",
-  },
-
-  faq: {
-    title: "Risposte dirette",
-    items: [
       {
-        q: "In quanto tempo si parte?",
-        a: "Voice AI e automazioni semplici partono in circa 7 giorni. Per i sistemi complessi i tempi sono su misura, e li concordiamo con te prima di iniziare.",
+        key: "album",
+        client: "Un fotografo professionista",
+        meta: "Fotografia professionale",
+        tag: "Strumento per album",
+        result: "Da 1.200 a 1.800 scatti di un evento sceglie circa 280 foto, poi impagina l'album.",
+        href: "/use-cases/album-ai",
       },
       {
-        q: "Quanto costa?",
-        a: "Voice AI parte da 297 €/mese. Il resto lo preventiviamo dopo aver capito come lavori: costruiamo sui tuoi processi, senza pacchetti standard.",
-      },
-      {
-        q: "I miei dati sono al sicuro?",
-        a: "Rispettiamo il GDPR dal primo giorno. I dati possono stare su server UE, i casi delicati passano a una persona e prima di partire ti diciamo quali fornitori trattano quali dati e dove.",
-      },
-      {
-        q: "Serve personale tecnico?",
-        a: "No. Costruiamo, attiviamo e manteniamo tutto noi, tu lo usi. Quello che consegniamo è tuo, senza scatole nere in affitto.",
-      },
-      {
-        q: "Cosa succede dopo il lancio?",
-        a: "Restiamo con te. Ogni mese controlliamo come va il sistema e lo miglioriamo, con una persona che supervisiona il risultato.",
-      },
-      {
-        q: "E se non funziona per noi?",
-        a: "Ogni piano Voice AI ha 30 giorni di garanzia sui risultati, e se un progetto su misura ha un costo di setup, te lo rimborsiamo. Il rischio del primo passo lo prendiamo noi.",
+        key: "datura",
+        client: "Datura Clothing",
+        meta: "E-commerce di abbigliamento",
+        tag: "Controlli e campagne",
+        result: "Controlliamo il negozio e gestiamo le campagne Meta: 10 guasti distinti trovati in 28 giorni, 100 inserzioni create in 6 settimane.",
+        href: "/use-cases/datura-clothing",
       },
     ],
-  },
-
-  book: {
-    title: "Raccontaci come funziona la tua azienda",
-    lead: "Trenta minuti, senza impegno. Ti ascoltiamo e poi ti diciamo da dove partiremmo.",
   },
 };

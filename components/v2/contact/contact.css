@@ -1,47 +1,37 @@
 /* Parliamo (prefisso v2c-). Colori dalle variabili --v2-* di <Section>. */
 
 /* Il Finder segue subito la Hero: meno aria sotto la Hero, il Finder ha già la sua. */
-.v2-hero.v2c-hero {
+.v2-phero.v2c-hero {
   padding-bottom: 16px;
 }
 @media (min-width: 1024px) {
-  .v2-hero.v2c-hero {
+  .v2-phero.v2c-hero {
     padding-bottom: 24px;
   }
 }
 
-/* Scheda a destra della Hero: solo da 1024 (sotto, la pagina va dritta al Finder). */
-.v2-hero .v2c-herocard {
-  display: none;
+/* Le due rassicurazioni sotto il bottone: una riga centrata, senza separatori che vanno a capo da soli. */
+.v2c-heroline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-@media (min-width: 1024px) {
-  .v2-hero .v2c-herocard {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    max-width: 26rem;
-    margin-left: auto;
-    padding: 28px;
-  }
-  .v2c-herocard .v2-tile {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-  }
-  .v2-hero .v2c-herocard__title {
-    margin: 0;
-    font-family: var(--v2-display);
-    font-size: 1.375rem;
-    font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: 0.01em;
-    word-spacing: 0.08em;
-    color: var(--v2-ink);
-    text-wrap: balance;
-  }
-  .v2c-herocard .v2c-checks {
-    margin-top: 4px;
-  }
+.v2-phero .v2c-heroline li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.4;
+  color: var(--v2-ink-2);
+}
+.v2c-heroline svg {
+  flex: none;
+  color: var(--v2-accent);
 }
 
 /* ---------- Calendario ---------- */

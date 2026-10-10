@@ -22,7 +22,7 @@ export default {
         name: "Vincenzo Luca Casillo",
         role: "Crescita e marketing guidati dall'IA",
         line: "Pubblicità su Meta e Google guidata dall'IA, SEO e funnel che trasformano l'attenzione in richieste.",
-        more: "Alla pubblicità a pagamento affianca un follow-up guidato dall'IA, così il traffico che porta non si raffredda. I clienti ricevono un motore di marketing che porta richieste vere e qualificate.",
+        more: "Alla pubblicità a pagamento affianca un follow-up guidato dall'IA, così il traffico che porta non si raffredda. I clienti ricevono un motore di marketing che genera richieste vere e qualificate.",
       },
       {
         name: "Arcangelo Bianco",
@@ -43,7 +43,7 @@ export default {
       },
       {
         title: "La privacy al centro",
-        line: "Rispettiamo il GDPR dal primo giorno, con hosting nell'UE per i dati sensibili.",
+        line: "Rispettiamo il GDPR dal primo giorno, e i dati sensibili possono stare su server UE.",
         more: "I dati possono stare su server UE. Una parte dell'elaborazione IA avviene con fornitori fuori dall'UE, con clausole contrattuali standard, e prima di partire ti diciamo chi fa cosa.",
       },
       {

@@ -16,32 +16,23 @@ export default {
   hero: {
     eyebrow: "Formação",
     title: "Faça da IA parte do trabalho da sua empresa",
+    highlight: "IA",
     lead: "Formação prática para usar o Claude ou o ChatGPT no dia a dia, dos usos simples aos agentes e ao second brain.",
-    map: {
-      ariaLabel: "Dos usos de todos os dias aos processos da empresa",
-      from: {
-        label: "Todos os dias",
-        chips: ["Escrever", "Resumir", "Pesquisar", "Preparar documentos"],
-      },
-      to: {
-        label: "Nos processos da empresa",
-        chips: ["Agentes", "Second brain"],
-      },
-    },
   },
 
   paths: {
     title: "Duas formas de começar",
-    moreLabel: "O que vemos",
     items: [
       {
         id: "everyday",
+        chips: ["Escrever", "Resumir", "Pesquisar", "Preparar documentos"],
         title: "A IA no trabalho de todos os dias",
         line: "Formas simples de usar o Claude ou o ChatGPT nas tarefas que repete todos os dias.",
-        more: "Escrever, resumir, pesquisar, preparar documentos. Partimos das suas próprias tarefas, não de uma visita guiada à ferramenta.",
+        more: "Partimos das suas próprias tarefas, não de uma visita guiada à ferramenta.",
       },
       {
         id: "workflows",
+        chips: ["Agentes", "Second brain"],
         title: "A IA nos fluxos de trabalho da empresa",
         line: "Levar o Claude ou o ChatGPT para os seus processos, como agentes e como second brain.",
         more: "Como dar a um assistente os documentos e as ferramentas da empresa, o que pode fazer sozinho e onde uma pessoa verifica.",
@@ -61,7 +52,6 @@ export default {
   compliance: {
     eyebrow: "AI Act",
     badge: "Artigo 4.º",
-    moreLabel: "O que diz o artigo",
     title: "Ajudamos a empresa a cumprir as regras da IA",
     line: "O artigo 4.º do Regulamento da IA da UE pede às empresas que usam IA que promovam a literacia no domínio da IA do seu pessoal. A formação é um caminho.",
     more: "Os prestadores e os responsáveis pela implantação de sistemas de IA adotam medidas para promover a literacia no domínio da IA do seu pessoal e de outras pessoas envolvidas na operação e utilização desses sistemas em seu nome, tendo em conta conhecimentos técnicos, experiência, educação e formação, o contexto de utilização e as pessoas visadas. A obrigação não exige que se garanta um nível específico de literacia a ninguém. É o texto em vigor desde 27 de julho de 2026, introduzido pelo Regulamento (UE) 2026/1744. Informação geral, não aconselhamento jurídico.",

@@ -1,6 +1,8 @@
-/* Home v2 (EN). Sette sezioni, nell'ordine della §6 del brief:
-   hero, proof, categories, how, cases, finder (il componente esistente porta i suoi testi), chiusura (founders, guarantee, faq, book).
-   I percorsi dei link sono senza prefisso di lingua. */
+/* Home v2 (EN), giro 2. Ordine di Luca (§13 del brief):
+   hero centrata, categorie (con l'animazione «journey» sotto il titolo), come lavoriamo, casi studio,
+   Opportunity Finder, founder, call in fondo.
+   «Come lavoriamo», Finder, founder e call sono i componenti originali del sito: portano i loro testi.
+   Qui stanno hero, categorie e casi. I percorsi dei link sono senza prefisso di lingua. */
 export default {
   meta: {
     title: "Automis | AI Agency for Marketing, Sales and Admin Systems",
@@ -14,133 +16,59 @@ export default {
     highlight: ["systems"],
     lead: "First we listen to how you work. Then we build it around you, with systems already running for our clients.",
     cta: "Tell us about your business",
-    ctaSecondary: "See real cases",
-    call: {
-      title: "Demo call",
-      status: "Hear how it answers",
-      play: "Play the call",
-      pause: "Pause",
-      replay: "Play the call again",
-      agent: "Automis",
-      caller: "Caller",
-      transcript: "Read the conversation",
-      note: "Demo with sample voices.",
-      aria: "Demo call: a voice assistant books an appointment",
-      lines: [
-        "Automis, good evening. How can I help you?",
-        "Good evening. I'd like to book an appointment.",
-        "Of course. I have an opening on Thursday at ten thirty. Does that work for you?",
-        "Yes, that's perfect.",
-        "Great. I've just sent you a text with the confirmation. Anything else?",
-        "No, thank you so much.",
-        "You're welcome. Have a wonderful evening!",
-      ],
-    },
-  },
-
-  proof: {
-    label: "Already at work for",
-    figure: "872",
-    figureLabel: "calls answered by a voice assistant at a Lisbon dental clinic, in seven months",
+    ctaSecondary: "See the systems",
   },
 
   categories: {
-    title: "Systems for every part of your business",
-    lead: "Start from the area where you lose the most time.",
+    title: "A system for every area of your business",
+    lead: "Start with the area where you lose the most time.",
+    journeyLabel: "Animation: from first contact to customer, with Automis systems at work",
     items: [
-      { slug: "marketing", title: "AI Systems for Marketing" },
-      { slug: "sales", title: "AI Systems for Sales" },
-      { slug: "support", title: "AI Systems for Customer Service" },
-      { slug: "admin", title: "AI Systems for Admin" },
-      { slug: "hr", title: "AI Systems for HR" },
+      { slug: "marketing", title: "AI Systems for Marketing", line: "Ads, search, content and reviews." },
+      { slug: "sales", title: "AI Systems for Sales", line: "Every contact answered and tracked." },
+      { slug: "support", title: "AI Systems for Customer Service", line: "Calls and chats, day and night." },
+      { slug: "admin", title: "AI Systems for Admin", line: "Documents and data on autopilot." },
+      { slug: "hr", title: "AI Systems for HR", line: "A company brain for new colleagues." },
     ],
-    cta: "See all systems",
-  },
-
-  how: {
-    title: "How we work",
-    steps: [
-      { title: "Listen and diagnose", line: "We learn how you work and where time leaks." },
-      { title: "Design and launch", line: "We build it around you. You test it first." },
-      { title: "Run and improve", line: "We monitor it and improve it every month." },
-    ],
-    cta: "See how we work",
   },
 
   cases: {
-    title: "Systems already at work",
+    eyebrow: "Proof, not promises",
+    title: "Real businesses. Real systems. Already running.",
+    readCase: "Read the case study",
     items: [
       {
-        slug: "clinica-santa-maria",
+        key: "clinica",
         client: "Clínica Santa Maria dos Olivais",
+        meta: "Dental clinic · Lisbon, PT",
         tag: "Voice AI receptionist",
-        system: "A voice assistant answers and books appointments.",
-        figure: "872",
-        figureLabel: "calls in seven months",
-        cta: "Read the case",
+        result: "A voice assistant on the clinic's phone line: 872 calls in seven months and 114 appointments booked.",
         href: "/use-cases/clinica-santa-maria",
       },
       {
-        slug: "adifesa",
+        key: "adifesa",
         client: "ADifesa",
+        meta: "Consumer-protection association · Lissone, IT",
         tag: "Meta automation",
-        system: "An automation answers on Facebook and Instagram and collects each person's details.",
-        figure: "2,329",
-        figureLabel: "conversations in five months",
-        cta: "Read the case",
+        result: "Comments and DMs on Facebook and Instagram, handled and qualified: 2,329 conversations in five months.",
         href: "/use-cases/adifesa",
       },
-    ],
-    all: "All case studies",
-  },
-
-
-  founders: {
-    title: "Two founders, hands-on with your build",
-    line: "The people who design your system are the people who build it.",
-    items: [
-      { name: "Vincenzo Luca Casillo", role: "AI-driven growth and marketing" },
-      { name: "Arcangelo Bianco", role: "AI automation and audit" },
-    ],
-  },
-
-  guarantee: {
-    title: "Our guarantee",
-    line: "A 30-day performance guarantee on every Voice AI plan.",
-  },
-
-  faq: {
-    title: "Straight answers",
-    items: [
       {
-        q: "How fast can we go live?",
-        a: "Voice AI and simple automations go live in about 7 days. Complex systems get a timeline we agree with you before anything starts.",
+        key: "album",
+        client: "A professional photographer",
+        meta: "Professional photography",
+        tag: "Album tool",
+        result: "From 1,200 to 1,800 shots of one event, it picks about 280 photos, then lays out the album.",
+        href: "/use-cases/album-ai",
       },
       {
-        q: "How much does it cost?",
-        a: "Voice AI starts from €297/month. Everything else is quoted after we have heard how your business works, because we build around your processes, not a standard package.",
-      },
-      {
-        q: "Is my data safe?",
-        a: "We work GDPR-first. Data can be stored on EU servers, sensitive cases go to a person, and before we start we tell you which providers process what, and where.",
-      },
-      {
-        q: "Do I need technical staff?",
-        a: "No. We build, launch and maintain the system, and you use it. What we deliver is yours, not a black box you rent.",
-      },
-      {
-        q: "What happens after launch?",
-        a: "We don't disappear. Every month we check how the system performs and improve it, with a person overseeing the result.",
-      },
-      {
-        q: "What if it doesn't work for us?",
-        a: "Every Voice AI plan has a 30-day performance guarantee, and custom projects with a setup fee come with a refund of it. We take the risk of the first step.",
+        key: "datura",
+        client: "Datura Clothing",
+        meta: "Clothing e-commerce",
+        tag: "Monitoring and campaigns",
+        result: "We watch over the store and run the Meta campaigns: 10 distinct faults found in 28 days, 100 ads created in 6 weeks.",
+        href: "/use-cases/datura-clothing",
       },
     ],
-  },
-
-  book: {
-    title: "Tell us how your business works",
-    lead: "Thirty minutes, no obligation. We listen, then tell you where we would start.",
   },
 };

@@ -1,6 +1,8 @@
-/* Home v2 (PT, pt-PT). Sette sezioni, nell'ordine della §6 del brief:
-   hero, proof, categories, how, cases, finder (il componente esistente porta i suoi testi), chiusura (founders, guarantee, faq, book).
-   Scritta dagli intenti (scheda dei messaggi), non tradotta dall'inglese.
+/* Home v2 (PT, pt-PT), giro 2. Ordine di Luca (§13 del brief):
+   hero centrata, categorie (con l'animazione «journey» sotto il titolo), come lavoriamo, casi studio,
+   Opportunity Finder, founder, call in fondo.
+   «Come lavoriamo», Finder, founder e call sono i componenti originali del sito: portano i loro testi.
+   Qui stanno hero, categorie e casi. Scritta pensando in portoghese europeo, non tradotta dall'inglese.
    I percorsi dei link sono senza prefisso di lingua. */
 export default {
   meta: {
@@ -15,133 +17,59 @@ export default {
     highlight: ["sistemas"],
     lead: "Primeiro ouvimos como trabalha. Depois construímos à sua medida, com sistemas que já estão a trabalhar todos os dias para os nossos clientes.",
     cta: "Conte-nos o seu caso",
-    ctaSecondary: "Ver casos reais",
-    call: {
-      title: "Chamada de demonstração",
-      status: "Oiça como atende",
-      play: "Ouvir a chamada",
-      pause: "Pausar",
-      replay: "Ouvir de novo",
-      agent: "Automis",
-      caller: "Cliente",
-      transcript: "Ler a conversa",
-      note: "Demonstração com vozes de exemplo.",
-      aria: "Chamada de demonstração: um assistente de voz marca uma consulta",
-      lines: [
-        "Automis, boa noite. Em que posso ajudar?",
-        "Boa noite. Queria marcar uma consulta.",
-        "Com certeza. Tenho uma vaga na quinta-feira, às dez e meia. Fica-lhe bem?",
-        "Sim, é perfeito.",
-        "Combinado. Acabei de lhe enviar um SMS com a confirmação. Mais alguma coisa?",
-        "Não, muito obrigado.",
-        "De nada. Tenha uma excelente noite!",
-      ],
-    },
-  },
-
-  proof: {
-    label: "Já a trabalhar para",
-    figure: "872",
-    figureLabel: "chamadas atendidas pelo assistente de voz numa clínica dentária de Lisboa, em sete meses",
+    ctaSecondary: "Ver os sistemas",
   },
 
   categories: {
-    title: "Sistemas para cada parte do seu negócio",
+    title: "Um sistema para cada área do seu negócio",
     lead: "Comece pela área onde perde mais tempo.",
+    journeyLabel: "Animação: do primeiro contacto ao cliente, com os sistemas da Automis em ação",
     items: [
-      { slug: "marketing", title: "Sistemas de IA para Marketing" },
-      { slug: "sales", title: "Sistemas de IA para Vendas" },
-      { slug: "support", title: "Sistemas de IA para Apoio ao Cliente" },
-      { slug: "admin", title: "Sistemas de IA para Administração" },
-      { slug: "hr", title: "Sistemas de IA para Recursos Humanos" },
+      { slug: "marketing", title: "Sistemas de IA para Marketing", line: "Anúncios, conteúdos e avaliações." },
+      { slug: "sales", title: "Sistemas de IA para Vendas", line: "Cada contacto recebe resposta." },
+      { slug: "support", title: "Sistemas de IA para Apoio ao Cliente", line: "Chamadas e chats, a toda a hora." },
+      { slug: "admin", title: "Sistemas de IA para Administração", line: "Documentos e dados a cargo do sistema." },
+      { slug: "hr", title: "Sistemas de IA para Recursos Humanos", line: "Um cérebro da empresa para novos colegas." },
     ],
-    cta: "Ver todos os sistemas",
-  },
-
-  how: {
-    title: "Como trabalhamos",
-    steps: [
-      { title: "Ouvir e diagnosticar", line: "Percebemos como trabalha e onde se perde tempo." },
-      { title: "Desenhar e lançar", line: "Construímos à sua medida. Testa antes de arrancar." },
-      { title: "Gerir e melhorar", line: "Acompanhamos o sistema e melhoramo-lo todos os meses." },
-    ],
-    cta: "Ver como trabalhamos",
   },
 
   cases: {
-    title: "Sistemas já a trabalhar",
+    eyebrow: "Provas, não promessas",
+    title: "Negócios reais. Sistemas reais. Já a funcionar.",
+    readCase: "Ler o caso de estudo",
     items: [
       {
-        slug: "clinica-santa-maria",
+        key: "clinica",
         client: "Clínica Santa Maria dos Olivais",
+        meta: "Clínica dentária · Lisboa, PT",
         tag: "Rececionista de voz IA",
-        system: "Um assistente de voz atende e marca as consultas.",
-        figure: "872",
-        figureLabel: "chamadas em sete meses",
-        cta: "Ler o caso",
+        result: "Um assistente de voz no telefone da clínica: 872 chamadas em sete meses e 114 marcações.",
         href: "/use-cases/clinica-santa-maria",
       },
       {
-        slug: "adifesa",
+        key: "adifesa",
         client: "ADifesa",
+        meta: "Associação de defesa do consumidor · Lissone, IT",
         tag: "Automação Meta",
-        system: "Uma automação responde no Facebook e Instagram e recolhe os dados de cada pessoa.",
-        figure: "2.329",
-        figureLabel: "conversas em cinco meses",
-        cta: "Ler o caso",
+        result: "Comentários e mensagens no Facebook e no Instagram, tratados e qualificados: 2.329 conversas em cinco meses.",
         href: "/use-cases/adifesa",
       },
-    ],
-    all: "Ver todos os casos",
-  },
-
-
-  founders: {
-    title: "Dois fundadores que põem as mãos na massa",
-    line: "Quem desenha o seu sistema é quem o constrói.",
-    items: [
-      { name: "Vincenzo Luca Casillo", role: "Crescimento e marketing orientados por IA" },
-      { name: "Arcangelo Bianco", role: "Automação de IA e auditoria" },
-    ],
-  },
-
-  guarantee: {
-    title: "A nossa garantia",
-    line: "Garantia de desempenho de 30 dias em todos os planos Voice AI.",
-  },
-
-  faq: {
-    title: "Respostas diretas",
-    items: [
       {
-        q: "Em quanto tempo fica a funcionar?",
-        a: "A Voice AI e as automações simples ficam a funcionar em cerca de 7 dias. Nos sistemas complexos, combinamos consigo os prazos antes de começar.",
+        key: "album",
+        client: "Um fotógrafo profissional",
+        meta: "Fotografia profissional",
+        tag: "Ferramenta de álbuns",
+        result: "De 1.200 a 1.800 fotografias de um evento, escolhe cerca de 280 e faz a paginação do álbum.",
+        href: "/use-cases/album-ai",
       },
       {
-        q: "Quanto custa?",
-        a: "A Voice AI custa a partir de 297 €/mês. Tudo o resto é orçamentado depois de ouvirmos como trabalha, porque construímos sobre os seus processos e não sobre um pacote standard.",
-      },
-      {
-        q: "Os meus dados estão seguros?",
-        a: "Trabalhamos alinhados com o RGPD desde o início. Os dados podem ficar em servidores na UE, os casos delicados passam para uma pessoa, e antes de começar dizemos-lhe que fornecedores tratam o quê e onde.",
-      },
-      {
-        q: "Preciso de pessoal técnico?",
-        a: "Não. Somos nós que construímos, ativamos e mantemos o sistema. O que entregamos é seu, não uma caixa negra alugada.",
-      },
-      {
-        q: "O que acontece depois do lançamento?",
-        a: "Não desaparecemos. Todos os meses vemos como o sistema está a correr e melhoramo-lo, com uma pessoa a supervisionar.",
-      },
-      {
-        q: "E se não funcionar para nós?",
-        a: "Todos os planos Voice AI têm garantia de desempenho de 30 dias, e os projetos à medida com custo de configuração preveem o reembolso desse custo. O risco do primeiro passo é nosso.",
+        key: "datura",
+        client: "Datura Clothing",
+        meta: "Loja online de vestuário",
+        tag: "Monitorização e campanhas",
+        result: "Vigiamos a loja e gerimos as campanhas Meta: 10 falhas distintas encontradas em 28 dias, 100 anúncios criados em 6 semanas.",
+        href: "/use-cases/datura-clothing",
       },
     ],
-  },
-
-  book: {
-    title: "Conte-nos como funciona o seu negócio",
-    lead: "Trinta minutos, sem compromisso. Ouvimos e depois dizemos-lhe por onde começaríamos.",
   },
 };

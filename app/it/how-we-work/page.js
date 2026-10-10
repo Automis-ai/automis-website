@@ -13,10 +13,10 @@ export const metadata = buildMetadata({
   description: copy.meta.description,
 });
 
-export default function HowWeWorkPage() {
+export default function HowWeWorkPage({ searchParams }) {
   return (
     <AutomisEnShell>
-      <HowWeWorkView lang={LANG} />
+      <HowWeWorkView lang={LANG} tono={searchParams?.tono} />
     </AutomisEnShell>
   );
 }

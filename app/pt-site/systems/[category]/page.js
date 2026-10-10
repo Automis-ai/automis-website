@@ -14,11 +14,11 @@ export function generateMetadata({ params }) {
   return isCategory(params.category) ? categoryMetadata("pt", params.category) : {};
 }
 
-export default function SystemsCategoryPage({ params }) {
+export default function SystemsCategoryPage({ params, searchParams }) {
   if (!isCategory(params.category)) notFound();
   return (
     <AutomisEnShell>
-      <CategoryBody locale="pt" slug={params.category} />
+      <CategoryBody locale="pt" slug={params.category} tono={searchParams?.tono} />
     </AutomisEnShell>
   );
 }

@@ -4,10 +4,10 @@ import { hubMetadata } from "@/components/v2/systems/meta";
 
 export const metadata = hubMetadata("en");
 
-export default function SystemsPage() {
+export default function SystemsPage({ searchParams }) {
   return (
     <AutomisEnShell>
-      <HubBody locale="en" />
+      <HubBody locale="en" tono={searchParams?.tono} />
     </AutomisEnShell>
   );
 }

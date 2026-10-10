@@ -44,7 +44,7 @@ export default {
       },
       {
         title: "Privacidade primeiro",
-        line: "Cumprimos o RGPD desde o primeiro dia, com alojamento na UE para os dados sensíveis.",
+        line: "Cumprimos o RGPD desde o primeiro dia, com opções de alojamento na UE para os dados sensíveis.",
         more: "Os dados sensíveis podem ficar em servidores na UE. Parte do processamento de IA é feita com fornecedores fora da UE, ao abrigo de cláusulas contratuais-tipo. Antes de começar, dizemos-lhe quem faz o quê.",
       },
       {

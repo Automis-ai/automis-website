@@ -45,7 +45,7 @@ export default {
     title: "O que não muda de projeto para projeto",
     items: [
       { title: "É seu", line: "O que construímos é seu. Sem caixa negra, sem ficar preso a nós." },
-      { title: "Privacidade primeiro", line: "Cumprimos o RGPD desde o primeiro dia, com alojamento na UE para os dados sensíveis." },
+      { title: "Privacidade primeiro", line: "Cumprimos o RGPD desde o primeiro dia, com opções de alojamento na UE para os dados sensíveis." },
       { title: "Uma pessoa no processo", line: "A IA trata do trabalho repetitivo. Os casos delicados vão direto à sua equipa." },
     ],
   },
@@ -59,19 +59,27 @@ export default {
       },
       {
         q: "Em quanto tempo fica a funcionar?",
-        a: "Cerca de 7 dias para a Voice AI e automações simples. Nos sistemas complexos, combinamos consigo os prazos antes de começar.",
+        a: "A Voice AI e as automações simples ficam a funcionar em cerca de 7 dias. Nos sistemas complexos, combinamos consigo os prazos antes de começar.",
       },
       {
-        q: "Quem faz o trabalho?",
-        a: "Os dois fundadores. Quem desenha o seu sistema é quem o constrói, sem passar o trabalho a uma equipa júnior.",
+        q: "Quanto custa?",
+        a: "A Voice AI custa a partir de 297 €/mês. Tudo o resto é orçamentado depois de ouvirmos como trabalha, porque construímos sobre os seus processos e não sobre um pacote standard.",
       },
       {
-        q: "Precisamos de pessoal técnico?",
-        a: "Não. Desenhamos, construímos, ativamos e mantemos o sistema, e o que entregamos é seu.",
+        q: "Os meus dados estão seguros?",
+        a: "Trabalhamos alinhados com o RGPD desde o início. Os dados podem ficar em servidores na UE, os casos delicados passam para uma pessoa e, antes de começar, dizemos-lhe que fornecedores tratam o quê e onde.",
+      },
+      {
+        q: "Preciso de pessoal técnico?",
+        a: "Não. Somos nós que construímos, ativamos e mantemos o sistema. O que entregamos é seu, não uma caixa negra alugada.",
       },
       {
         q: "O que acontece depois do lançamento?",
-        a: "Todos os meses revemos o desempenho do sistema e melhoramo-lo. É esse trabalho contínuo que o plano mensal cobre.",
+        a: "Não desaparecemos. Todos os meses vemos como o sistema está a correr e melhoramo-lo, com uma pessoa a supervisionar o resultado. É esse trabalho contínuo que o plano mensal cobre.",
+      },
+      {
+        q: "E se não funcionar para nós?",
+        a: "Todos os planos Voice AI têm garantia de desempenho de 30 dias, e os projetos à medida com custo de configuração preveem o reembolso desse custo. O risco do primeiro passo é nosso.",
       },
     ],
   },

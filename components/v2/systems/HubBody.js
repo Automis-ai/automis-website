@@ -1,34 +1,34 @@
-import Hero from "@/components/v2/ui/Hero";
+import PageHero from "@/components/v2/ui/PageHero";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CategoryGrid from "@/components/v2/ui/CategoryGrid";
 import CategoryCard from "@/components/v2/ui/CategoryCard";
 import CardGrid from "@/components/v2/ui/CardGrid";
 import CtaBand from "@/components/v2/ui/CtaBand";
+import { toneClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
-import Highlighted from "./Highlighted";
-import CategoryArt from "./CategoryArt";
 import ProductCard from "./ProductCard";
+import { heroTitle } from "./heroTitle";
 import { CATEGORY_SLUGS } from "./data";
 
 const PRODUCT_ICONS = { voice: "voice", ecommerce: "cart" };
 
-/* /systems: le cinque categorie, poi i due prodotti (Voice AI e AI E-commerce Manager). */
-export default function HubBody({ locale }) {
+/* /systems: le cinque categorie, poi i due prodotti (Voice AI e AI E-commerce Manager). `tono`: ?tono= della preview. */
+export default function HubBody({ locale, tono }) {
   const t = getCopy("systems", locale).hub;
   const common = getCopy("common", locale);
   const L = locale;
   const items = t.categories.items.filter((c) => CATEGORY_SLUGS.includes(c.slug));
 
   return (
-    <>
-      <Hero
+    <div className={toneClass(tono)}>
+      <PageHero
+        size="compact"
         eyebrow={t.hero.eyebrow}
-        title={<Highlighted text={t.hero.title} highlight={t.hero.highlight} />}
+        {...heroTitle(t.hero.title, t.hero.highlight)}
         subtitle={t.hero.lead}
         primaryCta={{ label: common.cta, href: addLangPrefix("/contact", L) }}
-        media={<CategoryArt icon="spark" items={CATEGORY_SLUGS} />}
       />
       <Section tone="light" pad="md" aria-labelledby="sx-areas">
         <h2 id="sx-areas" className="v2-sr">
@@ -41,6 +41,7 @@ export default function HubBody({ locale }) {
               title={c.title}
               line={c.line}
               icon={c.slug}
+              cta={common.ui.learnMore}
               href={addLangPrefix(`/systems/${c.slug}`, L)}
             />
           ))}
@@ -68,6 +69,6 @@ export default function HubBody({ locale }) {
         line={t.cta.line}
         button={{ label: common.cta, href: addLangPrefix("/contact", L) }}
       />
-    </>
+    </div>
   );
 }

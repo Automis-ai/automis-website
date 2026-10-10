@@ -1,31 +1,33 @@
 import { Fragment } from "react";
-import Hero from "@/components/v2/ui/Hero";
+import PageHero from "@/components/v2/ui/PageHero";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CardGrid from "@/components/v2/ui/CardGrid";
 import Button from "@/components/v2/ui/Button";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import ScriptedChat from "@/components/v2/ui/ScriptedChat";
+import { toneClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { CASES } from "@/components/use-cases/cases";
 import { addLangPrefix } from "@/lib/locales";
-import Highlighted from "./Highlighted";
 import SystemTile from "./SystemTile";
 import ProductCard from "./ProductCard";
 import ProductBand from "./ProductBand";
 import CaseBand from "./CaseBand";
-import CategoryArt from "./CategoryArt";
 import BrainPicker from "./BrainPicker";
-import { CARD_ICONS, ART_EXTRA, BAND_CARD, CARD_SPLIT, colsFor, caseSlug } from "./data";
+import FaqSection from "./FaqSection";
+import { heroTitle } from "./heroTitle";
+import { CARD_ICONS, BAND_CARD, CARD_SPLIT, colsFor, caseSlug } from "./data";
 
 /*
   Un solo template per le cinque pagine /systems/<categoria> (marketing, sales, support, admin, hr).
-  Dati e testi: components/v2/copy/systems.<lingua>.js.
-  Ritmo: apertura scura con il suo visivo e il bottone; schede su chiaro (al massimo 4 per gruppo: le categorie
-  più lunghe si dividono in due gruppi con una fascia in mezzo: il prodotto, o il caso reale); poi, dove c'è,
-  demo o rimando su fondo blu; chiusura con un solo invito verso /contact.
+  Dati e testi: components/v2/copy/systems.<lingua>.js. `tono`: ?tono= della preview (toneClass).
+  Ritmo: apertura centrata (PageHero compact); schede su chiaro (al massimo 4 per gruppo: le categorie più lunghe
+  si dividono in due gruppi con una fascia in mezzo: il prodotto, o il caso reale); poi, dove c'è, demo o rimando
+  su fondo blu; le domande frequenti su blu; chiusura con un solo invito verso /contact.
+  Risorse umane ha una scheda sola: sta nella stessa riga della demo (stessa colonna delle schede delle altre pagine).
 */
-export default function CategoryBody({ locale, slug }) {
+export default function CategoryBody({ locale, slug, tono }) {
   const all = getCopy("systems", locale);
   const common = getCopy("common", locale);
   const c = all[slug];
@@ -41,7 +43,8 @@ export default function CategoryBody({ locale, slug }) {
   // Il caso reale sta in mezzo ai due gruppi (Vendita); altrimenti chiude la pagina, dopo le demo.
   const caseInMiddle = Boolean(split && !bandCard && c.case);
   const caseTone = c.chat ? "light" : "deep";
-  const artItems = ART_EXTRA[slug] || c.cards.map((x) => CARD_ICONS[x.id]).filter(Boolean);
+  // Una scheda sola e una demo (Risorse umane): scheda e demo stanno affiancate.
+  const brainBeside = Boolean(c.brain && c.cards.length === 1);
 
   const caseBand = c.case ? (
     <CaseBand
@@ -65,20 +68,32 @@ export default function CategoryBody({ locale, slug }) {
       moreLabel={all.labels.more}
       icon={CARD_ICONS[card.id] || slug}
       href={card.href ? addLangPrefix(card.href, L) : undefined}
+      cta={card.href ? common.ui.learnMore : undefined}
       caseHref={card.caseHref ? addLangPrefix(card.caseHref, L) : undefined}
       caseLabel={card.caseHref ? common.caseBadge : undefined}
       price={card.price || undefined}
     />
   );
 
+  const brainPicker = c.brain ? (
+    <BrainPicker
+      queries={c.brain.queries}
+      windowTitle={c.brain.windowTitle || "Company Brain"}
+      sourceLabel={c.brain.sourceLabel}
+      ariaLabel={c.brain.title}
+      groupLabel={c.brain.caption}
+      replayLabel={common.ui.replay}
+    />
+  ) : null;
+
   return (
-    <>
-      <Hero
+    <div className={toneClass(tono)}>
+      <PageHero
+        size="compact"
         eyebrow={c.hero.eyebrow}
-        title={<Highlighted text={c.hero.title} highlight={c.hero.highlight} />}
+        {...heroTitle(c.hero.title, c.hero.highlight)}
         subtitle={c.hero.lead}
         primaryCta={{ label: common.cta, href: addLangPrefix("/contact", L) }}
-        media={<CategoryArt icon={slug} items={artItems} />}
       />
 
       {groups.map((cards, gi) => {
@@ -96,8 +111,16 @@ export default function CategoryBody({ locale, slug }) {
                   {common.categories[slug]}
                 </h2>
               ) : null}
-              {cards.length === 1 ? (
-                <div className="v2sx-solo">{tile(cards[0])}</div>
+              {brainBeside ? (
+                <div className="v2sx-duo">
+                  <div className="v2sx-duo__card">
+                    {tile(cards[0])}
+                    <p className="v2sx-note">
+                      {c.brain.caption} {common.ui.scriptNote}
+                    </p>
+                  </div>
+                  <div className="v2sx-duo__demo">{brainPicker}</div>
+                </div>
               ) : (
                 <CardGrid cols={colsFor(cards.length)} className="v2sx-grid">
                   {cards.map(tile)}
@@ -152,43 +175,35 @@ export default function CategoryBody({ locale, slug }) {
         </Section>
       ) : null}
 
-      {c.brain ? (
+      {c.brain && !brainBeside ? (
         <Section tone="deep">
           <div className="v2sx-split">
             <div>
               <SectionHeader title={c.brain.title} lead={c.brain.caption} />
               <p className="v2sx-note">{common.ui.scriptNote}</p>
             </div>
-            <div className="v2sx-split__demo">
-              <BrainPicker
-                queries={c.brain.queries}
-                windowTitle="Company Brain"
-                sourceLabel={c.brain.sourceLabel}
-                ariaLabel={c.brain.title}
-                groupLabel={c.brain.caption}
-                replayLabel={common.ui.replay}
-              />
-            </div>
+            <div className="v2sx-split__demo">{brainPicker}</div>
           </div>
         </Section>
       ) : null}
 
       {c.crossLink ? (
-        <Section tone="deep">
-          <div className="v2sx-solo">
-            <ProductCard
-              as="h2"
-              icon="brain"
-              title={c.crossLink.title}
-              line={c.crossLink.line}
-              cta={c.crossLink.cta}
-              href={addLangPrefix(c.crossLink.href, L)}
-            />
-          </div>
+        <Section tone="light" pad="sm">
+          <ProductCard
+            as="h2"
+            wide
+            icon="brain"
+            title={c.crossLink.title}
+            line={c.crossLink.line}
+            cta={c.crossLink.cta}
+            href={addLangPrefix(c.crossLink.href, L)}
+          />
         </Section>
       ) : null}
 
       {c.case && !caseInMiddle ? <Section tone={caseTone}>{caseBand}</Section> : null}
+
+      <FaqSection title={c.faq.title} items={c.faq.items} tone="deep" />
 
       <CtaBand
         tone="light"
@@ -196,6 +211,6 @@ export default function CategoryBody({ locale, slug }) {
         line={c.cta.line}
         button={{ label: common.cta, href: addLangPrefix("/contact", L) }}
       />
-    </>
+    </div>
   );
 }

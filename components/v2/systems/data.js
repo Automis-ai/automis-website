@@ -57,9 +57,6 @@ export const CARD_SPLIT = { marketing: 4, sales: 4 };
 // Scheda che nella categoria diventa una fascia a sé (con il suo esempio), invece di stare nella griglia.
 export const BAND_CARD = { marketing: "ecommerce-manager" };
 
-// Icone attorno a quella centrale nel visivo dell'apertura, quando la categoria ha poche schede.
-export const ART_EXTRA = { hr: ["brain", "doc", "search", "contact"] };
-
 /* "/use-cases/adifesa" -> "adifesa" (gli slug dei casi sono uguali nelle tre lingue). */
 export function caseSlug(href) {
   return String(href || "").split("/").filter(Boolean).pop() || "";

@@ -1,43 +1,44 @@
-import Hero from "@/components/v2/ui/Hero";
+import PageHero from "@/components/v2/ui/PageHero";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CtaBand from "@/components/v2/ui/CtaBand";
+import { toneClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
-import { withAccent } from "./withAccent";
 import FounderCards from "./FounderCards";
 import PrincipleCards from "./PrincipleCards";
 import Guarantee from "./Guarantee";
-import CategoryArt from "@/components/v2/systems/CategoryArt";
+import { heroTitle } from "@/components/v2/systems/heroTitle";
 
 /* Chi siamo: fondatori, come costruiamo (privacy compresa), garanzia. Il ritmo: scuro, chiaro, blu, chiaro, chiusura.
-   Cornice (AutomisEnShell) e metadati stanno nel file di rotta. */
-export default function AboutView({ lang }) {
+   Cornice (AutomisEnShell) e metadati stanno nel file di rotta. `tono`: ?tono= della preview. */
+export default function AboutView({ lang, tono }) {
   const t = getCopy("about", lang);
   const c = getCopy("common", lang);
+  const moreLabel = getCopy("systems", lang).labels.more;
   const contact = addLangPrefix("/contact", lang);
 
   return (
-    <>
-      <Hero
+    <div className={toneClass(tono)}>
+      <PageHero
+        size="compact"
         eyebrow={t.hero.eyebrow}
-        title={withAccent(t.hero.title, t.hero.accent)}
+        {...heroTitle(t.hero.title, t.hero.accent)}
         subtitle={t.hero.lead}
         primaryCta={{ label: c.cta, href: contact }}
-        media={<CategoryArt icon="hr" items={["brain", "shield", "star", "chat"]} />}
       />
 
       <Section tone="light">
         <SectionHeader title={t.founders.title} />
-        <FounderCards items={t.founders.items} moreLabel={c.ui.more} profileLabel={t.founders.profileLabel} />
+        <FounderCards items={t.founders.items} moreLabel={moreLabel} profileLabel={t.founders.profileLabel} />
       </Section>
 
       <Section tone="deep">
         <SectionHeader title={t.principles.title} />
-        <PrincipleCards items={t.principles.items} moreLabel={c.ui.more} />
+        <PrincipleCards items={t.principles.items} moreLabel={moreLabel} />
       </Section>
 
-      <Section tone="light" width="narrow" pad="sm">
+      <Section tone="light" pad="sm">
         <Guarantee
           title={t.guarantee.title}
           number={t.guarantee.number}
@@ -47,6 +48,6 @@ export default function AboutView({ lang }) {
       </Section>
 
       <CtaBand tone="light" title={t.cta.title} line={t.cta.line} button={{ label: c.cta, href: contact }} />
-    </>
+    </div>
   );
 }
