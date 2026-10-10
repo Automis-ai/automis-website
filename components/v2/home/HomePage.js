@@ -14,6 +14,7 @@ import { isProduction } from "@/lib/v2/env";
 import CasesClassic from "./CasesClassic";
 import OpportunityFinderClassic from "./OpportunityFinderClassic";
 import FinalCtaClassic from "./FinalCtaClassic";
+import NetworkHeroBg from "@/components/v2/wow/hero/NetworkHeroBg";
 import "./home.css";
 
 /*
@@ -50,13 +51,7 @@ export default function HomePage({ lang = "en", tono }) {
           subtitle={c.hero.lead}
           primaryCta={{ label: c.hero.cta, href: link("/contact") }}
           secondaryCta={{ label: c.hero.ctaSecondary, href: "#sistemi" }}
-          bg={
-            // Sfondo statico e sobrio: due nastri sfocati nei colori del brand. Qui andrà il loop HyperFrames scelto da Luca.
-            <div className="v2hp-aurora">
-              <i />
-              <i />
-            </div>
-          }
+          bg={<NetworkHeroBg lang={L} />}
         />
 
         <Section tone="light" id="sistemi" className="v2hp-cats">
