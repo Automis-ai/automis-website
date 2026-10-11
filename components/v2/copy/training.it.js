@@ -53,7 +53,7 @@ export default {
   compliance: {
     eyebrow: "AI Act",
     badge: "Articolo 4",
-    title: "Ti mettiamo in regola con la normativa sull'IA",
+    title: "Formazione per l'articolo 4 dell'AI Act",
     line: "L'articolo 4 dell'AI Act chiede alle aziende che usano l'IA di sostenere l'alfabetizzazione in materia di IA del loro personale. La formazione è un modo per farlo.",
     more: "Fornitori e deployer di sistemi di IA adottano misure volte a sostenere lo sviluppo dell'alfabetizzazione in materia di IA del loro personale e di chi usa i sistemi per loro conto, tenendo conto di conoscenze tecniche, esperienza, istruzione e formazione, del contesto d'uso e delle persone su cui i sistemi vengono usati. L'obbligo non fissa un livello preciso da raggiungere. È il testo in vigore dal 27 luglio 2026, introdotto dal Regolamento (UE) 2026/1744. Informazione generale, non consulenza legale.",
     sourceLabel: "Leggi il Regolamento su EUR-Lex",

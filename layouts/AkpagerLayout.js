@@ -16,6 +16,7 @@ const AkpagerLayout = ({
   bodyClass,
   onePage,
   hideHeaderNav = false,
+  main = false, // pagine legacy senza <main>: avvolge il contenuto (fra menù e footer) in <main id="main"> per il link «Vai al contenuto» anche senza JS
 }) => {
   const [showStickyButton, setShowStickyButton] = useState(false);
 
@@ -85,7 +86,7 @@ const AkpagerLayout = ({
       <VideoPopup />
       <div className="page-wrapper">
         <Header header={header} onePage={onePage} hideHeaderNav={hideHeaderNav} />
-        {children}
+        {main ? <main id="main">{children}</main> : children}
         <Footer footer={footer} />
       </div>
 

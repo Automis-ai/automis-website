@@ -6,7 +6,9 @@ export default function Guarantee({ title, number, unit, line }) {
   return (
     <div className="v2-card v2a-guarantee">
       <div className="v2a-guarantee__num" aria-hidden="true">
-        <span className="v2a-guarantee__n">{number}</span>
+        <span className="v2a-guarantee__n" data-fx="count">
+          {number}
+        </span>
         <span className="v2a-guarantee__unit">{unit}</span>
       </div>
       <div>

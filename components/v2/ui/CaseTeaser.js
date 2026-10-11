@@ -22,12 +22,14 @@ export default function CaseTeaser({
   linkLabel,
 }) {
   return (
-    <article className="v2-card v2-card--link v2-teaser">
+    <article className="v2-card v2-card--link v2-teaser" data-fx="tilt">
       <div className="v2-teaser__head">
         <Logo logo={logo} name={client} />
         <p className="v2-teaser__client">{client}</p>
       </div>
-      <p className="v2-teaser__num">{number}</p>
+      <p className="v2-teaser__num" data-fx="count">
+        {number}
+      </p>
       {numberLabel ? <p className="v2-teaser__numlabel">{nb(numberLabel)}</p> : null}
       {problem || system ? (
         <div className="v2-teaser__rows">

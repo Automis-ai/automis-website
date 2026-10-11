@@ -22,6 +22,7 @@ export default function SystemCard({ title, line, href, icon, cta, caseHref, cas
         withCta && "v2-sys--cta",
         className
       )}
+      data-fx={href ? "tilt" : undefined}
     >
       {icon ? <span className="v2-tile v2-tile--anim">{renderIcon(icon, 22)}</span> : null}
       <div className="v2-sys__body">

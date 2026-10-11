@@ -17,23 +17,41 @@ function pickCells(total, count, seed) {
 
 const PICKED_ALL = pickCells(72, 16, 20261010);
 
-/* Griglia di miniature. `chosen`: true = tutte azzurre (le foto scelte); false = poche azzurre in mezzo al grigio. */
+/* Griglia di miniature. `chosen`: true = tutte azzurre (le foto scelte); false = poche azzurre in mezzo al grigio.
+   `--k` è l'ordine con cui le azzurre si accendono quando la sezione entra (vedi .v2c-mos in use-cases.css). */
 export function Contact({ cols, rows, chosen = false }) {
   const total = cols * rows;
+  let k = 0;
   return (
     <div className="v2c-mos" style={{ "--cols": cols }} aria-hidden="true">
-      {Array.from({ length: total }, (_, i) => (
-        <i key={i} className={chosen || PICKED_ALL.has(i) ? "on" : undefined} />
-      ))}
+      {Array.from({ length: total }, (_, i) => {
+        const on = chosen || PICKED_ALL.has(i);
+        return <i key={i} className={on ? "on" : undefined} style={on ? { "--k": k++ } : undefined} />;
+      })}
     </div>
   );
 }
 
-/* Doppia pagina di un album, con le foto come blocchi in tono. `paper`: colore della pagina; `idp`: prefisso univoco dei gradienti. */
-export function AlbumSpread({ paper = "#ffffff", frame = "rgba(16,27,39,0.12)", idp = "a" }) {
+/* Dove si trova ogni foto dell'album prima di comporsi: spostamento (px del disegno), rotazione, ordine di arrivo. */
+const SCATTER = [
+  { tx: -64, ty: -34, r: -9 },
+  { tx: 48, ty: -44, r: 7 },
+  { tx: 62, ty: 38, r: -6 },
+  { tx: -44, ty: -52, r: 5 },
+  { tx: -34, ty: 52, r: -8 },
+  { tx: 12, ty: 64, r: 6 },
+  { tx: 64, ty: 34, r: -5 },
+];
+const ph = (n) => ({ className: "v2c-ph", style: { "--k": n, "--tx": `${SCATTER[n].tx}px`, "--ty": `${SCATTER[n].ty}px`, "--r": `${SCATTER[n].r}deg` } });
+
+/* Doppia pagina di un album, con le foto come blocchi in tono. `paper`: colore della pagina; `idp`: prefisso univoco dei gradienti.
+   `motion`: "assemble" (nell'apertura: le foto si compongono subito, poi ogni tanto si scostano) · "reveal" (sotto la piega:
+   si compongono quando la sezione arriva nello schermo, vedi InView in fx.js) · assente = ferma. */
+export function AlbumSpread({ paper = "#ffffff", frame = "rgba(16,27,39,0.12)", idp = "a", motion }) {
   const g = (n) => `url(#${idp}-g${n})`;
+  const cls = motion === "assemble" ? "v2c-spread v2c-spread--assemble" : motion === "reveal" ? "v2c-spread v2c-spread--rv" : "v2c-spread";
   return (
-    <svg className="v2c-spread" viewBox="0 0 420 150" aria-hidden="true" focusable="false">
+    <svg className={cls} viewBox="0 0 420 150" aria-hidden="true" focusable="false">
       <defs>
         <linearGradient id={`${idp}-g1`} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#1f6fc0" />
@@ -55,14 +73,14 @@ export function AlbumSpread({ paper = "#ffffff", frame = "rgba(16,27,39,0.12)", 
       <rect x="4" y="4" width="204" height="142" rx="4" fill={paper} stroke={frame} />
       <rect x="212" y="4" width="204" height="142" rx="4" fill={paper} stroke={frame} />
       {/* pagina sinistra */}
-      <rect x="12" y="12" width="124" height="126" rx="2" fill={g(2)} />
-      <rect x="142" y="12" width="58" height="60" rx="2" fill={g(3)} />
-      <rect x="142" y="78" width="58" height="60" rx="2" fill={g(1)} />
+      <rect x="12" y="12" width="124" height="126" rx="2" fill={g(2)} {...ph(0)} />
+      <rect x="142" y="12" width="58" height="60" rx="2" fill={g(3)} {...ph(1)} />
+      <rect x="142" y="78" width="58" height="60" rx="2" fill={g(1)} {...ph(2)} />
       {/* pagina destra */}
-      <rect x="220" y="12" width="188" height="62" rx="2" fill={g(4)} />
-      <rect x="220" y="80" width="58" height="58" rx="2" fill={g(1)} />
-      <rect x="285" y="80" width="58" height="58" rx="2" fill={g(3)} />
-      <rect x="350" y="80" width="58" height="58" rx="2" fill={g(2)} />
+      <rect x="220" y="12" width="188" height="62" rx="2" fill={g(4)} {...ph(3)} />
+      <rect x="220" y="80" width="58" height="58" rx="2" fill={g(1)} {...ph(4)} />
+      <rect x="285" y="80" width="58" height="58" rx="2" fill={g(3)} {...ph(5)} />
+      <rect x="350" y="80" width="58" height="58" rx="2" fill={g(2)} {...ph(6)} />
     </svg>
   );
 }

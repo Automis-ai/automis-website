@@ -24,7 +24,7 @@ function luminance(hex) {
 */
 export default function PlatformPicker({ items = [], className }) {
   return (
-    <ul className={["v2-plat", className].filter(Boolean).join(" ")}>
+    <ul className={["v2-plat", className].filter(Boolean).join(" ")} data-fx="stagger">
       {items.map((p) => {
         const fg = luminance(p.accent) > 0.4 ? "#00121f" : "#ffffff";
         const style = p.accent ? { "--v2-plat": p.accent, "--v2-plat-fg": fg } : undefined;
@@ -49,7 +49,7 @@ export default function PlatformPicker({ items = [], className }) {
         );
         return (
           <li key={p.name}>
-            <Link href={p.href} className="v2-card v2-card--link v2-plat__item" style={style}>
+            <Link href={p.href} className="v2-card v2-card--link v2-plat__item" style={style} data-fx="tilt">
               {body}
             </Link>
           </li>

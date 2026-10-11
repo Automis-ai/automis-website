@@ -1,35 +1,46 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import Hero from "@/components/v2/ui/Hero";
+import PageHero from "@/components/v2/ui/PageHero";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import Button from "@/components/v2/ui/Button";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import Icon from "@/components/v2/ui/icons";
 import { AlbumSpread, Contact } from "@/components/v2/use-cases/AlbumVisuals";
+import { InView, LiveStage } from "@/components/v2/use-cases/fx";
+import Seam from "@/components/v2/use-cases/Seam";
+import { ALBUM_AI_SLUG, CHAINS } from "@/components/v2/use-cases/constants";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
 import "@/components/v2/use-cases/use-cases.css";
 
-/* La finestra del browser che racchiude l'album: dice «gira nel browser» prima ancora di leggerlo. */
+/* La finestra del browser che racchiude l'album: dice «gira nel browser» prima ancora di leggerlo.
+   Le foto si compongono all'apertura e ogni tanto si scostano e tornano; la finestra si inclina col puntatore. */
 function BrowserWindow() {
   return (
-    <div className="v2c-win" aria-hidden="true">
-      <div className="v2c-win__bar">
-        <span />
-        <span />
-        <span />
-        <i className="v2c-win__url" />
+    <LiveStage className="v2c-winstage" max={5}>
+      <div className="v2c-win" aria-hidden="true">
+        <div className="v2c-win__bar">
+          <span />
+          <span />
+          <span />
+          <i className="v2c-win__url" />
+        </div>
+        <div className="v2c-win__body">
+          <AlbumSpread paper="#f4f7fb" frame="rgba(255,255,255,0.3)" idp="hero" motion="assemble" />
+        </div>
       </div>
-      <div className="v2c-win__body">
-        <AlbumSpread paper="#f4f7fb" frame="rgba(255,255,255,0.3)" idp="hero" />
-      </div>
-    </div>
+    </LiveStage>
   );
 }
 
 /*
-  Caso Album AI. Apertura scura, corpo bianco (palette dei casi studio, sotto .v2-caso).
+  Caso Album AI. Apertura scura centrata e compatta (PageHero), corpo chiaro (palette dei casi studio, sotto .v2-caso).
   Solo cosa fa il sistema: nessun risultato, nessun nome, nessun evento. Testi da getCopy.
+  Movimento: le foto si compongono, le miniature scelte si accendono; le entrate allo scroll sono del kit (data-fx).
+  Nella sfumatura sotto la hero, le tessere di vetro dei tre moduli (scatti → scelta → album) collegate da un filo (Seam);
+  la stessa fila torna in uscita, nella sfumatura verso l'invito (Seam exit).
+  La scena 3D della hero chiede il preset «album» (components/v2/wow/fx/scene/presets.js, richiesta in coda al giro):
+  finché non c'è il motore ripiega su «generic».
 */
 export default function AlbumAiCase({ locale = "en" }) {
   const t = getCopy("use-case-album-ai", locale);
@@ -38,13 +49,17 @@ export default function AlbumAiCase({ locale = "en" }) {
 
   return (
     <AutomisEnShell>
-      <Hero
+      <main id="main">
+      <PageHero
+        size="compact"
+        scene="album"
         className="v2c-hero"
         eyebrow={t.hero.eyebrow}
         title={t.hero.title}
+        highlight={t.hero.highlight}
         subtitle={t.hero.lead}
         primaryCta={{ label: common.cta, href: contact }}
-        media={<BrowserWindow />}
+        below={<BrowserWindow />}
       >
         <div className="v2c-client">
           <span className="v2-tile">
@@ -58,12 +73,13 @@ export default function AlbumAiCase({ locale = "en" }) {
             {common.ui.allCases}
           </Button>
         </div>
-      </Hero>
+      </PageHero>
 
+      <Seam glyphs={CHAINS[ALBUM_AI_SLUG]} />
       <div className="v2-caso">
-        <Section tone="light">
+        <Section tone="light" className="v2c-edge">
           <SectionHeader title={t.flow.title} />
-          <div className="v2c-flow">
+          <InView className="v2c-flow">
             <div className="v2-card v2c-stage">
               <div className="v2c-stage__vis">
                 <Contact cols={12} rows={6} />
@@ -86,15 +102,15 @@ export default function AlbumAiCase({ locale = "en" }) {
             </div>
             <div className="v2-card v2c-stage">
               <div className="v2c-stage__vis">
-                <AlbumSpread paper="#ffffff" idp="flow" />
+                <AlbumSpread paper="#ffffff" idp="flow" motion="reveal" />
               </div>
               <p className="v2c-stage__then">{t.flow.then}</p>
             </div>
-          </div>
+          </InView>
         </Section>
 
         <Section tone="light" pad="sm" className="v2c-info-sec">
-          <div className="v2c-info-grid">
+          <div className="v2c-info-grid" data-fx="stagger">
             <div className="v2-card v2c-info">
               <span className="v2-tile">
                 <Icon name="web" size={22} />
@@ -112,13 +128,12 @@ export default function AlbumAiCase({ locale = "en" }) {
           </div>
         </Section>
 
-        <CtaBand
-          tone="light"
-          title={t.cta.title}
-          line={t.cta.line}
-          button={{ label: common.cta, href: contact }}
-        />
+        <div className="v2c-cta">
+          <Seam glyphs={CHAINS[ALBUM_AI_SLUG]} exit />
+          <CtaBand title={t.cta.title} line={t.cta.line} button={{ label: common.cta, href: contact }} />
+        </div>
       </div>
+      </main>
     </AutomisEnShell>
   );
 }

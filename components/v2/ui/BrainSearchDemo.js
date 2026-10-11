@@ -7,6 +7,7 @@ import { sleep, useScriptedStart } from "./hooks";
 
 /*
   Ricerca nel Company Brain a copione: si digita una domanda, poi appare la risposta con la sua fonte.
+  A riposo il pannello mostra già l'esempio completo; la digitazione parte quando entra nello schermo.
   Nessuna rete, nessun modello. Stesse regole di ScriptedChat (stato finale subito con reduced motion o
   senza JavaScript, altezza riservata, testo completo per gli screen reader).
   Props: query, answer, source { title, meta?, snippet? }, sourceLabel (es. «Fonte»), windowTitle (barra in alto),
@@ -28,13 +29,8 @@ export default function BrainSearchDemo({
   const [st, setSt] = useState(FINAL);
   const [done, setDone] = useState(true);
 
-  useEffect(() => {
-    if (armed) {
-      setSt({ q: 0, thinking: false, a: 0, src: false });
-      setDone(false);
-    }
-  }, [armed, run]);
-
+  // A riposo (prima che la demo entri nello schermo) il pannello mostra già domanda, risposta e fonte: mai una scatola
+  // vuota. Quando la demo parte, si riscrive da zero (vedi sotto).
   useEffect(() => {
     if (!armed || !visible) return;
     let cancelled = false;
@@ -99,7 +95,7 @@ export default function BrainSearchDemo({
             <Icon name="brain" size={18} />
           </span>
           <span className="v2-win__name">{windowTitle}</span>
-          {replayLabel && done && armed ? (
+          {replayLabel && done && armed && visible ? (
             <button type="button" className="v2-win__replay" onClick={replay}>
               <Icon name="repeat" size={16} />
               {replayLabel}

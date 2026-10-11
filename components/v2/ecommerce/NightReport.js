@@ -14,7 +14,7 @@ export default function NightReport({ title, caption, rows = [], ariaLabel }) {
         <span className="v2e-report__dot" aria-hidden="true" />
         {title}
       </figcaption>
-      <ul className="v2e-report__list">
+      <ul className="v2e-report__list" data-fx="stagger">
         {rows.map((r) => (
           <li key={r.area} className="v2e-row">
             <span className="v2e-row__icon">

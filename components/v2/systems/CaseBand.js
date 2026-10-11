@@ -14,7 +14,7 @@ export default function CaseBand({ eyebrow, client, line, cta, href, logo }) {
   return (
     <div className="v2sx-split v2sx-split--case">
       <SectionHeader eyebrow={eyebrow} title={client} className="v2sx-split__head" />
-      <article className="v2-card v2-card--link v2sx-case">
+      <article className="v2-card v2-card--link v2sx-case" data-fx="tilt">
         <Logo logo={logo} name={client} />
         <p className="v2sx-case__line">{nb(line)}</p>
         <Link href={href} className="v2sx-case__cta v2-card__link">

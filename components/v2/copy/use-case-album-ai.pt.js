@@ -12,6 +12,7 @@ export default {
   hero: {
     eyebrow: "Caso de estudo",
     title: "Uma ferramenta de álbuns à medida",
+    highlight: "à medida",
     lead: "De um evento com 1.200 a 1.800 fotografias, escolhe cerca de 280 e faz a paginação do álbum.",
     client: "Um fotógrafo profissional",
     tag: "Ferramenta de álbuns",

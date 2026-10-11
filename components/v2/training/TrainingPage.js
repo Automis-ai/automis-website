@@ -7,14 +7,16 @@ import Badge from "@/components/v2/ui/Badge";
 import Button from "@/components/v2/ui/Button";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import Icon from "@/components/v2/ui/icons";
-import { toneClass } from "@/components/v2/ui/toneClass";
+import { pageClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
 import { heroTitle } from "@/components/v2/systems/heroTitle";
+import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
+import PageStory from "@/components/v2/wow/fx/PageStory";
 import "@/components/v2/training/training.css";
 import "@/components/v2/systems/systems.css";
 
-const PATH_ICONS = { everyday: "pen", workflows: "brain" };
+const PATH_ICONS = { everyday: "pen", workflows: "workflow" };
 const AUDIENCE_ICONS = ["target", "hr", "shield"];
 
 /* Formazione: apertura centrata, due modi per partire (ognuno con le cose che si imparano), a chi serve,
@@ -27,7 +29,9 @@ export default function TrainingPage({ locale = "en", tono }) {
 
   return (
     <AutomisEnShell>
-      <div className={toneClass(tono)}>
+      <main id="main" className={pageClass(tono)}>
+        <SmoothScroll />
+        <PageStory />
         <PageHero
           size="compact"
           eyebrow={t.hero.eyebrow}
@@ -38,7 +42,7 @@ export default function TrainingPage({ locale = "en", tono }) {
 
         <Section tone="light">
           <SectionHeader title={t.paths.title} />
-          <div className="v2t-paths">
+          <div className="v2t-paths" data-fx="stagger">
             {t.paths.items.map((p) => (
               <article key={p.id} className="v2-card v2t-path">
                 <div className="v2t-path__head">
@@ -63,7 +67,7 @@ export default function TrainingPage({ locale = "en", tono }) {
 
         <Section tone="deep">
           <SectionHeader title={t.audience.title} />
-          <ul className="v2t-aud">
+          <ul className="v2t-aud" data-fx="stagger">
             {t.audience.items.map((text, i) => (
               <li key={text} className="v2-card v2t-aud__item">
                 <span className="v2-tile">
@@ -75,7 +79,7 @@ export default function TrainingPage({ locale = "en", tono }) {
           </ul>
         </Section>
 
-        <Section tone="light">
+        <Section tone="dark">
           <div className="v2sx-aside">
             <SectionHeader eyebrow={t.compliance.eyebrow} title={t.compliance.title} className="v2sx-aside__head" />
             <div className="v2-card v2t-law">
@@ -98,8 +102,8 @@ export default function TrainingPage({ locale = "en", tono }) {
           </div>
         </Section>
 
-        <CtaBand title={t.cta.title} line={t.cta.line} button={{ label: t.cta.button, href: contact }} />
-      </div>
+        <CtaBand tone="dark" title={t.cta.title} line={t.cta.line} button={{ label: t.cta.button, href: contact }} />
+      </main>
     </AutomisEnShell>
   );
 }

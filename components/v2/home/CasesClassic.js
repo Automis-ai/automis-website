@@ -1,14 +1,21 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Section, SectionHeading, Reveal } from "@/components/home/_ui";
+import { GRAD } from "@/components/home/_ui";
 import { addLangPrefix } from "@/lib/locales";
+import { WowSection, WowHeading } from "./WowParts";
 import { Stethoscope, Landmark, Camera, Shirt, ArrowRight } from "lucide-react";
 
 /*
-  Casi studio, con il design di components/home/Proof.js (copia): scheda con logo (o icona), tag, cliente,
-  riga di risultato e link. Differenze volute dal giro 2 di Luca: quattro casi invece di due, e meno testo
-  (niente lead, niente fascia dei numeri, niente nota in fondo). Ogni numero sta nella sua scheda, sulla sua base.
+  Casi studio. Base: components/home/Proof.js (scheda con logo o icona, tag, cliente, riga di risultato e link).
+  Giro WOW: i quattro casi sono carte a pila in 3D che si aprono a ventaglio mentre scorri (la coreografia sta in
+  stages/cases.js; su schermo largo la sezione resta fissata finché le carte non sono aperte). Sul telefono la pila è
+  di carte «appiccicate» (position: sticky, home.css; --i è la posizione nella pila): ognuna arriva sopra la precedente, che
+  si ritira in profondità; dove c'è un giroscopio (Android) le carte seguono anche l'inclinazione del telefono. Ogni carta ha un numero
+  grande: è lo stesso numero della riga di risultato, sulla stessa base (la riga sotto il numero dice cosa e in
+  quanto tempo). Il numero è SEMPRE quello vero, anche a metà animazione (niente conteggio da zero): mentre la pila si
+  apre e le carte sono inclinate si vedono solo logo e numero; il testo piccolo (data-wow-detail) si accende quando la
+  carta è dritta. Sopra la fila di carte passa un bus (fili e pacchetti) che le unisce e ne accende il bordo a turno.
   I testi arrivano da getCopy("home", lang).cases; i link passano da addLangPrefix.
 */
 
@@ -38,36 +45,64 @@ function ClientMark({ logo, Icon, name }) {
 
 export default function CasesClassic({ locale = "en", copy }) {
   return (
-    <Section id="cases" className="bg-[#020a12]">
-      <SectionHeading eyebrow={copy.eyebrow} title={copy.title} />
+    <WowSection id="cases" wow="cases" className="bg-[#020a12] v2hp-cases">
+      <WowHeading eyebrow={copy.eyebrow} title={copy.title} lead={copy.lead} />
 
-      <div className="mt-12 grid grid-cols-1 gap-4 md:mt-14 md:grid-cols-2">
-        {copy.items.map((c, i) => {
+      <div className="v2hp-deck mt-12 md:mt-14" data-wow-deck>
+        <div className="v2hp-bus" data-wow-bus aria-hidden="true" />
+        {copy.items.map((c, idx) => {
           const Icon = ICONS[c.key];
           return (
-            <Reveal key={c.key} delay={(i % 2) * 120}>
-              <div className="card-glow group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-sm hover:-translate-y-1 sm:p-7">
-                <div className="flex items-center justify-between gap-3">
-                  <ClientMark logo={LOGOS[c.key]} Icon={Icon} name={c.client} />
-                  <span className="rounded-full border border-[#57C7E3]/25 bg-[#57C7E3]/[0.08] px-3 py-1 text-right text-[11px] font-semibold text-[#8fe0f0]">
-                    {c.tag}
-                  </span>
+            <article key={c.key} className="v2hp-case" data-wow-case style={{ "--i": idx }}>
+              <div className="v2hp-case__in card-glow group relative h-full rounded-2xl border border-white/[0.09] p-6 sm:p-7" data-wow-case-in>
+                <i className="v2hp-case__lit" aria-hidden="true" />
+                <i className="v2hp-case__dim" data-wow-dim aria-hidden="true" />
+                <div className="v2hp-case__body flex h-full flex-col" data-wow-case-body>
+                  <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+                    <ClientMark logo={LOGOS[c.key]} Icon={Icon} name={c.client} />
+                    <span
+                      data-wow-detail
+                      className="rounded-full border border-[#57C7E3]/25 bg-[#57C7E3]/[0.08] px-3 py-1 text-[11px] font-semibold text-[#8fe0f0]"
+                    >
+                      {c.tag}
+                    </span>
+                  </div>
+
+                  <p className="v2hp-stat mt-6">
+                    <span className="v2hp-stat__n font-display" style={{ backgroundImage: GRAD }}>
+                      {c.approx ? copy.approxWord ? <span className="v2hp-stat__ap">{copy.approxWord} </span> : "~" : ""}
+                      {c.stat}
+                    </span>
+                    <span className="v2hp-stat__l" data-wow-detail>
+                      {c.statLabel}
+                    </span>
+                  </p>
+
+                  <h3 data-wow-detail className="font-display mt-6 text-xl font-semibold text-white">
+                    {c.client}
+                  </h3>
+                  <p data-wow-detail className="mt-1 text-[13px] text-white/60">
+                    {c.meta}
+                  </p>
+                  <p data-wow-detail className="mb-5 mt-3 text-[14.5px] leading-relaxed text-white/65">
+                    {c.result}
+                  </p>
+                  <Link
+                    href={addLangPrefix(c.href, locale)}
+                    data-wow-detail
+                    className="mt-auto block border-t border-white/[0.06] pt-5 text-[14px] font-semibold text-[#8fe0f0] transition-colors hover:text-white"
+                  >
+                    <span data-magnetic className="inline-flex items-center gap-1.5">
+                      {copy.readCase}
+                      <ArrowRight className="h-4 w-4 flex-shrink-0 text-[#57C7E3] transition-transform group-hover:translate-x-1" strokeWidth={2} />
+                    </span>
+                  </Link>
                 </div>
-                <h3 className="font-display mt-5 text-xl font-semibold text-white">{c.client}</h3>
-                <p className="mt-1 text-[13px] text-white/60">{c.meta}</p>
-                <p className="mb-5 mt-4 text-[14.5px] leading-relaxed text-white/65">{c.result}</p>
-                <Link
-                  href={addLangPrefix(c.href, locale)}
-                  className="mt-auto flex items-center gap-1.5 border-t border-white/[0.06] pt-5 text-[14px] font-semibold text-[#8fe0f0] transition-colors hover:text-white"
-                >
-                  {copy.readCase}
-                  <ArrowRight className="h-4 w-4 flex-shrink-0 text-[#57C7E3] transition-transform group-hover:translate-x-1" strokeWidth={2} />
-                </Link>
               </div>
-            </Reveal>
+            </article>
           );
         })}
       </div>
-    </Section>
+    </WowSection>
   );
 }

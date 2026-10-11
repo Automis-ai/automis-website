@@ -12,7 +12,7 @@ import { nb } from "@/components/v2/ui/nb";
 */
 export default function ProductCard({ icon, title, line, price, cta, href, as: Tag = "h3", wide = false }) {
   return (
-    <article className={`v2-card v2-card--link v2sx-prod${wide ? " v2sx-prod--wide" : ""}`}>
+    <article className={`v2-card v2-card--link v2sx-prod${wide ? " v2sx-prod--wide" : ""}`} data-fx="tilt">
       <div className="v2sx-prod__top">
         <span className="v2-tile">{renderIcon(icon, 24)}</span>
         {price ? <Badge tone="gold">{price}</Badge> : null}

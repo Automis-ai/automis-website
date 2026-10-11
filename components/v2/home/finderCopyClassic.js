@@ -131,7 +131,7 @@ export const FINDER_COPY = {
   it: {
     eyebrow: "Gratis · 60 secondi · senza call",
     title: "Trova le tue opportunità IA",
-    lead: "Rispondi a 6 domande veloci e ottieni subito una roadmap su misura: le automazioni che contano di più per il tuo business e quanto tempo ti fanno risparmiare.",
+    lead: "Rispondi a 6 domande veloci e ottieni subito una roadmap su misura: le automazioni che contano di più per la tua azienda e quanto tempo ti fanno risparmiare.",
     yourResults: "I tuoi risultati",
     question: "Domanda",
     of: "di",
@@ -251,7 +251,7 @@ export const FINDER_COPY = {
   },
   pt: {
     eyebrow: "Grátis · 60 segundos · sem chamada",
-    title: "Descubra as suas oportunidades IA",
+    title: "Descubra as suas oportunidades de IA",
     lead: "Responda a 6 perguntas rápidas e receba, na hora, um roadmap personalizado com as automações que mais contam para o seu negócio, e quanto tempo lhe podem devolver.",
     yourResults: "Os seus resultados",
     question: "Pergunta",
@@ -347,7 +347,7 @@ export const FINDER_COPY = {
       sales: {
         name: "Vendas & Aquisição",
         plays: [
-          "Assistente de voz IA 24/7 para atender e qualificar cada chamada",
+          "Assistente de voz com IA 24/7 para atender e qualificar cada chamada",
           "Recuperação de chamadas perdidas com SMS de follow-up imediato",
           "Automação de redes sociais & WhatsApp a alimentar o seu CRM",
         ],
@@ -363,7 +363,7 @@ export const FINDER_COPY = {
       marketing: {
         name: "Marketing & Crescimento",
         plays: [
-          "Agente IA de anúncios e criatividades no Meta e Google",
+          "Agente de IA para anúncios e criatividades no Meta e no Google",
           "Visibilidade SEO / GEO no Google e na pesquisa por IA",
           "Workflows automáticos de conteúdo e reputação",
         ],

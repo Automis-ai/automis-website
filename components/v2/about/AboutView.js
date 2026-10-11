@@ -2,15 +2,17 @@ import PageHero from "@/components/v2/ui/PageHero";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CtaBand from "@/components/v2/ui/CtaBand";
-import { toneClass } from "@/components/v2/ui/toneClass";
+import { pageClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
+import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
+import PageStory from "@/components/v2/wow/fx/PageStory";
 import FounderCards from "./FounderCards";
 import PrincipleCards from "./PrincipleCards";
 import Guarantee from "./Guarantee";
 import { heroTitle } from "@/components/v2/systems/heroTitle";
 
-/* Chi siamo: fondatori, come costruiamo (privacy compresa), garanzia. Il ritmo: scuro, chiaro, blu, chiaro, chiusura.
+/* Chi siamo: fondatori, come costruiamo (privacy compresa), garanzia. Il ritmo: scuro, un solo momento blu (fondatori), blu notte, scuro, chiusura.
    Cornice (AutomisEnShell) e metadati stanno nel file di rotta. `tono`: ?tono= della preview. */
 export default function AboutView({ lang, tono }) {
   const t = getCopy("about", lang);
@@ -19,7 +21,9 @@ export default function AboutView({ lang, tono }) {
   const contact = addLangPrefix("/contact", lang);
 
   return (
-    <div className={toneClass(tono)}>
+    <main id="main" className={pageClass(tono)}>
+      <SmoothScroll />
+      <PageStory />
       <PageHero
         size="compact"
         eyebrow={t.hero.eyebrow}
@@ -38,7 +42,7 @@ export default function AboutView({ lang, tono }) {
         <PrincipleCards items={t.principles.items} moreLabel={moreLabel} />
       </Section>
 
-      <Section tone="light" pad="sm">
+      <Section tone="dark" pad="sm">
         <Guarantee
           title={t.guarantee.title}
           number={t.guarantee.number}
@@ -47,7 +51,7 @@ export default function AboutView({ lang, tono }) {
         />
       </Section>
 
-      <CtaBand tone="light" title={t.cta.title} line={t.cta.line} button={{ label: c.cta, href: contact }} />
-    </div>
+      <CtaBand tone="dark" title={t.cta.title} line={t.cta.line} button={{ label: c.cta, href: contact }} />
+    </main>
   );
 }

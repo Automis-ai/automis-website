@@ -27,7 +27,7 @@ export default {
         { slug: "sales", title: "AI Systems for Sales", line: "Every contact answered and tracked." },
         { slug: "support", title: "AI Systems for Customer Service", line: "Calls, chats and messages answered day and night." },
         { slug: "admin", title: "AI Systems for Admin", line: "Documents, data and routine tasks handled for you." },
-        { slug: "hr", title: "AI Systems for HR", line: "A company brain for new colleagues." },
+        { slug: "hr", title: "AI Systems for HR", line: "A private archive for new colleagues." },
       ],
     },
     products: {
@@ -68,6 +68,15 @@ export default {
       title: "Systems that run your marketing",
       highlight: "your marketing",
       lead: "Ads, search visibility, content, reviews and your online store, handled by AI built around your business.",
+    },
+    moment: {
+      label: "From the first ad to social: the marketing chain",
+      steps: [
+        { card: "ads-creative", glyph: "target", label: "Ads" },
+        { card: "seo-geo", glyph: "search", label: "Search" },
+        { card: "reviews", glyph: "star", label: "Reviews" },
+        { card: "content-social", glyph: "pen", label: "Social" },
+      ],
     },
     cards: [
       {
@@ -210,6 +219,16 @@ export default {
       highlight: "every lead",
       lead: "From the first message to your CRM, contacts are answered, qualified and tracked.",
     },
+    moment: {
+      label: "From message to dashboard: the sales chain",
+      steps: [
+        { card: "social-dms", glyph: "chat", label: "Message" },
+        { card: "lead-qualification", glyph: "sales", label: "Qualify" },
+        { card: "custom-crm", glyph: "contact", label: "CRM" },
+        { card: "dashboards-pipeline", glyph: "chart", label: "Dashboard" },
+      ],
+      result: { value: "2,329", unit: "conversations handled", src: "ADifesa · 1 May to 16 Sept 2026" },
+    },
     cards: [
       {
         id: "social-dms",
@@ -335,6 +354,16 @@ export default {
       highlight: "your customers",
       lead: "By phone, chat and message, day and night, with a person ready for whatever needs one.",
     },
+    moment: {
+      label: "From call to reply: the customer service chain",
+      steps: [
+        { card: "voice-receptionist", glyph: "voice", label: "Call" },
+        { card: "missed-call-recovery", glyph: "phone", label: "Recovery" },
+        { card: "answers-247", glyph: "clock", label: "Replies" },
+        { card: "ecommerce-support", glyph: "cart", label: "Shop" },
+      ],
+      result: { value: "872", unit: "calls", src: "Clínica Santa Maria dos Olivais · 1 Feb to 9 Sept 2026" },
+    },
     cards: [
       {
         id: "voice-receptionist",
@@ -440,6 +469,15 @@ export default {
       highlight: "your back office",
       lead: "Documents, data and routine tasks handled by AI, so your team can work on the work that matters.",
     },
+    moment: {
+      label: "From document to record: the admin chain",
+      steps: [
+        { card: "document-intake", glyph: "inbox", label: "Documents" },
+        { card: "scan-to-brain", glyph: "scan", label: "Reading" },
+        { card: "accounting-software", glyph: "receipt", label: "Invoices" },
+        { card: "back-office", glyph: "repeat", label: "Back office" },
+      ],
+    },
     cards: [
       {
         id: "accounting-software",
@@ -512,7 +550,7 @@ export default {
     },
     crossLink: {
       title: "Company Brain",
-      line: "A private brain over your documents, where your team asks and gets an answer with its source. You will find it under AI Systems for HR.",
+      line: "A private archive over your documents, where your team asks and gets an answer with its source. You will find it under AI Systems for HR.",
       cta: "See the Company Brain",
       href: "/systems/hr",
     },
@@ -551,9 +589,9 @@ export default {
     },
     hero: {
       eyebrow: "AI Systems for HR",
-      title: "Systems for your people",
-      highlight: "your people",
-      lead: "A company brain that helps new colleagues find their own answers.",
+      title: "Systems that guide new colleagues",
+      highlight: "new colleagues",
+      lead: "A private archive that answers with its source: new colleagues find their own answers.",
     },
     cards: [
       {
@@ -561,7 +599,7 @@ export default {
         kicker: null,
         title: "Company Brain for onboarding",
         short: "New colleagues ask, the Brain answers with its source.",
-        line: "A private brain over your documents. New colleagues ask it and get an answer with its source.",
+        line: "A private archive over your documents. New colleagues ask it and get an answer with its source.",
         more: "The answer to any question is buried in a folder, an inbox or one person's memory.",
         href: null,
         caseHref: null,

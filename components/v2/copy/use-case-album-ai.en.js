@@ -12,6 +12,7 @@ export default {
   hero: {
     eyebrow: "Case study",
     title: "A custom tool for photo albums",
+    highlight: "custom tool",
     lead: "From 1,200 to 1,800 shots of one event, it chooses about 280 photos and lays out the album.",
     client: "A professional photographer",
     tag: "Album tool",

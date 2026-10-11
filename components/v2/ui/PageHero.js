@@ -1,7 +1,10 @@
 import "./v2.css";
+import "./pg.css";
 import { cx } from "./cx";
 import Button from "./Button";
 import { nb } from "./nb";
+import FxScope from "../wow/fx/FxScope";
+import PageScene from "../wow/fx/PageScene";
 
 /*
   Colora nel blu del brand le parole di `highlight` (stringa o elenco) dentro un titolo di testo.
@@ -41,6 +44,13 @@ function renderTitle(title, highlight) {
             Il kit ci mette sopra una velatura per il contrasto. Dentro puoi aggiungere
             <img className="v2-phero__still" …> : con prefers-reduced-motion il video sparisce e resta lo still.
   veil      "normal" (default) | "strong" (video molto vivace) | "none" (lo sfondo è già scuro)
+  scene     id della scena 3D (components/v2/wow/fx/scene/presets.js) oppure false. Nelle pagine compatte, senza `bg`, la hero
+            ha la rete 3D dei moduli della home in versione «lite»: 3-5 moduli scelti per la pagina, collegati da pacchetti di
+            dati, che si accendono a catena. Senza `scene` la scelta la fa il percorso della pagina (es. /systems/sales ->
+            chiamata, CRM, chat, calendario). Mai sul testo: sotto il testo c'è una fascia riservata (.v2-phero__stage).
+            Si carica dopo il primo paint (dynamic import), si ferma fuori schermo, con prefers-reduced-motion resta
+            un'immagine ferma. Con `bg` si usa il tuo sfondo.
+  backdrop  true (default) | false: `false` spegne la scena (come `scene={false}`).
   below     slot opzionale SOTTO il testo, centrato: un elemento visivo che ha senso (animazione, demo, prodotto)
   children  riga extra sotto i bottoni (es. una frase piccola)
 */
@@ -55,11 +65,14 @@ export default function PageHero({
   secondaryCta,
   bg,
   veil = "normal",
+  scene,
+  backdrop = true,
   below,
   id,
   className,
   children,
 }) {
+  const net = !bg && backdrop && scene !== false && size === "compact";
   return (
     <section
       id={id}
@@ -67,18 +80,22 @@ export default function PageHero({
         "v2-section v2-phero",
         `v2-tone-${tone}`,
         size === "compact" ? "v2-phero--compact" : "v2-phero--full",
-        bg && "v2-phero--bg",
+        (bg || net) && "v2-phero--bg",
+        net && "v2-phero--net",
         className
       )}
     >
-      {bg ? (
+      {bg || net ? (
         <div className="v2-phero__bg" aria-hidden="true">
           {bg}
-          {veil !== "none" ? <span className={cx("v2-phero__veil", veil === "strong" && "v2-phero__veil--strong")} /> : null}
+          {net ? <PageScene preset={typeof scene === "string" ? scene : undefined} /> : null}
+          {veil !== "none" ? (
+            <span className={cx("v2-phero__veil", veil === "strong" && "v2-phero__veil--strong", net && "v2-phero__veil--scene")} />
+          ) : null}
         </div>
       ) : null}
-      <div className="v2-wrap">
-        <div className="v2-phero__copy">
+      <FxScope className="v2-wrap" glow={!net && tone !== "light"}>
+        <div className="v2-phero__copy" data-fx="skip">
           {eyebrow ? (
             <p className="v2-phero__pill">
               <span className="v2-phero__dot" aria-hidden="true" />
@@ -90,12 +107,12 @@ export default function PageHero({
           {primaryCta || secondaryCta ? (
             <div className="v2-phero__actions">
               {primaryCta ? (
-                <Button href={primaryCta.href} external={primaryCta.external} variant="primary">
+                <Button href={primaryCta.href} external={primaryCta.external} variant="primary" magnetic>
                   {primaryCta.label}
                 </Button>
               ) : null}
               {secondaryCta ? (
-                <Button href={secondaryCta.href} external={secondaryCta.external} variant="secondary">
+                <Button href={secondaryCta.href} external={secondaryCta.external} variant="secondary" magnetic>
                   {secondaryCta.label}
                 </Button>
               ) : null}
@@ -103,8 +120,9 @@ export default function PageHero({
           ) : null}
           {children ? <div className="v2-phero__extra">{children}</div> : null}
         </div>
+        {net ? <div className="v2-phero__stage" aria-hidden="true" /> : null}
         {below ? <div className="v2-phero__below">{below}</div> : null}
-      </div>
+      </FxScope>
     </section>
   );
 }

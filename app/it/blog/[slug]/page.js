@@ -61,7 +61,7 @@ const BlogPostPage = ({ params }) => {
   const related = getRelatedPosts(params.slug, "it", 3);
 
   return (
-    <AutomisEnShell bodyClass="blog-article-page">
+    <AutomisEnShell bodyClass="blog-article-page" main>
       <ArticleLayout
         post={post}
         toc={toc}

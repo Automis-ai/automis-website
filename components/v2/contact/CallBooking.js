@@ -25,7 +25,7 @@ export default function CallBooking({ loadingLabel, previewNote }) {
   if (mode === "live") return <BookingEmbed />;
 
   return (
-    <div className="v2c-ph" role="status">
+    <div className={mode === "preview" ? "v2c-ph v2c-ph--preview" : "v2c-ph"} role="status">
       <div className="v2c-ph__inner">
         <span className="v2c-ph__icon" aria-hidden="true">
           <Icon name="calendar" size={24} />

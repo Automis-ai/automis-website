@@ -26,6 +26,9 @@ import useCasesPt from "./use-cases.pt.js";
 import albumEn from "./use-case-album-ai.en.js";
 import albumIt from "./use-case-album-ai.it.js";
 import albumPt from "./use-case-album-ai.pt.js";
+import daturaEn from "./use-case-datura.en.js";
+import daturaIt from "./use-case-datura.it.js";
+import daturaPt from "./use-case-datura.pt.js";
 import aboutEn from "./about.en.js";
 import aboutIt from "./about.it.js";
 import aboutPt from "./about.pt.js";
@@ -44,6 +47,7 @@ const TABLE = {
   training: { en: trainingEn, it: trainingIt, pt: trainingPt },
   "use-cases": { en: useCasesEn, it: useCasesIt, pt: useCasesPt },
   "use-case-album-ai": { en: albumEn, it: albumIt, pt: albumPt },
+  "use-case-datura": { en: daturaEn, it: daturaIt, pt: daturaPt },
   about: { en: aboutEn, it: aboutIt, pt: aboutPt },
   contact: { en: contactEn, it: contactIt, pt: contactPt },
   ecommerce: { en: ecommerceEn, it: ecommerceIt, pt: ecommercePt },

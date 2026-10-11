@@ -52,7 +52,7 @@ export default {
   compliance: {
     eyebrow: "AI Act",
     badge: "Artigo 4.º",
-    title: "Ajudamos a empresa a cumprir as regras da IA",
+    title: "Formação para o artigo 4.º do Regulamento da IA",
     line: "O artigo 4.º do Regulamento da IA da UE pede às empresas que usam IA que promovam a literacia no domínio da IA do seu pessoal. A formação é um caminho.",
     more: "Os prestadores e os responsáveis pela implantação de sistemas de IA adotam medidas para promover a literacia no domínio da IA do seu pessoal e de outras pessoas envolvidas na operação e utilização desses sistemas em seu nome, tendo em conta conhecimentos técnicos, experiência, educação e formação, o contexto de utilização e as pessoas visadas. A obrigação não exige que se garanta um nível específico de literacia a ninguém. É o texto em vigor desde 27 de julho de 2026, introduzido pelo Regulamento (UE) 2026/1744. Informação geral, não aconselhamento jurídico.",
     sourceLabel: "Ler o Regulamento no EUR-Lex",

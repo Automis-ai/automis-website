@@ -10,6 +10,15 @@
   }
 }
 
+/* Il Finder è il componente di oggi: i suoi testi piccoli («Domanda 1 di 6», la percentuale, le note) stavano al 45% di
+   bianco, 4,2-4,5 : 1. Qui salgono al 62-66%, sopra 4,5 : 1 sul fondo vero. */
+.v2c-finder .text-white\/45 {
+  color: rgba(255, 255, 255, 0.66);
+}
+.v2c-finder .text-white\/40 {
+  color: rgba(255, 255, 255, 0.62);
+}
+
 /* Le due rassicurazioni sotto il bottone: una riga centrata, senza separatori che vanno a capo da soli. */
 .v2c-heroline {
   display: flex;
@@ -83,6 +92,10 @@
   min-height: 420px;
   padding: 24px;
   text-align: center;
+}
+/* In anteprima il calendario è spento di proposito (brief §8): il riquadro si riduce a una nota, non a una scatola vuota. */
+.v2c-ph--preview {
+  min-height: 190px;
 }
 .v2c-ph__inner {
   display: grid;

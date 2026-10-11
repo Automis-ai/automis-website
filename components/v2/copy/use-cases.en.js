@@ -1,16 +1,17 @@
-/* Indice dei casi studio (EN). Tre casi: Clínica Santa Maria, ADifesa, Album AI.
+/* Indice dei casi studio (EN). Quattro casi: Clínica Santa Maria, ADifesa, Album AI, Datura Clothing.
    I numeri sono solo quelli della §3 del brief, con la loro base. Le sintesi di Clínica e ADifesa
    sono le stesse di components/use-cases/cases.js. Album AI: solo cosa fa il sistema, nessun nome. */
 export default {
   meta: {
     title: "Case Studies | AI Systems at Work in Real Businesses | Automis",
     description:
-      "A voice assistant at a dental clinic, an automation on Facebook and Instagram, and an album tool for a photographer. What each one does.",
+      "A voice assistant at a dental clinic, an automation on Facebook and Instagram, an album tool for a photographer and the monitoring of an online store. What each one does.",
   },
 
   hero: {
     eyebrow: "Case studies",
     title: "Systems at work in real businesses",
+    highlight: "real businesses",
     lead: "What each system does, with real numbers and the period they cover.",
   },
 
@@ -28,9 +29,9 @@ export default {
       slug: "adifesa",
       client: "ADifesa",
       tag: "Meta automation",
-      title: "Five months in the comments on Facebook and Instagram",
+      title: "Comments and messages on Facebook and Instagram",
       figure: "2,329",
-      figureLabel: "conversations in five months",
+      figureLabel: "conversations from 1 May to 16 Sep 2026",
       href: "/use-cases/adifesa",
     },
     {
@@ -41,6 +42,15 @@ export default {
       figure: "About 280",
       figureLabel: "photos chosen from 1,200 to 1,800 shots",
       href: "/use-cases/album-ai",
+    },
+    {
+      slug: "datura-clothing",
+      client: "Datura Clothing",
+      tag: "Monitoring and campaigns",
+      title: "Datura Clothing: monitoring, campaigns and reports",
+      figure: "10",
+      figureLabel: "faults found in 28 days",
+      href: "/use-cases/datura-clothing",
     },
   ],
 

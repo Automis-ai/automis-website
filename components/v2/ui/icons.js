@@ -1,7 +1,6 @@
 import {
   ArrowRight,
   AudioLines,
-  BrainCircuit,
   Building2,
   CalendarDays,
   Camera,
@@ -38,6 +37,9 @@ import {
   Target,
   Users,
   Video,
+  Workflow,
+  Wrench,
+  Zap,
 } from "lucide-react";
 import { cx } from "./cx";
 
@@ -47,6 +49,40 @@ import { cx } from "./cx";
   delle schede; il colore lo decide chi le contiene (currentColor).
   Sono sempre decorative (aria-hidden): il testo accanto dice cosa sono.
 */
+/* Pittogramma astratto: un nucleo al centro e cinque nodi attorno (le cinque categorie), uniti da raggi e da un contorno.
+   Stesso tratto di lucide (24x24, 1,75, estremi tondi): si usa come le altre icone. */
+function HubGlyph({ size = 24, strokeWidth = 1.75, className, ...rest }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      {...rest}
+    >
+      <circle cx="12" cy="12" r="2.6" />
+      <circle cx="12" cy="3.6" r="1.6" />
+      <circle cx="19.9" cy="9.3" r="1.6" />
+      <circle cx="16.9" cy="18.6" r="1.6" />
+      <circle cx="7.1" cy="18.6" r="1.6" />
+      <circle cx="4.1" cy="9.3" r="1.6" />
+      {/* il contorno fra i nodi, più leggero dei raggi: si legge come una rete, non come un asterisco */}
+      <path d="M13.3 4.5 18.6 8.4M19.4 10.8 17.4 17.1M15.3 18.6H8.7M6.6 17.1 4.6 10.8M5.4 8.4 10.7 4.5" strokeOpacity="0.45" />
+      <path d="M12 9.4V5.2" />
+      <path d="M14.5 11.2 18.4 9.8" />
+      <path d="M13.5 14.1 16 17.3" />
+      <path d="M10.5 14.1 8 17.3" />
+      <path d="M9.5 11.2 5.6 9.8" />
+    </svg>
+  );
+}
+
 const ICONS = {
   arrow: ArrowRight,
   check: Check,
@@ -61,7 +97,10 @@ const ICONS = {
   // prodotti e sistemi
   voice: AudioLines,
   cart: ShoppingCart,
-  brain: BrainCircuit,
+  // «Company Brain» si dice a parole; il pittogramma è astratto: un nucleo e cinque nodi collegati (mai un cervello disegnato)
+  brain: HubGlyph,
+  hub: HubGlyph,
+  workflow: Workflow,
   training: GraduationCap,
   chat: MessageSquareText,
   search: Search,
@@ -89,6 +128,8 @@ const ICONS = {
   calendar: CalendarDays,
   spark: Sparkles,
   play: Play,
+  wrench: Wrench,
+  bolt: Zap,
 };
 
 export const ICON_NAMES = Object.keys(ICONS);

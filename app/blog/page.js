@@ -31,7 +31,7 @@ const BlogPage = async () => {
   const posts = getAllPosts("en");
 
   return (
-    <AutomisEnShell>
+    <AutomisEnShell main>
       {/* ── HERO ── */}
       <section className="relative overflow-hidden bg-bg-primary pt-36 pb-10">
         {/* background blobs */}

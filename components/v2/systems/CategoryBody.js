@@ -6,10 +6,14 @@ import CardGrid from "@/components/v2/ui/CardGrid";
 import Button from "@/components/v2/ui/Button";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import ScriptedChat from "@/components/v2/ui/ScriptedChat";
-import { toneClass } from "@/components/v2/ui/toneClass";
+import { pageClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { CASES } from "@/components/use-cases/cases";
 import { addLangPrefix } from "@/lib/locales";
+import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
+import PageStory from "@/components/v2/wow/fx/PageStory";
+import { NetGrid, NetCell } from "@/components/v2/wow/fx/NetGrid";
+import Rail, { RailCell } from "@/components/v2/wow/fx/Rail";
 import SystemTile from "./SystemTile";
 import ProductCard from "./ProductCard";
 import ProductBand from "./ProductBand";
@@ -21,10 +25,12 @@ import { CARD_ICONS, BAND_CARD, CARD_SPLIT, colsFor, caseSlug } from "./data";
 
 /*
   Un solo template per le cinque pagine /systems/<categoria> (marketing, sales, support, admin, hr).
-  Dati e testi: components/v2/copy/systems.<lingua>.js. `tono`: ?tono= della preview (toneClass).
-  Ritmo: apertura centrata (PageHero compact); schede su chiaro (al massimo 4 per gruppo: le categorie più lunghe
-  si dividono in due gruppi con una fascia in mezzo: il prodotto, o il caso reale); poi, dove c'è, demo o rimando
-  su fondo blu; le domande frequenti su blu; chiusura con un solo invito verso /contact.
+  Dati e testi: components/v2/copy/systems.<lingua>.js. `tono`: ?tono= della preview (toneClass; senza parametro vale il tono A).
+  Ritmo: apertura centrata (PageHero compact); il primo gruppo di schede è l'unico momento più chiaro (blu medio) della
+  pagina, tutto il resto sta nei blu notte, con sfumature lunghe fra le fasce (classe v2-pg); le schede sono di vetro
+  scuro. Al massimo 4 schede per gruppo: le categorie più lunghe si dividono in due gruppi con una fascia in mezzo
+  (il prodotto, o il caso reale); poi, dove c'è, demo o rimando; le domande frequenti; chiusura con un solo invito
+  verso /contact, su fondo scuro come il piede.
   Risorse umane ha una scheda sola: sta nella stessa riga della demo (stessa colonna delle schede delle altre pagine).
 */
 export default function CategoryBody({ locale, slug, tono }) {
@@ -42,7 +48,6 @@ export default function CategoryBody({ locale, slug, tono }) {
   const groups = split && gridCards.length > split ? [gridCards.slice(0, split), gridCards.slice(split)] : [gridCards];
   // Il caso reale sta in mezzo ai due gruppi (Vendita); altrimenti chiude la pagina, dopo le demo.
   const caseInMiddle = Boolean(split && !bandCard && c.case);
-  const caseTone = c.chat ? "light" : "deep";
   // Una scheda sola e una demo (Risorse umane): scheda e demo stanno affiancate.
   const brainBeside = Boolean(c.brain && c.cards.length === 1);
 
@@ -87,7 +92,9 @@ export default function CategoryBody({ locale, slug, tono }) {
   ) : null;
 
   return (
-    <div className={toneClass(tono)}>
+    <main id="main" className={pageClass(tono)}>
+      <SmoothScroll />
+      <PageStory />
       <PageHero
         size="compact"
         eyebrow={c.hero.eyebrow}
@@ -101,7 +108,7 @@ export default function CategoryBody({ locale, slug, tono }) {
         return (
           <Fragment key={gi}>
             <Section
-              tone="light"
+              tone={gi === 0 ? "light" : "dark"}
               {...(gi === 0
                 ? { "aria-labelledby": `sx-${slug}-cards` }
                 : { "aria-label": common.categories[slug] })}
@@ -122,9 +129,42 @@ export default function CategoryBody({ locale, slug, tono }) {
                   <div className="v2sx-duo__demo">{brainPicker}</div>
                 </div>
               ) : (
-                <CardGrid cols={colsFor(cards.length)} className="v2sx-grid">
-                  {cards.map(tile)}
-                </CardGrid>
+                gi === 0 && c.moment ? (
+                  /* il primo gruppo è il momento fissato della pagina, con il suo motivo (copy: `moment`): una catena di moduli
+                     riconoscibili (messaggio → qualifica → CRM → dashboard, documenti → lettura → fatture → back office, …) uniti da
+                     fili con pacchetti. Ogni modulo che si accende porta con sé la sua scheda; a catena chiusa, dove c'è un caso,
+                     il numero vero (fx/Rail.js + stages/rail.js) */
+                  <Rail steps={c.moment.steps} result={c.moment.result} ariaLabel={c.moment.label} cards>
+                    <CardGrid cols={colsFor(cards.length)} fx="own" className="v2sx-grid v2fx-netgrid">
+                      {cards.map((card) => {
+                        const k = c.moment.steps.findIndex((st) => st.card === card.id);
+                        return k >= 0 ? (
+                          <RailCell key={card.id} index={k}>
+                            {tile(card)}
+                          </RailCell>
+                        ) : (
+                          <div key={card.id} className="v2fx-cell">
+                            {tile(card)}
+                          </div>
+                        );
+                      })}
+                    </CardGrid>
+                  </Rail>
+                ) : gi === 0 ? (
+                  /* il primo gruppo è la catena (il momento fissato della pagina): le schede entrano una dopo l'altra,
+                     unite da fili (fx/stages/net.js, mode chain) */
+                  <NetGrid mode="chain">
+                    <CardGrid cols={colsFor(cards.length)} fx="own" className="v2sx-grid v2fx-netgrid">
+                      {cards.map((card) => (
+                        <NetCell key={card.id}>{tile(card)}</NetCell>
+                      ))}
+                    </CardGrid>
+                  </NetGrid>
+                ) : (
+                  <CardGrid cols={colsFor(cards.length)} className="v2sx-grid">
+                    {cards.map(tile)}
+                  </CardGrid>
+                )
               )}
               {isLast ? (
                 <div className="v2sx-back">
@@ -147,7 +187,11 @@ export default function CategoryBody({ locale, slug, tono }) {
                 />
               </Section>
             ) : null}
-            {!isLast && caseInMiddle ? <Section tone="deep">{caseBand}</Section> : null}
+            {!isLast && caseInMiddle ? (
+              <Section tone="deep" className="v2sx-casesec">
+                {caseBand}
+              </Section>
+            ) : null}
           </Fragment>
         );
       })}
@@ -188,7 +232,7 @@ export default function CategoryBody({ locale, slug, tono }) {
       ) : null}
 
       {c.crossLink ? (
-        <Section tone="light" pad="sm">
+        <Section tone="dark" pad="sm">
           <ProductCard
             as="h2"
             wide
@@ -201,16 +245,20 @@ export default function CategoryBody({ locale, slug, tono }) {
         </Section>
       ) : null}
 
-      {c.case && !caseInMiddle ? <Section tone={caseTone}>{caseBand}</Section> : null}
+      {c.case && !caseInMiddle ? (
+        <Section tone="deep" className="v2sx-casesec">
+          {caseBand}
+        </Section>
+      ) : null}
 
-      <FaqSection title={c.faq.title} items={c.faq.items} tone="deep" />
+      <FaqSection title={c.faq.title} items={c.faq.items} tone="dark" />
 
       <CtaBand
-        tone="light"
+        tone="dark"
         title={c.cta.title}
         line={c.cta.line}
         button={{ label: common.cta, href: addLangPrefix("/contact", L) }}
       />
-    </div>
+    </main>
   );
 }

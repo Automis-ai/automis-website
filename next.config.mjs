@@ -1,3 +1,8 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const ROOT = path.dirname(fileURLToPath(import.meta.url));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // scripts/verify.sh builds into .next-verify so it never clobbers a running `next dev`.
@@ -60,6 +65,30 @@ const nextConfig = {
           { key: "CDN-Cache-Control", value: "max-age=3600" },
         ],
       },
+      // File statici di public/: senza una regola escono con `public, max-age=0`, quindi chi
+      // rientra (da Instagram, di solito da telefono) rivalida ogni font e ogni immagine, un giro
+      // di rete in piu' (150 ms sul profilo lento) sul percorso del testo della hero. Safari/iOS
+      // ignora stale-while-revalidate: li' conta solo max-age, per questo il valore e' lungo.
+      //
+      // /fonts: i nomi non cambiano mai (sono i font del brand). Se uno va sostituito, serve un
+      // nome nuovo, perche' `immutable` vuol dire che il browser non lo richiede per un anno.
+      {
+        source: "/fonts/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+      // /media e /assets: immagini, still della hero, loop video. Possono essere rigenerati con
+      // lo stesso nome, quindi 7 giorni e non un anno; se un file cambia davvero e deve arrivare
+      // subito a tutti, nome nuovo o ?v=.
+      {
+        source: "/media/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }],
+      },
+      // /assets/downloads (PDF dei playbook) resta fuori: li sostituiamo con lo stesso nome e chi
+      // li scarica deve ricevere l'ultima versione.
+      {
+        source: "/assets/((?!downloads/).*)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }],
+      },
     ];
   },
 
@@ -98,6 +127,18 @@ const nextConfig = {
         destination: "/ecommerce-static/woocommerce/index.html",
       },
     ];
+  },
+  // ScrollTrigger tiene un ciclo requestAnimationFrame vuoto acceso per tutta la vita della pagina (60 risvegli
+  // al secondo anche a pagina ferma). Il loader lo fa girare solo mentre si scorre: vedi
+  // lib/v2/vendor/gsap-scrolltrigger-idle-loader.cjs per il motivo, il limite (Firefox invariato) e cosa succede
+  // se gsap cambia versione (avviso in build, il file passa com'e').
+  webpack(config) {
+    config.module.rules.push({
+      test: /node_modules[\\/]gsap[\\/]ScrollTrigger\.js$/,
+      enforce: "pre",
+      use: [{ loader: path.join(ROOT, "lib/v2/vendor/gsap-scrolltrigger-idle-loader.cjs") }],
+    });
+    return config;
   },
   images: {
     remotePatterns: [

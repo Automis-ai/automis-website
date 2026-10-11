@@ -76,18 +76,30 @@ export default function Page() {
 Quando: sempre. Una `Section` per idea. Padding verticale 56 px a 390, 80 a 768, 96 a 1024. Contenitore: 20 px ai lati a 390.
 
 ### Toni di pagina: `.v2-tone-a` e `.v2-tone-b`
-Due varianti per alleggerire lo sfondo senza snaturare il sito. **Non cambia l'API di `Section`**: basta UNA classe su un contenitore che racchiude le fasce (anche `PageHero` e `CtaBand`).
+**Il tono A è il default di tutte le pagine** (home comprese): senza parametro una pagina interna sta già nel blu notte, mai su bianco.
+`toneClass(searchParams?.tono)` dà `v2-tone-a` se il parametro manca, `v2-tone-b` con `?tono=b`, `""` (il sito di oggi, solo per confronto)
+con qualsiasi altro valore. **Non cambia l'API di `Section`**: basta UNA classe su un contenitore che racchiude le fasce (anche `PageHero` e `CtaBand`).
 ```jsx
-import { toneClass } from "@/components/v2/ui/toneClass";
-<div className={toneClass(searchParams?.tono)}>   {/* "a" → v2-tone-a, "b" → v2-tone-b, altro → "" (sito di oggi) */}
-  <PageHero … /> <Section tone="light">…</Section> <Section tone="deep">…</Section> <CtaBand … />
-</div>
+import { pageClass } from "@/components/v2/ui/toneClass";
+<main id="main" className={pageClass(searchParams?.tono)}>   {/* tono + v2-pg: sfumature lunghe e schede di vetro */}
+  <PageHero … /> <Section tone="light">…</Section> <Section tone="deep">…</Section> <CtaBand tone="dark" … />
+</main>
 ```
-- **A, blu notte → blu medio.** Niente bianco: `light` diventa blu medio `#1a4f8c` con testo chiaro, `dark` `#000a14` e `deep` `#0a2647` restano. Gradini di blu.
+- **A, blu notte (il default).** Niente bianco. Nelle pagine interne (`v2-pg`) `light` e `deep` sono **blu notte appena più azzurri di `dark`** (`#021124`, `#03162e`, `#000a14`):
+  mai una lastra di blu pieno, il blu è solo **bagliore radiale** dietro i blocchi (`ui/pg.css`, `::before` di ogni fascia, due ellissi che alternano il lato). Fuori da `v2-pg` (la home classica)
+  `light` resta il blu medio `#1a4f8c` con testo chiaro. Stesse variabili `--v2-*` del tono scuro: nessun `#fff` da scrivere a mano.
 - **B, chiari morbidi.** `light` diventa grigio-azzurro `#e1e9f2` (le schede restano bianche e si staccano); `dark` e `deep` restano blu notte.
-- In entrambe, **ogni fascia entra con una sfumatura** che parte dal colore della fascia precedente (altezza = padding alto della fascia: 52 px a 390, 76 a 768, 92 a 1024). Mai un taglio netto. Per funzionare le fasce devono essere **sorelle** nello stesso contenitore (la sfumatura legge la fascia che precede): non annidarle in wrapper diversi.
+- **Pagine interne (`pageClass`, classe `v2-pg`).** Un solo momento più chiaro per pagina (la prima fascia `light`), tutto il resto in `deep` e `dark`.
+  La **chiusura (`CtaBand`) e l'ultima fascia sono `dark`**: il piede del sito è #000a14 e un `light`/`deep` laggiù farebbe un taglio netto.
+  Le schede (`.v2-card`) sono **vetro scuro con bordo sfumato di 1 px** (come quelle della home: `ui/pg.css`), si inclinano in 3D al mouse tutte (anche senza `data-fx="tilt"`: le escludono solo schede con campi, video o più alte di 480 px).
+  `<main id="main">` è anche il bersaglio dello skip link dell'Header.
+- **Sfumature fra le fasce.** Ogni fascia entra con una sfumatura che parte dal colore della fascia precedente e si scioglie nel suo. Mai un taglio netto.
+  Nelle pagine interne è **lunga: 220 px a 390, 280 a 768, 340 da 1024** (al massimo l'80% della fascia): il testo è bianco su tutto il percorso, quindi può starci sopra.
+  Nella home (senza `v2-pg`) resta la sfumatura corta di sempre (padding alto della fascia). Per funzionare le fasce devono essere **sorelle** nello stesso contenitore
+  (la sfumatura legge la fascia che precede). Una sezione che non è del kit (es. il Finder in /contact) si avvolge in `<div className="v2-tone-dark">` perché la fascia che segue sappia da che colore partire.
 - Contrasto del testo misurato sulla pagina vera (≥ 4,5:1 su tutti i testi, ≥ 3:1 sui titoli grandi): A `light` minimo 4,9 (icona nella tessera) · B `light` minimo 5,2 (sopratitolo) · dark/deep 6,1 (parola blu del titolo).
 - Se scrivi CSS tuo dentro una fascia, usa solo le variabili (`--v2-ink`, `--v2-ink-2`, `--v2-accent`, `--v2-card`…): cambiano da sole con il tono. Mai `#fff` o `#06182b` scritti a mano.
+- Verifica: `fix-r1-pages-col.mjs <url> <larghezza>` (scratchpad) stampa i salti di colore lungo una colonna di pixel; nelle pagine interne non ce ne devono essere.
 
 ### `SectionHeader`
 `@/components/v2/ui/SectionHeader` · server
@@ -105,6 +117,7 @@ Quando: apre ogni sezione. Il titolo è già bilanciato (`text-wrap: balance`). 
 - `tone`: `"dark"` (default) · `"deep"` · `"light"`
 - `bg`: slot **dietro** il testo per uno sfondo animato (di solito un `<video muted loop playsInline autoPlay>`). Il kit ci mette sopra una velatura per il contrasto. `veil`: `"normal"` (default) · `"strong"` (video molto vivace) · `"none"` (lo sfondo è già scuro)
 - `below`: slot **sotto** il testo, centrato (max 1024 px, con un alone dietro): un elemento visivo che ha senso (animazione, demo, prodotto). Di solito `<MediaFrame>`
+- `scene`: id della scena 3D (`wow/fx/scene/presets.js`) oppure `false`. Nelle pagine compatte senza `bg` dietro il testo c'è la **rete 3D dei moduli** della home in versione lite (vedi `wow/fx/README.md`): 3-5 moduli scelti per la pagina collegati da pacchetti di dati, mai sul testo. Senza `scene` la scelta la fa il percorso. `backdrop={false}` la spegne.
 - `children`: riga piccola sotto i bottoni
 ```jsx
 <PageHero
@@ -286,13 +299,15 @@ Si digita la domanda, appare la risposta, poi la fonte. Stesse regole di `Script
 ```jsx
 <Button href={addLangPrefix("/contact", L)}>Raccontaci il tuo caso</Button>
 ```
-Altezza minima 52 px (44 per `link`).
+Altezza minima 52 px (44 per `link`). L'etichetta ha il suo colore in OGNI stato (hover, focus, active): il sito colora di giallo ogni `a:hover` (specificità 0,1,1) e un pulsante pieno rischiava giallo su giallo (1,1 : 1).
+
+Gerarchia dei titoli (pagine interne): H1 compatto 30 / 40 / 52 / 60 px (390 / 768 / 1024 / 1280), titoli di sezione 26 / 32 / 38 px: l'H1 sta sempre a ≥ 1,35 volte l'H2 (a 1280 è 1,58). La home ha la sua scala (H1 72 px, titoli 44).
 
 ### `Icon`
 `@/components/v2/ui/icons` · `<Icon name="marketing" size={22} />` (decorativa: `aria-hidden`, il testo accanto dice cosa è). Anche `ICON_NAMES`.
 Un solo set di icone a linea (lucide-react, tratto 1,75, estremi arrotondati): categorie e sistemi parlano la stessa lingua. I nomi sono rimasti quelli di prima.
 Nomi: `arrow` `check` `plus` `chevron` · categorie: `marketing` (megafono) `sales` (stretta di mano) `support` (cuffie) `admin` (cartella con ingranaggio) `hr` (persone) ·
-sistemi: `voice` `cart` `brain` `training` `chat` `search` `doc` `web` `target` `star` `pen` `database` `camera` `video`
+sistemi: `voice` `cart` `brain` (= `hub`: pittogramma astratto, un nucleo e cinque nodi collegati; **mai un cervello disegnato**, «Brain» resta solo come nome del prodotto) `workflow` `training` `chat` `search` `doc` `web` `target` `star` `pen` `database` `camera` `video`
 `contact` `chart` `receipt` `phone` `clock` `home` `mic` `scan` `inbox` `sliders` `repeat` `building` `shield` `calendar` `spark` `play`.
 Nelle schede passi `icon="voice"`; per un'icona tua, un elemento React (es. un'icona di lucide-react, `stroke="currentColor"`).
 
@@ -319,8 +334,51 @@ Ritmo consigliato per una pagina lunga: `PageHero` (dark) → `ProofStrip` (dark
 ## Misure a 390 px (già verificate)
 
 Contenitore 350 px (20 px ai lati) · gap tra schede 12 px · 1 colonna · corpo del testo 16 px, righe di scheda 15 px,
-etichette 12-13 px maiuscole · titoli sezione 28 px, H1 36 px · bersagli da toccare ≥ 44 px (bottoni 52 px, schede ≥ 88 px) ·
+etichette 12-13 px maiuscole · titoli sezione 26 px, H1 30 px (compatto) · bersagli da toccare ≥ 44 px (bottoni 52 px, schede ≥ 88 px) ·
 contrasto del testo ≥ 4,5:1 in tutti e tre i toni · nessun overflow orizzontale.
+
+## Movimento (fase WOW)
+
+Il kit ha effetti di movimento che si accendono da soli: nessuna API da imparare, nessun testo cambia. Dettagli in
+`components/v2/wow/fx/README.md`.
+
+- **`Section`** monta un `FxScope`: i blocchi sotto la piega entrano in profondità quando arrivi; titoli di `SectionHeader` a parole;
+  griglie (`CardGrid`, `CategoryGrid`, `Steps`) a scaglioni; numeri di `ProofStrip` e `CaseTeaser` (e della garanzia) che si compongono cifra per cifra, **sempre al valore vero** (mai un conteggio da zero: a metà corsa un numero di promessa o di caso sarebbe sbagliato); sulle fasce
+  scure un alone segue il mouse. `<Section fx={false}>` spegne tutto.
+- **`CategoryCard`, `SystemCard` (con `href`), `CaseTeaser`, `PlatformPicker`** e, nelle pagine `v2-pg`, ogni `.v2-card`: inclinazione 3D al puntatore, con riflesso (solo mouse).
+- **`Button magnetic`**: segue appena il cursore. `PageHero` e `CtaBand` lo accendono da soli.
+- **`PageHero size="compact"`** senza `bg`: dietro il testo gira la **rete dei moduli** (3D con `three`, caricata dopo il load; con reduced-motion un'immagine ferma già pronta, `public/media/page-scenes/<preset>-<sm|md|lg>.webp`, scelta dal browser con un `<picture>` nel HTML del server (`media="(prefers-reduced-motion: reduce) and …"`): si scarica mentre si legge la pagina, senza aspettare l'idratazione, e senza scaricare three; per chi non chiede meno movimento resta un pixel trasparente `data:`, zero rete). `backdrop={false}` la spegne;
+  se passi `bg` vale il tuo sfondo.
+- Per scrivere una scheda tua con gli stessi effetti basta un attributo: `data-fx="tilt"` sulla scheda, `data-fx="stagger"` sulla griglia,
+  `data-fx="count"` su un numero. Va dentro una `Section` o una `PageHero`.
+- Scroll fluido: `<SmoothScroll />` da `@/components/v2/wow/scroll/SmoothScroll`, una volta per pagina (lo montano già tutte le pagine interne).
+- Tutto sparisce con `prefers-reduced-motion`; sul tocco restano solo le entrate; mai nascosto prima che parta JavaScript.
+- **Home** (`components/v2/home/`): non usa `CategoryGrid`/`CategoryCard` né la rete 2D. Le categorie sono `CatNetwork` (schede di vetro con `ModuleTile`, fili e pacchetti),
+  il filo-segnale a margine è `Spine` (`stages/spine.js`), «Come lavoriamo» è la catena `HowWeWorkWow`. Il linguaggio fili/pacchetti sta in `wow/scroll/wires.js`;
+  la hero 3D in `wow/hero/` (README accanto). Con reduced-motion non si carica gsap.
+
+## Il racconto delle pagine interne (giro 2)
+
+Le pagine interne hanno lo stesso racconto della home: **sistema, interconnessione, velocità, automazione**. Si mette `<PageStory />`
+(`wow/fx/PageStory`) dentro `<main className={pageClass(...)}>`, accanto a `<SmoothScroll />`; lo montano già tutte le pagine interne.
+Fa tre cose, ognuna solo con il movimento consentito (con reduced-motion non si carica gsap) e sempre sullo stato finale che il server manda già:
+
+- **Il filo della pagina** (`stages/spine.js`): una linea al margine sinistro, un pacchetto di luce che scende con lo scroll, un nodo (un modulo di vetro) per fascia che si
+  accende quando arriva; in fondo il filo gira l'angolo ed entra nel pannello di `CtaBand`, che si accende. Lo stesso della home.
+- **La rete di schede** (`<NetGrid mode>` + `<NetCell>` da `wow/fx/NetGrid`, `stages/net.js`). `mode="assemble"` (hub /systems): i moduli stanno scomposti al centro, in profondità, e con lo scroll si
+  ricompongono nelle schede. `mode="chain"` (il primo gruppo di una categoria): le schede entrano in catena, unite da fili, con un pacchetto che le attraversa e un bordo di luce che si accende a ogni arrivo (oro solo sull'ultima).
+  Da 1100 px con il mouse la sezione si **fissa** (~100vh di scroll, scrub) se sta nella finestra; altrimenti lo scrub corre senza pin; sul telefono le schede salgono una alla volta e i fili in colonna si disegnano.
+  Uso: `<NetGrid mode="chain"><CardGrid fx="own" className="v2fx-netgrid">{cards.map(c => <NetCell key={…}>{scheda}</NetCell>)}</CardGrid></NetGrid>` (`CategoryGrid` ha la stessa prop `fx`).
+- **La catena dei passi** (`how-we-work/HowSteps.js`, `stages/steps.js`): tre moduli grandi (lente, chiave, grafico) uniti da un filo con un pacchetto; fissata ~110vh con scrub da 1100 px, in colonna sul telefono.
+- **La catena di moduli** (`<Rail>` + `<RailCell>` da `wow/fx/Rail`, `stages/rail.js`): il motivo di una pagina. Moduli riconoscibili in fila con l'etichetta («messaggio → qualifica → CRM → dashboard» in Vendita, «documenti → lettura → fatture → back office» in Amministrazione, «chiamata → recupero → risposta → negozio» in Assistenza, «annunci → ricerca → recensioni → social» in Marketing), fili con pacchetti, ogni modulo si accende al passaggio del pacchetto. Con `cards` le schede del primo gruppo entrano ciascuna col suo modulo (la sezione si fissa da 1100 px, `pin={false}` per catene alte) e, dove c'è un caso reale, la catena chiude su una capsula d'oro con il numero vero (cifre-tessere). Senza `cards` è una catena a sé (Come funziona della Voice: `text` sotto ogni modulo, in colonna fino a 1023 px). I dati stanno nel copy: `systems.<lingua>.js` → `moment: { label, steps: [{ card, glyph, label }], result? }`.
+- **Cicli solo CSS** (`wow/fx/Live.js`): per pacchetti e anelli che girano senza gsap (catena della chiusura Voice, filo fra i due agenti). `<Live>` mette `is-live` quando il blocco si vede; le animazioni CSS sono `paused` finché non c'è `is-live`, e spente con reduced-motion.
+
+Pezzi riusabili: `FxTile` (il modulo di vetro; la home ha il suo `ModuleTile`: qui una copia con prefisso `v2fx-` perché le pagine interne non caricano `home.css`), `wow/fx/wires.js` (fili e pacchetti), `wow/fx/story.css`.
+Regola per chi aggiunge una fascia: **una sola sezione fissata per pagina** (la rete di schede e la catena sono lo stesso momento: in una categoria è `<Rail cards>`, il vecchio `NetGrid mode="chain"` resta per i gruppi senza `moment`), e mai più alta della finestra (lo stage lo controlla da solo: se non ci sta, niente pin).
+
+## Pagina Voice AI (`components/v2/voice/`)
+
+Il prodotto di punta nella famiglia v2 (`VoicePage`, `locale` en/it/pt): hero compatta con la scena `voice` (chiamata → qualifica → calendario → CRM), il problema, «un sistema, due agenti» (due moduli grandi uniti da un filo con pacchetti nei due versi; le sei voci per agente sono righe, il dettaglio parola per parola è in un `Disclosure`), come funziona (`Rail` a cinque passi, video a richiesta senza iframe finché non si clicca), la dashboard (schermate in vetro con inclinazione 3D), il CRM a tre livelli (`Rail cards`), i piani (prezzi solo qui), le domande, il calendario di prenotazione, la chiusura con il pacchetto che arriva sul pulsante. I testi sono quelli della pagina di prima (`copy.js`). Le rotte (`app/voice-ai`, `app/it/voice-ai`, `app/pt-site/voice-ai`) montano `<AutomisEnShell><VoicePage locale="…" /></AutomisEnShell>` (il `<main id="main">` è dentro la pagina).
 
 ## Trappole
 

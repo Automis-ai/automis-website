@@ -1,4 +1,3 @@
-import Preloader from "@/components/Preloader";
 import LocaleBootstrapper from "@/components/LocaleBootstrapper";
 import "./globals.css";
 import "@css/aos.css";
@@ -8,7 +7,7 @@ import "@css/magnific-popup.min.css";
 import "@css/nice-select.min.css";
 import "@css/slick.min.css";
 import "@css/style.css";
-import { Montserrat, Open_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import ChatWidgets from "@/components/ChatWidgets";
 import AnalyticsListeners from "@/components/AnalyticsListeners";
@@ -18,6 +17,7 @@ import { headers } from "next/headers";
 import { publicPath } from "@/lib/locales";
 import OrganizationJsonLd from "@/components/site/OrganizationJsonLd";
 import { isProduction } from "@/lib/v2/env";
+import { montserrat, openSans } from "@/lib/v2/fonts";
 
 /*
   Our first-party consent banner ships behind a flag, so this can be merged and
@@ -27,18 +27,23 @@ import { isProduction } from "@/lib/v2/env";
 */
 const CONSENT_V2 = process.env.NEXT_PUBLIC_CONSENT_V2 === "true";
 
-const montserrat = Montserrat({
-  weight: ["700"],
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
+// Montserrat 700 e Open Sans 400 sono file nostri (lib/v2/fonts.js): il layout non chiede piu' nulla a Google Fonts in build.
 
-const openSans = Open_Sans({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-open-sans",
-  display: "swap",
+/*
+  Font Awesome Brands pesa 76 KB e ogni pagina lo scaricava (priorita' alta, intorno a 1,2 s sul
+  4G lento) per le quattro icone social del footer. Qui sta un sottoinsieme da meno di 1 KB con i
+  soli glifi usati nel sito (instagram, linkedin, linkedin-in, facebook-f, twitter). `fallback`
+  rimette il font completo in coda alla lista: se un giorno una pagina usa un'altra icona brand,
+  il browser lo scarica solo allora, e il glifo non sparisce. Le classi `.fab` restano quelle di
+  Font Awesome: cambia solo il font-family, dichiarato nello <style> in testa al <body>.
+*/
+const faBrandsSubset = localFont({
+  src: "../lib/v2/fonts/fa-brands-subset.woff2",
+  weight: "400",
+  display: "block",
+  preload: false,
+  adjustFontFallback: false,
+  fallback: ["\"Font Awesome 5 Brands\""],
 });
 
 export const metadata = {
@@ -100,6 +105,7 @@ export default function RootLayout({ children }) {
             canonical e hreflang. JSON-LD e' valido in entrambi i posti, quindi non
             c'e' ragione di correre quel rischio per un pareggio. */}
         <OrganizationJsonLd />
+        <style dangerouslySetInnerHTML={{ __html: `.fab{font-family:${faBrandsSubset.style.fontFamily}}` }} />
         {/* Consent Mode v2 defaults. Must execute before GTM loads. */}
         {CONSENT_V2 && <ConsentModeInit />}
 
@@ -121,7 +127,6 @@ export default function RootLayout({ children }) {
           />
         )}
 
-        <Preloader />
         <LocaleBootstrapper />
         <AnalyticsListeners />
         {children}

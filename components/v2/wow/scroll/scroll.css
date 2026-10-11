@@ -1,0 +1,16 @@
+/* Regole di Lenis (lo scroll fluido). Solo quelle che servono: la regola di lenis.css che spegne i puntatori sugli
+   iframe NON c'è, perché il calendario di prenotazione è un iframe e deve restare cliccabile. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+/* Il sito ha html { scroll-behavior: smooth }: con Lenis attivo lo scorrimento lo fa Lenis, mai il browser. */
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}

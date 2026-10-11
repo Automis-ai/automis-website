@@ -9,7 +9,9 @@ import CardGrid from "@/components/v2/ui/CardGrid";
 import SystemCard from "@/components/v2/ui/SystemCard";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import Button from "@/components/v2/ui/Button";
-import { toneClass } from "@/components/v2/ui/toneClass";
+import { pageClass } from "@/components/v2/ui/toneClass";
+import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
+import PageStory from "@/components/v2/wow/fx/PageStory";
 import NightReport from "@/components/v2/ecommerce/NightReport";
 import PlatformModules from "@/components/v2/ecommerce/PlatformModules";
 import { getCopy } from "@/components/v2/copy/getCopy";
@@ -39,7 +41,9 @@ export default function EcommercePage({ locale, tono }) {
 
   return (
     <AutomisEnShell>
-      <div className={toneClass(tono)}>
+      <main id="main" className={pageClass(tono)}>
+        <SmoothScroll />
+        <PageStory />
         <PageHero
           size="compact"
           eyebrow={t.hero.eyebrow}
@@ -81,16 +85,16 @@ export default function EcommercePage({ locale, tono }) {
         </Section>
 
         <CtaBand
-          tone="light"
+          tone="dark"
           title={t.cta.title}
           line={t.cta.line}
           button={{ label: t.cta.button, href: contact }}
         />
 
-        <Section tone="light" pad="sm" width="narrow">
+        <Section tone="dark" pad="sm" width="narrow">
           <p className="v2e-legal">{t.legal}</p>
         </Section>
-      </div>
+      </main>
     </AutomisEnShell>
   );
 }

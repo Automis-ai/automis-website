@@ -2,15 +2,22 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
-import { Reveal, GRAD, GradientText } from "@/components/home/_ui";
-import { Check, Loader2 } from "lucide-react";
+import { GRAD, GradientText } from "@/components/home/_ui";
+import { Plain } from "./WowParts";
+import ModuleTile from "./ModuleTile";
+import { Check, Loader2, ArrowRight } from "lucide-react";
 import { addLangPrefix } from "@/lib/locales";
 
 /*
-  Copia di components/home/FinalCta.js (la call in fondo): stesso layout, stessi testi.
-  Unica differenza: la prop `live`. Con live=false (anteprima, non produzione) il calendario di LeadConnector
-  non si carica e lo script non parte, così la preview non manda nessuna richiesta fuori (§8 del brief);
-  al suo posto, nello stesso riquadro, c'è un invito a /contact. In produzione live=true e va come l'originale.
+  La chiusura della home, da copia di components/home/FinalCta.js: stessi testi, ma il layout è una scena.
+  - Titolo grande al centro, poi la rete: sei moduli (calendario, chiamate, fatture, scheda cliente, chat, annunci: gli
+    stessi della hero) che si compongono intorno al bottone. Il bottone è il nodo centrale: i pacchetti arrivano da ogni
+    modulo, uno dopo l'altro, e lo fanno pulsare. Il filo della pagina (stages/spine.js) gira l'angolo e ci entra.
+    La coreografia sta in stages/call.js; senza JavaScript restano i moduli fermi intorno al bottone.
+  - Prop `live`. Con live=true (produzione) sotto la scena c'è il calendario vero di LeadConnector e il bottone ci scorre.
+    Con live=false (anteprima) il calendario non si carica e lo script non parte, così la preview non manda richieste
+    fuori (§8 del brief): il bottone porta a /contact (Finder + calendario) e la chiusura resta pulita, senza
+    riquadri di segnaposto.
 */
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
@@ -36,20 +43,17 @@ const COPY = {
     guarantee: "30-day performance guarantee",
     gdpr: "GDPR-aligned",
     noObligation: "No obligation",
-    previewTitle: "The live calendar appears here",
-    previewLine: "On the public site you pick a slot straight from this panel.",
-    previewCta: "Tell us about your business",
   },
   it: {
     eyebrow: "Costruiamolo insieme",
-    h2Pre: "Scopri il sistema IA ",
-    h2Grad: "che manca al tuo business",
+    h2Pre: "Mezz'ora per capire ",
+    h2Grad: "da dove partire",
     h2Post: ".",
     lead:
       "Prenota una call: ti mostriamo nero su bianco dove l'IA può farti recuperare tempo, chiamate e fatturato. Zero tecnicismi, zero impegno.",
     bullets: [
       "Una call di 30 minuti, in tutta tranquillità",
-      "Scopriamo dove il tuo business sta perdendo tempo e soldi",
+      "Scopriamo dove la tua azienda perde tempo e soldi",
       "Esci con le idee chiare sulle tue migliori opportunità IA",
     ],
     cta: "Prenota una call",
@@ -60,21 +64,18 @@ const COPY = {
     guarantee: "Garanzia sui risultati a 30 giorni",
     gdpr: "Conforme al GDPR",
     noObligation: "Nessun impegno",
-    previewTitle: "Qui compare il calendario",
-    previewLine: "Sul sito pubblico scegli l'orario direttamente da questo riquadro.",
-    previewCta: "Raccontaci il tuo caso",
   },
   pt: {
     eyebrow: "Vamos construí-lo",
-    h2Pre: "Descubra o sistema IA ",
-    h2Grad: "que falta ao seu negócio",
+    h2Pre: "Meia hora para perceber ",
+    h2Grad: "por onde começar",
     h2Post: ".",
     lead:
       "Agende uma chamada de descoberta e mostramos-lhe exatamente onde a IA lhe pode devolver tempo, chamadas e faturação. Sem jargão, sem compromisso.",
     bullets: [
       "Uma chamada de descoberta de 30 minutos, sem pressão",
       "Mapeamos onde o seu negócio perde tempo e dinheiro",
-      "Sai com uma visão clara das suas melhores oportunidades IA",
+      "Sai com uma visão clara das suas melhores oportunidades de IA",
     ],
     cta: "Agende uma chamada",
     availability: "Disponibilidade em tempo real · chamada de 30 min",
@@ -84,11 +85,19 @@ const COPY = {
     guarantee: "Garantia de desempenho de 30 dias",
     gdpr: "Conforme ao RGPD",
     noObligation: "Sem compromisso",
-    previewTitle: "Aqui aparece o calendário",
-    previewLine: "No site público escolhe a hora diretamente neste painel.",
-    previewCta: "Conte-nos o seu caso",
   },
 };
+
+// I sei moduli intorno al bottone, nell'ordine della catena: una chiamata, un appuntamento, una fattura, la scheda cliente...
+// --x/--y: posizione (in %) da 768 px; --mx/--my: posizione sul telefono (il lato sinistro resta libero per il filo della pagina).
+const TILES = [
+  { glyph: "phone", x: 86, y: 26, mx: 87, my: 10 },
+  { glyph: "calendar", x: 86, y: 74, mx: 92, my: 50 },
+  { glyph: "invoice", x: 50, y: 90, mx: 87, my: 90 },
+  { glyph: "client", x: 14, y: 74, mx: 50, my: 94 },
+  { glyph: "chat", x: 14, y: 26, mx: 13, my: 90 },
+  { glyph: "ads", x: 50, y: 10, mx: 13, my: 10 },
+];
 
 export default function FinalCtaClassic({ live = false }) {
   const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
@@ -114,54 +123,85 @@ export default function FinalCtaClassic({ live = false }) {
     return () => io.disconnect();
   }, [live]);
 
+  const coreHref = live ? "#calendario" : addLangPrefix("/contact", locale);
+
   return (
-    <section id="book" className="relative overflow-hidden bg-[#020a12] py-16 md:py-24">
-      <div className="pointer-events-none absolute inset-0">
+    <section id="book" data-wow="call" className="v2hp-call relative overflow-hidden bg-[#020a12] py-16 md:py-24">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div
-          className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 opacity-50 blur-3xl"
-          style={{ background: "radial-gradient(50% 50% at 50% 0%, rgba(60,145,230,0.28), transparent 70%)" }}
+          className="absolute left-1/2 top-[22%] h-[640px] w-[1100px] max-w-[160%] -translate-x-1/2 opacity-60 blur-3xl"
+          style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(60,145,230,0.30), transparent 70%)" }}
         />
       </div>
 
       <div className="container relative z-10 mx-auto px-5 sm:px-6">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
-          {/* Left: pitch */}
-          <Reveal>
-            <div>
-              <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">{t.eyebrow}</span>
-              <h2 className="font-display mt-4 text-[2.1rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.7rem]">
-                {t.h2Pre}<GradientText>{t.h2Grad}</GradientText>{t.h2Post}
-              </h2>
-              <p className="mt-5 max-w-md text-[1.05rem] leading-relaxed text-white/60">
-                {t.lead}
-              </p>
-              <ul className="mt-7 space-y-3">
-                {t.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-3 text-[15px] text-white/80">
-                    <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: GRAD }}>
-                      <Check className="h-3 w-3 text-[#04101c]" strokeWidth={3} />
-                    </span>
-                    {b}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={booking}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex rounded-xl px-6 py-4 text-[15px] font-bold text-[#04101c] transition-transform hover:-translate-y-0.5 lg:hidden"
-                style={{ background: GRAD }}
-              >
-                {t.cta}
-              </a>
-            </div>
-          </Reveal>
+        {/* Titolo */}
+        <Plain>
+          <div className="mx-auto max-w-3xl text-center">
+            <span data-wow-eyebrow className="inline-block text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">{t.eyebrow}</span>
+            <h2 data-wow-title className="font-display mt-4 text-[2.1rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.9rem] md:text-[3.4rem]">
+              {t.h2Pre}<GradientText>{t.h2Grad}</GradientText>{t.h2Post}
+            </h2>
+            <p data-wow-lead className="mx-auto mt-5 max-w-xl text-[1.05rem] leading-relaxed text-white/60">
+              {t.lead}
+            </p>
+          </div>
+        </Plain>
 
-          {/* Right: calendar embed (rebuilt) */}
-          <Reveal delay={100}>
+        {/* La scena: sei moduli intorno al bottone */}
+        <div className="v2hp-stage" data-wow-stage>
+          <div className="v2hp-stage__wires" data-wires aria-hidden="true" />
+          {TILES.map((tile) => (
+            <span
+              key={tile.glyph}
+              className="v2hp-stage__tile"
+              data-stage-tile
+              aria-hidden="true"
+              style={{ "--x": `${tile.x}%`, "--y": `${tile.y}%`, "--mx": `${tile.mx}%`, "--my": `${tile.my}%` }}
+            >
+              <ModuleTile glyph={tile.glyph} size="lg" />
+            </span>
+          ))}
+          <a
+            href={coreHref}
+            data-wow-core
+            data-magnetic
+            className="v2hp-core"
+          >
+            <span className="v2hp-core__halo" aria-hidden="true" />
+            <i className="v2hp-core__ring" data-core-ring aria-hidden="true" />
+            <span className="v2hp-core__t">{t.cta}</span>
+            <ArrowRight className="v2hp-core__arrow" strokeWidth={2.4} aria-hidden="true" />
+          </a>
+        </div>
+
+        <Plain>
+          <ul data-wow-bullets className="v2hp-bullets">
+            {t.bullets.map((b) => (
+              <li key={b}>
+                <span className="v2hp-bullets__ck" style={{ background: GRAD }}>
+                  <Check className="h-3 w-3 text-[#04101c]" strokeWidth={3} />
+                </span>
+                {b}
+              </li>
+            ))}
+          </ul>
+          <div className="v2hp-trust">
+            <span><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.guarantee}</span>
+            <span><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.gdpr}</span>
+            <span><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.noObligation}</span>
+          </div>
+        </Plain>
+
+        {/* Il calendario vero: solo in produzione */}
+        {live ? (
+          // L'ancora (#calendario, dove porta il bottone) sta sul contenitore fermo, non sul riquadro: il riquadro entra con
+          // uno spostamento e una profondità (stages/call.js), e Lenis misurerebbe la sua posizione mentre è ancora spostato.
+          <Plain id="calendario" className="v2hp-calwrap">
             <div
               ref={holderRef}
-              className="relative rounded-2xl border border-white/[0.1] bg-white/[0.02] p-2 shadow-2xl"
+              data-wow-panel
+              className="v2hp-cal relative mx-auto mt-14 max-w-3xl rounded-2xl border border-white/[0.1] bg-white/[0.02] p-2 shadow-2xl"
             >
               {/* dark header so the (unavoidably light) calendar reads as an intentional inset */}
               <div className="flex items-center justify-between px-3 pb-2 pt-1.5">
@@ -171,29 +211,15 @@ export default function FinalCtaClassic({ live = false }) {
                 </span>
                 <span className="text-[12px] text-white/50">{t.instantConfirmation}</span>
               </div>
-              <div className="relative w-full overflow-hidden rounded-xl bg-white" style={{ minHeight: live ? 760 : 420 }}>
-                {/* anteprima: nessun calendario, nessuna richiesta verso LeadConnector */}
-                {!live && (
-                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[#0b1622] px-6 text-center">
-                    <p className="font-display text-lg font-semibold text-white">{t.previewTitle}</p>
-                    <p className="max-w-xs text-[13.5px] leading-relaxed text-white/60">{t.previewLine}</p>
-                    <a
-                      href={addLangPrefix("/contact", locale)}
-                      className="mt-2 inline-flex rounded-xl px-5 py-3 text-[14px] font-bold text-[#04101c]"
-                      style={{ background: GRAD }}
-                    >
-                      {t.previewCta}
-                    </a>
-                  </div>
-                )}
+              <div className="relative w-full overflow-hidden rounded-xl bg-white" style={{ minHeight: 760 }}>
                 {/* skeleton */}
-                {live && !loaded && (
+                {!loaded && (
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[#0b1622]">
                     <Loader2 className="h-6 w-6 animate-spin text-[#57C7E3]" />
                     <p className="text-[13px] text-white/50">{t.loading}</p>
                   </div>
                 )}
-                {live && inView && (
+                {inView && (
                   <iframe
                     id="ghl-booking-iframe"
                     src={`${booking}?embed=true`}
@@ -206,16 +232,11 @@ export default function FinalCtaClassic({ live = false }) {
                   />
                 )}
               </div>
-              <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-2 py-2 text-[12px] text-white/60">
-                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.guarantee}</span>
-                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.gdpr}</span>
-                <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.noObligation}</span>
-              </div>
               {/* LeadConnector auto-resize so all available days are reachable */}
-              {live ? <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" /> : null}
+              <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
             </div>
-          </Reveal>
-        </div>
+          </Plain>
+        ) : null}
       </div>
     </section>
   );

@@ -12,7 +12,7 @@
 /* ---------- Token ---------- */
 :root,
 .v2-tone-dark {
-  --v2-display: "Clash Display", "Montserrat", system-ui, sans-serif;
+  --v2-display: "Clash Display", "Clash Display Fallback", "Montserrat", system-ui, sans-serif;
   --v2-body: "General Sans", "Satoshi", "Open Sans", system-ui, sans-serif;
 
   --v2-bg: #000a14;
@@ -382,10 +382,12 @@
   background: currentColor;
 }
 .v2-title {
+  /* Gerarchia: il titolo di pagina (H1 compatto 30 / 40 / 52 / 60 px) sta sempre a ≥1,35 volte il titolo di sezione
+     (26 / 32 / 38 px): prima l'H2 a 44 px reggeva il confronto con l'H1 a 52 e «Domande frequenti» competeva con la hero. */
   margin: 0;
   font-family: var(--v2-display);
   font-weight: 600;
-  font-size: 1.75rem;
+  font-size: 1.625rem;
   line-height: 1.14;
   letter-spacing: 0.01em;
   word-spacing: 0.08em;
@@ -402,7 +404,7 @@
 }
 @media (min-width: 768px) {
   .v2-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
     letter-spacing: -0.005em;
     word-spacing: 0.05em;
   }
@@ -413,6 +415,22 @@
 }
 @media (min-width: 1024px) {
   .v2-title {
+    font-size: 2.375rem;
+    line-height: 1.12;
+  }
+}
+/* la home ha la sua scala (H1 a 72 px): i suoi titoli di sezione restano com'erano */
+.v2hp-page .v2-title {
+  font-size: 1.75rem;
+  line-height: 1.14;
+}
+@media (min-width: 768px) {
+  .v2hp-page .v2-title {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .v2hp-page .v2-title {
     font-size: 2.75rem;
     line-height: 1.1;
   }
@@ -474,6 +492,39 @@
   border-radius: 8px;
   background: none;
   color: var(--v2-accent);
+}
+/* Il sito colora di giallo ogni `a:hover` (style.css, specificità 0,1,1). Su un pulsante pieno quel giallo scrive sul
+   fondo oro/azzurro (1,1 : 1, l'etichetta sparisce): il colore dell'etichetta si ripete in ogni stato, con specificità 0,2,0.
+   Vale anche per :focus (dopo il tocco il :hover resta attaccato) e per il pulsante-nodo della call finale della home. */
+.v2-btn--primary:hover,
+.v2-btn--primary:focus,
+.v2-btn--primary:active,
+.v2-btn--primary:visited {
+  color: var(--v2-btn-fg);
+}
+.v2-btn--gold:hover,
+.v2-btn--gold:focus,
+.v2-btn--gold:active,
+.v2-btn--gold:visited {
+  color: #1a1200;
+}
+.v2-btn--secondary:hover,
+.v2-btn--secondary:focus,
+.v2-btn--secondary:active,
+.v2-btn--secondary:visited {
+  color: var(--v2-ink);
+}
+.v2-btn--link:hover,
+.v2-btn--link:focus,
+.v2-btn--link:active,
+.v2-btn--link:visited {
+  color: var(--v2-accent);
+}
+.v2hp-core:hover,
+.v2hp-core:focus,
+.v2hp-core:active,
+.v2hp-core:visited {
+  color: #04101c;
 }
 @media (hover: hover) {
   .v2-btn--primary:hover,
@@ -1610,9 +1661,11 @@
 .v2-phero__copy > :nth-child(4) {
   animation-delay: 0.24s;
 }
+/* Parte da .01 e non da 0: con opacity 0 Chrome non registra l'H1 come candidato LCP finché un ripaint successivo non lo
+   mostra (misurato: 2,3-2,6 s invece di 1,4 s sulle pagine interne). Stessa scelta di wow-hero-rise nella home. */
 @keyframes v2-rise {
   from {
-    opacity: 0;
+    opacity: 0.01;
     transform: translateY(14px);
   }
   to {
@@ -1651,7 +1704,8 @@
   box-shadow: 0 0 10px rgba(87, 199, 227, 0.8);
 }
 .v2-phero__h1 {
-  max-width: 17ch;
+  /* larghezze in em e non in «ch»: il «0» di Clash 700 è 0,733 em, quello del ripiego no, e la scatola cambiava col font (3 righe → 4) */
+  max-width: 12.46em;
   margin: 0 auto;
   font-family: var(--v2-display);
   font-size: 2.375rem;
@@ -1757,7 +1811,7 @@
   margin-bottom: 18px;
 }
 .v2-phero--compact .v2-phero__h1 {
-  max-width: 22ch;
+  max-width: 16.13em;
   font-size: 1.875rem;
   line-height: 1.1;
 }
@@ -1770,6 +1824,10 @@
 }
 .v2-phero--compact .v2-phero__bg {
   max-height: 380px;
+}
+/* con la scena 3D (PageScene) lo sfondo copre quasi tutta l'apertura */
+.v2-phero--net .v2-phero__bg {
+  max-height: 480px;
 }
 
 @media (min-width: 640px) {
@@ -1818,8 +1876,9 @@
   }
 }
 @media (min-width: 768px) {
+  /* -0,01em e non -0,02em: sul 700 a 56-88 px le coppie «il», «ia», «zi» si toccavano */
   .v2-phero__h1 {
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     word-spacing: 0.05em;
   }
 }
@@ -1833,15 +1892,15 @@
     padding-bottom: 56px;
   }
   .v2-phero__h1 {
-    max-width: 16ch;
+    max-width: 11.73em;
     font-size: 4.125rem;
   }
   .v2-phero__sub {
     font-size: 1.25rem;
   }
   .v2-phero--compact .v2-phero__h1 {
-    max-width: 24ch;
-    font-size: 3rem;
+    max-width: 17.6em;
+    font-size: 3.25rem;
   }
   .v2-phero--compact .v2-phero__sub {
     font-size: 1.125rem;
@@ -1855,7 +1914,7 @@
     font-size: 4.5rem;
   }
   .v2-phero--compact .v2-phero__h1 {
-    font-size: 3.25rem;
+    font-size: 3.75rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2208,11 +2267,20 @@
   gap: 9px;
 }
 .v2-think i {
+  position: relative;
   display: block;
   height: 11px;
+  overflow: hidden;
   border-radius: 6px;
-  background: linear-gradient(90deg, var(--v2-line) 25%, var(--v2-line-strong) 50%, var(--v2-line) 75%);
-  background-size: 200% 100%;
+  background: var(--v2-line);
+}
+/* il riflesso scorre con transform (non con background-position): niente ridisegno a ogni fotogramma */
+.v2-think i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, var(--v2-line-strong) 50%, transparent 100%);
+  transform: translateX(-100%);
   animation: v2-shimmer 1.2s linear infinite;
 }
 .v2-think i:nth-child(1) {
@@ -2226,7 +2294,7 @@
 }
 @keyframes v2-shimmer {
   to {
-    background-position: -200% 0;
+    transform: translateX(100%);
   }
 }
 .v2-src {
@@ -2319,7 +2387,7 @@
     animation: none;
   }
   .v2-dots i,
-  .v2-think i,
+  .v2-think i::after,
   .v2-caret {
     animation: none;
   }
@@ -2356,4 +2424,84 @@
 .v2-plat__name,
 .v2-teaser__client {
   text-wrap: balance;
+}
+
+/* ================= Pagine interne (contenitore .v2-pg) =================
+   Le pagine interne stanno nello stesso mondo della home: blu notte, schede di vetro scuro, un solo momento più chiaro.
+   - Sfumature fra le fasce lunghe (da 220 a 340 px, mai meno): il testo è bianco su tutto il percorso, quindi può
+     starci sopra. L'altezza non supera l'80% della fascia.
+   - Schede: vetro scuro con un filo di luce sul bordo alto-sinistro che si spegne verso il basso-destra. */
+.v2-pg.v2-tone-a .v2-section:not(.v2-section--flush),
+.v2-pg.v2-tone-b .v2-section:not(.v2-section--flush) {
+  --v2-fade-h: 220px;
+}
+@media (min-width: 768px) {
+  .v2-pg.v2-tone-a .v2-section:not(.v2-section--flush),
+  .v2-pg.v2-tone-b .v2-section:not(.v2-section--flush) {
+    --v2-fade-h: 280px;
+  }
+}
+@media (min-width: 1024px) {
+  .v2-pg.v2-tone-a .v2-section:not(.v2-section--flush),
+  .v2-pg.v2-tone-b .v2-section:not(.v2-section--flush) {
+    --v2-fade-h: 340px;
+  }
+}
+.v2-pg.v2-tone-a .v2-section::after,
+.v2-pg.v2-tone-b .v2-section::after {
+  height: min(var(--v2-fade-h), 80%);
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--v2-prev) / 1) 0%,
+    rgb(var(--v2-prev) / 0.9) 12%,
+    rgb(var(--v2-prev) / 0.72) 28%,
+    rgb(var(--v2-prev) / 0.46) 50%,
+    rgb(var(--v2-prev) / 0.22) 72%,
+    rgb(var(--v2-prev) / 0.07) 90%,
+    rgb(var(--v2-prev) / 0) 100%
+  );
+}
+.v2-pg.v2-tone-a .v2-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(155deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0) 62%);
+  box-shadow: inset 1px 1px 0 rgba(190, 225, 255, 0.24), inset -1px -1px 0 rgba(60, 145, 230, 0.12),
+    0 22px 44px -28px rgba(0, 10, 30, 0.75);
+}
+@media (hover: hover) {
+  .v2-pg.v2-tone-a .v2-card--link:hover,
+  .v2-pg.v2-tone-a .v2-cat:hover,
+  .v2-pg.v2-tone-a .v2-sys--link:hover {
+    box-shadow: inset 1px 1px 0 rgba(190, 225, 255, 0.4), var(--v2-lift);
+  }
+}
+
+/* ---------- PageHero con la scena 3D (components/v2/wow/fx/PageScene) ----------
+   Sotto il testo c'è la fascia .v2-phero__stage, riservata ai moduli quando il telefono non ha spazio ai lati.
+   La velatura è solo una dissolvenza in alto (sotto l'header) e in basso (verso la fascia che segue): dove sta il testo
+   la scena non disegna niente, quindi non serve scurire il centro. */
+.v2-phero--net {
+  padding-bottom: 56px;
+}
+.v2-phero--net .v2-phero__bg {
+  max-height: 760px;
+}
+.v2-phero__veil--scene {
+  background: linear-gradient(to bottom, rgb(var(--v2-bg-rgb) / 0.9) 0, transparent 84px),
+    linear-gradient(to top, rgb(var(--v2-bg-rgb)) 0, transparent 56px);
+}
+.v2-phero__stage {
+  height: 132px;
+}
+@media (min-width: 768px) {
+  .v2-phero--net {
+    padding-bottom: 60px;
+  }
+  .v2-phero__stage {
+    height: 120px;
+  }
+}
+@media (min-width: 1100px) {
+  .v2-phero__stage {
+    height: 104px;
+  }
 }

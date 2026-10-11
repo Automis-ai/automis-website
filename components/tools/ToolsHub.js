@@ -33,15 +33,15 @@ export default function ToolsHub({ locale }) {
   };
 
   return (
-    <AutomisEnShell>
+    <AutomisEnShell main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([itemList, breadcrumb]) }}
       />
       <section className="bg-blue-darkest px-5 pb-20 pt-32 text-white md:px-8 md:pt-40">
         <div className="mx-auto max-w-4xl">
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/50">
-            <Link href={hrefFor(PATHNAMES.home, locale)} className="hover:text-white">Home</Link>
+          <nav aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center text-sm text-white/50">
+            <Link href={hrefFor(PATHNAMES.home, locale)} className="inline-flex min-h-[44px] min-w-[44px] items-center hover:text-white">Home</Link>
             <span className="mx-2">/</span>
             <span className="text-white/70">{toolsLabel}</span>
           </nav>

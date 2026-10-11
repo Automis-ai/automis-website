@@ -28,7 +28,7 @@ export default {
         { slug: "sales", title: "Sistemas de IA para Vendas", line: "Cada contacto recebe resposta e acompanhamento." },
         { slug: "support", title: "Sistemas de IA para Apoio ao Cliente", line: "Chamadas, chats e mensagens respondidos a toda a hora." },
         { slug: "admin", title: "Sistemas de IA para Administração", line: "Documentos, dados e rotina a cargo do sistema." },
-        { slug: "hr", title: "Sistemas de IA para Recursos Humanos", line: "Um cérebro da empresa para os novos colegas." },
+        { slug: "hr", title: "Sistemas de IA para Recursos Humanos", line: "Um arquivo privado para os novos colegas." },
       ],
     },
     products: {
@@ -69,6 +69,15 @@ export default {
       title: "Sistemas que gerem o seu marketing",
       highlight: "o seu marketing",
       lead: "Anúncios, visibilidade nas pesquisas, conteúdos, avaliações e loja online, geridos por uma IA feita à medida do seu negócio.",
+    },
+    moment: {
+      label: "Do primeiro anúncio às redes sociais: a cadeia do marketing",
+      steps: [
+        { card: "ads-creative", glyph: "target", label: "Anúncios" },
+        { card: "seo-geo", glyph: "search", label: "Pesquisa" },
+        { card: "reviews", glyph: "star", label: "Avaliações" },
+        { card: "content-social", glyph: "pen", label: "Social" },
+      ],
     },
     cards: [
       {
@@ -211,6 +220,16 @@ export default {
       highlight: "cada contacto",
       lead: "Da primeira mensagem ao CRM, os contactos recebem resposta, são qualificados e ficam registados.",
     },
+    moment: {
+      label: "Da mensagem ao painel: a cadeia das vendas",
+      steps: [
+        { card: "social-dms", glyph: "chat", label: "Mensagem" },
+        { card: "lead-qualification", glyph: "sales", label: "Triagem" },
+        { card: "custom-crm", glyph: "contact", label: "CRM" },
+        { card: "dashboards-pipeline", glyph: "chart", label: "Painel" },
+      ],
+      result: { value: "2.329", unit: "conversas tratadas", src: "ADifesa · de 1/5 a 16/9/2026" },
+    },
     cards: [
       {
         id: "social-dms",
@@ -336,6 +355,16 @@ export default {
       highlight: "aos seus clientes",
       lead: "Ao telefone, no chat e por mensagem, dia e noite, com uma pessoa pronta para o que precisar dela.",
     },
+    moment: {
+      label: "Da chamada à resposta: a cadeia do apoio ao cliente",
+      steps: [
+        { card: "voice-receptionist", glyph: "voice", label: "Chamada" },
+        { card: "missed-call-recovery", glyph: "phone", label: "Retorno" },
+        { card: "answers-247", glyph: "clock", label: "Respostas" },
+        { card: "ecommerce-support", glyph: "cart", label: "Loja" },
+      ],
+      result: { value: "872", unit: "chamadas", src: "Clínica Santa Maria dos Olivais · de 1/2 a 9/9/2026" },
+    },
     cards: [
       {
         id: "voice-receptionist",
@@ -441,6 +470,15 @@ export default {
       highlight: "do seu back office",
       lead: "Documentos, dados e tarefas de rotina tratados pela IA, para a sua equipa se dedicar ao que importa.",
     },
+    moment: {
+      label: "Do documento à ficha: a cadeia da administração",
+      steps: [
+        { card: "document-intake", glyph: "inbox", label: "Documentos" },
+        { card: "scan-to-brain", glyph: "scan", label: "Leitura" },
+        { card: "accounting-software", glyph: "receipt", label: "Faturas" },
+        { card: "back-office", glyph: "repeat", label: "Back office" },
+      ],
+    },
     cards: [
       {
         id: "accounting-software",
@@ -513,7 +551,7 @@ export default {
     },
     crossLink: {
       title: "Company Brain",
-      line: "Um cérebro privado sobre os seus documentos, a que a equipa pergunta e recebe uma resposta com a fonte. Encontra-o nos Sistemas de IA para Recursos Humanos.",
+      line: "Um arquivo privado sobre os seus documentos, a que a equipa pergunta e recebe uma resposta com a fonte. Encontra-o nos Sistemas de IA para Recursos Humanos.",
       cta: "Ver o Company Brain",
       href: "/systems/hr",
     },
@@ -552,9 +590,9 @@ export default {
     },
     hero: {
       eyebrow: "Sistemas de IA para Recursos Humanos",
-      title: "Sistemas para as suas pessoas",
-      highlight: "as suas pessoas",
-      lead: "Um cérebro da empresa que ajuda os novos colegas a encontrar sozinhos as respostas.",
+      title: "Sistemas que acompanham os novos colegas",
+      highlight: "os novos colegas",
+      lead: "Um arquivo privado que responde com a fonte: os novos colegas encontram sozinhos as respostas.",
     },
     cards: [
       {
@@ -562,7 +600,7 @@ export default {
         kicker: null,
         title: "Company Brain para a integração",
         short: "O novo colega pergunta, o Brain responde com a fonte.",
-        line: "Um cérebro privado sobre os seus documentos: o novo colega pergunta e recebe a resposta com a fonte.",
+        line: "Um arquivo privado sobre os seus documentos: o novo colega pergunta e recebe a resposta com a fonte.",
         more: "A resposta a qualquer pergunta está enterrada numa pasta, numa caixa de email ou na memória de uma só pessoa.",
         href: null,
         caseHref: null,

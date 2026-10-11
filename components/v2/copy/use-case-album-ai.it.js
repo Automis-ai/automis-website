@@ -12,6 +12,7 @@ export default {
   hero: {
     eyebrow: "Caso studio",
     title: "Uno strumento per album su misura",
+    highlight: "su misura",
     lead: "Da 1.200 a 1.800 scatti di un evento, lo strumento sceglie circa 280 foto e impagina l'album.",
     client: "Un fotografo professionista",
     tag: "Strumento per album",

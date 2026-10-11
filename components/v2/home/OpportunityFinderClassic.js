@@ -1,7 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Section, SectionHeading, Reveal, GRAD } from "@/components/home/_ui";
+import { GRAD } from "@/components/home/_ui";
+import { WowSection, WowHeading, Plain } from "./WowParts";
+import ModuleTile from "./ModuleTile";
 import CTAButton from "@/components/CTAButton";
 import { Sparkles, ArrowRight, ArrowLeft, Check, Clock, TrendingUp, Loader2, Download, Lock } from "lucide-react";
 import { FINDER_COPY, hoursLabel } from "./finderCopyClassic";
@@ -10,6 +12,46 @@ import { getAttribution } from "@/lib/utm";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
+
+/*
+  Il «sistema che risponde»: accanto alla scheda (sopra, sul telefono) una fila di moduli, uno per domanda più uno per il
+  risultato. A ogni risposta il modulo della domanda si accende, un pacchetto di luce corre lungo il filo fino al modulo
+  successivo e quello diventa «quello in corso». Al risultato si accende l'ultimo, con l'anello d'oro. Tornando indietro i fili
+  si spengono. Tutto CSS (home.css, .v2hp-frail): niente gsap per questo, quindi nessun peso in più. Decorativo (aria-hidden):
+  le domande e le risposte restano il vero contenuto.
+*/
+const RAIL_GLYPHS = ["client", "phone", "chat", "calendar", "ads", "invoice", "spark"];
+
+function FinderRail({ step, total }) {
+  const prev = useRef(step);
+  const [ping, setPing] = useState({ seg: -1, n: 0 });
+  useEffect(() => {
+    if (step > prev.current) setPing((p) => ({ seg: step - 1, n: p.n + 1 }));
+    prev.current = step;
+  }, [step]);
+  const nodes = total + 1; // una per domanda, più il risultato
+  return (
+    <ol className="v2hp-frail" aria-hidden="true" data-wow-frail>
+      {RAIL_GLYPHS.slice(0, nodes).map((g, i) => {
+        const result = i === total;
+        const lit = result ? step > total : step > i;
+        const now = result ? step === total : step === i;
+        const segOn = step > i;
+        return (
+          <li key={g + i} className={`v2hp-frail__n${lit ? " is-lit" : now ? " is-now" : ""}${result && lit ? " is-done" : ""}${segOn ? " is-seg" : ""}`}>
+            <ModuleTile glyph={g} size="md" />
+            {i < nodes - 1 ? (
+              <span className="v2hp-frail__seg">
+                <i className="v2hp-frail__fill" />
+                {ping.seg === i ? <i key={ping.n} className="v2hp-frail__pkt" /> : null}
+              </span>
+            ) : null}
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
 
 export default function OpportunityFinderClassic() {
   const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
@@ -179,19 +221,20 @@ export default function OpportunityFinderClassic() {
   const roadmap = isRoadmap ? computeRoadmap() : null;
 
   return (
-    <Section id="opportunity-finder" className="bg-deep-blue">
-      <SectionHeading
+    <WowSection id="opportunity-finder" wow="finder" className="bg-deep-blue v2hp-finder">
+      <WowHeading
         eyebrow={t.eyebrow}
         title={<>{t.title}</>}
         lead={t.lead}
       />
 
-      <Reveal delay={80}>
-        <div className="mx-auto mt-12 max-w-2xl overflow-hidden rounded-3xl border border-white/[0.1] bg-[#04101c]/70 backdrop-blur-md">
+      <Plain className="v2hp-fstage relative mx-auto mt-12 max-w-2xl" data-wow-fstage>
+        <FinderRail step={step} total={total} />
+        <div data-wow-finder-card className="overflow-hidden rounded-3xl border border-white/[0.1] bg-[#04101c]/70 backdrop-blur-md">
           {/* progress */}
           {!isRoadmap && (
             <div className="border-b border-white/[0.06] px-6 py-4 sm:px-8">
-              <div className="flex items-center justify-between text-[12px] text-white/45">
+              <div className="flex items-center justify-between text-[12px] text-white/[0.62]">
                 <span className="inline-flex items-center gap-1.5">
                   <Sparkles className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2} />
                   {isEmail ? t.yourResults : `${t.question} ${step + 1} ${t.of} ${total}`}
@@ -238,7 +281,7 @@ export default function OpportunityFinderClassic() {
                 {step > 0 && (
                   <button
                     onClick={() => setStep((s) => s - 1)}
-                    className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium text-white/45 transition-colors hover:text-white/80"
+                    className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium text-white/[0.62] transition-colors hover:text-white/80"
                   >
                     <ArrowLeft className="h-4 w-4" strokeWidth={2} /> {t.back}
                   </button>
@@ -269,7 +312,7 @@ export default function OpportunityFinderClassic() {
                       <span className="text-[12px] font-semibold uppercase tracking-wide">{t.timeBack}</span>
                     </div>
                     <p className="font-display mt-2 text-[2rem] font-bold text-white">
-                      {partial.hoursLow}-{partial.hoursHigh}<span className="text-[1rem] font-medium text-white/45"> {t.hrs}</span>
+                      {partial.hoursLow}-{partial.hoursHigh}<span className="text-[1rem] font-medium text-white/[0.62]"> {t.hrs}</span>
                     </p>
                   </div>
                   <div className="rounded-2xl border border-white/[0.1] bg-white/[0.03] p-5 text-left">
@@ -279,7 +322,7 @@ export default function OpportunityFinderClassic() {
                     </div>
                     <p className="font-display mt-2 text-[1.15rem] font-semibold leading-tight text-white">
                       {PILLAR_PLAYS[partial.primary].name}
-                      {partial.secondary && <span className="text-white/40"> + {PILLAR_PLAYS[partial.secondary].name.split(" ")[0]}</span>}
+                      {partial.secondary && <span className="text-white/[0.62]"> + {PILLAR_PLAYS[partial.secondary].name.split(" ")[0]}</span>}
                     </p>
                   </div>
                 </div>
@@ -299,7 +342,7 @@ export default function OpportunityFinderClassic() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder={t.namePlaceholder}
-                      className="w-full rounded-xl border border-white/[0.12] bg-white/[0.03] px-4 py-3.5 text-[15px] text-white placeholder-white/40 outline-none transition-colors focus:border-[#3C91E6]"
+                      className="w-full rounded-xl border border-white/[0.12] bg-white/[0.03] px-4 py-3.5 text-[15px] text-white placeholder-white/[0.62] outline-none transition-colors focus:border-[#3C91E6]"
                     />
                     <input
                       type="email"
@@ -307,7 +350,7 @@ export default function OpportunityFinderClassic() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder={t.emailPlaceholder}
-                      className="w-full rounded-xl border border-white/[0.12] bg-white/[0.03] px-4 py-3.5 text-[15px] text-white placeholder-white/40 outline-none transition-colors focus:border-[#3C91E6]"
+                      className="w-full rounded-xl border border-white/[0.12] bg-white/[0.03] px-4 py-3.5 text-[15px] text-white placeholder-white/[0.62] outline-none transition-colors focus:border-[#3C91E6]"
                     />
                   </div>
                   <button
@@ -322,7 +365,7 @@ export default function OpportunityFinderClassic() {
                       <>{t.unlockCta} <ArrowRight className="h-4 w-4" strokeWidth={2.4} /></>
                     )}
                   </button>
-                  <p className="mt-3 text-center text-[11.5px] text-white/45">{t.noSpam}</p>
+                  <p className="mt-3 text-center text-[11.5px] text-white/[0.62]">{t.noSpam}</p>
                 </form>
 
                 <button
@@ -352,7 +395,7 @@ export default function OpportunityFinderClassic() {
                       <span className="text-[12px] font-semibold uppercase tracking-wide">{t.timeBack}</span>
                     </div>
                     <p className="font-display mt-2 text-[2rem] font-bold text-white">
-                      {roadmap.hoursLow}-{roadmap.hoursHigh}<span className="text-[1rem] font-medium text-white/45"> {t.hrs}</span>
+                      {roadmap.hoursLow}-{roadmap.hoursHigh}<span className="text-[1rem] font-medium text-white/[0.62]"> {t.hrs}</span>
                     </p>
                   </div>
                   <div className="rounded-2xl border border-white/[0.1] bg-white/[0.03] p-5 text-left">
@@ -362,13 +405,13 @@ export default function OpportunityFinderClassic() {
                     </div>
                     <p className="font-display mt-2 text-[1.15rem] font-semibold leading-tight text-white">
                       {PILLAR_PLAYS[roadmap.primary].name}
-                      {roadmap.secondary && <span className="text-white/40"> + {PILLAR_PLAYS[roadmap.secondary].name.split(" ")[0]}</span>}
+                      {roadmap.secondary && <span className="text-white/[0.62]"> + {PILLAR_PLAYS[roadmap.secondary].name.split(" ")[0]}</span>}
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-3 rounded-2xl border border-white/[0.1] bg-white/[0.03] p-5 text-left">
-                  <p className="text-[12px] font-semibold uppercase tracking-wide text-white/40">{t.top3Title}</p>
+                  <p className="text-[12px] font-semibold uppercase tracking-wide text-white/[0.62]">{t.top3Title}</p>
                   <ul className="mt-3 space-y-2.5">
                     {roadmap.plays.map((play) => (
                       <li key={play} className="flex items-start gap-2.5 text-[14.5px] text-white/80">
@@ -385,10 +428,10 @@ export default function OpportunityFinderClassic() {
                 </div>
 
                 <p className="mt-3 text-center text-[12.5px] leading-relaxed text-white/60">{t.newsletterNote}</p>
-                <p className="mt-1 text-center text-[12px] text-white/45">{t.spamNote}</p>
+                <p className="mt-1 text-center text-[12px] text-white/[0.62]">{t.spamNote}</p>
 
                 <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-                  <CTAButton href={booking} variant="secondary" size="medium" external className="w-full sm:w-auto">
+                  <CTAButton href={booking} variant="secondary" size="medium" external data-magnetic className="w-full sm:w-auto">
                     {t.buildCta}
                   </CTAButton>
                   <button
@@ -403,7 +446,7 @@ export default function OpportunityFinderClassic() {
             )}
           </div>
         </div>
-      </Reveal>
-    </Section>
+      </Plain>
+    </WowSection>
   );
 }

@@ -344,3 +344,14 @@
     padding-bottom: 20px;
   }
 }
+
+/* Il caso reale sta fra due gruppi di schede (o prima delle domande): i vuoti sopra e sotto scendono a ~120 px in tutto
+   (la fascia vicina porta già i suoi 96). Prima erano ~190 px e la pagina si «staccava» a metà. */
+.v2-section.v2sx-casesec {
+  padding-block: 20px;
+}
+@media (min-width: 768px) {
+  .v2-section.v2sx-casesec {
+    padding-block: 24px;
+  }
+}

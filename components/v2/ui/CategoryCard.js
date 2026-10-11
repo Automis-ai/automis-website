@@ -12,7 +12,7 @@ import { nb } from "./nb";
 */
 export default function CategoryCard({ title, line, href, icon, cta, className }) {
   return (
-    <article className={cx("v2-card v2-card--link v2-cat", cta && "v2-cat--cta", className)}>
+    <article className={cx("v2-card v2-card--link v2-cat", cta && "v2-cat--cta", className)} data-fx="tilt">
       <span className="v2-tile v2-tile--anim">{renderIcon(icon, 24)}</span>
       <div className="v2-cat__body">
         <h3 className="v2-cat__title">

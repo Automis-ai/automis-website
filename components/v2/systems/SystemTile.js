@@ -17,7 +17,7 @@ export default function SystemTile({ title, kicker, line, detail, more, moreLabe
   const hasMeta = Boolean(price) || Boolean(caseHref && caseLabel);
   const withCta = Boolean(href && cta);
   return (
-    <article className={`v2-card v2-sys v2-sys--icon v2sx-tile${href ? " v2-card--link v2-sys--link" : ""}${withCta ? " v2-sys--cta" : ""}`}>
+    <article className={`v2-card v2-sys v2-sys--icon v2sx-tile${href ? " v2-card--link v2-sys--link" : ""}${withCta ? " v2-sys--cta" : ""}`} data-fx={href ? "tilt" : undefined}>
       <span className="v2-tile v2-tile--anim">{renderIcon(icon, 22)}</span>
       <div className="v2-sys__body">
         {kicker ? <p className="v2sx-kicker">{kicker}</p> : null}

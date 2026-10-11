@@ -109,7 +109,7 @@ export default function CookiePolicy({ locale = "en" }) {
   const privacyHref = locale === "it" ? "/it/privacy-policy" : "/privacy-policy";
 
   return (
-    <AkpagerLayout header={6} footer={1} bodyClass="home-nine" onePage={false}>
+    <AkpagerLayout header={6} footer={1} bodyClass="home-nine" onePage={false} main>
       <section className="hero-padding bg-bg-primary relative z-1">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="py-20">

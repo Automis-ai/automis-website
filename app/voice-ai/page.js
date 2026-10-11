@@ -58,7 +58,7 @@ export const metadata = {
 
 export default function VoiceAiPage() {
   return (
-    <AutomisEnShell>
+    <AutomisEnShell main>
       <VoiceHero />
       <VoiceProblem />
       <InboundOutbound />

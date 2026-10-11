@@ -28,14 +28,14 @@ export default function ToolPage({ toolKey, locale, children }) {
   const ctaExternal = tool.ctaTarget !== "voiceai";
 
   return (
-    <AutomisEnShell>
+    <AutomisEnShell main>
       <ToolJsonLd toolKey={toolKey} locale={locale} />
       <section className="bg-blue-darkest px-5 pb-20 pt-32 text-white md:px-8 md:pt-40">
         <div className="mx-auto max-w-3xl">
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/50">
-            <Link href={hrefFor(PATHNAMES.home, locale)} className="hover:text-white">Home</Link>
+          <nav aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center text-sm text-white/50">
+            <Link href={hrefFor(PATHNAMES.home, locale)} className="inline-flex min-h-[44px] min-w-[44px] items-center hover:text-white">Home</Link>
             <span className="mx-2">/</span>
-            <Link href={hubPath(locale)} className="hover:text-white">{l.tools}</Link>
+            <Link href={hubPath(locale)} className="inline-flex min-h-[44px] min-w-[44px] items-center hover:text-white">{l.tools}</Link>
             <span className="mx-2">/</span>
             <span className="text-white/70">{c.name}</span>
           </nav>

@@ -21,7 +21,9 @@ export default function ProofStrip({ caption, clients = [], number, numberLabel,
       </div>
       {number ? (
         <div className="v2-proof__stat">
-          <p className="v2-proof__fig">{number}</p>
+          <p className="v2-proof__fig" data-fx="count">
+            {number}
+          </p>
           {numberLabel ? <p className="v2-proof__figlabel">{nb(numberLabel)}</p> : null}
         </div>
       ) : null}

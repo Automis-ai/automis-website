@@ -27,7 +27,7 @@ export default {
         { slug: "sales", title: "Sistemi IA per la Vendita", line: "Ogni contatto riceve risposta e viene seguito." },
         { slug: "support", title: "Sistemi IA per l'Assistenza", line: "Chiamate, chat e messaggi hanno una risposta a ogni ora." },
         { slug: "admin", title: "Sistemi IA per l'Amministrazione", line: "Documenti, dati e routine li gestisce il sistema." },
-        { slug: "hr", title: "Sistemi IA per le Risorse umane", line: "Un Brain aziendale per i nuovi colleghi." },
+        { slug: "hr", title: "Sistemi IA per le Risorse umane", line: "Un archivio privato per i nuovi colleghi." },
       ],
     },
     products: {
@@ -68,6 +68,15 @@ export default {
       title: "Sistemi che mandano avanti il tuo marketing",
       highlight: "il tuo marketing",
       lead: "Ads, SEO, contenuti, recensioni e negozio online, gestiti da un'IA costruita sul tuo modo di lavorare.",
+    },
+    moment: {
+      label: "Dal primo annuncio al social: la catena del marketing",
+      steps: [
+        { card: "ads-creative", glyph: "target", label: "Annunci" },
+        { card: "seo-geo", glyph: "search", label: "Ricerca" },
+        { card: "reviews", glyph: "star", label: "Recensioni" },
+        { card: "content-social", glyph: "pen", label: "Social" },
+      ],
     },
     cards: [
       {
@@ -180,7 +189,7 @@ export default {
         },
         {
           q: "Cos'è il GEO?",
-          a: "Sono i contenuti scritti per essere citati nelle risposte di ChatGPT, Perplexity e simili, oltre che per posizionarsi su Google. Nessuno può garantire una citazione: noi lavoriamo perché i tuoi contenuti siano chiari e pronti a meritarla.",
+          a: "È il lavoro che rende i tuoi contenuti citabili nelle risposte di ChatGPT, Perplexity e simili, oltre a farli posizionare su Google. Nessuno può garantire una citazione: noi lavoriamo perché i tuoi contenuti siano chiari e pronti a meritarla.",
         },
         {
           q: "L'AI E-commerce Manager può cambiare i prezzi o fare rimborsi?",
@@ -209,6 +218,16 @@ export default {
       title: "Sistemi che seguono ogni contatto",
       highlight: "ogni contatto",
       lead: "Dal primo messaggio al CRM, ogni contatto riceve risposta, viene qualificato e tracciato.",
+    },
+    moment: {
+      label: "Dal messaggio alla dashboard: la catena della vendita",
+      steps: [
+        { card: "social-dms", glyph: "chat", label: "Messaggio" },
+        { card: "lead-qualification", glyph: "sales", label: "Qualifica" },
+        { card: "custom-crm", glyph: "contact", label: "CRM" },
+        { card: "dashboards-pipeline", glyph: "chart", label: "Dashboard" },
+      ],
+      result: { value: "2.329", unit: "conversazioni gestite", src: "ADifesa · dal 1/5 al 16/9/2026" },
     },
     cards: [
       {
@@ -335,6 +354,16 @@ export default {
       highlight: "ai tuoi clienti",
       lead: "Al telefono, in chat e nei messaggi, giorno e notte, con una persona pronta per i casi delicati.",
     },
+    moment: {
+      label: "Dalla chiamata alla risposta: la catena dell'assistenza",
+      steps: [
+        { card: "voice-receptionist", glyph: "voice", label: "Chiamata" },
+        { card: "missed-call-recovery", glyph: "phone", label: "Recupero" },
+        { card: "answers-247", glyph: "clock", label: "Risposta" },
+        { card: "ecommerce-support", glyph: "cart", label: "Negozio" },
+      ],
+      result: { value: "872", unit: "chiamate", src: "Clínica Santa Maria dos Olivais · dal 1/2 al 9/9/2026" },
+    },
     cards: [
       {
         id: "voice-receptionist",
@@ -440,6 +469,15 @@ export default {
       highlight: "il tuo back office",
       lead: "Documenti, dati e lavoro di routine passano all'IA: il tuo team si occupa delle cose importanti.",
     },
+    moment: {
+      label: "Dal documento alla scheda: la catena dell'amministrazione",
+      steps: [
+        { card: "document-intake", glyph: "inbox", label: "Documenti" },
+        { card: "scan-to-brain", glyph: "scan", label: "Lettura" },
+        { card: "accounting-software", glyph: "receipt", label: "Fatture" },
+        { card: "back-office", glyph: "repeat", label: "Back office" },
+      ],
+    },
     cards: [
       {
         id: "accounting-software",
@@ -512,7 +550,7 @@ export default {
     },
     crossLink: {
       title: "Company Brain",
-      line: "Un cervello privato sui tuoi documenti: il tuo team fa una domanda e riceve una risposta con la fonte. Lo trovi nei Sistemi IA per le Risorse umane.",
+      line: "Un archivio privato sui tuoi documenti: il tuo team fa una domanda e riceve una risposta con la fonte. Lo trovi nei Sistemi IA per le Risorse umane.",
       cta: "Scopri il Company Brain",
       href: "/systems/hr",
     },
@@ -551,9 +589,9 @@ export default {
     },
     hero: {
       eyebrow: "Sistemi IA per le Risorse umane",
-      title: "Sistemi per il tuo personale",
-      highlight: "il tuo personale",
-      lead: "Un cervello aziendale che aiuta i nuovi colleghi a trovare da soli le risposte.",
+      title: "Sistemi che accompagnano i nuovi colleghi",
+      highlight: "i nuovi colleghi",
+      lead: "Un archivio privato che risponde con la fonte: i nuovi colleghi trovano da soli le risposte.",
     },
     cards: [
       {
@@ -561,7 +599,7 @@ export default {
         kicker: null,
         title: "Company Brain per l'onboarding",
         short: "Il nuovo collega chiede, il Brain risponde con la fonte.",
-        line: "Un cervello privato sui tuoi documenti: il nuovo collega chiede e riceve la risposta con la fonte.",
+        line: "Un archivio privato sui tuoi documenti: il nuovo collega chiede e riceve la risposta con la fonte.",
         more: "La risposta a qualsiasi domanda è sepolta in una cartella, in una casella email o nella memoria di una sola persona.",
         href: null,
         caseHref: null,

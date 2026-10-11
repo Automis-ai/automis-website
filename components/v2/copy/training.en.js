@@ -50,7 +50,7 @@ export default {
   compliance: {
     eyebrow: "AI Act",
     badge: "Article 4",
-    title: "We bring you in line with the AI rules",
+    title: "Training for Article 4 of the AI Act",
     line: "Article 4 of the EU AI Act asks companies that use AI to support the AI literacy of their staff. Training is one way to do that.",
     more: "Providers and deployers of AI systems take measures to support the development of AI literacy of their staff and of other people who use AI systems on their behalf, taking into account technical knowledge, experience, education and training, the context of use and the people the systems are used on. It does not require anyone to guarantee a specific level of AI literacy. This is the text in force since 27 July 2026, introduced by Regulation (EU) 2026/1744. General information, not legal advice.",
     sourceLabel: "Read the Regulation on EUR-Lex",

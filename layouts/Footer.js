@@ -6,6 +6,7 @@ import { getLocaleFromPathname } from "@/utility/pathnames";
 import { addLangPrefix, resolveTarget } from "@/lib/locales";
 import { openCookieSettings } from "@/lib/cookieConsent";
 import { useDeclaredHrefs } from "@/components/LanguageSwitcher";
+import FxScope from "@/components/v2/wow/fx/FxScope";
 
 // Un'unica fonte per i testi del piede: nomi di pagina identici a quelli del menu (layouts/Header.js).
 const NAV_COPY = {
@@ -85,7 +86,8 @@ const colLinkStyle = {
   minHeight: "44px",
   lineHeight: 1.3,
 };
-const colLinkClass = "text-[15px] text-white/70 no-underline transition-colors hover:text-white";
+// v2-fx-flink: la voce scorre appena verso destra al passaggio (components/v2/wow/fx/fx.css)
+const colLinkClass = "v2-fx-flink text-[15px] text-white/70 no-underline transition-colors hover:text-white";
 const colHeadClass = "m-0 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/50";
 
 const Footer = ({ footer }) => {
@@ -308,7 +310,9 @@ const DefaultFooter = () => {
         </div>
 
         {/* === COLONNE DI LINK === */}
-        <nav
+        <FxScope
+          as="nav"
+          data-fx="stagger"
           aria-label="Footer"
           className="grid grid-cols-2 gap-x-[24px] gap-y-[32px] pb-[40px] lg:grid-cols-[1.4fr_1fr_1fr_1fr]"
         >
@@ -355,7 +359,7 @@ const DefaultFooter = () => {
               ))}
             </ul>
           </div>
-        </nav>
+        </FxScope>
 
         {/* === FOOTER BOTTOM (3 COL GRID) === */}
         <div className="footer-bottom py-10">
@@ -419,8 +423,13 @@ const DefaultFooter = () => {
             </ul>
           </div>
 
-          <button className="scroll-top scroll-to-target" data-target="html">
-            <span className="far fa-angle-double-up" />
+          <button
+            type="button"
+            className="scroll-top scroll-to-target"
+            data-target="html"
+            aria-label={pick("Back to top", "Torna su", "Voltar ao topo")}
+          >
+            <span className="far fa-angle-double-up" aria-hidden="true" />
           </button>
         </div>
       </div>

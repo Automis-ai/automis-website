@@ -10,13 +10,14 @@ import "@/components/site/design-system.css";
   (Header/Footer follow <html lang="it">, set by app/it/layout.js).
   Keep page-level `export const metadata` in the page file (server component).
 */
-export default function AutomisItShell({ children }) {
+export default function AutomisItShell({ children, main = false }) {
   return (
     <div className="automis-en">
       <PointerGlow />
       <link rel="preload" href="/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/clash-display-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       <link rel="preload" href="/fonts/general-sans-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-      <AkpagerLayout>{children}</AkpagerLayout>
+      <AkpagerLayout main={main}>{children}</AkpagerLayout>
     </div>
   );
 }

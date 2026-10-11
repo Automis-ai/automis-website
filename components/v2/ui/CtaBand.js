@@ -17,12 +17,12 @@ export default function CtaBand({ title, line, button, secondary, tone = "dark",
         </div>
         <div className="v2-cta__actions">
           {button ? (
-            <Button href={button.href} external={button.external} variant="gold">
+            <Button href={button.href} external={button.external} variant="gold" magnetic>
               {button.label}
             </Button>
           ) : null}
           {secondary ? (
-            <Button href={secondary.href} external={secondary.external} variant="secondary">
+            <Button href={secondary.href} external={secondary.external} variant="secondary" magnetic>
               {secondary.label}
             </Button>
           ) : null}
