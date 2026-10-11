@@ -83,6 +83,7 @@ const STATIC_PATHS = [
   "/blog/missed-call-text-back-for-real-estate",
   "/blog/whatsapp-automation-for-accounting-firms",
   "/blog/instagram-lead-ads-for-medspas",
+  "/blog/smith-ai-alternatives",
   "/playbook",
   "/contact",
   "/privacy-policy",
