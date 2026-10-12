@@ -84,6 +84,7 @@ const STATIC_PATHS = [
   "/blog/whatsapp-automation-for-accounting-firms",
   "/blog/instagram-lead-ads-for-medspas",
   "/blog/smith-ai-alternatives",
+  "/blog/moneypenny-vs-ai-receptionist",
   "/playbook",
   "/contact",
   "/privacy-policy",
