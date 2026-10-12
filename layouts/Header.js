@@ -358,12 +358,14 @@ const DefaultHeader = ({ hideHeaderNav = false }) => {
           left: !isMobile ? "20px" : "12px",
           right: !isMobile ? "20px" : "12px",
           width: !isMobile ? "calc(100% - 40px)" : "calc(100% - 24px)",
-          height: !isMobile ? "70px" : "56px",
+          height: !isMobile ? "64px" : "52px",
+          // il template (public/assets/css/style.css) mette min-height: 62px su .main-header: senza questa riga la barra sul telefono non scende
+          minHeight: !isMobile ? "64px" : "52px",
           backgroundColor: "rgba(255,255,255,0.08)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
           boxShadow: "0 4px 24px rgba(0,0,0,.06)",
-          borderRadius: !isMobile ? "35px" : "25px",
+          borderRadius: !isMobile ? "32px" : "24px",
           border: "1px solid rgba(255,255,255,0.1)",
           transition: reduce ? "none" : "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
           zIndex: 1000,
@@ -402,9 +404,9 @@ const DefaultHeader = ({ hideHeaderNav = false }) => {
                   <img
                     src="/assets/images/logos/logo-automis-white.png"
                     alt="Automis AI Logo"
-                    width="156"
-                    height="41"
-                    className="md:h-[41px] h-[34px] md:w-[156px] w-[130px] object-contain"
+                    width="125"
+                    height="33"
+                    className="md:h-[33px] h-[27px] md:w-[125px] w-[104px] object-contain"
                   />
                 </Link>
               </div>
