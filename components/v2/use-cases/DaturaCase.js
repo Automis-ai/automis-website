@@ -218,7 +218,12 @@ export default function DaturaCase({ locale = "en" }) {
 
         <div className="v2c-cta">
           <Seam glyphs={GLYPHS} exit />
-          <CtaBand title={t.cta.title} line={t.cta.line} button={{ label: common.cta, href: contact }} />
+          <CtaBand title={t.cta.title} line={t.cta.line} button={
+              locale === "it"
+                ? { label: "Prenota una call", href: `${addLangPrefix("/", locale)}#book` }
+                : { label: common.cta, href: contact }
+            }
+          />
         </div>
       </div>
       </main>

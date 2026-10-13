@@ -8,33 +8,36 @@
    servito dalla pagina viva del caso Clínica (.caso-clinica, in coda al file), non quelli del
    sorgente in repo (tutto scuro). Vale solo sotto .v2-caso: il resto del sito non cambia. */
 
-/* ---------- Palette del corpo chiaro dei casi ---------- */
+/* ---------- Palette del corpo dei casi: blu come la home (14/10/2026, scelta di Luca) ----------
+   Prima il corpo era bianco (palette della pagina viva del caso Clínica). Ora è il blu notte della home v3 (#0c2646),
+   con schede di vetro e note in azzurro chiaro per alleggerire la lettura. Contrasti su #0c2646: bianco 14:1, #d3e2f4 10:1,
+   #a9bdd6 6,6:1, accento #57c7e3 7,5:1. */
 .v2-caso .v2-tone-light {
-  --v2-bg: #ffffff;
-  --v2-bg-rgb: 255 255 255;
-  --v2-ink: #101b27;
-  --v2-ink-2: #243241;
-  --v2-ink-3: #4b5c6f;
-  --v2-line: rgba(16, 27, 39, 0.12);
-  --v2-line-strong: rgba(16, 27, 39, 0.32);
-  --v2-card: #ffffff;
-  --v2-card-hover: #ffffff;
-  --v2-card-line: rgba(16, 27, 39, 0.12);
-  --v2-card-line-hover: #1f6fc0;
-  --v2-shadow: 0 8px 24px rgba(16, 27, 39, 0.06);
-  --v2-accent: #1a5da6;
-  --v2-accent-solid: #1f6fc0;
-  --v2-num: #1f6fc0;
-  --v2-tile-bg: rgba(31, 111, 192, 0.1);
-  --v2-tile-fg: #1f6fc0;
-  --v2-chip-bg: rgba(31, 111, 192, 0.08);
-  --v2-chip-fg: #1a5da6;
-  --v2-chip-line: rgba(31, 111, 192, 0.3);
-  --v2-focus: #1f6fc0;
-  --v2-btn-bg: #1f6fc0;
-  --v2-btn-fg: #ffffff;
-  --v2-btn-shadow: 0 14px 28px -16px rgba(31, 111, 192, 0.6);
-  --v2-ghost-line: rgba(16, 27, 39, 0.35);
+  --v2-bg: #0c2646;
+  --v2-bg-rgb: 12 38 70;
+  --v2-ink: #ffffff;
+  --v2-ink-2: #d3e2f4;
+  --v2-ink-3: #a9bdd6;
+  --v2-line: rgba(165, 210, 255, 0.2);
+  --v2-line-strong: rgba(165, 210, 255, 0.42);
+  --v2-card: rgba(40, 80, 140, 0.42);
+  --v2-card-hover: rgba(50, 95, 160, 0.5);
+  --v2-card-line: rgba(165, 210, 255, 0.2);
+  --v2-card-line-hover: rgba(87, 199, 227, 0.55);
+  --v2-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.6);
+  --v2-accent: #57c7e3;
+  --v2-accent-solid: #3c91e6;
+  --v2-num: #57c7e3;
+  --v2-tile-bg: rgba(60, 145, 230, 0.16);
+  --v2-tile-fg: #8fd3f4;
+  --v2-chip-bg: rgba(60, 145, 230, 0.14);
+  --v2-chip-fg: #a9d4ff;
+  --v2-chip-line: rgba(143, 211, 244, 0.3);
+  --v2-focus: #57c7e3;
+  --v2-btn-bg: #57c7e3;
+  --v2-btn-fg: #00121f;
+  --v2-btn-shadow: 0 14px 28px -16px rgba(60, 145, 230, 0.7);
+  --v2-ghost-line: rgba(255, 255, 255, 0.35);
 }
 
 /* ---------- Sfumature tra le fasce ----------
@@ -48,7 +51,7 @@
               pannello della chiusura sta nella parte bassa, dove la sfumatura è già scura. In uscita non serve nulla
               (la chiusura e il piede sono lo stesso colore). */
 .v2-caso {
-  --v2c-light-rgb: 255 255 255;
+  --v2c-light-rgb: 12 38 70;
 }
 .v2-section.v2c-edge {
   --v2-fade-h: 280px;
@@ -75,45 +78,27 @@
   height: var(--v2-fade-h, 52px);
   pointer-events: none;
 }
-/* apertura scura → corpo chiaro: dal blu notte, per il blu del brand, fino al chiaro (curva a coseno, 15 passaggi) */
+/* apertura scura → corpo blu: dal blu notte dell'apertura al blu del corpo (#0c2646) */
 .v2-section.v2c-edge::after {
   background: linear-gradient(
     to bottom,
     rgb(0 10 20 / 1) 0%,
-    rgb(1 15 30 / 0.987) 7%,
-    rgb(2 19 39 / 0.95) 14%,
-    rgb(3 24 49 / 0.891) 21%,
-    rgb(7 33 67 / 0.812) 29%,
-    rgb(13 48 92 / 0.717) 36%,
-    rgb(18 63 117 / 0.611) 43%,
-    rgb(24 78 142 / 0.5) 50%,
-    rgb(45 99 163 / 0.389) 57%,
-    rgb(65 120 183 / 0.283) 64%,
-    rgb(86 141 204 / 0.188) 71%,
-    rgb(107 160 218 / 0.109) 79%,
-    rgb(128 175 225 / 0.05) 86%,
-    rgb(149 190 233 / 0.013) 93%,
-    rgb(170 205 240 / 0) 100%
+    rgb(2 17 33 / 0.95) 16%,
+    rgb(5 26 49 / 0.85) 32%,
+    rgb(8 32 59 / 0.7) 48%,
+    rgb(10 36 66 / 0.5) 64%,
+    rgb(11 37 68 / 0.28) 80%,
+    rgb(12 38 70 / 0) 100%
   );
 }
-/* corpo chiaro → chiusura blu notte: dal chiaro, per il blu del brand, fino al blu notte del piede (stessa curva, al contrario) */
+/* corpo blu → chiusura blu notte */
 .v2c-cta > .v2-section::after {
   background: linear-gradient(
     to bottom,
     rgb(var(--v2c-prev) / 1) 0%,
-    rgb(228 239 250 / 0.987) 7%,
-    rgb(201 222 245 / 0.95) 14%,
-    rgb(174 206 240 / 0.891) 21%,
-    rgb(147 188 232 / 0.812) 29%,
-    rgb(121 167 219 / 0.717) 36%,
-    rgb(96 147 207 / 0.611) 43%,
-    rgb(70 126 195 / 0.5) 50%,
-    rgb(48 106 176 / 0.389) 57%,
-    rgb(36 85 143 / 0.283) 64%,
-    rgb(24 63 110 / 0.188) 71%,
-    rgb(12 42 78 / 0.109) 79%,
-    rgb(8 31 59 / 0.05) 86%,
-    rgb(5 23 43 / 0.013) 93%,
+    rgb(10 33 61 / 0.9) 25%,
+    rgb(7 26 49 / 0.65) 50%,
+    rgb(4 18 35 / 0.35) 75%,
     rgb(2 14 28 / 0) 100%
   );
 }
@@ -353,7 +338,7 @@
   height: 132px;
   padding: 12px;
   border-radius: 12px;
-  background: rgba(16, 27, 39, 0.035);
+  background: rgba(165, 210, 255, 0.035);
 }
 .v2c-stage__num {
   margin: 18px 0 0;
@@ -393,13 +378,13 @@
   display: block;
   aspect-ratio: 3 / 2;
   border-radius: 2px;
-  background: rgba(16, 27, 39, 0.13);
+  background: rgba(165, 210, 255, 0.13);
 }
 .v2c-mos i:nth-child(3n) {
-  background: rgba(16, 27, 39, 0.09);
+  background: rgba(165, 210, 255, 0.09);
 }
 .v2c-mos i:nth-child(7n) {
-  background: rgba(16, 27, 39, 0.17);
+  background: rgba(165, 210, 255, 0.17);
 }
 /* le miniature scelte: il fondo grigio resta, il blu è uno strato sopra che si accende (solo opacity) */
 .v2c-mos i {
@@ -410,7 +395,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: #1f6fc0;
+  background: #57c7e3;
 }
 @media (min-width: 900px) {
   .v2c-flow {
@@ -1306,14 +1291,14 @@ html [data-iv="in"] :is(.v2c-dots, .v2c-pips, .v2c-days, .v2c-mos) {
   width: 14px;
   height: 14px;
   border-radius: 4px;
-  background: rgba(16, 27, 39, 0.1);
+  background: rgba(165, 210, 255, 0.1);
 }
 .v2c-days i::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: #1f6fc0;
+  background: #57c7e3;
 }
 .v2c-spikes {
   display: grid;
@@ -1342,7 +1327,7 @@ html [data-iv="in"] :is(.v2c-dots, .v2c-pips, .v2c-days, .v2c-mos) {
   height: calc(var(--h) * 56px);
   min-height: 3px;
   border-radius: 6px 6px 0 0;
-  background: #1f6fc0;
+  background: linear-gradient(180deg, #57c7e3, #3c91e6);
   transform-origin: center bottom;
 }
 .v2c-spikes__l {
@@ -1675,7 +1660,7 @@ html [data-iv="in"] .v2c-spikes__bar {
   display: block;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: rgba(16, 27, 39, 0.1);
+  background: rgba(165, 210, 255, 0.1);
 }
 .v2c-pips--check i {
   border-radius: 7px;
@@ -1686,7 +1671,7 @@ html [data-iv="in"] .v2c-spikes__bar {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: #1f6fc0;
+  background: #57c7e3;
 }
 .v2c-pips svg {
   position: absolute;
@@ -1895,4 +1880,22 @@ html [data-iv="in"] .v2c-flow__arrow {
   html [data-iv="in"] .v2c-flow__arrow {
     animation: none;
   }
+}
+
+/* ---------- Note più chiare (14/10/2026): leggere e leggibili sul blu ---------- */
+.v2-caso .v2c-note {
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(143, 211, 244, 0.09);
+  border: 1px solid rgba(143, 211, 244, 0.24);
+  color: #d3e2f4;
+}
+.v2-caso .v2c-pc__basis,
+.v2-caso .v2c-stat__basis {
+  color: #bcd0e8;
+}
+.v2-caso .v2c-pc__basis {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(143, 211, 244, 0.16);
 }
