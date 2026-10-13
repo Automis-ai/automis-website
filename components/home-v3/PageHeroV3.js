@@ -20,11 +20,11 @@ function splitTitle(title, highlight) {
   return [title.slice(0, i), glued, title.slice(i + highlight.length)];
 }
 
-export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, painLabel, cta, below, id }) {
+export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, painLabel, cta, extra, below, belowWide, className, id }) {
   const textRef = useRef(null);
   const [pre, acc, post] = splitTitle(title, highlight);
   return (
-    <section id={id} className="hv3 hv3-hero hv3-hero--compact">
+    <section id={id} className={`hv3 hv3-hero hv3-hero--compact${className ? ` ${className}` : ""}`}>
       <div className="hv3-hero__bg">
         <OrderBg textRef={textRef} />
       </div>
@@ -51,7 +51,8 @@ export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, pain
               </a>
             </div>
           ) : null}
-          {below ? <div className="hv3-hero__below">{below}</div> : null}
+          {extra ? <div className="hv3-hero__extra v2-phero__extra">{extra}</div> : null}
+          {below ? <div className={`hv3-hero__below${belowWide ? " hv3-hero__below--wide" : ""}`}>{below}</div> : null}
         </div>
       </div>
     </section>

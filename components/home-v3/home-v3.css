@@ -950,3 +950,9 @@
   margin-top: 44px;
   width: min(580px, 100%);
 }
+.hv3-hero__extra {
+  margin-top: 26px;
+}
+.hv3-hero__below--wide {
+  width: min(1040px, 100%);
+}

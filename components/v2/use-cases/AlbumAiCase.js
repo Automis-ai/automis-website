@@ -1,5 +1,6 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import PageHero from "@/components/v2/ui/PageHero";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import Button from "@/components/v2/ui/Button";
@@ -50,6 +51,33 @@ export default function AlbumAiCase({ locale = "en" }) {
   return (
     <AutomisEnShell>
       <main id="main">
+      {locale === "it" ? (
+        <PageHeroV3
+          className="v2c-hero"
+          eyebrow={t.hero.eyebrow}
+          title={t.hero.title}
+          highlight={t.hero.highlight}
+          lead={t.hero.lead}
+          cta={{ label: "Leggi il caso", href: "#flusso" }}
+          extra={
+            <>
+        <div className="v2c-client">
+          <span className="v2-tile">
+            <Icon name="camera" size={22} />
+          </span>
+          <p className="v2c-client__name">{t.hero.client}</p>
+          <span className="v2c-card__tag">{t.hero.tag}</span>
+        </div>
+        <div className="v2c-back">
+          <Button href={addLangPrefix("/use-cases", locale)} variant="link" arrow={false}>
+            {common.ui.allCases}
+          </Button>
+        </div>
+            </>
+          }
+          below={<BrowserWindow />}
+        />
+      ) : (
       <PageHero
         size="compact"
         scene="album"
@@ -74,10 +102,11 @@ export default function AlbumAiCase({ locale = "en" }) {
           </Button>
         </div>
       </PageHero>
+      )}
 
       <Seam glyphs={CHAINS[ALBUM_AI_SLUG]} />
       <div className="v2-caso">
-        <Section tone="light" className="v2c-edge">
+        <Section tone="light" className="v2c-edge" id="flusso">
           <SectionHeader title={t.flow.title} />
           <InView className="v2c-flow">
             <div className="v2-card v2c-stage">

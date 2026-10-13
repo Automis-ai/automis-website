@@ -1,5 +1,6 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import PageHero from "@/components/v2/ui/PageHero";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import Button from "@/components/v2/ui/Button";
@@ -43,6 +44,49 @@ export default function DaturaCase({ locale = "en" }) {
   return (
     <AutomisEnShell>
       <main id="main">
+      {locale === "it" ? (
+        <PageHeroV3
+          className="v2c-hero"
+          eyebrow={t.hero.eyebrow}
+          title={t.hero.title}
+          highlight={t.hero.highlight}
+          lead={t.hero.lead}
+          cta={{ label: "Leggi il caso", href: "#problem" }}
+          extra={
+            <>
+        <div className="v2c-client">
+          <span className="v2-tile">
+            <Icon name="cart" size={22} />
+          </span>
+          <p className="v2c-client__name">{t.hero.client}</p>
+          <span className="v2c-card__tag">{t.hero.tag}</span>
+        </div>
+        <div className="v2c-back">
+          <Button href={addLangPrefix("/use-cases", locale)} variant="link" arrow={false}>
+            {common.ui.allCases}
+          </Button>
+        </div>
+            </>
+          }
+          belowWide
+          below={
+
+          <ul className="v2c-stats" aria-label={t.hero.statsLabel}>
+            {t.hero.stats.map((s, i) => (
+              <li key={i} className="v2c-stats__li" style={{ "--i": i }}>
+                <div className="v2c-stat" data-fx="tilt">
+                  <p className="v2c-stat__num">
+                    <CountUp text={s.figure} delay={i * 160} />
+                  </p>
+                  <p className="v2c-stat__label">{s.label}</p>
+                  <p className="v2c-stat__basis">{s.basis}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          }
+        />
+      ) : (
       <PageHero
         size="compact"
         className="v2c-hero"
@@ -80,6 +124,7 @@ export default function DaturaCase({ locale = "en" }) {
           </Button>
         </div>
       </PageHero>
+      )}
 
       <Seam glyphs={CHAINS[DATURA_SLUG]} />
       <div className="v2-caso">
