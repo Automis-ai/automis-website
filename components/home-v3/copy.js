@@ -75,7 +75,7 @@ export const HOME_V3 = {
       read: "Leggi il caso studio",
       items: [
         { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "872", label: "chiamate in sette mesi", client: "Clínica Santa Maria dos Olivais", meta: "Clinica dentale · Lisbona · Segretaria IA" },
-        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "2.329", label: "conversazioni in cinque mesi", client: "ADifesa", meta: "Associazione di tutela · Lissone · Automazione Meta" },
+        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "2.329", label: "conversazioni dal 1/5 al 16/9/2026", client: "ADifesa", meta: "Associazione di tutela bancaria e finanziaria · Lissone · Automazione Meta" },
         { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "280", approx: true, label: "foto scelte tra 1.200 e 1.800 scatti", client: "Studio fotografico Simone Casillo", meta: "Fotografia · Strumento per album" },
         { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "10", label: "guasti trovati in 28 giorni", client: "Datura Clothing", meta: "E-commerce di abbigliamento · Presidio e campagne" },
       ],
