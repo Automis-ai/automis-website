@@ -1,104 +1,64 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import FinalCta from "@/components/home/FinalCta";
-import { Section, SectionHeading, Reveal, GRAD } from "@/components/home/_ui";
-import ClientMark from "@/components/use-cases/ClientMark";
-import { getCases } from "@/components/use-cases/cases";
+import PageHero from "@/components/v2/ui/PageHero";
+import Section from "@/components/v2/ui/Section";
+import CtaBand from "@/components/v2/ui/CtaBand";
+import CaseCard from "@/components/v2/use-cases/CaseCard";
+import Seam from "@/components/v2/use-cases/Seam";
+import { CHAINS } from "@/components/v2/use-cases/constants";
+import { CASES } from "@/components/use-cases/cases";
+import { getCopy } from "@/components/v2/copy/getCopy";
+import { addLangPrefix } from "@/lib/locales";
+import "@/components/v2/use-cases/use-cases.css";
 
-// UI copy resolved by locale. English values are byte-identical to the
-// original inline strings so the rendered EN page is unchanged.
-const COPY = {
-  en: {
-    eyebrow: "Proof, not promises",
-    title: <>Real clients. Real AI systems. Already running.</>,
-    lead: "We are a two-founder team building for businesses in our own markets first, Portugal and Italy. Here is what we have shipped and what it does for them every day.",
-    readCase: "Read the case study",
-    disclaimer:
-      "Both case studies carry production data, in aggregate form only. Your results depend on volume, market, and setup.",
-  },
-  it: {
-    eyebrow: "Fatti concreti, non promesse",
-    title: <>Clienti veri. Sistemi IA veri. Già attivi.</>,
-    lead: "Siamo un team di due founder che costruisce prima di tutto per i business dei nostri mercati, Portogallo e Italia. Ecco cosa abbiamo messo in campo e cosa fa per loro ogni giorno.",
-    readCase: "Leggi il caso studio",
-    disclaimer:
-      "I numeri di tutti e due i casi sono dati di produzione, solo in forma aggregata. I tuoi risultati dipendono da volume, mercato e configurazione.",
-  },
-  pt: {
-    eyebrow: "Provas, não promessas",
-    title: <>Clientes reais. Sistemas de IA reais. Já a funcionar.</>,
-    lead: "Somos uma equipa de dois fundadores que constrói, antes de mais, para os negócios dos nossos próprios mercados, Portugal e Itália. Aqui está o que já colocámos no terreno e o que faz por eles todos os dias.",
-    readCase: "Ler o caso de estudo",
-    disclaimer:
-      "Os números dos dois casos são dados de produção, apenas de forma agregada. Os seus resultados dependem do volume, do mercado e da configuração.",
-  },
-};
-
+/*
+  Indice dei casi studio (v2): apertura centrata e compatta, una scheda per caso (logo o nome del cliente, numero con la sua
+  base, la catena dei suoi moduli veri, titolo) che si inclina in 3D, chiusura con un solo invito. Quattro casi: Clínica,
+  ADifesa, Album AI, Datura Clothing. Testi da getCopy("use-cases", locale); i logo vengono da cases.js; i moduli di
+  ogni caso da constants.js (CHAINS).
+  Fra la hero e le schede, nella sfumatura, una fila di tessere di vetro: il primo modulo di ciascun caso, collegate da un
+  filo (Seam). La scena 3D della hero chiede il preset «casi» (call, social, camera, shield: i moduli veri dei quattro casi);
+  il preset va aggiunto a components/v2/wow/fx/scene/presets.js (richiesta in coda al giro): finché non c'è il motore ripiega su «generic».
+*/
 export default function UseCasesIndex({ locale = "en" }) {
-  const t = COPY[locale];
-  const cases = getCases(locale);
+  const t = getCopy("use-cases", locale);
+  const common = getCopy("common", locale);
 
   return (
     <AutomisEnShell>
-      {/* Hero */}
-      <Section className="relative overflow-hidden bg-[#000a14] pt-24 md:pt-28" pad="pb-16 sm:pb-20">
-        <div className="pointer-events-none absolute inset-0">
-          <div
-            className="absolute left-1/2 top-0 h-[380px] w-[760px] -translate-x-1/2 opacity-50 blur-3xl"
-            style={{ background: "radial-gradient(50% 50% at 50% 0%, rgba(60,145,230,0.26), transparent 70%)" }}
-          />
-        </div>
-        <div className="relative z-10">
-          <SectionHeading
-            as="h1"
-            eyebrow={t.eyebrow}
-            title={t.title}
-            lead={t.lead}
-          />
-        </div>
-      </Section>
+      <main id="main">
+      <PageHero
+        size="compact"
+        scene="casi"
+        eyebrow={t.hero.eyebrow}
+        title={t.hero.title}
+        highlight={t.hero.highlight}
+        subtitle={t.hero.lead}
+      />
 
-      {/* Case-study grid */}
-      <Section className="bg-[#020a12]" pad="py-14 sm:py-16 md:py-20">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {cases.map((c, i) => (
-            <Reveal key={c.slug} delay={i * 120}>
-              <Link
-                href={`${locale === "it" ? "/it" : locale === "pt" ? "/pt" : ""}/use-cases/${c.slug}`}
-                className="card-glow group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 backdrop-blur-sm transition-transform hover:-translate-y-1"
-              >
-                <div className="flex items-center justify-between">
-                  <ClientMark slug={c.slug} logo={c.logo} name={c.client} />
-                  <span className="rounded-full border border-[#57C7E3]/25 bg-[#57C7E3]/[0.08] px-3 py-1 text-[11px] font-semibold text-[#8fe0f0]">
-                    {c.tag}
-                  </span>
-                </div>
-                <h2 className="font-display mt-5 text-xl font-semibold text-white">{c.shortClient}</h2>
-                <p className="mt-1 text-[13px] text-white/60">
-                  {c.industry} · {c.location}
-                </p>
-                <p className="mt-4 text-[14.5px] leading-relaxed text-white/65">{c.summary}</p>
-                <span
-                  className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[14px] font-semibold text-[#8fe0f0]"
-                  style={{ backgroundImage: GRAD, WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent", color: "transparent" }}
-                >
-                  {t.readCase}
-                  <ArrowRight className="h-4 w-4 flex-shrink-0 text-[#57C7E3] transition-transform group-hover:translate-x-1" strokeWidth={2} />
-                </span>
-              </Link>
-            </Reveal>
+      <Seam glyphs={t.items.map((item) => (CHAINS[item.slug] || [])[0]).filter(Boolean)} />
+      <Section tone="light" className="v2c-edge">
+        <div className="v2c-grid" data-fx="stagger">
+          {t.items.map((item, i) => (
+            <CaseCard
+              key={item.slug}
+              index={i}
+              item={item}
+              logoSrc={CASES.find((c) => c.slug === item.slug)?.logo}
+              href={addLangPrefix(item.href, locale)}
+              linkLabel={common.ui.readCase}
+            />
           ))}
         </div>
-
-        <Reveal delay={140}>
-          <p className="mt-6 text-center text-[12px] text-white/50">
-            {t.disclaimer}
-          </p>
-        </Reveal>
       </Section>
 
-      <FinalCta />
+      <div className="v2c-cta">
+        <CtaBand
+          title={t.cta.title}
+          line={t.cta.line}
+          button={{ label: common.cta, href: addLangPrefix("/contact", locale) }}
+        />
+      </div>
+      </main>
     </AutomisEnShell>
   );
 }

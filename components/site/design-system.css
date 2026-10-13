@@ -70,13 +70,26 @@
   font-display: swap;
 }
 
+/* Ripiego metrico di Clash Display 700: finché il file non è arrivato, Arial Bold viene scalato sulle misure di Clash.
+   Il titolo occupa le stesse righe prima e dopo il cambio (niente salto di layout). */
+@font-face {
+  font-family: "Clash Display Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Bold"), local("Arimo Bold"), local("Liberation Sans Bold");
+  font-weight: 700;
+  font-style: normal;
+  size-adjust: 107.5%;
+  ascent-override: 82.8%;
+  descent-override: 23.3%;
+  line-gap-override: 0%;
+}
+
 /* Scope the pairing to the EN home so other locales keep their fonts.
    Pairing: Clash Display (display / headings) + General Sans (body / UI). */
 .automis-en {
   font-family: "General Sans", "Satoshi", "Open Sans", system-ui, sans-serif;
 }
 .automis-en .font-display {
-  font-family: "Clash Display", "Montserrat", sans-serif;
+  font-family: "Clash Display", "Clash Display Fallback", "Montserrat", sans-serif;
   letter-spacing: -0.005em;
   word-spacing: 0.05em;
 }

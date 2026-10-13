@@ -127,6 +127,15 @@ async function routeSeemsToExist(url) {
   }
 }
 
+/**
+ * Le pagine dei casi studio portate dal sito v2 dichiarano qui le loro gemelle nelle altre lingue.
+ * Questo selettore trova già la pagina giusta da solo (resolveTarget), quindi LangTwins si limita
+ * a rendere i figli.
+ */
+export function LangTwins({ children }) {
+  return children;
+}
+
 export default function LanguageSwitcher({
   className = "",
   align = "right", // "right" | "left"

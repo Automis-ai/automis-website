@@ -1,12 +1,17 @@
+import { LangTwins } from "@/components/LanguageSwitcher";
 import { CASES, getCase } from "@/components/use-cases/cases";
 import CaseStudyDetail from "@/components/use-cases/CaseStudyDetail";
 import { metaLongForm } from "@/components/use-cases/longform";
+import { V2_CASE_SLUGS, getV2Case } from "@/components/v2/use-cases/registry";
 
 export function generateStaticParams() {
-  return CASES.map((c) => ({ slug: c.slug }));
+  // I casi costruiti sul kit v2 (Album AI, Datura Clothing) non stanno in CASES: i loro slug si aggiungono qui.
+  return [...CASES.map((c) => ({ slug: c.slug })), ...V2_CASE_SLUGS.map((slug) => ({ slug }))];
 }
 
 export function generateMetadata({ params }) {
+  const v2 = getV2Case(params.slug);
+  if (v2) return v2.metadata("pt");
   const c = getCase(params.slug, "pt");
   if (!c) return {};
   const url = `https://automis.ai/pt/use-cases/${c.slug}`;
@@ -34,5 +39,11 @@ export function generateMetadata({ params }) {
 }
 
 export default function CaseStudyDetailPagePt({ params }) {
-  return <CaseStudyDetail slug={params.slug} locale="pt" />;
+  // Lo slug è lo stesso in tutte le lingue: lo dichiariamo al selettore e al piede già sul server.
+  const v2 = getV2Case(params.slug);
+  return (
+    <LangTwins path={`/use-cases/${params.slug}`}>
+      {v2 ? <v2.Case locale="pt" /> : <CaseStudyDetail slug={params.slug} locale="pt" />}
+    </LangTwins>
+  );
 }

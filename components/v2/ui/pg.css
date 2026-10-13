@@ -1,0 +1,185 @@
+/* Pagine interne (contenitore .v2-pg), giro 2: il corpo sta nella stessa famiglia della home.
+   Prima era una lastra piatta di blu medio (#1a4f8c) con card traslucide: un altro sito, di taglio template.
+   Ora: fondo blu notte, il blu solo come bagliore radiale dietro i blocchi (mai una lastra piena), card di vetro scuro
+   con bordo sfumato di 1 px (come quelle della home), luce al passaggio del mouse.
+   Vale per il tono A (il default). Il tono B (?tono=b) resta com'era, solo per il confronto.
+   Si anima solo transform e opacity. Colori dalle variabili --v2-*: niente #fff o #06182b scritti a mano. */
+
+main.v2-pg {
+  position: relative;
+}
+
+/* ---------- Fondi: blu notte, a gradini piccoli ---------- */
+.v2-pg.v2-tone-a {
+  --v2-rgb-dark: 0 10 20;
+  --v2-rgb-light: 2 17 36;
+  --v2-rgb-deep: 3 22 46;
+}
+/* «light» e «deep» in A: stessa famiglia di «dark», un filo più azzurra. Nessun blu pieno. */
+.v2-pg.v2-tone-a .v2-tone-light,
+.v2-pg.v2-tone-a .v2-tone-deep {
+  --v2-ink: #ffffff;
+  --v2-ink-2: rgba(255, 255, 255, 0.82);
+  --v2-ink-3: rgba(255, 255, 255, 0.66);
+  --v2-line: rgba(255, 255, 255, 0.14);
+  --v2-line-strong: rgba(255, 255, 255, 0.3);
+
+  --v2-card: rgba(255, 255, 255, 0.05);
+  --v2-card-hover: rgba(255, 255, 255, 0.08);
+  --v2-card-line: rgba(150, 205, 255, 0.16);
+  --v2-card-line-hover: rgba(143, 211, 244, 0.6);
+  --v2-shadow: none;
+  --v2-glow: rgba(87, 199, 227, 0.2);
+  --v2-lift: 0 0 0 1px rgba(143, 211, 244, 0.28), 0 28px 54px -26px rgba(30, 120, 230, 0.65);
+  --v2-hero-accent: #5aa9f0;
+
+  --v2-accent: #57c7e3;
+  --v2-accent-solid: #3c91e6;
+  --v2-num: #57c7e3;
+
+  --v2-tile-bg: rgba(60, 145, 230, 0.16);
+  --v2-tile-fg: #8fd3f4;
+  --v2-chip-bg: rgba(60, 145, 230, 0.18);
+  --v2-chip-fg: #a9d4ff;
+  --v2-chip-line: rgba(60, 145, 230, 0.4);
+
+  --v2-btn-bg: linear-gradient(120deg, #3c91e6 0%, #57c7e3 60%, #8fd3f4 100%);
+  --v2-btn-fg: #00121f;
+  --v2-btn-shadow: 0 14px 32px -14px rgba(60, 145, 230, 0.75);
+  --v2-ghost-line: rgba(255, 255, 255, 0.34);
+
+  --v2-focus: #f5cd79;
+  --v2-accent-text: #f5cd79;
+  --v2-accent-bg: transparent;
+
+  --v2-win-bg: rgba(255, 255, 255, 0.035);
+  --v2-bubble-agent-bg: rgba(255, 255, 255, 0.1);
+  --v2-bubble-agent-fg: #ffffff;
+  --v2-bubble-user-bg: #1d66b8;
+  --v2-bubble-user-fg: #ffffff;
+}
+.v2-pg.v2-tone-a .v2-tone-light {
+  --v2-bg: #021124;
+  --v2-bg-rgb: 2 17 36;
+}
+.v2-pg.v2-tone-a .v2-tone-deep {
+  --v2-bg: #03162e;
+  --v2-bg-rgb: 3 22 46;
+  background-image: none;
+}
+.v2-pg.v2-tone-a .v2-tone-light .v2-badge--gold,
+.v2-pg.v2-tone-a .v2-tone-deep .v2-badge--gold {
+  border-color: rgba(245, 205, 121, 0.5);
+  background: rgba(245, 205, 121, 0.14);
+  color: #f5cd79;
+}
+
+/* Il bagliore: due ellissi sfumate dietro il contenuto, una grande blu e una piccola azzurra. Le ellissi finiscono ben dentro
+   la fascia (mai sul bordo): la sfumatura d'ingresso fra le fasce resta senza salti. Alternano il lato da una fascia all'altra. */
+.v2-pg.v2-tone-a .v2-section:not(.v2-phero)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(52% 38% at 16% 50%, rgba(40, 118, 214, 0.34), transparent 72%),
+    radial-gradient(36% 30% at 88% 60%, rgba(87, 199, 227, 0.14), transparent 74%);
+}
+.v2-pg.v2-tone-a .v2-section:not(.v2-phero):nth-child(even)::before {
+  background: radial-gradient(52% 38% at 84% 46%, rgba(40, 118, 214, 0.34), transparent 72%),
+    radial-gradient(36% 30% at 10% 62%, rgba(87, 199, 227, 0.14), transparent 74%);
+}
+.v2-pg.v2-tone-a .v2-tone-dark:not(.v2-phero)::before {
+  background: radial-gradient(46% 34% at 24% 50%, rgba(40, 118, 214, 0.18), transparent 72%),
+    radial-gradient(30% 26% at 86% 58%, rgba(87, 199, 227, 0.08), transparent 74%);
+}
+.v2-pg.v2-tone-a .v2-tone-dark:not(.v2-phero):nth-child(even)::before {
+  background: radial-gradient(46% 34% at 78% 48%, rgba(40, 118, 214, 0.18), transparent 72%),
+    radial-gradient(30% 26% at 12% 60%, rgba(87, 199, 227, 0.08), transparent 74%);
+}
+.v2-pg.v2-tone-a .v2-section--sm::before {
+  display: none;
+}
+
+/* ---------- Card di vetro scuro, bordo sfumato di 1 px ---------- */
+.v2-pg.v2-tone-a .v2-section .v2-card {
+  border-color: transparent;
+  background: linear-gradient(165deg, rgba(16, 48, 88, 0.78) 0%, rgba(5, 20, 38, 0.92) 100%);
+  box-shadow: 0 34px 60px -38px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.v2-pg.v2-tone-a .v2-section .v2-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(145deg, rgba(150, 205, 255, 0.55), rgba(60, 145, 230, 0.12) 42%, rgba(87, 199, 227, 0.34));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .v2-pg.v2-tone-a .v2-section .v2-card--link:hover {
+    background: linear-gradient(165deg, rgba(22, 62, 112, 0.86) 0%, rgba(6, 24, 46, 0.94) 100%);
+    box-shadow: 0 40px 64px -36px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(190, 225, 255, 0.28), var(--v2-lift);
+  }
+  .v2-pg.v2-tone-a .v2-section .v2-card--link:hover::after {
+    background: linear-gradient(145deg, rgba(190, 230, 255, 0.85), rgba(60, 145, 230, 0.3) 42%, rgba(87, 199, 227, 0.6));
+  }
+}
+/* Il riflesso dell'inclinazione: più basso sul vetro scuro, il testo piccolo resta sopra 4,5 : 1 anche sotto l'alone */
+.v2-pg .fx-glare i {
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.06) 0%, transparent 38%),
+    radial-gradient(closest-side, rgba(87, 199, 227, 0.1), transparent 100%);
+}
+
+/* Bordo acceso quando un pacchetto arriva: l'elemento lo crea la coreografia (fx/stages), opacità la muove gsap.
+   L'oro è solo sull'ultimo nodo della catena (.v2fx-lit--end). */
+.v2fx-lit {
+  position: absolute;
+  inset: -1px;
+  z-index: 3;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(145deg, #8fe0f0, #3c91e6 60%, #57c7e3);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+}
+.v2fx-lit--end {
+  background: linear-gradient(145deg, #8fe0f0, #3c91e6 45%, #f5cd79);
+}
+
+/* ---------- Chiusura (CtaBand): il pannello si accende quando il filo della pagina ci arriva ---------- */
+.v2-pg .v2-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1.5px rgba(143, 224, 240, 0.9), inset 0 0 64px rgba(87, 199, 227, 0.22);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.v2-pg .v2-cta.is-lit::after {
+  opacity: 1;
+}
+
+/* ---------- Domande e demo: stesso mondo, linee sottili ---------- */
+.v2-pg.v2-tone-a .v2-section .v2-win {
+  border-color: rgba(150, 205, 255, 0.18);
+  box-shadow: 0 34px 60px -38px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2-pg .v2-cta::after {
+    transition: none;
+  }
+}

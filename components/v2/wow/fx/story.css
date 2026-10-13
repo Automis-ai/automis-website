@@ -1,0 +1,713 @@
+/* Il racconto delle pagine interne (components/v2/wow/fx/PageStory + stages/*), prefisso v2fx-.
+   Il modulo di vetro, i fili e i pacchetti, la rete di schede, la catena dei passi, il filo della pagina.
+   Stessa lingua della home (home.css): blu notte #000a14, blu #3c91e6, azzurro #57c7e3, oro #f5cd79 solo sull'ultimo nodo.
+   Si anima solo transform e opacità. Quello che parte con JavaScript sta fermo e leggibile senza:
+   fili, pacchetti e filo della pagina sono invisibili finché non li prepara lo script (con prefers-reduced-motion mai). */
+
+/* ---------- Il modulo: piastrella di vetro con spessore ---------- */
+.v2fx-mod {
+  --s: 56px;
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  width: var(--s);
+  height: var(--s);
+  transform-style: preserve-3d;
+}
+.v2fx-mod--sm {
+  --s: 40px;
+}
+.v2fx-mod--md {
+  --s: 56px;
+}
+.v2fx-mod--lg {
+  --s: 72px;
+}
+.v2fx-mod--xl {
+  --s: 92px;
+}
+.v2fx-mod__body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--s) * 0.28);
+  color: #d6f1ff;
+  background: linear-gradient(150deg, rgba(150, 205, 255, 0.34) 0%, rgba(70, 130, 210, 0.16) 42%, rgba(20, 50, 100, 0.42) 100%), #071a2f;
+  border: 1px solid rgba(175, 220, 255, 0.42);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -8px 14px -6px rgba(0, 16, 48, 0.7), 1px 1px 0 #0a3359, 2px 2px 0 #082c4e,
+    3px 3px 0 #06223c, 4px 5px 0 #041a2f, 8px 14px 22px -8px rgba(0, 0, 0, 0.6);
+}
+.v2fx-mod__body::before {
+  content: "";
+  position: absolute;
+  inset: 1px 1px 50% 1px;
+  border-radius: calc(var(--s) * 0.28) calc(var(--s) * 0.28) 40% 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.v2fx-mod__body svg {
+  position: relative;
+  width: 46%;
+  height: 46%;
+  filter: drop-shadow(0 0 6px rgba(87, 199, 227, 0.6));
+}
+.v2fx-mod__glow {
+  position: absolute;
+  inset: -34%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(87, 199, 227, 0.55), rgba(60, 145, 230, 0.18) 60%, transparent);
+  opacity: 0.55;
+  transition: opacity 0.4s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+.v2fx-mod__ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: calc(var(--s) * 0.34);
+  border: 1.5px solid #8fe0f0;
+  opacity: 0;
+  pointer-events: none;
+}
+.v2fx-mod.is-end .v2fx-mod__ring {
+  border-color: #f5cd79;
+}
+
+/* ---------- Fili e pacchetti (creati da fx/wires.js) ---------- */
+.v2fx-wire {
+  position: absolute;
+  height: 2px;
+  margin-top: -1px;
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+.v2fx-wire::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(130, 195, 255, 0.22);
+}
+.v2fx-wire__fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, #3c91e6, #57c7e3);
+  opacity: 0.9;
+}
+.v2fx-wire__pkt {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 4px;
+  opacity: 0;
+  background: linear-gradient(90deg, rgba(87, 199, 227, 0), #57c7e3 70%, #ffffff);
+  box-shadow: 0 0 12px 2px rgba(87, 199, 227, 0.55);
+}
+.v2fx-port {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%;
+  background: #8fe0f0;
+  box-shadow: 0 0 10px rgba(87, 199, 227, 0.8);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---------- La rete di schede (hub: ricomposizione, categorie: catena) ----------
+   Le schede stanno in celle (.v2fx-cell): la cella la muove gsap (profondità, scomposizione), la scheda tiene il suo tilt al mouse.
+   I fili passano nei varchi fra le celle: i varchi sono più larghi del kit (qui c'è un filo da farci stare). */
+.v2fx-net {
+  position: relative;
+}
+.v2fx-net__wires {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.v2fx-netgrid {
+  position: relative;
+  z-index: 1;
+  row-gap: 36px;
+}
+.v2fx-cell {
+  position: relative;
+  min-width: 0;
+  transform-style: preserve-3d;
+}
+.v2fx-cell > .v2-card {
+  height: 100%;
+}
+/* mentre la rete si prepara (is-arming, ~0,9 s): lo stato di partenza arriva con una transizione, non a scatto */
+.v2fx-net.is-arming .v2fx-cell,
+.v2fx-steps.is-arming .v2fx-step {
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (min-width: 640px) {
+  .v2fx-netgrid {
+    gap: 40px 36px;
+  }
+}
+@media (min-width: 1024px) {
+  .v2fx-netgrid {
+    gap: 52px 48px;
+  }
+}
+
+/* ---------- Come lavoriamo: la catena dei passi ----------
+   Tre moduli grandi uniti da un filo che passa dal loro centro, con un pacchetto che li attraversa; sotto ogni modulo la sua
+   scheda. Da 768 px in riga, sotto in colonna (il filo scende fra i moduli). Senza JavaScript il filo è già tutto disegnato. */
+.v2fx-steps {
+  position: relative;
+  --gap: 20px;
+}
+.v2fx-steps__list {
+  display: grid;
+  gap: var(--gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.v2fx-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 18px;
+  align-items: start;
+}
+.v2fx-step__node {
+  position: relative;
+  z-index: 2;
+  justify-self: center;
+}
+.v2fx-step__rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 56px;
+  z-index: 1;
+  pointer-events: none;
+}
+.v2fx-step__track,
+.v2fx-step__seg {
+  position: absolute;
+  top: 40px;
+  left: 27px;
+  width: 2px;
+  height: calc(100% + var(--gap) - 12px);
+  border-radius: 2px;
+}
+.v2fx-step__track {
+  background: rgba(255, 255, 255, 0.14);
+}
+.v2fx-step__seg {
+  transform-origin: 50% 0;
+  background: linear-gradient(180deg, #3c91e6, #57c7e3);
+  box-shadow: 0 0 10px rgba(87, 199, 227, 0.5);
+}
+.v2fx-step__packet {
+  position: absolute;
+  top: 36px;
+  left: 24px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 12px 2px rgba(143, 211, 244, 0.95), 0 -14px 14px -2px rgba(87, 199, 227, 0.7);
+}
+.v2fx-step__card {
+  padding: 22px;
+  min-width: 0;
+}
+.v2fx-step__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.v2fx-step__n {
+  font-family: var(--v2-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--v2-accent);
+}
+.v2fx-step__title {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+  text-wrap: balance;
+}
+.v2-section .v2fx-step__line {
+  margin: 10px 0 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+.v2-section .v2fx-step__meta {
+  align-self: flex-start;
+  margin: 14px 0 0;
+  padding: 7px 12px;
+  border: 1px solid var(--v2-chip-line);
+  border-radius: 12px;
+  background: var(--v2-chip-bg);
+  color: var(--v2-chip-fg);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.v2fx-step__card .v2-disc {
+  margin-top: 10px;
+}
+.v2fx-step__card {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .v2fx-steps {
+    --gap: 32px;
+  }
+  .v2fx-steps__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--gap);
+    row-gap: 0;
+  }
+  .v2fx-step {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  /* il filo orizzontale passa dal centro del modulo (92 px: centro a 46 px dall'alto) e arriva al centro del successivo */
+  .v2fx-step__rail {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: auto;
+    height: 92px;
+  }
+  .v2fx-step__track,
+  .v2fx-step__seg {
+    top: 45px;
+    left: 50%;
+    width: calc(100% + var(--gap));
+    height: 2px;
+  }
+  .v2fx-step__seg {
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, #3c91e6, #57c7e3);
+  }
+  .v2fx-step__packet {
+    top: 42px;
+    left: 50%;
+    width: 56px;
+    height: 4px;
+    margin-left: 0;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(87, 199, 227, 0), #57c7e3 72%, #ffffff);
+    box-shadow: 0 0 14px 2px rgba(87, 199, 227, 0.6);
+  }
+  .v2fx-step__node {
+    --s: 92px;
+    align-self: center;
+    margin-bottom: 26px;
+  }
+  .v2fx-step__card {
+    flex: 1;
+    padding: 28px;
+  }
+  .v2fx-step__title {
+    font-size: 1.375rem;
+    letter-spacing: -0.005em;
+    word-spacing: 0.05em;
+  }
+  .v2-section .v2fx-step__line {
+    font-size: 16px;
+  }
+  .v2fx-step__card .v2-disc {
+    margin-top: auto;
+    padding-top: 12px;
+  }
+}
+
+/* ---------- La catena di moduli (fx/Rail.js + stages/rail.js) ----------
+   Moduli di vetro in fila con l'etichetta sotto; i fili li crea lo script (misurando i moduli), il pacchetto li percorre. Con le schede
+   (--cards) la fila sta sopra la griglia delle schede, che entrano una a una con il loro modulo. L'ultimo nodo, se è il numero del
+   caso, è una capsula d'oro (l'oro della sezione). Senza JavaScript tutto è già lì, ordinato e leggibile. */
+.v2fx-rail {
+  position: relative;
+  --n: 4;
+  --cols: 4;
+  --rs: 48px; /* lato del modulo */
+  --rgap: 6px; /* spazio fra le colonne */
+}
+.v2fx-rail__wires {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.v2fx-rail__list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  gap: 8px 6px;
+  margin: 0 0 36px;
+  padding: 0;
+  list-style: none;
+}
+.v2fx-rail__step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  text-align: center;
+}
+/* Filo fermo, per quando lo script non disegna i suoi (senza JavaScript, con prefers-reduced-motion, prima che gsap arrivi): la catena
+   si legge collegata anche da ferma. Con i fili veri (.is-wired) sparisce. Da modulo a modulo, in orizzontale. */
+.v2fx-rail:not(.is-wired) .v2fx-rail__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--rs) / 2 - 1px);
+  left: calc(50% + var(--rs) / 2 + 7px);
+  width: calc(100% - var(--rs) - 14px + var(--rgap));
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(60, 145, 230, 0.6), rgba(87, 199, 227, 0.6));
+  pointer-events: none;
+}
+@media (max-width: 1023px) {
+  .v2fx-rail--rich .v2fx-rail__step::after {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .v2fx-rail--res .v2fx-rail__step:nth-last-child(2)::after {
+    display: none !important;
+  }
+}
+.v2fx-rail__node {
+  --s: 48px;
+  position: relative;
+  z-index: 2;
+}
+.v2fx-rail__label {
+  font-family: var(--v2-body);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--v2-accent);
+  overflow-wrap: anywhere;
+}
+.v2fx-rail__step--result {
+  grid-column: 1 / -1;
+  margin-top: 14px;
+}
+.v2fx-rail__step--result .v2fx-rail__res {
+  width: 100%;
+  max-width: 340px;
+}
+.v2fx-rail__res {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  max-width: 100%;
+  padding: 16px 26px 14px;
+  border-radius: 22px;
+  background: linear-gradient(160deg, rgba(245, 205, 121, 0.16), rgba(245, 205, 121, 0.03) 62%), rgba(6, 24, 43, 0.9);
+  border: 1px solid rgba(245, 205, 121, 0.5);
+  box-shadow: 0 0 40px -12px rgba(245, 205, 121, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  text-align: center;
+}
+.v2fx-rail__resglow {
+  position: absolute;
+  inset: -34%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(245, 205, 121, 0.26), transparent 70%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+.v2fx-rail__num {
+  font-family: var(--v2-display);
+  font-size: clamp(2.5rem, 7vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #f5cd79;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.v2fx-rail__unit {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--v2-ink);
+}
+.v2fx-rail__src {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--v2-ink-3);
+}
+.v2fx-rail--cards .v2fx-netgrid {
+  position: relative;
+  z-index: 1;
+}
+.v2fx-rail.is-arming .v2fx-cell {
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+/* passo «ricco» (Come funziona): titolo e riga sotto il modulo. In colonna fino a 1023 px (il modulo a sinistra, il testo a destra),
+   in riga da 1024 px. */
+.v2fx-rail--rich .v2fx-rail__list {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 30px;
+  margin-bottom: 0;
+}
+.v2fx-rail--rich .v2fx-rail__step {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 18px;
+  row-gap: 4px;
+  align-items: start;
+  text-align: left;
+}
+.v2fx-rail--rich .v2fx-rail__node {
+  --s: 56px;
+  grid-row: 1 / span 2;
+}
+.v2fx-rail--rich .v2fx-rail__label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--v2-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  line-height: 1.25;
+  text-transform: none;
+  color: var(--v2-ink);
+}
+.v2fx-rail__n {
+  font-family: var(--v2-display);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--v2-accent);
+}
+.v2fx-rail__text {
+  grid-column: 2;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+@media (min-width: 768px) {
+  .v2fx-rail {
+    --rs: 56px;
+    --rgap: 14px;
+  }
+  .v2fx-rail__list {
+    gap: 8px 14px;
+    margin-bottom: 44px;
+  }
+  .v2fx-rail__node {
+    --s: 56px;
+  }
+  .v2fx-rail__label {
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+  }
+  .v2fx-rail__step--result {
+    grid-column: auto;
+    margin-top: 0;
+    justify-content: flex-start;
+  }
+  .v2fx-rail__step--result .v2fx-rail__res {
+    max-width: none;
+  }
+  .v2fx-rail:not(.v2fx-rail--rich) .v2fx-rail__list {
+    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .v2fx-rail {
+    --rs: 72px;
+  }
+  .v2fx-rail__node {
+    --s: 72px;
+  }
+  .v2fx-rail__list {
+    margin-bottom: 52px;
+  }
+  .v2fx-rail--rich .v2fx-rail__list {
+    grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+    gap: 8px 26px;
+  }
+  .v2fx-rail--rich .v2fx-rail__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+  .v2fx-rail--rich .v2fx-rail__node {
+    --s: 72px;
+    grid-row: auto;
+  }
+  .v2fx-rail--rich .v2fx-rail__label {
+    align-items: center;
+    font-size: 1.1875rem;
+  }
+  .v2fx-rail__text {
+    font-size: 15.5px;
+  }
+}
+
+/* ---------- Il filo della pagina (stages/spine.js) ----------
+   Una linea-segnale al margine sinistro: un pacchetto di luce scende con lo scroll e accende un nodo per sezione; in fondo il filo
+   gira l'angolo ed entra nel pannello della chiusura. Invisibile finché non lo prepara lo script (.is-ready). */
+.v2fx-spine {
+  --sx: 10px;
+  --n: 18px;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  visibility: hidden;
+}
+.v2fx-spine.is-ready {
+  visibility: visible;
+}
+.v2fx-spine > * {
+  position: absolute;
+}
+.v2fx-spine__track {
+  left: calc(var(--sx) - 0.75px);
+  top: 0;
+  width: 1.5px;
+  height: 0;
+  background: linear-gradient(to bottom, rgba(120, 190, 255, 0), rgba(120, 190, 255, 0.26) 150px, rgba(120, 190, 255, 0.2));
+}
+.v2fx-spine__fill {
+  left: calc(var(--sx) - 1px);
+  top: 0;
+  width: 2px;
+  height: 0;
+  transform-origin: 50% 0;
+  transform: scaleY(0);
+  background: linear-gradient(to bottom, rgba(87, 199, 227, 0.35), #57c7e3 80px, #3c91e6);
+}
+.v2fx-spine__feed {
+  left: var(--sx);
+  top: 0;
+  width: 0;
+  height: 1.5px;
+  background: rgba(120, 190, 255, 0.22);
+}
+.v2fx-spine__feedfill {
+  left: var(--sx);
+  top: 0;
+  width: 0;
+  height: 1.5px;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #3c91e6, #57c7e3);
+}
+.v2fx-spine__node {
+  left: calc(var(--sx) - var(--n) / 2);
+  top: 0;
+  width: var(--n);
+  height: var(--n);
+}
+.v2fx-spine__node .v2fx-mod {
+  --s: var(--n);
+  opacity: 0.42;
+  transform: scale(0.74);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.2, 1.3, 0.4, 1);
+}
+.v2fx-spine__node.is-on .v2fx-mod {
+  opacity: 1;
+  transform: scale(1);
+}
+.v2fx-spine__node .v2fx-mod__glow {
+  inset: -70%;
+  opacity: 0;
+  transform: scale(0.6);
+}
+.v2fx-spine__node.is-on .v2fx-mod__glow {
+  opacity: 1;
+  transform: scale(1);
+}
+.v2fx-spine__pkt {
+  left: calc(var(--sx) - 3px);
+  top: 0;
+  width: 6px;
+  height: 6px;
+  opacity: 0;
+}
+.v2fx-spine__head {
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px 3px rgba(87, 199, 227, 0.9), 0 0 26px 6px rgba(60, 145, 230, 0.5);
+}
+.v2fx-spine__pkt > .v2fx-spine__head {
+  position: absolute;
+  inset: 0;
+}
+.v2fx-spine__feedhead {
+  left: var(--sx);
+  top: 0;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  opacity: 0;
+}
+.v2fx-spine__trail {
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  width: 2px;
+  height: 70px;
+  margin-left: -1px;
+  border-radius: 2px;
+  transform-origin: 50% 100%;
+  transform: scaleY(0.35);
+  background: linear-gradient(to top, rgba(143, 224, 240, 0.95), rgba(143, 224, 240, 0));
+}
+.v2fx-spine__run {
+  left: calc(var(--sx) - 1.5px);
+  top: 0;
+  width: 3px;
+  height: 44px;
+  border-radius: 3px;
+  opacity: 0;
+  background: linear-gradient(to bottom, rgba(87, 199, 227, 0), #57c7e3 70%, #ffffff);
+  box-shadow: 0 0 12px 2px rgba(87, 199, 227, 0.5);
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2fx-spine,
+  .v2fx-net__wires {
+    display: none;
+  }
+}

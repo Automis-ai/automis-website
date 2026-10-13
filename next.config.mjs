@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // scripts/verify.sh compila in .next-verify per non pestare un `next dev` acceso. Su Vercel non è impostata.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   async redirects() {
     // Pages retired in the 2026-07 site rollout — keep old links alive.
     return [
