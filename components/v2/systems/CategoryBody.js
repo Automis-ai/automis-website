@@ -2,6 +2,8 @@ import { Fragment } from "react";
 import PageHero from "@/components/v2/ui/PageHero";
 import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import { homeCopy } from "@/components/home-v3/copy";
+import CategoryStagesV3 from "@/components/home-v3/CategoryStagesV3";
+import { STAGES } from "@/components/home-v3/stages";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CardGrid from "@/components/v2/ui/CardGrid";
@@ -51,7 +53,7 @@ export default function CategoryBody({ locale, slug, tono }) {
   // Il caso reale sta in mezzo ai due gruppi (Vendita); altrimenti chiude la pagina, dopo le demo.
   const caseInMiddle = Boolean(split && !bandCard && c.case);
   // Una scheda sola e una demo (Risorse umane): scheda e demo stanno affiancate.
-  const brainBeside = Boolean(c.brain && c.cards.length === 1);
+  const brainBeside = L !== "it" && Boolean(c.brain && c.cards.length === 1);
 
   const caseBand = c.case ? (
     <CaseBand
@@ -93,6 +95,35 @@ export default function CategoryBody({ locale, slug, tono }) {
     />
   ) : null;
 
+  // IT: corpo a tappe (components/home-v3). Il sistema in primo piano può avere una piccola animazione; il resto sta nei dettagli.
+  const VIZ = {
+    "ads-creative": { viz: "bars", vizCaption: "Il budget si sposta sulla creatività che converte" },
+    reviews: { viz: "stars", vizCaption: "La risposta pubblica aspetta il tuo ok", vizRows: ["Risposta pronta: «Grazie, ci fa piacere…»"] },
+    "ecommerce-manager": {
+      viz: "night",
+      vizCaption: `${getCopy("ecommerce", L).hero.visual.title} · ${getCopy("ecommerce", L).hero.visual.caption}`,
+      vizRows: getCopy("ecommerce", L).hero.visual.rows.map((r) => [r.area, r.state, r.tone === "done"]),
+    },
+  };
+  const itV3 = L === "it";
+  // Company Brain: la scheda sarebbe un doppione della hero, la pagina parte dalla demo «Chiedi al Brain».
+  const itStages =
+    itV3 && slug !== "company-brain"
+      ? (STAGES[slug] || []).map((st) => ({
+          title: st.title,
+          line: st.line,
+          items: st.ids
+            .map((id) => c.cards.find((x) => x.id === id))
+            .filter(Boolean)
+            .map((x) => ({
+              ...x,
+              href: x.href ? addLangPrefix(x.href, L) : null,
+              cta: x.id === "ecommerce-manager" ? getCopy("ecommerce", L).hero.cta : common.ui.learnMore,
+              ...(VIZ[x.id] || {}),
+            })),
+        }))
+      : null;
+
   return (
     <main id="main" className={pageClass(tono)}>
       <SmoothScroll />
@@ -118,7 +149,11 @@ export default function CategoryBody({ locale, slug, tono }) {
         />
       )}
 
-      {groups.map((cards, gi) => {
+      {itStages ? (
+        <CategoryStagesV3 stages={itStages} labels={{ pain: homeCopy(L).systems.pain, more: all.labels.more }} />
+      ) : null}
+
+      {(itV3 ? [] : groups).map((cards, gi) => {
         const isLast = gi === groups.length - 1;
         return (
           <Fragment key={gi}>
@@ -261,7 +296,7 @@ export default function CategoryBody({ locale, slug, tono }) {
         </Section>
       ) : null}
 
-      {c.case && !caseInMiddle ? (
+      {c.case && (!caseInMiddle || itV3) ? (
         <Section tone="deep" className="v2sx-casesec">
           {caseBand}
         </Section>
@@ -273,7 +308,11 @@ export default function CategoryBody({ locale, slug, tono }) {
         tone="dark"
         title={c.cta.title}
         line={c.cta.line}
-        button={{ label: common.cta, href: addLangPrefix("/contact", L) }}
+        button={
+          L === "it"
+            ? { label: "Prenota una call", href: `${addLangPrefix("/", L)}#book` }
+            : { label: common.cta, href: addLangPrefix("/contact", L) }
+        }
       />
     </main>
   );
