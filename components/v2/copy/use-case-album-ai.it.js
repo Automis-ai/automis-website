@@ -59,18 +59,34 @@ export default {
   shots: {
     title: "Lo strumento al lavoro",
     lead: "Gira nel browser, sul Mac di Simone. Le schermate usano foto di esempio, non foto dei clienti.",
-    items: [
-      { src: "/media/use-cases/album-ai/eventi.png", alt: "Elenco degli eventi in Album AI", caption: "Gli eventi: si sceglie la cartella e si avvia la scelta." },
-      { src: "/media/use-cases/album-ai/in-lavorazione.png", alt: "Barra di avanzamento della scelta delle foto", caption: "La scelta al lavoro, passo per passo." },
+    steps: [
+      { n: "1", title: "Si sceglie l'evento", caption: "Si indica la cartella dell'evento e si avvia la scelta.", src: "/media/use-cases/album-ai/eventi.png", alt: "Elenco degli eventi in Album AI" },
+      { n: "2", title: "Il sistema lavora", caption: "La scelta procede passo per passo e stima quanto manca.", src: "/media/use-cases/album-ai/in-lavorazione.png", alt: "Barra di avanzamento della scelta delle foto" },
+      { n: "3", title: "Simone rivede", caption: "Cambia a mano quello che non lo convince e lascia una nota: il sistema la tiene per la volta dopo." },
     ],
   },
 
   online: {
     title: "Online da zero, in tre pezzi",
     lead: "Per lo studio di Simone abbiamo costruito il sistema per gli album, il sito e il CRM.",
+    site: {
+      status: "Online",
+      title: "Il sito",
+      line: "Il sito dello studio: le gallerie, i due studi, la pagina delle foto di Natale e un pulsante per scrivere su WhatsApp.",
+      cta: "Vai al sito",
+      url: "https://simonecasillo.com",
+      links: [
+        { label: "Home", href: "https://simonecasillo.com/" },
+        { label: "Foto di Natale", href: "https://simonecasillo.com/natale/" },
+      ],
+      shots: [
+        { src: "/media/use-cases/album-ai/sito-home.jpg", alt: "La home del sito di Simone Casillo su computer", kind: "desktop" },
+        { src: "/media/use-cases/album-ai/sito-mobile.jpg", alt: "La home del sito di Simone Casillo su telefono", kind: "mobile" },
+      ],
+      note: "Foto segnaposto, in attesa degli scatti dello studio.",
+    },
     items: [
-      { title: "Album AI", line: "Sceglie le foto e impagina l'album.", status: "In uso" },
-      { title: "Il sito", line: "La vetrina dello studio, per farsi trovare e ricevere richieste.", status: "In consegna" },
+      { title: "Album AI", line: "Sceglie le foto e impagina l'album, con Simone che rivede.", status: "In uso" },
       { title: "Il CRM", line: "Richieste e clienti in un posto solo, dal primo contatto alla consegna dell'album.", status: "In consegna" },
     ],
   },
@@ -86,7 +102,7 @@ export default {
   },
 
   cta: {
-    title: "Quale parte del tuo lavoro affideresti a un sistema?",
-    line: "Raccontaci la tua attività e ti diciamo da dove partiremmo.",
+    title: "Meno ore sugli album, più tempo per i clienti",
+    line: "Album AI toglie allo studio il lavoro più lungo e ripetitivo: si consegna prima e resta più tempo per seguire chi aspetta. Raccontaci quale lavoro ripetitivo ti porta via più ore e ti diciamo da dove partiremmo.",
   },
 };

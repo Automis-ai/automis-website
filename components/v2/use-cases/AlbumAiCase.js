@@ -174,19 +174,60 @@ export default function AlbumAiCase({ locale = "en" }) {
 
             <Section fx={false} tone="light" className="v2c-sec">
               <SectionHeader title={t.shots.title} lead={t.shots.lead} />
-              <div className="v2c-shots">
-                {t.shots.items.map((it) => (
-                  <figure key={it.src} className="v2c-shot">
-                    <img src={it.src} alt={it.alt} loading="lazy" />
-                    <figcaption>{it.caption}</figcaption>
+              <InView className="v2c-steps">
+                {t.shots.steps.map((st) => (
+                  <figure key={st.n} className="v2c-step">
+                    <span className="v2c-step__n">{st.n}</span>
+                    {st.src ? (
+                      <div className="v2c-win2">
+                        <div className="v2c-win2__bar" aria-hidden="true">
+                          <span />
+                          <span />
+                          <span />
+                          <i>Album AI</i>
+                        </div>
+                        <img src={st.src} alt={st.alt} loading="lazy" />
+                      </div>
+                    ) : (
+                      <div className="v2c-step__review" aria-hidden="true">
+                        <Icon name="sliders" size={34} />
+                      </div>
+                    )}
+                    <figcaption>
+                      <b>{st.title}</b>
+                      <span>{st.caption}</span>
+                    </figcaption>
                   </figure>
                 ))}
-              </div>
+              </InView>
             </Section>
 
             <Section fx={false} tone="light" className="v2c-sec">
               <SectionHeader title={t.online.title} lead={t.online.lead} />
-              <div className="v2c-online">
+              <div className="v2c-site v2-card">
+                <div className="v2c-site__text">
+                  <span className="v2c-online__status v2c-online__status--on">{t.online.site.status}</span>
+                  <h3>{t.online.site.title}</h3>
+                  <p>{t.online.site.line}</p>
+                  <div className="v2c-site__links">
+                    {t.online.site.links.map((l) => (
+                      <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
+                        {l.label}
+                      </a>
+                    ))}
+                  </div>
+                  <Button href={t.online.site.url} external variant="primary">
+                    {t.online.site.cta}
+                  </Button>
+                  <p className="v2c-site__note">{t.online.site.note}</p>
+                </div>
+                <div className="v2c-site__shots">
+                  {t.online.site.shots.map((it) => (
+                    <img key={it.src} className={`v2c-site__img v2c-site__img--${it.kind}`} src={it.src} alt={it.alt} loading="lazy" />
+                  ))}
+                </div>
+              </div>
+              <div className="v2c-online v2c-online--two">
                 {t.online.items.map((it) => (
                   <div key={it.title} className="v2-card v2c-online__card">
                     <span className="v2c-online__status">{it.status}</span>
@@ -199,6 +240,7 @@ export default function AlbumAiCase({ locale = "en" }) {
           </>
         ) : null}
 
+        {t.time ? null : (
         <Section fx={false} tone="light" pad="sm" className="v2c-info-sec">
           <div className="v2c-info-grid" data-fx="stagger">
             <div className="v2-card v2c-info">
@@ -217,6 +259,7 @@ export default function AlbumAiCase({ locale = "en" }) {
             </div>
           </div>
         </Section>
+        )}
 
         <div className="v2c-cta">
           <CtaBand blue={locale === "it"} title={t.cta.title} line={t.cta.line} button={
