@@ -1,12 +1,12 @@
 /* Caso Album AI (IT). Solo i fatti della §3 del brief: da 1.200 a 1.800 scatti di un evento il
    sistema sceglie circa 280 foto, poi impagina l'album; il fotografo lo usa dal browser sul suo Mac.
-   Nessun risultato (tempo, soddisfazione), nessun nome, nessun evento o data del cliente.
+   Nessun risultato (tempo, soddisfazione), nessun evento o data del cliente. Dal 14/10/2026 Simone Casillo ha dato l'ok a comparire col nome.
    Percorso proposto: /use-cases/album-ai. */
 export default {
   meta: {
-    title: "Album AI: strumento per un fotografo professionista | Automis",
+    title: "Album AI: strumento per lo Studio fotografico Simone Casillo | Automis",
     description:
-      "Da 1.200 a 1.800 scatti di un evento il sistema sceglie circa 280 foto e impagina l'album. Uno strumento su misura per un professionista, nel browser.",
+      "Da 1.200 a 1.800 scatti di un evento il sistema sceglie circa 280 foto e impagina l'album. Uno strumento su misura per lo Studio fotografico Simone Casillo, nel browser.",
   },
 
   hero: {
@@ -14,7 +14,7 @@ export default {
     title: "Uno strumento per album su misura",
     highlight: "su misura",
     lead: "Da 1.200 a 1.800 scatti di un evento, lo strumento sceglie circa 280 foto e impagina l'album.",
-    client: "Un fotografo professionista",
+    client: "Studio fotografico Simone Casillo",
     tag: "Strumento per album",
   },
 
@@ -27,12 +27,12 @@ export default {
 
   where: {
     title: "Dove gira",
-    line: "Il fotografo lo usa dal browser, sul suo Mac.",
+    line: "Simone lo usa dal browser, sul suo Mac.",
   },
 
   custom: {
     title: "Costruito per un solo professionista",
-    line: "Lo abbiamo costruito intorno al modo di lavorare di questo fotografo, su misura per lui.",
+    line: "Lo abbiamo costruito intorno al modo di lavorare di Simone, su misura per lui.",
   },
 
   cta: {

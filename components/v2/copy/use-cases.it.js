@@ -36,7 +36,7 @@ export default {
     },
     {
       slug: "album-ai",
-      client: "Un fotografo professionista",
+      client: "Studio fotografico Simone Casillo",
       tag: "Strumento per album",
       title: "Uno strumento per album su misura",
       figure: "Circa 280",

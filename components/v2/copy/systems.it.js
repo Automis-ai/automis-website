@@ -368,7 +368,7 @@ export default {
       {
         id: "voice-receptionist",
         kicker: null,
-        title: "Receptionist vocale IA",
+        title: "Segretaria IA",
         short: "Risponde a ogni chiamata, 24/7, e fissa gli appuntamenti.",
         line: "Risponde a ogni chiamata 24/7, fissa gli appuntamenti e passa al team i casi delicati.",
         more: "Le chiamate arrivano mentre sei con un cliente, fuori orario o nel weekend, e finiscono in segreteria.",

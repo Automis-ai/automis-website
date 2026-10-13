@@ -65,7 +65,7 @@ export default {
         stat: "280",
         approx: true,
         statLabel: "foto scelte da 1.200–1.800 scatti",
-        client: "Un fotografo professionista",
+        client: "Studio fotografico Simone Casillo",
         meta: "Fotografia professionale",
         tag: "Strumento per album",
         result: "Lo strumento sceglie circa 280 foto tra le 1.200 e le 1.800 scattate a un evento, poi impagina l'album.",
