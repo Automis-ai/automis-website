@@ -1,5 +1,6 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import PageHero from "@/components/v2/ui/PageHero";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import Disclosure from "@/components/v2/ui/Disclosure";
@@ -32,15 +33,25 @@ export default function TrainingPage({ locale = "en", tono }) {
       <main id="main" className={pageClass(tono)}>
         <SmoothScroll />
         <PageStory />
-        <PageHero
-          size="compact"
-          eyebrow={t.hero.eyebrow}
-          {...heroTitle(t.hero.title, t.hero.highlight)}
-          subtitle={t.hero.lead}
-          primaryCta={{ label: common.cta, href: contact }}
-        />
+        {locale === "it" ? (
+          <PageHeroV3
+            eyebrow={t.hero.eyebrow}
+            title={t.hero.title}
+            highlight={t.hero.highlight}
+            lead={t.hero.lead}
+            cta={{ label: "Scopri i percorsi", href: "#percorsi" }}
+          />
+        ) : (
+          <PageHero
+            size="compact"
+            eyebrow={t.hero.eyebrow}
+            {...heroTitle(t.hero.title, t.hero.highlight)}
+            subtitle={t.hero.lead}
+            primaryCta={{ label: common.cta, href: contact }}
+          />
+        )}
 
-        <Section tone="light">
+        <Section tone="light" id="percorsi">
           <SectionHeader title={t.paths.title} />
           <div className="v2t-paths" data-fx="stagger">
             {t.paths.items.map((p) => (

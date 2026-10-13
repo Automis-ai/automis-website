@@ -2,6 +2,7 @@ import "../ui/v2.css";
 import "./ecommerce.css";
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import PageHero from "@/components/v2/ui/PageHero";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import PlatformPicker, { PLATFORM_ACCENTS } from "@/components/v2/ui/PlatformPicker";
@@ -44,21 +45,29 @@ export default function EcommercePage({ locale, tono }) {
       <main id="main" className={pageClass(tono)}>
         <SmoothScroll />
         <PageStory />
-        <PageHero
-          size="compact"
-          eyebrow={t.hero.eyebrow}
-          title={t.hero.title}
-          highlight={highlight}
-          subtitle={t.hero.lead}
-          primaryCta={{ label: t.hero.cta, href: "#platforms" }}
-          below={
-            <NightReport
-              title={t.hero.visual.title}
-              caption={t.hero.visual.caption}
-              rows={t.hero.visual.rows}
+        {(() => {
+          const night = <NightReport title={t.hero.visual.title} caption={t.hero.visual.caption} rows={t.hero.visual.rows} />;
+          return locale === "it" ? (
+            <PageHeroV3
+              eyebrow={t.hero.eyebrow}
+              title={t.hero.title}
+              highlight={highlight}
+              lead={t.hero.lead}
+              cta={{ label: t.hero.cta, href: "#platforms" }}
+              below={night}
             />
-          }
-        />
+          ) : (
+            <PageHero
+              size="compact"
+              eyebrow={t.hero.eyebrow}
+              title={t.hero.title}
+              highlight={highlight}
+              subtitle={t.hero.lead}
+              primaryCta={{ label: t.hero.cta, href: "#platforms" }}
+              below={night}
+            />
+          );
+        })()}
 
         <Section tone="light" id="platforms">
           <SectionHeader title={t.platforms.title} lead={t.platforms.note} />

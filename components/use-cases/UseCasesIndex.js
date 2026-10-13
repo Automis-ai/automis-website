@@ -1,5 +1,6 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import PageHero from "@/components/v2/ui/PageHero";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import Section from "@/components/v2/ui/Section";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import CaseCard from "@/components/v2/use-cases/CaseCard";
@@ -26,17 +27,27 @@ export default function UseCasesIndex({ locale = "en" }) {
   return (
     <AutomisEnShell>
       <main id="main">
-      <PageHero
-        size="compact"
-        scene="casi"
-        eyebrow={t.hero.eyebrow}
-        title={t.hero.title}
-        highlight={t.hero.highlight}
-        subtitle={t.hero.lead}
-      />
+      {locale === "it" ? (
+        <PageHeroV3
+          eyebrow={t.hero.eyebrow}
+          title={t.hero.title}
+          highlight={t.hero.highlight}
+          lead={t.hero.lead}
+          cta={{ label: "Scopri i casi", href: "#casi" }}
+        />
+      ) : (
+        <PageHero
+          size="compact"
+          scene="casi"
+          eyebrow={t.hero.eyebrow}
+          title={t.hero.title}
+          highlight={t.hero.highlight}
+          subtitle={t.hero.lead}
+        />
+      )}
 
       <Seam glyphs={t.items.map((item) => (CHAINS[item.slug] || [])[0]).filter(Boolean)} />
-      <Section tone="light" className="v2c-edge">
+      <Section tone="light" className="v2c-edge" id="casi">
         <div className="v2c-grid" data-fx="stagger">
           {t.items.map((item, i) => (
             <CaseCard

@@ -945,3 +945,8 @@
     transform: none;
   }
 }
+
+.hv3-hero__below {
+  margin-top: 44px;
+  width: min(580px, 100%);
+}

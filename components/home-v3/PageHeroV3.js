@@ -20,7 +20,7 @@ function splitTitle(title, highlight) {
   return [title.slice(0, i), glued, title.slice(i + highlight.length)];
 }
 
-export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, painLabel, cta, id }) {
+export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, painLabel, cta, below, id }) {
   const textRef = useRef(null);
   const [pre, acc, post] = splitTitle(title, highlight);
   return (
@@ -51,6 +51,7 @@ export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, pain
               </a>
             </div>
           ) : null}
+          {below ? <div className="hv3-hero__below">{below}</div> : null}
         </div>
       </div>
     </section>
