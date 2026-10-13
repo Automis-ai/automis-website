@@ -969,3 +969,75 @@
 .v2-cta--blue .v2-btn--gold:visited {
   color: #00121f;
 }
+
+/* ---------- Album AI: la scena in vetro liquido ---------- */
+.hv3-scene {
+  margin-top: 28px;
+}
+.hv3-scene__glass {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(165, 210, 255, 0.28);
+  background: radial-gradient(70% 90% at 50% 0%, rgba(60, 145, 230, 0.26), transparent 70%),
+    radial-gradient(50% 60% at 50% 110%, rgba(87, 199, 227, 0.14), transparent 70%), rgba(8, 28, 56, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 40px 90px -40px rgba(0, 0, 0, 0.7);
+}
+.hv3-scene__cv {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1000 / 520;
+}
+.hv3-scene__steps {
+  list-style: none;
+  margin: 0;
+  padding: 14px 18px 18px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  border-top: 1px solid rgba(165, 210, 255, 0.16);
+  background: rgba(0, 10, 20, 0.28);
+}
+.hv3-scene__steps li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.55);
+  transition: background 0.4s, color 0.4s, box-shadow 0.4s;
+}
+.hv3-scene__steps li i {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(165, 210, 255, 0.35);
+}
+.hv3-scene__steps li.is-on {
+  color: #fff;
+  background: rgba(60, 145, 230, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(143, 211, 244, 0.4);
+}
+.hv3-scene__steps li.is-on i {
+  color: #00121f;
+  border-color: transparent;
+  background: linear-gradient(120deg, #3c91e6, #57c7e3);
+}
+@media (max-width: 860px) {
+  .hv3-scene__steps {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .hv3-scene__steps li:not(.is-on) {
+    display: none;
+  }
+}

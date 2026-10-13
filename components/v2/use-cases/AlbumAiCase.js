@@ -1,6 +1,7 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import PageHero from "@/components/v2/ui/PageHero";
 import PageHeroV3 from "@/components/home-v3/PageHeroV3";
+import AlbumGlassScene from "@/components/home-v3/AlbumGlassScene";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import Button from "@/components/v2/ui/Button";
@@ -62,10 +63,16 @@ export default function AlbumAiCase({ locale = "en" }) {
           extra={
             <>
         <div className="v2c-client">
-          <span className="v2-tile">
-            <Icon name="camera" size={22} />
-          </span>
-          <p className="v2c-client__name">{t.hero.client}</p>
+          {t.hero.logo ? (
+            <img className="v2c-client__logo" src={t.hero.logo} alt={t.hero.client} />
+          ) : (
+            <>
+              <span className="v2-tile">
+                <Icon name="camera" size={22} />
+              </span>
+              <p className="v2c-client__name">{t.hero.client}</p>
+            </>
+          )}
           <span className="v2c-card__tag">{t.hero.tag}</span>
         </div>
         <div className="v2c-back">
@@ -90,10 +97,16 @@ export default function AlbumAiCase({ locale = "en" }) {
         below={<BrowserWindow />}
       >
         <div className="v2c-client">
-          <span className="v2-tile">
-            <Icon name="camera" size={22} />
-          </span>
-          <p className="v2c-client__name">{t.hero.client}</p>
+          {t.hero.logo ? (
+            <img className="v2c-client__logo" src={t.hero.logo} alt={t.hero.client} />
+          ) : (
+            <>
+              <span className="v2-tile">
+                <Icon name="camera" size={22} />
+              </span>
+              <p className="v2c-client__name">{t.hero.client}</p>
+            </>
+          )}
           <span className="v2c-card__tag">{t.hero.tag}</span>
         </div>
         <div className="v2c-back">
@@ -104,37 +117,44 @@ export default function AlbumAiCase({ locale = "en" }) {
       </PageHero>
       )}
       <div className="v2-caso">
-        <Section fx={false} tone="light" className="v2c-edge" id="flusso">
-          <SectionHeader title={t.flow.title} />
-          <InView className="v2c-flow">
-            <div className="v2-card v2c-stage">
-              <div className="v2c-stage__vis">
-                <Contact cols={12} rows={6} />
+        {t.scene ? (
+          <Section fx={false} tone="light" className="v2c-edge" id="flusso">
+            <SectionHeader title={t.scene.title} lead={t.scene.lead} />
+            <AlbumGlassScene steps={t.scene.steps} label={t.scene.label} />
+          </Section>
+        ) : (
+          <Section fx={false} tone="light" className="v2c-edge" id="flusso">
+            <SectionHeader title={t.flow.title} />
+            <InView className="v2c-flow">
+              <div className="v2-card v2c-stage">
+                <div className="v2c-stage__vis">
+                  <Contact cols={12} rows={6} />
+                </div>
+                <p className="v2c-stage__num">{t.flow.from.figure}</p>
+                <p className="v2c-stage__lab">{t.flow.from.label}</p>
               </div>
-              <p className="v2c-stage__num">{t.flow.from.figure}</p>
-              <p className="v2c-stage__lab">{t.flow.from.label}</p>
-            </div>
-            <div className="v2c-flow__arrow" aria-hidden="true">
-              <Icon name="arrow" size={26} strokeWidth={2.2} />
-            </div>
-            <div className="v2-card v2c-stage">
-              <div className="v2c-stage__vis">
-                <Contact cols={6} rows={3} chosen />
+              <div className="v2c-flow__arrow" aria-hidden="true">
+                <Icon name="arrow" size={26} strokeWidth={2.2} />
               </div>
-              <p className="v2c-stage__num">{t.flow.to.figure}</p>
-              <p className="v2c-stage__lab">{t.flow.to.label}</p>
-            </div>
-            <div className="v2c-flow__arrow" aria-hidden="true">
-              <Icon name="arrow" size={26} strokeWidth={2.2} />
-            </div>
-            <div className="v2-card v2c-stage">
-              <div className="v2c-stage__vis">
-                <AlbumSpread paper="rgba(143,211,244,0.16)" frame="rgba(143,211,244,0.45)" idp="flow" motion="reveal" />
+              <div className="v2-card v2c-stage">
+                <div className="v2c-stage__vis">
+                  <Contact cols={6} rows={3} chosen />
+                </div>
+                <p className="v2c-stage__num">{t.flow.to.figure}</p>
+                <p className="v2c-stage__lab">{t.flow.to.label}</p>
               </div>
-              <p className="v2c-stage__then">{t.flow.then}</p>
-            </div>
-          </InView>
-        </Section>
+              <div className="v2c-flow__arrow" aria-hidden="true">
+                <Icon name="arrow" size={26} strokeWidth={2.2} />
+              </div>
+              <div className="v2-card v2c-stage">
+                <div className="v2c-stage__vis">
+                  <AlbumSpread paper="rgba(143,211,244,0.16)" frame="rgba(143,211,244,0.45)" idp="flow" motion="reveal" />
+                </div>
+                <p className="v2c-stage__then">{t.flow.then}</p>
+              </div>
+            </InView>
+          </Section>
+        )}
 
         {t.time ? (
           <>

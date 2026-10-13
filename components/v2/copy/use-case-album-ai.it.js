@@ -15,6 +15,7 @@ export default {
     highlight: "circa 50 minuti",
     lead: "Album AI sceglie le foto e impagina l'album di Simone. Lui rivede e corregge, e il sistema impara dalle sue correzioni.",
     client: "Studio fotografico Simone Casillo",
+    logo: "/assets/images/client-logos/simone-casillo-white.png",
     tag: "Strumento per album",
   },
 
@@ -23,6 +24,19 @@ export default {
     from: { figure: "Da 1.200 a 1.800", label: "scatti di un evento entrano nel sistema" },
     to: { figure: "Circa 280", label: "foto che il sistema sceglie" },
     then: "Poi il sistema impagina l'album.",
+  },
+
+  scene: {
+    title: "Come lavora il sistema",
+    lead: "Dalle centinaia di scatti di un evento all'album, con Simone che ha l'ultima parola.",
+    label: "Animazione: gli scatti dell'evento arrivano, il sistema scarta quelli sfocati, doppi o con gli occhi chiusi, tiene le migliori e le impagina nell'album; Simone cambia una foto e il sistema impara.",
+    steps: [
+      "Arrivano gli scatti dell'evento: da 1.200 a 1.800",
+      "Il sistema li guarda: sfocate, doppie, occhi chiusi",
+      "Restano circa 280 foto",
+      "Le impagina nell'album",
+      "Simone rivede e il sistema impara",
+    ],
   },
 
   time: {

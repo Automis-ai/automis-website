@@ -2251,3 +2251,10 @@ html [data-iv="in"] .v2c-flow__arrow {
 .v2c-steps {
   align-items: start;
 }
+
+.v2c-client__logo {
+  display: block;
+  height: 44px;
+  width: auto;
+  max-width: 100%;
+}
