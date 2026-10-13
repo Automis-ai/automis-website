@@ -1,13 +1,8 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import HeroEN from "@/components/home/HeroEN";
-import PainPoints from "@/components/home/PainPoints";
-import SystemPillars from "@/components/home/SystemPillars";
+import { HeroV3, JourneyV3, SystemsV3, CasesV3, ToneV3 } from "@/components/home-v3/HomeV3";
 import HowWeWork from "@/components/home/HowWeWork";
-import Proof from "@/components/home/Proof";
-import Industries from "@/components/home/Industries";
 import OpportunityFinder from "@/components/home/OpportunityFinder";
 import Authority from "@/components/home/Authority";
-import FaqEN from "@/components/home/FaqEN";
 import FinalCta from "@/components/home/FinalCta";
 
 export const metadata = {
@@ -35,20 +30,20 @@ export const metadata = {
   },
 };
 
-// The Italian home reuses the new design system; every home section is
-// locale-aware (it renders Italian on /it via usePathname).
+// Home v3 (13/10/2026): hero → journey → 5 Sistemi IA → casi studio → come lavoriamo → Finder → founder → call.
+// Fuori dalla home: Problemi (finiti nelle schede dei sistemi), Settori e FAQ.
 export default function HomeIt() {
   return (
     <AutomisEnShell>
-      <HeroEN />
-      <PainPoints />
-      <SystemPillars />
+      <HeroV3 />
+      <JourneyV3 />
+      <SystemsV3 />
+      <CasesV3 />
       <HowWeWork />
-      <Proof />
-      <Industries />
       <OpportunityFinder />
-      <Authority />
-      <FaqEN />
+      <ToneV3 className="hv3-team">
+        <Authority sectionClassName="bg-transparent" />
+      </ToneV3>
       <FinalCta />
     </AutomisEnShell>
   );

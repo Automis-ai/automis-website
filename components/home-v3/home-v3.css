@@ -1,0 +1,557 @@
+/* Home v3 (13/10/2026): hero con l'effetto «Ordine dal caos», fascia della journey, schede che avanzano con lo scroll,
+   sezioni in blu al posto del bianco. Mockup approvato: ~/Automations/sandbox/web-motion/home-v3/. */
+
+.hv3 {
+  --hv3-bg: #000a14;
+  --hv3-bg-2: #020a12;
+  --hv3-blue: #0c2646; /* le sezioni «chiare»: blu notte più chiaro, scelto al posto del bianco */
+  --hv3-ink-2: rgba(255, 255, 255, 0.8);
+  --hv3-ink-3: rgba(255, 255, 255, 0.62);
+  --hv3-accent: #57c7e3;
+  --hv3-line: rgba(165, 210, 255, 0.2);
+  --hv3-card: linear-gradient(180deg, rgba(40, 80, 140, 0.42), rgba(14, 40, 78, 0.38));
+}
+
+.hv3-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hv3-accent);
+}
+.hv3-eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px currentColor;
+}
+.hv3-h2 {
+  margin: 14px 0 0;
+  font-size: clamp(30px, 3.6vw, 50px);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  color: #fff;
+}
+.hv3-lead {
+  margin: 14px auto 0;
+  max-width: 40em;
+  color: var(--hv3-ink-2);
+  font-size: clamp(16px, 1.25vw, 18.5px);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+.hv3-head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 20px;
+}
+
+/* ---------- Hero ---------- */
+.hv3-hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--hv3-bg);
+}
+.hv3-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hv3-hero__bg canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hv3-hero__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 46% 40% at 50% 50%, rgba(0, 10, 20, 0.7), rgba(0, 10, 20, 0.3) 60%, rgba(0, 10, 20, 0));
+}
+.hv3-hero__in {
+  position: relative;
+  z-index: 3;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 96px 16px 48px;
+  will-change: opacity, transform;
+}
+.hv3-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(143, 211, 244, 0.28);
+  background: rgba(60, 145, 230, 0.1);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a9d4ff;
+}
+.hv3-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hv3-accent);
+  box-shadow: 0 0 10px var(--hv3-accent);
+}
+.hv3-h1 {
+  margin: 22px 0 0;
+  font-size: clamp(38px, 5.6vw, 82px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  max-width: 12em;
+  text-wrap: balance;
+  color: #fff;
+}
+.hv3-h1 em {
+  font-style: normal;
+  background: linear-gradient(100deg, #3c91e6, #57c7e3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hv3-hero__lead {
+  margin: 22px 0 0;
+  max-width: 34em;
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.6;
+  color: var(--hv3-ink-2);
+  text-wrap: pretty;
+}
+.hv3-ctas {
+  margin-top: 34px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hv3-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+}
+.hv3-btn--p {
+  background: linear-gradient(120deg, #3c91e6 0%, #57c7e3 60%, #8fd3f4 100%);
+  color: #00121f;
+  box-shadow: 0 14px 32px -14px rgba(60, 145, 230, 0.75);
+}
+.hv3-btn--p:hover {
+  transform: translateY(-2px);
+  color: #00121f;
+}
+.hv3-btn--g {
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
+}
+.hv3-btn--g:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+@media (max-width: 560px) {
+  .hv3-ctas {
+    flex-direction: column;
+    width: 100%;
+    max-width: 340px;
+  }
+  .hv3-btn {
+    width: 100%;
+  }
+}
+
+/* ---------- Journey ---------- */
+.hv3-journey {
+  position: relative;
+  background: var(--hv3-bg);
+  padding: 30px 0 110px;
+  overflow: hidden;
+}
+.hv3-journey::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(40% 30% at 15% 40%, rgba(60, 145, 230, 0.14), transparent 70%),
+    radial-gradient(35% 30% at 85% 80%, rgba(87, 199, 227, 0.09), transparent 70%);
+}
+.hv3-journey__tools,
+.hv3-journey__frame {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+.hv3-journey .hv3-head {
+  margin-top: 64px;
+  position: relative;
+}
+.hv3-glass {
+  background: linear-gradient(180deg, rgba(130, 180, 240, 0.12), rgba(60, 110, 180, 0.05));
+  border: 1px solid var(--hv3-line);
+  border-radius: 26px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+}
+.hv3-journey__frame > div {
+  margin-top: 40px;
+  padding: 10px;
+}
+.hv3-journey__frame video,
+.hv3-journey__frame img {
+  border-radius: 18px;
+}
+@media (max-width: 700px) {
+  .hv3-journey__frame > div {
+    padding: 6px;
+    border-radius: 18px;
+  }
+}
+
+/* ---------- Schede che avanzano con lo scroll ---------- */
+/* L'aggancio (position: sticky) funziona solo se nessun antenato è un contenitore di scorrimento: la scocca del sito
+   (.page-wrapper, .automis-en) ha overflow hidden. Con overflow: clip il ritaglio resta uguale ma l'aggancio funziona. */
+@supports (overflow: clip) {
+  .page-wrapper:has(.hv3-srow),
+  .automis-en:has(.hv3-srow) {
+    overflow: clip;
+  }
+}
+.hv3-srow {
+  position: relative;
+}
+.hv3-srow__stick {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 64px;
+}
+.hv3-srow.is-static .hv3-srow__stick {
+  position: static;
+  height: auto;
+  padding-block: 0;
+}
+.hv3-srow__track {
+  display: flex;
+  gap: 18px;
+  margin-top: 30px;
+  padding-inline: max(20px, calc((100vw - 1240px) / 2 + 20px));
+  will-change: transform;
+}
+.hv3-srow.is-static .hv3-srow__track {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hv3-srow.is-native .hv3-srow__track {
+  overflow-x: auto;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
+.hv3-prog {
+  margin: 26px auto 0;
+  width: min(320px, 60vw);
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+.hv3-prog i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #3c91e6, #57c7e3);
+}
+.hv3-srow.is-static .hv3-prog,
+.hv3-srow.is-native .hv3-prog {
+  display: none;
+}
+
+/* ---------- Sistemi IA ---------- */
+.hv3-systems {
+  background: var(--hv3-bg-2);
+}
+.hv3-chapters {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hv3-chapters span {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--hv3-ink-3);
+  transition: all 0.3s;
+}
+.hv3-chapters span.is-on {
+  color: var(--hv3-accent);
+  border-color: rgba(87, 199, 227, 0.5);
+  background: rgba(87, 199, 227, 0.08);
+}
+.hv3-scard {
+  flex: 0 0 330px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  border-radius: 20px;
+  background: var(--hv3-card);
+  border: 1px solid var(--hv3-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+  color: #fff;
+  transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
+}
+.hv3-scard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(87, 199, 227, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 0 1px rgba(87, 199, 227, 0.2), 0 30px 60px -26px rgba(60, 145, 230, 0.7);
+}
+.hv3-scard__chap {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hv3-ink-3);
+}
+.hv3-scard__ico {
+  margin-top: 18px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  color: #8fd3f4;
+  background: rgba(60, 145, 230, 0.16);
+  border: 1px solid rgba(143, 211, 244, 0.25);
+}
+.hv3-scard h3 {
+  margin: 18px 0 0;
+  font-size: 23px;
+  line-height: 1.15;
+  color: #fff;
+}
+.hv3-scard__line {
+  margin: 8px 0 0;
+  color: var(--hv3-ink-2);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.hv3-scard__pain {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(245, 205, 121, 0.07);
+  border: 1px solid rgba(245, 205, 121, 0.22);
+}
+.hv3-scard__pain b {
+  display: block;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f5cd79;
+  font-weight: 500;
+}
+.hv3-scard__pain span {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #fff;
+}
+.hv3-more {
+  margin-top: 12px;
+}
+.hv3-more summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hv3-accent);
+}
+.hv3-more summary::-webkit-details-marker {
+  display: none;
+}
+.hv3-more summary::after {
+  content: "+";
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 15px;
+  transition: transform 0.25s;
+}
+.hv3-more[open] summary::after {
+  transform: rotate(45deg);
+}
+.hv3-more p {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--hv3-ink-2);
+}
+.hv3-scard__go {
+  margin-top: auto;
+  padding-top: 18px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.hv3-scard__go:hover {
+  color: var(--hv3-accent);
+}
+@media (max-width: 600px) {
+  .hv3-scard {
+    flex-basis: 82vw;
+    min-height: 0;
+  }
+  .hv3-srow__track {
+    gap: 14px;
+  }
+}
+
+/* ---------- Sezioni in blu: sfumatura lunga al posto dello stacco ---------- */
+.hv3-tone {
+  color: #fff;
+  background: linear-gradient(
+    in oklab 180deg,
+    var(--hv3-bg-2) 0,
+    color-mix(in oklab, #3c91e6 30%, color-mix(in oklab, var(--hv3-bg-2) 50%, var(--hv3-blue))) 110px,
+    var(--hv3-blue) 220px,
+    var(--hv3-blue) calc(100% - 220px),
+    color-mix(in oklab, #3c91e6 30%, color-mix(in oklab, var(--hv3-bg-2) 50%, var(--hv3-blue))) calc(100% - 110px),
+    var(--hv3-bg-2) 100%
+  );
+}
+.hv3-cases {
+  padding-block: 200px;
+}
+
+/* ---------- Casi studio ---------- */
+.hv3-ccard {
+  flex: 0 0 280px;
+  border-radius: 20px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+  background: var(--hv3-card);
+  border: 1px solid var(--hv3-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+  color: #fff;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.hv3-ccard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(87, 199, 227, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 30px 60px -26px rgba(60, 145, 230, 0.7);
+}
+.hv3-ccard__logo {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  height: 52px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: #fff;
+}
+.hv3-ccard__logo img {
+  max-height: 34px;
+  max-width: 150px;
+  width: auto;
+  object-fit: contain;
+}
+.hv3-ccard__stat {
+  margin-top: 20px;
+  font-size: 46px;
+  line-height: 1;
+  color: var(--hv3-accent);
+  font-variant-numeric: tabular-nums;
+}
+.hv3-ccard__stat small {
+  font-size: 20px;
+  color: var(--hv3-ink-3);
+  margin-right: 4px;
+}
+.hv3-ccard__lab {
+  margin-top: 6px;
+  font-size: 15px;
+  color: var(--hv3-ink-2);
+  line-height: 1.4;
+}
+.hv3-ccard__who {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  color: var(--hv3-ink-3);
+  line-height: 1.45;
+}
+.hv3-ccard__who b {
+  display: block;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+}
+.hv3-ccard__go {
+  margin-top: auto;
+  padding-top: 16px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--hv3-accent);
+}
+.hv3-ccard__go:hover {
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .hv3-ccard {
+    flex-basis: 78vw;
+  }
+}
+
+/* ---------- Founder in blu ---------- */
+.hv3-team {
+  padding-block: 140px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hv3-scard,
+  .hv3-ccard {
+    transition: none;
+  }
+}

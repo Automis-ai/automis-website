@@ -1,0 +1,88 @@
+// Testi della home v3. Per ora solo IT (13/10: prima l'italiano, poi EN e PT con gli stessi contenuti).
+// Scritti con la skill copywriter e ripassati con humanizer. I numeri dei casi sono quelli verificati del sito.
+
+export const HOME_V3 = {
+  it: {
+    hero: {
+      eyebrow: "Agenzia IA",
+      titlePre: "Costruiamo il ",
+      titleAccent: "sistema IA",
+      titlePost: " che manca alla tua azienda.",
+      lead: "Prima ascoltiamo come lavori, poi lo costruiamo su misura. E i sistemi che costruiamo funzionano già, ogni giorno, per i nostri clienti.",
+      cta: "Raccontaci il tuo caso",
+      ctaSecondary: "Scopri i sistemi",
+    },
+    journey: {
+      eyebrow: "Un sistema al lavoro",
+      title: "Anna ha visto un annuncio. Sabato alle 9:30 è in agenda.",
+      videoLabel: "Animazione: un annuncio porta un contatto, l'IA risponde in chat, fissa l'appuntamento e compila la scheda cliente",
+    },
+    systems: {
+      eyebrow: "Sistemi IA",
+      title: "Un sistema per ogni area della tua azienda",
+      chapters: { m: "Marketing", v: "Vendite", a: "Amministrazione" },
+      pain: "Il problema",
+      more: "Scopri di più",
+      go: "Vedi i sistemi",
+      items: [
+        {
+          slug: "marketing",
+          chapter: "m",
+          title: "Sistemi IA per il Marketing",
+          line: "Annunci, SEO, contenuti e recensioni.",
+          pain: "Spendi in pubblicità e contenuti senza sapere cosa ti porta clienti.",
+          more: "Il sistema prova più versioni dello stesso annuncio e sposta il budget su quella che porta prenotazioni. Contenuti e recensioni li segue ogni giorno, senza che tu debba rincorrerli.",
+        },
+        {
+          slug: "sales",
+          chapter: "v",
+          title: "Sistemi IA per la Vendita",
+          line: "Ogni contatto riceve risposta.",
+          pain: "I contatti si raffreddano prima che qualcuno risponda.",
+          more: "Quasi tutte le attività rispondono dopo ore. Ma passati i primi 5 minuti, le probabilità di chiudere quel contatto crollano.",
+        },
+        {
+          slug: "support",
+          chapter: "v",
+          title: "Sistemi IA per l'Assistenza",
+          line: "Chiamate e chat, a ogni ora.",
+          pain: "Le chiamate restano senza risposta.",
+          more: "Dal 30 al 50% delle chiamate a un'attività locale finisce in segreteria. E ogni chiamata persa è un cliente che prenota dal tuo concorrente.",
+        },
+        {
+          slug: "admin",
+          chapter: "a",
+          title: "Sistemi IA per l'Amministrazione",
+          line: "Documenti e dati in automatico.",
+          pain: "Il tuo team perde ore tra pratiche e scartoffie.",
+          more: "Ogni settimana se ne vanno ore tra dati da inserire, appuntamenti da fissare e documenti da rincorrere, invece di occuparsi dei clienti.",
+        },
+        {
+          slug: "hr",
+          chapter: "a",
+          title: "Sistemi IA per le Risorse umane",
+          line: "Un archivio privato per i nuovi colleghi.",
+          pain: "Le informazioni che contano non si trovano mai.",
+          more: "Stanno sparse tra email, PDF e la testa delle persone, e mancano proprio quando servono.",
+        },
+      ],
+    },
+    cases: {
+      eyebrow: "I risultati dei nostri clienti",
+      title: "Business veri. Sistemi veri. Già attivi.",
+      lead: "Ogni numero con il suo periodo.",
+      approx: "circa",
+      read: "Leggi il caso studio",
+      items: [
+        { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "872", label: "chiamate in sette mesi", client: "Clínica Santa Maria dos Olivais", meta: "Clinica dentale · Lisbona · Segretaria IA" },
+        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "2.329", label: "conversazioni in cinque mesi", client: "ADifesa", meta: "Associazione di tutela · Lissone · Automazione Meta" },
+        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "280", approx: true, label: "foto scelte tra 1.200 e 1.800 scatti", client: "Studio fotografico Simone Casillo", meta: "Fotografia · Strumento per album" },
+        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "10", label: "guasti trovati in 28 giorni", client: "Datura Clothing", meta: "E-commerce di abbigliamento · Presidio e campagne" },
+      ],
+    },
+  },
+};
+
+export function homeCopy(locale) {
+  return HOME_V3[locale] || HOME_V3.it;
+}

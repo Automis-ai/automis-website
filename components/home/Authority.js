@@ -85,11 +85,12 @@ const COPY = {
   },
 };
 
-export default function Authority() {
+// sectionClassName: la home v3 la mette sulla fascia blu (fondo trasparente).
+export default function Authority({ sectionClassName = "bg-[#020a12]" }) {
   const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   return (
-    <Section id="authority" className="bg-[#020a12]">
+    <Section id="authority" className={sectionClassName}>
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         {/* Founders */}
         <Reveal>
