@@ -63,7 +63,7 @@ export const HOME_V3 = {
           title: "Company Brain",
           line: "Tutto ciò che sa la tua azienda, a disposizione di tutti, a ogni ora.",
           pain: "Per sapere come si fa una cosa devi trovare la persona giusta.",
-          more: "Le informazioni stanno sparse tra email, PDF e la testa delle persone. Il Brain le raccoglie e risponde a chi chiede, con il documento da cui arriva la risposta.",
+          more: "Le informazioni stanno sparse tra email, PDF e la memoria di chi lavora da anni. Il Brain risponde a chi chiede, partendo dai tuoi documenti e indicando la fonte.",
         },
       ],
     },
@@ -80,7 +80,7 @@ export const HOME_V3 = {
       cta: {
         eyebrow: "Non sai da dove partire?",
         title: "Dicci come lavori: ti diciamo cosa ti serve davvero.",
-        line: "Poche domande, e il Finder ti indica da quali sistemi partire.",
+        line: "Rispondi a sei domande veloci e ti indichiamo da quali sistemi partire.",
         button: "Trova le tue opportunità di IA",
       },
     },

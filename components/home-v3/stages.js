@@ -5,10 +5,10 @@ export const STAGES = {
   marketing: [
     { title: "Ti trovano", line: "Chi cerca quello che fai deve trovare te: su Google, nelle risposte dell'IA e negli annunci.", ids: ["ads-creative", "seo-geo", "animated-sites"] },
     { title: "Si fidano", line: "Recensioni, contenuti e video che costruiscono fiducia prima ancora della prima chiamata.", ids: ["reviews", "content-social", "video-editing"] },
-    { title: "Comprano e tornano", line: "Il negozio che si segue da solo, le schede prodotto già scritte e i vecchi clienti richiamati.", ids: ["ecommerce-manager", "product-listings", "reactivation"] },
+    { title: "Comprano e tornano", line: "Il negozio seguito giorno e notte, le schede prodotto già scritte e i vecchi clienti richiamati.", ids: ["ecommerce-manager", "product-listings", "reactivation"] },
   ],
   sales: [
-    { title: "Arrivano", line: "Ogni messaggio e ogni richiesta riceve risposta e viene qualificato.", ids: ["social-dms", "lead-qualification", "property-matching"] },
+    { title: "Arrivano", line: "A ogni messaggio risponde il sistema, che qualifica il contatto prima di passarlo a te.", ids: ["social-dms", "lead-qualification", "property-matching"] },
     { title: "Si seguono", line: "Un posto solo dove vedere contatti, trattative e numeri.", ids: ["custom-crm", "dashboards-pipeline", "sales-management", "voice-notes"] },
   ],
   support: [

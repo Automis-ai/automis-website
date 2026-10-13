@@ -97,8 +97,8 @@ export default function CategoryBody({ locale, slug, tono }) {
 
   // IT: corpo a tappe (components/home-v3). Il sistema in primo piano può avere una piccola animazione; il resto sta nei dettagli.
   const VIZ = {
-    "ads-creative": { viz: "bars", vizCaption: "Il budget si sposta sulla creatività che converte" },
-    reviews: { viz: "stars", vizCaption: "La risposta pubblica aspetta il tuo ok", vizRows: ["Risposta pronta: «Grazie, ci fa piacere…»"] },
+    "ads-creative": { viz: "bars", vizCaption: "Esempio illustrativo: il budget si sposta sulla creatività che converte" },
+    reviews: { viz: "stars", vizCaption: "Esempio illustrativo: la risposta pubblica aspetta il tuo ok", vizRows: ["Risposta pronta: «Grazie, ci fa piacere…»"] },
     "ecommerce-manager": {
       viz: "night",
       vizCaption: `${getCopy("ecommerce", L).hero.visual.title} · ${getCopy("ecommerce", L).hero.visual.caption}`,
