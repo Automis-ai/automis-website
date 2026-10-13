@@ -28,7 +28,7 @@ export default {
         { slug: "sales", title: "Sistemas de IA para Vendas", line: "Cada contacto recebe resposta e acompanhamento." },
         { slug: "support", title: "Sistemas de IA para Apoio ao Cliente", line: "Chamadas, chats e mensagens respondidos a toda a hora." },
         { slug: "admin", title: "Sistemas de IA para Administração", line: "Documentos, dados e rotina a cargo do sistema." },
-        { slug: "company-brain", title: "Sistemas de IA para Recursos Humanos", line: "Um arquivo privado para os novos colegas." },
+        { slug: "company-brain", title: "Company Brain", line: "Um arquivo privado para os novos colegas." },
       ],
     },
     products: {

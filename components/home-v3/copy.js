@@ -80,7 +80,7 @@ export const HOME_V3 = {
         eyebrow: "Non sai da dove partire?",
         title: "Dicci come lavori: ti diciamo cosa ti serve davvero.",
         line: "Poche domande, e il Finder ti indica da quali sistemi partire.",
-        button: "Trova le opportunità",
+        button: "Trova le tue opportunità di IA",
       },
     },
     cases: {
