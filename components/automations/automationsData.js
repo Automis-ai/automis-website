@@ -44,7 +44,7 @@ export const AUTOMATIONS = [
     liveHref: "/use-cases/clinica-santa-maria",
     liveLabel: "See it live",
     it: {
-      title: "Receptionist vocale IA",
+      title: "Segretaria IA",
       problem: "Le chiamate arrivano mentre sei con un cliente, fuori orario o nel weekend, e finiscono in segreteria.",
       automate: "Un agente vocale IA risponde a ogni chiamata 24/7, qualifica chi chiama, fissa l'appuntamento e lo sincronizza con il tuo calendario e il CRM.",
       outcome: "Nessuna chiamata resta senza risposta, e più chiamate si trasformano in appuntamenti fissati.",

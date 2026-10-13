@@ -20,6 +20,9 @@ import "@/components/v2/use-cases/use-cases.css";
   filo (Seam). La scena 3D della hero chiede il preset «casi» (call, social, camera, shield: i moduli veri dei quattro casi);
   il preset va aggiunto a components/v2/wow/fx/scene/presets.js (richiesta in coda al giro): finché non c'è il motore ripiega su «generic».
 */
+// Casi senza voce in cases.js (non hanno una pagina di dettaglio con i dati completi) ma con un logo che si può mostrare.
+const EXTRA_LOGOS = { "album-ai": "/assets/images/client-logos/simone-casillo.png" };
+
 export default function UseCasesIndex({ locale = "en" }) {
   const t = getCopy("use-cases", locale);
   const common = getCopy("common", locale);
@@ -54,7 +57,7 @@ export default function UseCasesIndex({ locale = "en" }) {
               key={item.slug}
               index={i}
               item={item}
-              logoSrc={CASES.find((c) => c.slug === item.slug)?.logo}
+              logoSrc={CASES.find((c) => c.slug === item.slug)?.logo || EXTRA_LOGOS[item.slug]}
               href={addLangPrefix(item.href, locale)}
               linkLabel={common.ui.readCase}
             />
