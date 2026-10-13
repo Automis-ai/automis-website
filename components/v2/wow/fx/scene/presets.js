@@ -16,7 +16,7 @@ export const PRESETS = {
   sales: { modules: ["call", "crm", "chat", "calendar"], style: "u", z: [60, -40, 40, -70], seed: 43 },
   support: { modules: ["chat", "call", "doc", "check"], style: "v", z: [50, -30, -60, 40], seed: 57 },
   admin: { modules: ["invoice", "doc", "db", "chart"], style: "v", z: [-40, 60, -20, 50], seed: 61 },
-  hr: { modules: ["userplus", "book", "search", "users"], style: "arc", flip: true, z: [40, -60, 50, -30], seed: 79 },
+  "company-brain": { modules: ["userplus", "book", "search", "users"], style: "arc", flip: true, z: [40, -60, 50, -30], seed: 79 },
   // altre pagine
   how: { modules: ["search", "wrench", "chart"], style: "v", z: [50, -50, 50], seed: 83 },
   training: { modules: ["learn", "book", "workflow", "shield"], style: "arc", z: [-30, 50, -50, 40], seed: 97 },

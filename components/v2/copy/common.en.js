@@ -15,7 +15,7 @@ export default {
     sales: "AI Systems for Sales",
     support: "AI Systems for Customer Service",
     admin: "AI Systems for Admin",
-    hr: "AI Systems for HR",
+    "company-brain": "AI Systems for HR",
   },
   products: {
     voice: "Voice AI",

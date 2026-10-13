@@ -27,7 +27,7 @@ export default {
         { slug: "sales", title: "Sistemi IA per la Vendita", line: "Ogni contatto riceve risposta e viene seguito." },
         { slug: "support", title: "Sistemi IA per l'Assistenza", line: "Chiamate, chat e messaggi hanno una risposta a ogni ora." },
         { slug: "admin", title: "Sistemi IA per l'Amministrazione", line: "Documenti, dati e routine li gestisce il sistema." },
-        { slug: "hr", title: "Sistemi IA per le Risorse umane", line: "Un archivio privato per i nuovi colleghi." },
+        { slug: "company-brain", title: "Company Brain", line: "Tutto ciò che sa la tua azienda, a portata di tutti." },
       ],
     },
     products: {
@@ -550,9 +550,9 @@ export default {
     },
     crossLink: {
       title: "Company Brain",
-      line: "Un archivio privato sui tuoi documenti: il tuo team fa una domanda e riceve una risposta con la fonte. Lo trovi nei Sistemi IA per le Risorse umane.",
+      line: "Un archivio privato sui tuoi documenti: il tuo team fa una domanda e riceve una risposta con la fonte. Lo trovi nella sua pagina.",
       cta: "Scopri il Company Brain",
-      href: "/systems/hr",
+      href: "/systems/company-brain",
     },
     faq: {
       title: "Domande frequenti",
@@ -581,26 +581,26 @@ export default {
     },
   },
 
-  hr: {
+  "company-brain": {
     meta: {
-      title: "Sistemi IA per le Risorse umane: il Company Brain | Automis",
+      title: "Company Brain: l'archivio che risponde a tutta l'azienda | Automis",
       description:
-        "Un Company Brain privato sui tuoi documenti: i nuovi colleghi trovano da soli le risposte, e ognuna arriva con la sua fonte.",
+        "Un Company Brain privato sui tuoi documenti: chi lavora da te chiede quando vuole e riceve la risposta con la sua fonte.",
     },
     hero: {
-      eyebrow: "Sistemi IA per le Risorse umane",
-      title: "Sistemi che accompagnano i nuovi colleghi",
-      highlight: "i nuovi colleghi",
-      lead: "Un archivio privato che risponde con la fonte: i nuovi colleghi trovano da soli le risposte.",
+      eyebrow: "Company Brain",
+      title: "Tutto ciò che sa la tua azienda, a portata di tutti",
+      highlight: "a portata di tutti",
+      lead: "Un archivio privato sui tuoi documenti. Chi lavora da te chiede e riceve la risposta con la fonte, a ogni ora.",
     },
     cards: [
       {
         id: "company-brain",
         kicker: null,
-        title: "Company Brain per l'onboarding",
-        short: "Il nuovo collega chiede, il Brain risponde con la fonte.",
-        line: "Un archivio privato sui tuoi documenti: il nuovo collega chiede e riceve la risposta con la fonte.",
-        more: "La risposta a qualsiasi domanda è sepolta in una cartella, in una casella email o nella memoria di una sola persona.",
+        title: "Company Brain",
+        short: "Chiedi come parli, ricevi la risposta con la fonte.",
+        line: "Un archivio privato sui tuoi documenti: chi lavora da te fa una domanda e riceve la risposta, con il documento da cui arriva.",
+        more: "Per sapere come si fa una cosa devi trovare la persona giusta, e non sempre è disponibile.",
         href: null,
         caseHref: null,
         price: null,
@@ -634,11 +634,15 @@ export default {
       items: [
         {
           q: "Da dove prende le risposte il Brain?",
-          a: "Dai documenti della tua azienda. Ogni risposta indica la fonte, così il nuovo collega può controllarla.",
+          a: "Dai documenti della tua azienda. Ogni risposta indica la fonte, così chi chiede può controllarla.",
         },
         {
           q: "I miei documenti restano privati?",
           a: "Sì, il Brain è privato e lavora sui tuoi documenti. Rispettiamo il GDPR dal primo giorno, i dati possono stare su server UE e, prima di partire, ti diciamo quali fornitori trattano quali dati e dove.",
+        },
+        {
+          q: "Chi può usarlo?",
+          a: "Chiunque lavori da te, a ogni ora. Prima di partire decidiamo insieme chi vede cosa.",
         },
         {
           q: "Serve personale tecnico?",
@@ -651,8 +655,8 @@ export default {
       ],
     },
     cta: {
-      title: "Hai un caso per quest'area?",
-      line: "Raccontaci la tua azienda e costruiamo un sistema su misura.",
+      title: "Cosa resta oggi nella testa di poche persone?",
+      line: "Raccontaci dove stanno le informazioni della tua azienda e ti mostriamo come renderle accessibili a tutti.",
     },
   },
 };

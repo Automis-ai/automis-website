@@ -1,7 +1,7 @@
 /* Dati senza lingua delle pagine /systems: slug delle categorie e icone delle schede.
    I testi stanno in components/v2/copy/systems.{en,it,pt}.js. */
 
-export const CATEGORY_SLUGS = ["marketing", "sales", "support", "admin", "hr"];
+export const CATEGORY_SLUGS = ["marketing", "sales", "support", "admin", "company-brain"];
 
 export function isCategory(slug) {
   return CATEGORY_SLUGS.includes(slug);

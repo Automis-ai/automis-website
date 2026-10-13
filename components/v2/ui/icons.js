@@ -94,6 +94,7 @@ const ICONS = {
   support: Headset,
   admin: FolderCog,
   hr: Users,
+  "company-brain": Users,
   // prodotti e sistemi
   voice: AudioLines,
   cart: ShoppingCart,

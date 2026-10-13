@@ -29,7 +29,7 @@ export default {
       { slug: "sales", title: "Sistemi IA per la Vendita", line: "Ogni contatto riceve risposta." },
       { slug: "support", title: "Sistemi IA per l'Assistenza", line: "Chiamate e chat, a ogni ora." },
       { slug: "admin", title: "Sistemi IA per l'Amministrazione", line: "Documenti e dati in automatico." },
-      { slug: "hr", title: "Sistemi IA per le Risorse umane", line: "Un archivio privato per i nuovi colleghi." },
+      { slug: "company-brain", title: "Company Brain", line: "Tutto ciò che sa la tua azienda, a portata di tutti." },
     ],
   },
 

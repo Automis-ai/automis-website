@@ -15,7 +15,7 @@ export default {
     sales: "Sistemi IA per la Vendita",
     support: "Sistemi IA per l'Assistenza",
     admin: "Sistemi IA per l'Amministrazione",
-    hr: "Sistemi IA per le Risorse umane",
+    "company-brain": "Company Brain",
   },
   products: {
     voice: "Voice AI",

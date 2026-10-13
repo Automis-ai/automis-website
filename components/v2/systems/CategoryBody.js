@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 import PageHero from "@/components/v2/ui/PageHero";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
+import { homeCopy } from "@/components/home-v3/copy";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CardGrid from "@/components/v2/ui/CardGrid";
@@ -95,19 +97,33 @@ export default function CategoryBody({ locale, slug, tono }) {
     <main id="main" className={pageClass(tono)}>
       <SmoothScroll />
       <PageStory />
-      <PageHero
-        size="compact"
-        eyebrow={c.hero.eyebrow}
-        {...heroTitle(c.hero.title, c.hero.highlight)}
-        subtitle={c.hero.lead}
-        primaryCta={{ label: common.cta, href: addLangPrefix("/contact", L) }}
-      />
+      {L === "it" ? (
+        /* Hero v3 (14/10): luce della home, «Il problema» della scheda, un solo bottone che scende alle schede. EN e PT restano sul v2. */
+        <PageHeroV3
+          eyebrow={c.hero.eyebrow}
+          title={c.hero.title}
+          highlight={c.hero.highlight}
+          lead={c.hero.lead}
+          pain={homeCopy(L).systems.items.find((x) => x.slug === slug)?.pain}
+          painLabel={homeCopy(L).systems.pain}
+          cta={{ label: "Scopri i sistemi", href: "#sistemi" }}
+        />
+      ) : (
+        <PageHero
+          size="compact"
+          eyebrow={c.hero.eyebrow}
+          {...heroTitle(c.hero.title, c.hero.highlight)}
+          subtitle={c.hero.lead}
+          primaryCta={{ label: common.cta, href: addLangPrefix("/contact", L) }}
+        />
+      )}
 
       {groups.map((cards, gi) => {
         const isLast = gi === groups.length - 1;
         return (
           <Fragment key={gi}>
             <Section
+              id={gi === 0 ? "sistemi" : undefined}
               tone={gi === 0 ? "light" : "dark"}
               {...(gi === 0
                 ? { "aria-labelledby": `sx-${slug}-cards` }

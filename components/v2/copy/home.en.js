@@ -28,7 +28,7 @@ export default {
       { slug: "sales", title: "AI Systems for Sales", line: "Every contact answered and tracked." },
       { slug: "support", title: "AI Systems for Customer Service", line: "Calls and chats, day and night." },
       { slug: "admin", title: "AI Systems for Admin", line: "Documents and data on autopilot." },
-      { slug: "hr", title: "AI Systems for HR", line: "A private archive for new colleagues." },
+      { slug: "company-brain", title: "AI Systems for HR", line: "A private archive for new colleagues." },
     ],
   },
 

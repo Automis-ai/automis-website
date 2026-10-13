@@ -7,7 +7,7 @@ import { presetForPath } from "./scene/presets";
 // Gli still pronti (public/media/page-scenes/<preset>-<sm|md|lg>.webp): un'immagine per preset e per fascia di larghezza.
 // I preset senza immagine (cases) usano quella generica.
 const BLANK = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-const STILL_IDS = new Set(["hub", "marketing", "sales", "support", "admin", "hr", "how", "training", "about", "contact", "ecommerce", "datura", "voice", "generic"]);
+const STILL_IDS = new Set(["hub", "marketing", "sales", "support", "admin", "hr", "company-brain", "how", "training", "about", "contact", "ecommerce", "datura", "voice", "generic"]);
 
 /*
   Sfondo 3D delle hero interne (PageHero compact): la stessa rete dei moduli della home in versione «lite», con i moduli

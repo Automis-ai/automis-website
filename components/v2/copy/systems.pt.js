@@ -28,7 +28,7 @@ export default {
         { slug: "sales", title: "Sistemas de IA para Vendas", line: "Cada contacto recebe resposta e acompanhamento." },
         { slug: "support", title: "Sistemas de IA para Apoio ao Cliente", line: "Chamadas, chats e mensagens respondidos a toda a hora." },
         { slug: "admin", title: "Sistemas de IA para Administração", line: "Documentos, dados e rotina a cargo do sistema." },
-        { slug: "hr", title: "Sistemas de IA para Recursos Humanos", line: "Um arquivo privado para os novos colegas." },
+        { slug: "company-brain", title: "Sistemas de IA para Recursos Humanos", line: "Um arquivo privado para os novos colegas." },
       ],
     },
     products: {
@@ -553,7 +553,7 @@ export default {
       title: "Company Brain",
       line: "Um arquivo privado sobre os seus documentos, a que a equipa pergunta e recebe uma resposta com a fonte. Encontra-o nos Sistemas de IA para Recursos Humanos.",
       cta: "Ver o Company Brain",
-      href: "/systems/hr",
+      href: "/systems/company-brain",
     },
     faq: {
       title: "Perguntas frequentes",
@@ -582,7 +582,7 @@ export default {
     },
   },
 
-  hr: {
+  "company-brain": {
     meta: {
       title: "Sistemas de IA para Recursos Humanos: Company Brain e Integração | Automis",
       description:

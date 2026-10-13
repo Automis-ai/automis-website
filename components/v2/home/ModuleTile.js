@@ -40,6 +40,7 @@ export const GLYPHS = {
   support: Headset,
   admin: FolderCog,
   hr: Users,
+  "company-brain": Users,
   // i tre passi di «Come lavoriamo»
   search: Search,
   build: Wrench,

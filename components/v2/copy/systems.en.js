@@ -27,7 +27,7 @@ export default {
         { slug: "sales", title: "AI Systems for Sales", line: "Every contact answered and tracked." },
         { slug: "support", title: "AI Systems for Customer Service", line: "Calls, chats and messages answered day and night." },
         { slug: "admin", title: "AI Systems for Admin", line: "Documents, data and routine tasks handled for you." },
-        { slug: "hr", title: "AI Systems for HR", line: "A private archive for new colleagues." },
+        { slug: "company-brain", title: "AI Systems for HR", line: "A private archive for new colleagues." },
       ],
     },
     products: {
@@ -552,7 +552,7 @@ export default {
       title: "Company Brain",
       line: "A private archive over your documents, where your team asks and gets an answer with its source. You will find it under AI Systems for HR.",
       cta: "See the Company Brain",
-      href: "/systems/hr",
+      href: "/systems/company-brain",
     },
     faq: {
       title: "Frequently asked questions",
@@ -581,7 +581,7 @@ export default {
     },
   },
 
-  hr: {
+  "company-brain": {
     meta: {
       title: "AI Systems for HR: A Company Brain for Onboarding | Automis",
       description:

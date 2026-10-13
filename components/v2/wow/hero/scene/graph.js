@@ -9,7 +9,7 @@ export const IDX = Object.fromEntries(MODULE_IDS.map((id, i) => [id, i]));
 
 // Le cinque categorie del sito, nello stesso ordine dei box della home.
 // Marketing · Vendita · Assistenza · Amministrazione · Risorse umane. Le chiavi sono quelle del kit (components/v2/ui/icons.js).
-export const CATEGORY_IDS = ["marketing", "sales", "support", "admin", "hr"];
+export const CATEGORY_IDS = ["marketing", "sales", "support", "admin", "company-brain"];
 export const D = CATEGORY_IDS.length;
 export const CATEGORY_OF = { ads: 0, social: 0, crm: 1, call: 2, chat: 2, calendar: 2, invoice: 3, team: 4 };
 

@@ -28,6 +28,7 @@ const BODY = {
 // stesse chiavi delle categorie del sito: marketing = megafono, hr = persone
 BODY.marketing = BODY.ads;
 BODY.hr = BODY.team;
+BODY["company-brain"] = BODY.team;
 
 export function iconSvg(id, px = 256) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${px}" height="${px}" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${BODY[id]}</svg>`;
