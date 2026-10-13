@@ -16,6 +16,7 @@ const ENGLISH_ROOT_PAGES = new Set([
   "ai-automations",
   "voice-ai",
   "systems",
+  "ecommerce",
   "training",
   "consultation",
   "playbook",

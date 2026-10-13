@@ -1,0 +1,56 @@
+/* Landing WooCommerce: stesse regole della Shopify, cambia il colore del mondo-piattaforma.
+   Viola WooCommerce = il mondo WooCommerce, ciano = Automis (eccezione voluta alla palette, come il verde Shopify).
+   Le parti comuni alle due pagine (riga di prova, schede di prova, puntini del carosello) stanno in style.css. */
+
+:root {
+  --shop: #b999e3;      /* testo e accenti su fondo scuro */
+  --shop-deep: #7f54b3;
+  --shop-ink: #5b3b8a;  /* testo sul foglio chiaro */
+}
+
+/* foglio chiaro: chi guarda cosa, e cosa non vede */
+.fn-list { list-style: none; margin: 32px 0 0; padding: 0; }
+.fn-list li {
+  display: grid; gap: 4px 24px; padding: 16px 0;
+  border-bottom: 1px solid rgba(16, 27, 39, 0.08); color: var(--l-head);
+}
+.fn-list li:last-child { border-bottom: 0; }
+.fn-who { font-weight: 600; }
+.fn-does { color: var(--l-text); }
+.fn-blind {
+  justify-self: start; margin-top: 4px;
+  font-size: 0.9375rem; font-weight: 500; color: var(--shop-ink);
+  background: rgba(127, 84, 179, 0.1); border-radius: 999px; padding: 3px 12px;
+}
+@media (min-width: 760px) {
+  .fn-list li { grid-template-columns: 220px 1fr auto; align-items: baseline; }
+  .fn-blind { margin-top: 0; justify-self: end; }
+}
+@media (max-width: 759px) {
+  .fn-list { margin-top: 24px; }
+  .fn-list li { display: block; padding: 13px 0; }
+  .fn-who::after { content: " "; }
+  .fn-blind { display: table; margin-top: 8px; }
+}
+
+/* caso reale: la scheda con il numero, e la tabella prima / adesso */
+.case { display: grid; gap: 16px; margin-top: 40px; align-items: stretch; }
+@media (min-width: 760px) { .case { grid-template-columns: 0.8fr 1.2fr; gap: 24px; } }
+.pd { list-style: none; margin: 0; padding: 6px 22px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+.pd li { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.pd li:last-child { border-bottom: 0; }
+.pd b { grid-column: 1 / -1; font-weight: 600; font-size: 0.9875rem; line-height: 1.35; }
+.pd span { font-size: 0.9375rem; color: var(--muted); line-height: 1.35; }
+.pd span::before {
+  content: attr(data-l); display: block; margin-bottom: 2px;
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); opacity: 0.85;
+}
+.pd .now { color: var(--cyan); font-weight: 500; }
+.pd .pd-head { display: none; }
+@media (min-width: 760px) {
+  .pd li { grid-template-columns: 1.4fr 1fr 1fr; align-items: baseline; gap: 20px; }
+  .pd b { grid-column: auto; }
+  .pd span::before { display: none; }
+  .pd .pd-head { display: grid; padding-top: 12px; }
+  .pd .pd-head span { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); opacity: 0.85; }
+}

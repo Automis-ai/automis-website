@@ -71,6 +71,16 @@ const nextConfig = {
         source: "/en/try/:path*",
         destination: "https://automis-try-en-automis-team.vercel.app/en/try/:path*",
       },
+      // Le due landing e-commerce (solo in italiano) sono file statici in public/ecommerce-static,
+      // portati dal v2 così come sono. Il percorso pubblico resta /it/ecommerce/<piattaforma>.
+      {
+        source: "/it/ecommerce/shopify",
+        destination: "/ecommerce-static/shopify/index.html",
+      },
+      {
+        source: "/it/ecommerce/woocommerce",
+        destination: "/ecommerce-static/woocommerce/index.html",
+      },
     ];
   },
   images: {
