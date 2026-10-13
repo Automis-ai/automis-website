@@ -136,6 +136,69 @@ export default function AlbumAiCase({ locale = "en" }) {
           </InView>
         </Section>
 
+        {t.time ? (
+          <>
+            <Section fx={false} tone="light" className="v2c-sec" id="tempi">
+              <SectionHeader title={t.time.title} lead={t.time.lead} />
+              <InView className="v2c-ba">
+                {[t.time.before, t.time.after].map((c, i) => (
+                  <div key={i} className={`v2-card v2c-ba__card${i ? " v2c-ba__card--new" : ""}`}>
+                    <p className="v2c-ba__label">{c.label}</p>
+                    <p className="v2c-ba__fig">{c.figure}</p>
+                    <ul className="v2c-ba__rows">
+                      {c.rows.map(([k, v]) => (
+                        <li key={k}>
+                          <span>{k}</span>
+                          <b>{v}</b>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </InView>
+              <p className="v2c-note">{t.time.note}</p>
+            </Section>
+
+            <Section fx={false} tone="light" className="v2c-sec">
+              <SectionHeader title={t.loop.title} lead={t.loop.lead} />
+              <figure className="v2-card v2c-quote">
+                <blockquote>
+                  <p>«{t.loop.quote}»</p>
+                </blockquote>
+                <figcaption>
+                  <b>{t.loop.by}</b>
+                  <span>{t.loop.when}</span>
+                </figcaption>
+              </figure>
+            </Section>
+
+            <Section fx={false} tone="light" className="v2c-sec">
+              <SectionHeader title={t.shots.title} lead={t.shots.lead} />
+              <div className="v2c-shots">
+                {t.shots.items.map((it) => (
+                  <figure key={it.src} className="v2c-shot">
+                    <img src={it.src} alt={it.alt} loading="lazy" />
+                    <figcaption>{it.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </Section>
+
+            <Section fx={false} tone="light" className="v2c-sec">
+              <SectionHeader title={t.online.title} lead={t.online.lead} />
+              <div className="v2c-online">
+                {t.online.items.map((it) => (
+                  <div key={it.title} className="v2-card v2c-online__card">
+                    <span className="v2c-online__status">{it.status}</span>
+                    <h3>{it.title}</h3>
+                    <p>{it.line}</p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+          </>
+        ) : null}
+
         <Section fx={false} tone="light" pad="sm" className="v2c-info-sec">
           <div className="v2c-info-grid" data-fx="stagger">
             <div className="v2-card v2c-info">

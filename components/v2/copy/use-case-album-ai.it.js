@@ -4,16 +4,16 @@
    Percorso proposto: /use-cases/album-ai. */
 export default {
   meta: {
-    title: "Album AI: strumento per lo Studio fotografico Simone Casillo | Automis",
+    title: "Album AI: da 6 ore a 50 minuti per un album | Automis",
     description:
-      "Da 1.200 a 1.800 scatti di un evento il sistema sceglie circa 280 foto e impagina l'album. Uno strumento su misura per lo Studio fotografico Simone Casillo, nel browser.",
+      "Album AI sceglie le foto e impagina l'album per lo Studio fotografico Simone Casillo: da circa 6 ore a circa 50 minuti, revisione compresa. Tempi indicati dallo studio.",
   },
 
   hero: {
     eyebrow: "Caso studio",
-    title: "Uno strumento per album su misura",
-    highlight: "su misura",
-    lead: "Da 1.200 a 1.800 scatti di un evento, lo strumento sceglie circa 280 foto e impagina l'album.",
+    title: "Un album in circa 50 minuti, non in 6 ore",
+    highlight: "circa 50 minuti",
+    lead: "Album AI sceglie le foto e impagina l'album di Simone. Lui rivede e corregge, e il sistema impara dalle sue correzioni.",
     client: "Studio fotografico Simone Casillo",
     tag: "Strumento per album",
   },
@@ -23,6 +23,56 @@ export default {
     from: { figure: "Da 1.200 a 1.800", label: "scatti di un evento entrano nel sistema" },
     to: { figure: "Circa 280", label: "foto che il sistema sceglie" },
     then: "Poi il sistema impagina l'album.",
+  },
+
+  time: {
+    title: "Prima e dopo",
+    lead: "Il tempo di un album di eventi, scelta e impaginazione, prima a mano e adesso con il sistema.",
+    before: {
+      label: "A mano",
+      figure: "Circa 6 ore",
+      rows: [
+        ["Scelta delle foto", "circa 3 ore"],
+        ["Impaginazione", "2-3 ore"],
+      ],
+    },
+    after: {
+      label: "Con Album AI",
+      figure: "Circa 50 minuti",
+      rows: [
+        ["Scelta delle foto", "circa 20 minuti"],
+        ["Impaginazione", "circa 15 minuti"],
+        ["Revisione di Simone", "circa 15 minuti"],
+      ],
+    },
+    note: "Tempi indicati dallo studio, non ancora cronometrati dallo strumento. Il cronometro arriva con i prossimi eventi.",
+  },
+
+  loop: {
+    title: "Simone resta al comando",
+    lead: "Il sistema propone, Simone decide. Guarda la scelta e l'album, cambia a mano quello che non lo convince e lascia una nota. Le correzioni diventano il materiale con cui il sistema sceglie meglio la volta dopo.",
+    quote: "Va tutto benissimo, tranne due piccole cose.",
+    by: "Simone, Studio fotografico Simone Casillo",
+    when: "Agosto 2026, su un album di prova da 21 doppie. Le due cose erano la foto principale di una pagina e l'ordine di due pagine.",
+  },
+
+  shots: {
+    title: "Lo strumento al lavoro",
+    lead: "Gira nel browser, sul Mac di Simone. Le schermate usano foto di esempio, non foto dei clienti.",
+    items: [
+      { src: "/media/use-cases/album-ai/eventi.png", alt: "Elenco degli eventi in Album AI", caption: "Gli eventi: si sceglie la cartella e si avvia la scelta." },
+      { src: "/media/use-cases/album-ai/in-lavorazione.png", alt: "Barra di avanzamento della scelta delle foto", caption: "La scelta al lavoro, passo per passo." },
+    ],
+  },
+
+  online: {
+    title: "Online da zero, in tre pezzi",
+    lead: "Per lo studio di Simone abbiamo costruito il sistema per gli album, il sito e il CRM.",
+    items: [
+      { title: "Album AI", line: "Sceglie le foto e impagina l'album.", status: "In uso" },
+      { title: "Il sito", line: "La vetrina dello studio, per farsi trovare e ricevere richieste.", status: "In consegna" },
+      { title: "Il CRM", line: "Richieste e clienti in un posto solo, dal primo contatto alla consegna dell'album.", status: "In consegna" },
+    ],
   },
 
   where: {

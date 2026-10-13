@@ -1928,3 +1928,143 @@ html [data-iv="in"] .v2c-flow__arrow {
 .v2c-chain .v2c-tile {
   transform: none;
 }
+
+/* ---------- Album AI: prima e dopo, citazione, schermate, tre pezzi (14/10/2026) ---------- */
+.v2c-ba {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.v2c-ba__card {
+  padding: 28px;
+}
+.v2c-ba__card--new {
+  border-color: rgba(143, 211, 244, 0.42);
+  background: linear-gradient(135deg, rgba(60, 145, 230, 0.3), rgba(14, 40, 78, 0.5));
+}
+.v2c-ba__label {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--v2-ink-3);
+}
+.v2c-ba__fig {
+  margin: 8px 0 18px;
+  font-family: var(--v2-display);
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.05;
+  color: var(--v2-num);
+}
+.v2c-ba__rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.v2c-ba__rows li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-top: 1px solid var(--v2-line);
+  font-size: 16px;
+  color: var(--v2-ink-2);
+}
+.v2c-ba__rows b {
+  font-weight: 600;
+  color: var(--v2-ink);
+  white-space: nowrap;
+}
+.v2c-quote {
+  margin: 28px 0 0;
+  padding: 32px;
+  max-width: 52rem;
+}
+.v2c-quote blockquote {
+  margin: 0;
+}
+.v2c-quote p {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.25;
+  color: var(--v2-ink);
+}
+.v2c-quote figcaption {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--v2-ink-3);
+}
+.v2c-quote figcaption b {
+  color: var(--v2-ink-2);
+  font-weight: 600;
+}
+.v2c-shots {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.v2c-shot {
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--v2-card-line);
+  background: rgba(0, 10, 20, 0.45);
+}
+.v2c-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.v2c-shot figcaption {
+  padding: 14px 18px;
+  font-size: 15px;
+  color: var(--v2-ink-2);
+}
+.v2c-online {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.v2c-online__card {
+  padding: 24px;
+}
+.v2c-online__card h3 {
+  margin: 14px 0 0;
+  font-family: var(--v2-display);
+  font-size: 22px;
+  color: var(--v2-ink);
+}
+.v2c-online__card p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
+.v2c-online__status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--v2-chip-line);
+  background: var(--v2-chip-bg);
+  color: var(--v2-chip-fg);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .v2c-ba,
+  .v2c-shots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .v2c-online {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
