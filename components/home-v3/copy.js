@@ -5,16 +5,16 @@ export const HOME_V3 = {
   it: {
     hero: {
       eyebrow: "Agenzia IA",
-      titlePre: "Costruiamo il ",
-      titleAccent: "sistema IA",
-      titlePost: " che manca alla tua azienda.",
+      titlePre: "Costruiamo i ",
+      titleAccent: "sistemi IA",
+      titlePost: " che mancano alla tua azienda.",
       lead: "Prima ascoltiamo come lavori, poi lo costruiamo su misura. E i sistemi che costruiamo funzionano già, ogni giorno, per i nostri clienti.",
-      cta: "Raccontaci il tuo caso",
+      cta: "Trova le opportunità",
       ctaSecondary: "Scopri i sistemi",
     },
     journey: {
       eyebrow: "Un sistema al lavoro",
-      title: "Anna ha visto un annuncio. Sabato alle 9:30 è in agenda.",
+      title: "Dall'annuncio all'appuntamento, senza che il tuo team ci metta mano.",
       videoLabel: "Animazione: un annuncio porta un contatto, l'IA risponde in chat, fissa l'appuntamento e compila la scheda cliente",
     },
     systems: {

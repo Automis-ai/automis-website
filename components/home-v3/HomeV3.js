@@ -62,7 +62,7 @@ export function HeroV3() {
           </h1>
           <p className="hv3-hero__lead">{t.lead}</p>
           <div className="hv3-ctas">
-            <a className="hv3-btn hv3-btn--p" href="#book">
+            <a className="hv3-btn hv3-btn--p" href="#opportunity-finder">
               {t.cta}
             </a>
             <a className="hv3-btn hv3-btn--g" href="#sistemi">

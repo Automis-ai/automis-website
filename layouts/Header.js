@@ -398,13 +398,14 @@ const DefaultHeader = ({ hideHeaderNav = false }) => {
               <div className="logo-outer flex items-center">
                 <Link href={menu.home} className="flex items-center">
                   {/* Versione piena del logo (stesso glifo, tratti bianchi più spessi): sul vetro del menù il wordmark sottile
-                      in azzurro grigio arrivava a circa 3,5:1. */}
+                      in azzurro grigio arrivava a circa 3,5:1. Alzato di 6 px: l'icona sopra la S spinge giù il centro
+                      dell'immagine, così è la scritta a stare a metà della barra (Luca, 13/10). */}
                   <img
                     src="/assets/images/logos/logo-automis-white.png"
                     alt="Automis AI Logo"
                     width="125"
                     height="33"
-                    className="md:h-[33px] h-[27px] md:w-[125px] w-[104px] object-contain"
+                    className="relative -top-[6px] md:h-[33px] h-[27px] md:w-[125px] w-[104px] object-contain"
                   />
                 </Link>
               </div>
