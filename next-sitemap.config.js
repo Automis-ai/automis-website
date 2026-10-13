@@ -123,6 +123,7 @@ const STATIC_PATHS = [
   "/it/blog/prenotazioni-whatsapp-ristorante-automatiche",
   "/it/blog/lead-ads-facebook-studio-dentistico",
   "/it/blog/ia-privata-documenti-studio-legale",
+  "/it/blog/migliori-centralini-virtuali-studi-medici",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
