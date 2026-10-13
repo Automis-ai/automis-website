@@ -956,3 +956,16 @@
 .hv3-hero__below--wide {
   width: min(1040px, 100%);
 }
+
+/* Bottone di chiusura nel blu della home (al posto del giallo del v2) sulle pagine v3 */
+.v2-cta--blue .v2-btn--gold {
+  background: linear-gradient(120deg, #3c91e6 0%, #57c7e3 60%, #8fd3f4 100%);
+  color: #00121f;
+  box-shadow: 0 14px 32px -14px rgba(60, 145, 230, 0.75);
+}
+.v2-cta--blue .v2-btn--gold:hover,
+.v2-cta--blue .v2-btn--gold:focus,
+.v2-cta--blue .v2-btn--gold:active,
+.v2-cta--blue .v2-btn--gold:visited {
+  color: #00121f;
+}

@@ -1899,3 +1899,32 @@ html [data-iv="in"] .v2c-flow__arrow {
   padding-top: 12px;
   border-top: 1px solid rgba(143, 211, 244, 0.16);
 }
+
+/* ---------- Segni piatti come la home (14/10/2026) ----------
+   Le tessere estruse in 3D e la finestra che si inclina erano del v2 (bocciato da Arcangelo): qui tornano piatte,
+   vetro azzurro con bordo sottile, come le icone delle schede della home. */
+.v2c-tile {
+  transform-style: flat;
+}
+.v2c-tile__body {
+  color: #8fd3f4;
+  background: rgba(60, 145, 230, 0.16);
+  border: 1px solid rgba(143, 211, 244, 0.28);
+  box-shadow: none;
+}
+.v2c-winstage .v2c-win {
+  transform: none !important;
+  transition: none;
+}
+/* il palco dei moduli: piano frontale in vetro, senza prospettiva né inclinazione */
+.v2c-sys__plane {
+  transform: none !important;
+  transform-style: flat;
+  transition: none;
+  background-color: rgba(40, 80, 140, 0.3);
+  border: 1px solid rgba(165, 210, 255, 0.2);
+  box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.6);
+}
+.v2c-chain .v2c-tile {
+  transform: none;
+}

@@ -305,6 +305,7 @@ export default function CategoryBody({ locale, slug, tono }) {
       <FaqSection title={c.faq.title} items={c.faq.items} tone="dark" />
 
       <CtaBand
+        blue={L === "it"}
         tone="dark"
         title={c.cta.title}
         line={c.cta.line}

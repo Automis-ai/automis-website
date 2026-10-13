@@ -27,7 +27,7 @@ function BrowserWindow() {
           <i className="v2c-win__url" />
         </div>
         <div className="v2c-win__body">
-          <AlbumSpread paper="#f4f7fb" frame="rgba(255,255,255,0.3)" idp="hero" motion="assemble" />
+          <AlbumSpread paper="rgba(143,211,244,0.16)" frame="rgba(143,211,244,0.45)" idp="hero" motion="assemble" />
         </div>
       </div>
     </LiveStage>
@@ -103,10 +103,8 @@ export default function AlbumAiCase({ locale = "en" }) {
         </div>
       </PageHero>
       )}
-
-      <Seam glyphs={CHAINS[ALBUM_AI_SLUG]} />
       <div className="v2-caso">
-        <Section tone="light" className="v2c-edge" id="flusso">
+        <Section fx={false} tone="light" className="v2c-edge" id="flusso">
           <SectionHeader title={t.flow.title} />
           <InView className="v2c-flow">
             <div className="v2-card v2c-stage">
@@ -131,14 +129,14 @@ export default function AlbumAiCase({ locale = "en" }) {
             </div>
             <div className="v2-card v2c-stage">
               <div className="v2c-stage__vis">
-                <AlbumSpread paper="#ffffff" idp="flow" motion="reveal" />
+                <AlbumSpread paper="rgba(143,211,244,0.16)" frame="rgba(143,211,244,0.45)" idp="flow" motion="reveal" />
               </div>
               <p className="v2c-stage__then">{t.flow.then}</p>
             </div>
           </InView>
         </Section>
 
-        <Section tone="light" pad="sm" className="v2c-info-sec">
+        <Section fx={false} tone="light" pad="sm" className="v2c-info-sec">
           <div className="v2c-info-grid" data-fx="stagger">
             <div className="v2-card v2c-info">
               <span className="v2-tile">
@@ -158,8 +156,7 @@ export default function AlbumAiCase({ locale = "en" }) {
         </Section>
 
         <div className="v2c-cta">
-          <Seam glyphs={CHAINS[ALBUM_AI_SLUG]} exit />
-          <CtaBand title={t.cta.title} line={t.cta.line} button={
+          <CtaBand blue={locale === "it"} title={t.cta.title} line={t.cta.line} button={
               locale === "it"
                 ? { label: "Prenota una call", href: `${addLangPrefix("/", locale)}#book` }
                 : { label: common.cta, href: contact }

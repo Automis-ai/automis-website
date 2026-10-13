@@ -125,12 +125,9 @@ export default function DaturaCase({ locale = "en" }) {
         </div>
       </PageHero>
       )}
-
-      <Seam glyphs={CHAINS[DATURA_SLUG]} />
       <div className="v2-caso">
-        <ModuleRail />
         {/* ---------- Il problema: da quanto restava fermo un guasto ---------- */}
-        <Section tone="light" id="problem" className="v2c-edge v2c-edge--eb">
+        <Section fx={false} tone="light" id="problem" className="v2c-edge v2c-edge--eb">
           <SectionHeader eyebrow={t.problem.eyebrow} title={t.problem.title} lead={t.problem.lead} />
           <div className="v2c-prob" data-fx="stagger" data-mod="">
             {t.problem.items.map((it, i) => (
@@ -158,13 +155,13 @@ export default function DaturaCase({ locale = "en" }) {
         </Section>
 
         {/* ---------- Il sistema: il negozio e i quattro moduli ---------- */}
-        <Section tone="light" className="v2c-sec" id="system">
+        <Section fx={false} tone="light" className="v2c-sec" id="system">
           <SectionHeader eyebrow={t.system.eyebrow} title={t.system.title} lead={t.system.lead} />
           <SystemStage copy={t.system} />
         </Section>
 
         {/* ---------- I risultati: tre numeri con la loro base ---------- */}
-        <Section tone="light" className="v2c-sec" id="results">
+        <Section fx={false} tone="light" className="v2c-sec" id="results">
           <SectionHeader eyebrow={t.results.eyebrow} title={t.results.title} />
           <div className="v2c-res" data-fx="stagger">
             {t.results.items.map((r, i) => (
@@ -195,7 +192,7 @@ export default function DaturaCase({ locale = "en" }) {
         </Section>
 
         {/* ---------- Cosa fa ogni modulo ---------- */}
-        <Section tone="light" className="v2c-sec" id="modules">
+        <Section fx={false} tone="light" className="v2c-sec" id="modules">
           <SectionHeader eyebrow={t.modules.eyebrow} title={t.modules.title} />
           <div className="v2c-mods" data-fx="stagger">
             {t.modules.items.map((m, i) => (
@@ -217,8 +214,7 @@ export default function DaturaCase({ locale = "en" }) {
         </Section>
 
         <div className="v2c-cta">
-          <Seam glyphs={GLYPHS} exit />
-          <CtaBand title={t.cta.title} line={t.cta.line} button={
+          <CtaBand blue={locale === "it"} title={t.cta.title} line={t.cta.line} button={
               locale === "it"
                 ? { label: "Prenota una call", href: `${addLangPrefix("/", locale)}#book` }
                 : { label: common.cta, href: contact }
