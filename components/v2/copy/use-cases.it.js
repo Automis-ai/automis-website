@@ -19,7 +19,7 @@ export default {
     {
       slug: "clinica-santa-maria",
       client: "Clínica Santa Maria dos Olivais",
-      tag: "Receptionist vocale IA",
+      tag: "Segretaria IA",
       title: "7 mesi al telefono di una clinica dentale",
       figure: "872",
       figureLabel: "chiamate in sette mesi",

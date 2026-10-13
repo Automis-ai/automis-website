@@ -35,7 +35,7 @@ export const CASES = [
     it: {
       industry: "Clinica dentale",
       location: "Lisbona, Portogallo",
-      tag: "Receptionist vocale IA",
+      tag: "Segretaria IA",
       summary:
         "872 chiamate in sette mesi, 527 chiuse senza passare dalla segretaria e 114 appuntamenti presi. Cosa è cambiato mese per mese, da quando la clinica si è fidata.",
       headline: "7 mesi al telefono di una clinica dentale",

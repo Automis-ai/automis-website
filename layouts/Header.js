@@ -59,7 +59,7 @@ const COPY = {
     training: "Formazione",
     useCases: "Casi studio",
     about: "Chi siamo",
-    cta: "Raccontaci il tuo caso",
+    cta: "Trova le opportunità",
     categories: "Categorie",
     products: "Prodotti",
     cat: {
@@ -139,7 +139,7 @@ function buildMenu(locale) {
       { key: "use-cases", title: t.useCases, href: h("/use-cases"), match: ["/use-cases"] },
       { key: "about", title: t.about, href: h("/about"), match: ["/about"] },
     ],
-    cta: { title: t.cta, href: h("/contact") },
+    cta: { title: t.cta, href: locale === "it" ? h("/") + "#opportunity-finder" : h("/contact") },
     home: h("/"),
   };
 }

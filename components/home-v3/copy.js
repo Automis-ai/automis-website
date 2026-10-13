@@ -9,8 +9,7 @@ export const HOME_V3 = {
       titleAccent: "sistemi IA",
       titlePost: " che mancano alla tua azienda.",
       lead: "Prima ascoltiamo come lavori, poi lo costruiamo su misura. E i sistemi che costruiamo funzionano già, ogni giorno, per i nostri clienti.",
-      cta: "Trova le opportunità",
-      ctaSecondary: "Scopri i sistemi",
+      cta: "Scopri i sistemi",
     },
     journey: {
       eyebrow: "Un sistema al lavoro",

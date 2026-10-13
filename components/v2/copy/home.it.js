@@ -46,7 +46,7 @@ export default {
         statLabel: "chiamate in sette mesi",
         client: "Clínica Santa Maria dos Olivais",
         meta: "Clinica dentale · Lisbona, PT",
-        tag: "Receptionist vocale IA",
+        tag: "Segretaria IA",
         result: "Un assistente vocale sul telefono della clinica: 872 chiamate in sette mesi e 114 appuntamenti presi.",
         href: "/use-cases/clinica-santa-maria",
       },
