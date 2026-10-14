@@ -75,14 +75,8 @@ export default function AlbumAiCase({ locale = "en" }) {
           )}
           {t.hero.logo ? null : <span className="v2c-card__tag">{t.hero.tag}</span>}
         </div>
-        <div className="v2c-back">
-          <Button href={addLangPrefix("/use-cases", locale)} variant="link" arrow={false}>
-            {common.ui.allCases}
-          </Button>
-        </div>
             </>
           }
-          below={<BrowserWindow />}
         />
       ) : (
       <PageHero
@@ -259,6 +253,13 @@ export default function AlbumAiCase({ locale = "en" }) {
             }
           />
         </div>
+        {locale === "it" ? (
+          <div className="v2c-back v2c-back--end">
+            <Button href={addLangPrefix("/use-cases", locale)} variant="link" arrow={false}>
+              {common.ui.allCases}
+            </Button>
+          </div>
+        ) : null}
       </div>
       </main>
     </AutomisEnShell>

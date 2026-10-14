@@ -2356,3 +2356,8 @@ html [data-iv="in"] .v2c-flow__arrow {
   flex-direction: column;
   gap: 6px;
 }
+.v2c-back--end {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 56px;
+}

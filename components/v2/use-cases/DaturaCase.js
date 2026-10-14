@@ -61,11 +61,6 @@ export default function DaturaCase({ locale = "en" }) {
           <p className="v2c-client__name">{t.hero.client}</p>
           <span className="v2c-card__tag">{t.hero.tag}</span>
         </div>
-        <div className="v2c-back">
-          <Button href={addLangPrefix("/use-cases", locale)} variant="link" arrow={false}>
-            {common.ui.allCases}
-          </Button>
-        </div>
             </>
           }
           belowWide
@@ -221,6 +216,13 @@ export default function DaturaCase({ locale = "en" }) {
             }
           />
         </div>
+        {locale === "it" ? (
+          <div className="v2c-back v2c-back--end">
+            <Button href={addLangPrefix("/use-cases", locale)} variant="link" arrow={false}>
+              {common.ui.allCases}
+            </Button>
+          </div>
+        ) : null}
       </div>
       </main>
     </AutomisEnShell>
