@@ -51,7 +51,7 @@ export default {
         {
           id: "company-brain",
           name: "Company Brain",
-          line: "Tutto ciò che sa la tua azienda, a disposizione di tutti, a ogni ora.",
+          line: "Un archivio sui tuoi documenti: il tuo team chiede e riceve la risposta, con la fonte.",
           price: null,
           tag: "Sui tuoi documenti",
           cta: "Scopri il Company Brain",
@@ -597,9 +597,9 @@ export default {
     },
     hero: {
       eyebrow: "Company Brain",
-      title: "Tutto ciò che sa la tua azienda, a portata di tutti",
-      highlight: "a portata di tutti",
-      lead: "Un archivio privato sui tuoi documenti. Chi lavora da te chiede e riceve la risposta con la fonte, a ogni ora.",
+      title: "Smetti di essere il manuale della tua azienda",
+      highlight: "il manuale della tua azienda",
+      lead: "Chi lavora da te chiede e l'archivio risponde, con il documento da cui arriva. Lo prepariamo noi, e decidi tu dove stanno i dati.",
     },
     cards: [
       {
