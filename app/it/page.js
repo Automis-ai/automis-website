@@ -3,11 +3,7 @@ import { HeroV3, JourneyV3, SystemsV3, CasesV3, ToneV3 } from "@/components/home
 import HowWeWork from "@/components/home/HowWeWork";
 import OpportunityFinder from "@/components/home/OpportunityFinder";
 import Authority from "@/components/home/Authority";
-import FinalCtaClassic from "@/components/v2/home/FinalCtaClassic";
-import HomeStory from "@/components/v2/home/HomeStory";
-import { isProduction } from "@/lib/v2/env";
-import "@/components/v2/ui/v2.css";
-import "@/components/v2/home/home.css";
+import FinalCta from "@/components/home/FinalCta";
 
 export const metadata = {
   title: "Automis | Agenzia di automazione IA per il tuo business",
@@ -34,7 +30,7 @@ export const metadata = {
   },
 };
 
-// Home v3 (13/10/2026): hero → journey → 4 Sistemi IA → casi studio → come lavoriamo → Finder → founder → call (la scena con i moduli intorno al bottone, 14/10).
+// Home v3 (13/10/2026): hero → journey → 4 Sistemi IA → casi studio → come lavoriamo → Finder → founder → call (pitch e calendario di sempre, nei colori v3).
 // Fuori dalla home: Problemi (finiti nelle schede dei sistemi), Settori e FAQ.
 export default function HomeIt() {
   return (
@@ -48,8 +44,7 @@ export default function HomeIt() {
       <ToneV3 className="hv3-team">
         <Authority sectionClassName="bg-transparent" />
       </ToneV3>
-      <FinalCtaClassic live={isProduction()} />
-      <HomeStory />
+      <FinalCta v3 />
     </AutomisEnShell>
   );
 }

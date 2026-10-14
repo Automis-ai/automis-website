@@ -1,0 +1,93 @@
+/* Landing Shopify e WooCommerce nello stile della home v3 (14/10/2026). Si carica DOPO style.css (e woo.css):
+   stessa struttura e stessi testi, cambia solo la pelle. Blu del sito al posto del foglio bianco, vetro per le schede,
+   bottone azzurro al posto dell'oro, fascio di luce nell'apertura. Il colore della piattaforma (verde Shopify, viola Woo) resta. */
+
+:root {
+  --blue: #0c2646;
+  --glass: linear-gradient(180deg, rgba(40, 80, 140, 0.42), rgba(14, 40, 78, 0.38));
+  --glass-line: rgba(165, 210, 255, 0.2);
+  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- apertura: i fasci di luce della home ---------- */
+.hero { position: relative; isolation: isolate; }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -80px 0 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(50% 42% at 50% 0%, rgba(60, 145, 230, 0.34), transparent 72%),
+    conic-gradient(from 180deg at 50% -6%,
+      transparent 0 9%, rgba(60, 145, 230, 0.16) 11% 15%, transparent 17% 25%,
+      rgba(60, 145, 230, 0.10) 27% 29%, transparent 31% 69%,
+      rgba(60, 145, 230, 0.10) 71% 73%, transparent 75% 83%,
+      rgba(60, 145, 230, 0.16) 85% 89%, transparent 91% 100%);
+  -webkit-mask-image: linear-gradient(#000 55%, transparent);
+  mask-image: linear-gradient(#000 55%, transparent);
+}
+
+/* ---------- bottoni: azzurro del sito ---------- */
+.btn-gold {
+  background: linear-gradient(120deg, #3c91e6 0%, #57c7e3 60%, #8fd3f4 100%);
+  color: #00121f;
+  box-shadow: 0 14px 32px -14px rgba(60, 145, 230, 0.75);
+}
+.btn-gold:hover { box-shadow: 0 18px 38px -14px rgba(60, 145, 230, 0.9); }
+.btn-ghost { border-color: rgba(255, 255, 255, 0.32); color: #fff; background: rgba(255, 255, 255, 0.03); }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.5); }
+
+/* ---------- schede e pannelli: vetro blu ---------- */
+.card, .pcard, .pd, .gates, .log, .map-node, .choice {
+  background: var(--glass);
+  border-color: var(--glass-line);
+  box-shadow: var(--glass-shadow);
+}
+.map-core { background: var(--glass); }
+.gates li { background: rgba(255, 255, 255, 0.06); }
+.gates li:last-child { background: transparent; }
+.pcard-todo { background: transparent; box-shadow: none; }
+.big { color: var(--cyan); }
+
+/* ---------- la banda chiara diventa blu del sito (il bianco è bocciato) ---------- */
+.sec-light {
+  padding-block: 0;
+  color: #fff;
+  background: linear-gradient(in oklab 180deg,
+    var(--section) 0,
+    color-mix(in oklab, #3c91e6 30%, color-mix(in oklab, var(--section) 50%, var(--blue))) 110px,
+    var(--blue) 220px,
+    var(--blue) calc(100% - 220px),
+    color-mix(in oklab, #3c91e6 30%, color-mix(in oklab, var(--section) 50%, var(--blue))) calc(100% - 110px),
+    var(--section) 100%);
+}
+.sec-light > .wrap {
+  max-width: var(--max);
+  background: none;
+  border-radius: 0;
+  padding: 140px var(--gutter);
+}
+@media (max-width: 719px) {
+  .sec-light { padding-inline: 0; }
+  .sec-light > .wrap { padding: 110px var(--gutter); border-radius: 0; }
+}
+.sec-light h2 { color: #fff; }
+.sec-light .sec-head p, .sec-light .kicker + p { color: var(--muted); }
+.sec-light .kicker { color: var(--shop); }
+.sk-list li { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.12); }
+.sk-list li.sk-head { color: var(--muted); }
+.sk-price { color: var(--shop); background: rgba(149, 191, 71, 0.16); }
+.sk-note { color: var(--muted); }
+.sk-note a { color: var(--soft); }
+/* WooCommerce: elenco «chi guarda cosa» */
+.fn-list li { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.12); }
+.fn-does { color: var(--muted); }
+.fn-blind { color: var(--shop); background: rgba(185, 153, 227, 0.14); }
+
+/* ---------- chiusura: stessa luce dell'apertura ---------- */
+.close {
+  background:
+    radial-gradient(50% 60% at 50% 100%, rgba(60, 145, 230, 0.28), transparent 70%),
+    var(--canvas);
+}

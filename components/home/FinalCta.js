@@ -73,7 +73,8 @@ const COPY = {
   },
 };
 
-export default function FinalCta() {
+// v3: stessa chiusura di sempre (pitch a sinistra, calendario a destra) nei colori della home v3.
+export default function FinalCta({ v3 = false }) {
   const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
   const t = COPY[locale];
   const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
@@ -98,7 +99,7 @@ export default function FinalCta() {
   }, []);
 
   return (
-    <section id="book" className="relative overflow-hidden bg-[#020a12] py-16 md:py-24">
+    <section id="book" className={`relative overflow-hidden py-16 md:py-24 ${v3 ? "hv3 hv3-tone hv3-call" : "bg-[#020a12]"}`}>
       <div className="pointer-events-none absolute inset-0">
         <div
           className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 opacity-50 blur-3xl"
@@ -144,7 +145,7 @@ export default function FinalCta() {
           <Reveal delay={100}>
             <div
               ref={holderRef}
-              className="relative rounded-2xl border border-white/[0.1] bg-white/[0.02] p-2 shadow-2xl"
+              className={`relative rounded-2xl p-2 shadow-2xl ${v3 ? "hv3-call__card" : "border border-white/[0.1] bg-white/[0.02]"}`}
             >
               {/* dark header so the (unavoidably light) calendar reads as an intentional inset */}
               <div className="flex items-center justify-between px-3 pb-2 pt-1.5">

@@ -2266,3 +2266,10 @@
   font-size: 19px;
   overflow-wrap: anywhere;
 }
+
+/* Chiusura della home: pitch e calendario di sempre, nel blu del sito (14/10) */
+.hv3-call__card {
+  background: var(--hv3-card);
+  border: 1px solid var(--hv3-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+}
