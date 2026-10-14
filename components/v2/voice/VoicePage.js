@@ -1,5 +1,6 @@
 import "./voice.css";
 import PageHero from "@/components/v2/ui/PageHero";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CardGrid from "@/components/v2/ui/CardGrid";
@@ -48,14 +49,24 @@ export default function VoicePage({ locale = "en", tono }) {
       <SmoothScroll />
       <PageStory />
 
-      <PageHero
-        size="compact"
-        scene="voice"
-        eyebrow={t.hero.eyebrow}
-        {...heroTitle(t.hero.title, t.hero.highlight)}
-        subtitle={t.hero.subtitle}
-        primaryCta={{ label: t.hero.cta, href: "#book" }}
-      />
+      {locale === "it" ? (
+        <PageHeroV3
+          eyebrow={t.hero.eyebrow}
+          title={t.hero.title}
+          highlight={t.hero.highlight}
+          lead={t.hero.subtitle}
+          cta={{ label: t.hero.cta, href: "#book" }}
+        />
+      ) : (
+        <PageHero
+          size="compact"
+          scene="voice"
+          eyebrow={t.hero.eyebrow}
+          {...heroTitle(t.hero.title, t.hero.highlight)}
+          subtitle={t.hero.subtitle}
+          primaryCta={{ label: t.hero.cta, href: "#book" }}
+        />
+      )}
 
       {/* Il problema: tre schede corte (la prima frase), il resto a richiesta */}
       <Section tone="light" className="v2vo-sec" aria-labelledby="vo-problem">

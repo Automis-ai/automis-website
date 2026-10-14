@@ -1,4 +1,5 @@
 import PageHero from "@/components/v2/ui/PageHero";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CtaBand from "@/components/v2/ui/CtaBand";
@@ -24,15 +25,25 @@ export default function AboutView({ lang, tono }) {
     <main id="main" className={pageClass(tono)}>
       <SmoothScroll />
       <PageStory />
-      <PageHero
-        size="compact"
-        eyebrow={t.hero.eyebrow}
-        {...heroTitle(t.hero.title, t.hero.accent)}
-        subtitle={t.hero.lead}
-        primaryCta={{ label: c.cta, href: contact }}
-      />
+      {lang === "it" ? (
+        <PageHeroV3
+          eyebrow={t.hero.eyebrow}
+          title={t.hero.title}
+          highlight={t.hero.accent}
+          lead={t.hero.lead}
+          cta={{ label: "Conosci i fondatori", href: "#fondatori" }}
+        />
+      ) : (
+        <PageHero
+          size="compact"
+          eyebrow={t.hero.eyebrow}
+          {...heroTitle(t.hero.title, t.hero.accent)}
+          subtitle={t.hero.lead}
+          primaryCta={{ label: c.cta, href: contact }}
+        />
+      )}
 
-      <Section tone="light">
+      <Section tone="light" id="fondatori">
         <SectionHeader title={t.founders.title} />
         <FounderCards items={t.founders.items} moreLabel={moreLabel} profileLabel={t.founders.profileLabel} />
       </Section>
