@@ -46,7 +46,7 @@ export default {
 
   time: {
     title: "Prima e dopo",
-    lead: "Il tempo di un album di eventi, scelta e impaginazione, prima a mano e adesso con il sistema.",
+    lead: "Il tempo di un album di eventi, prima a mano e adesso con il sistema.",
     before: {
       label: "A mano",
       figure: "Circa 6 ore",
@@ -72,7 +72,7 @@ export default {
 
   online: {
     title: "Online da zero, in tre pezzi",
-    lead: "Per lo studio fotografico abbiamo costruito il sistema per gli album, il sito e il CRM.",
+    lead: "Per lo studio fotografico abbiamo costruito gli album, il sito e il CRM.",
     site: {
       status: "Online",
       title: "Il sito",

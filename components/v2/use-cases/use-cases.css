@@ -2430,3 +2430,17 @@ html [data-iv="in"] .v2c-flow__arrow {
     text-wrap: balance;
   }
 }
+@media (max-width: 767px) {
+  .v2c-site {
+    padding: 22px;
+  }
+  .v2c-site__shots {
+    min-height: 0;
+    padding-bottom: 28px;
+  }
+  .v2c-site__img--mobile {
+    right: 0;
+    bottom: 0;
+    width: 30%;
+  }
+}

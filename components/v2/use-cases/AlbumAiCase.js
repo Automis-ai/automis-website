@@ -139,7 +139,7 @@ export default function AlbumAiCase({ locale = "en" }) {
         {t.time ? (
           <>
             <Section fx={false} tone="light" className="v2c-sec" id="tempi">
-              <SectionHeader title={t.time.title} lead={t.time.lead} />
+              <SectionHeader align="center" title={t.time.title} lead={t.time.lead} className="v2c-scenehead" />
               <InView className="v2c-ba">
                 {[t.time.before, t.time.after].map((c, i) => (
                   <div key={i} className={`v2-card v2c-ba__card${i ? " v2c-ba__card--new" : " v2c-ba__card--old"}`}>
@@ -166,7 +166,7 @@ export default function AlbumAiCase({ locale = "en" }) {
             </Section>
 
             <Section fx={false} tone="light" className="v2c-sec">
-              <SectionHeader title={t.online.title} lead={t.online.lead} />
+              <SectionHeader align="center" title={t.online.title} lead={t.online.lead} className="v2c-scenehead" />
               <div className="v2c-site v2-card">
                 <div className="v2c-site__text">
                   <span className="v2c-online__status v2c-online__status--on">{t.online.site.status}</span>
