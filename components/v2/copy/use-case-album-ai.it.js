@@ -28,7 +28,8 @@ export default {
 
   scene: {
     title: "Come lavora il sistema",
-    lead: "Dalle centinaia di scatti di un evento all'album, con il fotografo che ha l'ultima parola. Le foto sono immagini di esempio.",
+    lead: "Dagli scatti dell'evento all'album, con il fotografo che ha l'ultima parola.",
+    note: "Le foto sono immagini di esempio.",
     label: "Animazione: gli scatti dell'evento arrivano, il sistema scarta quelli sfocati, doppi o con gli occhi chiusi, tiene le migliori e le impagina in un album vero, da stampare; il fotografo cambia una foto, il sistema impara e le pagine si sfogliano.",
     photos: ["sposi-coriandoli", "bouquet-luce", "sposi-palloncini", "fedi-mani", "tavolo", "mani-bouquet", "famiglia-tramonto", "fedi-peonie", "sedie-prato", "ritratto"].map(
       (n) => `/media/use-cases/album-ai/photos/${n}.jpg`

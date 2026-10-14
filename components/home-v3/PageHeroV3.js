@@ -20,7 +20,7 @@ function splitTitle(title, highlight) {
   return [title.slice(0, i), glued, title.slice(i + highlight.length)];
 }
 
-export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, painLabel, cta, extra, below, belowWide, className, id }) {
+export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, painLabel, cta, extra, below, belowWide, className, id, eyebrowLogo }) {
   const textRef = useRef(null);
   const [pre, acc, post] = splitTitle(title, highlight);
   return (
@@ -31,7 +31,17 @@ export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, pain
       <div className="hv3-hero__veil" />
       <div className="hv3-hero__in">
         <div ref={textRef} className="flex flex-col items-center">
-          {eyebrow ? <span className="hv3-pill">{eyebrow}</span> : null}
+          {eyebrow ? (
+            eyebrowLogo ? (
+              <div className="hv3-eyebrowrow">
+                <span className="hv3-pill">{eyebrow}</span>
+                <span className="hv3-eyebrowrow__sep" aria-hidden="true" />
+                <img className="hv3-eyebrowrow__logo" src={eyebrowLogo.src} alt={eyebrowLogo.alt} />
+              </div>
+            ) : (
+              <span className="hv3-pill">{eyebrow}</span>
+            )
+          ) : null}
           <h1 className="hv3-h1 hv3-h1--page font-display">
             {pre}
             {acc ? <em>{acc}</em> : null}

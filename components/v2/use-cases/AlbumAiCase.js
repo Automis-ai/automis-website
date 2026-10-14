@@ -61,23 +61,7 @@ export default function AlbumAiCase({ locale = "en" }) {
           highlight={t.hero.highlight}
           lead={t.hero.lead}
           cta={{ label: "Leggi il caso", href: "#flusso" }}
-          extra={
-            <>
-        <div className="v2c-client">
-          {t.hero.logo ? (
-            <img className="v2c-client__logo" src={t.hero.logo} alt={t.hero.client} />
-          ) : (
-            <>
-              <span className="v2-tile">
-                <Icon name="camera" size={22} />
-              </span>
-              <p className="v2c-client__name">{t.hero.client}</p>
-            </>
-          )}
-          {t.hero.logo ? null : <span className="v2c-card__tag">{t.hero.tag}</span>}
-        </div>
-            </>
-          }
+          eyebrowLogo={t.hero.logo ? { src: t.hero.logo, alt: t.hero.client } : null}
         />
       ) : (
       <PageHero
@@ -114,8 +98,9 @@ export default function AlbumAiCase({ locale = "en" }) {
       <div className="v2-caso">
         {t.scene ? (
           <Section fx={false} tone="light" className="v2c-edge" id="flusso">
-            <SectionHeader title={t.scene.title} lead={t.scene.lead} />
+            <SectionHeader align="center" title={t.scene.title} lead={t.scene.lead} className="v2c-scenehead" />
             <AlbumGlassScene steps={t.scene.steps} label={t.scene.label} photos={t.scene.photos} />
+            <p className="v2c-scenenote">{t.scene.note}</p>
           </Section>
         ) : (
           <Section fx={false} tone="light" className="v2c-edge" id="flusso">
