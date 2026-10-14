@@ -121,7 +121,8 @@ function buildMenu(locale) {
             { key: "sales", title: t.cat.sales, href: h("/systems/sales") },
             { key: "support", title: t.cat.support, href: h("/systems/support") },
             { key: "admin", title: t.cat.admin, href: h("/systems/admin") },
-            { key: "company-brain", title: t.cat["company-brain"], href: h("/systems/company-brain") },
+            // In italiano Company Brain è un prodotto (14/10), non una quinta categoria.
+            ...(locale === "it" ? [] : [{ key: "company-brain", title: t.cat["company-brain"], href: h("/systems/company-brain") }]),
           ],
         },
         {
@@ -130,6 +131,7 @@ function buildMenu(locale) {
           items: [
             { key: "voice-ai", title: "Voice AI", href: h("/voice-ai") },
             { key: "ecommerce", title: "AI E-commerce Manager", href: h("/ecommerce") },
+            ...(locale === "it" ? [{ key: "company-brain", title: "Company Brain", href: h("/systems/company-brain") }] : []),
           ],
         },
       ],

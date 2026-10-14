@@ -27,11 +27,10 @@ export default {
         { slug: "sales", title: "Sistemi IA per la Vendita", line: "Ogni contatto riceve risposta e viene seguito." },
         { slug: "support", title: "Sistemi IA per l'Assistenza", line: "Chiamate, chat e messaggi hanno una risposta a ogni ora." },
         { slug: "admin", title: "Sistemi IA per l'Amministrazione", line: "Documenti, dati e routine li gestisce il sistema." },
-        { slug: "company-brain", title: "Company Brain", line: "Tutto ciò che sa la tua azienda, a portata di tutti." },
       ],
     },
     products: {
-      title: "Due prodotti da cui partire",
+      title: "Tre prodotti da cui partire",
       items: [
         {
           id: "voice",
@@ -48,6 +47,15 @@ export default {
           price: null,
           cta: "Scegli la piattaforma",
           href: "/ecommerce",
+        },
+        {
+          id: "company-brain",
+          name: "Company Brain",
+          line: "Tutto ciò che sa la tua azienda, a disposizione di tutti, a ogni ora.",
+          price: null,
+          tag: "Sui tuoi documenti",
+          cta: "Scopri il Company Brain",
+          href: "/systems/company-brain",
         },
       ],
     },

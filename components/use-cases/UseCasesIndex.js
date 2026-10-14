@@ -9,6 +9,7 @@ import { CHAINS } from "@/components/v2/use-cases/constants";
 import { CASES } from "@/components/use-cases/cases";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
+import { pageClass } from "@/components/v2/ui/toneClass";
 import "@/components/v2/use-cases/use-cases.css";
 
 /*
@@ -21,7 +22,10 @@ import "@/components/v2/use-cases/use-cases.css";
   il preset va aggiunto a components/v2/wow/fx/scene/presets.js (richiesta in coda al giro): finché non c'è il motore ripiega su «generic».
 */
 // Casi senza voce in cases.js (non hanno una pagina di dettaglio con i dati completi) ma con un logo che si può mostrare.
-const EXTRA_LOGOS = { "album-ai": "/assets/images/client-logos/simone-casillo.png" };
+const EXTRA_LOGOS = {
+  "album-ai": "/assets/images/client-logos/simone-casillo.png",
+  "datura-clothing": "/assets/images/client-logos/datura-clothing.png",
+};
 
 export default function UseCasesIndex({ locale = "en" }) {
   const t = getCopy("use-cases", locale);
@@ -29,7 +33,7 @@ export default function UseCasesIndex({ locale = "en" }) {
 
   return (
     <AutomisEnShell>
-      <main id="main">
+      <main id="main" className={locale === "it" ? pageClass() : undefined}>
       {locale === "it" ? (
         <PageHeroV3
           eyebrow={t.hero.eyebrow}

@@ -57,14 +57,6 @@ export const HOME_V3 = {
           pain: "Il tuo team perde ore tra pratiche e scartoffie.",
           more: "Ogni settimana se ne vanno ore tra dati da inserire, appuntamenti da fissare e documenti da rincorrere, invece di occuparsi dei clienti.",
         },
-        {
-          slug: "company-brain",
-          chapter: "a",
-          title: "Company Brain",
-          line: "Tutto ciò che sa la tua azienda, a disposizione di tutti, a ogni ora.",
-          pain: "Per sapere come si fa una cosa devi trovare la persona giusta.",
-          more: "Le informazioni stanno sparse tra email, PDF e la memoria di chi lavora da anni. Il Brain risponde a chi chiede, partendo dai tuoi documenti e indicando la fonte.",
-        },
       ],
     },
     hub: {
@@ -76,7 +68,7 @@ export const HOME_V3 = {
         cta: "Scopri le aree",
       },
       areas: { eyebrow: "Sistemi IA", title: "Un sistema per ogni area della tua azienda" },
-      products: { eyebrow: "Prodotti", title: "Due prodotti da cui partire", tagFallback: "Shopify · WooCommerce" },
+      products: { eyebrow: "Prodotti", title: "Tre prodotti da cui partire", tagFallback: "Shopify · WooCommerce" },
       cta: {
         eyebrow: "Non sai da dove partire?",
         title: "Dicci come lavori: ti diciamo cosa ti serve davvero.",
@@ -91,10 +83,10 @@ export const HOME_V3 = {
       approx: "circa",
       read: "Leggi il caso studio",
       items: [
-        { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "872", label: "chiamate in sette mesi", client: "Clínica Santa Maria dos Olivais", meta: "Clinica dentale · Lisbona · Segretaria IA" },
-        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "2.329", label: "conversazioni dal 1/5 al 16/9/2026", client: "ADifesa", meta: "Associazione di tutela bancaria e finanziaria · Lissone · Automazione Meta" },
-        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "280", approx: true, label: "foto scelte tra 1.200 e 1.800 scatti", client: "Studio fotografico Simone Casillo", meta: "Fotografia · Strumento per album" },
-        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "10", label: "guasti trovati in 28 giorni", client: "Datura Clothing", meta: "E-commerce di abbigliamento · Presidio e campagne" },
+        { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "872", label: "chiamate in sette mesi", client: "Clínica Santa Maria dos Olivais", tag: "Segretaria IA", meta: "Clinica dentale · Lisbona" },
+        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "2.329", label: "conversazioni dal 1/5 al 16/9/2026", client: "ADifesa", tag: "Automazione Meta", meta: "Associazione di tutela bancaria e finanziaria · Lissone" },
+        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "280", approx: true, label: "foto scelte tra 1.200 e 1.800 scatti", client: "Studio fotografico Simone Casillo", tag: "Album AI", meta: "Fotografia · Album scelti e impaginati dall'IA" },
+        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "10", label: "guasti trovati in 28 giorni", client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "E-commerce di abbigliamento · Negozio WooCommerce" },
       ],
     },
   },

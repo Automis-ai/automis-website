@@ -99,44 +99,18 @@ export function JourneyV3() {
 export function SystemsV3() {
   const locale = localeOf(usePathname());
   const t = homeCopy(locale).systems;
-  const chapRef = useRef(null);
 
-  // il capitolo acceso è quello della scheda che hai davanti
-  const onProgress = (k, track) => {
-    const box = chapRef.current;
-    if (!box) return;
-    let best = null;
-    let bd = Infinity;
-    const target = window.innerWidth * (0.2 + 0.6 * k);
-    track.querySelectorAll("[data-chapter]").forEach((c) => {
-      const q = c.getBoundingClientRect();
-      const d = Math.abs(q.left + q.width / 2 - target);
-      if (d < bd) {
-        bd = d;
-        best = c;
-      }
-    });
-    if (!best) return;
-    box.querySelectorAll("span").forEach((s) => s.classList.toggle("is-on", s.dataset.c === best.dataset.chapter));
-  };
-
+  // Quattro schede: ci stanno tutte nello schermo, niente scorrimento laterale (14/10).
   const head = (
     <div className="hv3-head">
       <span className="hv3-eyebrow">{t.eyebrow}</span>
       <h2 className="hv3-h2 font-display">{t.title}</h2>
-      <div ref={chapRef} className="hv3-chapters">
-        {Object.entries(t.chapters).map(([c, label], i) => (
-          <span key={c} data-c={c} className={i === 0 ? "is-on" : ""}>
-            {label}
-          </span>
-        ))}
-      </div>
     </div>
   );
 
   return (
-    <section id="sistemi" className="hv3 hv3-systems">
-      <ScrollRow head={head} onProgress={onProgress}>
+    <section id="sistemi" className="hv3 hv3-systems hv3-systems--four">
+      <ScrollRow head={head}>
         {t.items.map((s) => (
           <article key={s.slug} className="hv3-scard" data-chapter={s.chapter}>
             <span className="hv3-scard__chap">{t.chapters[s.chapter]}</span>
@@ -178,9 +152,12 @@ export function CasesV3() {
       <ScrollRow head={head}>
         {t.items.map((c) => (
           <article key={c.slug} className="hv3-ccard">
-            <span className="hv3-ccard__logo">
-              <img src={c.logo} alt={c.client} loading="lazy" />
-            </span>
+            <div className="hv3-ccard__top">
+              <span className="hv3-ccard__logo">
+                <img src={c.logo} alt={c.client} loading="lazy" />
+              </span>
+              {c.tag ? <span className="hv3-ccard__tag">{c.tag}</span> : null}
+            </div>
             <div className="hv3-ccard__stat font-display">
               {c.approx ? <small>{t.approx}</small> : null}
               {c.stat}

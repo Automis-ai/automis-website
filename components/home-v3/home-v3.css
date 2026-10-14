@@ -2190,3 +2190,79 @@
     background: linear-gradient(135deg, #3c91e6, #57c7e3);
   }
 }
+
+/* ---------- Home: quattro sistemi, tutti nello schermo (14/10) ---------- */
+.hv3-systems--four .hv3-srow__track {
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1280px;
+  margin-inline: auto;
+}
+.hv3-systems--four .hv3-scard {
+  flex: 1 1 calc(25% - 14px);
+  min-width: 0;
+  min-height: 400px;
+}
+@media (max-width: 1100px) {
+  .hv3-systems--four .hv3-scard {
+    flex-basis: calc(50% - 10px);
+    min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .hv3-systems--four .hv3-scard {
+    flex-basis: 100%;
+  }
+}
+
+/* Hub: quattro aree in due colonne, tre prodotti in fila */
+.hv3-hub__grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+.hv3-hub__grid .hv3-scard,
+.hv3-hub__grid .hv3-scard:nth-child(4),
+.hv3-hub__grid .hv3-scard:nth-child(5) {
+  grid-column: auto;
+}
+.hv3-products__grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 900px) {
+  .hv3-hub__grid,
+  .hv3-products__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Schede dei casi in home: logo e nome del sistema in alto, come l'apertura delle pagine dei casi (14/10) */
+.hv3-ccard__top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.hv3-ccard__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(87, 199, 227, 0.4);
+  background: rgba(87, 199, 227, 0.08);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hv3-accent);
+}
+.hv3-ccard__tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hv3-accent);
+}
+.hv3-systems--four .hv3-scard h3 {
+  font-size: 19px;
+  overflow-wrap: anywhere;
+}

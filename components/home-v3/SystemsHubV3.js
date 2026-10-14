@@ -7,14 +7,14 @@ import { homeCopy } from "./copy";
 import "./home-v3.css";
 
 /*
-  /systems nella versione v3 (solo IT per ora): hero compatta, le cinque aree in vetro con «Il problema» (stessi testi delle
-  schede della home), i due prodotti, chiusura con il Finder. Mockup approvato il 13-14/10: ~/Automations/sandbox/web-motion/systems-v3/hub.html.
+  /systems nella versione v3 (solo IT per ora): hero compatta, le quattro aree in vetro con «Il problema» (stessi testi delle
+  schede della home), i tre prodotti, chiusura con il Finder. Mockup approvato il 13-14/10: ~/Automations/sandbox/web-motion/systems-v3/hub.html.
 */
 export default function SystemsHubV3({ locale = "it" }) {
   const h = homeCopy(locale);
   const t = h.hub;
   const products = getCopy("systems", locale).hub.products.items;
-  const productHref = { voice: "/voice-ai", ecommerce: "/ecommerce" };
+  const productHref = { voice: "/voice-ai", ecommerce: "/ecommerce", "company-brain": "/systems/company-brain" };
 
   return (
     <main id="main">
@@ -61,7 +61,7 @@ export default function SystemsHubV3({ locale = "it" }) {
         <div className="hv3-products__grid">
           {products.map((p) => (
             <Link key={p.id} href={addLangPrefix(productHref[p.id], locale)} className="hv3-pcard">
-              <span className="hv3-pcard__tag">{p.price || t.products.tagFallback}</span>
+              <span className="hv3-pcard__tag">{p.tag || p.price || t.products.tagFallback}</span>
               <h3 className="font-display">{p.name}</h3>
               <p>{p.line}</p>
               <span className="hv3-scard__go">
