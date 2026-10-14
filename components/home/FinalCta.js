@@ -112,7 +112,7 @@ export default function FinalCta({ v3 = false }) {
           {/* Left: pitch */}
           <Reveal>
             <div>
-              <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">{t.eyebrow}</span>
+              <span className={`text-[12px] font-semibold uppercase tracking-[0.16em] ${v3 ? "hv3-call__eyebrow" : "text-[#57C7E3]"}`}>{t.eyebrow}</span>
               <h2 className="font-display mt-4 text-[2.1rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.7rem]">
                 {t.h2Pre}<GradientText>{t.h2Grad}</GradientText>{t.h2Post}
               </h2>
@@ -122,8 +122,8 @@ export default function FinalCta({ v3 = false }) {
               <ul className="mt-7 space-y-3">
                 {t.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-[15px] text-white/80">
-                    <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: GRAD }}>
-                      <Check className="h-3 w-3 text-[#04101c]" strokeWidth={3} />
+                    <span className={`mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full${v3 ? " hv3-call__tick" : ""}`} style={v3 ? undefined : { background: GRAD }}>
+                      <Check className={`h-3 w-3 ${v3 ? "" : "text-[#04101c]"}`} strokeWidth={3} />
                     </span>
                     {b}
                   </li>
@@ -150,7 +150,7 @@ export default function FinalCta({ v3 = false }) {
               {/* dark header so the (unavoidably light) calendar reads as an intentional inset */}
               <div className="flex items-center justify-between px-3 pb-2 pt-1.5">
                 <span className="flex items-center gap-2 text-[13px] font-semibold text-white/85">
-                  <span className="h-2 w-2 rounded-full" style={{ background: GRAD, boxShadow: "0 0 8px rgba(87,199,227,0.8)" }} />
+                  <span className={`h-2 w-2 rounded-full${v3 ? " hv3-call__dot" : ""}`} style={v3 ? undefined : { background: GRAD, boxShadow: "0 0 8px rgba(87,199,227,0.8)" }} />
                   {t.availability}
                 </span>
                 <span className="text-[12px] text-white/50">{t.instantConfirmation}</span>
@@ -176,7 +176,7 @@ export default function FinalCta({ v3 = false }) {
                   />
                 )}
               </div>
-              <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-2 py-2 text-[12px] text-white/60">
+              <div className={`mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-2 py-2 text-[12px] text-white/60${v3 ? " hv3-call__proof" : ""}`}>
                 <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.guarantee}</span>
                 <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.gdpr}</span>
                 <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.noObligation}</span>

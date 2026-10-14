@@ -2286,3 +2286,34 @@
   filter: invert(1) hue-rotate(180deg);
   mix-blend-mode: screen;
 }
+
+/* Chiusura della home: blu scuro con piccoli dettagli giallini (scelta del 14/10, al posto del calendario blu medio) */
+.hv3-call {
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(60, 145, 230, 0.16), transparent 70%),
+    radial-gradient(40% 40% at 88% 90%, rgba(245, 205, 121, 0.06), transparent 70%),
+    #061428;
+}
+.hv3-call__eyebrow { color: #f5cd79; }
+.hv3-call__tick {
+  background: rgba(245, 205, 121, 0.14);
+  border: 1px solid rgba(245, 205, 121, 0.55);
+  color: #f5cd79;
+}
+.hv3-call__card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(20, 52, 96, 0.55), rgba(8, 24, 48, 0.7));
+  border-color: rgba(165, 210, 255, 0.16);
+}
+.hv3-call__card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 22px;
+  right: 22px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 205, 121, 0.75), transparent);
+}
+.hv3-call__dot { background: #f5cd79; box-shadow: 0 0 8px rgba(245, 205, 121, 0.8); }
+.hv3-call__frame { background: #081a33; }
+.hv3-call__proof svg { color: #f5cd79 !important; }
