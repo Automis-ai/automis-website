@@ -5,6 +5,7 @@ import AlbumGlassScene from "@/components/home-v3/AlbumGlassScene";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import Button from "@/components/v2/ui/Button";
+import MoreCases from "@/components/v2/use-cases/MoreCases";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import Icon from "@/components/v2/ui/icons";
 import { AlbumSpread, Contact } from "@/components/v2/use-cases/AlbumVisuals";
@@ -254,10 +255,8 @@ export default function AlbumAiCase({ locale = "en" }) {
           />
         </div>
         {locale === "it" ? (
-          <div className="v2c-back v2c-back--end">
-            <Button href={addLangPrefix("/use-cases", locale)} variant="link" arrow={false}>
-              {common.ui.allCases}
-            </Button>
+          <div className="v2c-more-wrap">
+            <MoreCases href={addLangPrefix("/use-cases", locale)} />
           </div>
         ) : null}
       </div>

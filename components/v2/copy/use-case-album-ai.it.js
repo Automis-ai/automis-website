@@ -29,7 +29,7 @@ export default {
   scene: {
     title: "Come lavora il sistema",
     lead: "Dalle centinaia di scatti di un evento all'album, con il fotografo che ha l'ultima parola. Le foto sono immagini di esempio.",
-    label: "Animazione: gli scatti dell'evento arrivano, il sistema scarta quelli sfocati, doppi o con gli occhi chiusi, tiene le migliori e le impagina nell'album; il fotografo cambia una foto e il sistema impara.",
+    label: "Animazione: gli scatti dell'evento arrivano, il sistema scarta quelli sfocati, doppi o con gli occhi chiusi, tiene le migliori e le impagina in un album vero, da stampare; il fotografo cambia una foto, il sistema impara e le pagine si sfogliano.",
     photos: ["sposi-coriandoli", "bouquet-luce", "sposi-palloncini", "fedi-mani", "tavolo", "mani-bouquet", "famiglia-tramonto", "fedi-peonie", "sedie-prato", "ritratto"].map(
       (n) => `/media/use-cases/album-ai/photos/${n}.jpg`
     ),
@@ -39,6 +39,7 @@ export default {
       "Restano circa 280 foto",
       "Le impagina nell'album",
       "Il fotografo rivede e il sistema impara",
+      "L'album è pronto da stampare",
     ],
   },
 
@@ -95,7 +96,7 @@ export default {
   },
 
   cta: {
-    title: "Meno ore sugli album, più tempo per i clienti",
-    line: "Album AI toglie allo studio il lavoro più lungo e ripetitivo: si consegna prima e resta più tempo per seguire chi aspetta. Raccontaci quale lavoro ripetitivo ti porta via più ore e ti diciamo da dove partiremmo.",
+    title: "Sei un fotografo? Prova Album AI nel tuo studio",
+    line: "Meno ore sugli album, consegne più veloci, più tempo per i clienti. Se fai matrimoni, 18 anni o cerimonie e passi ore a scegliere e impaginare, raccontaci come lavori: vediamo insieme se fa per te.",
   },
 };

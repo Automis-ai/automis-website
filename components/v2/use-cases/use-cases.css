@@ -2361,3 +2361,69 @@ html [data-iv="in"] .v2c-flow__arrow {
   justify-content: center;
   padding: 8px 0 56px;
 }
+
+/* ---------- «Vuoi vedere altri casi?»: tutta la scheda è un link ---------- */
+.v2c-more-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 8px 20px 72px;
+}
+.v2c-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 26px;
+  border-radius: 20px;
+  border: 1px solid rgba(165, 210, 255, 0.28);
+  background: rgba(40, 80, 140, 0.22);
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+.v2c-more:hover,
+.v2c-more:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(87, 199, 227, 0.7);
+  background: rgba(50, 95, 160, 0.34);
+  box-shadow: 0 24px 50px -28px rgba(60, 145, 230, 0.8);
+  color: #fff;
+}
+.v2c-more__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.v2c-more__text b {
+  font-family: var(--v2-display);
+  font-size: 20px;
+  font-weight: 600;
+}
+.v2c-more__text span {
+  font-size: 15px;
+  color: #bcd0e8;
+}
+.v2c-more__go {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #00121f;
+  background: linear-gradient(120deg, #3c91e6, #57c7e3 60%, #8fd3f4);
+}
+.v2c-more__go svg {
+  transition: transform 0.3s;
+}
+.v2c-more:hover .v2c-more__go svg {
+  transform: translateX(4px);
+}
+@media (max-width: 640px) {
+  .v2c-more {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

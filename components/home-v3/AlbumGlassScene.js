@@ -12,10 +12,14 @@ import "./home-v3.css";
 */
 const W = 1000;
 const H = 520;
-const T = 16; // secondi del ciclo
+const T = 21; // secondi del ciclo
 const N = 70;
 const KEEP = 13;
-const PHASES = [0, 2.4, 6.4, 7.8, 10.4]; // inizio delle 5 didascalie
+const PL = { x: 188, y: 108, w: 312, h: 300 }; // pagina sinistra
+const PR = { x: 500, y: 108, w: 312, h: 300 }; // pagina destra (il dorso sta a x = 500)
+const HINGE = 500;
+const SPREAD_KINDS = [0, 1, 3, 4, 2, 5]; // impaginazioni delle pagine 2..7
+const PHASES = [0, 2.4, 6.4, 7.8, 11.4, 14.6]; // inizio delle 6 didascalie
 
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const ease = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
@@ -56,18 +60,26 @@ function build() {
   tiles.forEach((t, i) => {
     if (!t.keep && i % 5 === 0) t.tag = tags[tg++ % 3];
   });
-  // celle dell'album: due pagine, sei e sette foto
-  const cells = [
-    [196, 130, 130, 90], [340, 130, 134, 90], [196, 232, 62, 86], [270, 232, 204, 86], [196, 330, 132, 60], [340, 330, 134, 60],
-    [526, 130, 90, 128], [630, 130, 174, 128], [526, 272, 174, 70], [714, 272, 90, 70], [526, 354, 84, 36], [622, 354, 84, 36], [718, 354, 86, 36],
-  ];
+  // celle dell'album: due pagine adiacenti (sei e sette foto), coordinate relative alla pagina (margine 16)
+  const cl = [[0, 0, 134, 90], [144, 0, 136, 90], [0, 100, 62, 86], [72, 100, 208, 86], [0, 196, 134, 72], [144, 196, 136, 72]];
+  const cr = [[0, 0, 92, 130], [102, 0, 178, 130], [0, 140, 178, 72], [188, 140, 92, 72], [0, 222, 86, 46], [96, 222, 86, 46], [192, 222, 88, 46]];
+  const cells = [...cl.map((c) => [PL.x + 16 + c[0], PL.y + 16 + c[1], c[2], c[3]]), ...cr.map((c) => [PR.x + 16 + c[0], PR.y + 16 + c[1], c[2], c[3]])];
   const keepIds = tiles.map((t, i) => (t.keep ? i : -1)).filter((i) => i >= 0);
   keepIds.sort((a, b) => tiles[a].x - tiles[b].x);
   keepIds.forEach((id, k) => {
     tiles[id].cell = cells[k];
     tiles[id].order = k;
   });
-  return { tiles, cells };
+  // le altre pagine dell'album (2..7): celle locali di sei impaginazioni diverse
+  const kinds = [
+    [[0, 0, 280, 170], [0, 180, 136, 88], [144, 180, 136, 88]],
+    [[0, 0, 136, 130], [144, 0, 136, 130], [0, 138, 136, 130], [144, 138, 136, 130]],
+    [[0, 0, 88, 268], [96, 0, 88, 268], [192, 0, 88, 268]],
+    [[0, 0, 176, 268], [184, 0, 96, 130], [184, 138, 96, 130]],
+    [[0, 0, 280, 128], [0, 136, 88, 132], [96, 136, 88, 132], [192, 136, 88, 132]],
+    [[0, 0, 280, 268]],
+  ];
+  return { tiles, cells, kinds };
 }
 
 function rrect(ctx, x, y, w, h, r) {
@@ -135,19 +147,153 @@ function photo(ctx, S, i, x, y, w, h, rad, hh, dk) {
   ctx.restore();
 }
 
+function paper(ctx, x, y, w, h, side) {
+  rrect(ctx, x, y, w, h, 4);
+  const g = ctx.createLinearGradient(x, 0, x + w, 0);
+  g.addColorStop(0, side === "L" ? "#e4e0d6" : "#ece8de");
+  g.addColorStop(1, side === "L" ? "#ece8de" : "#e4e0d6");
+  ctx.fillStyle = g;
+  ctx.fill();
+  // ombra del dorso
+  const sg = ctx.createLinearGradient(side === "L" ? x + w : x, 0, side === "L" ? x + w - 46 : x + 46, 0);
+  sg.addColorStop(0, "rgba(40,36,28,0.32)");
+  sg.addColorStop(1, "rgba(40,36,28,0)");
+  ctx.save();
+  rrect(ctx, x, y, w, h, 4);
+  ctx.clip();
+  ctx.fillStyle = sg;
+  ctx.fillRect(x, y, w, h);
+  ctx.restore();
+}
+
+// Una pagina intera dell'album: carta + stampe. page 0/1 = la doppia appena impaginata (stesse foto dei riquadri).
+function pageContent(ctx, S, page, swapped) {
+  const left = page % 2 === 0;
+  const P = left ? PL : PR;
+  paper(ctx, P.x, P.y, P.w, P.h, left ? "L" : "R");
+  let cells;
+  let idx;
+  if (page < 2) {
+    cells = S.cells.slice(left ? 0 : 6, left ? 6 : 13);
+    idx = cells.map((_, k) => {
+      const kk = (left ? 0 : 6) + k;
+      if (kk === 4 && swapped) return 7;
+      const tl = S.tiles.find((q) => q.keep && q.order === kk);
+      return tl ? S.tiles.indexOf(tl) : kk;
+    });
+  } else {
+    const kind = S.kinds[SPREAD_KINDS[page - 2]];
+    cells = kind.map((c) => [P.x + 16 + c[0], P.y + 16 + c[1], c[2], c[3]]);
+    idx = cells.map((_, k) => (page * 3 + k * 2 + 1) % 10);
+  }
+  cells.forEach((c, k) => {
+    ctx.save();
+    ctx.shadowColor = "rgba(30,26,20,0.35)";
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetY = 2;
+    ctx.globalAlpha = 1;
+    photo(ctx, S, idx[k], c[0], c[1], c[2], c[3], 2, "hsla(205,70%,60%,", "hsla(228,60%,35%,");
+    ctx.restore();
+  });
+}
+
+function squash(ctx, f, fn) {
+  ctx.save();
+  ctx.translate(HINGE, 0);
+  ctx.scale(Math.max(0.001, f), 1);
+  ctx.translate(-HINGE, 0);
+  fn();
+  ctx.restore();
+}
+
+// L'album sfogliato: tre voltate di pagina (spread 0 -> 1 -> 2 -> 3). `flips`: [inizio, fine] di ciascuna.
+const FLIPS = [[15.0, 15.9], [16.3, 17.2], [17.6, 18.5]];
+function album(ctx, S, t, alpha) {
+  if (alpha <= 0.01) return;
+  let spread = 0;
+  let turning = -1;
+  let p = 0;
+  FLIPS.forEach(([a, b], i) => {
+    if (t >= b) spread = i + 1;
+    else if (t >= a) {
+      turning = i;
+      p = (t - a) / (b - a);
+    }
+  });
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  const swapped = true;
+  if (turning < 0) {
+    pageContent(ctx, S, spread * 2, swapped);
+    pageContent(ctx, S, spread * 2 + 1, swapped);
+  } else {
+    const q = ease(p);
+    const th = q * Math.PI;
+    pageContent(ctx, S, turning * 2, swapped); // pagina sinistra vecchia
+    pageContent(ctx, S, turning * 2 + 3, swapped); // la destra che si scopre
+    const f = Math.abs(Math.cos(th));
+    if (th < Math.PI / 2) {
+      squash(ctx, f, () => pageContent(ctx, S, turning * 2 + 1, swapped));
+    } else {
+      squash(ctx, f, () => pageContent(ctx, S, turning * 2 + 2, swapped));
+    }
+    // ombra della pagina che si alza, sul dorso
+    const sh = Math.sin(th);
+    const gx = th < Math.PI / 2 ? HINGE + PR.w * f : HINGE - PL.w * f;
+    const g = ctx.createLinearGradient(gx - 40, 0, gx + 40, 0);
+    g.addColorStop(0, "rgba(0,0,0,0)");
+    g.addColorStop(0.5, `rgba(0,0,0,${0.28 * sh})`);
+    g.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = g;
+    ctx.fillRect(gx - 40, PL.y, 80, PL.h);
+  }
+  ctx.restore();
+}
+
+function cover(ctx, a) {
+  if (a <= 0.01) return;
+  ctx.save();
+  ctx.globalAlpha = a;
+  ctx.shadowColor = "rgba(0,8,24,0.7)";
+  ctx.shadowBlur = 34;
+  ctx.shadowOffsetY = 14;
+  rrect(ctx, PL.x - 14, PL.y - 12, PL.w * 2 + 28, PL.h + 24, 12);
+  const g = ctx.createLinearGradient(0, PL.y, 0, PL.y + PL.h);
+  g.addColorStop(0, "#0e3466");
+  g.addColorStop(1, "#071f40");
+  ctx.fillStyle = g;
+  ctx.fill();
+  ctx.shadowColor = "transparent";
+  ctx.strokeStyle = "rgba(143,211,244,0.45)";
+  ctx.lineWidth = 1.2;
+  ctx.stroke();
+  ctx.restore();
+}
+
 function draw(ctx, S, time) {
   const t = ((time % T) + T) % T;
   ctx.clearRect(0, 0, W, H);
-  const fadeAll = 1 - seg(t, 14.6, 15.8);
+  const fadeAll = 1 - seg(t, 19.4, 20.6);
   const beamX = 40 + ease(seg(t, 2.4, 6.2)) * 920;
   const pageA = seg(t, 6.6, 7.8);
+  const real = seg(t, 10.2, 11.2); // le pagine di vetro diventano un album vero
+  const sfoglia = seg(t, 14.4, 14.8); // dagli scatti alle pagine stampate
 
-  // pagine dell'album (vetro più grande)
+  // copertina e pagine dell'album: prima di vetro, poi carta
   if (pageA > 0) {
     const a = pageA * clamp(fadeAll);
-    glass(ctx, 180, 108, 312, 300, 14, a * 0.9, { light: "rgba(190,225,255,0.20)", dark: "rgba(50,100,180,0.10)", shadow: 26 });
-    glass(ctx, 510, 108, 312, 300, 14, a * 0.9, { light: "rgba(190,225,255,0.20)", dark: "rgba(50,100,180,0.10)", shadow: 26 });
+    cover(ctx, real * clamp(fadeAll));
+    glass(ctx, PL.x, PL.y, PL.w, PL.h, 14, a * 0.9 * (1 - real), { light: "rgba(190,225,255,0.20)", dark: "rgba(50,100,180,0.10)", shadow: 26 });
+    glass(ctx, PR.x, PR.y, PR.w, PR.h, 14, a * 0.9 * (1 - real), { light: "rgba(190,225,255,0.20)", dark: "rgba(50,100,180,0.10)", shadow: 26 });
+    if (real > 0) {
+      ctx.save();
+      ctx.globalAlpha = real * clamp(fadeAll);
+      paper(ctx, PL.x, PL.y, PL.w, PL.h, "L");
+      paper(ctx, PR.x, PR.y, PR.w, PR.h, "R");
+      ctx.restore();
+    }
   }
+  const tilesA = 1 - sfoglia;
 
   // riquadri
   S.tiles.forEach((tl, i) => {
@@ -180,10 +326,11 @@ function draw(ctx, S, time) {
       rot = tl.rot * (1 - mv);
       // la cella 5 viene cambiata da Simone (10.8-12.2): esce in alto, ne entra un'altra
       if (k === 4) {
-        const sw = seg(t, 11.3, 12.2);
+        const sw = seg(t, 12.6, 13.4);
         y += -sw * 40 * (sw < 1 ? 1 : 0);
+        a *= 1 - sw;
       }
-      a *= clamp(fadeAll);
+      a *= clamp(fadeAll) * tilesA;
     }
     if (a < 0.02) return;
     ctx.save();
@@ -227,17 +374,20 @@ function draw(ctx, S, time) {
   });
 
   // la foto che entra al posto di quella cambiata da Simone (cella 5)
-  const swIn = seg(t, 11.6, 12.4);
+  const swIn = seg(t, 13.0, 13.8);
   if (swIn > 0) {
     const tl = S.tiles.find((q) => q.keep && q.order === 4);
     const [cx, cy, cw, ch] = tl.cell;
-    const a = out(swIn) * clamp(fadeAll);
+    const a = out(swIn) * clamp(fadeAll) * tilesA;
     ctx.save();
     glass(ctx, cx, cy + (1 - out(swIn)) * 36, cw, ch, 8, a, { light: "rgba(200,230,255,0.34)", dark: "rgba(70,130,210,0.16)", stroke: "rgba(87,199,227,0.9)", shadow: 12 });
     ctx.globalAlpha = a * 0.95;
     photo(ctx, S, 7, cx + 4, cy + 4 + (1 - out(swIn)) * 36, cw - 8, ch - 8, 6, "hsla(205,80%,68%,", "hsla(228,70%,40%,");
     ctx.restore();
   }
+
+  // l'album stampato, che si sfoglia
+  album(ctx, S, t, sfoglia * clamp(fadeAll));
 
   // il fascio di luce che guarda le foto
   if (t > 2.3 && t < 6.5) {
@@ -255,16 +405,16 @@ function draw(ctx, S, time) {
   }
 
   // Simone: il cursore cambia una foto
-  const cur = seg(t, 10.4, 13.6);
+  const cur = seg(t, 11.4, 14.6);
   if (cur > 0 && cur < 1) {
     const tl = S.tiles.find((q) => q.keep && q.order === 4);
     const [cx, cy, cw, ch] = tl.cell;
     const tx = cx + cw / 2;
     const ty = cy + ch / 2;
-    const m = ease(seg(t, 10.4, 11.4));
-    const px = 900 + (tx - 900) * m + (1 - seg(t, 12.6, 13.6)) * 0 + seg(t, 12.6, 13.6) * 120;
-    const py = 440 + (ty - 440) * m - seg(t, 12.6, 13.6) * 60;
-    const ca = out(seg(t, 10.4, 10.8)) * (1 - seg(t, 13.0, 13.6)) * clamp(fadeAll);
+    const m = ease(seg(t, 11.4, 12.4));
+    const px = 900 + (tx - 900) * m + (1 - seg(t, 12.6, 13.6)) * 0 + seg(t, 13.6, 14.6) * 120;
+    const py = 440 + (ty - 440) * m - seg(t, 13.6, 14.6) * 60;
+    const ca = out(seg(t, 11.4, 11.8)) * (1 - seg(t, 14.0, 14.6)) * clamp(fadeAll);
     ctx.save();
     ctx.globalAlpha = ca;
     ctx.translate(px, py);
@@ -284,7 +434,7 @@ function draw(ctx, S, time) {
     ctx.stroke();
     ctx.restore();
     // click
-    const ck = seg(t, 11.3, 11.9);
+    const ck = seg(t, 12.3, 12.9);
     if (ck > 0 && ck < 1) {
       ctx.save();
       ctx.globalAlpha = (1 - ck) * 0.8 * clamp(fadeAll);
@@ -296,8 +446,8 @@ function draw(ctx, S, time) {
       ctx.restore();
     }
     // «Simone cambia una foto» / «il sistema impara»
-    const msg = t < 12.4 ? "Il fotografo cambia una foto" : "Il sistema impara";
-    const ma = out(seg(t, 11.5, 11.9)) * (1 - seg(t, 13.1, 13.6)) * clamp(fadeAll);
+    const msg = t < 13.4 ? "Il fotografo cambia una foto" : "Il sistema impara";
+    const ma = out(seg(t, 12.5, 12.9)) * (1 - seg(t, 14.1, 14.6)) * clamp(fadeAll);
     ctx.save();
     ctx.globalAlpha = ma;
     ctx.font = "600 13px ui-sans-serif, system-ui, sans-serif";
@@ -310,13 +460,13 @@ function draw(ctx, S, time) {
     ctx.restore();
   }
   // onda dell'apprendimento sulle pagine
-  const learn = seg(t, 12.4, 13.8);
+  const learn = seg(t, 13.4, 14.6);
   if (learn > 0 && learn < 1) {
     ctx.save();
     ctx.globalAlpha = (1 - learn) * 0.5 * clamp(fadeAll);
     ctx.strokeStyle = "rgba(87,199,227,0.9)";
     ctx.lineWidth = 2;
-    rrect(ctx, 180 - learn * 40, 108 - learn * 28, 642 + learn * 80, 300 + learn * 56, 20 + learn * 12);
+    rrect(ctx, 174 - learn * 40, 96 - learn * 28, 652 + learn * 80, 324 + learn * 56, 20 + learn * 12);
     ctx.stroke();
     ctx.restore();
   }
@@ -370,8 +520,8 @@ export default function AlbumGlassScene({ steps, label, photos = [] }) {
     size();
     if (reduce) {
       ctx.setTransform(cv.width / W, 0, 0, cv.width / W, 0, 0);
-      draw(ctx, S, 10.2); // l'album impaginato, fermo
-      setPhase(3);
+      draw(ctx, S, 19.0); // l'album sfogliato, fermo
+      setPhase(5);
       return;
     }
     const io = new IntersectionObserver(
