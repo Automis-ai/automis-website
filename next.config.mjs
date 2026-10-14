@@ -78,7 +78,8 @@ const nextConfig = {
         destination: "/ecommerce-static/shopify/index.html",
       },
       {
-        source: "/it/ecommerce/woocommerce",
+        // La WooCommerce nuova è una rotta del sito (app/it/ecommerce/woocommerce). Qui resta la versione statica di prima.
+        source: "/it/ecommerce/woocommerce-prima",
         destination: "/ecommerce-static/woocommerce/index.html",
       },
     ];
