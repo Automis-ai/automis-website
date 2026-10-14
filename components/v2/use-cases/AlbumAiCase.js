@@ -120,7 +120,7 @@ export default function AlbumAiCase({ locale = "en" }) {
         {t.scene ? (
           <Section fx={false} tone="light" className="v2c-edge" id="flusso">
             <SectionHeader title={t.scene.title} lead={t.scene.lead} />
-            <AlbumGlassScene steps={t.scene.steps} label={t.scene.label} />
+            <AlbumGlassScene steps={t.scene.steps} label={t.scene.label} photos={t.scene.photos} />
           </Section>
         ) : (
           <Section fx={false} tone="light" className="v2c-edge" id="flusso">
@@ -162,9 +162,16 @@ export default function AlbumAiCase({ locale = "en" }) {
               <SectionHeader title={t.time.title} lead={t.time.lead} />
               <InView className="v2c-ba">
                 {[t.time.before, t.time.after].map((c, i) => (
-                  <div key={i} className={`v2-card v2c-ba__card${i ? " v2c-ba__card--new" : ""}`}>
+                  <div key={i} className={`v2-card v2c-ba__card${i ? " v2c-ba__card--new" : " v2c-ba__card--old"}`}>
+                    {c.badge ? <span className="v2c-ba__badge">{c.badge}</span> : null}
                     <p className="v2c-ba__label">{c.label}</p>
                     <p className="v2c-ba__fig">{c.figure}</p>
+                    {c.bar ? (
+                      <div className="v2c-ba__bar" aria-hidden="true">
+                        <i style={{ "--w": `${c.bar}%` }} />
+                      </div>
+                    ) : null}
+                    {c.line ? <p className="v2c-ba__line">{c.line}</p> : null}
                     <ul className="v2c-ba__rows">
                       {c.rows.map(([k, v]) => (
                         <li key={k}>
@@ -176,50 +183,6 @@ export default function AlbumAiCase({ locale = "en" }) {
                   </div>
                 ))}
               </InView>
-              <p className="v2c-note">{t.time.note}</p>
-            </Section>
-
-            <Section fx={false} tone="light" className="v2c-sec">
-              <SectionHeader title={t.loop.title} lead={t.loop.lead} />
-              <figure className="v2-card v2c-quote">
-                <blockquote>
-                  <p>«{t.loop.quote}»</p>
-                </blockquote>
-                <figcaption>
-                  <b>{t.loop.by}</b>
-                  <span>{t.loop.when}</span>
-                </figcaption>
-              </figure>
-            </Section>
-
-            <Section fx={false} tone="light" className="v2c-sec">
-              <SectionHeader title={t.shots.title} lead={t.shots.lead} />
-              <InView className="v2c-steps">
-                {t.shots.steps.map((st) => (
-                  <figure key={st.n} className="v2c-step">
-                    <span className="v2c-step__n">{st.n}</span>
-                    {st.src ? (
-                      <div className="v2c-win2">
-                        <div className="v2c-win2__bar" aria-hidden="true">
-                          <span />
-                          <span />
-                          <span />
-                          <i>Album AI</i>
-                        </div>
-                        <img src={st.src} alt={st.alt} loading="lazy" />
-                      </div>
-                    ) : (
-                      <div className="v2c-step__review" aria-hidden="true">
-                        <Icon name="sliders" size={34} />
-                      </div>
-                    )}
-                    <figcaption>
-                      <b>{st.title}</b>
-                      <span>{st.caption}</span>
-                    </figcaption>
-                  </figure>
-                ))}
-              </InView>
             </Section>
 
             <Section fx={false} tone="light" className="v2c-sec">
@@ -229,6 +192,13 @@ export default function AlbumAiCase({ locale = "en" }) {
                   <span className="v2c-online__status v2c-online__status--on">{t.online.site.status}</span>
                   <h3>{t.online.site.title}</h3>
                   <p>{t.online.site.line}</p>
+                  {t.online.site.features ? (
+                    <ul className="v2c-site__features">
+                      {t.online.site.features.map((f) => (
+                        <li key={f}>{f}</li>
+                      ))}
+                    </ul>
+                  ) : null}
                   <div className="v2c-site__links">
                     {t.online.site.links.map((l) => (
                       <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">

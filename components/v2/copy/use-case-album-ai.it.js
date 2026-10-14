@@ -28,8 +28,11 @@ export default {
 
   scene: {
     title: "Come lavora il sistema",
-    lead: "Dalle centinaia di scatti di un evento all'album, con Simone che ha l'ultima parola.",
+    lead: "Dalle centinaia di scatti di un evento all'album, con Simone che ha l'ultima parola. Le foto sono immagini di esempio.",
     label: "Animazione: gli scatti dell'evento arrivano, il sistema scarta quelli sfocati, doppi o con gli occhi chiusi, tiene le migliori e le impagina nell'album; Simone cambia una foto e il sistema impara.",
+    photos: ["sposi-coriandoli", "bouquet-luce", "sposi-palloncini", "fedi-mani", "tavolo", "mani-bouquet", "famiglia-tramonto", "fedi-peonie", "sedie-prato", "ritratto"].map(
+      (n) => `/media/use-cases/album-ai/photos/${n}.jpg`
+    ),
     steps: [
       "Arrivano gli scatti dell'evento: da 1.200 a 1.800",
       "Il sistema li guarda: sfocate, doppie, occhi chiusi",
@@ -45,6 +48,7 @@ export default {
     before: {
       label: "A mano",
       figure: "Circa 6 ore",
+      bar: 100,
       rows: [
         ["Scelta delle foto", "circa 3 ore"],
         ["Impaginazione", "2-3 ore"],
@@ -53,31 +57,15 @@ export default {
     after: {
       label: "Con Album AI",
       figure: "Circa 50 minuti",
+      bar: 14,
+      badge: "Oltre l'80% di tempo in meno",
+      line: "Il sistema fa il lavoro lungo. A Simone resta la revisione.",
       rows: [
         ["Scelta delle foto", "circa 20 minuti"],
         ["Impaginazione", "circa 15 minuti"],
         ["Revisione di Simone", "circa 15 minuti"],
       ],
     },
-    note: "Tempi indicati dallo studio, non ancora cronometrati dallo strumento. Il cronometro arriva con i prossimi eventi.",
-  },
-
-  loop: {
-    title: "Simone resta al comando",
-    lead: "Il sistema propone, Simone decide. Guarda la scelta e l'album, cambia a mano quello che non lo convince e lascia una nota. Le correzioni diventano il materiale con cui il sistema sceglie meglio la volta dopo.",
-    quote: "Va tutto benissimo, tranne due piccole cose.",
-    by: "Simone, Studio fotografico Simone Casillo",
-    when: "Agosto 2026, su un album di prova da 21 doppie. Le due cose erano la foto principale di una pagina e l'ordine di due pagine.",
-  },
-
-  shots: {
-    title: "Lo strumento al lavoro",
-    lead: "Gira nel browser, sul Mac di Simone. Le schermate usano foto di esempio, non foto dei clienti.",
-    steps: [
-      { n: "1", title: "Si sceglie l'evento", caption: "Si indica la cartella dell'evento e si avvia la scelta.", src: "/media/use-cases/album-ai/eventi.png", alt: "Elenco degli eventi in Album AI" },
-      { n: "2", title: "Il sistema lavora", caption: "La scelta procede passo per passo e stima quanto manca.", src: "/media/use-cases/album-ai/in-lavorazione.png", alt: "Barra di avanzamento della scelta delle foto" },
-      { n: "3", title: "Simone rivede", caption: "Cambia a mano quello che non lo convince e lascia una nota: il sistema la tiene per la volta dopo." },
-    ],
   },
 
   online: {
@@ -86,7 +74,8 @@ export default {
     site: {
       status: "Online",
       title: "Il sito",
-      line: "Il sito dello studio: le gallerie, i due studi, la pagina delle foto di Natale e un pulsante per scrivere su WhatsApp.",
+      line: "Il sito dello studio, con la prenotazione su WhatsApp: si sceglie lo studio e il giorno tra le date disponibili, e il messaggio parte già compilato.",
+      features: ["Prenotazione su WhatsApp", "Date e giorni di ogni studio", "Tre formule con i prezzi", "Due studi con mappa", "Gallerie e foto di Natale"],
       cta: "Vai al sito",
       url: "https://simonecasillo.com",
       links: [

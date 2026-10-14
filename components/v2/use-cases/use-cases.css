@@ -2258,3 +2258,101 @@ html [data-iv="in"] .v2c-flow__arrow {
   width: auto;
   max-width: 100%;
 }
+
+/* ---------- Prima e dopo: a destra il risultato, in evidenza (14/10/2026) ---------- */
+.v2c-ba__card--old {
+  opacity: 0.82;
+}
+.v2c-ba__card--old .v2c-ba__fig {
+  color: var(--v2-ink-2);
+  font-size: clamp(28px, 4vw, 40px);
+}
+.v2c-ba__card--new {
+  position: relative;
+  padding: 36px;
+  border-color: rgba(143, 211, 244, 0.6);
+  background: linear-gradient(140deg, rgba(60, 145, 230, 0.42), rgba(14, 40, 78, 0.55));
+  box-shadow: 0 0 0 1px rgba(87, 199, 227, 0.25), 0 40px 90px -40px rgba(60, 145, 230, 0.9);
+}
+.v2c-ba__card--new .v2c-ba__fig {
+  font-size: clamp(38px, 6vw, 68px);
+  color: #8fd3f4;
+}
+.v2c-ba__badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #00121f;
+  background: linear-gradient(120deg, #3c91e6, #57c7e3 60%, #8fd3f4);
+  box-shadow: 0 10px 26px -10px rgba(60, 145, 230, 0.9);
+}
+.v2c-ba__bar {
+  height: 10px;
+  margin: 0 0 18px;
+  border-radius: 999px;
+  background: rgba(165, 210, 255, 0.14);
+  overflow: hidden;
+}
+.v2c-ba__bar i {
+  display: block;
+  height: 100%;
+  width: var(--w, 100%);
+  border-radius: inherit;
+  background: rgba(165, 210, 255, 0.5);
+}
+.v2c-ba__card--new .v2c-ba__bar i {
+  background: linear-gradient(90deg, #3c91e6, #57c7e3);
+  box-shadow: 0 0 14px rgba(87, 199, 227, 0.8);
+}
+.v2c-ba__line {
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--v2-ink);
+}
+.v2c-site__features {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.v2c-site__features li {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--v2-ink-2);
+  background: rgba(143, 211, 244, 0.09);
+  border: 1px solid rgba(143, 211, 244, 0.22);
+}
+@media (min-width: 768px) {
+  .v2c-ba {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: stretch;
+  }
+}
+.v2c-ba__badge {
+  align-self: flex-start;
+}
+.v2c-site__features li {
+  padding: 0 0 0 22px;
+  border: 0;
+  background: none;
+  position: relative;
+  font-size: 15px;
+}
+.v2c-site__features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #57c7e3;
+  font-weight: 700;
+}
+.v2c-site__features {
+  flex-direction: column;
+  gap: 6px;
+}

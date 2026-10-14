@@ -109,6 +109,32 @@ function glass(ctx, x, y, w, h, rad, a, o = {}) {
   ctx.restore();
 }
 
+// Foto di esempio dentro il vetro (ritaglio «cover»); finché non è caricata, un gradiente.
+function photo(ctx, S, i, x, y, w, h, rad, hh, dk) {
+  const im = S.imgs && S.imgs[i % S.imgs.length];
+  ctx.save();
+  rrect(ctx, x, y, w, h, rad);
+  if (im && im.complete && im.naturalWidth) {
+    ctx.clip();
+    const k = Math.max(w / im.naturalWidth, h / im.naturalHeight);
+    const sw = w / k;
+    const sh = h / k;
+    ctx.drawImage(im, (im.naturalWidth - sw) / 2, (im.naturalHeight - sh) / 2, sw, sh, x, y, w, h);
+    const g = ctx.createLinearGradient(x, y, x, y + h);
+    g.addColorStop(0, "rgba(255,255,255,0.14)");
+    g.addColorStop(0.5, "rgba(255,255,255,0)");
+    ctx.fillStyle = g;
+    ctx.fillRect(x, y, w, h);
+  } else {
+    const pg = ctx.createLinearGradient(x, y, x + w, y + h);
+    pg.addColorStop(0, hh + "0.6)");
+    pg.addColorStop(1, dk + "0.6)");
+    ctx.fillStyle = pg;
+    ctx.fill();
+  }
+  ctx.restore();
+}
+
 function draw(ctx, S, time) {
   const t = ((time % T) + T) % T;
   ctx.clearRect(0, 0, W, H);
@@ -172,17 +198,8 @@ function draw(ctx, S, time) {
       shadow: tl.keep ? 12 : 0,
     });
     // «foto» dentro il vetro
-    ctx.globalAlpha = a * 0.9;
-    const pg = ctx.createLinearGradient(-w / 2 + 4, -h / 2 + 4, w / 2 - 4, h / 2 - 4);
-    pg.addColorStop(0, hh + "0.6)");
-    pg.addColorStop(1, dk + "0.6)");
-    rrect(ctx, -w / 2 + 4, -h / 2 + 4, w - 8, h - 8, Math.min(5, h * 0.14));
-    ctx.fillStyle = pg;
-    ctx.fill();
-    ctx.beginPath();
-    ctx.arc(-w * 0.16, -h * 0.12, Math.min(w, h) * 0.13, 0, 6.28);
-    ctx.fillStyle = "rgba(255,255,255,0.28)";
-    ctx.fill();
+    ctx.globalAlpha = a * 0.95;
+    photo(ctx, S, i, -w / 2 + 4, -h / 2 + 4, w - 8, h - 8, Math.min(5, h * 0.14), hh, dk);
     if (glow > 0.05) {
       ctx.globalAlpha = glow * 0.9;
       ctx.shadowColor = "rgba(87,199,227,0.9)";
@@ -217,13 +234,8 @@ function draw(ctx, S, time) {
     const a = out(swIn) * clamp(fadeAll);
     ctx.save();
     glass(ctx, cx, cy + (1 - out(swIn)) * 36, cw, ch, 8, a, { light: "rgba(200,230,255,0.34)", dark: "rgba(70,130,210,0.16)", stroke: "rgba(87,199,227,0.9)", shadow: 12 });
-    ctx.globalAlpha = a * 0.85;
-    const pg = ctx.createLinearGradient(cx, cy, cx + cw, cy + ch);
-    pg.addColorStop(0, "hsla(205,80%,68%,0.6)");
-    pg.addColorStop(1, "hsla(228,70%,40%,0.6)");
-    rrect(ctx, cx + 4, cy + 4 + (1 - out(swIn)) * 36, cw - 8, ch - 8, 6);
-    ctx.fillStyle = pg;
-    ctx.fill();
+    ctx.globalAlpha = a * 0.95;
+    photo(ctx, S, 7, cx + 4, cy + 4 + (1 - out(swIn)) * 36, cw - 8, ch - 8, 6, "hsla(205,80%,68%,", "hsla(228,70%,40%,");
     ctx.restore();
   }
 
@@ -310,7 +322,7 @@ function draw(ctx, S, time) {
   }
 }
 
-export default function AlbumGlassScene({ steps, label }) {
+export default function AlbumGlassScene({ steps, label, photos = [] }) {
   const cvRef = useRef(null);
   const [phase, setPhase] = useState(0);
   const phaseRef = useRef(0);
@@ -321,6 +333,11 @@ export default function AlbumGlassScene({ steps, label }) {
     const ctx = cv.getContext("2d");
     if (!ctx) return;
     const S = build();
+    S.imgs = photos.map((src) => {
+      const im = new Image();
+      im.src = src;
+      return im;
+    });
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     let raf = 0;
     let visible = true;
