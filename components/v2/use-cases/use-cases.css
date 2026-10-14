@@ -13,8 +13,8 @@
    con schede di vetro e note in azzurro chiaro per alleggerire la lettura. Contrasti su #0c2646: bianco 14:1, #d3e2f4 10:1,
    #a9bdd6 6,6:1, accento #57c7e3 7,5:1. */
 .v2-caso .v2-tone-light {
-  --v2-bg: #0c2646;
-  --v2-bg-rgb: 12 38 70;
+  --v2-bg: #061a33;
+  --v2-bg-rgb: 6 26 51;
   --v2-ink: #ffffff;
   --v2-ink-2: #d3e2f4;
   --v2-ink-3: #a9bdd6;
@@ -51,7 +51,7 @@
               pannello della chiusura sta nella parte bassa, dove la sfumatura è già scura. In uscita non serve nulla
               (la chiusura e il piede sono lo stesso colore). */
 .v2-caso {
-  --v2c-light-rgb: 12 38 70;
+  --v2c-light-rgb: 6 26 51;
 }
 .v2-section.v2c-edge {
   --v2-fade-h: 280px;
@@ -83,12 +83,12 @@
   background: linear-gradient(
     to bottom,
     rgb(0 10 20 / 1) 0%,
-    rgb(2 17 33 / 0.95) 16%,
-    rgb(5 26 49 / 0.85) 32%,
-    rgb(8 32 59 / 0.7) 48%,
-    rgb(10 36 66 / 0.5) 64%,
-    rgb(11 37 68 / 0.28) 80%,
-    rgb(12 38 70 / 0) 100%
+    rgb(1 14 28 / 0.95) 16%,
+    rgb(2 18 36 / 0.85) 32%,
+    rgb(4 22 43 / 0.7) 48%,
+    rgb(5 24 47 / 0.5) 64%,
+    rgb(6 25 50 / 0.28) 80%,
+    rgb(6 26 51 / 0) 100%
   );
 }
 /* corpo blu → chiusura blu notte */

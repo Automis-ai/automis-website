@@ -73,7 +73,7 @@ export default function AlbumAiCase({ locale = "en" }) {
               <p className="v2c-client__name">{t.hero.client}</p>
             </>
           )}
-          <span className="v2c-card__tag">{t.hero.tag}</span>
+          {t.hero.logo ? null : <span className="v2c-card__tag">{t.hero.tag}</span>}
         </div>
         <div className="v2c-back">
           <Button href={addLangPrefix("/use-cases", locale)} variant="link" arrow={false}>
@@ -107,7 +107,7 @@ export default function AlbumAiCase({ locale = "en" }) {
               <p className="v2c-client__name">{t.hero.client}</p>
             </>
           )}
-          <span className="v2c-card__tag">{t.hero.tag}</span>
+          {t.hero.logo ? null : <span className="v2c-card__tag">{t.hero.tag}</span>}
         </div>
         <div className="v2c-back">
           <Button href={addLangPrefix("/use-cases", locale)} variant="link" arrow={false}>

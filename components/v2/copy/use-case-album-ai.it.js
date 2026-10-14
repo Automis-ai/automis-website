@@ -6,14 +6,14 @@ export default {
   meta: {
     title: "Album AI: da 6 ore a 50 minuti per un album | Automis",
     description:
-      "Album AI sceglie le foto e impagina l'album per lo Studio fotografico Simone Casillo: da circa 6 ore a circa 50 minuti, revisione compresa. Tempi indicati dallo studio.",
+      "Album AI sceglie le foto e impagina l'album per uno studio fotografico: da circa 6 ore a circa 50 minuti, revisione compresa. Tempi indicati dallo studio.",
   },
 
   hero: {
     eyebrow: "Caso studio",
     title: "Un album in circa 50 minuti, non in 6 ore",
     highlight: "circa 50 minuti",
-    lead: "Album AI sceglie le foto e impagina l'album di Simone. Lui rivede e corregge, e il sistema impara dalle sue correzioni.",
+    lead: "Album AI sceglie le foto e impagina l'album del fotografo. Lui rivede e corregge, e il sistema impara dalle sue correzioni.",
     client: "Studio fotografico Simone Casillo",
     logo: "/assets/images/client-logos/simone-casillo-white.png",
     tag: "Strumento per album",
@@ -28,8 +28,8 @@ export default {
 
   scene: {
     title: "Come lavora il sistema",
-    lead: "Dalle centinaia di scatti di un evento all'album, con Simone che ha l'ultima parola. Le foto sono immagini di esempio.",
-    label: "Animazione: gli scatti dell'evento arrivano, il sistema scarta quelli sfocati, doppi o con gli occhi chiusi, tiene le migliori e le impagina nell'album; Simone cambia una foto e il sistema impara.",
+    lead: "Dalle centinaia di scatti di un evento all'album, con il fotografo che ha l'ultima parola. Le foto sono immagini di esempio.",
+    label: "Animazione: gli scatti dell'evento arrivano, il sistema scarta quelli sfocati, doppi o con gli occhi chiusi, tiene le migliori e le impagina nell'album; il fotografo cambia una foto e il sistema impara.",
     photos: ["sposi-coriandoli", "bouquet-luce", "sposi-palloncini", "fedi-mani", "tavolo", "mani-bouquet", "famiglia-tramonto", "fedi-peonie", "sedie-prato", "ritratto"].map(
       (n) => `/media/use-cases/album-ai/photos/${n}.jpg`
     ),
@@ -38,7 +38,7 @@ export default {
       "Il sistema li guarda: sfocate, doppie, occhi chiusi",
       "Restano circa 280 foto",
       "Le impagina nell'album",
-      "Simone rivede e il sistema impara",
+      "Il fotografo rivede e il sistema impara",
     ],
   },
 
@@ -59,18 +59,18 @@ export default {
       figure: "Circa 50 minuti",
       bar: 14,
       badge: "Oltre l'80% di tempo in meno",
-      line: "Il sistema fa il lavoro lungo. A Simone resta la revisione.",
+      line: "Il sistema fa il lavoro lungo. Al fotografo resta la revisione.",
       rows: [
         ["Scelta delle foto", "circa 20 minuti"],
         ["Impaginazione", "circa 15 minuti"],
-        ["Revisione di Simone", "circa 15 minuti"],
+        ["Revisione del fotografo", "circa 15 minuti"],
       ],
     },
   },
 
   online: {
     title: "Online da zero, in tre pezzi",
-    lead: "Per lo studio di Simone abbiamo costruito il sistema per gli album, il sito e il CRM.",
+    lead: "Per lo studio fotografico abbiamo costruito il sistema per gli album, il sito e il CRM.",
     site: {
       status: "Online",
       title: "Il sito",
@@ -83,25 +83,15 @@ export default {
         { label: "Foto di Natale", href: "https://simonecasillo.com/natale/" },
       ],
       shots: [
-        { src: "/media/use-cases/album-ai/sito-home.jpg", alt: "La home del sito di Simone Casillo su computer", kind: "desktop" },
-        { src: "/media/use-cases/album-ai/sito-mobile.jpg", alt: "La home del sito di Simone Casillo su telefono", kind: "mobile" },
+        { src: "/media/use-cases/album-ai/sito-home.jpg", alt: "La home del sito dello studio su computer", kind: "desktop" },
+        { src: "/media/use-cases/album-ai/sito-mobile.jpg", alt: "La home del sito dello studio su telefono", kind: "mobile" },
       ],
       note: "Foto segnaposto, in attesa degli scatti dello studio.",
     },
     items: [
-      { title: "Album AI", line: "Sceglie le foto e impagina l'album, con Simone che rivede.", status: "In uso" },
+      { title: "Album AI", line: "Sceglie le foto e impagina l'album, con il fotografo che rivede.", status: "In uso" },
       { title: "Il CRM", line: "Richieste e clienti in un posto solo, dal primo contatto alla consegna dell'album.", status: "In consegna" },
     ],
-  },
-
-  where: {
-    title: "Dove gira",
-    line: "Simone lo usa dal browser, sul suo Mac.",
-  },
-
-  custom: {
-    title: "Costruito per un solo professionista",
-    line: "Lo abbiamo costruito intorno al modo di lavorare di Simone, su misura per lui.",
   },
 
   cta: {

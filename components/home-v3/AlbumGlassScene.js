@@ -5,7 +5,7 @@ import "./home-v3.css";
 /*
   «Come lavora il sistema» (Album AI): scena in vetro liquido, stesso linguaggio della hero della home.
   Arrivano le foto di un evento, un fascio di luce le guarda (sfocate, doppie, occhi chiusi), restano le migliori, vanno nelle
-  pagine dell'album, e Simone cambia una foto: il sistema impara. Illustrazione con riquadri di vetro, nessuna foto vera.
+  pagine dell'album, e il fotografo cambia una foto: il sistema impara. Illustrazione con riquadri di vetro, nessuna foto vera.
   - Canvas 2D, nessuna libreria. Ferma fuori schermo e a scheda nascosta. prefers-reduced-motion: un fotogramma fermo.
   - La posizione di ogni riquadro è calcolata dal tempo (nessuno stato): niente scatti al ritorno nel loop.
   - `steps`: le didascalie, una per fase (5). `label`: descrizione per chi usa lo screen reader.
@@ -296,7 +296,7 @@ function draw(ctx, S, time) {
       ctx.restore();
     }
     // «Simone cambia una foto» / «il sistema impara»
-    const msg = t < 12.4 ? "Simone cambia una foto" : "Il sistema impara";
+    const msg = t < 12.4 ? "Il fotografo cambia una foto" : "Il sistema impara";
     const ma = out(seg(t, 11.5, 11.9)) * (1 - seg(t, 13.1, 13.6)) * clamp(fadeAll);
     ctx.save();
     ctx.globalAlpha = ma;
