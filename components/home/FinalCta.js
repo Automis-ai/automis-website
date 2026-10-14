@@ -155,7 +155,7 @@ export default function FinalCta({ v3 = false }) {
                 </span>
                 <span className="text-[12px] text-white/50">{t.instantConfirmation}</span>
               </div>
-              <div className="relative w-full overflow-hidden rounded-xl bg-white" style={{ minHeight: 760 }}>
+              <div className={`relative w-full overflow-hidden rounded-xl ${v3 ? "hv3-call__frame" : "bg-white"}`} style={{ minHeight: 760 }}>
                 {/* skeleton */}
                 {!loaded && (
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[#0b1622]">

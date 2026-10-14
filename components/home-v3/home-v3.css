@@ -2273,3 +2273,14 @@
   border: 1px solid var(--hv3-line);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 24px 60px -28px rgba(0, 0, 0, 0.7);
 }
+
+/* Il calendario è un widget esterno (bianco): lo si inverte e lo si fonde sul blu del sito.
+   invert + hue-rotate lasciano gli azzurri azzurri; con screen il nero diventa il blu dello sfondo. */
+.hv3-call__frame {
+  background: #0c2646;
+  isolation: isolate;
+}
+.hv3-call__frame iframe {
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: screen;
+}
