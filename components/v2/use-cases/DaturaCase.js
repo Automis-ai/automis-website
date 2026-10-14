@@ -4,6 +4,7 @@ import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import Button from "@/components/v2/ui/Button";
+import { DaturaOpsScene, DaturaCatalogScene, DaturaAdsScene, DaturaNumbers, DaturaSite } from "@/components/home-v3/DaturaScenesV3";
 import MoreCases from "@/components/v2/use-cases/MoreCases";
 import Disclosure from "@/components/v2/ui/Disclosure";
 import CtaBand from "@/components/v2/ui/CtaBand";
@@ -53,34 +54,9 @@ export default function DaturaCase({ locale = "en" }) {
           highlight={t.hero.highlight}
           lead={t.hero.lead}
           cta={{ label: "Leggi il caso", href: "#problem" }}
-          extra={
-            <>
-        <div className="v2c-client">
-          <span className="v2-tile">
-            <Icon name="cart" size={22} />
-          </span>
-          <p className="v2c-client__name">{t.hero.client}</p>
-          <span className="v2c-card__tag">{t.hero.tag}</span>
-        </div>
-            </>
-          }
-          belowWide
-          below={
-
-          <ul className="v2c-stats" aria-label={t.hero.statsLabel}>
-            {t.hero.stats.map((s, i) => (
-              <li key={i} className="v2c-stats__li" style={{ "--i": i }}>
-                <div className="v2c-stat" data-fx="tilt">
-                  <p className="v2c-stat__num">
-                    <CountUp text={s.figure} delay={i * 160} />
-                  </p>
-                  <p className="v2c-stat__label">{s.label}</p>
-                  <p className="v2c-stat__basis">{s.basis}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-          }
+          eyebrowLogo={{ src: t.hero.logo, alt: t.hero.client }}
+          titleLogo={t.hero.titleLogo}
+          stackedTitle
         />
       ) : (
       <PageHero
@@ -122,6 +98,37 @@ export default function DaturaCase({ locale = "en" }) {
       </PageHero>
       )}
       <div className="v2-caso">
+        {locale === "it" ? (
+          <>
+            {/* ---------- IT: AI WooCommerce Manager. Tre storie con scena (presidio, catalogo, annunci), i numeri, il sito ---------- */}
+            <Section fx={false} tone="light" className="v2c-edge" id="problem">
+              <SectionHeader align="center" eyebrow={t.presidio.eyebrow} title={t.presidio.title} lead={t.presidio.lead} className="v2c-scenehead" />
+              <DaturaOpsScene p={t.presidio} />
+            </Section>
+            <Section fx={false} tone="light" className="v2c-sec" id="catalogo">
+              <SectionHeader align="center" eyebrow={t.catalog.eyebrow} title={t.catalog.title} lead={t.catalog.lead} className="v2c-scenehead" />
+              <DaturaCatalogScene c={t.catalog} />
+            </Section>
+            <Section fx={false} tone="light" className="v2c-sec" id="annunci">
+              <SectionHeader align="center" eyebrow={t.ads.eyebrow} title={t.ads.title} lead={t.ads.lead} className="v2c-scenehead" />
+              <DaturaAdsScene a={t.ads} />
+            </Section>
+            <Section fx={false} tone="light" className="v2c-sec" id="numeri">
+              <SectionHeader align="center" eyebrow={t.numbers.eyebrow} title={t.numbers.title} className="v2c-scenehead" />
+              <DaturaNumbers n={t.numbers} />
+              <div className="dsv3-prodlink">
+                <Button href={addLangPrefix(t.numbers.product.href, locale)} variant="link">
+                  {t.numbers.product.label}
+                </Button>
+              </div>
+            </Section>
+            <Section fx={false} tone="light" className="v2c-sec" id="sito">
+              <SectionHeader align="center" eyebrow={t.site.eyebrow} title={t.site.title} lead={t.site.lead} className="v2c-scenehead" />
+              <DaturaSite s={t.site} />
+            </Section>
+          </>
+        ) : (
+          <>
         {/* ---------- Il problema: da quanto restava fermo un guasto ---------- */}
         <Section fx={false} tone="light" id="problem" className="v2c-edge v2c-edge--eb">
           <SectionHeader eyebrow={t.problem.eyebrow} title={t.problem.title} lead={t.problem.lead} />
@@ -149,6 +156,7 @@ export default function DaturaCase({ locale = "en" }) {
             ))}
           </div>
         </Section>
+
 
         {/* ---------- Il sistema: il negozio e i quattro moduli ---------- */}
         <Section fx={false} tone="light" className="v2c-sec" id="system">
@@ -208,6 +216,8 @@ export default function DaturaCase({ locale = "en" }) {
             ))}
           </div>
         </Section>
+          </>
+        )}
 
         <div className="v2c-cta">
           <CtaBand blue={locale === "it"} title={t.cta.title} line={t.cta.line} button={

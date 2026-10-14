@@ -20,7 +20,20 @@ function splitTitle(title, highlight) {
   return [title.slice(0, i), glued, title.slice(i + highlight.length)];
 }
 
-export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, painLabel, cta, extra, below, belowWide, className, id, eyebrowLogo }) {
+/* titleLogo { word, src, alt }: al posto della parola `word` nel titolo compare il logo (es. «WooCommerce» → bolla Woo). */
+function withLogo(text, logo) {
+  if (!logo || !text.includes(logo.word)) return text;
+  const [a, b] = text.split(logo.word);
+  return (
+    <>
+      {a}
+      <img className="hv3-h1__logo" src={logo.src} alt={logo.alt} />
+      {b}
+    </>
+  );
+}
+
+export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, painLabel, cta, extra, below, belowWide, className, id, eyebrowLogo, titleLogo, stackedTitle }) {
   const textRef = useRef(null);
   const [pre, acc, post] = splitTitle(title, highlight);
   return (
@@ -42,10 +55,10 @@ export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, pain
               <span className="hv3-pill">{eyebrow}</span>
             )
           ) : null}
-          <h1 className="hv3-h1 hv3-h1--page font-display">
-            {pre}
-            {acc ? <em>{acc}</em> : null}
-            {post}
+          <h1 className={`hv3-h1 hv3-h1--page font-display${stackedTitle ? " hv3-h1--stack" : ""}`}>
+            {withLogo(pre, titleLogo)}
+            {acc ? <em>{withLogo(acc, titleLogo)}</em> : null}
+            {stackedTitle ? <span className="hv3-h1__rest">{withLogo(post.trimStart(), titleLogo)}</span> : withLogo(post, titleLogo)}
           </h1>
           {lead ? <p className="hv3-hero__lead">{lead}</p> : null}
           {pain ? (
