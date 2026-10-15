@@ -2570,3 +2570,71 @@
 .hv3-viz__row {
   gap: 12px;
 }
+
+/* ===== Giunzioni fra le fasce (15/10, giro di Arcangelo) =====
+   La «sfumatura d'ingresso» delle fasce v2 (v2.css) parte dal colore della fascia che la precede, ma lo conosce solo se la
+   precedente è un'altra fascia v2. Dopo la hero o dopo le tappe (.hv3-tone) il colore non era definito: niente sfumatura,
+   un taglio netto. Qui si dice da quale colore parte. */
+.v2-tone-a .hv3-hero + .v2-section::after,
+.v2-tone-b .hv3-hero + .v2-section::after {
+  --v2-prev: 0 10 20; /* fondo della hero */
+}
+.v2-tone-a .hv3-tone + .v2-section::after,
+.v2-tone-b .hv3-tone + .v2-section::after {
+  --v2-prev: 2 10 18; /* le tappe finiscono sul fondo scuro --hv3-bg-2 */
+}
+/* La chiusura con il calendario sfuma nel nero del footer invece di tagliare. */
+.hv3-call {
+  position: relative;
+}
+.hv3-call::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 90px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0, 10, 20, 0), #000a14);
+}
+/* Pagina Vendita: le fasce nuove partono dal colore della fascia prima e finiscono sul nero delle FAQ. */
+.hv3-sx--finder {
+  background: linear-gradient(180deg, #03162e, #0a2040);
+}
+.hv3-sx--start {
+  background: linear-gradient(180deg, #0a2040 0%, #0a2040 78%, #000a14 100%);
+}
+
+/* Pagine dei casi e dell'e-commerce: il corpo .v2-caso non è una fascia v2, quindi niente sfumatura d'ingresso. Se ne dà una a mano. */
+.hv3-hero ~ .v2-caso,
+.v2-tone-deep + .v2-caso,
+.v2-tone-dark + .v2-caso {
+  position: relative;
+  isolation: isolate;
+}
+.hv3-hero ~ .v2-caso::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom, #000a14 0%, rgba(0, 10, 20, 0.6) 40%, rgba(0, 10, 20, 0) 100%);
+}
+.v2-tone-deep + .v2-caso::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom, #03162e, rgba(3, 22, 46, 0));
+}
+.v2-tone-a .v2-caso + .v2-section::after,
+.v2-tone-b .v2-caso + .v2-section::after {
+  --v2-prev: 2 17 36;
+}

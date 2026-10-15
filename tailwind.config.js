@@ -25,7 +25,7 @@ export default {
     },
     extend: {
       screens: {
-        'menu-break': '1232px',
+        'menu-break': '1280px',
       },
       colors: {
         'deep-blue': '#000a14',

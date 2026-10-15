@@ -60,6 +60,9 @@
 .v2c-cta {
   --v2c-prev: 243 246 250;
 }
+.v2-pg.v2-tone-a > .v2c-cta {
+  --v2c-prev: 2 17 36; /* in tono A la fascia sopra è il blu notte «light», non il chiaro del kit */
+}
 .v2-caso .v2c-cta {
   --v2c-prev: var(--v2c-light-rgb);
 }
@@ -67,8 +70,8 @@
   --v2-fade-h: 240px;
   padding-top: 130px;
 }
-.v2-section.v2c-edge::after,
-.v2c-cta > .v2-section::after {
+.v2-pg .v2-section.v2c-edge::after,
+.v2-pg .v2c-cta > .v2-section::after {
   content: "";
   position: absolute;
   top: 0;
@@ -79,7 +82,7 @@
   pointer-events: none;
 }
 /* apertura scura → corpo blu: dal blu notte dell'apertura al blu del corpo (#0c2646) */
-.v2-section.v2c-edge::after {
+.v2-pg .v2-section.v2c-edge::after {
   background: linear-gradient(
     to bottom,
     rgb(0 10 20 / 1) 0%,
@@ -92,7 +95,7 @@
   );
 }
 /* corpo blu → chiusura blu notte */
-.v2c-cta > .v2-section::after {
+.v2-pg .v2c-cta > .v2-section::after {
   background: linear-gradient(
     to bottom,
     rgb(var(--v2c-prev) / 1) 0%,

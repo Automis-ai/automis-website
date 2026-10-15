@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { Reveal, GRAD, GradientText } from "./_ui";
 import { Check, Loader2 } from "lucide-react";
+import "@/components/home-v3/home-v3.css";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
@@ -74,8 +75,10 @@ const COPY = {
 };
 
 // v3: stessa chiusura di sempre (pitch a sinistra, calendario a destra) nei colori della home v3.
-export default function FinalCta({ v3 = false }) {
+export default function FinalCta({ v3: v3Prop = false }) {
   const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
+  // IT: sempre la chiusura v3 (stessa della home), anche dove la pagina non passa v3
+  const v3 = v3Prop || locale === "it";
   const t = COPY[locale];
   const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
   const holderRef = useRef(null);

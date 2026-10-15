@@ -32,6 +32,10 @@ import Magnetic from "@/components/v2/wow/fx/Magnetic";
 
 const COPY = {
   en: {
+    home: "Home",
+    blog: "Blog",
+    tools: "Tools",
+    contact: "Contact",
     systems: "AI Systems",
     training: "Training",
     useCases: "Case studies",
@@ -55,6 +59,10 @@ const COPY = {
     skip: "Skip to content",
   },
   it: {
+    home: "Home",
+    blog: "Blog",
+    tools: "Strumenti",
+    contact: "Contatti",
     systems: "Sistemi IA",
     training: "Formazione",
     useCases: "Casi studio",
@@ -78,6 +86,10 @@ const COPY = {
     skip: "Vai al contenuto",
   },
   pt: {
+    home: "Início",
+    blog: "Blog",
+    tools: "Ferramentas",
+    contact: "Contactos",
     systems: "Sistemas de IA",
     training: "Formação",
     useCases: "Casos de estudo",
@@ -136,10 +148,15 @@ function buildMenu(locale) {
         },
       ],
     },
+    // Le stesse voci del sito vecchio (15/10): Home, [Sistemi IA al posto di Servizi], Casi studio, Blog, Strumenti, Chi siamo, Contatti.
+    // Formazione resta fuori dal menu (non siamo pronti): la pagina /training è raggiungibile solo dal link diretto.
+    lead: [{ key: "home", title: t.home, href: h("/"), exact: true }],
     links: [
-      { key: "training", title: t.training, href: h("/training"), match: ["/training"] },
       { key: "use-cases", title: t.useCases, href: h("/use-cases"), match: ["/use-cases"] },
+      { key: "blog", title: t.blog, href: h("/blog"), match: ["/blog"] },
+      { key: "tools", title: t.tools, href: h("/tools"), match: ["/tools"] },
       { key: "about", title: t.about, href: h("/about"), match: ["/about"] },
+      { key: "contact", title: t.contact, href: h("/contact"), match: ["/contact"] },
     ],
     cta: { title: t.cta, href: locale === "it" ? h("/") + "#opportunity-finder" : h("/contact") },
     home: h("/"),
@@ -148,7 +165,7 @@ function buildMenu(locale) {
 
 // Il template mette text-transform: capitalize e display: block su ogni `.navbar-collapse li a`:
 // i nomi del menu sono fissati nel brief ("Casi studio", non "Casi Studio"), quindi stile inline.
-const navLinkStyle = { textTransform: "none", whiteSpace: "nowrap" };
+const navLinkStyle = { textTransform: "none", whiteSpace: "nowrap", paddingLeft: "8px", paddingRight: "8px", fontSize: "15px" };
 const panelLinkStyle = {
   display: "flex",
   alignItems: "center",
@@ -358,6 +375,7 @@ const DefaultHeader = ({ hideHeaderNav = false }) => {
           left: !isMobile ? "20px" : "12px",
           right: !isMobile ? "20px" : "12px",
           width: !isMobile ? "calc(100% - 40px)" : "calc(100% - 24px)",
+          maxWidth: !isMobile ? "min(1320px, calc(100vw - 40px))" : undefined,
           height: !isMobile ? "64px" : "52px",
           // il template (public/assets/css/style.css) mette min-height: 62px su .main-header: senza questa riga la barra sul telefono non scende
           minHeight: !isMobile ? "64px" : "52px",
@@ -420,14 +438,14 @@ const DefaultHeader = ({ hideHeaderNav = false }) => {
               </div>
 
               {/* Desktop: lingua + CTA */}
-              <div className="menu-btns !hidden menu-break:!flex items-center gap-3">
+              <div className="menu-btns !hidden menu-break:!flex items-center gap-2">
                 <span className="v2-lang inline-flex">
                   <LanguageSwitcher label={t.language} />
                 </span>
                 <Magnetic radius={70} pull={0.3} max={9}>
                   <Link
                     href={menu.cta.href}
-                    className="inline-flex min-h-[44px] items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-[#3C91E6] via-[#57C7E3] to-[#8FD3F4] px-[20px] text-[15px] font-semibold !text-[#00121f] no-underline shadow-lg shadow-[#3C91E6]/20 transition-all duration-300 hover:from-[#F5CD79] hover:via-[#F5CD79] hover:to-[#F5CD79] hover:!text-[#000a14]"
+                    className="inline-flex min-h-[44px] items-center justify-center whitespace-nowrap rounded-full bg-gradient-to-r from-[#3C91E6] via-[#57C7E3] to-[#8FD3F4] px-[14px] text-[14px] font-semibold !text-[#00121f] no-underline shadow-lg shadow-[#3C91E6]/20 transition-all duration-300 hover:from-[#F5CD79] hover:via-[#F5CD79] hover:to-[#F5CD79] hover:!text-[#000a14]"
                   >
                     {menu.cta.title}
                   </Link>
@@ -569,8 +587,30 @@ const DesktopNav = ({ menu, path, systemsActive, reduce }) => {
       <div className="navbar-collapse clearfix">
         <ul
           className="navigation clearfix"
-          style={{ display: "flex", alignItems: "center", flexWrap: "nowrap", whiteSpace: "nowrap", gap: "8px" }}
+          style={{ display: "flex", alignItems: "center", flexWrap: "nowrap", whiteSpace: "nowrap", gap: "2px" }}
         >
+          {menu.lead.map((link) => {
+            const active = path === "/";
+            return (
+              <li key={link.key} style={{ position: "relative" }}>
+                <Link
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className="v2-fx-navlink"
+                  style={{ ...navLinkStyle, color: linkColor(active) }}
+                >
+                  {link.title}
+                  {active && (
+                    <span
+                      aria-hidden="true"
+                      style={{ position: "absolute", bottom: "-2px", left: 0, width: "100%", height: "2px", backgroundColor: "#8DC2F5" }}
+                    />
+                  )}
+                </Link>
+              </li>
+            );
+          })}
+
           {/* Sistemi: il testo e' un link vero al hub, il chevron apre il pannello */}
           <li
             style={{ position: "relative", display: "flex", alignItems: "center", zIndex: open ? 9998 : "auto" }}
@@ -734,8 +774,23 @@ const MobileMenuContent = ({ menu, path, systemsActive, open, reduce }) => {
 
       <nav aria-label={t.nav}>
         <ul className="m-0 list-none p-0">
+          {menu.lead.map((link) => {
+            const active = path === "/";
+            return (
+              <li key={link.key} className="mb-[4px]" style={seq(1)}>
+                <Link
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`${rowClass} ${active ? "!text-[#8DC2F5] bg-white/5" : ""}`}
+                >
+                  {link.title}
+                </Link>
+              </li>
+            );
+          })}
+
           {/* Sistemi: link al hub + pulsante che apre l'elenco */}
-          <li className="mb-[4px]" style={seq(1)}>
+          <li className="mb-[4px]" style={seq(2)}>
             <div className="flex items-center">
               <Link
                 href={menu.systems.href}
@@ -780,7 +835,7 @@ const MobileMenuContent = ({ menu, path, systemsActive, open, reduce }) => {
           {menu.links.map((link, li) => {
             const active = isUnder(path, link.match);
             return (
-              <li key={link.key} className="mb-[4px]" style={seq(2 + li)}>
+              <li key={link.key} className="mb-[4px]" style={seq(3 + li)}>
                 <Link
                   href={link.href}
                   aria-current={active ? "page" : undefined}
@@ -795,7 +850,7 @@ const MobileMenuContent = ({ menu, path, systemsActive, open, reduce }) => {
       </nav>
 
       {/* CTA */}
-      <div className="mt-auto border-t border-white/10 pt-6" style={seq(2 + menu.links.length)}>
+      <div className="mt-auto border-t border-white/10 pt-6" style={seq(3 + menu.links.length)}>
         <Link
           href={menu.cta.href}
           className="flex min-h-[52px] w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#3C91E6] via-[#57C7E3] to-[#8FD3F4] px-[16px] text-center text-base font-semibold !text-[#00121f] no-underline transition-shadow duration-300 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
