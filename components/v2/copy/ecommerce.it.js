@@ -79,5 +79,5 @@ export default {
     button: "Raccontaci del tuo negozio",
   },
 
-  legal: "Shopify e Sidekick sono marchi di Shopify Inc. WooCommerce è un marchio di Automattic Inc. Automis non è affiliata a Shopify né ad Automattic.",
+  legal: "",
 };

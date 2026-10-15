@@ -243,18 +243,18 @@ export default {
   },
 
   estimate: {
-    eyebrow: "6 · La stima",
-    title: "Quanto ha fatto guadagnare, in una stima",
-    lead: "Il fatturato vero lo conosce solo la clinica. Una stima onesta però si può fare: per ogni appuntamento l'assistente ha registrato il trattamento e se il paziente era nuovo, e il listino dice quanto costa ciascuno.",
+    eyebrow: "6 · I conti a listino",
+    title: "Quanto valgono, a prezzo di listino",
+    lead: "Il fatturato vero lo conosce solo la clinica. Quello che possiamo fare è il conto sul suo listino: per ogni appuntamento l'assistente ha registrato il trattamento e se il paziente era nuovo, e il listino dice quanto costa ciascuno.",
     max: 57000,
     steps: [
       { label: "Appuntamenti presi, a prezzo di listino", value: 5200, text: "5.200 €" },
       { label: "Trattamenti chiesti dai pazienti nuovi", value: 1400, text: "+1.400 €" },
-      { label: "Impianti, se metà delle 23 prime visite diventa un trattamento", value: 25400, text: "+25.400 €" },
+      { label: "Impianti, nell'ipotesi che metà delle 23 prime visite diventi un trattamento", value: 25400, text: "+25.400 €" },
     ],
-    total: { label: "Totale stimato in sette mesi", value: 32000, text: "circa 32.000 €" },
+    total: { label: "Totale a listino in sette mesi", value: 32000, text: "circa 32.000 €" },
     ceiling: "Se tutte le visite per impianti diventassero un trattamento: circa 57.000 €",
-    note: "Stima su listino. Le visite per impianti valgono la media dei trattamenti del programma della clinica, circa 2.200 € l'una: si va da 745 € per un impianto singolo a 4.800 € per un'arcata completa. Prima visita dei pazienti nuovi a 20 €, e non è tolto chi non si è presentato.",
+    note: "Conti sul listino della clinica. Le visite per impianti valgono la media dei trattamenti del programma della clinica, circa 2.200 € l'una: si va da 745 € per un impianto singolo a 4.800 € per un'arcata completa. Prima visita dei pazienti nuovi a 20 €, e non è tolto chi non si è presentato. La parte sugli impianti dipende da quante visite diventano trattamento, ed è l'unica ipotesi del conto.",
     key: {
       figure: "23",
       label: "prime visite per impianti in sette mesi",

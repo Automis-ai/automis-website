@@ -100,9 +100,11 @@ export default function EcommercePage({ locale, tono }) {
           button={{ label: t.cta.button, href: contact }}
         />
 
-        <Section tone="dark" pad="sm" width="narrow">
-          <p className="v2e-legal">{t.legal}</p>
-        </Section>
+        {t.legal ? (
+          <Section tone="dark" pad="sm" width="narrow">
+            <p className="v2e-legal">{t.legal}</p>
+          </Section>
+        ) : null}
       </main>
     </AutomisEnShell>
   );

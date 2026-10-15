@@ -2317,3 +2317,43 @@
 .hv3-call__dot { background: #f5cd79; box-shadow: 0 0 8px rgba(245, 205, 121, 0.8); }
 .hv3-call__frame { background: #081a33; }
 .hv3-call__proof svg { color: #f5cd79 !important; }
+
+/* Home: le quattro schede dei sistemi in riga con le stesse linee (15/10/2026).
+   Titolo, frase, «Il problema», «Scopri di più» e «Vedi i sistemi» stanno alla stessa altezza in tutte le schede, anche
+   quando un titolo va su due righe: ogni scheda è una sotto-griglia delle righe della fila (subgrid). */
+.hv3-systems--four .hv3-srow__track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: row;
+  column-gap: 16px;
+  row-gap: 0;
+  justify-content: stretch;
+}
+.hv3-systems--four .hv3-scard {
+  display: grid;
+  grid-row: span 7;
+  grid-template-rows: subgrid;
+  min-height: 0;
+  margin-bottom: 16px;
+}
+.hv3-systems--four .hv3-scard__chap,
+.hv3-systems--four .hv3-scard__ico {
+  justify-self: start;
+}
+.hv3-systems--four .hv3-scard__pain {
+  align-self: stretch;
+}
+.hv3-systems--four .hv3-scard__go {
+  align-self: end;
+  justify-self: start;
+}
+@media (max-width: 1100px) {
+  .hv3-systems--four .hv3-srow__track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .hv3-systems--four .hv3-srow__track {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -149,10 +149,6 @@ export default function WooCommercePage({ tono }) {
         line="È come avere un team che guarda il negozio giorno e notte, fatto di agenti IA. Una sentinella lo controlla ogni 5 minuti, un giro di controlli lo verifica ogni notte, e gli agenti ti scrivono solo quando serve."
         button={{ label: "Prenota il check-up gratuito", href: BOOKING, external: true }}
       />
-
-      <Section tone="dark" pad="sm" width="narrow">
-        <p className="hwc-small">WooCommerce è un marchio di Automattic Inc. Automis non è affiliata a WooCommerce né ad Automattic.</p>
-      </Section>
     </main>
   );
 }
