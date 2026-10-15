@@ -176,9 +176,9 @@ export default {
     lines: [
       { who: "p", text: "Vorrei prenotare una pulizia per sabato prossimo." },
       { who: "a", text: "Certo, posso aiutarla a prenotare una pulizia dentale. È la sua prima visita da noi o è già un nostro paziente?" },
-      { who: "p", text: "Mi chiamo [nome]." },
+      { who: "p", text: "Mi chiamo [[Mario Bianchi]]." },
       { who: "a", text: "Grazie. Mi dice il suo numero di telefono, per favore?" },
-      { who: "p", text: "[numero]" },
+      { who: "p", text: "[[+351 957 41]] 847" },
       { who: "a", text: "Verifico la disponibilità per sabato. Ho posto per una pulizia dentale con la dottoressa sabato 6 giugno alle dieci oppure alle undici. Uno di questi orari va bene?" },
       { who: "p", text: "Sì, alle dieci va bene." },
       { who: "a", text: "La sua pulizia dentale è fissata per sabato 6 giugno alle dieci del mattino, con la dottoressa. Posso aiutarla con altro?" },
@@ -188,7 +188,6 @@ export default {
     checks: ["Il trattamento", "Il dentista che lo fa", "Il giorno in cui c'è", "Un orario ancora libero"],
     checkAt: [1, 5.4, 5.8, 6.2],
     done: "In agenda",
-    note: "Chiamata di giugno 2026, tradotta dal portoghese e accorciata. Nome e numero di telefono sono omessi; le frasi sono la traduzione di quelle dette. L'assistente propone sempre due orari: mai uno solo, mai una lista.",
   },
 
   detail: {

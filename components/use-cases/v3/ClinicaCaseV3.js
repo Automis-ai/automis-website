@@ -76,6 +76,19 @@ function Estimate({ e }) {
   );
 }
 
+/* Le parti tra [[ ]] sono dati oscurati: nel testo c'è un segnaposto (mai il dato vero), sfocato e nascosto a chi legge con lo screen reader. */
+function Redacted({ text }) {
+  return text.split(/(\[\[.*?\]\])/).map((part, i) =>
+    part.startsWith("[[") ? (
+      <span key={i} className="cv3-redact" aria-hidden="true">
+        {part.slice(2, -2)}
+      </span>
+    ) : (
+      part
+    )
+  );
+}
+
 /* Una chiamata d'esempio: la conversazione si scrive a mano a mano e le quattro cose da far combaciare si accendono. */
 function CallScene({ c }) {
   return (
@@ -89,7 +102,9 @@ function CallScene({ c }) {
           {c.lines.map((l, i) => (
             <li key={l.text} className={`cv3-msg cv3-msg--${l.who} cv3-seq`} style={{ "--k": i }}>
               <small>{c.who[l.who]}</small>
-              <span>{l.text}</span>
+              <span>
+                <Redacted text={l.text} />
+              </span>
             </li>
           ))}
         </ol>
@@ -106,7 +121,6 @@ function CallScene({ c }) {
           <span className="cv3-done">{c.done}</span>
         </div>
       </div>
-      <p className="cv3-call__note">{c.note}</p>
     </InView>
   );
 }

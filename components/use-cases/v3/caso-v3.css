@@ -1374,3 +1374,11 @@
     padding: 4px 14px 22px;
   }
 }
+
+/* Dati oscurati nelle chiamate vere: sfocati, non selezionabili; il testo sotto è un segnaposto, non il dato vero. */
+.cv3-redact {
+  display: inline-block;
+  filter: blur(5px);
+  user-select: none;
+  pointer-events: none;
+}
