@@ -1,0 +1,1376 @@
+/* Casi studio in italiano nello stile di Datura e Album AI: Clínica Santa Maria e ADifesa (14/10/2026).
+   Prefisso .cv3-*. Si appoggia ai colori di home-v3.css (.hv3: --hv3-line, --hv3-card, --hv3-accent) e alle tessere di vetro
+   .dsv3-glass. Mobile first (390 px): ogni griglia scende a una colonna sotto i 820 px.
+   Il movimento è solo transform e opacity: le barre crescono quando InView mette data-iv="in" (lo stato di partenza, senza
+   JavaScript, è quello finale); tutto spento con prefers-reduced-motion. */
+
+.cv3 {
+  max-width: 1180px;
+  margin: 0 auto;
+  color: #fff;
+  --cv3-amber: #e3b85a;
+  --cv3-ok: #7fe0a8;
+  --cv3-warn: #ff8a7a;
+}
+.cv3 h3 {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.18;
+  color: #fff;
+}
+:where(.cv3 p) {
+  margin: 0;
+}
+.cv3 .cv3-gap {
+  margin-top: 18px;
+}
+.cv3 > .cv3-card + .cv3-card,
+.cv3-grid + .cv3-card,
+.cv3-stats + .cv3-card,
+.cv3-pair + .cv3-card,
+.cv3-pair + .cv3-stats {
+  margin-top: 16px;
+}
+.cv3-pair > .cv3-card--alert:not(.cv3-card--fig) {
+  align-self: center;
+}
+
+/* intestazioni con una frase di apertura lunga: vanno a capo (le altre scene hanno una riga sola, a capo vietato) */
+.v2c-scenehead.cv3-head .v2-head__lead,
+.v2c-scenehead.cv3-head p {
+  max-width: 44em;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+}
+
+/* logo del cliente scuro (Clínica) o a colori (ADifesa) nella riga sopra il titolo: diventa bianco come gli altri */
+.cv3-hero--dark-logo .hv3-eyebrowrow__logo {
+  filter: brightness(0) invert(1);
+  height: 36px;
+}
+.hv3-eyebrowrow__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ---------- Griglie ---------- */
+.cv3-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: 16px;
+}
+.cv3-grid--gap {
+  margin-top: 18px;
+}
+.cv3-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+.cv3-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+.cv3-stack > .cv3-shot {
+  flex: 1;
+}
+.cv3-pair--center {
+  align-items: center;
+}
+.cv3-pair > *,
+.cv3-grid > * {
+  min-width: 0;
+}
+
+/* ---------- Tessere con un numero ---------- */
+.cv3-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: 16px;
+}
+.cv3-stats + .cv3-stats,
+.cv3-split + .cv3-stats {
+  margin-top: 16px;
+}
+.cv3-stat b {
+  display: block;
+  font-size: clamp(34px, 5.2vw, 58px);
+  line-height: 1.02;
+  font-weight: 600;
+  color: var(--hv3-accent);
+}
+.cv3-stat p {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.cv3-stat small {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #8fd3f4;
+}
+.cv3-stats--compact .cv3-stat {
+  padding: 20px;
+}
+.cv3-stats--compact .cv3-stat b {
+  font-size: clamp(26px, 3.4vw, 38px);
+  color: #fff;
+}
+.cv3-stats--compact .cv3-stat p {
+  margin-top: 8px;
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- Schede ---------- */
+.cv3-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cv3-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.84);
+}
+.cv3-card--wide {
+  padding: 28px;
+}
+.cv3-card--wide p {
+  max-width: 62em;
+}
+.cv3-card__fig {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: clamp(38px, 5.4vw, 62px) !important;
+  line-height: 1 !important;
+  font-weight: 600;
+  color: var(--hv3-accent) !important;
+}
+.cv3-card__fig--long {
+  font-size: clamp(30px, 3.6vw, 46px) !important;
+}
+.cv3-card__lab {
+  font-family: var(--font-body, inherit);
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
+}
+.cv3-card--alert {
+  border-color: rgba(227, 184, 90, 0.5);
+  background: linear-gradient(180deg, rgba(120, 90, 30, 0.24), rgba(14, 40, 78, 0.38));
+}
+.cv3-card--match {
+  gap: 14px;
+}
+
+.cv3-match,
+.cv3-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cv3-match li,
+.cv3-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 16px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
+}
+.cv3-match li span,
+.cv3-list li span {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(143, 211, 244, 0.55);
+  background: rgba(60, 145, 230, 0.2);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  color: #8fd3f4;
+}
+.cv3-list li {
+  padding-top: 10px;
+  border-top: 1px solid rgba(165, 210, 255, 0.14);
+}
+.cv3-list li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* ---------- Passi numerati ---------- */
+.cv3-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: 16px;
+}
+.cv3-steps li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cv3-steps p {
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.84);
+}
+.cv3-steps--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.cv3-steps--stack {
+  grid-template-columns: 1fr;
+}
+.cv3-steps li .dsv3-n {
+  font-size: 14px;
+}
+
+/* ---------- Istogramma ---------- */
+.cv3-chart {
+  --gap: clamp(6px, 1.8vw, 20px);
+  padding: 24px 24px 20px;
+}
+.cv3-chart__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.cv3-chart__head .dsv3-lab {
+  margin: 0;
+}
+.cv3-chart__total {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+.cv3-plot {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  gap: var(--gap);
+  height: 260px;
+  padding-top: 26px;
+  border-bottom: 1px solid rgba(165, 210, 255, 0.28);
+}
+.cv3-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+}
+.cv3-col__v {
+  margin-bottom: 6px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.78);
+}
+.cv3-col__b {
+  display: block;
+  width: 100%;
+  max-width: 64px;
+  height: calc(var(--h) * 1.7px);
+  min-height: 6px;
+  border-radius: 9px 9px 3px 3px;
+  background: rgba(165, 210, 255, 0.3);
+  transform-origin: bottom;
+}
+.cv3-col.is-after .cv3-col__b,
+.cv3-chart--solid .cv3-col__b {
+  background: linear-gradient(180deg, #57c7e3, #3c91e6);
+}
+.cv3-col.is-after .cv3-col__v {
+  color: #fff;
+}
+.cv3-col__l {
+  position: absolute;
+  top: calc(100% + 8px);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.62);
+}
+.cv3-col.is-mark::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  bottom: 0;
+  left: calc(var(--gap) / -2);
+  border-left: 2px dashed var(--cv3-amber);
+}
+.cv3-col__tag {
+  position: absolute;
+  top: -26px;
+  left: calc(var(--gap) / -2 + 8px);
+  white-space: nowrap;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cv3-amber);
+}
+.cv3-chart__year {
+  display: block;
+  margin-top: 30px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.cv3-chart__note {
+  margin-top: 14px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+.cv3-chart:not(:has(.cv3-chart__year)) .cv3-plot {
+  margin-bottom: 30px;
+}
+
+/* ---------- Barra a segmenti ---------- */
+.cv3-split {
+  padding: 24px;
+}
+.cv3-split__bar {
+  display: flex;
+  gap: 4px;
+  height: 18px;
+  margin: 6px 0 18px;
+}
+.cv3-seg {
+  display: block;
+  flex: var(--f) 1 0;
+  min-width: 6px;
+  border-radius: 99px;
+  transform-origin: left;
+}
+.cv3-seg--0 {
+  background: linear-gradient(90deg, #3c91e6, #57c7e3);
+}
+.cv3-seg--1 {
+  background: rgba(165, 210, 255, 0.55);
+}
+.cv3-seg--2 {
+  background: rgba(255, 255, 255, 0.22);
+}
+.cv3-split__key {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cv3-split__key li {
+  display: grid;
+  grid-template-columns: 12px auto 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 15.5px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.86);
+}
+.cv3-split__key li .cv3-seg {
+  width: 12px;
+  height: 12px;
+  min-width: 0;
+  flex: none;
+  align-self: center;
+  border-radius: 4px;
+}
+.cv3-split__key b {
+  font-size: 20px;
+  color: #fff;
+}
+.cv3-split__key small {
+  grid-column: 3 / -1;
+  display: block;
+  margin-top: -6px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.cv3-split__key em {
+  font-style: normal;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- Righe con barra ---------- */
+.cv3-rows {
+  padding: 24px;
+}
+.cv3-rows ul {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+.cv3-rows li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 0;
+  border-top: 1px solid rgba(165, 210, 255, 0.14);
+}
+.cv3-rows li:first-child {
+  border-top: 0;
+}
+.cv3-rows__l {
+  font-size: 15.5px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.88);
+}
+.cv3-rows__bar {
+  display: block;
+  height: 10px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.cv3-rows__bar i {
+  display: block;
+  width: calc(var(--f) * 100%);
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #3c91e6, #57c7e3);
+  transform-origin: left;
+}
+.cv3-rows b {
+  text-align: right;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* ---------- Elenco etichetta · valore ---------- */
+.cv3-kv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+}
+.cv3-kv__lead {
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+}
+.cv3-kv dl {
+  margin: 4px 0 0;
+}
+.cv3-kv dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(165, 210, 255, 0.14);
+  font-size: 15.5px;
+  line-height: 1.4;
+}
+.cv3-kv dl > div:first-child {
+  border-top: 0;
+}
+.cv3-kv dt {
+  flex: 0 0 38%;
+  color: rgba(255, 255, 255, 0.86);
+}
+.cv3-kv dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 600;
+  color: var(--hv3-accent);
+}
+
+/* ---------- Schermata vera ---------- */
+.cv3-shot {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cv3-shot .dsv3-browser {
+  flex: none;
+}
+.cv3-shot figcaption {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.64);
+}
+.cv3-shot--center {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Problema e come è finita ---------- */
+.cv3-fixes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+}
+.cv3-fixes[data-n="4"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.cv3-fix {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cv3-fix__row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.84);
+}
+.cv3-fix__row em {
+  font-style: normal;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.cv3-fix__row--found em {
+  color: var(--cv3-warn);
+}
+.cv3-fix__row--fix em {
+  color: var(--cv3-ok);
+}
+
+/* ---------- Lingue ---------- */
+.cv3-chips {
+  margin-bottom: 18px;
+  text-align: center;
+}
+.cv3-chips ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.cv3-chips li {
+  padding: 10px 18px;
+  border: 1px solid rgba(143, 211, 244, 0.45);
+  border-radius: 999px;
+  background: rgba(60, 145, 230, 0.16);
+  font-size: 16px;
+  color: #d3e2f4;
+}
+.cv3-chips p {
+  margin-top: 12px;
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+/* ---------- Settimana dei dentisti ---------- */
+.cv3-week {
+  padding: 24px;
+}
+.cv3-week__grid {
+  display: grid;
+  grid-template-columns: minmax(130px, 1.5fr) repeat(5, minmax(0, 1fr));
+  align-items: center;
+  margin-top: 6px;
+}
+.cv3-week__row {
+  display: contents;
+}
+.cv3-week__d {
+  text-align: center;
+  padding-bottom: 10px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+.cv3-week__n {
+  padding: 14px 12px 14px 0;
+  border-top: 1px solid rgba(165, 210, 255, 0.14);
+  font-size: 16px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.92);
+}
+.cv3-week__c {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 52px;
+  border-top: 1px solid rgba(165, 210, 255, 0.14);
+}
+.cv3-week__c i {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(165, 210, 255, 0.3);
+}
+.cv3-week__c.is-on i {
+  border-color: #57c7e3;
+  background: radial-gradient(circle at 35% 30%, #8fe3f5, #3c91e6);
+  box-shadow: 0 0 14px rgba(87, 199, 227, 0.6);
+}
+
+/* ---------- Stima ---------- */
+.cv3-est {
+  padding: 24px;
+}
+.cv3-est__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 2fr) 150px;
+  align-items: center;
+  gap: 18px;
+  padding: 15px 0;
+  border-top: 1px solid rgba(165, 210, 255, 0.14);
+}
+.cv3-est__row:first-child {
+  border-top: 0;
+}
+.cv3-est__l {
+  font-size: 15.5px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.88);
+}
+.cv3-est__track {
+  display: block;
+  position: relative;
+  height: 14px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+.cv3-est__track i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--from) * 100%);
+  width: calc(var(--w) * 100%);
+  border-radius: 99px;
+  background: rgba(165, 210, 255, 0.55);
+  transform-origin: left;
+}
+.cv3-est__row--total .cv3-est__track i {
+  background: linear-gradient(90deg, #3c91e6, #57c7e3);
+}
+.cv3-est__row--total .cv3-est__track i.is-ghost {
+  background: repeating-linear-gradient(135deg, rgba(87, 199, 227, 0.28) 0 6px, transparent 6px 12px);
+}
+.cv3-est__row b {
+  white-space: nowrap;
+  text-align: right;
+  font-size: 19px;
+  color: #fff;
+}
+.cv3-est__row--total b {
+  color: var(--hv3-accent);
+}
+.cv3-est__ceiling {
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(165, 210, 255, 0.14);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* ---------- ADifesa: parole e prodotto, imbuto, fuori orario ---------- */
+.cv3-pairs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+}
+.cv3-pairs ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cv3-pairs li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 0.8fr);
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgba(165, 210, 255, 0.16);
+  border-radius: 16px;
+  background: rgba(6, 26, 51, 0.5);
+}
+.cv3-pairs q {
+  font-size: 15px;
+  line-height: 1.4;
+  font-style: italic;
+  quotes: none;
+  color: rgba(255, 255, 255, 0.86);
+}
+.cv3-pairs__arrow {
+  color: var(--hv3-accent);
+  font-size: 20px;
+}
+.cv3-pairs b {
+  font-size: 15.5px;
+  line-height: 1.25;
+  color: var(--hv3-accent);
+}
+
+.cv3-funnel {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  counter-reset: f;
+}
+.cv3-funnel li {
+  position: relative;
+}
+.cv3-funnel li + li::before {
+  content: "→";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  translate: -50% -50%;
+  z-index: 1;
+  font-size: 18px;
+  color: var(--hv3-accent);
+}
+.cv3-funnel b {
+  display: block;
+  font-size: clamp(32px, 4.2vw, 50px);
+  line-height: 1.02;
+  font-weight: 600;
+  color: var(--hv3-accent);
+}
+.cv3-funnel p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.86);
+}
+.cv3-funnel small {
+  display: block;
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: #e3b85a;
+}
+.cv3-funnel li.is-ext {
+  border-style: dashed;
+  border-color: rgba(227, 184, 90, 0.55);
+}
+.cv3-funnel li:nth-child(1) {
+  background: var(--hv3-card);
+}
+.cv3-focus {
+  margin-top: 18px;
+}
+.cv3-night {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.78);
+}
+.cv3-night b {
+  font-size: 22px;
+  color: var(--hv3-accent);
+}
+
+/* ---------- Domande frequenti ---------- */
+.cv3-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.cv3-faq details {
+  padding: 0;
+}
+.cv3-faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  list-style: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #fff;
+}
+.cv3-faq summary::-webkit-details-marker {
+  display: none;
+}
+.cv3-faq summary i {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--hv3-accent);
+  border-bottom: 2px solid var(--hv3-accent);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.cv3-faq details[open] summary i {
+  transform: rotate(-135deg);
+}
+.cv3-faq summary:focus-visible {
+  outline: 2px solid var(--hv3-accent);
+  outline-offset: -2px;
+  border-radius: 24px;
+}
+.cv3-faq details > p {
+  padding: 0 22px 20px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.cv3-linkrow {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.78);
+}
+.cv3-linkrow a {
+  color: var(--hv3-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Entrata: barre e segmenti crescono quando arrivano ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-iv="out"] .cv3-col__b,
+  [data-iv="out"] .cv3-seg,
+  [data-iv="out"] .cv3-rows__bar i,
+  [data-iv="out"] .cv3-est__track i {
+    transform: scale(0, 1);
+  }
+  [data-iv="out"] .cv3-col__b {
+    transform: scale(1, 0);
+  }
+  [data-iv="out"] .cv3-week__c i,
+  [data-iv="out"] .cv3-match li,
+  [data-iv="out"] .cv3-pairs li,
+  [data-iv="out"] .cv3-funnel li {
+    opacity: 0;
+  }
+  [data-iv="in"] .cv3-col__b,
+  [data-iv="in"] .cv3-seg,
+  [data-iv="in"] .cv3-rows__bar i,
+  [data-iv="in"] .cv3-est__track i {
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+  [data-iv="in"] .cv3-week__c i,
+  [data-iv="in"] .cv3-match li,
+  [data-iv="in"] .cv3-pairs li,
+  [data-iv="in"] .cv3-funnel li {
+    transition: opacity 0.6s ease calc(var(--i, var(--r, 0)) * 110ms);
+  }
+}
+
+/* ---------- Tablet e telefono ---------- */
+@media (max-width: 820px) {
+  .cv3-grid,
+  .cv3-pair,
+  .cv3-steps,
+  .cv3-steps--two,
+  .cv3-stats {
+    grid-template-columns: 1fr;
+  }
+  .cv3-stats--compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cv3-funnel {
+    grid-template-columns: 1fr;
+  }
+  .cv3-funnel li + li::before {
+    left: 50%;
+    top: -9px;
+    content: "↓";
+  }
+  .cv3-card--wide {
+    padding: 22px;
+  }
+  .cv3-plot {
+    height: 230px;
+  }
+  .cv3-col__b {
+    height: calc(var(--h) * 1.45px);
+  }
+  .cv3-week__grid {
+    grid-template-columns: minmax(96px, 1.4fr) repeat(5, minmax(0, 1fr));
+  }
+  .cv3-week__n {
+    font-size: 14px;
+  }
+  .cv3-rows li {
+    grid-template-columns: 1fr 44px;
+    gap: 8px 12px;
+  }
+  .cv3-rows__bar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .cv3-est__row {
+    grid-template-columns: 1fr auto;
+    gap: 8px 12px;
+  }
+  .cv3-est__track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .cv3-pairs li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .cv3-pairs__arrow {
+    rotate: 90deg;
+    justify-self: start;
+  }
+  .cv3-kv dl > div {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cv3-kv dd {
+    text-align: left;
+  }
+  .cv3-kv dt {
+    flex: none;
+  }
+  .cv3-fixes[data-n="4"] {
+    grid-template-columns: 1fr;
+  }
+  .cv3-split__key li {
+    grid-template-columns: 12px auto 1fr;
+  }
+  .cv3-split__key em {
+    grid-column: 3;
+  }
+}
+
+/* =====================================================================================================================
+   Secondo giro (14/10/2026): pagine più corte, una scena animata per caso, meno schede uguali, schermate ritagliate.
+   ===================================================================================================================== */
+
+/* ---------- Striscia di cifre (una scheda, tre numeri) ---------- */
+.cv3-strip {
+  padding: 28px 12px;
+}
+.cv3-strip ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.cv3-strip li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 28px;
+  border-left: 1px solid rgba(165, 210, 255, 0.18);
+}
+.cv3-strip li:first-child {
+  border-left: 0;
+}
+.cv3-strip b {
+  font-size: clamp(34px, 4.6vw, 54px);
+  line-height: 1;
+  font-weight: 600;
+  color: var(--hv3-accent);
+}
+.cv3-strip li > span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+.cv3-strip small {
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* ---------- Frase grande ---------- */
+.cv3-quote {
+  margin: 34px auto 0;
+  max-width: 820px;
+  text-align: center;
+}
+.cv3-quote .dsv3-lab {
+  margin-bottom: 12px;
+}
+.cv3-quote__t {
+  font-size: clamp(26px, 3.6vw, 40px);
+  line-height: 1.15;
+  color: #fff;
+}
+.cv3-quote__l {
+  margin-top: 14px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- Colonne di testo senza scheda ---------- */
+.cv3-plain {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 26px;
+  padding: 0 6px;
+}
+.cv3-plain > div {
+  padding-left: 18px;
+  border-left: 2px solid rgba(87, 199, 227, 0.5);
+}
+.cv3-plain h3 {
+  margin-bottom: 8px;
+}
+.cv3-plain p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- Nel dettaglio ---------- */
+.cv3-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.cv3-detail > details {
+  padding: 0;
+}
+.cv3-detail summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 16px;
+  padding: 20px 26px;
+  list-style: none;
+  cursor: pointer;
+}
+.cv3-detail summary::-webkit-details-marker {
+  display: none;
+}
+.cv3-detail summary .dsv3-lab {
+  grid-column: 1;
+  margin: 0 0 4px;
+}
+.cv3-detail summary b {
+  grid-column: 1;
+  font-size: clamp(19px, 2.2vw, 24px);
+  line-height: 1.2;
+  color: #fff;
+}
+.cv3-detail summary i {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--hv3-accent);
+  border-bottom: 2px solid var(--hv3-accent);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.cv3-detail details[open] summary i {
+  transform: rotate(-135deg);
+}
+.cv3-detail summary:focus-visible {
+  outline: 2px solid var(--hv3-accent);
+  outline-offset: -2px;
+  border-radius: 24px;
+}
+.cv3-detail__body {
+  padding: 4px 26px 28px;
+  border-top: 1px solid rgba(165, 210, 255, 0.14);
+}
+.cv3-detail__body > .cv3-lead {
+  margin: 20px auto 22px;
+  max-width: 44em;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.84);
+}
+.cv3-detail__body .dsv3-glass {
+  background: rgba(6, 26, 51, 0.45);
+}
+
+/* ---------- Schermata ritagliata ---------- */
+.cv3-shot a.dsv3-browser {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.cv3-shot__crop {
+  overflow: hidden;
+  background: #fff;
+}
+.cv3-shot__crop img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--ox, 50%) var(--oy, 50%);
+  transform: scale(var(--z, 1));
+  transform-origin: var(--ox, 50%) var(--oy, 50%);
+}
+.cv3-shot figcaption {
+  font-size: 12.5px;
+}
+
+/* ---------- Scena: una chiamata (Clínica) ---------- */
+.cv3-call {
+  padding: 0;
+  overflow: hidden;
+}
+.cv3-call__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(165, 210, 255, 0.14);
+}
+.cv3-call__top b {
+  white-space: nowrap;
+  font-size: 18px;
+}
+.cv3-call__tag {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cv3-amber);
+}
+.cv3-call__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+}
+.cv3-chat {
+  list-style: none;
+  margin: 0;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-right: 1px solid rgba(165, 210, 255, 0.14);
+}
+.cv3-msg {
+  max-width: 82%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cv3-msg small {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.cv3-msg span {
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 15.5px;
+  line-height: 1.45;
+}
+.cv3-msg--p {
+  align-self: flex-start;
+}
+.cv3-msg--p span {
+  border-bottom-left-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.92);
+}
+.cv3-msg--a {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+.cv3-msg--a span {
+  border-bottom-right-radius: 5px;
+  background: linear-gradient(180deg, #3c91e6, #2f78c9);
+  color: #fff;
+}
+.cv3-checks {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cv3-checks ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cv3-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.cv3-check i {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--hv3-accent);
+  background: radial-gradient(circle at 35% 30%, #8fe3f5, #3c91e6);
+  box-shadow: 0 0 12px rgba(87, 199, 227, 0.55);
+}
+.cv3-done {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #d8f5e5;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0d6b3a;
+}
+.cv3-call__note {
+  padding: 14px 24px 18px;
+  border-top: 1px solid rgba(165, 210, 255, 0.14);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+/* ---------- Scena: dal commento alla scheda (ADifesa) ---------- */
+.cv3-flow__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.cv3-flow__steps li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cv3-flow__steps li + li::before {
+  content: "→";
+  position: absolute;
+  left: -15px;
+  top: 28px;
+  translate: -50% 0;
+  z-index: 1;
+  font-size: 18px;
+  color: var(--hv3-accent);
+}
+.cv3-flow__steps p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.84);
+}
+.cv3-flow__shot {
+  max-width: 760px;
+  margin: 22px auto 0;
+}
+
+/* ---------- Entrata in sequenza (scene che si svolgono quando arrivano) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-iv="out"] .cv3-seq {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  [data-iv="in"] .cv3-seq {
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(var(--k, 0) * 0.6s);
+  }
+  [data-iv="out"] .cv3-check i {
+    background: transparent;
+    box-shadow: none;
+    border-color: rgba(165, 210, 255, 0.3);
+  }
+  [data-iv="out"] .cv3-done {
+    opacity: 0;
+  }
+  [data-iv="in"] .cv3-check i {
+    transition: background 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+    transition-delay: calc(var(--k, 0) * 0.6s);
+  }
+  [data-iv="in"] .cv3-done {
+    transition: opacity 0.6s ease 3.4s;
+  }
+}
+
+@media (max-width: 820px) {
+  .cv3-strip ul {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .cv3-strip li {
+    padding: 0 18px;
+    border-left: 0;
+  }
+  .cv3-plain {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .cv3-call__grid {
+    grid-template-columns: 1fr;
+  }
+  .cv3-chat {
+    border-right: 0;
+    border-bottom: 1px solid rgba(165, 210, 255, 0.14);
+    padding: 20px 16px;
+  }
+  .cv3-msg {
+    max-width: 92%;
+  }
+  .cv3-checks {
+    padding: 20px 16px;
+  }
+  .cv3-flow__steps {
+    grid-template-columns: 1fr;
+  }
+  .cv3-flow__steps li + li::before {
+    left: 50%;
+    top: -11px;
+    content: "↓";
+  }
+  .cv3-detail summary {
+    padding: 18px 18px;
+  }
+  .cv3-detail__body {
+    padding: 4px 14px 22px;
+  }
+}

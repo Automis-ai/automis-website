@@ -3,6 +3,7 @@ import { CASES, getCase } from "@/components/use-cases/cases";
 import CaseStudyDetail from "@/components/use-cases/CaseStudyDetail";
 import { metaLongForm } from "@/components/use-cases/longform";
 import { V2_CASE_SLUGS, getV2Case } from "@/components/v2/use-cases/registry";
+import { getItCase } from "@/components/v2/use-cases/itCases";
 
 export function generateStaticParams() {
   // I casi costruiti sul kit v2 (Album AI, Datura Clothing) non stanno in CASES: i loro slug si aggiungono qui.
@@ -41,9 +42,11 @@ export function generateMetadata({ params }) {
 export default function CaseStudyDetailPageIt({ params }) {
   // Lo slug è lo stesso in tutte le lingue: lo dichiariamo al selettore e al piede già sul server.
   const v2 = getV2Case(params.slug);
+  // Clínica e ADifesa: in italiano pagina nello stile nuovo, in EN e PT resta l'articolo lungo.
+  const ItCase = getItCase(params.slug);
   return (
     <LangTwins path={`/use-cases/${params.slug}`}>
-      {v2 ? <v2.Case locale="it" /> : <CaseStudyDetail slug={params.slug} locale="it" />}
+      {v2 ? <v2.Case locale="it" /> : ItCase ? <ItCase locale="it" /> : <CaseStudyDetail slug={params.slug} locale="it" />}
     </LangTwins>
   );
 }

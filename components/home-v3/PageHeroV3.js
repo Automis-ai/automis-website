@@ -50,6 +50,7 @@ export default function PageHeroV3({ eyebrow, title, highlight, lead, pain, pain
                 <span className="hv3-pill">{eyebrow}</span>
                 <span className="hv3-eyebrowrow__sep" aria-hidden="true" />
                 <img className="hv3-eyebrowrow__logo" src={eyebrowLogo.src} alt={eyebrowLogo.alt} />
+                {eyebrowLogo.name ? <span className="hv3-eyebrowrow__name">{eyebrowLogo.name}</span> : null}
               </div>
             ) : (
               <span className="hv3-pill">{eyebrow}</span>
