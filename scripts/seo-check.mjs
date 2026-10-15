@@ -131,7 +131,10 @@ function metaContent(html, name, key = "name") {
 }
 
 /** Production URL -> the base being checked. Identity when checking production. */
-const toBase = (url) => url.replace(/^https?:\/\/[^/]+/, base);
+// Only production URLs are moved onto --base: a link to another host (voice.automis.ai)
+// must be checked where it really points, not on this site.
+const toBase = (url) => url.replace(/^https?:\/\/automis\.ai(?=[/?#]|$)/, base);
+const norm = (url) => url.replace(/\/$/, "") || base;
 
 async function sitemapUrls() {
   const seen = new Set();
@@ -228,6 +231,35 @@ async function checkPage(url) {
   else if (!lang.toLowerCase().startsWith(expected))
     err(url, "lang-mismatch", `lang="${lang}" on a ${expected} URL`);
 
+  // Ahrefs: "Self-reference hreflang annotation missing" / "Missing x-default". Next
+  // writes the attribute as `hrefLang`: attr() matches it case-insensitively, a
+  // case-sensitive grep reads these pages as having no hreflang at all.
+  const head = html.split(/<\/head>/i)[0];
+  const alternates = [...head.matchAll(/<link\b[^>]*>/gi)]
+    .map((m) => m[0])
+    .filter((tag) => /\brel="alternate"/i.test(tag) && attr(tag, "hreflang") && attr(tag, "href"))
+    .map((tag) => ({ lang: attr(tag, "hreflang"), href: norm(toBase(new URL(attr(tag, "href"), url).href)) }));
+  // hreflang outside <head> is ignored by Google; seeing none here must not read as "fine".
+  if (!alternates.length && /<link\b[^>]*\bhreflang=/i.test(html.slice(head.length)))
+    warn(url, "hreflang-outside-head", "hreflang links found after </head>, Google ignores them");
+  if (alternates.length) {
+    if (!alternates.some((a) => a.href === norm(url)))
+      err(url, "hreflang-no-self", `${alternates.length} alternates, none points to this page`);
+    if (!alternates.some((a) => a.lang.toLowerCase() === "x-default"))
+      warn(url, "hreflang-no-x-default", `${alternates.length} alternates, no x-default`);
+  }
+
+  // Ahrefs: "Structured data has schema.org validation error". A JSON-LD block that
+  // does not parse is dropped whole, silently: the page just stops being eligible.
+  const ldBlocks = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)];
+  ldBlocks.forEach((m, i) => {
+    try {
+      JSON.parse(m[1]);
+    } catch (e) {
+      err(url, "jsonld-invalid", `block ${i + 1} of ${ldBlocks.length}: ${e.message.slice(0, 80)}`);
+    }
+  });
+
   // Ahrefs: "Open Graph tags incomplete". Next shallow-merges nested openGraph, so a
   // page that declares its own block silently loses the root default image.
   if (!ogImage) err(url, "og-image-missing", "no og:image");
@@ -247,7 +279,7 @@ async function checkPage(url) {
     .filter((h) => h && !/^(#|mailto:|tel:|javascript:)/i.test(h))
     .map((h) => new URL(h, url).href);
 
-  return { url, title: title && decode(title).trim(), description, assets, links };
+  return { url, title: title && decode(title).trim(), description, assets, links, alternates };
 }
 
 /* ── run ──────────────────────────────────────────────────────────────────── */
@@ -276,6 +308,28 @@ for (const [field, rule] of [["title", "duplicate-title"], ["description", "dupl
       err(group.join(", "), rule, `${group.length} pages share "${value.slice(0, 70)}..."`);
   }
 }
+
+// Ahrefs: "Missing reciprocal hreflang (no return-tag)" and "Hreflang to broken page".
+// The return tag is what makes Google trust a pair: one side alone is ignored.
+const byUrl = new Map(pages.map((p) => [norm(p.url), p]));
+const hreflangTargets = new Map();
+for (const p of pages) {
+  for (const a of p.alternates) {
+    if (a.href === norm(p.url)) continue;
+    const target = byUrl.get(a.href);
+    if (!target) hreflangTargets.set(a.href, [...(hreflangTargets.get(a.href) || []), p.url]);
+    else if (!target.alternates.some((b) => b.href === norm(p.url)))
+      err(p.url, "hreflang-not-reciprocal", `${a.lang} -> ${a.href} does not point back`);
+  }
+}
+const targetList = [...hreflangTargets.keys()];
+const targetStatuses = await mapLimit(targetList, CONCURRENCY, statusOf);
+targetList.forEach((t, i) => {
+  const users = hreflangTargets.get(t);
+  const detail = `${t} (on ${users.length} page${users.length > 1 ? "s" : ""})`;
+  if (targetStatuses[i] !== 200) err(users[0], "hreflang-broken", `[${targetStatuses[i] || "unreachable"}] ${detail}`);
+  else warn(users[0], "hreflang-not-in-sitemap", detail);
+});
 
 // Ahrefs: "Broken image" (this is what a dead partner badge looks like: it was on all
 // 78 pages) and "Page has links to a broken page".
