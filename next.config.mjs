@@ -74,7 +74,8 @@ const nextConfig = {
       // Le due landing e-commerce (solo in italiano) sono file statici in public/ecommerce-static,
       // portati dal v2 così come sono. Il percorso pubblico resta /it/ecommerce/<piattaforma>.
       {
-        source: "/it/ecommerce/shopify",
+        // La Shopify nuova è una rotta del sito (app/it/ecommerce/shopify). Qui resta la versione statica di prima.
+        source: "/it/ecommerce/shopify-prima",
         destination: "/ecommerce-static/shopify/index.html",
       },
       {
