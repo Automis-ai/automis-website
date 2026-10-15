@@ -9,7 +9,6 @@ import BeforeAfterSection from "./sections/BeforeAfterSection";
 import StepSection from "./sections/StepSection";
 import ResultsSection from "./sections/ResultsSection";
 import AdvancedTechSection from "./sections/AdvancedTechSection";
-import TestimonialsSection from "./sections/Testimonials";
 import FAQSection from "./sections/FAQSection";
 import BookingSection from "./sections/BookingSection";
 import { CtaBand } from "./sections/_ui";
@@ -30,7 +29,6 @@ const EnPage = () => {
         subtitle="Watch your voice assistant answer, qualify and book, live."
       />
       <AdvancedTechSection />
-      <TestimonialsSection />
       <FAQSection />
       <BookingSection />
     </AkpagerLayout>

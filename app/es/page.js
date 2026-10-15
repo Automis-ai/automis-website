@@ -9,7 +9,6 @@ import ResultsSection from "./sections/ResultsSection";
 import AdvancedTechSection from "./sections/AdvancedTechSection";
 import BeforeAfterSection from "./sections/BeforeAfterSection";
 import FAQSection from "./sections/FAQSection";
-import TestimonialsSection from "./sections/Testimonials";
 
 const EsPage = () => {
   return (
@@ -21,7 +20,6 @@ const EsPage = () => {
         <ResultsSection />
         <AdvancedTechSection />
         <BeforeAfterSection />
-        <TestimonialsSection />
         <FAQSection />
       </div>
     </AkpagerLayout>
