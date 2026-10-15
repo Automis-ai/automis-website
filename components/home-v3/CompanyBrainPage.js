@@ -14,7 +14,6 @@ import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
 import PageStory from "@/components/v2/wow/fx/PageStory";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
-import { homeCopy } from "./copy";
 import { CB } from "./companyBrainCopy";
 
 /*
@@ -26,7 +25,6 @@ export default function CompanyBrainPage({ tono }) {
   const locale = "it";
   const c = getCopy("systems", locale)["company-brain"];
   const common = getCopy("common", locale);
-  const h = homeCopy(locale);
 
   return (
     <main id="main" className={pageClass(tono)}>
@@ -37,8 +35,6 @@ export default function CompanyBrainPage({ tono }) {
         title={c.hero.title}
         highlight={c.hero.highlight}
         lead={c.hero.lead}
-        pain="Per sapere come si fa una cosa devi trovare la persona giusta."
-        painLabel={h.systems.pain}
         cta={{ label: CB.hero.cta, href: "#demo" }}
       />
 

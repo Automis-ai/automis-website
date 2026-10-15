@@ -137,14 +137,12 @@ export default function CategoryBody({ locale, slug, tono }) {
       <SmoothScroll />
       <PageStory />
       {L === "it" ? (
-        /* Hero v3 (14/10): luce della home, «Il problema» della scheda, un solo bottone che scende alle schede. EN e PT restano sul v2. */
+        /* Hero v3 (14/10): luce della home, un solo bottone che scende alle schede. EN e PT restano sul v2. */
         <PageHeroV3
           eyebrow={c.hero.eyebrow}
           title={c.hero.title}
           highlight={c.hero.highlight}
           lead={c.hero.lead}
-          pain={slug === "sales" ? undefined : homeCopy(L).systems.items.find((x) => x.slug === slug)?.pain}
-          painLabel={homeCopy(L).systems.pain}
           cta={{ label: "Scopri i sistemi", href: "#sistemi" }}
         />
       ) : (
