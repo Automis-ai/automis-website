@@ -249,7 +249,7 @@ export default {
   estimate: {
     eyebrow: "6 · I conti a listino",
     title: "Quanto valgono, a prezzo di listino",
-    lead: "Il fatturato vero lo conosce solo la clinica. Quello che possiamo fare è il conto sul suo listino: per ogni appuntamento l'assistente ha registrato il trattamento e se il paziente era nuovo, e il listino dice quanto costa ciascuno.",
+    lead: "Questi sono i prezzi di listino della clinica, applicati a quello che l'assistente ha registrato: per ogni appuntamento, il trattamento e se il paziente era nuovo. Il fatturato che ne risulta è calcolato, quindi presunto: quello vero lo conosce solo la clinica.",
     max: 57000,
     steps: [
       { label: "Appuntamenti presi, a prezzo di listino", value: 5200, text: "5.200 €" },
