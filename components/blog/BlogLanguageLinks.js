@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "./blog-v3.css";
 
 /**
  * The one line that links the three blog indexes to each other.
@@ -33,18 +34,13 @@ export default function BlogLanguageLinks({ locale = "en" }) {
   const others = LOCALES.filter((l) => l.code !== locale);
 
   return (
-    <div className="container mx-auto px-4">
-      <p className="text-center text-sm text-white/70 font-montserrat mb-10">
+    <div className="hv3 hv3-blog-langs">
+      <p>
         {INTRO[locale] || INTRO.en}:{" "}
         {others.map((l, i) => (
           <span key={l.code}>
-            {i > 0 && <span className="text-white/40"> · </span>}
-            <Link
-              href={l.href}
-              className="text-white/90 underline underline-offset-4 hover:text-yellow-light transition"
-            >
-              {l.label}
-            </Link>
+            {i > 0 && <span> · </span>}
+            <Link href={l.href}>{l.label}</Link>
           </span>
         ))}
       </p>
