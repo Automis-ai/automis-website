@@ -8,9 +8,10 @@ import "./home-v3.css";
   e i sistemi di supporto. «Leggi di più» apre il problema e il dettaglio nella scheda stessa.
   Mockup scelto da Luca il 14/10: ~/Automations/sandbox/web-motion/systems-v3/body3.html.
   stages: [{ title, line, items: [{ id, title, short, line, more, href, cta, viz }] }]  (items[0] = in primo piano)
-  viz: "bars" | "stars" | "night" | undefined (senza animazione, il problema sta nel riquadro a destra)
+  viz: "bars" | "stars" | "night" | "dm" | "board" | undefined (senza animazione, il problema sta nel riquadro a destra)
+  vizData: dati dei viz "dm" ({ rows, crmLabel, crmState }) e "board" ({ cols: [{ name, cards: [[nome, telefono, etichetta]] }] })
 */
-function Viz({ kind, caption, rows }) {
+function Viz({ kind, caption, rows, data }) {
   if (kind === "bars")
     return (
       <>
@@ -36,6 +37,37 @@ function Viz({ kind, caption, rows }) {
             <span className={ok ? "is-ok" : "is-wait"}>{b}</span>
           </div>
         ))}
+      </>
+    );
+  if (kind === "dm")
+    return (
+      <>
+        <div className="hv3-viz__chat">{data.rows[0]}</div>
+        <div className="hv3-viz__chat hv3-viz__chat--out">{data.rows[1]}</div>
+        <div className="hv3-viz__row">
+          <span>{data.crmLabel}</span>
+          <span className="is-ok">{data.crmState}</span>
+        </div>
+        <div className="hv3-viz__cap">{caption}</div>
+      </>
+    );
+  if (kind === "board")
+    return (
+      <>
+        <div className="hv3-board" aria-hidden="true">
+          {data.cols.map((c) => (
+            <div key={c.name} className="hv3-board__col">
+              <b>{c.name}</b>
+              {c.cards.map(([n, tel, tag]) => (
+                <div key={n} className="hv3-board__card">
+                  {n}
+                  <small>{tel} · {tag}</small>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div className="hv3-viz__cap">{caption}</div>
       </>
     );
   return null;
@@ -98,7 +130,7 @@ export default function CategoryStagesV3({ stages, labels }) {
               </div>
             ) : null}
             <div className="hv3-st__main">
-              <article data-reveal className="hv3-lead2">
+              <article data-reveal className={`hv3-lead2${lead.viz === "board" ? " hv3-lead2--wide" : ""}`}>
                 <div>
                   {lead.kicker ? <span className="hv3-chip">{lead.kicker}</span> : null}
                   <h3 className="font-display">{lead.title}</h3>
@@ -112,7 +144,7 @@ export default function CategoryStagesV3({ stages, labels }) {
                 </div>
                 {lead.viz ? (
                   <div className="hv3-viz">
-                    <Viz kind={lead.viz} caption={lead.vizCaption} rows={lead.vizRows} />
+                    <Viz kind={lead.viz} caption={lead.vizCaption} rows={lead.vizRows} data={lead.vizData} />
                   </div>
                 ) : (
                   <div className="hv3-scard__pain hv3-lead2__pain">

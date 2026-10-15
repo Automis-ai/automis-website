@@ -3,6 +3,7 @@ import PageHero from "@/components/v2/ui/PageHero";
 import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import { homeCopy } from "@/components/home-v3/copy";
 import CategoryStagesV3 from "@/components/home-v3/CategoryStagesV3";
+import SalesExtrasV3 from "@/components/home-v3/SalesExtrasV3";
 import { STAGES } from "@/components/home-v3/stages";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
@@ -104,6 +105,13 @@ export default function CategoryBody({ locale, slug, tono }) {
       vizCaption: `${getCopy("ecommerce", L).hero.visual.title} · ${getCopy("ecommerce", L).hero.visual.caption}`,
       vizRows: getCopy("ecommerce", L).hero.visual.rows.map((r) => [r.area, r.state, r.tone === "done"]),
     },
+    ...(slug === "sales" && c.dmDemo
+      ? {
+          "social-dms": { viz: "dm", vizCaption: c.dmDemo.caption, vizData: c.dmDemo },
+          "lead-qualification": { viz: "night", vizCaption: c.qualDemo.caption, vizRows: c.qualDemo.rows },
+          "custom-crm": { viz: "board", vizCaption: c.crmDemo.caption, vizData: c.crmDemo },
+        }
+      : {}),
   };
   const itV3 = L === "it";
   // Company Brain: la scheda sarebbe un doppione della hero, la pagina parte dalla demo «Chiedi al Brain».
@@ -135,7 +143,7 @@ export default function CategoryBody({ locale, slug, tono }) {
           title={c.hero.title}
           highlight={c.hero.highlight}
           lead={c.hero.lead}
-          pain={homeCopy(L).systems.items.find((x) => x.slug === slug)?.pain}
+          pain={slug === "sales" ? undefined : homeCopy(L).systems.items.find((x) => x.slug === slug)?.pain}
           painLabel={homeCopy(L).systems.pain}
           cta={{ label: "Scopri i sistemi", href: "#sistemi" }}
         />
@@ -300,6 +308,10 @@ export default function CategoryBody({ locale, slug, tono }) {
         <Section tone="deep" className="v2sx-casesec">
           {caseBand}
         </Section>
+      ) : null}
+
+      {itV3 && slug === "sales" && c.finder ? (
+        <SalesExtrasV3 finder={c.finder} start={c.start} finderHref={`${addLangPrefix("/", L)}#opportunity-finder`} />
       ) : null}
 
       <FaqSection title={c.faq.title} items={c.faq.items} tone="dark" />

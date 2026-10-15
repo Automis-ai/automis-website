@@ -8,8 +8,9 @@ export const STAGES = {
     { title: "Comprano e tornano", line: "Il negozio seguito giorno e notte, le schede prodotto già scritte e i vecchi clienti richiamati.", ids: ["ecommerce-manager", "product-listings", "reactivation"] },
   ],
   sales: [
-    { title: "Arrivano", line: "A ogni messaggio risponde il sistema, che qualifica il contatto prima di passarlo a te.", ids: ["social-dms", "lead-qualification", "property-matching"] },
-    { title: "Si seguono", line: "Un posto solo dove vedere contatti, trattative e numeri.", ids: ["custom-crm", "dashboards-pipeline", "sales-management", "voice-notes"] },
+    { title: "Rispondi subito", line: "Chi ti scrive, commenta o lascia il numero trova subito qualcuno dall'altra parte.", ids: ["social-dms", "lead-callback", "lead-forms"] },
+    { title: "Porta all'appuntamento", line: "Il sistema capisce chi è pronto e lo accompagna fino a una prenotazione.", ids: ["lead-qualification", "lead-nurture", "reactivation-sales"] },
+    { title: "Segui fino al sì", line: "Un posto solo dove vedere contatti, trattative e passo successivo.", ids: ["custom-crm", "voice-notes", "sales-qa"] },
   ],
   support: [
     { title: "Rispondi a tutti", line: "Chiamate perse, domande a ogni ora: nessuno resta senza risposta.", ids: ["voice-receptionist", "missed-call-recovery", "answers-247"] },

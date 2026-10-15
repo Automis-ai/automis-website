@@ -2357,3 +2357,215 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ===== Pagina Vendita (IT): vignette dm/board e fasce Finder + «Per partire» ===== */
+.hv3-viz__chat--out {
+  background: rgba(60, 145, 230, 0.28);
+}
+.hv3-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.hv3-board__col {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 8px;
+  min-height: 150px;
+}
+.hv3-board__col b {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: #a9d4ff;
+}
+.hv3-board__card {
+  margin-bottom: 6px;
+  padding: 7px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(165, 210, 255, 0.16);
+  background: rgba(14, 40, 78, 0.8);
+  font-size: 11px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.88);
+}
+.hv3-board__card small {
+  display: block;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.hv3-sx {
+  position: relative;
+  padding: 72px 20px;
+  color: #fff;
+}
+.hv3-sx--finder {
+  background: linear-gradient(180deg, var(--hv3-bg), #0a2040);
+}
+.hv3-sx--start {
+  background: #0a2040;
+}
+.hv3-sx__box {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 36px;
+  align-items: center;
+  padding: 36px 40px;
+  border-radius: 28px;
+  border: 1px solid rgba(143, 211, 244, 0.4);
+  background: linear-gradient(135deg, rgba(60, 145, 230, 0.3), rgba(14, 40, 78, 0.5));
+}
+.hv3-sx__box h2 {
+  font-size: clamp(26px, 3vw, 34px);
+}
+.hv3-sx__box p {
+  margin: 12px 0 22px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.hv3-sx__flow {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.hv3-sx__flow li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: rgba(0, 10, 20, 0.4);
+  border: 1px solid rgba(165, 210, 255, 0.16);
+  font-size: 15px;
+}
+.hv3-sx__flow i {
+  font-style: normal;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--hv3-accent);
+}
+.hv3-sx__head {
+  max-width: 1160px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+.hv3-sx__grid {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.hv3-sx__panel {
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid var(--hv3-line);
+  background: var(--hv3-card);
+}
+.hv3-sx__panel h3 {
+  margin: 12px 0 0;
+  font-size: 26px;
+  line-height: 1.15;
+}
+.hv3-sx__panel ul {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.hv3-sx__panel > ul:not(.hv3-sx__logos) li {
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.88);
+}
+.hv3-sx__panel > ul:not(.hv3-sx__logos) li::before {
+  content: "";
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: var(--hv3-accent);
+}
+.hv3-sx__outro {
+  margin: 14px 0 0;
+  color: var(--hv3-ink-2);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.hv3-sx__times {
+  margin: 20px 0 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(0, 10, 20, 0.4);
+  border: 1px solid rgba(165, 210, 255, 0.16);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.hv3-sx__times b {
+  color: #8fd3f4;
+  font-weight: 500;
+}
+.hv3-sx__logos {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px !important;
+  margin-top: 20px !important;
+}
+.hv3-sx__logos li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 92px;
+  padding: 12px 8px;
+  border-radius: 16px;
+  border: 1px solid var(--hv3-line);
+  background: rgba(40, 80, 140, 0.24);
+  font-size: 12px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+.hv3-sx__logos img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+@media (max-width: 900px) {
+  .hv3-sx__box,
+  .hv3-sx__grid {
+    grid-template-columns: 1fr;
+  }
+  .hv3-sx__box {
+    padding: 26px;
+  }
+  .hv3-sx__logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .hv3-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hv3-board__col:nth-child(n + 3) {
+    display: none;
+  }
+}
+.hv3-lead2--wide {
+  grid-template-columns: 1fr;
+}
+.hv3-lead2--wide .hv3-board {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.hv3-viz__row {
+  gap: 12px;
+}

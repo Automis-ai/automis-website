@@ -27,6 +27,11 @@ export const CARD_ICONS = {
   "lead-qualification": "sales",
   "property-matching": "home",
   "voice-notes": "mic",
+  "lead-callback": "phone",
+  "lead-forms": "pen",
+  "lead-nurture": "repeat",
+  "reactivation-sales": "repeat",
+  "sales-qa": "star",
   // assistenza
   "voice-receptionist": "voice",
   "missed-call-recovery": "phone",
