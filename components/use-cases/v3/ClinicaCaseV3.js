@@ -97,7 +97,7 @@ function CallScene({ c }) {
           <span className="dsv3-lab">{c.checksLabel}</span>
           <ul>
             {c.checks.map((x, i) => (
-              <li key={x} className="cv3-check" style={{ "--k": i * 0.6 + 0.5 }}>
+              <li key={x} className="cv3-check" style={{ "--k": c.checkAt[i] }}>
                 <i aria-hidden="true" />
                 {x}
               </li>
