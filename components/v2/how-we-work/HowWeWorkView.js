@@ -1,4 +1,4 @@
-import PageHero from "@/components/v2/ui/PageHero";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CtaBand from "@/components/v2/ui/CtaBand";
@@ -9,7 +9,6 @@ import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
 import PageStory from "@/components/v2/wow/fx/PageStory";
 import PrincipleCards from "@/components/v2/about/PrincipleCards";
 import FaqSection from "@/components/v2/systems/FaqSection";
-import { heroTitle } from "@/components/v2/systems/heroTitle";
 import HowSteps from "./HowSteps";
 
 /* Come lavoriamo: i tre passi di business.md (una catena di moduli con la linea e il pacchetto che li attraversano, fissata
@@ -26,12 +25,12 @@ export default function HowWeWorkView({ lang, tono }) {
     <main id="main" className={pageClass(tono)}>
       <SmoothScroll />
       <PageStory />
-      <PageHero
-        size="compact"
+      <PageHeroV3
         eyebrow={t.hero.eyebrow}
-        {...heroTitle(t.hero.title, t.hero.accent)}
-        subtitle={t.hero.lead}
-        primaryCta={{ label: c.cta, href: contact }}
+        title={t.hero.title}
+        highlight={t.hero.accent}
+        lead={t.hero.lead}
+        cta={{ label: c.cta, href: contact }}
       />
 
       <Section tone="light" pad="lg">
