@@ -105,7 +105,7 @@ export default function FinalCta({ v3: v3Prop = false }) {
     <section id="book" className={`relative overflow-hidden py-16 md:py-24 ${v3 ? "hv3 hv3-tone hv3-call" : "bg-[#020a12]"}`}>
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 opacity-50 blur-3xl"
+          className="absolute left-1/2 top-[160px] h-[420px] w-[820px] -translate-x-1/2 opacity-50 blur-3xl"
           style={{ background: "radial-gradient(50% 50% at 50% 0%, rgba(60,145,230,0.28), transparent 70%)" }}
         />
       </div>

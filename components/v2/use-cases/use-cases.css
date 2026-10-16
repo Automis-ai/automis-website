@@ -71,7 +71,8 @@
   padding-top: 130px;
 }
 .v2-pg .v2-section.v2c-edge::after,
-.v2-pg .v2c-cta > .v2-section::after {
+.v2-pg .v2c-cta > .v2-section::after,
+.v2-caso .v2c-cta > .v2-section::after {
   content: "";
   position: absolute;
   top: 0;
@@ -94,8 +95,9 @@
     rgb(6 26 51 / 0) 100%
   );
 }
-/* corpo blu → chiusura blu notte */
-.v2-pg .v2c-cta > .v2-section::after {
+/* corpo blu → chiusura blu notte. Vale anche senza .v2-pg: il <main> dei casi non ha quella classe e la sfumatura non partiva mai (gradino sul nero). */
+.v2-pg .v2c-cta > .v2-section::after,
+.v2-caso .v2c-cta > .v2-section::after {
   background: linear-gradient(
     to bottom,
     rgb(var(--v2c-prev) / 1) 0%,
