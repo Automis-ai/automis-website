@@ -10,8 +10,6 @@ import Steps from "@/components/v2/ui/Steps";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import Button from "@/components/v2/ui/Button";
 import { pageClass } from "@/components/v2/ui/toneClass";
-import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
-import PageStory from "@/components/v2/wow/fx/PageStory";
 import { DaturaOpsScene, DaturaNumbers } from "@/components/home-v3/DaturaScenesV3";
 import { getDaturaCopy } from "@/components/v2/use-cases/daturaCopy";
 import { DATURA_SLUG } from "@/components/v2/use-cases/constants";
@@ -212,9 +210,7 @@ export default function WooCommercePage({ tono, locale = "it" }) {
   const t = getDaturaCopy(locale);
 
   return (
-    <main id="main" className={pageClass(tono)}>
-      <SmoothScroll />
-      <PageStory />
+    <main id="main" className={`${pageClass(tono)} v2-calm`}>
       <PageHeroV3
         eyebrow={c.hero.eyebrow}
         title={c.hero.title}

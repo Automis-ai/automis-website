@@ -15,8 +15,6 @@ import { pageClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { CASES } from "@/components/use-cases/cases";
 import { addLangPrefix } from "@/lib/locales";
-import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
-import PageStory from "@/components/v2/wow/fx/PageStory";
 import { NetGrid, NetCell } from "@/components/v2/wow/fx/NetGrid";
 import Rail, { RailCell } from "@/components/v2/wow/fx/Rail";
 import SystemTile from "./SystemTile";
@@ -133,9 +131,7 @@ export default function CategoryBody({ locale, slug, tono }) {
       : null;
 
   return (
-    <main id="main" className={pageClass(tono)}>
-      <SmoothScroll />
-      <PageStory />
+    <main id="main" className={`${pageClass(tono)} v2-calm`}>
       {itV3 ? (
         /* Hero v3 (14/10): luce della home, un solo bottone che scende alle schede (IT, EN, PT dal 16/10). */
         <PageHeroV3

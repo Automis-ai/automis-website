@@ -1,9 +1,5 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import AboutHero from "@/components/about/AboutHero";
-import AboutBeliefs from "@/components/about/AboutBeliefs";
-import AboutProcess from "@/components/about/AboutProcess";
-import AboutFounders from "@/components/about/AboutFounders";
-import FinalCta from "@/components/home/FinalCta";
+import AboutView from "@/components/v2/about/AboutView";
 
 export const metadata = {
   title: "Sobre nós | Automis, agência de automação de IA",
@@ -52,14 +48,10 @@ export const metadata = {
   },
 };
 
-export default function AboutPage() {
+export default function AboutPage({ searchParams }) {
   return (
     <AutomisEnShell>
-      <AboutHero />
-      <AboutBeliefs />
-      <AboutProcess />
-      <AboutFounders />
-      <FinalCta />
+      <AboutView lang="pt" tono={searchParams?.tono} />
     </AutomisEnShell>
   );
 }

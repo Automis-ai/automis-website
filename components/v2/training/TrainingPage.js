@@ -12,8 +12,6 @@ import { pageClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
 import { heroTitle } from "@/components/v2/systems/heroTitle";
-import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
-import PageStory from "@/components/v2/wow/fx/PageStory";
 import "@/components/v2/training/training.css";
 import "@/components/v2/systems/systems.css";
 
@@ -30,9 +28,7 @@ export default function TrainingPage({ locale = "en", tono }) {
 
   return (
     <AutomisEnShell>
-      <main id="main" className={pageClass(tono)}>
-        <SmoothScroll />
-        <PageStory />
+      <main id="main" className={`${pageClass(tono)} v2-calm`}>
         <PageHeroV3
           eyebrow={t.hero.eyebrow}
           title={t.hero.title}
@@ -41,44 +37,46 @@ export default function TrainingPage({ locale = "en", tono }) {
           cta={{ label: t.hero.ctaPaths, href: "#percorsi" }}
         />
 
-        <Section tone="light" id="percorsi">
-          <SectionHeader title={t.paths.title} />
-          <div className="v2t-paths" data-fx="stagger">
-            {t.paths.items.map((p) => (
-              <article key={p.id} className="v2-card v2t-path">
-                <div className="v2t-path__head">
-                  <span className="v2-tile">
-                    <Icon name={PATH_ICONS[p.id] || "training"} size={22} />
-                  </span>
-                  <h3 className="v2t-path__title">{p.title}</h3>
-                </div>
-                <p className="v2t-path__line">{p.line}</p>
-                <ul className="v2t-chips">
-                  {p.chips.map((chip) => (
-                    <li key={chip}>{chip}</li>
-                  ))}
-                </ul>
-                <Disclosure summary={moreLabel}>
-                  <p>{p.more}</p>
-                </Disclosure>
-              </article>
-            ))}
-          </div>
-        </Section>
+        <div className="hv3 hv3-tone hv3-v2band">
+          <Section tone="light" id="percorsi">
+            <SectionHeader title={t.paths.title} />
+            <div className="v2t-paths" data-fx="stagger">
+              {t.paths.items.map((p) => (
+                <article key={p.id} className="v2-card v2t-path">
+                  <div className="v2t-path__head">
+                    <span className="v2-tile">
+                      <Icon name={PATH_ICONS[p.id] || "training"} size={22} />
+                    </span>
+                    <h3 className="v2t-path__title">{p.title}</h3>
+                  </div>
+                  <p className="v2t-path__line">{p.line}</p>
+                  <ul className="v2t-chips">
+                    {p.chips.map((chip) => (
+                      <li key={chip}>{chip}</li>
+                    ))}
+                  </ul>
+                  <Disclosure summary={moreLabel}>
+                    <p>{p.more}</p>
+                  </Disclosure>
+                </article>
+              ))}
+            </div>
+          </Section>
 
-        <Section tone="deep">
-          <SectionHeader title={t.audience.title} />
-          <ul className="v2t-aud" data-fx="stagger">
-            {t.audience.items.map((text, i) => (
-              <li key={text} className="v2-card v2t-aud__item">
-                <span className="v2-tile">
-                  <Icon name={AUDIENCE_ICONS[i] || "check"} size={22} />
-                </span>
-                <p className="v2t-aud__txt">{text}</p>
-              </li>
-            ))}
-          </ul>
-        </Section>
+          <Section tone="deep">
+            <SectionHeader title={t.audience.title} />
+            <ul className="v2t-aud" data-fx="stagger">
+              {t.audience.items.map((text, i) => (
+                <li key={text} className="v2-card v2t-aud__item">
+                  <span className="v2-tile">
+                    <Icon name={AUDIENCE_ICONS[i] || "check"} size={22} />
+                  </span>
+                  <p className="v2t-aud__txt">{text}</p>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        </div>
 
         <Section tone="dark">
           <div className="v2sx-aside">

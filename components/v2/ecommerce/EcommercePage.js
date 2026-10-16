@@ -11,8 +11,6 @@ import SystemCard from "@/components/v2/ui/SystemCard";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import Button from "@/components/v2/ui/Button";
 import { pageClass } from "@/components/v2/ui/toneClass";
-import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
-import PageStory from "@/components/v2/wow/fx/PageStory";
 import NightReport from "@/components/v2/ecommerce/NightReport";
 import PlatformModules from "@/components/v2/ecommerce/PlatformModules";
 import { getCopy } from "@/components/v2/copy/getCopy";
@@ -42,9 +40,7 @@ export default function EcommercePage({ locale, tono }) {
 
   return (
     <AutomisEnShell>
-      <main id="main" className={pageClass(tono)}>
-        <SmoothScroll />
-        <PageStory />
+      <main id="main" className={`${pageClass(tono)} v2-calm`}>
         {(() => {
           const night = <NightReport title={t.hero.visual.title} caption={t.hero.visual.caption} rows={t.hero.visual.rows} />;
           return (
@@ -59,28 +55,30 @@ export default function EcommercePage({ locale, tono }) {
           );
         })()}
 
-        <Section tone="light" id="platforms">
-          <SectionHeader title={t.platforms.title} lead={t.platforms.note} />
-          <PlatformPicker items={platforms} className="v2e-plat" />
-          <PlatformModules
-            items={t.platforms.items}
-            summarySuffix={t.platforms.modulesSummary}
-          />
-          <div className="v2e-other">
-            <Button href={contact} variant="link">
-              {t.platforms.other}
-            </Button>
-          </div>
-        </Section>
+        <div className="hv3 hv3-tone hv3-v2band">
+          <Section tone="light" id="platforms">
+            <SectionHeader title={t.platforms.title} lead={t.platforms.note} />
+            <PlatformPicker items={platforms} className="v2e-plat" />
+            <PlatformModules
+              items={t.platforms.items}
+              summarySuffix={t.platforms.modulesSummary}
+            />
+            <div className="v2e-other">
+              <Button href={contact} variant="link">
+                {t.platforms.other}
+              </Button>
+            </div>
+          </Section>
 
-        <Section tone="deep">
-          <SectionHeader title={t.control.title} />
-          <CardGrid cols={3}>
-            {t.control.items.map((it, i) => (
-              <SystemCard key={it.title} title={it.title} line={it.line} icon={CONTROL_ICONS[i]} />
-            ))}
-          </CardGrid>
-        </Section>
+          <Section tone="deep">
+            <SectionHeader title={t.control.title} />
+            <CardGrid cols={3}>
+              {t.control.items.map((it, i) => (
+                <SystemCard key={it.title} title={it.title} line={it.line} icon={CONTROL_ICONS[i]} />
+              ))}
+            </CardGrid>
+          </Section>
+        </div>
 
         <CtaBand
           tone="dark"

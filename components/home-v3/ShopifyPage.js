@@ -9,8 +9,6 @@ import SystemCard from "@/components/v2/ui/SystemCard";
 import Steps from "@/components/v2/ui/Steps";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import { pageClass } from "@/components/v2/ui/toneClass";
-import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
-import PageStory from "@/components/v2/wow/fx/PageStory";
 import { addLangPrefix } from "@/lib/locales";
 
 /*
@@ -203,9 +201,7 @@ export default function ShopifyPage({ tono, locale = "it" }) {
   const booking = BOOKING[locale] || BOOKING.en;
 
   return (
-    <main id="main" className={`${pageClass(tono)} hsp`}>
-      <SmoothScroll />
-      <PageStory />
+    <main id="main" className={`${pageClass(tono)} hsp v2-calm`}>
       <PageHeroV3
         eyebrow={c.hero.eyebrow}
         title={c.hero.title}

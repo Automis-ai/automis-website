@@ -5,8 +5,6 @@ import CtaBand from "@/components/v2/ui/CtaBand";
 import { pageClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
-import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
-import PageStory from "@/components/v2/wow/fx/PageStory";
 import PrincipleCards from "@/components/v2/about/PrincipleCards";
 import FaqSection from "@/components/v2/systems/FaqSection";
 import HowSteps from "./HowSteps";
@@ -22,9 +20,7 @@ export default function HowWeWorkView({ lang, tono }) {
   const contact = addLangPrefix("/contact", lang);
 
   return (
-    <main id="main" className={pageClass(tono)}>
-      <SmoothScroll />
-      <PageStory />
+    <main id="main" className={`${pageClass(tono)} v2-calm`}>
       <PageHeroV3
         eyebrow={t.hero.eyebrow}
         title={t.hero.title}
@@ -33,15 +29,17 @@ export default function HowWeWorkView({ lang, tono }) {
         cta={{ label: c.cta, href: contact }}
       />
 
-      <Section tone="light" pad="lg">
-        <SectionHeader align="center" title={t.steps.title} />
-        <HowSteps items={t.steps.items} moreLabel={moreLabel} />
-      </Section>
+      <div className="hv3 hv3-tone hv3-v2band">
+        <Section tone="light" pad="lg">
+          <SectionHeader align="center" title={t.steps.title} />
+          <HowSteps items={t.steps.items} moreLabel={moreLabel} />
+        </Section>
 
-      <Section tone="deep">
-        <SectionHeader title={t.principles.title} />
-        <PrincipleCards items={t.principles.items} moreLabel={moreLabel} />
-      </Section>
+        <Section tone="deep">
+          <SectionHeader title={t.principles.title} />
+          <PrincipleCards items={t.principles.items} moreLabel={moreLabel} />
+        </Section>
+      </div>
 
       <FaqSection tone="dark" title={t.faq.title} items={t.faq.items} />
 

@@ -8,8 +8,6 @@ import OpportunityFinder from "@/components/home/OpportunityFinder";
 import ContactForm from "@/components/contact/ContactForm";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { isProduction } from "@/lib/v2/env";
-import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
-import PageStory from "@/components/v2/wow/fx/PageStory";
 import CallBooking from "./CallBooking";
 import { heroTitle } from "@/components/v2/systems/heroTitle";
 import ReachUs from "./ReachUs";
@@ -24,9 +22,7 @@ export default function ContactView({ lang, tono }) {
   const c = getCopy("common", lang);
 
   return (
-    <main id="main" className={pageClass(tono)}>
-      <SmoothScroll />
-      <PageStory />
+    <main id="main" className={`${pageClass(tono)} v2-calm`}>
       <PageHeroV3
         eyebrow={t.hero.eyebrow}
         title={t.hero.title}
@@ -41,26 +37,28 @@ export default function ContactView({ lang, tono }) {
         <OpportunityFinder title={t.finder.title} lead={t.finder.lead} />
       </div>
 
-      <Section tone="light" id="book">
-        <div className="v2c-book">
-          <div className="v2c-book__intro">
-            <SectionHeader title={t.booking.title} lead={t.booking.lead} />
-            <ul className="v2c-checks">
-              {c.booking.bullets.map((b) => (
-                <li key={b}>
-                  <span className="v2c-tick" aria-hidden="true">
-                    <Icon name="check" size={15} strokeWidth={2.6} />
-                  </span>
-                  {b}
-                </li>
-              ))}
-            </ul>
+      <div className="hv3 hv3-tone hv3-v2band">
+        <Section tone="light" id="book">
+          <div className="v2c-book">
+            <div className="v2c-book__intro">
+              <SectionHeader title={t.booking.title} lead={t.booking.lead} />
+              <ul className="v2c-checks">
+                {c.booking.bullets.map((b) => (
+                  <li key={b}>
+                    <span className="v2c-tick" aria-hidden="true">
+                      <Icon name="check" size={15} strokeWidth={2.6} />
+                    </span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="v2c-frame">
+              <CallBooking loadingLabel={c.booking.loading} previewNote={t.booking.previewNote} />
+            </div>
           </div>
-          <div className="v2c-frame">
-            <CallBooking loadingLabel={c.booking.loading} previewNote={t.booking.previewNote} />
-          </div>
-        </div>
-      </Section>
+        </Section>
+      </div>
 
       {/* id "write-us" e non "message": il textarea del modulo ha id="message" e la sua etichetta (for="message") puntava alla fascia */}
       <Section tone="dark" id="write-us" aria-labelledby="write-us-title">

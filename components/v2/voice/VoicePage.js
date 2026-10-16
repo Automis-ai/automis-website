@@ -69,30 +69,32 @@ export default function VoicePage({ locale = "en", tono }) {
       />
 
       {/* Il problema: tre schede corte (la prima frase), il resto a richiesta */}
-      <Section tone="light" className="v2vo-sec" aria-labelledby="vo-problem">
-        <SectionHeader id="vo-problem" eyebrow={t.problem.eyebrow} title={t.problem.title} lead={t.problem.lead} />
-        <CardGrid cols={3} className="v2sx-grid">
-          {t.problem.pains.map((pain, i) => {
-            const { line, rest } = firstSentence(pain.body);
-            return (
-              <SystemTile
-                key={pain.title}
-                title={pain.title}
-                line={line}
-                more={rest || undefined}
-                moreLabel={moreLabel}
-                icon={PAIN_ICONS[i] || "spark"}
-              />
-            );
-          })}
-        </CardGrid>
-      </Section>
+      <div className="hv3 hv3-tone hv3-v2band">
+        <Section tone="light" className="v2vo-sec" aria-labelledby="vo-problem">
+          <SectionHeader id="vo-problem" eyebrow={t.problem.eyebrow} title={t.problem.title} lead={t.problem.lead} />
+          <CardGrid cols={3} className="v2sx-grid">
+            {t.problem.pains.map((pain, i) => {
+              const { line, rest } = firstSentence(pain.body);
+              return (
+                <SystemTile
+                  key={pain.title}
+                  title={pain.title}
+                  line={line}
+                  more={rest || undefined}
+                  moreLabel={moreLabel}
+                  icon={PAIN_ICONS[i] || "spark"}
+                />
+              );
+            })}
+          </CardGrid>
+        </Section>
 
-      {/* Un sistema, due agenti */}
-      <Section tone="deep" className="v2vo-sec" aria-labelledby="vo-modes">
-        <SectionHeader id="vo-modes" eyebrow={t.modes.eyebrow} title={t.modes.title} lead={t.modes.lead} />
-        <Agents modes={t.modes} ui={ui} />
-      </Section>
+        {/* Un sistema, due agenti */}
+        <Section tone="deep" className="v2vo-sec" aria-labelledby="vo-modes">
+          <SectionHeader id="vo-modes" eyebrow={t.modes.eyebrow} title={t.modes.title} lead={t.modes.lead} />
+          <Agents modes={t.modes} ui={ui} />
+        </Section>
+      </div>
 
       {/* Come funziona: la catena dei cinque passi, un modulo ciascuno; il video parte a richiesta */}
       <Section tone="dark" className="v2vo-sec" aria-labelledby="vo-how">
@@ -104,80 +106,82 @@ export default function VoicePage({ locale = "en", tono }) {
       </Section>
 
       {/* La dashboard: tutto quello che fa l'IA, visibile */}
-      <Section tone="light" className="v2vo-sec" aria-labelledby="vo-dash">
-        <SectionHeader id="vo-dash" eyebrow={t.dash.eyebrow} title={t.dash.title} lead={t.dash.lead} />
-        <div className="v2vo-dash">
-          <div className="v2vo-dash__a">
-            <figure>
-              <Win shot={shots.overview} alt={t.dash.leadCaption} />
-              <figcaption aria-hidden="true">{nb(t.dash.leadCaption)}</figcaption>
-            </figure>
-            <div className="v2vo-detail__txt">
-              <h3 className="v2vo-detail__title">{nb(t.dash.detailTitle)}</h3>
-              <p className="v2vo-detail__body">{nb(t.dash.detailBody)}</p>
-              <ul className="v2vo-chips" role="list">
-                <li>
-                  <Icon name="mic" size={15} strokeWidth={2} />
-                  {t.dash.tagRecording}
-                </li>
-                <li>
-                  <Icon name="doc" size={15} strokeWidth={2} />
-                  {t.dash.tagTranscript}
-                </li>
-                <li>
-                  <Icon name="spark" size={15} strokeWidth={2} />
-                  {t.dash.tagSummary}
-                </li>
-              </ul>
+      <div className="hv3 hv3-tone hv3-v2band">
+        <Section tone="light" className="v2vo-sec" aria-labelledby="vo-dash">
+          <SectionHeader id="vo-dash" eyebrow={t.dash.eyebrow} title={t.dash.title} lead={t.dash.lead} />
+          <div className="v2vo-dash">
+            <div className="v2vo-dash__a">
+              <figure>
+                <Win shot={shots.overview} alt={t.dash.leadCaption} />
+                <figcaption aria-hidden="true">{nb(t.dash.leadCaption)}</figcaption>
+              </figure>
+              <div className="v2vo-detail__txt">
+                <h3 className="v2vo-detail__title">{nb(t.dash.detailTitle)}</h3>
+                <p className="v2vo-detail__body">{nb(t.dash.detailBody)}</p>
+                <ul className="v2vo-chips" role="list">
+                  <li>
+                    <Icon name="mic" size={15} strokeWidth={2} />
+                    {t.dash.tagRecording}
+                  </li>
+                  <li>
+                    <Icon name="doc" size={15} strokeWidth={2} />
+                    {t.dash.tagTranscript}
+                  </li>
+                  <li>
+                    <Icon name="spark" size={15} strokeWidth={2} />
+                    {t.dash.tagSummary}
+                  </li>
+                </ul>
+              </div>
             </div>
+            <figure className="v2vo-dash__b">
+              <Win shot={shots.callDetail} alt={t.dash.callDetailAlt} />
+              <figcaption aria-hidden="true">{nb(t.dash.callDetailCaption)}</figcaption>
+            </figure>
           </div>
-          <figure className="v2vo-dash__b">
-            <Win shot={shots.callDetail} alt={t.dash.callDetailAlt} />
-            <figcaption aria-hidden="true">{nb(t.dash.callDetailCaption)}</figcaption>
-          </figure>
-        </div>
-      </Section>
+        </Section>
 
-      {/* Il CRM a tre livelli: tre moduli che si compongono, ognuno con la sua schermata */}
-      <Section tone="deep" className="v2vo-sec" aria-labelledby="vo-crm">
-        <SectionHeader id="vo-crm" eyebrow={t.crm.eyebrow} title={t.crm.title} lead={t.crm.lead} />
-        <Rail
-          cards
-          pin={false}
-          className="v2vo-tiersrail"
-          ariaLabel={t.crm.title}
-          steps={t.crm.tiers.map((tier, i) => ({ glyph: ["calendar", "contact", "chart"][i] || "spark", label: tier.title }))}
-        >
-          <div className="v2vo-tiers v2fx-netgrid">
-            {t.crm.tiers.map((tier, i) => (
-              <RailCell key={tier.title} index={i}>
-                <article className="v2-card v2vo-tier" data-fx="tilt">
-                  <div className="v2vo-tier__txt">
-                    <p className="v2vo-tier__kicker">{tier.kicker}</p>
-                    <h3 className="v2vo-tier__title">{nb(tier.title)}</h3>
-                    <p className="v2vo-tier__body">{nb(tier.body)}</p>
-                    <ul className="v2vo-tier__pts" role="list">
-                      {tier.points.map((pt) => (
-                        <li key={pt}>
-                          <Icon name="check" size={16} strokeWidth={2.4} />
-                          <span>{nb(pt)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <figure className="v2vo-tier__shot">
-                    <Win shot={shots.tiers[i]} alt={tier.caption} tilt={false} />
-                  </figure>
-                </article>
-              </RailCell>
-            ))}
-          </div>
-        </Rail>
-        <p className="v2vo-privacy">
-          <Icon name="shield" size={14} strokeWidth={2} />
-          {t.crm.privacy}
-        </p>
-      </Section>
+        {/* Il CRM a tre livelli: tre moduli che si compongono, ognuno con la sua schermata */}
+        <Section tone="deep" className="v2vo-sec" aria-labelledby="vo-crm">
+          <SectionHeader id="vo-crm" eyebrow={t.crm.eyebrow} title={t.crm.title} lead={t.crm.lead} />
+          <Rail
+            cards
+            pin={false}
+            className="v2vo-tiersrail"
+            ariaLabel={t.crm.title}
+            steps={t.crm.tiers.map((tier, i) => ({ glyph: ["calendar", "contact", "chart"][i] || "spark", label: tier.title }))}
+          >
+            <div className="v2vo-tiers v2fx-netgrid">
+              {t.crm.tiers.map((tier, i) => (
+                <RailCell key={tier.title} index={i}>
+                  <article className="v2-card v2vo-tier" data-fx="tilt">
+                    <div className="v2vo-tier__txt">
+                      <p className="v2vo-tier__kicker">{tier.kicker}</p>
+                      <h3 className="v2vo-tier__title">{nb(tier.title)}</h3>
+                      <p className="v2vo-tier__body">{nb(tier.body)}</p>
+                      <ul className="v2vo-tier__pts" role="list">
+                        {tier.points.map((pt) => (
+                          <li key={pt}>
+                            <Icon name="check" size={16} strokeWidth={2.4} />
+                            <span>{nb(pt)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <figure className="v2vo-tier__shot">
+                      <Win shot={shots.tiers[i]} alt={tier.caption} tilt={false} />
+                    </figure>
+                  </article>
+                </RailCell>
+              ))}
+            </div>
+          </Rail>
+          <p className="v2vo-privacy">
+            <Icon name="shield" size={14} strokeWidth={2} />
+            {t.crm.privacy}
+          </p>
+        </Section>
+      </div>
 
       {/* I piani */}
       <Section tone="dark" className="v2vo-sec" aria-labelledby="vo-plans">
