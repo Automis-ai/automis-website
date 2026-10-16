@@ -35,7 +35,7 @@ export default function UseCasesIndex({ locale = "en" }) {
 
   return (
     <AutomisEnShell>
-      <main id="main" className={pageClass()}>
+      <main id="main" className={`${pageClass()} v2-calm`}>
       <PageHeroV3
         eyebrow={t.hero.eyebrow}
         title={t.hero.title}

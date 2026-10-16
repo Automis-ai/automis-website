@@ -2656,3 +2656,21 @@
   pointer-events: none;
   background: linear-gradient(to bottom, rgba(0, 10, 20, 0), var(--hv3-bg));
 }
+
+/* ===== Pagine v2 «calme» e corpo blu v3 (16/10) =====
+   .v2-calm sul <main>: niente alone che segue il puntatore (il resto lo spegne FxScope). */
+.v2-calm .v2-fx-glowbox {
+  display: none;
+}
+/* Blocco blu v3 dentro una pagina v2 (stessa sfumatura di .hv3-tone): le fasce v2 al suo interno diventano trasparenti e
+   non disegnano la propria sfumatura d'ingresso; il blocco porta la sua e parte/finisce sul nero delle fasce attorno. */
+.hv3-v2band {
+  padding-block: 0 60px;
+}
+.hv3-v2band > .v2-section {
+  background-color: transparent;
+  background-image: none;
+}
+.hv3-v2band > .v2-section::after {
+  display: none;
+}

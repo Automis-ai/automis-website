@@ -30,7 +30,9 @@ export default function FxScope({ as: Tag = "div", glow = false, className, chil
     const root = ref.current;
     if (!root || reducedMotion()) return undefined;
     const undo = [];
-    if (canHover()) {
+    // .v2-calm sul <main>: pagina con meno movimento (come le pagine v3). Niente inclinazione 3D né magnete; restano le entrate.
+    const calm = !!root.closest(".v2-calm");
+    if (canHover() && !calm) {
       root.querySelectorAll('[data-fx="tilt"]').forEach((el) => undo.push(attachTilt(el)));
       // pagine interne (.v2-pg): ogni scheda di vetro si inclina, come quelle della home. Restano ferme le schede con campi
       // (moduli), con video e quelle alte (demo): lì un'inclinazione darebbe fastidio.

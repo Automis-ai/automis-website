@@ -8,8 +8,6 @@ import Icon from "@/components/v2/ui/icons";
 import { nb } from "@/components/v2/ui/nb";
 import { pageClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
-import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
-import PageStory from "@/components/v2/wow/fx/PageStory";
 import Rail, { RailCell } from "@/components/v2/wow/fx/Rail";
 import SystemTile from "@/components/v2/systems/SystemTile";
 import FaqSection from "@/components/v2/systems/FaqSection";
@@ -45,9 +43,7 @@ export default function VoicePage({ locale = "en", tono }) {
   const shots = SHOTS[locale] || SHOTS.en;
 
   return (
-    <main id="main" className={pageClass(tono)}>
-      <SmoothScroll />
-      <PageStory />
+    <main id="main" className={`${pageClass(tono)} v2-calm`}>
 
       <PageHeroV3
         eyebrow={t.hero.eyebrow}

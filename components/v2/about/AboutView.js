@@ -6,8 +6,6 @@ import CtaBand from "@/components/v2/ui/CtaBand";
 import { pageClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
-import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
-import PageStory from "@/components/v2/wow/fx/PageStory";
 import FounderCards from "./FounderCards";
 import PrincipleCards from "./PrincipleCards";
 import Guarantee from "./Guarantee";
@@ -22,9 +20,7 @@ export default function AboutView({ lang, tono }) {
   const contact = addLangPrefix("/contact", lang);
 
   return (
-    <main id="main" className={pageClass(tono)}>
-      <SmoothScroll />
-      <PageStory />
+    <main id="main" className={`${pageClass(tono)} v2-calm`}>
       <PageHeroV3
         eyebrow={t.hero.eyebrow}
         title={t.hero.title}
@@ -33,15 +29,19 @@ export default function AboutView({ lang, tono }) {
         cta={{ label: t.hero.ctaFounders, href: "#fondatori" }}
       />
 
-      <Section tone="light" id="fondatori">
-        <SectionHeader title={t.founders.title} />
-        <FounderCards items={t.founders.items} moreLabel={moreLabel} profileLabel={t.founders.profileLabel} />
-      </Section>
+      {/* I fondatori e i principi stanno nel blocco blu v3, come le altre pagine; il resto resta sul nero. */}
+      <div className="hv3 hv3-tone hv3-v2band">
+        <Section tone="light" id="fondatori">
+          <SectionHeader title={t.founders.title} />
+          <FounderCards items={t.founders.items} moreLabel={moreLabel} profileLabel={t.founders.profileLabel} />
+        </Section>
 
-      <Section tone="deep">
-        <SectionHeader title={t.principles.title} />
-        <PrincipleCards items={t.principles.items} moreLabel={moreLabel} />
-      </Section>
+        <Section tone="deep">
+          <SectionHeader title={t.principles.title} />
+          <PrincipleCards items={t.principles.items} moreLabel={moreLabel} />
+        </Section>
+
+      </div>
 
       <Section tone="dark" pad="sm">
         <Guarantee
