@@ -2674,3 +2674,8 @@
 .hv3-v2band > .v2-section::after {
   display: none;
 }
+
+/* Il widget vocale (ElevenLabs) galleggiava sopra il menu mobile e copriva il bottone in fondo: con il menu aperto si nasconde. */
+body.menu-open elevenlabs-convai {
+  display: none !important;
+}

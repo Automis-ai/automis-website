@@ -1,11 +1,11 @@
 /* Come lavoriamo (IT). I tre passi di knowledge/business.md:
    ascolto e diagnosi, progettazione e attivazione, avvio e miglioramento mensile.
-   Tempi: «circa 7 giorni» per Voice AI e automazioni semplici, tempi su misura per i complessi. */
+   Tempi: «2-4 settimane» a seconda del sistema (circa 2 per i più semplici, circa 4 per un CRM su misura). */
 export default {
   meta: {
-    title: "Come lavoriamo | Prima ascoltiamo, poi costruiamo | Automis",
+    title: "Come lavoriamo: ascolto, costruzione, crescita | Automis",
     description:
-      "Tre passi: ascoltiamo e capiamo dove perdi tempo, costruiamo il sistema sul tuo modo di lavorare, poi lo miglioriamo ogni mese, con una persona che lo supervisiona.",
+      "Tre passi: ascoltiamo come lavori, costruiamo il sistema sul tuo modo di lavorare e lo miglioriamo ogni mese. Online in 2-4 settimane.",
   },
 
   hero: {
@@ -29,7 +29,7 @@ export default {
         title: "Progettazione e attivazione",
         line: "Lo costruiamo sul tuo modo di lavorare.",
         more: "Prima del lancio lo provi tu: va online solo quando funziona come lavori davvero.",
-        meta: "Circa 7 giorni. Tempi su misura se il sistema è complesso.",
+        meta: "2-4 settimane, a seconda del sistema.",
       },
       {
         n: "3",
@@ -58,7 +58,7 @@ export default {
       },
       {
         q: "In quanto tempo si parte?",
-        a: "Voice AI e automazioni semplici partono in circa 7 giorni. Per i sistemi complessi i tempi sono su misura, e li concordiamo con te prima di iniziare.",
+        a: "La maggior parte dei sistemi va online in 2-4 settimane: circa 2 per i più semplici, circa 4 per un CRM su misura o un progetto più ampio. I tempi li concordiamo con te prima di iniziare.",
       },
       {
         q: "Quanto costa?",

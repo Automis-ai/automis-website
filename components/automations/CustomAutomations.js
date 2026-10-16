@@ -32,7 +32,7 @@ const COPY = {
         title: "Design, Build & Deploy",
         body: "We take the closest example from the catalog and rebuild it around your tools, your scripts, and your CRM. You test it before it goes live. Nothing ships until it works the way your team actually works.",
         points: ["Built around your stack, not a template", "You approve it before it goes live"],
-        meta: "~7 days for simple builds · custom for complex",
+        meta: "2-4 weeks, depending on the system",
       },
       {
         step: "Step 3",
@@ -64,7 +64,7 @@ const COPY = {
         title: "Progetta, costruisci e lancia",
         body: "Prendiamo l'esempio più vicino dal catalogo e lo ricostruiamo attorno ai tuoi strumenti, ai tuoi script e al tuo CRM. Lo provi prima che vada online. Niente parte finché non funziona come lavora davvero il tuo team.",
         points: ["Costruita sul tuo stack, non su un template", "Lo approvi prima che vada online"],
-        meta: "~7 giorni per i progetti semplici · su misura per quelli complessi",
+        meta: "2-4 settimane, a seconda del sistema",
       },
       {
         step: "Step 3",
@@ -96,7 +96,7 @@ const COPY = {
         title: "Desenho, construção e lançamento",
         body: "Pegamos no exemplo mais próximo do catálogo e reconstruímo-lo em torno das suas ferramentas, dos seus scripts e do seu CRM. Só entra em funcionamento depois de o testar. Nada é lançado até funcionar tal como a sua equipa trabalha de facto.",
         points: ["Construída sobre o seu stack, não sobre um template", "Aprova-a antes de entrar em funcionamento"],
-        meta: "~7 dias para projetos simples · à medida para os complexos",
+        meta: "2 a 4 semanas, consoante o sistema",
       },
       {
         step: "Fase 3",

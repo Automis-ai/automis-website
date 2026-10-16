@@ -31,7 +31,7 @@ const COPY = {
         step: "Step 2",
         title: "Design, Build & Deploy",
         body: "We build your system and you test it before it goes live. Nothing ships until it works the way your business actually runs.",
-        meta: "About 7 days for Voice & simple · custom for complex",
+        meta: "2-4 weeks, depending on the system",
       },
       {
         step: "Step 3",
@@ -56,7 +56,7 @@ const COPY = {
         step: "02",
         title: "Progettazione e attivazione",
         body: "Costruiamo il tuo sistema e tu lo provi prima che vada online. Niente parte finché non funziona come lavora davvero la tua attività.",
-        meta: "Circa 7 giorni per Voice e progetti semplici · su misura per i complessi",
+        meta: "2-4 settimane, a seconda del sistema",
       },
       {
         step: "03",
@@ -81,7 +81,7 @@ const COPY = {
         step: "02",
         title: "Desenhar e ativar",
         body: "Construímos o seu sistema e só entra em produção depois de o testar. Nada arranca até funcionar como o seu negócio realmente funciona.",
-        meta: "Cerca de 7 dias para Voice e sistemas simples · à medida nos complexos",
+        meta: "2 a 4 semanas, consoante o sistema",
       },
       {
         step: "03",

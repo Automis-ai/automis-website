@@ -6,9 +6,9 @@
    Scritta dagli intenti, non tradotta dall'inglese. */
 export default {
   meta: {
-    title: "Sistemas de IA para Marketing, Vendas e Back Office | Automis",
+    title: "Automação com IA para empresas: marketing e vendas | Automis",
     description:
-      "Cinco áreas onde a IA lhe tira trabalho das mãos: marketing, vendas, apoio ao cliente, administração e RH. Sistemas feitos à medida do seu negócio.",
+      "Sistemas de IA à medida do seu negócio: marketing, vendas, apoio ao cliente e administração, mais assistente de voz, e-commerce e Company Brain.",
   },
 
   labels: {
@@ -218,9 +218,9 @@ export default {
 
   sales: {
     meta: {
-      title: "Sistemas de IA para Vendas: CRM, Qualificação e DMs | Automis",
+      title: "Sistemas de IA para vendas: CRM, contactos e DMs | Automis",
       description:
-        "Sistemas de IA para vendas: respostas a comentários e DMs, retorno aos contactos dos anúncios, quizzes que qualificam, CRM à medida e reativação da base de dados.",
+        "A IA responde a comentários e DMs, liga aos contactos dos anúncios, qualifica com quizzes e gere o CRM. Em 2 a 4 semanas. Marque uma chamada.",
     },
     hero: {
       eyebrow: "Sistemas de IA para Vendas",
@@ -533,7 +533,7 @@ export default {
         },
         {
           q: "Em quanto tempo fica a funcionar?",
-          a: "Cerca de 7 dias para a Voice AI e as automações simples. Nos sistemas complexos, combinamos consigo os prazos antes de começar.",
+          a: "Cerca de 2 a 4 semanas, consoante o sistema: cerca de 2 para os mais simples, cerca de 4 para um CRM à medida ou um projeto mais amplo. Combinamos consigo o prazo antes de começar.",
         },
         {
           q: "O que acontece com as chamadas delicadas?",
@@ -677,9 +677,9 @@ export default {
 
   "company-brain": {
     meta: {
-      title: "Company Brain: o arquivo que responde a toda a empresa | Automis",
+      title: "Company Brain: a IA que responde com os ficheiros | Automis",
       description:
-        "Um Company Brain privado sobre os seus documentos: quem trabalha consigo pergunta quando quiser e recebe a resposta com a fonte.",
+        "Um arquivo privado sobre os seus documentos: a equipa pergunta, a IA responde com a fonte e deixa de precisar de si como manual. Veja como funciona.",
     },
     hero: {
       eyebrow: "Company Brain",

@@ -5,9 +5,9 @@
    short è la riga visibile (al massimo ~9 parole); line (cosa fa) e more (il problema) si aprono a richiesta (Disclosure). Percorsi senza prefisso di lingua. */
 export default {
   meta: {
-    title: "Sistemi IA per marketing, vendite e back office | Automis",
+    title: "Automazione IA per aziende: marketing e vendite | Automis",
     description:
-      "Cinque aree in cui l'IA ti toglie lavoro dalle mani: marketing, vendite, assistenza, amministrazione e risorse umane. Sistemi costruiti sul tuo modo di lavorare.",
+      "Sistemi IA costruiti sul tuo modo di lavorare: marketing, vendite, assistenza e amministrazione, più assistente vocale, e-commerce e Company Brain.",
   },
 
   labels: {
@@ -217,9 +217,9 @@ export default {
 
   sales: {
     meta: {
-      title: "Sistemi IA per la Vendita: CRM, contatti e DM dei social | Automis",
+      title: "Sistemi IA per le vendite: CRM, contatti e DM | Automis",
       description:
-        "Sistemi IA per vendere: risposte a commenti e DM, richiamo dei contatti, quiz che qualificano, CRM su misura e riattivazione del database.",
+        "L'IA risponde a commenti e DM, richiama i contatti degli annunci, qualifica con quiz e gestisce il CRM. Online in 2-4 settimane. Prenota una call.",
     },
     hero: {
       eyebrow: "Sistemi IA per la Vendita",
@@ -532,7 +532,7 @@ export default {
         },
         {
           q: "Quanto ci vuole per attivarlo?",
-          a: "Circa 7 giorni per Voice AI e per le automazioni semplici. Per i sistemi complessi concordiamo i tempi con te prima di iniziare.",
+          a: "Circa 2-4 settimane, a seconda del sistema: circa 2 per i più semplici, circa 4 per un CRM su misura o un progetto più ampio. I tempi li concordiamo con te prima di iniziare.",
         },
         {
           q: "Che fine fanno le chiamate delicate?",
@@ -676,9 +676,9 @@ export default {
 
   "company-brain": {
     meta: {
-      title: "Company Brain: l'archivio che risponde a tutta l'azienda | Automis",
+      title: "Company Brain: l'IA che risponde dai tuoi file | Automis",
       description:
-        "Un Company Brain privato sui tuoi documenti: chi lavora da te chiede quando vuole e riceve la risposta con la sua fonte.",
+        "Un archivio privato sui tuoi documenti: il team chiede, l'IA risponde con la fonte e tu smetti di essere il manuale dell'azienda. Scopri come funziona.",
     },
     hero: {
       eyebrow: "Company Brain",

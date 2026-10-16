@@ -5,9 +5,9 @@
    short è la riga visibile (al massimo ~9 parole); line (cosa fa) e more (il problema) si aprono a richiesta (Disclosure). Percorsi senza prefisso di lingua. */
 export default {
   meta: {
-    title: "AI Systems for Marketing, Sales, Customer Service and Admin | Automis",
+    title: "AI Systems for Business: Marketing, Sales, Admin | Automis",
     description:
-      "Five areas where AI can take work off your hands: marketing, sales, customer service, admin and HR. Systems built around how your business works.",
+      "AI systems built around how you work: marketing, sales, customer service and admin, plus Voice AI, e-commerce and Company Brain. Book a call.",
   },
 
   labels: {
@@ -217,9 +217,9 @@ export default {
 
   sales: {
     meta: {
-      title: "AI Systems for Sales: CRM, Lead Qualification and Social DMs | Automis",
+      title: "AI Systems for Sales: CRM, Lead Follow-up and DMs | Automis",
       description:
-        "AI systems for sales: replies to social comments and DMs, callbacks for ad leads, quizzes that qualify, a custom CRM and database reactivation.",
+        "AI that answers every social comment and DM, calls back ad leads, qualifies with quizzes and runs your CRM. Live in 2 to 4 weeks. Book a call.",
     },
     hero: {
       eyebrow: "AI Systems for Sales",
@@ -532,7 +532,7 @@ export default {
         },
         {
           q: "How long until it goes live?",
-          a: "About 7 days for Voice AI and simple automations. For complex systems we agree a timeline with you before we start.",
+          a: "About 2 to 4 weeks, depending on the system: about 2 for the simpler ones, about 4 for a custom CRM or a larger build. We agree the timeline with you before we start.",
         },
         {
           q: "What happens with delicate calls?",
@@ -676,9 +676,9 @@ export default {
 
   "company-brain": {
     meta: {
-      title: "Company Brain: the archive that answers your whole company | Automis",
+      title: "Company Brain: AI that answers from your documents | Automis",
       description:
-        "A private Company Brain over your documents: the people who work for you ask whenever they like and get the answer with its source.",
+        "A private archive over your own documents: your team asks, it answers with the source, and you stop being the company manual. See how it works.",
     },
     hero: {
       eyebrow: "Company Brain",

@@ -167,6 +167,25 @@ const STATIC_PATHS = [
   "/pt/tools/gerador-link-whatsapp",
 ];
 
+// Pagine del sito rifatto (v2/v3), uguali nelle tre lingue (prefisso "" = EN). Formazione (/training) è volutamente fuori: noindex.
+// Le landing Shopify e WooCommerce sono noindex (come la loro versione IT) e restano fuori.
+for (const prefix of ["", "/it", "/pt"]) {
+  for (const route of [
+    "/systems",
+    "/systems/marketing",
+    "/systems/sales",
+    "/systems/support",
+    "/systems/admin",
+    "/systems/company-brain",
+    "/ecommerce",
+    "/how-we-work",
+    "/use-cases/album-ai",
+    "/use-cases/datura-clothing",
+  ]) {
+    STATIC_PATHS.push(prefix + route);
+  }
+}
+
 const POSTS = blogPosts();
 
 /**

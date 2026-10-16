@@ -6,7 +6,7 @@ export default {
   meta: {
     title: "Album AI: da 6 ore a 50 minuti per un album | Automis",
     description:
-      "Album AI sceglie le foto e impagina l'album per uno studio fotografico: da circa 6 ore a circa 50 minuti, revisione compresa. Tempi indicati dallo studio.",
+      "Album AI sceglie le foto e impagina l'album per uno studio fotografico: da circa 6 ore a circa 50 minuti, con revisione. Tempi indicati dallo studio.",
   },
 
   hero: {

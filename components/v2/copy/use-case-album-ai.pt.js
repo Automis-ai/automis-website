@@ -5,7 +5,7 @@ export default {
   meta: {
     title: "Album AI: de 6 horas a 50 minutos por álbum | Automis",
     description:
-      "O Album AI escolhe as fotografias e faz a paginação do álbum para um estúdio fotográfico: de cerca de 6 horas para cerca de 50 minutos, revisão incluída. Tempos indicados pelo estúdio.",
+      "O Album AI escolhe as fotografias e faz o álbum de um estúdio: de cerca de 6 horas para cerca de 50 minutos, com revisão. Tempos indicados pelo estúdio.",
   },
 
   hero: {

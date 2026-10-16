@@ -299,6 +299,7 @@ const DefaultHeader = ({ hideHeaderNav = false }) => {
     window.addEventListener("resize", onResize);
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    document.body.classList.add("menu-open"); // il CSS nasconde il widget vocale mentre il menu è aperto
     // Il focus entra nel drawer DOPO che e' diventato visibile: su un elemento ancora visibility:hidden
     // focus() non fa niente, e un effetto subito dopo il render arriva troppo presto.
     const raf = requestAnimationFrame(() => requestAnimationFrame(() => closeRef.current?.focus()));
@@ -307,6 +308,7 @@ const DefaultHeader = ({ hideHeaderNav = false }) => {
       document.removeEventListener("keydown", onKey);
       window.removeEventListener("resize", onResize);
       document.body.style.overflow = previousOverflow;
+      document.body.classList.remove("menu-open");
     };
   }, [mobileMenuOpen]);
 

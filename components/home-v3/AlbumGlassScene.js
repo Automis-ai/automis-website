@@ -56,7 +56,7 @@ function build() {
   // le tenute: spaziate lungo il fascio, così il fascio ne accende una ogni tanto
   const order = tiles.map((_, i) => i).sort((a, b) => tiles[a].x - tiles[b].x);
   for (let k = 0; k < KEEP; k++) tiles[order[Math.floor(((k + 0.5) / KEEP) * N)]].keep = true;
-  const tags = ["sfocata", "doppia", "occhi chiusi"];
+  const tags = curTags;
   let tg = 0;
   tiles.forEach((t, i) => {
     if (!t.keep && i % 5 === 0) t.tag = tags[tg++ % 3];
@@ -479,11 +479,20 @@ const MSGS = {
   en: ["The photographer swaps a photo", "The system learns"],
   pt: ["O fotógrafo troca uma foto", "O sistema aprende"],
 };
+// Le etichette che il sistema mette sulle foto scartate (sfocata, doppia, occhi chiusi), per lingua.
+const TAGS = {
+  it: ["sfocata", "doppia", "occhi chiusi"],
+  en: ["blurry", "duplicate", "eyes closed"],
+  pt: ["desfocada", "repetida", "olhos fechados"],
+};
 let curMsgs = MSGS.it;
+let curTags = TAGS.it;
 
 export default function AlbumGlassScene({ steps, label, photos = [] }) {
   const pathname = usePathname();
-  curMsgs = pathname?.startsWith("/pt") ? MSGS.pt : pathname?.startsWith("/it") ? MSGS.it : MSGS.en;
+  const lang = pathname?.startsWith("/pt") ? "pt" : pathname?.startsWith("/it") ? "it" : "en";
+  curMsgs = MSGS[lang];
+  curTags = TAGS[lang];
   const cvRef = useRef(null);
   const [phase, setPhase] = useState(0);
   const phaseRef = useRef(0);

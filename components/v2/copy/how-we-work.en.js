@@ -1,11 +1,11 @@
 /* Come lavoriamo (EN). I tre passi di knowledge/business.md:
    ascolto e diagnosi, progettazione e attivazione, avvio e miglioramento mensile.
-   Tempi: «about 7 days» per Voice AI e automazioni semplici, tempi su misura per i complessi. */
+   Tempi: «2-4 settimane» a seconda del sistema (circa 2 per i più semplici, circa 4 per un CRM su misura). */
 export default {
   meta: {
-    title: "How We Work | We Listen First, Then Build | Automis",
+    title: "How We Work: Listen, Build, Improve Every Month | Automis",
     description:
-      "Three steps: we listen and diagnose, design and launch around your process, then run and improve the system every month with a person overseeing it.",
+      "Three steps: we listen to how you work, build the system around it, then improve it every month with a person overseeing it. Live in 2 to 4 weeks.",
   },
 
   hero: {
@@ -29,7 +29,7 @@ export default {
         title: "Design and launch",
         line: "We build around your process, and you test it before launch.",
         more: "Nothing ships until it works the way your business actually runs.",
-        meta: "About 7 days. Custom timeline for complex systems.",
+        meta: "2-4 weeks, depending on the system.",
       },
       {
         n: "3",
@@ -58,7 +58,7 @@ export default {
       },
       {
         q: "How long until it goes live?",
-        a: "Voice AI and simple automations go live in about 7 days. Complex systems get a timeline we agree with you before anything starts.",
+        a: "Most systems go live in 2-4 weeks: about 2 for the simpler ones, about 4 for a custom CRM or a larger build. We agree the timeline with you before anything starts.",
       },
       {
         q: "How much does it cost?",

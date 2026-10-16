@@ -142,9 +142,9 @@ const IT = {
 const EN = {
   head: {
     meta: {
-      title: "Company Brain: the archive that answers your whole team | Automis",
+      title: "Company Brain: AI that answers from your documents | Automis",
       description:
-        "A private Company Brain over your documents: your team asks whenever they want and gets the answer with its source.",
+        "A private archive over your own documents: your team asks, it answers with the source, and you stop being the company manual. See how it works.",
     },
     hero: {
       eyebrow: "Company Brain",
@@ -319,9 +319,9 @@ const EN = {
 const PT = {
   head: {
     meta: {
-      title: "Company Brain: o arquivo que responde a toda a equipa | Automis",
+      title: "Company Brain: a IA que responde com os ficheiros | Automis",
       description:
-        "Um Company Brain privado sobre os seus documentos: quem trabalha consigo pergunta quando quiser e recebe a resposta com a fonte.",
+        "Um arquivo privado sobre os seus documentos: a equipa pergunta, a IA responde com a fonte e deixa de precisar de si como manual. Veja como funciona.",
     },
     hero: {
       eyebrow: "Company Brain",

@@ -1,12 +1,12 @@
 /* Como trabalhamos (PT, pt-PT). I tre passi di knowledge/business.md:
    ascolto e diagnosi, progettazione e attivazione, gestione e miglioramento mensile.
-   Tempi: «cerca de 7 dias» per Voice AI e automazioni semplici, tempi su misura per i complessi.
+   Tempi: «2 a 4 semanas» a seconda del sistema (circa 2 per i più semplici, circa 4 per un CRM su misura).
    Scritta dagli intenti, non tradotta dall'inglese. */
 export default {
   meta: {
-    title: "Como Trabalhamos | Ouvimos e Depois Construímos | Automis",
+    title: "Como trabalhamos: ouvir, construir, melhorar | Automis",
     description:
-      "Três passos: ouvimos e fazemos o diagnóstico, desenhamos e ativamos sobre o seu processo, e melhoramos o sistema todos os meses, com supervisão humana.",
+      "Três passos: ouvimos como trabalha, construímos o sistema à sua medida e melhoramos todos os meses, com supervisão humana. Em 2 a 4 semanas.",
   },
 
   hero: {
@@ -30,7 +30,7 @@ export default {
         title: "Desenhar e ativar",
         line: "Construímos sobre o seu processo, e testa antes de arrancar.",
         more: "Nada arranca enquanto não funcionar como a sua atividade realmente trabalha.",
-        meta: "Cerca de 7 dias. Prazos à medida nos sistemas complexos.",
+        meta: "2 a 4 semanas, consoante o sistema.",
       },
       {
         n: "3",
@@ -59,7 +59,7 @@ export default {
       },
       {
         q: "Em quanto tempo fica a funcionar?",
-        a: "A Voice AI e as automações simples ficam a funcionar em cerca de 7 dias. Nos sistemas complexos, combinamos consigo os prazos antes de começar.",
+        a: "A maioria dos sistemas fica a funcionar em 2 a 4 semanas: cerca de 2 para os mais simples, cerca de 4 para um CRM à medida ou um projeto mais amplo. Combinamos consigo o prazo antes de começar.",
       },
       {
         q: "Quanto custa?",
