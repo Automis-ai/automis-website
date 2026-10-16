@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
+import "@/components/home-v3/home-v3.css";
 
 /*
   Il calendario di prenotazione (LeadConnector) dentro una finestra di vetro. L'iframe si carica solo quando la sezione sta per
@@ -28,15 +29,15 @@ export default function BookingEmbed({ booking, header, confirm, loadingLabel, i
   }, []);
 
   return (
-    <div ref={holderRef} className="v2-card v2vo-cal">
+    <div ref={holderRef} className="v2-card v2vo-cal hv3 hv3-call__card">
       <div className="v2vo-cal__head">
         <span className="v2vo-cal__live">
-          <i aria-hidden="true" />
+          <i className="hv3-call__dot" aria-hidden="true" />
           {header}
         </span>
         <span className="v2vo-cal__ok">{confirm}</span>
       </div>
-      <div className="v2vo-cal__body">
+      <div className="v2vo-cal__body hv3-call__frame">
         {!loaded ? (
           <div className="v2vo-cal__wait" role="status">
             <span className="v2vo-cal__spin" aria-hidden="true" />
@@ -55,7 +56,7 @@ export default function BookingEmbed({ booking, header, confirm, loadingLabel, i
           />
         ) : null}
       </div>
-      <ul className="v2vo-cal__badges" role="list">
+      <ul className="v2vo-cal__badges hv3-call__proof" role="list">
         {badges.map((b) => (
           <li key={b}>{b}</li>
         ))}

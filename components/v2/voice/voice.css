@@ -765,6 +765,22 @@
   border: 0;
   overflow: auto;
 }
+/* Calendario come quello della home (v3): il widget bianco di LeadConnector è invertito e fuso sul blu (regole .hv3-call__* in home-v3.css).
+   Qui si dicono solo i due fondi, perché .v2vo-cal__body li aveva bianchi. */
+.v2vo-cal__body.hv3-call__frame {
+  background: #081a33;
+  isolation: isolate;
+}
+.v2vo-cal.hv3 .v2vo-cal__badges {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.62);
+}
+.v2vo-cal__badges.hv3-call__proof li::before {
+  content: "✓";
+  margin-right: 6px;
+  color: #f5cd79;
+  font-weight: 700;
+}
 .v2vo-cal__badges {
   display: flex;
   flex-wrap: wrap;
