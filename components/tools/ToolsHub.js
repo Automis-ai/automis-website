@@ -2,9 +2,15 @@
 // ItemList + BreadcrumbList JSON-LD.
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import Link from "next/link";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
+import "@/components/home-v3/home-v3.css";
+import "./tools-v3.css";
 import { PATHNAMES, hrefFor } from "@/utility/pathnames";
 import { TOOLS, TOOLS_ORDER, toolPath, toolUrl, HUB, hubUrl, SITE } from "@/utility/toolsData";
 
+const HERO_CTA = { en: "See the tools", it: "Vedi gli strumenti", pt: "Ver as ferramentas" };
+// Le ultime parole del titolo vanno in azzurro, come nelle altre hero v3.
+const lastWords = (t, n) => t.split(" ").slice(-n).join(" ");
 const TOOLS_LABEL = { en: "Tools", it: "Strumenti", pt: "Ferramentas" };
 const homeItem = (locale) =>
   locale === "it" ? `${SITE}/it` : locale === "pt" ? `${SITE}/pt` : SITE;
@@ -38,33 +44,33 @@ export default function ToolsHub({ locale }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([itemList, breadcrumb]) }}
       />
-      <section className="bg-blue-darkest px-5 pb-20 pt-32 text-white md:px-8 md:pt-40">
-        <div className="mx-auto max-w-4xl">
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/50">
-            <Link href={hrefFor(PATHNAMES.home, locale)} className="hover:text-white">Home</Link>
+      <PageHeroV3
+        eyebrow={toolsLabel}
+        title={h.h1}
+        highlight={lastWords(h.h1, 2)}
+        lead={h.intro}
+        cta={{ label: HERO_CTA[locale] || HERO_CTA.en, href: "#strumenti" }}
+      />
+
+      <section id="strumenti" className="hv3 hv3-tone hv3-tools hv3-tools--hub">
+        <div className="hv3-tools__in">
+          <nav aria-label="Breadcrumb" className="hv3-crumb">
+            <Link href={hrefFor(PATHNAMES.home, locale)}>Home</Link>
             <span className="mx-2">/</span>
-            <span className="text-white/70">{toolsLabel}</span>
+            <span className="is-cur">{toolsLabel}</span>
           </nav>
 
-          <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">{h.h1}</h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/70">{h.intro}</p>
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          <div className="hv3-tgrid">
             {TOOLS_ORDER.map((key) => {
               const t = TOOLS[key];
               const c = t[locale];
               return (
-                <Link
-                  key={key}
-                  href={toolPath(key, locale)}
-                  className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-all hover:border-blue-middle/60 hover:bg-white/[0.07]"
-                >
-                  <div className="mb-3 text-3xl">{t.icon}</div>
-                  <h2 className="text-xl font-semibold text-white">{c.name}</h2>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60">{c.metaDescription}</p>
-                  <span className="mt-4 inline-flex items-center text-sm font-medium text-blue-lightest">
-                    {h.cardCta}
-                    <span className="ml-1 transition-transform group-hover:translate-x-1">{"→"}</span>
+                <Link key={key} href={toolPath(key, locale)} className="hv3-tcard">
+                  <span className="hv3-tcard__ico" aria-hidden="true">{t.icon}</span>
+                  <h2 className="font-display">{c.name}</h2>
+                  <p>{c.metaDescription}</p>
+                  <span className="hv3-tcard__go">
+                    {h.cardCta} <span aria-hidden="true">→</span>
                   </span>
                 </Link>
               );

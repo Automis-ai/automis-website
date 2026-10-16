@@ -49,7 +49,7 @@ export default function ReviewLinkGenerator({ locale }) {
   const t = strings[locale] || strings.en;
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+    <div className="hv3-toolcard p-6 md:p-8">
       <a href={FINDER} target="_blank" rel="noopener noreferrer" className="mb-3 inline-block text-sm text-blue-lightest hover:underline">
         {t.finder}
       </a>

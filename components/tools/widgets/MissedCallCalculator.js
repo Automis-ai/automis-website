@@ -67,7 +67,7 @@ export default function MissedCallCalculator({ locale }) {
   const summary = `${t.missedMonth}: ${nfNum.format(Math.round(missedPerMonth))}. ${t.lostMonth}: ${nfEuro.format(Math.round(lostPerMonth))}. ${t.perYear}: ${nfEuro.format(Math.round(lostPerYear))}.`;
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+    <div className="hv3-toolcard p-6 md:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <ToolField label={t.calls}>
           <input type="number" min="0" inputMode="numeric" value={callsPerDay} onChange={(e) => setCallsPerDay(e.target.value)} className={inputClass} />

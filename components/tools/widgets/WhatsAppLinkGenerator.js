@@ -69,7 +69,7 @@ export default function WhatsAppLinkGenerator({ locale }) {
   const btnClass = "rounded-lg bg-gradient-to-r from-blue-middle to-blue-lightest px-5 py-3 font-semibold text-white transition-transform hover:-translate-y-0.5";
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+    <div className="hv3-toolcard p-6 md:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <ToolField label={t.phone} hint={t.phoneHint}>
           <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder={t.phonePlaceholder} className={inputClass} />

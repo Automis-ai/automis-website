@@ -3,12 +3,18 @@
 // "why it matters", FAQ, and a soft CTA, plus JSON-LD.
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import Link from "next/link";
+import PageHeroV3 from "@/components/home-v3/PageHeroV3";
+import "@/components/home-v3/home-v3.css";
+import "./tools-v3.css";
 import CTAButton from "@/components/CTAButton";
 import { getCtaHref } from "@/utility/ctaLinks";
 import { PATHNAMES, hrefFor } from "@/utility/pathnames";
 import { TOOLS, hubPath } from "@/utility/toolsData";
 import ToolJsonLd from "@/components/tools/ToolJsonLd";
 import FaqAccordion from "@/components/tools/FaqAccordion";
+
+// Le ultime parole del titolo vanno in azzurro, come nelle altre hero v3.
+const lastWords = (t, n) => t.split(" ").slice(-n).join(" ");
 
 const LABELS = {
   en: { tools: "Tools", why: "Why it matters", faq: "Frequently asked questions" },
@@ -30,38 +36,43 @@ export default function ToolPage({ toolKey, locale, children }) {
   return (
     <AutomisEnShell>
       <ToolJsonLd toolKey={toolKey} locale={locale} />
-      <section className="bg-blue-darkest px-5 pb-20 pt-32 text-white md:px-8 md:pt-40">
-        <div className="mx-auto max-w-3xl">
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/50">
-            <Link href={hrefFor(PATHNAMES.home, locale)} className="hover:text-white">Home</Link>
+      <PageHeroV3
+        className="hv3-hero--short"
+        eyebrow={l.tools}
+        title={c.h1}
+        highlight={lastWords(c.h1, 2)}
+        lead={c.intro}
+      />
+
+      <section className="hv3 hv3-tone hv3-tools">
+        <div className="hv3-tools__col">
+          <nav aria-label="Breadcrumb" className="hv3-crumb">
+            <Link href={hrefFor(PATHNAMES.home, locale)}>Home</Link>
             <span className="mx-2">/</span>
-            <Link href={hubPath(locale)} className="hover:text-white">{l.tools}</Link>
+            <Link href={hubPath(locale)}>{l.tools}</Link>
             <span className="mx-2">/</span>
-            <span className="text-white/70">{c.name}</span>
+            <span className="is-cur">{c.name}</span>
           </nav>
 
-          <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">{c.h1}</h1>
-          <p className="mt-5 text-lg leading-relaxed text-white/70">{c.intro}</p>
+          <div>{children}</div>
 
-          <div className="mt-10">{children}</div>
-
-          <div className="mt-16">
-            <h2 className="mb-4 text-2xl font-semibold">{l.why}</h2>
-            <div className="space-y-4 leading-relaxed text-white/70">
+          <div className="hv3-tools__sec">
+            <h2 className="hv3-toolh font-display">{l.why}</h2>
+            <div className="space-y-4">
               {c.why.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
           </div>
 
-          <div className="mt-16">
-            <h2 className="mb-4 text-2xl font-semibold">{l.faq}</h2>
+          <div className="hv3-tools__sec">
+            <h2 className="hv3-toolh font-display">{l.faq}</h2>
             <FaqAccordion faqs={c.faqs} />
           </div>
 
-          <div className="mt-16 rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
-            <h2 className="text-2xl font-semibold">{c.cta.label}</h2>
-            <p className="mt-2 text-white/60">{c.cta.sub}</p>
+          <div className="hv3-toolcta">
+            <h2 className="font-display">{c.cta.label}</h2>
+            <p>{c.cta.sub}</p>
             <div className="mt-6 flex justify-center">
               <CTAButton href={ctaHref} external={ctaExternal} variant="primary" size="large">
                 {c.cta.label}
