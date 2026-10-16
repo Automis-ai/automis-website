@@ -25,23 +25,13 @@ export default function AboutView({ lang, tono }) {
     <main id="main" className={pageClass(tono)}>
       <SmoothScroll />
       <PageStory />
-      {lang === "it" ? (
-        <PageHeroV3
-          eyebrow={t.hero.eyebrow}
-          title={t.hero.title}
-          highlight={t.hero.accent}
-          lead={t.hero.lead}
-          cta={{ label: "Conosci i fondatori", href: "#fondatori" }}
-        />
-      ) : (
-        <PageHero
-          size="compact"
-          eyebrow={t.hero.eyebrow}
-          {...heroTitle(t.hero.title, t.hero.accent)}
-          subtitle={t.hero.lead}
-          primaryCta={{ label: c.cta, href: contact }}
-        />
-      )}
+      <PageHeroV3
+        eyebrow={t.hero.eyebrow}
+        title={t.hero.title}
+        highlight={t.hero.accent}
+        lead={t.hero.lead}
+        cta={{ label: t.hero.ctaFounders, href: "#fondatori" }}
+      />
 
       <Section tone="light" id="fondatori">
         <SectionHeader title={t.founders.title} />

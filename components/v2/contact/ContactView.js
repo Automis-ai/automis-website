@@ -27,36 +27,13 @@ export default function ContactView({ lang, tono }) {
     <main id="main" className={pageClass(tono)}>
       <SmoothScroll />
       <PageStory />
-      {lang === "it" ? (
-        <PageHeroV3
-          eyebrow={t.hero.eyebrow}
-          title={t.hero.title}
-          highlight={t.hero.accent}
-          lead={t.hero.lead}
-          cta={{ label: c.booking.cta, href: "#book" }}
-        />
-      ) : (
-        <PageHero
-          size="compact"
-          className="v2c-hero"
-          eyebrow={t.hero.eyebrow}
-          {...heroTitle(t.hero.title, t.hero.accent)}
-          subtitle={t.hero.lead}
-          primaryCta={{ label: c.booking.cta, href: "#book" }}
-        >
-          {/* Le due rassicurazioni promettono un calendario vero: in anteprima (calendario spento) non si mostrano. */}
-          {isProduction() ? (
-            <ul className="v2c-heroline">
-              {[c.booking.instant, c.booking.noObligation].map((b) => (
-                <li key={b}>
-                  <Icon name="check" size={15} strokeWidth={2.6} />
-                  {b}
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </PageHero>
-      )}
+      <PageHeroV3
+        eyebrow={t.hero.eyebrow}
+        title={t.hero.title}
+        highlight={t.hero.accent}
+        lead={t.hero.lead}
+        cta={{ label: c.booking.cta, href: "#book" }}
+      />
 
       {/* Il Finder è una sezione del sito originale, non una fascia del kit: il contenitore con la classe del tono scuro
           dice alla fascia che segue da che colore partire (sfumatura, mai un taglio netto). */}

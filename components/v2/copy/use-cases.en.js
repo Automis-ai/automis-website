@@ -36,9 +36,9 @@ export default {
     },
     {
       slug: "album-ai",
-      client: "A professional photographer",
-      tag: "Album tool",
-      title: "A custom tool for photo albums",
+      client: "Simone Casillo Photography Studio",
+      tag: "Album AI",
+      title: "Album AI: photos chosen, album laid out",
       figure: "About 280",
       figureLabel: "photos chosen from 1,200 to 1,800 shots",
       href: "/use-cases/album-ai",
@@ -46,8 +46,8 @@ export default {
     {
       slug: "datura-clothing",
       client: "Datura Clothing",
-      tag: "Monitoring and campaigns",
-      title: "Datura Clothing: monitoring, campaigns and reports",
+      tag: "AI WooCommerce Manager",
+      title: "One system for the whole store",
       figure: "10",
       figureLabel: "faults found in 28 days",
       href: "/use-cases/datura-clothing",

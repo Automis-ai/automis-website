@@ -70,7 +70,7 @@ const COPY = {
       {
         step: "Fase 2",
         title: "Desenho, construção e lançamento",
-        body: "Desenhamos e construímos o seu sistema, e você testa-o antes de entrar em funcionamento. Nada é lançado até funcionar tal como o seu negócio funciona de facto.",
+        body: "Desenhamos e construímos o seu sistema, e só entra em funcionamento depois de o testar. Nada é lançado até funcionar tal como o seu negócio funciona de facto.",
         meta: "~7 dias para Voice e casos simples · à medida para os complexos",
       },
       {

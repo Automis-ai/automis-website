@@ -49,39 +49,28 @@ export default function VoicePage({ locale = "en", tono }) {
       <SmoothScroll />
       <PageStory />
 
-      {locale === "it" ? (
-        <PageHeroV3
-          eyebrow={t.hero.eyebrow}
-          title={t.hero.title}
-          highlight={t.hero.highlight}
-          lead={t.hero.subtitle}
-          cta={{ label: t.hero.cta, href: "#book" }}
-          below={
-            <div className="v2vo-herovideo">
-              <div className="v2vo-herovideo__frame">
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID[locale] || VIDEO_ID.en}?rel=0`}
-                  title={t.hero.videoTitle}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-              <p>{t.hero.videoTitle}</p>
+      <PageHeroV3
+        eyebrow={t.hero.eyebrow}
+        title={t.hero.title}
+        highlight={t.hero.highlight}
+        lead={t.hero.subtitle}
+        cta={{ label: t.hero.cta, href: "#book" }}
+        below={
+          <div className="v2vo-herovideo">
+            <div className="v2vo-herovideo__frame">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID[locale] || VIDEO_ID.en}?rel=0`}
+                title={t.hero.videoTitle}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
-          }
-          belowWide
-        />
-      ) : (
-        <PageHero
-          size="compact"
-          scene="voice"
-          eyebrow={t.hero.eyebrow}
-          {...heroTitle(t.hero.title, t.hero.highlight)}
-          subtitle={t.hero.subtitle}
-          primaryCta={{ label: t.hero.cta, href: "#book" }}
-        />
-      )}
+            <p>{t.hero.videoTitle}</p>
+          </div>
+        }
+        belowWide
+      />
 
       {/* Il problema: tre schede corte (la prima frase), il resto a richiesta */}
       <Section tone="light" className="v2vo-sec" aria-labelledby="vo-problem">
@@ -116,11 +105,6 @@ export default function VoicePage({ locale = "en", tono }) {
           ariaLabel={t.how.title}
           steps={t.how.steps.map((s, i) => ({ glyph: ["phone", "check", "calendar", "contact", "repeat"][i] || "spark", label: s.title, text: s.body }))}
         />
-        {locale === "it" ? null : (
-          <div className="v2vo-videowrap">
-            <VideoFacade videoId={VIDEO_ID[locale] || VIDEO_ID.en} title={t.hero.videoTitle} playLabel={ui.play} />
-          </div>
-        )}
       </Section>
 
       {/* La dashboard: tutto quello che fa l'IA, visibile */}

@@ -9,14 +9,13 @@ export const metadata = buildMetadata({
   title: "Dove Sidekick finisce, iniziamo noi | Automis",
   description:
     "Agenti IA per negozi Shopify che fanno pubblicità: annunci, clienti, catalogo di Meta e incassi controllati ogni notte, dove Sidekick non arriva.",
-  languages: ["it"],
   noindex: true,
 });
 
 export default function Page({ searchParams }) {
   return (
     <AutomisEnShell>
-      <ShopifyPage tono={searchParams?.tono} />
+      <ShopifyPage locale="it" tono={searchParams?.tono} />
     </AutomisEnShell>
   );
 }

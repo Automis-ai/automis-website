@@ -77,8 +77,8 @@ const COPY = {
 // v3: stessa chiusura di sempre (pitch a sinistra, calendario a destra) nei colori della home v3.
 export default function FinalCta({ v3: v3Prop = false }) {
   const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
-  // IT: sempre la chiusura v3 (stessa della home), anche dove la pagina non passa v3
-  const v3 = v3Prop || locale === "it";
+  // Chiusura v3 in tutte le lingue (come l'IT), anche dove la pagina non passa v3
+  const v3 = true;
   const t = COPY[locale];
   const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
   const holderRef = useRef(null);

@@ -1,5 +1,4 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import PageHero from "@/components/v2/ui/PageHero";
 import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import Section from "@/components/v2/ui/Section";
 import CtaBand from "@/components/v2/ui/CtaBand";
@@ -13,7 +12,7 @@ import { pageClass } from "@/components/v2/ui/toneClass";
 import "@/components/v2/use-cases/use-cases.css";
 
 /*
-  Indice dei casi studio (v2): apertura centrata e compatta, una scheda per caso (logo o nome del cliente, numero con la sua
+  Indice dei casi studio (v2, uguale in IT, EN e PT): apertura v3 centrata e compatta, una scheda per caso (logo o nome del cliente, numero con la sua
   base, la catena dei suoi moduli veri, titolo) che si inclina in 3D, chiusura con un solo invito. Quattro casi: Clínica,
   ADifesa, Album AI, Datura Clothing. Testi da getCopy("use-cases", locale); i logo vengono da cases.js; i moduli di
   ogni caso da constants.js (CHAINS).
@@ -27,31 +26,23 @@ const EXTRA_LOGOS = {
   "datura-clothing": "/assets/images/client-logos/datura-clothing.png",
 };
 
+// Bottone della hero (ancora alle schede), per lingua.
+const SEE_CASES = { it: "Scopri i casi", en: "See the cases", pt: "Ver os casos" };
+
 export default function UseCasesIndex({ locale = "en" }) {
   const t = getCopy("use-cases", locale);
   const common = getCopy("common", locale);
 
   return (
     <AutomisEnShell>
-      <main id="main" className={locale === "it" ? pageClass() : undefined}>
-      {locale === "it" ? (
-        <PageHeroV3
-          eyebrow={t.hero.eyebrow}
-          title={t.hero.title}
-          highlight={t.hero.highlight}
-          lead={t.hero.lead}
-          cta={{ label: "Scopri i casi", href: "#casi" }}
-        />
-      ) : (
-        <PageHero
-          size="compact"
-          scene="casi"
-          eyebrow={t.hero.eyebrow}
-          title={t.hero.title}
-          highlight={t.hero.highlight}
-          subtitle={t.hero.lead}
-        />
-      )}
+      <main id="main" className={pageClass()}>
+      <PageHeroV3
+        eyebrow={t.hero.eyebrow}
+        title={t.hero.title}
+        highlight={t.hero.highlight}
+        lead={t.hero.lead}
+        cta={{ label: SEE_CASES[locale] || SEE_CASES.en, href: "#casi" }}
+      />
 
       <Seam glyphs={t.items.map((item) => (CHAINS[item.slug] || [])[0]).filter(Boolean)} />
       <Section tone="light" className="v2c-edge" id="casi">

@@ -7,14 +7,16 @@ import MoreCases from "@/components/v2/use-cases/MoreCases";
 import { InView, CountUp } from "@/components/v2/use-cases/fx";
 import { addLangPrefix } from "@/lib/locales";
 import it from "@/components/v2/copy/use-case-adifesa.it";
+import en from "@/components/v2/copy/use-case-adifesa.en";
+import pt from "@/components/v2/copy/use-case-adifesa.pt";
 import { CASO } from "@/components/use-cases/adifesa/meta";
 import { Bars, Card, Detail, Faq, LinkRow, Fixes, KeyValue, Plain, Quote, Scene, Shot, Split, Stats, Steps } from "./CasoKit";
 import "@/components/v2/use-cases/use-cases.css";
 
 /*
-  Caso ADifesa (IT), nello stile di Datura e Album AI: hero v3, corpo blu, una scena per ogni passaggio.
-  Testi: components/v2/copy/use-case-adifesa.it.js. Metadati e JSON-LD (con le FAQ) sono quelli dell'articolo lungo
-  (components/use-cases/adifesa/meta.js), che resta la pagina per EN e PT.
+  Caso ADifesa (IT, EN, PT), nello stile di Datura e Album AI: hero v3, corpo blu, una scena per ogni passaggio.
+  Testi: components/v2/copy/use-case-adifesa.<lingua>.js (stesse chiavi, l'italiano è la fonte). Metadati e JSON-LD (con le FAQ)
+  sono quelli di components/use-cases/adifesa/meta.js nella lingua della pagina; l'articolo lungo (AdifesaStory) resta nel repo ma non è più montato.
   Le tre schermate sono quelle vere della casella di ADifesa, con nomi, foto e contatti distrutti nei pixel.
 */
 
@@ -60,7 +62,7 @@ function Funnel({ items, note }) {
 }
 
 /* Dal commento alla scheda: quattro passi che compaiono uno dopo l'altro, poi la schermata vera della conversazione. */
-function FlowScene({ f, shot }) {
+function FlowScene({ f, shot, openLabel }) {
   return (
     <InView className="cv3-flow">
       <ol className="cv3-flow__steps" aria-label={f.label}>
@@ -73,22 +75,24 @@ function FlowScene({ f, shot }) {
         ))}
       </ol>
       <div className="cv3-flow__shot cv3-seq" style={{ "--k": f.steps.length }}>
-        <Shot shot={shot} />
+        <Shot shot={shot} openLabel={openLabel} />
       </div>
     </InView>
   );
 }
+
+const COPY = { it, en, pt };
 
 function Head({ s, lead = true }) {
   return <SectionHeader align="center" eyebrow={s.eyebrow} title={s.title} lead={lead ? s.lead : undefined} className="v2c-scenehead cv3-head" />;
 }
 
 export default function AdifesaCaseV3({ locale = "it" }) {
-  const t = it;
-  const m = CASO.it;
-  const book = { label: "Prenota una call", href: `${addLangPrefix("/", locale)}#book` };
+  const t = COPY[locale] || en;
+  const m = CASO[locale] || CASO.en;
+  const book = { label: t.ui.book, href: `${addLangPrefix("/", locale)}#book` };
   const hoursSplit = {
-    title: "1.377 messaggi privati fuori orario",
+    title: t.ui.hoursTitle,
     parts: t.hours.parts.map((p) => ({ value: p.value, label: p.label, line: p.line })),
   };
   return (
@@ -101,7 +105,7 @@ export default function AdifesaCaseV3({ locale = "it" }) {
           title={t.hero.title}
           highlight={t.hero.highlight}
           lead={t.hero.lead}
-          cta={{ label: "Leggi il caso", href: "#partenza" }}
+          cta={{ label: t.ui.read, href: "#partenza" }}
           eyebrowLogo={{ src: t.hero.logo, alt: t.hero.client }}
         />
         <div className="v2-caso">
@@ -118,7 +122,7 @@ export default function AdifesaCaseV3({ locale = "it" }) {
           <Section fx={false} tone="light" className="v2c-sec" id="percorso">
             <Head s={t.flow} />
             <Scene>
-              <FlowScene f={t.flow} shot={t.start.shot} />
+              <FlowScene f={t.flow} shot={t.start.shot} openLabel={t.ui.openShot} />
             </Scene>
           </Section>
 
@@ -140,10 +144,10 @@ export default function AdifesaCaseV3({ locale = "it" }) {
             <Scene>
               <Funnel items={t.numbers.funnel} note={t.numbers.funnelNote} />
               <p className="dsv3-note cv3-focus">{t.numbers.focus}</p>
-              <Bars chart={t.numbers.chart} className="cv3-gap" />
+              <Bars chart={t.numbers.chart} className="cv3-gap" sep={t.ui.sep} />
               <div className="cv3-pair cv3-gap">
                 <KeyValue rows={t.numbers.rows} />
-                <Split split={t.numbers.origin} />
+                <Split split={t.numbers.origin} sep={t.ui.sep} />
               </div>
             </Scene>
           </Section>
@@ -154,7 +158,7 @@ export default function AdifesaCaseV3({ locale = "it" }) {
             <Scene>
               <div className="cv3-pair">
                 <Card figure={t.hours.figure} figureLabel={t.hours.figureLabel} className="cv3-card--fig" />
-                <Split split={hoursSplit} />
+                <Split split={hoursSplit} sep={t.ui.sep} />
               </div>
               <p className="cv3-night">
                 <b className="font-display">{t.hours.night.value}</b> {t.hours.night.label}
@@ -169,7 +173,7 @@ export default function AdifesaCaseV3({ locale = "it" }) {
             <Scene>
               <div className="cv3-pair cv3-pair--center">
                 <Card figure={t.handoff.figure} figureLabel={t.handoff.figureLabel} className="cv3-card--fig" />
-                <Shot shot={t.handoff.shot} />
+                <Shot shot={t.handoff.shot} openLabel={t.ui.openShot} />
               </div>
               <Plain items={[{ tag: t.handoff.control.tag, title: t.handoff.control.title, line: t.handoff.control.line }, { tag: t.handoff.fee.tag, title: t.handoff.fee.title, line: t.handoff.fee.line }]} />
             </Scene>
@@ -223,9 +227,9 @@ export default function AdifesaCaseV3({ locale = "it" }) {
                             <Steps items={t.instagram.steps} className="cv3-steps--two cv3-steps--stack" />
                             <Card tag={t.instagram.odd.tag} line={t.instagram.odd.line} />
                           </div>
-                          <Bars chart={t.instagram.chart} className="cv3-chart--solid" />
+                          <Bars chart={t.instagram.chart} className="cv3-chart--solid" sep={t.ui.sep} />
                         </div>
-                        <Shot shot={t.instagram.shot} className="cv3-gap cv3-shot--center" />
+                        <Shot shot={t.instagram.shot} openLabel={t.ui.openShot} className="cv3-gap cv3-shot--center" />
                       </>
                     ),
                   },
@@ -263,7 +267,7 @@ export default function AdifesaCaseV3({ locale = "it" }) {
             <CtaBand blue title={t.cta.title} line={t.cta.line} button={book} />
           </div>
           <div className="v2c-more-wrap">
-            <MoreCases href={addLangPrefix("/use-cases", locale)} />
+            <MoreCases href={addLangPrefix("/use-cases", locale)} locale={locale} />
           </div>
         </div>
       </main>

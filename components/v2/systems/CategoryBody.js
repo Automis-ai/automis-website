@@ -4,7 +4,7 @@ import PageHeroV3 from "@/components/home-v3/PageHeroV3";
 import { homeCopy } from "@/components/home-v3/copy";
 import CategoryStagesV3 from "@/components/home-v3/CategoryStagesV3";
 import SalesExtrasV3 from "@/components/home-v3/SalesExtrasV3";
-import { STAGES } from "@/components/home-v3/stages";
+import { stagesFor, vizTextFor } from "@/components/home-v3/stages";
 import Section from "@/components/v2/ui/Section";
 import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CardGrid from "@/components/v2/ui/CardGrid";
@@ -43,6 +43,7 @@ export default function CategoryBody({ locale, slug, tono }) {
   const common = getCopy("common", locale);
   const c = all[slug];
   const L = locale;
+  const itV3 = ["it", "en", "pt"].includes(L); // corpo v3 (tappe, hero, Vendita) in tutte le lingue
   const caseInfo = c.case ? CASES.find((x) => x.slug === caseSlug(c.case.href)) : null;
 
   // La scheda-prodotto che diventa una fascia a sé (Marketing: AI E-commerce Manager) esce dalla griglia.
@@ -54,7 +55,7 @@ export default function CategoryBody({ locale, slug, tono }) {
   // Il caso reale sta in mezzo ai due gruppi (Vendita); altrimenti chiude la pagina, dopo le demo.
   const caseInMiddle = Boolean(split && !bandCard && c.case);
   // Una scheda sola e una demo (Risorse umane): scheda e demo stanno affiancate.
-  const brainBeside = L !== "it" && Boolean(c.brain && c.cards.length === 1);
+  const brainBeside = !itV3 && Boolean(c.brain && c.cards.length === 1);
 
   const caseBand = c.case ? (
     <CaseBand
@@ -96,10 +97,10 @@ export default function CategoryBody({ locale, slug, tono }) {
     />
   ) : null;
 
-  // IT: corpo a tappe (components/home-v3). Il sistema in primo piano può avere una piccola animazione; il resto sta nei dettagli.
+  // Corpo a tappe (components/home-v3). Il sistema in primo piano può avere una piccola animazione; il resto sta nei dettagli.
   const VIZ = {
-    "ads-creative": { viz: "bars", vizCaption: "Esempio illustrativo: il budget si sposta sulla creatività che converte" },
-    reviews: { viz: "stars", vizCaption: "Esempio illustrativo: la risposta pubblica aspetta il tuo ok", vizRows: ["Risposta pronta: «Grazie, ci fa piacere…»"] },
+    "ads-creative": { viz: "bars", vizCaption: vizTextFor(L).bars },
+    reviews: { viz: "stars", vizCaption: vizTextFor(L).stars, vizRows: [vizTextFor(L).starsRow] },
     "ecommerce-manager": {
       viz: "night",
       vizCaption: `${getCopy("ecommerce", L).hero.visual.title} · ${getCopy("ecommerce", L).hero.visual.caption}`,
@@ -113,11 +114,10 @@ export default function CategoryBody({ locale, slug, tono }) {
         }
       : {}),
   };
-  const itV3 = L === "it";
   // Company Brain: la scheda sarebbe un doppione della hero, la pagina parte dalla demo «Chiedi al Brain».
   const itStages =
     itV3 && slug !== "company-brain"
-      ? (STAGES[slug] || []).map((st) => ({
+      ? (stagesFor(L)[slug] || []).map((st) => ({
           title: st.title,
           line: st.line,
           items: st.ids
@@ -136,14 +136,14 @@ export default function CategoryBody({ locale, slug, tono }) {
     <main id="main" className={pageClass(tono)}>
       <SmoothScroll />
       <PageStory />
-      {L === "it" ? (
-        /* Hero v3 (14/10): luce della home, un solo bottone che scende alle schede. EN e PT restano sul v2. */
+      {itV3 ? (
+        /* Hero v3 (14/10): luce della home, un solo bottone che scende alle schede (IT, EN, PT dal 16/10). */
         <PageHeroV3
           eyebrow={c.hero.eyebrow}
           title={c.hero.title}
           highlight={c.hero.highlight}
           lead={c.hero.lead}
-          cta={{ label: "Scopri i sistemi", href: "#sistemi" }}
+          cta={{ label: homeCopy(L).systems.go, href: "#sistemi" }}
         />
       ) : (
         <PageHero
@@ -315,13 +315,13 @@ export default function CategoryBody({ locale, slug, tono }) {
       <FaqSection title={c.faq.title} items={c.faq.items} tone="dark" />
 
       <CtaBand
-        blue={L === "it"}
+        blue={itV3}
         tone="dark"
         title={c.cta.title}
         line={c.cta.line}
         button={
-          L === "it"
-            ? { label: "Prenota una call", href: `${addLangPrefix("/", L)}#book` }
+          itV3
+            ? { label: common.booking.cta, href: `${addLangPrefix("/", L)}#book` }
             : { label: common.cta, href: addLangPrefix("/contact", L) }
         }
       />

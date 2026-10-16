@@ -33,23 +33,13 @@ export default function TrainingPage({ locale = "en", tono }) {
       <main id="main" className={pageClass(tono)}>
         <SmoothScroll />
         <PageStory />
-        {locale === "it" ? (
-          <PageHeroV3
-            eyebrow={t.hero.eyebrow}
-            title={t.hero.title}
-            highlight={t.hero.highlight}
-            lead={t.hero.lead}
-            cta={{ label: "Scopri i percorsi", href: "#percorsi" }}
-          />
-        ) : (
-          <PageHero
-            size="compact"
-            eyebrow={t.hero.eyebrow}
-            {...heroTitle(t.hero.title, t.hero.highlight)}
-            subtitle={t.hero.lead}
-            primaryCta={{ label: common.cta, href: contact }}
-          />
-        )}
+        <PageHeroV3
+          eyebrow={t.hero.eyebrow}
+          title={t.hero.title}
+          highlight={t.hero.highlight}
+          lead={t.hero.lead}
+          cta={{ label: t.hero.ctaPaths, href: "#percorsi" }}
+        />
 
         <Section tone="light" id="percorsi">
           <SectionHeader title={t.paths.title} />

@@ -80,7 +80,7 @@ const COPY = {
       {
         step: "02",
         title: "Desenhar e ativar",
-        body: "Construímos o seu sistema e testa-o antes de entrar em produção. Nada arranca até funcionar como o seu negócio realmente funciona.",
+        body: "Construímos o seu sistema e só entra em produção depois de o testar. Nada arranca até funcionar como o seu negócio realmente funciona.",
         meta: "Cerca de 7 dias para Voice e sistemas simples · à medida nos complexos",
       },
       {

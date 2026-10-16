@@ -3,8 +3,16 @@
    clients/adifesa/): qui il testo è accorciato e ogni passaggio ha la sua scena.
    Finestra dei dati: dal 1° maggio al 16 settembre 2026. L'esito commerciale (3 schede su 10 diventano clienti) è un dato
    dell'associazione, non nostro. Nessun fatturato né rimborso: non sono dati nostri.
-   Metadati e JSON-LD restano quelli di components/use-cases/adifesa/meta.js. EN e PT restano sull'articolo lungo. */
+   Metadati e JSON-LD restano quelli di components/use-cases/adifesa/meta.js. EN e PT: use-case-adifesa.en.js / .pt.js, stesse chiavi. */
 export default {
+  ui: {
+    read: "Leggi il caso",
+    book: "Prenota una call",
+    openShot: "Apri la schermata intera",
+    hoursTitle: "1.377 messaggi privati fuori orario",
+    sep: ".",
+  },
+
   hero: {
     eyebrow: "Caso studio",
     title: "Cinque mesi nei commenti di Facebook e Instagram",

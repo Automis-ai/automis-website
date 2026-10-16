@@ -16,6 +16,7 @@ export default {
     title: "Make AI part of how your company works",
     highlight: "AI",
     lead: "Practical training on using Claude or ChatGPT in your daily work, from simple everyday uses to agents and a second brain.",
+    ctaPaths: "See the two paths",
   },
 
   paths: {

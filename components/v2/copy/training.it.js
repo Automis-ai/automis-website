@@ -19,6 +19,7 @@ export default {
     title: "Fai entrare l'IA nel lavoro della tua azienda",
     highlight: "l'IA",
     lead: "Formazione pratica per usare Claude o ChatGPT nel lavoro di ogni giorno, dagli usi semplici agli agenti e al second brain.",
+    ctaPaths: "Scopri i percorsi",
   },
 
   paths: {

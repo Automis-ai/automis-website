@@ -42,7 +42,7 @@ export function generateMetadata({ params }) {
 export default function CaseStudyDetailPageIt({ params }) {
   // Lo slug è lo stesso in tutte le lingue: lo dichiariamo al selettore e al piede già sul server.
   const v2 = getV2Case(params.slug);
-  // Clínica e ADifesa: in italiano pagina nello stile nuovo, in EN e PT resta l'articolo lungo.
+  // Clínica e ADifesa: pagina nello stile nuovo, la stessa in EN e PT (testi nella lingua).
   const ItCase = getItCase(params.slug);
   return (
     <LangTwins path={`/use-cases/${params.slug}`}>

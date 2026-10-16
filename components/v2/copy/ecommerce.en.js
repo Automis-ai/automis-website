@@ -29,7 +29,7 @@ export default {
   platforms: {
     title: "Choose your platform",
     note: "The platform pages are written in Italian.",
-    langTag: "Page in Italian",
+    langTag: null,
     modulesSummary: "what we look after",
     items: [
       {
@@ -44,7 +44,7 @@ export default {
           { title: "Revenue", line: "Each month we divide what you collected on Shopify by what you spent on ads: the real return, not the one Meta credits itself." },
         ],
         cta: "See the Shopify page",
-        href: "/it/ecommerce/shopify",
+        href: "/ecommerce/shopify",
       },
       {
         id: "woocommerce",
@@ -58,7 +58,7 @@ export default {
           { title: "Site", line: "A sentinel keeps checking that the site responds. If it stops, we read the server logs to find the cause." },
         ],
         cta: "See the WooCommerce page",
-        href: "/it/ecommerce/woocommerce",
+        href: "/ecommerce/woocommerce",
       },
     ],
     other: "Another platform? Tell us about your store.",

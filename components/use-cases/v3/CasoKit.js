@@ -11,8 +11,9 @@ import { CountUp, InView } from "@/components/v2/use-cases/fx";
   Senza JavaScript e con prefers-reduced-motion si vede subito tutto, a riposo.
 */
 
-/* Numeri all'italiana con il punto delle migliaia anche a quattro cifre (toLocaleString('it-IT') lo salta: 1065). */
-const fmt = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+/* Numeri con il separatore delle migliaia anche a quattro cifre (toLocaleString('it-IT') lo salta: 1065).
+   `sep` viene dal testo (ui.sep): "." in italiano e portoghese, "," in inglese. */
+const fmt = (n, sep = ".") => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
 
 export function Scene({ children, className = "" }) {
   return <div className={`hv3 cv3 ${className}`}>{children}</div>;
@@ -37,7 +38,7 @@ export function Stats({ items, label, cols, compact = false }) {
 }
 
 /* Istogramma: una colonna per voce, la prima dopo `markAt` ha la riga tratteggiata e la sua etichetta (la «svolta»). */
-export function Bars({ chart, className = "" }) {
+export function Bars({ chart, className = "", sep }) {
   const max = Math.max(...chart.months.map((m) => m.value));
   const mark = typeof chart.markAt === "number" ? chart.markAt : -1;
   return (
@@ -50,7 +51,7 @@ export function Bars({ chart, className = "" }) {
         {chart.months.map((m, i) => (
           <div key={m.label} className={`cv3-col${mark >= 0 && i >= mark ? " is-after" : ""}${i === mark ? " is-mark" : ""}`} style={{ "--h": (m.value / max) * 100, "--i": i }}>
             {i === mark && chart.mark ? <span className="cv3-col__tag">{chart.mark}</span> : null}
-            <span className="cv3-col__v">{fmt(m.value)}</span>
+            <span className="cv3-col__v">{fmt(m.value, sep)}</span>
             <i className="cv3-col__b" />
             <span className="cv3-col__l">{m.label}</span>
           </div>
@@ -63,7 +64,7 @@ export function Bars({ chart, className = "" }) {
 }
 
 /* Barra a segmenti (parti di un totale) con la legenda sotto. */
-export function Split({ split, className = "" }) {
+export function Split({ split, className = "", sep }) {
   const total = split.parts.reduce((s, p) => s + p.value, 0);
   return (
     <InView className={`dsv3-glass cv3-split ${className}`}>
@@ -77,7 +78,7 @@ export function Split({ split, className = "" }) {
         {split.parts.map((p, i) => (
           <li key={p.label}>
             <i className={`cv3-seg cv3-seg--${i}`} aria-hidden="true" />
-            <b className="font-display">{fmt(p.value)}</b>
+            <b className="font-display">{fmt(p.value, sep)}</b>
             <span>{p.label}</span>
             {p.pct ? <em>{p.pct}</em> : null}
             {p.line ? <small>{p.line}</small> : null}
@@ -174,11 +175,11 @@ export function Steps({ items, className = "" }) {
 
 /* Schermata vera dentro la cornice di un browser. `zoom` { ratio, z, x, y } ritaglia la parte che conta (rapporto del riquadro,
    ingrandimento, punto di mira in %): su telefono il testo della schermata intera non si legge. Un tocco la apre intera. */
-export function Shot({ shot, className = "" }) {
+export function Shot({ shot, className = "", openLabel }) {
   const z = shot.zoom;
   return (
     <figure className={`cv3-shot ${className}`}>
-      <a className="dsv3-browser" href={shot.src} target="_blank" rel="noopener noreferrer" aria-label="Apri la schermata intera">
+      <a className="dsv3-browser" href={shot.src} target="_blank" rel="noopener noreferrer" aria-label={openLabel || "Apri la schermata intera"}>
         <div className="dsv3-browser__bar" aria-hidden="true">
           <i />
           <i />

@@ -30,7 +30,7 @@ export default {
   platforms: {
     title: "Escolha a sua plataforma",
     note: "As páginas das plataformas estão escritas em italiano.",
-    langTag: "Página em italiano",
+    langTag: null,
     modulesSummary: "o que acompanhamos",
     items: [
       {
@@ -45,7 +45,7 @@ export default {
           { title: "Receitas", line: "Todos os meses dividimos o que cobrou na Shopify pelo que gastou em anúncios: o retorno verdadeiro, não aquele que o Meta se atribui." },
         ],
         cta: "Ver a página da Shopify",
-        href: "/it/ecommerce/shopify",
+        href: "/pt/ecommerce/shopify",
       },
       {
         id: "woocommerce",
@@ -59,7 +59,7 @@ export default {
           { title: "Site", line: "Uma sentinela verifica continuamente se o site responde. Se parar, lemos os registos do servidor e encontramos a causa." },
         ],
         cta: "Ver a página da WooCommerce",
-        href: "/it/ecommerce/woocommerce",
+        href: "/pt/ecommerce/woocommerce",
       },
     ],
     other: "Outra plataforma? Fale-nos da sua loja.",

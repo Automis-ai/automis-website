@@ -1,6 +1,7 @@
-/* Caso Datura Clothing (PT, pt-PT). Números e janelas da ficha de factos do cliente (secções A, B, D).
-   Cada número leva a sua janela. Sem horas poupadas (não houve medição), sem faturação.
-   Caminho: /use-cases/datura-clothing (o mesmo slug em todas as línguas). Escrito a partir dos intentos, não traduzido. */
+/* Caso Datura Clothing (PT, pt-PT). Stessa struttura e stessi numeri dell'IT (fonte), come «AI WooCommerce Manager» (14/10/2026).
+   In pagina niente date: solo durate e «nos últimos 4 meses». Numeri dalla raccolta fatti del cliente e dal registro dei lavori;
+   i 20 minuti per la scheda di un prodotto e i 5 per tutto il catalogo sono dichiarati dal negozio, non misurati. Niente ore risparmiate misurate, niente fatturato.
+   Percorso: /use-cases/datura-clothing (stesso slug in tutte le lingue). Scritta pensando in portoghese europeo; descrizione prodotto tradotta dall'italiano del negozio. */
 export default {
   meta: {
     title: "Datura Clothing: 10 falhas encontradas em 28 dias | Automis",
@@ -10,153 +11,209 @@ export default {
 
   hero: {
     eyebrow: "Caso de estudo",
-    title: "Dez falhas encontradas em 28 dias na loja da Datura Clothing",
-    highlight: "Dez falhas encontradas",
-    lead: "Vigilância do site, campanhas Meta, criativos e relatório mensal: quatro módulos de um só sistema, com números reais e o período a que se referem.",
+    title: "AI WooCommerce Manager: um só sistema para toda a loja",
+    highlight: "AI WooCommerce Manager:",
+    titleLogo: { word: "WooCommerce", src: "/assets/images/logos/woocommerce-mark-white.svg", alt: "WooCommerce" },
+    lead: "Uma loja de roupa que funciona sozinha. Nos últimos quatro meses, a IA assumiu a vigilância dia e noite, tornou o catálogo mais rápido e fez os anúncios render mais.",
     client: "Datura Clothing",
-    tag: "Vigilância e campanhas",
-    statsLabel: "Os números deste caso",
-    stats: [
-      { figure: "10", label: "falhas distintas encontradas", basis: "de 13/8 a 9/9/2026, 28 dias" },
-      { figure: "100", label: "anúncios criados em 4 campanhas, 46 foram para o ar", basis: "em 6 semanas, de 25/8 a 8/10/2026" },
-      { figure: "19", label: "atualizações de plugins verificadas uma a uma, todas sem problemas", basis: "de 20 a 23/8/2026" },
-    ],
+    logo: "/assets/images/client-logos/datura-clothing-white.png",
   },
 
-  problem: {
-    eyebrow: "O problema",
-    title: "Uma loja online avaria sem fazer barulho",
-    lead: "Não contamos as horas poupadas, porque ninguém as mediu. Contamos há quanto tempo uma falha estava parada antes de a encontrarmos.",
+  presidio: {
+    eyebrow: "1 · Vigilância",
+    title: "A loja fica de pé mesmo quando ninguém a está a ver",
+    lead: "Uma loja online avaria sem fazer barulho. Aqui, uma IA vigia-a dia e noite, encontra os erros, resolve-os e só lhe escreve quando é preciso.",
+    ops: {
+      title: "Vigilância",
+      live: "sempre ligada",
+      ariaLabel: "A vigilância verifica a loja e resolve cinco erros, um após outro.",
+      checksLabel: "O que verifica",
+      checks: ["Tarefas programadas", "Ligação ao Instagram", "Página inicial e páginas", "Catálogo da Meta", "Pagamentos", "Atualizações de plugins"],
+      tags: { found: "Encontrado", fix: "Intervenção", done: "Resolvido" },
+      incidents: [
+        {
+          name: "Tarefas programadas",
+          figure: "23",
+          unit: "dias",
+          title: "As tarefas programadas estavam paradas",
+          found: "313 eventos em 318 estavam em atraso.",
+          fix: "Uma verificação externa volta a pôr o ciclo a andar de 10 em 10 minutos. Todas as noites, uma segunda verificação confirma se o trabalho foi mesmo feito, e não apenas se a página responde.",
+          done: "Atraso recuperado. Se voltar a parar, chega um aviso.",
+        },
+        {
+          name: "Ligação ao Instagram",
+          figure: "37",
+          unit: "dias",
+          title: "A ligação ao Instagram tinha expirado",
+          found: "A montra do site ainda mostrava as publicações de maio.",
+          fix: "Um novo acesso, ligado ao site, que não expira.",
+          done: "Ligação renovada. Já não expira.",
+        },
+        {
+          name: "Página inicial e páginas",
+          figure: "111",
+          unit: "erros num só dia",
+          title: "As rajadas da Meta deitavam o site abaixo",
+          found: "O site respondia com erro 503 e ia abaixo.",
+          fix: "As páginas mais pedidas servem-se a partir da cache, também ao crawler da Meta.",
+          done: "Passados dois dias, zero erros.",
+        },
+        {
+          name: "Catálogo da Meta",
+          figure: "2×",
+          unit: "o preço real",
+          title: "O catálogo publicava os preços inteiros",
+          found: "Algumas peças do outlet apareciam nos anúncios ao dobro do preço real.",
+          fix: "O preço com desconto entra no catálogo, que todas as noites se regenera e se verifica.",
+          done: "Os preços dos anúncios são os do site.",
+        },
+        {
+          name: "Pagamentos",
+          figure: "28",
+          unit: "compras a prestações perdidas",
+          title: "Ninguém escrevia a quem deixava o pagamento a meio",
+          found: "Em quatro meses, 28 compras a prestações perdidas porque o pagamento ficou a meio. Nenhum email aos clientes.",
+          fix: "Cada pagamento cancelado a tempo envia um email com as peças ainda disponíveis e uma ligação que as volta a pôr no carrinho.",
+          done: "Ativo. Resultados ainda por medir.",
+        },
+      ],
+    },
+  },
+
+  catalog: {
+    eyebrow: "2 · Catálogo",
+    title: "Da fotografia à ficha online, muito mais depressa",
+    lead: "A IA otimiza as fotografias e escreve a descrição de cada produto a partir da fotografia. Os prompts escrevemo-los nós: a loja usa-os e carrega o resultado no site.",
+    steps: {
+      photo: { n: "1 · Fotografia", title: "Fotografias otimizadas", ready: "Fotografia pronta", alt: "Pullover Camionneur Full Zip, fotografia do produto" },
+      desc: {
+        n: "2 · Descrição",
+        title: "Todos os detalhes do produto",
+        label: "Escrita pela IA",
+        lines: [
+          "Pullover em viscose com trabalho de canelado, que dá profundidade e carácter à malha. ",
+          "A gola camionneur pode usar-se subida ou aberta, e o fecho que percorre toda a frente permite vesti-lo também como alternativa ao casaco de malha. ",
+          "A viscose dá à malha um toque macio e uma queda fluida, agradável de vestir e fácil de combinar no dia a dia.",
+        ],
+        chips: ["Como se veste", "Com o que combina", "Composição"],
+      },
+      card: { n: "3 · Ficha", title: "Online no site", name: "Pullover Camionneur Full Zip", site: "daturaclothing.it", status: "Publicada" },
+    },
+    time: {
+      title: "Quanto tempo demora",
+      before: { label: "Antes", figure: "20 min", pre: "para escrever a ficha de", strong: "um só produto" },
+      after: { label: "Agora", figure: "5 min", pre: "para escrever as fichas de", strong: "todo o catálogo" },
+    },
+  },
+
+  ads: {
+    eyebrow: "3 · Anúncios",
+    title: "Análises mais precisas, conceitos novos, campanhas que partem do catálogo",
+    lead: "A IA lê os números, propõe o que mudar e prepara os criativos. As campanhas só se ligam depois do aval de uma pessoa.",
+    analysis: {
+      n: "Análise",
+      title: "O que dizem os dados",
+      lead: "Duas leituras diferentes, uma só pergunta: o que compensa promover hoje?",
+      past: {
+        tag: "Criativos anteriores",
+        title: "Cada criativo tem a sua função",
+        lines: [
+          "Os carrosséis de catálogo vendem e não criam público. As publicações orgânicas patrocinadas criam público e não vendem.",
+          "Avaliá-los todos pelo retorno desligaria a máquina que alimenta o perfil. O retorno verdadeiro calcula-se sobre a faturação da loja, não sobre o número que a Meta declara.",
+        ],
+        matrix: {
+          cols: ["Vendem", "Criam público"],
+          rows: [
+            { name: "Carrosséis de catálogo", v: [true, false] },
+            { name: "Publicações orgânicas patrocinadas", v: [false, true] },
+          ],
+        },
+        costTitle: "Custo de um seguidor",
+        cost: [
+          { label: "Publicações patrocinadas", text: "1,45 €", w: "6%" },
+          { label: "Campanhas de vendas", text: "de 8 a 26 €", w: "100%" },
+        ],
+      },
+      dynamic: {
+        tag: "Grupos dinâmicos",
+        title: "Os produtos entram e saem sozinhos",
+        lines: [
+          "Um grupo de produtos dinâmico enche-se e esvazia-se sozinho: uma peça entra nos anúncios quando tem os tamanhos certos e sai quando acabam.",
+          "A disponibilidade lê-se nos tamanhos, não no produto. Com um só tamanho disponível, o produto continua a aparecer como disponível e os anúncios continuam a pagar: aconteceu com um fato que tinha 3 tamanhos disponíveis em 66 e era o primeiro em visitas vindas dos anúncios.",
+        ],
+        group: {
+          chip: "Grupo dinâmico",
+          name: "Novidades disponíveis",
+          tag: "exemplo ilustrativo",
+          inLabel: "Nos anúncios",
+          outLabel: "Fora",
+          unit: "tamanhos disponíveis",
+          rows: [
+            { name: "Pullover Camionneur Full Zip", text: "5 de 5", pct: 100 },
+            { name: "Giacca Cardigan Con Tasche", cycle: true, text: "5 de 5", textLow: "1 de 5" },
+            { name: "Abito Blu", text: "3 de 66", pct: 5, out: true },
+            { name: "Pullover Full Zip Cappuccio", text: "5 de 5", pct: 100 },
+          ],
+        },
+      },
+    },
+    concepts: {
+      n: "Conceitos",
+      title: "Uma série de conceitos criativos novos",
+      ariaLabel: "Uma série de conceitos criativos para os anúncios: jeans, fatos, medidas, a marca.",
+      images: [
+        { src: "/media/use-cases/datura/concepts/jeans-toru.jpg", alt: "Conceito: Jeans Toru Lavaggio Zero", w: 520, h: 650 },
+        { src: "/media/use-cases/datura/concepts/jeans-misura.jpg", alt: "Conceito: a boca dos jeans, 22 centímetros", w: 520, h: 650 },
+        { src: "/media/use-cases/datura/concepts/jeans-moodboard.jpg", alt: "Moodboard dos jeans: as imagens do vídeo", w: 900, h: 352 },
+        { src: "/media/use-cases/datura/ad-camionneur.jpg", alt: "Conceito: Pullover Camionneur Full Zip", w: 640, h: 640 },
+        { src: "/media/use-cases/datura/concepts/abito-gessato.jpg", alt: "Conceito: Abito Gessato Blu", w: 520, h: 650 },
+        { src: "/media/use-cases/datura/concepts/abito-revers.jpg", alt: "Conceito: a lapela do Abito Blu, 12 centímetros", w: 520, h: 650 },
+        { src: "/media/use-cases/datura/ad-cappuccio.jpg", alt: "Conceito: pullover Full Zip com capuz", w: 640, h: 640 },
+        { src: "/media/use-cases/datura/concepts/abito-herringbone.jpg", alt: "Conceito: Abito Herringbone Terra", w: 520, h: 650 },
+        { src: "/media/use-cases/datura/concepts/marchio-dieci-anni.jpg", alt: "Conceito: um fato que vai usar daqui a dez anos", w: 520, h: 650 },
+      ],
+    },
+    campaigns: {
+      n: "Campanhas",
+      title: "Campanhas a partir do catálogo",
+      items: [
+        { figure: "4", label: "campanhas" },
+        { figure: "100", label: "anúncios criados", bar: 100 },
+        { figure: "46", label: "foram para o ar", bar: 46 },
+      ],
+      note: "Em seis semanas. O retorno das campanhas mais recentes ainda não o avaliamos.",
+    },
+  },
+
+  numbers: {
+    eyebrow: "Em números",
+    title: "Nos últimos 4 meses",
+    label: "Os números do caso",
     items: [
-      {
-        figure: "23",
-        unit: "dias",
-        label: "de tarefas programadas paradas",
-        line: "313 eventos em 318 estavam em atraso.",
-        basis: "De 20/7 a 12/8/2026",
-        days: 23,
-      },
-      {
-        figure: "37",
-        unit: "dias",
-        label: "com a ligação ao Instagram expirada",
-        line: "A montra do site ainda mostrava as publicações de maio.",
-        basis: "De 19/7 a 25/8/2026",
-        days: 37,
-      },
-      {
-        figure: "111",
-        unit: "erros num só dia",
-        label: "por rajadas de pedidos da Meta",
-        line: "A 10/8 o site respondia com erro 503 e ia abaixo. Desde 15/8, zero.",
-        basis: "De 10 a 15/8/2026",
-        spikes: [
-          { value: 111, label: "10/8" },
-          { value: 101, label: "12/8" },
-          { value: 0, label: "15/8" },
-        ],
-      },
+      { figure: "10", label: "falhas distintas encontradas", basis: "em 28 dias" },
+      { figure: "100", label: "anúncios criados em 4 campanhas, 46 foram para o ar", basis: "em 6 semanas" },
+      { figure: "19", label: "atualizações de plugins verificadas uma a uma, todas sem problemas", basis: "em 4 dias" },
     ],
-    barLabel: "dias",
+    product: { label: "O produto por trás do caso: AI E-commerce Manager", href: "/ecommerce" },
   },
 
-  system: {
-    eyebrow: "O sistema",
-    title: "Uma loja, quatro módulos ligados",
-    lead: "A vigilância olha pela loja, o feed leva-a à Meta, as campanhas partem do catálogo, o relatório conta o que aconteceu.",
-    hub: "A loja",
-    nodes: ["Vigilância do site", "Feed e catálogo", "Campanhas e criativos", "Relatório mensal"],
-    ariaLabel: "Esquema: a loja ao centro, ligada aos quatro módulos do sistema.",
-  },
-
-  results: {
-    eyebrow: "Os resultados",
-    title: "Três números, cada um com a sua base",
+  site: {
+    eyebrow: "O site",
+    title: "Refeito de alto a baixo",
+    lead: "Nestes meses refizemos também o site.",
     items: [
-      {
-        figure: "10",
-        label: "falhas distintas encontradas em 28 dias",
-        line: "De 13/8 a 9/9/2026. Para algumas, como as tarefas programadas e a montra do Instagram, juntámos uma verificação dedicada.",
-      },
-      {
-        figure: "100",
-        label: "anúncios criados em 6 semanas",
-        line: "Em 4 campanhas, de 25/8 a 8/10/2026. 46 foram para o ar. Os 100 incluem testes e publicações já feitas, reutilizadas como anúncios.",
-        lit: 46,
-        dotsLabel: "100 anúncios, 46 foram para o ar",
-      },
-      {
-        figure: "19",
-        label: "atualizações de plugins verificadas uma a uma",
-        line: "De 20 a 23/8/2026, todas sem problemas. Cada uma com cópia antes, verificação depois e reposição pronta. O site tem 39 plugins ativos.",
-      },
+      { title: "Grafismo", line: "Um aspeto novo, construído sobre a identidade da marca. Aqui, a nova ficha de produto." },
+      { title: "Menu", line: "Nove entradas: tipos de peça, novidades e outlet. Quem procura encontra logo a categoria certa." },
+      { title: "Checkout", line: "Um processo de compra melhorado." },
     ],
-    note: "O retorno das campanhas mais recentes ainda não o avaliamos: é cedo, e as regras para o avaliar escrevemo-las antes de as ligar.",
-  },
-
-  modules: {
-    eyebrow: "O que faz cada módulo",
-    title: "Quatro módulos, cada um com a sua tarefa",
-    detailLabel: "Em detalhe",
-    items: [
-      {
-        icon: "shield",
-        since: "Desde 13/8",
-        title: "Vigilância do site",
-        line: "De 5 em 5 minutos, uma sentinela pede a página inicial. Todas as noites, às 02:30, começa uma ronda de verificações. Os plugins atualizam-se um de cada vez, com reposição se uma verificação ficar vermelha.",
-        more: [
-          "A sentinela distingue um site em baixo de um bloqueio da Cloudflare e lê também os picos de erros num só minuto. Só nos avisa quando algo está vermelho: o verde não envia notificações.",
-          "A ronda noturna arrancou a 13/8 com 46 verificações: 25 nas páginas, abertas num browser a sério, 6 nos preços com desconto, 10 nos emails, seguidos até à caixa de entrada, 5 nas defesas contra o crawler. Desde então juntámos mais.",
-          "A reposição de uma atualização dispara por uma regra escrita no código, não por um juízo de um modelo. Pagamentos e WooCommerce esperam o aval de uma pessoa.",
-          "A página de produto responde ao crawler da Meta em 57 ms, em vez de 1.742 (medição de 13/8/2026).",
-        ],
-      },
-      {
-        icon: "database",
-        since: "Desde 25/8",
-        title: "Feed e catálogo",
-        line: "Os preços com desconto chegam à Meta no feed de produtos. Desde 31/8 o feed regenera-se todas as noites às 02:30 e o resultado é verificado.",
-        more: [
-          "A 8/10/2026 forçámos a leitura do feed pela Meta e verificámos o resultado: 105 produtos em 105 registados.",
-        ],
-      },
-      {
-        icon: "target",
-        since: "Desde 25/8",
-        title: "Campanhas e criativos",
-        line: "Campanhas com produtos dinâmicos do catálogo, ligadas só depois do aval de uma pessoa. Carrosséis de catálogo, imagens estáticas, vídeos e publicações já feitas passam a anúncios.",
-        more: [
-          "As regras para avaliar uma campanha escrevemo-las antes de a ligar.",
-          "Antes de empurrar um produto, vemos que tamanhos ainda há, contados nas variantes.",
-          "Os textos seguem o tom de voz da marca.",
-          "100 anúncios criados de 25/8 a 8/10/2026, em 4 campanhas: 46 foram para o ar.",
-        ],
-      },
-      {
-        icon: "chart",
-        since: "Desde 1/9",
-        title: "Relatório mensal",
-        line: "Um PDF de duas páginas para o titular: quatro números da loja, cada um com a sua comparação, as campanhas com o retorno em percentagem, os conteúdos que venderam.",
-        more: [
-          "O retorno calcula-se dividindo a faturação real da loja pelo gasto na Meta, e não pelo número que a Meta declara.",
-          "O primeiro, o de agosto, foi gerado a 1 de setembro. Junto com o PDF, preparamos uma ficha interna para nós.",
-        ],
-      },
-    ],
-  },
-
-  basis: {
-    summary: "Como contámos",
-    items: [
-      "10 falhas: contagem no nosso registo de falhas, de 13/8 a 9/9/2026. Uma mesma cadeia de causas conta como uma só falha. Escrevemos «encontradas»: nem todas foram descobertas por uma verificação automática, algumas saíram de uma análise ou de uma pessoa a olhar.",
-      "100 anúncios: eventos «anúncio criado» no registo de atividade da Meta, de 25/8 a 8/10/2026. Incluem testes e publicações já feitas, reutilizadas como anúncios. 46 gastaram dinheiro, e são os que foram para o ar. Das 4 campanhas, 3 foram para o ar.",
-      "19 atualizações: plugins distintos, de 20 a 23/8/2026, feitas com uma pessoa da Automis a acompanhar cada passo. Não são atualizações autónomas.",
-      "Horas poupadas: sem medição, por isso sem número.",
-    ],
+    shots: {
+      menu: { src: "/media/use-cases/datura/sito-menu.jpg", alt: "O novo menu do site da Datura Clothing, com o submenu de malhas aberto" },
+      phone: { src: "/media/use-cases/datura/sito-scheda-telefono.jpg", alt: "A nova ficha de produto no telemóvel: Pullover Camionneur Full Zip" },
+    },
   },
 
   cta: {
-    title: "O que se avaria na sua loja sem que ninguém veja?",
-    line: "Conte-nos o seu negócio e dizemos-lhe por onde começaríamos.",
+    title: "Quer também um colaborador de IA que vigie o seu site 24 horas por dia e o ajude a otimizá-lo constantemente?",
+    line: "",
   },
 };

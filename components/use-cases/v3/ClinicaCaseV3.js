@@ -7,15 +7,18 @@ import MoreCases from "@/components/v2/use-cases/MoreCases";
 import { InView } from "@/components/v2/use-cases/fx";
 import { addLangPrefix } from "@/lib/locales";
 import it from "@/components/v2/copy/use-case-clinica.it";
+import en from "@/components/v2/copy/use-case-clinica.en";
+import pt from "@/components/v2/copy/use-case-clinica.pt";
 import { CASO } from "@/components/use-cases/clinica/meta";
 import { Bars, Card, Chips, Detail, Faq, LinkRow, Fixes, BarRows, Plain, Quote, Scene, Split, Stats, Steps, Strip } from "./CasoKit";
 import "@/components/v2/use-cases/use-cases.css";
 
 /*
-  Caso Clínica Santa Maria dos Olivais (IT), nello stile di Datura e Album AI: hero v3, corpo blu, una scena per ogni passaggio.
-  Testi: components/v2/copy/use-case-clinica.it.js. Metadati e JSON-LD (con le FAQ) sono quelli dell'articolo lungo
-  (components/use-cases/clinica/meta.js), che resta la pagina per EN e PT.
+  Caso Clínica Santa Maria dos Olivais (IT, EN, PT), nello stile di Datura e Album AI: hero v3, corpo blu, una scena per ogni passaggio.
+  Testi: components/v2/copy/use-case-clinica.<lingua>.js (stesse chiavi, l'italiano è la fonte). Metadati e JSON-LD (con le FAQ)
+  sono quelli di components/use-cases/clinica/meta.js nella lingua della pagina; l'articolo lungo (ClinicaStory) resta nel repo ma non è più montato.
 */
+const COPY = { it, en, pt };
 
 /* Settimana tipo: un pallino acceso nei giorni in cui il trattamento c'è. */
 function Week({ week }) {
@@ -130,9 +133,9 @@ function Head({ s, lead = true }) {
 }
 
 export default function ClinicaCaseV3({ locale = "it" }) {
-  const t = it;
-  const m = CASO.it;
-  const book = { label: "Prenota una call", href: `${addLangPrefix("/", locale)}#book` };
+  const t = COPY[locale] || en;
+  const m = CASO[locale] || CASO.en;
+  const book = { label: t.ui.book, href: `${addLangPrefix("/", locale)}#book` };
   return (
     <AutomisEnShell>
       <main id="main">
@@ -143,7 +146,7 @@ export default function ClinicaCaseV3({ locale = "it" }) {
           title={t.hero.title}
           highlight={t.hero.highlight}
           lead={t.hero.lead}
-          cta={{ label: "Leggi il caso", href: "#partenza" }}
+          cta={{ label: t.ui.read, href: "#partenza" }}
           eyebrowLogo={{ src: t.hero.logo, alt: t.hero.client, name: t.hero.client }}
         />
         <div className="v2-caso">
@@ -160,7 +163,7 @@ export default function ClinicaCaseV3({ locale = "it" }) {
           <Section fx={false} tone="light" className="v2c-sec" id="fiducia">
             <Head s={t.trust} />
             <Scene>
-              <Bars chart={t.trust.chart} />
+              <Bars chart={t.trust.chart} sep={t.ui.sep} />
               <Plain items={t.trust.phases.map((p) => ({ tag: p.tag, title: p.title, line: p.line }))} />
               <p className="dsv3-note">{t.trust.note}</p>
             </Scene>
@@ -171,7 +174,7 @@ export default function ClinicaCaseV3({ locale = "it" }) {
             <Head s={t.numbers} />
             <Scene>
               <Stats items={t.numbers.items} label={t.numbers.label} cols={3} />
-              <Split split={t.numbers.split} className="cv3-gap" />
+              <Split split={t.numbers.split} className="cv3-gap" sep={t.ui.sep} />
               <Stats items={t.numbers.more} cols={4} compact />
             </Scene>
           </Section>
@@ -207,7 +210,7 @@ export default function ClinicaCaseV3({ locale = "it" }) {
             <Scene>
               <Estimate e={t.estimate} />
               <p className="dsv3-note">{t.estimate.note}</p>
-              <Quote tag="In sette mesi" title={`${t.estimate.key.figure} prime visite per impianti`} line={t.estimate.key.line} />
+              <Quote tag={t.ui.keyTag} title={`${t.estimate.key.figure} ${t.ui.keyTitle}`} line={t.estimate.key.line} />
             </Scene>
           </Section>
 
@@ -295,7 +298,7 @@ export default function ClinicaCaseV3({ locale = "it" }) {
             <CtaBand blue title={t.cta.title} line={t.cta.line} button={book} />
           </div>
           <div className="v2c-more-wrap">
-            <MoreCases href={addLangPrefix("/use-cases", locale)} />
+            <MoreCases href={addLangPrefix("/use-cases", locale)} locale={locale} />
           </div>
         </div>
       </main>

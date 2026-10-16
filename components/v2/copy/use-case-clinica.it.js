@@ -2,8 +2,16 @@
    Stessi fatti e stesse cifre dell'articolo lungo (components/use-cases/clinica/story.it.js, generato dal secondo cervello,
    clients/clinica-santa-maria-olivais/case-study-site.md): qui il testo è accorciato e ogni passaggio ha la sua scena.
    Finestra dei dati: dal 1° febbraio al 9 settembre 2026 (le chiamate di novembre-gennaio sono test di Automis e non si contano).
-   Metadati e JSON-LD restano quelli di components/use-cases/clinica/meta.js. EN e PT restano sull'articolo lungo. */
+   Metadati e JSON-LD restano quelli di components/use-cases/clinica/meta.js. EN e PT: use-case-clinica.en.js / .pt.js, stesse chiavi. */
 export default {
+  ui: {
+    read: "Leggi il caso",
+    book: "Prenota una call",
+    keyTag: "In sette mesi",
+    keyTitle: "prime visite per impianti",
+    sep: ".",
+  },
+
   hero: {
     eyebrow: "Caso studio",
     title: "7 mesi al telefono di una clinica dentale",

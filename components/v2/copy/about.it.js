@@ -12,6 +12,7 @@ export default {
     title: "Due fondatori al lavoro sul tuo progetto",
     lead: "Automis è un integratore strategico di IA. Chi progetta il tuo sistema è chi lo costruisce.",
     accent: "Due fondatori",
+    ctaFounders: "Conosci i fondatori",
   },
 
   founders: {

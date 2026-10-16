@@ -40,7 +40,7 @@ const COPY = {
     training: "Training",
     useCases: "Case studies",
     about: "About",
-    cta: "Tell us about your business",
+    cta: "Find your AI opportunities",
     categories: "Categories",
     products: "Products",
     cat: {
@@ -94,7 +94,7 @@ const COPY = {
     training: "Formação",
     useCases: "Casos de estudo",
     about: "Sobre nós",
-    cta: "Conte-nos o seu caso",
+    cta: "Oportunidades de IA",
     categories: "Categorias",
     products: "Produtos",
     cat: {
@@ -120,6 +120,7 @@ function buildMenu(locale) {
   const h = (path) => addLangPrefix(path, locale);
   return {
     t,
+    locale,
     systems: {
       title: t.systems,
       href: h("/systems"),
@@ -133,8 +134,7 @@ function buildMenu(locale) {
             { key: "sales", title: t.cat.sales, href: h("/systems/sales") },
             { key: "support", title: t.cat.support, href: h("/systems/support") },
             { key: "admin", title: t.cat.admin, href: h("/systems/admin") },
-            // In italiano Company Brain è un prodotto (14/10), non una quinta categoria.
-            ...(locale === "it" ? [] : [{ key: "company-brain", title: t.cat["company-brain"], href: h("/systems/company-brain") }]),
+            // Company Brain è un prodotto (14/10), non una quinta categoria: così in tutte le lingue.
           ],
         },
         {
@@ -143,7 +143,7 @@ function buildMenu(locale) {
           items: [
             { key: "voice-ai", title: "Voice AI", href: h("/voice-ai") },
             { key: "ecommerce", title: "AI E-commerce Manager", href: h("/ecommerce") },
-            ...(locale === "it" ? [{ key: "company-brain", title: "Company Brain", href: h("/systems/company-brain") }] : []),
+            { key: "company-brain", title: "Company Brain", href: h("/systems/company-brain") },
           ],
         },
       ],
@@ -158,7 +158,7 @@ function buildMenu(locale) {
       { key: "about", title: t.about, href: h("/about"), match: ["/about"] },
       { key: "contact", title: t.contact, href: h("/contact"), match: ["/contact"] },
     ],
-    cta: { title: t.cta, href: locale === "it" ? h("/") + "#opportunity-finder" : h("/contact") },
+    cta: { title: t.cta, href: h("/") + "#opportunity-finder" },
     home: h("/"),
   };
 }
@@ -166,6 +166,8 @@ function buildMenu(locale) {
 // Il template mette text-transform: capitalize e display: block su ogni `.navbar-collapse li a`:
 // i nomi del menu sono fissati nel brief ("Casi studio", non "Casi Studio"), quindi stile inline.
 const navLinkStyle = { textTransform: "none", whiteSpace: "nowrap", paddingLeft: "8px", paddingRight: "8px", fontSize: "15px" };
+// In portoghese le voci sono più lunghe: padding ridotto per far stare il bottone dentro la capsula a 1440 px.
+const navLinkPt = { paddingLeft: "5px", paddingRight: "5px" };
 const panelLinkStyle = {
   display: "flex",
   alignItems: "center",
@@ -597,7 +599,7 @@ const DesktopNav = ({ menu, path, systemsActive, reduce }) => {
                   href={link.href}
                   aria-current={active ? "page" : undefined}
                   className="v2-fx-navlink"
-                  style={{ ...navLinkStyle, color: linkColor(active) }}
+                  style={{ ...navLinkStyle, ...(menu.locale === "pt" ? navLinkPt : null), color: linkColor(active) }}
                 >
                   {link.title}
                   {active && (
@@ -628,7 +630,7 @@ const DesktopNav = ({ menu, path, systemsActive, reduce }) => {
               id="nav-systems"
               href={menu.systems.href}
               className="v2-fx-navlink"
-              style={{ ...navLinkStyle, color: linkColor(systemsActive), paddingRight: 0 }}
+              style={{ ...navLinkStyle, ...(menu.locale === "pt" ? navLinkPt : null), color: linkColor(systemsActive), paddingRight: 0 }}
               onClick={() => setOpen(false)}
             >
               {menu.systems.title}
@@ -724,7 +726,7 @@ const DesktopNav = ({ menu, path, systemsActive, reduce }) => {
                   href={link.href}
                   aria-current={active ? "page" : undefined}
                   className="v2-fx-navlink"
-                  style={{ ...navLinkStyle, color: linkColor(active) }}
+                  style={{ ...navLinkStyle, ...(menu.locale === "pt" ? navLinkPt : null), color: linkColor(active) }}
                 >
                   {link.title}
                   {active && (

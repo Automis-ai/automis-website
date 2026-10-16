@@ -14,16 +14,17 @@ import SmoothScroll from "@/components/v2/wow/scroll/SmoothScroll";
 import PageStory from "@/components/v2/wow/fx/PageStory";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
-import { CB } from "./companyBrainCopy";
+import { getCB } from "./companyBrainCopy";
 
 /*
-  Company Brain come prodotto (solo IT, 14/10/2026), sul modello di /it/ecommerce: hero v3, per chi è, la demo «Chiedi al Brain»,
-  cosa facciamo noi, dove stanno i dati (tre livelli), da remoto o in sede, domande, chiusura. Titolo, lead, demo e meta stanno in
-  components/v2/copy/systems.it.js ("company-brain"); il resto in companyBrainCopy.js. La rotta resta /it/systems/company-brain.
+  Company Brain come prodotto (IT 14/10/2026; EN e PT dall'italiano, stesse sezioni e stesse voci), sul modello di /it/ecommerce: hero v3, per chi è, la demo «Chiedi al Brain»,
+  cosa facciamo noi, dove stanno i dati (tre livelli), da remoto o in sede, domande, chiusura. In IT titolo, lead, demo e meta stanno in
+  components/v2/copy/systems.it.js ("company-brain"); in EN/PT stanno in companyBrainCopy.js (`head`), perché le voci systems.en/pt.js sono
+  ancora la vecchia pagina sull'onboarding HR. Il resto è in companyBrainCopy.js. Rotte: /it|/|/pt + systems/company-brain.
 */
-export default function CompanyBrainPage({ tono }) {
-  const locale = "it";
-  const c = getCopy("systems", locale)["company-brain"];
+export default function CompanyBrainPage({ tono, locale = "it" }) {
+  const CB = getCB(locale);
+  const c = locale === "it" ? getCopy("systems", locale)["company-brain"] : CB.head;
   const common = getCopy("common", locale);
 
   return (
@@ -130,7 +131,7 @@ export default function CompanyBrainPage({ tono }) {
         tone="dark"
         title={c.cta.title}
         line={c.cta.line}
-        button={{ label: "Prenota una call", href: `${addLangPrefix("/", locale)}#book` }}
+        button={{ label: locale === "it" ? "Prenota una call" : CB.head.bookCall, href: `${addLangPrefix("/", locale)}#book` }}
       />
     </main>
   );

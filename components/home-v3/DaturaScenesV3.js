@@ -171,7 +171,7 @@ function MatrixRow({ r }) {
     <>
       <span className="dsv3-mx__n">{r.name}</span>
       {r.v.map((ok, i) => (
-        <span key={i} className={`dsv3-mx__c ${ok ? "is-yes" : "is-no"}`} aria-label={ok ? "sì" : "no"}>
+        <span key={i} className={`dsv3-mx__c ${ok ? "is-yes" : "is-no"}`} aria-label={ok ? "✓" : "✕"}>
           {ok ? "✓" : "✕"}
         </span>
       ))}

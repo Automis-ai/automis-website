@@ -4,7 +4,7 @@ import Link from "next/link";
 import "./home-v3.css";
 
 /*
-  Corpo delle pagine /systems/<categoria> in italiano: tappe con il numero fisso a sinistra, un sistema in primo piano
+  Corpo delle pagine /systems/<categoria> (IT, EN, PT: i testi arrivano dalle prop, nessuna stringa cablata): tappe con il numero fisso a sinistra, un sistema in primo piano
   e i sistemi di supporto. «Leggi di più» apre il problema e il dettaglio nella scheda stessa.
   Mockup scelto da Luca il 14/10: ~/Automations/sandbox/web-motion/systems-v3/body3.html.
   stages: [{ title, line, items: [{ id, title, short, line, more, href, cta, viz }] }]  (items[0] = in primo piano)
@@ -120,6 +120,7 @@ export default function CategoryStagesV3({ stages, labels }) {
     <section id="sistemi" ref={rootRef} className="hv3 hv3-tone hv3-stages">
       {stages.map((st, i) => {
         const [lead, ...rest] = st.items;
+        if (!lead) return null;
         return (
           <div key={i} data-stage={i} className={`hv3-st${active === i ? " is-on" : ""}${numbered ? "" : " hv3-st--plain"}`}>
             {numbered ? (

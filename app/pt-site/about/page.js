@@ -29,7 +29,7 @@ export const metadata = {
   openGraph: {
     title: "Sobre nós | Automis, envolvidos em cada projeto de IA",
     description:
-      "Um integrador estratégico de IA liderado pelos fundadores. Desenhamos, construímos e lançamos os sistemas de IA que faltam ao seu negócio, e você possui o que entregamos.",
+      "Um integrador estratégico de IA liderado pelos fundadores. Desenhamos, construímos e lançamos os sistemas de IA que faltam ao seu negócio, e fica sua a propriedade do que entregamos.",
     url: "https://automis.ai/pt/about",
     siteName: "Automis",
     locale: "pt_PT",

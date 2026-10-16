@@ -47,23 +47,13 @@ export default function EcommercePage({ locale, tono }) {
         <PageStory />
         {(() => {
           const night = <NightReport title={t.hero.visual.title} caption={t.hero.visual.caption} rows={t.hero.visual.rows} />;
-          return locale === "it" ? (
+          return (
             <PageHeroV3
               eyebrow={t.hero.eyebrow}
               title={t.hero.title}
               highlight={highlight}
               lead={t.hero.lead}
               cta={{ label: t.hero.cta, href: "#platforms" }}
-              below={night}
-            />
-          ) : (
-            <PageHero
-              size="compact"
-              eyebrow={t.hero.eyebrow}
-              title={t.hero.title}
-              highlight={highlight}
-              subtitle={t.hero.lead}
-              primaryCta={{ label: t.hero.cta, href: "#platforms" }}
               below={night}
             />
           );
@@ -75,7 +65,6 @@ export default function EcommercePage({ locale, tono }) {
           <PlatformModules
             items={t.platforms.items}
             summarySuffix={t.platforms.modulesSummary}
-            hrefLang={locale === "it" ? undefined : "it"}
           />
           <div className="v2e-other">
             <Button href={contact} variant="link">

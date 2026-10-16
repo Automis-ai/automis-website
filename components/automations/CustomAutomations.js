@@ -94,8 +94,8 @@ const COPY = {
       {
         step: "Fase 2",
         title: "Desenho, construção e lançamento",
-        body: "Pegamos no exemplo mais próximo do catálogo e reconstruímo-lo em torno das suas ferramentas, dos seus scripts e do seu CRM. Você testa-o antes de entrar em funcionamento. Nada é lançado até funcionar tal como a sua equipa trabalha de facto.",
-        points: ["Construída sobre o seu stack, não sobre um template", "Você aprova-a antes de entrar em funcionamento"],
+        body: "Pegamos no exemplo mais próximo do catálogo e reconstruímo-lo em torno das suas ferramentas, dos seus scripts e do seu CRM. Só entra em funcionamento depois de o testar. Nada é lançado até funcionar tal como a sua equipa trabalha de facto.",
+        points: ["Construída sobre o seu stack, não sobre um template", "Aprova-a antes de entrar em funcionamento"],
         meta: "~7 dias para projetos simples · à medida para os complexos",
       },
       {

@@ -1,13 +1,8 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import HeroEN from "@/components/home/HeroEN";
-import PainPoints from "@/components/home/PainPoints";
-import SystemPillars from "@/components/home/SystemPillars";
+import { HeroV3, JourneyV3, SystemsV3, CasesV3, ToneV3 } from "@/components/home-v3/HomeV3";
 import HowWeWork from "@/components/home/HowWeWork";
-import Proof from "@/components/home/Proof";
-import Industries from "@/components/home/Industries";
 import OpportunityFinder from "@/components/home/OpportunityFinder";
 import Authority from "@/components/home/Authority";
-import FaqEN from "@/components/home/FaqEN";
 import FinalCta from "@/components/home/FinalCta";
 
 export const metadata = {
@@ -56,19 +51,20 @@ export const metadata = {
   },
 };
 
+// Home v3 (16/10/2026), la stessa composizione della versione IT: hero → journey → 4 Sistemi IA → casi studio → come lavoriamo → Finder → founder → call.
 export default function Home() {
   return (
     <AutomisEnShell>
-      <HeroEN />
-      <PainPoints />
-      <SystemPillars />
+      <HeroV3 />
+      <JourneyV3 />
+      <SystemsV3 />
+      <CasesV3 />
       <HowWeWork />
-      <Proof />
-      <Industries />
       <OpportunityFinder />
-      <Authority />
-      <FaqEN />
-      <FinalCta />
+      <ToneV3 className="hv3-team">
+        <Authority sectionClassName="bg-transparent" />
+      </ToneV3>
+      <FinalCta v3 />
     </AutomisEnShell>
   );
 }

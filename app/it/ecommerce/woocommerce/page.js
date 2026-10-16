@@ -9,14 +9,13 @@ export const metadata = buildMetadata({
   title: "Chi guarda il tuo WooCommerce mentre dormi? | Automis",
   description:
     "Agenti IA per negozi WooCommerce: attività programmate, aggiornamenti, catalogo e sito controllati ogni notte. In produzione su Datura Clothing.",
-  languages: ["it"],
   noindex: true,
 });
 
 export default function Page({ searchParams }) {
   return (
     <AutomisEnShell>
-      <WooCommercePage tono={searchParams?.tono} />
+      <WooCommercePage locale="it" tono={searchParams?.tono} />
     </AutomisEnShell>
   );
 }

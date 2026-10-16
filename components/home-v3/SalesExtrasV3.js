@@ -2,9 +2,9 @@ import Link from "next/link";
 import "./home-v3.css";
 
 /*
-  Pagina «Sistemi IA per la Vendita» (solo IT, 15/10/2026): fascia «Provalo su di noi» (l'Opportunity Finder) e blocco
+  Pagina «Sistemi IA per la Vendita» (IT, EN, PT): fascia «Provalo su di noi» (l'Opportunity Finder) e blocco
   «Per partire» (cosa serve da te, tempi, strumenti con cui ci colleghiamo). I testi stanno in
-  components/v2/copy/systems.it.js, blocco sales (finder, start).
+  components/v2/copy/systems.<lingua>.js, blocco sales (finder, start).
 */
 export default function SalesExtrasV3({ finder, start, finderHref }) {
   return (

@@ -18,6 +18,7 @@ export default {
     title: "Faça da IA parte do trabalho da sua empresa",
     highlight: "IA",
     lead: "Formação prática para usar o Claude ou o ChatGPT no dia a dia, dos usos simples aos agentes e ao second brain.",
+    ctaPaths: "Ver as duas formas",
   },
 
   paths: {

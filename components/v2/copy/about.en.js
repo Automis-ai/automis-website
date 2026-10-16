@@ -12,6 +12,7 @@ export default {
     title: "Two founders, hands-on with your build",
     lead: "Automis is a strategic AI integrator. The people who design your system are the people who build it.",
     accent: "Two founders",
+    ctaFounders: "Meet the founders",
   },
 
   founders: {

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import "./home-v3.css";
 
 /*
@@ -446,7 +447,7 @@ function draw(ctx, S, time) {
       ctx.restore();
     }
     // «Simone cambia una foto» / «il sistema impara»
-    const msg = t < 13.4 ? "Il fotografo cambia una foto" : "Il sistema impara";
+    const msg = t < 13.4 ? curMsgs[0] : curMsgs[1];
     const ma = out(seg(t, 12.5, 12.9)) * (1 - seg(t, 14.1, 14.6)) * clamp(fadeAll);
     ctx.save();
     ctx.globalAlpha = ma;
@@ -472,7 +473,17 @@ function draw(ctx, S, time) {
   }
 }
 
+// Le due didascalie dentro il canvas, per lingua (il canvas disegna fuori da React: la lingua si imposta all'avvio).
+const MSGS = {
+  it: ["Il fotografo cambia una foto", "Il sistema impara"],
+  en: ["The photographer swaps a photo", "The system learns"],
+  pt: ["O fotógrafo troca uma foto", "O sistema aprende"],
+};
+let curMsgs = MSGS.it;
+
 export default function AlbumGlassScene({ steps, label, photos = [] }) {
+  const pathname = usePathname();
+  curMsgs = pathname?.startsWith("/pt") ? MSGS.pt : pathname?.startsWith("/it") ? MSGS.it : MSGS.en;
   const cvRef = useRef(null);
   const [phase, setPhase] = useState(0);
   const phaseRef = useRef(0);
