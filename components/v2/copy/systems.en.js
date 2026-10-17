@@ -346,17 +346,6 @@ export default {
         caseHref: null,
         price: null,
       },
-      {
-        id: "sales-qa",
-        kicker: null,
-        title: "Sales call quality control",
-        short: "Scores your team's calls and points out where to improve.",
-        line: "Listens to your team's calls, scores them against your criteria and tells you where to improve.",
-        more: "No manager listens to every call, and the same mistakes repeat with nobody seeing them.",
-        href: null,
-        caseHref: null,
-        price: null,
-      },
     ],
     case: {
       eyebrow: "Real case",

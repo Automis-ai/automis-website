@@ -10,7 +10,7 @@ const IT = {
   sales: [
     { title: "Rispondi subito", line: "Chi ti scrive, commenta o lascia il numero trova subito qualcuno dall'altra parte.", ids: ["social-dms", "lead-callback", "lead-forms"] },
     { title: "Porta all'appuntamento", line: "Il sistema capisce chi è pronto e lo accompagna fino a una prenotazione.", ids: ["lead-qualification", "lead-nurture", "reactivation-sales"] },
-    { title: "Segui fino al sì", line: "Un posto solo dove vedere contatti, trattative e passo successivo.", ids: ["custom-crm", "voice-notes", "sales-qa"] },
+    { title: "Segui fino al sì", line: "Un posto solo dove vedere contatti, trattative e passo successivo.", ids: ["custom-crm", "voice-notes"] },
   ],
   support: [
     { title: "Rispondi a tutti", line: "Chiamate perse, domande a ogni ora: nessuno resta senza risposta.", ids: ["voice-receptionist", "missed-call-recovery", "answers-247"] },
@@ -32,7 +32,7 @@ const EN = {
   sales: [
     { title: "Reply right away", line: "Anyone who messages, comments or leaves a number gets someone on the other end right away.", ids: ["social-dms", "lead-callback", "lead-forms"] },
     { title: "Lead them to the appointment", line: "The system works out who is ready and guides them all the way to a booking.", ids: ["lead-qualification", "lead-nurture", "reactivation-sales"] },
-    { title: "Follow through to yes", line: "One place to see contacts, deals and the next step.", ids: ["custom-crm", "voice-notes", "sales-qa"] },
+    { title: "Follow through to yes", line: "One place to see contacts, deals and the next step.", ids: ["custom-crm", "voice-notes"] },
   ],
   support: [
     { title: "Answer everyone", line: "Missed calls, questions at any hour: nobody is left without an answer.", ids: ["voice-receptionist", "missed-call-recovery", "answers-247"] },
@@ -56,7 +56,7 @@ const PT = {
   sales: [
     { title: "Responda logo", line: "Quem lhe escreve, comenta ou deixa o número encontra logo alguém do outro lado.", ids: ["social-dms", "lead-callback", "lead-forms"] },
     { title: "Leve até à marcação", line: "O sistema percebe quem está pronto e acompanha-o até à marcação.", ids: ["lead-qualification", "lead-nurture", "reactivation-sales"] },
-    { title: "Acompanhe até ao sim", line: "Um só sítio para ver contactos, negociações e o passo seguinte.", ids: ["custom-crm", "voice-notes", "sales-qa"] },
+    { title: "Acompanhe até ao sim", line: "Um só sítio para ver contactos, negociações e o passo seguinte.", ids: ["custom-crm", "voice-notes"] },
   ],
   support: [
     { title: "Responda a todos", line: "Chamadas perdidas, perguntas a qualquer hora: ninguém fica sem resposta.", ids: ["voice-receptionist", "missed-call-recovery", "answers-247"] },

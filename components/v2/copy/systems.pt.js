@@ -347,17 +347,6 @@ export default {
         caseHref: null,
         price: null,
       },
-      {
-        id: "sales-qa",
-        kicker: null,
-        title: "Controlo de qualidade das chamadas de vendas",
-        short: "Avalia as chamadas da equipa e indica onde melhorar.",
-        line: "Ouve as chamadas da sua equipa, avalia-as pelos seus critérios e diz-lhe onde melhorar.",
-        more: "Nenhum responsável ouve todas as chamadas, e os mesmos erros repetem-se sem que ninguém os veja.",
-        href: null,
-        caseHref: null,
-        price: null,
-      },
     ],
     case: {
       eyebrow: "Caso real",
