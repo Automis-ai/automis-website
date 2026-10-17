@@ -1,0 +1,1152 @@
+/* Voice AI (v2): stili della pagina, prefisso v2vo-. Stessa lingua delle pagine interne (pg.css): blu notte, schede di vetro con bordo
+   sfumato, moduli di vetro (fx/story.css), oro una volta per sezione. Si anima solo transform e opacità: i cicli (pacchetti sui fili,
+   anelli) sono keyframes CSS che girano solo dentro `.is-live` (fx/Live.js) e sono spenti con prefers-reduced-motion. */
+
+/* ---------- Un sistema, due agenti ---------- */
+.v2vo-duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+}
+.v2vo-agent {
+  padding: 22px;
+  gap: 0;
+}
+.v2vo-agent__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.v2vo-agent__eyebrow {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--v2-accent);
+}
+.v2vo-agent__title {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 1.3125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--v2-ink);
+  text-wrap: balance;
+}
+.v2vo-agent__intro {
+  margin: 16px 0 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+.v2vo-agent__list,
+.v2vo-plan__list,
+.v2vo-tier__pts,
+.v2vo-book__list {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.v2vo-agent__list {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+.v2vo-agent__list li,
+.v2vo-plan__list li,
+.v2vo-tier__pts li,
+.v2vo-book__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--v2-ink);
+}
+.v2vo-agent__list svg,
+.v2vo-plan__list svg,
+.v2vo-tier__pts svg,
+.v2vo-book__list svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--v2-accent);
+}
+.v2vo-agent .v2-disc {
+  margin-top: auto;
+}
+.v2vo-agent__dl {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+}
+.v2vo-agent__dl dt {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--v2-ink);
+}
+.v2vo-agent__dl dd {
+  margin: 4px 0 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+.v2vo-agent__dl .v2vo-agent__out {
+  font-weight: 600;
+  color: var(--v2-accent);
+}
+
+/* il filo fra i due moduli: in colonna sul telefono, in riga da 900 px */
+.v2vo-link {
+  position: relative;
+  height: 76px;
+}
+.v2vo-link__wire {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  background: linear-gradient(180deg, rgba(60, 145, 230, 0.2), rgba(87, 199, 227, 0.55), rgba(60, 145, 230, 0.2));
+  border-radius: 2px;
+}
+.v2vo-link__pkt {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 22px;
+  margin-left: -2px;
+  border-radius: 4px;
+  opacity: 0;
+  background: linear-gradient(180deg, rgba(87, 199, 227, 0), #57c7e3 70%, #fff);
+  box-shadow: 0 0 12px 2px rgba(87, 199, 227, 0.55);
+  animation: v2vo-pkt-down 2.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation-play-state: paused;
+}
+.v2vo-link__pkt--b {
+  animation-name: v2vo-pkt-up;
+  animation-delay: 1.3s;
+  background: linear-gradient(0deg, rgba(245, 205, 121, 0), #f5cd79 70%, #fff);
+  box-shadow: 0 0 12px 2px rgba(245, 205, 121, 0.5);
+}
+.v2vo-link__port {
+  position: absolute;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  margin-left: -4.5px;
+  border-radius: 50%;
+  background: #8fe0f0;
+  box-shadow: 0 0 10px rgba(87, 199, 227, 0.8);
+}
+.v2vo-link__port--a {
+  top: -2px;
+}
+.v2vo-link__port--b {
+  bottom: -2px;
+}
+@keyframes v2vo-pkt-down {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+  12% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 1;
+    transform: translate3d(0, 62px, 0);
+  }
+  52%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 70px, 0);
+  }
+}
+@keyframes v2vo-pkt-up {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 70px, 0);
+  }
+  12% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 1;
+    transform: translate3d(0, 8px, 0);
+  }
+  52%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.v2vo-duo.is-live .v2vo-link__pkt,
+.v2vo-chain.is-live * {
+  animation-play-state: running;
+}
+@media (min-width: 900px) {
+  .v2vo-duo {
+    grid-template-columns: minmax(0, 1fr) 88px minmax(0, 1fr);
+  }
+  .v2vo-agent {
+    padding: 28px;
+  }
+  .v2vo-link {
+    height: auto;
+  }
+  .v2vo-link__wire {
+    top: 58px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 2px;
+    margin: -1px 0 0;
+    background: linear-gradient(90deg, rgba(60, 145, 230, 0.2), rgba(87, 199, 227, 0.55), rgba(60, 145, 230, 0.2));
+  }
+  .v2vo-link__pkt {
+    top: 58px;
+    left: 0;
+    width: 30px;
+    height: 4px;
+    margin: -2px 0 0;
+    background: linear-gradient(90deg, rgba(87, 199, 227, 0), #57c7e3 70%, #fff);
+    animation-name: v2vo-pkt-right;
+  }
+  .v2vo-link__pkt--b {
+    animation-name: v2vo-pkt-left;
+    background: linear-gradient(270deg, rgba(245, 205, 121, 0), #f5cd79 70%, #fff);
+  }
+  .v2vo-link__port {
+    top: 58px;
+    margin: -4.5px 0 0;
+  }
+  .v2vo-link__port--a {
+    left: -3px;
+  }
+  .v2vo-link__port--b {
+    left: auto;
+    right: -3px;
+    bottom: auto;
+  }
+}
+@keyframes v2vo-pkt-right {
+  0% {
+    opacity: 0;
+    transform: translate3d(-10px, 0, 0);
+  }
+  12% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 1;
+    transform: translate3d(62px, 0, 0);
+  }
+  52%,
+  100% {
+    opacity: 0;
+    transform: translate3d(70px, 0, 0);
+  }
+}
+@keyframes v2vo-pkt-left {
+  0% {
+    opacity: 0;
+    transform: translate3d(70px, 0, 0);
+  }
+  12% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  52%,
+  100% {
+    opacity: 0;
+    transform: translate3d(-10px, 0, 0);
+  }
+}
+
+/* ---------- Il video a richiesta ---------- */
+.v2vo-videowrap {
+  max-width: 760px;
+  margin: 28px auto 0;
+}
+.v2vo-video {
+  padding: 0;
+  overflow: hidden;
+}
+.v2vo-video__frame {
+  position: relative;
+}
+.v2vo-video__frame--on {
+  aspect-ratio: 16 / 9;
+  background: #04101c;
+}
+.v2vo-video__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.v2vo-video__play {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 16px 22px;
+  border: 0;
+  background: none;
+  color: var(--v2-ink);
+  font-family: var(--v2-body);
+  text-align: left;
+  cursor: pointer;
+}
+.v2vo-video__play .v2fx-mod {
+  --s: 56px;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@media (hover: hover) {
+  .v2vo-video__play:hover .v2fx-mod {
+    transform: scale(1.08) translateY(-2px);
+  }
+}
+.v2vo-video__play:focus-visible {
+  outline: 3px solid #f5cd79;
+  outline-offset: -5px;
+  border-radius: 14px;
+}
+.v2vo-video__txt {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.v2vo-video__cta {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--v2-accent);
+}
+.v2vo-video__title {
+  font-family: var(--v2-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--v2-ink);
+  text-wrap: balance;
+}
+
+/* ---------- La dashboard ---------- */
+.v2vo-dash {
+  display: grid;
+  gap: 24px;
+}
+.v2vo-dash figure,
+.v2vo-tier__shot {
+  margin: 0;
+}
+.v2vo-dash figcaption {
+  margin-top: 12px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  text-align: center;
+  color: var(--v2-ink-3);
+}
+.v2vo-win {
+  padding: 0;
+  overflow: hidden;
+}
+.v2vo-win__bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+.v2vo-win__bar i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+}
+.v2vo-win__bar span {
+  margin-left: 10px;
+  padding: 3px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+}
+.v2vo-win__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.v2vo-dash__a {
+  display: grid;
+  gap: 22px;
+  align-content: start;
+}
+.v2vo-dash__b {
+  align-self: start;
+}
+.v2vo-detail__title {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--v2-ink);
+  text-wrap: balance;
+}
+.v2vo-detail__body {
+  margin: 10px 0 0;
+  max-width: 44rem;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--v2-ink-2);
+}
+.v2vo-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.v2vo-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border: 1px solid var(--v2-chip-line);
+  border-radius: 999px;
+  background: var(--v2-chip-bg);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--v2-chip-fg);
+}
+@media (min-width: 900px) {
+  .v2vo-dash {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+/* ---------- Il CRM a tre livelli ---------- */
+.v2vo-tiers {
+  display: grid;
+  gap: 24px;
+  margin: 0;
+}
+.v2vo-tier {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 18px;
+  height: 100%;
+  padding: 18px 18px 22px;
+}
+.v2vo-tier__kicker {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--v2-accent);
+}
+.v2vo-tier__title {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--v2-ink);
+}
+.v2vo-tier__body {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+.v2vo-tier__pts {
+  margin-top: 14px;
+}
+.v2vo-tier__txt {
+  padding: 0 6px;
+}
+.v2vo-privacy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 20px 0 0;
+  font-size: 13px;
+  color: var(--v2-ink-3);
+}
+.v2vo-privacy svg {
+  color: var(--v2-accent);
+}
+@media (min-width: 900px) {
+  .v2vo-tiers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px;
+  }
+}
+
+/* ---------- I piani ---------- */
+.v2vo-plans {
+  display: grid;
+  gap: 18px;
+  align-items: stretch;
+}
+.v2vo-plan {
+  padding: 22px 24px;
+}
+.v2vo-plan--feat {
+  border-color: rgba(87, 199, 227, 0.55) !important;
+  box-shadow: inset 1px 1px 0 rgba(190, 225, 255, 0.34), 0 0 0 1px rgba(87, 199, 227, 0.25), 0 30px 60px -30px rgba(40, 150, 230, 0.7);
+}
+.v2vo-plan__flag {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #3c91e6, #57c7e3 70%, #8fd3f4);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #00121f;
+}
+.v2vo-plan__name {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--v2-accent);
+}
+.v2vo-plan__price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 14px 0 0;
+}
+.v2vo-plan__amt {
+  font-family: var(--v2-display);
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--v2-ink);
+}
+.v2vo-plan__per {
+  font-size: 15px;
+  color: var(--v2-ink-3);
+}
+.v2vo-plan__tag {
+  margin: 12px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
+.v2vo-plan__list {
+  margin-top: 20px;
+}
+.v2vo-plan__cta {
+  margin-top: auto;
+  padding-top: 22px;
+}
+.v2vo-plan__cta .v2-btn {
+  width: 100%;
+}
+.v2vo-ent,
+.v2vo-guar {
+  margin-top: 18px;
+  border-radius: 18px;
+}
+.v2vo-ent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+}
+.v2vo-ent__label {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--v2-accent);
+}
+.v2vo-ent__head {
+  margin: 8px 0 0;
+  font-family: var(--v2-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--v2-ink);
+  text-wrap: balance;
+}
+.v2vo-ent__body {
+  margin: 8px 0 0;
+  max-width: 40rem;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+.v2vo-guar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  border: 1px solid rgba(245, 205, 121, 0.35);
+  background: rgba(245, 205, 121, 0.06);
+}
+.v2vo-guar__tile {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(245, 205, 121, 0.4);
+  border-radius: 14px;
+  background: rgba(245, 205, 121, 0.12);
+  color: #f5cd79;
+}
+.v2vo-guar__title {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--v2-ink);
+}
+.v2vo-guar__body {
+  margin: 4px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
+@media (min-width: 768px) {
+  .v2vo-ent {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 28px 32px;
+  }
+}
+@media (min-width: 900px) {
+  .v2vo-aside {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 18px;
+    margin-top: 18px;
+  }
+  .v2vo-aside .v2vo-ent,
+  .v2vo-aside .v2vo-guar {
+    margin-top: 0;
+  }
+  .v2vo-aside .v2vo-ent {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .v2vo-aside .v2vo-guar {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media (min-width: 1024px) {
+  .v2vo-plans {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+  .v2vo-plan {
+    padding: 24px 28px;
+  }
+}
+
+/* ---------- Il calendario ---------- */
+.v2vo-book {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+.v2vo-book__pitch .v2-head {
+  margin-bottom: 0;
+}
+.v2vo-book__list {
+  margin-top: 24px;
+  gap: 12px;
+}
+.v2vo-cal {
+  padding: 10px;
+}
+.v2vo-cal__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 6px 10px 10px;
+  font-size: 13px;
+}
+.v2vo-cal__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 600;
+  color: var(--v2-ink);
+}
+.v2vo-cal__live i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #57c7e3;
+  box-shadow: 0 0 8px rgba(87, 199, 227, 0.8);
+}
+.v2vo-cal__ok {
+  color: var(--v2-ink-3);
+}
+.v2vo-cal__body {
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+}
+.v2vo-cal__wait {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #06182b;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.v2vo-cal__spin {
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(87, 199, 227, 0.25);
+  border-top-color: #57c7e3;
+  border-radius: 50%;
+  animation: v2vo-spin 0.9s linear infinite;
+}
+@keyframes v2vo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.v2vo-cal__frame {
+  display: block;
+  width: 100%;
+  height: 720px;
+  min-height: 700px;
+  border: 0;
+  overflow: auto;
+}
+/* Calendario come quello della home (v3): il widget bianco di LeadConnector è invertito e fuso sul blu (regole .hv3-call__* in home-v3.css).
+   Qui si dicono solo i due fondi, perché .v2vo-cal__body li aveva bianchi. */
+.v2vo-cal__body.hv3-call__frame {
+  background: #081a33;
+  isolation: isolate;
+}
+.v2vo-cal.hv3 .v2vo-cal__badges {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.62);
+}
+.v2vo-cal__badges.hv3-call__proof li::before {
+  content: "✓";
+  margin-right: 6px;
+  color: #f5cd79;
+  font-weight: 700;
+}
+.v2vo-cal__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 12px 6px 4px;
+  list-style: none;
+  font-size: 12.5px;
+  color: var(--v2-ink-3);
+}
+@media (min-width: 1024px) {
+  .v2vo-book {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 56px;
+  }
+}
+
+/* ---------- Chiusura: la catena e il pacchetto che arriva sul pulsante ---------- */
+.v2-cta.v2vo-close {
+  display: block;
+  padding: 32px 18px 30px;
+  text-align: center;
+}
+.v2vo-close__title {
+  max-width: 24ch;
+  margin: 0 auto;
+  font-size: 1.625rem;
+}
+.v2vo-chain {
+  --slot: 0.9s;
+  --cycle: 5.4s;
+  margin: 34px auto 0;
+  max-width: 980px;
+}
+.v2vo-chain * {
+  animation-play-state: paused;
+}
+.v2vo-chain__row {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.v2vo-chain__item {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.v2vo-chain__node {
+  position: relative;
+  display: inline-flex;
+}
+.v2vo-chain__node .v2fx-mod {
+  --s: 48px;
+}
+.v2vo-chain__ping {
+  position: absolute;
+  inset: -6px;
+  border: 1.5px solid #8fe0f0;
+  border-radius: 16px;
+  opacity: 0;
+  pointer-events: none;
+  animation: v2vo-ping var(--cycle) ease-out infinite;
+  animation-delay: calc(var(--k) * var(--slot) - var(--slot) * 0.15);
+}
+.v2vo-chain__item:first-child .v2vo-chain__ping {
+  animation-delay: 0s;
+}
+.v2vo-chain__label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--v2-accent);
+  overflow-wrap: anywhere;
+}
+.v2vo-chain__wire {
+  position: absolute;
+  top: 16px;
+  left: calc(50% + 31px);
+  width: calc(100% - 62px);
+  height: 14px;
+  overflow: hidden;
+}
+.v2vo-chain__wire::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(130, 195, 255, 0.28);
+}
+/* il pacchetto: una barra lunga come il filo, la cui testa luminosa è a destra; scorre da fuori a dentro (translateX in percentuale
+   della propria larghezza = la lunghezza del filo, qualunque sia la finestra) */
+.v2vo-chain__wire b {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5px;
+  height: 4px;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+  background: linear-gradient(90deg, rgba(87, 199, 227, 0) calc(100% - 46px), #57c7e3 calc(100% - 10px), #ffffff calc(100% - 3px), rgba(255, 255, 255, 0));
+  filter: drop-shadow(0 0 5px rgba(87, 199, 227, 0.9));
+  animation: v2vo-run var(--cycle) cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation-delay: calc(var(--k) * var(--slot));
+}
+.v2vo-chain__item:last-child .v2vo-chain__wire {
+  display: none;
+}
+.v2vo-chain__end {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.v2vo-chain__drop {
+  position: relative;
+  width: 14px;
+  height: 30px;
+  margin-right: calc(12.5% - 7px);
+  overflow: hidden;
+}
+.v2vo-chain__drop::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  border-radius: 2px;
+  background: rgba(130, 195, 255, 0.28);
+}
+.v2vo-chain__drop b {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+  background: linear-gradient(180deg, rgba(87, 199, 227, 0) calc(100% - 26px), #57c7e3 calc(100% - 8px), #ffffff calc(100% - 2px), rgba(255, 255, 255, 0));
+  filter: drop-shadow(0 0 5px rgba(87, 199, 227, 0.9));
+  animation: v2vo-drop var(--cycle) cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation-delay: calc(3 * var(--slot));
+}
+.v2vo-chain__btn {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  margin-top: 6px;
+}
+.v2vo-chain__btn .v2-btn {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.v2vo-chain__halo {
+  position: absolute;
+  inset: -4px;
+  border: 2px solid #f5cd79;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  animation: v2vo-halo var(--cycle) ease-out infinite;
+  animation-delay: calc(4 * var(--slot) - var(--slot) * 0.2);
+}
+@keyframes v2vo-run {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  3% {
+    opacity: 1;
+  }
+  14% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  17%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes v2vo-drop {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  3% {
+    opacity: 1;
+  }
+  14% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  17%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes v2vo-ping {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  3% {
+    opacity: 0.95;
+  }
+  19%,
+  100% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+@keyframes v2vo-halo {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  4% {
+    opacity: 1;
+  }
+  20%,
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
+@media (min-width: 768px) {
+  .v2-cta.v2vo-close {
+    padding: 36px 40px 34px;
+  }
+  .v2vo-close__title {
+    font-size: 2.25rem;
+  }
+  .v2vo-chain {
+    margin-top: 32px;
+  }
+  .v2vo-chain {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .v2vo-chain__row {
+    flex: 1 1 auto;
+  }
+  .v2vo-chain__node .v2fx-mod {
+    --s: 72px;
+  }
+  .v2vo-chain__label {
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+  }
+  .v2vo-chain__wire {
+    top: 29px;
+    left: calc(50% + 44px);
+    width: calc(100% - 88px);
+  }
+  /* il quarto filo arriva fino al pulsante, che sta accanto alla fila */
+  .v2vo-chain__item:last-child .v2vo-chain__wire {
+    display: block;
+    width: calc(50% - 44px + 14px);
+  }
+  .v2vo-chain__end {
+    flex: none;
+    margin-top: 10px;
+    align-items: stretch;
+  }
+  .v2vo-chain__drop {
+    display: none;
+  }
+  .v2vo-chain__btn {
+    margin-top: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2vo-link__pkt,
+  .v2vo-chain__wire b,
+  .v2vo-chain__drop b,
+  .v2vo-chain__ping,
+  .v2vo-chain__halo,
+  .v2vo-cal__spin {
+    animation: none !important;
+  }
+  .v2vo-link__pkt,
+  .v2vo-chain__wire b,
+  .v2vo-chain__drop b,
+  .v2vo-chain__ping,
+  .v2vo-chain__halo {
+    display: none;
+  }
+}
+
+/* ---------- Ritmo della pagina: più stretta di quella di prima ----------
+   Le fasce stanno a 40 px (non 96) sopra e sotto: la pagina ha nove momenti e con il respiro standard diventava lunga come la
+   vecchia. Il filo di pagina e le sfumature fra le fasce restano quelli del kit. */
+.v2-section.v2vo-sec,
+#vo-faq.v2-section {
+  padding-block: 36px;
+}
+@media (min-width: 768px) {
+  .v2-section.v2vo-sec,
+  #vo-faq.v2-section {
+    padding-block: 40px;
+  }
+}
+.v2vo-sec .v2-head {
+  max-width: 56rem;
+  margin-bottom: 24px;
+}
+.v2vo-sec .v2-lead {
+  max-width: 50rem;
+}
+.v2vo-book__pitch .v2-head {
+  max-width: none;
+}
+
+/* la catena dei tre livelli: i moduli stanno sopra le loro colonne (stessa spaziatura della griglia delle schede) */
+@media (min-width: 900px) {
+  .v2vo-tiersrail .v2fx-rail__list {
+    column-gap: 36px;
+  }
+}
+
+/* Voice AI (IT): il video di prima, in vista sotto la hero, in una cornice con bagliore (14/10) */
+.v2vo-herovideo {
+  width: min(880px, 100%);
+  margin: 8px auto 0;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 30px 80px -30px rgba(60, 145, 230, 0.55);
+}
+.v2vo-herovideo__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #04101c;
+}
+.v2vo-herovideo__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.v2vo-herovideo p {
+  margin: 0;
+  padding: 12px 8px 6px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+}

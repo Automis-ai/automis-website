@@ -1,0 +1,75 @@
+/* Landing WooCommerce (IT): riga «chi guarda cosa», note, regole. Usa i token del v2. */
+.hwc-note {
+  margin: 14px auto 0;
+  max-width: 34em;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
+.hwc-small {
+  margin: 20px auto 0;
+  max-width: 44em;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
+
+/* Chi guarda cosa */
+.hwc-who {
+  display: grid;
+  gap: 12px;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.hwc-who__row {
+  display: grid;
+  gap: 4px;
+  padding: 18px 22px;
+}
+.hwc-who__who {
+  font-family: var(--v2-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--v2-ink);
+}
+.hwc-who__does {
+  color: var(--v2-ink-2);
+}
+.hwc-who__blind {
+  color: var(--v2-accent);
+  font-weight: 600;
+}
+@media (min-width: 900px) {
+  .hwc-who__row {
+    grid-template-columns: 15em 1fr 1fr;
+    align-items: baseline;
+    gap: 24px;
+  }
+}
+
+/* Dove non è andata bene */
+.hwc-honest {
+  margin: 32px auto 0;
+  max-width: 44em;
+  text-align: center;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+.hwc-honest b {
+  color: var(--v2-ink);
+  font-weight: 600;
+}
+
+/* Tre regole */
+.hwc-rules__title {
+  margin: 56px 0 20px;
+  text-align: center;
+  font-family: var(--v2-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--v2-ink);
+}

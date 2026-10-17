@@ -1,13 +1,5 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import VoiceHero from "@/components/voice-ai/VoiceHero";
-import VoiceProblem from "@/components/voice-ai/VoiceProblem";
-import InboundOutbound from "@/components/voice-ai/InboundOutbound";
-import HowItWorks from "@/components/voice-ai/HowItWorks";
-import DashboardWalk from "@/components/voice-ai/DashboardWalk";
-import CrmTiers from "@/components/voice-ai/CrmTiers";
-import VoicePricing from "@/components/voice-ai/VoicePricing";
-import VoiceFaq from "@/components/voice-ai/VoiceFaq";
-import VoiceBooking from "@/components/voice-ai/VoiceBooking";
+import VoicePage from "@/components/v2/voice/VoicePage";
 
 export const metadata = {
   title: "Automis Voice AI | The 24/7 AI Receptionist That Books Appointments",
@@ -56,18 +48,10 @@ export const metadata = {
   },
 };
 
-export default function VoiceAiPage() {
+export default function VoiceAiPage({ searchParams }) {
   return (
     <AutomisEnShell>
-      <VoiceHero />
-      <VoiceProblem />
-      <InboundOutbound />
-      <HowItWorks />
-      <DashboardWalk />
-      <CrmTiers />
-      <VoicePricing />
-      <VoiceFaq />
-      <VoiceBooking />
+      <VoicePage locale="en" tono={searchParams?.tono} />
     </AutomisEnShell>
   );
 }

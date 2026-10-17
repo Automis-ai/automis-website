@@ -1,0 +1,2451 @@
+/* Casi studio v2: indice (schede), caso Album AI e caso Datura Clothing. Prefisso .v2c-*. Si appoggia al kit (v2.css).
+   Mobile first (390 px). Il movimento (Reveal, CountUp, Tilt, palco 3D) è comandato da fx.js; qui ci sono solo
+   transform e opacity (il conteggio dei numeri cambia il testo, non lo stile), tutto spento con prefers-reduced-motion.
+
+   PALETTE DEI CASI STUDIO: apertura scura #000a14, corpo bianco, blu #1f6fc0 nel corpo (il blu dei testi piccoli,
+   sopratitoli e «Nel dettaglio», è #1a5da6: 6,6:1 su bianco), titoli #101b27, testo #243241, note #4b5c6f, bordi
+   rgba(16,27,39,.12). I valori sono quelli del CSS
+   servito dalla pagina viva del caso Clínica (.caso-clinica, in coda al file), non quelli del
+   sorgente in repo (tutto scuro). Vale solo sotto .v2-caso: il resto del sito non cambia. */
+
+/* ---------- Palette del corpo dei casi: blu come la home (14/10/2026, scelta di Luca) ----------
+   Prima il corpo era bianco (palette della pagina viva del caso Clínica). Ora è il blu notte della home v3 (#0c2646),
+   con schede di vetro e note in azzurro chiaro per alleggerire la lettura. Contrasti su #0c2646: bianco 14:1, #d3e2f4 10:1,
+   #a9bdd6 6,6:1, accento #57c7e3 7,5:1. */
+.v2-caso .v2-tone-light {
+  --v2-bg: #061a33;
+  --v2-bg-rgb: 6 26 51;
+  --v2-ink: #ffffff;
+  --v2-ink-2: #d3e2f4;
+  --v2-ink-3: #a9bdd6;
+  --v2-line: rgba(165, 210, 255, 0.2);
+  --v2-line-strong: rgba(165, 210, 255, 0.42);
+  --v2-card: rgba(40, 80, 140, 0.42);
+  --v2-card-hover: rgba(50, 95, 160, 0.5);
+  --v2-card-line: rgba(165, 210, 255, 0.2);
+  --v2-card-line-hover: rgba(87, 199, 227, 0.55);
+  --v2-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.6);
+  --v2-accent: #57c7e3;
+  --v2-accent-solid: #3c91e6;
+  --v2-num: #57c7e3;
+  --v2-tile-bg: rgba(60, 145, 230, 0.16);
+  --v2-tile-fg: #8fd3f4;
+  --v2-chip-bg: rgba(60, 145, 230, 0.14);
+  --v2-chip-fg: #a9d4ff;
+  --v2-chip-line: rgba(143, 211, 244, 0.3);
+  --v2-focus: #57c7e3;
+  --v2-btn-bg: #57c7e3;
+  --v2-btn-fg: #00121f;
+  --v2-btn-shadow: 0 14px 28px -16px rgba(60, 145, 230, 0.7);
+  --v2-ghost-line: rgba(255, 255, 255, 0.35);
+}
+
+/* ---------- Sfumature tra le fasce ----------
+   Il kit le dà solo dentro .v2-tone-a/.v2-tone-b e solo tra sorelle: qui la pagina ha un'apertura scura fuori da .v2-caso
+   e un corpo chiaro dentro, quindi la sfumatura si accende a mano sulle due fasce di confine. Sono lunghe (260-380 px a
+   seconda dello schermo) e a curva morbida, con molti passaggi: a 1440 non si legge più un taglio, si legge un'alba.
+   .v2c-edge  la prima fascia chiara sotto l'apertura: parte dal blu notte dell'apertura, passa per il blu del brand e si
+              scioglie nel chiaro. La fila di tessere (Seam.js, .v2c-seam) sporge nella parte alta, ancora scura; il testo
+              comincia più sotto (il padding alto lo tiene fuori dalla parte scura).
+   .v2c-cta   avvolge la CtaBand: in ingresso parte dal chiaro della fascia sopra e scende al blu notte della chiusura; il
+              pannello della chiusura sta nella parte bassa, dove la sfumatura è già scura. In uscita non serve nulla
+              (la chiusura e il piede sono lo stesso colore). */
+.v2-caso {
+  --v2c-light-rgb: 6 26 51;
+}
+.v2-section.v2c-edge {
+  --v2-fade-h: 280px;
+  padding-top: 150px;
+}
+.v2c-cta {
+  --v2c-prev: 243 246 250;
+}
+.v2-pg.v2-tone-a > .v2c-cta {
+  --v2c-prev: 2 17 36; /* in tono A la fascia sopra è il blu notte «light», non il chiaro del kit */
+}
+.v2-caso .v2c-cta {
+  --v2c-prev: var(--v2c-light-rgb);
+}
+.v2c-cta > .v2-section {
+  --v2-fade-h: 240px;
+  padding-top: 130px;
+}
+.v2-pg .v2-section.v2c-edge::after,
+.v2-pg .v2c-cta > .v2-section::after,
+.v2-caso .v2c-cta > .v2-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  height: var(--v2-fade-h, 52px);
+  pointer-events: none;
+}
+/* apertura scura → corpo blu: dal blu notte dell'apertura al blu del corpo (#0c2646) */
+.v2-pg .v2-section.v2c-edge::after {
+  background: linear-gradient(
+    to bottom,
+    rgb(0 10 20 / 1) 0%,
+    rgb(1 14 28 / 0.95) 16%,
+    rgb(2 18 36 / 0.85) 32%,
+    rgb(4 22 43 / 0.7) 48%,
+    rgb(5 24 47 / 0.5) 64%,
+    rgb(6 25 50 / 0.28) 80%,
+    rgb(6 26 51 / 0) 100%
+  );
+}
+/* corpo blu → chiusura blu notte. Vale anche senza .v2-pg: il <main> dei casi non ha quella classe e la sfumatura non partiva mai (gradino sul nero). */
+.v2-pg .v2c-cta > .v2-section::after,
+.v2-caso .v2c-cta > .v2-section::after {
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--v2c-prev) / 1) 0%,
+    rgb(10 33 61 / 0.9) 25%,
+    rgb(7 26 49 / 0.65) 50%,
+    rgb(4 18 35 / 0.35) 75%,
+    rgb(2 14 28 / 0) 100%
+  );
+}
+@media (min-width: 768px) {
+  .v2-section.v2c-edge {
+    --v2-fade-h: 330px;
+    padding-top: 180px;
+  }
+  .v2c-cta > .v2-section {
+    --v2-fade-h: 300px;
+    padding-top: 160px;
+  }
+}
+@media (min-width: 1024px) {
+  .v2-section.v2c-edge {
+    --v2-fade-h: 380px;
+    padding-top: 210px;
+  }
+  .v2c-cta > .v2-section {
+    --v2-fade-h: 340px;
+    padding-top: 180px;
+  }
+}
+/* Variante col sopratitolo (caso Datura): la sfumatura finisce 30 px sopra il sopratitolo, che sta così su bianco pieno
+   (a 380 px di sfumatura e 210 di padding cadeva a metà curva: 3,0:1 di contrasto). Le tessere del filo restano nella parte
+   scura, dove il blu notte è ancora quasi pieno. */
+.v2-section.v2c-edge.v2c-edge--eb {
+  --v2-fade-h: 200px;
+  padding-top: 230px;
+}
+@media (min-width: 768px) {
+  .v2-section.v2c-edge.v2c-edge--eb {
+    --v2-fade-h: 250px;
+    padding-top: 280px;
+  }
+}
+@media (min-width: 1024px) {
+  .v2-section.v2c-edge.v2c-edge--eb {
+    --v2-fade-h: 300px;
+    padding-top: 330px;
+  }
+}
+
+/* ---------- Indice: scheda di un caso ---------- */
+.v2c-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .v2c-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+.v2c-card {
+  padding: 20px;
+}
+.v2c-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 12px;
+  min-height: 44px;
+}
+/* tipo di sistema: etichetta di testo senza bordo né fondo, così non sembra un filtro né un link */
+.v2c-card__tag {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--v2-ink-3);
+}
+/* il nome del cliente quando non ha un logo pubblico (Album AI, Datura Clothing) */
+.v2c-card__client {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--v2-ink);
+}
+/* numero e catena dei moduli: in colonna su telefono e tablet, affiancati dove la scheda è larga */
+.v2c-card__main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 10px;
+  transform-style: preserve-3d;
+}
+.v2c-card__stat {
+  transform-style: preserve-3d;
+}
+@media (min-width: 1100px) {
+  .v2c-card__main {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+.v2c-card__num {
+  display: flex;
+  align-items: flex-end;
+  min-height: 3.5rem;
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--v2-num);
+}
+/* cifra lunga («Cerca de 280»): più piccola, così sta su una riga in tutte le larghezze delle schede (276-310 px) */
+.v2c-card__num--long {
+  font-size: 2.5rem;
+}
+.v2c-card__numlabel {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--v2-ink-2);
+}
+.v2c-card__title {
+  margin: 20px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--v2-line);
+  font-family: var(--v2-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+}
+.v2c-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: auto;
+  padding-top: 20px;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--v2-accent);
+}
+@media (min-width: 768px) {
+  .v2c-card {
+    padding: 28px;
+  }
+  .v2c-card__title {
+    letter-spacing: -0.005em;
+    word-spacing: 0.05em;
+    font-size: 1.25rem;
+  }
+}
+
+/* ---------- Caso Album AI: apertura (il titolo ha la scala delle altre pagine) ---------- */
+.v2c-client {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 14px;
+}
+.v2c-client__name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--v2-ink);
+}
+.v2c-back {
+  margin-top: 6px;
+}
+
+/* finestra del browser */
+.v2c-win {
+  width: 100%;
+  max-width: 540px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  background: #0b1f36;
+  box-shadow: 0 30px 60px -34px rgba(0, 0, 0, 0.65);
+}
+.v2c-win__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+.v2c-win__bar > span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+}
+.v2c-win__url {
+  flex: 1;
+  height: 18px;
+  margin-left: 10px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+}
+.v2c-win__body {
+  padding: 16px;
+}
+.v2c-spread {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Caso Album AI: dal totale degli scatti alle foto scelte ---------- */
+.v2c-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+.v2c-flow__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  color: var(--v2-accent);
+  transform: rotate(90deg);
+}
+.v2c-stage {
+  padding: 18px;
+}
+.v2c-stage__vis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 132px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(165, 210, 255, 0.035);
+}
+.v2c-stage__num {
+  margin: 18px 0 0;
+  font-family: var(--v2-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--v2-num);
+  text-wrap: balance;
+}
+.v2c-stage__lab {
+  margin: 8px 0 0;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
+.v2c-stage__then {
+  margin: 18px 0 0;
+  font-family: var(--v2-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+  text-wrap: balance;
+}
+.v2c-mos {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: 4px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.v2c-mos i {
+  display: block;
+  aspect-ratio: 3 / 2;
+  border-radius: 2px;
+  background: rgba(165, 210, 255, 0.13);
+}
+.v2c-mos i:nth-child(3n) {
+  background: rgba(165, 210, 255, 0.09);
+}
+.v2c-mos i:nth-child(7n) {
+  background: rgba(165, 210, 255, 0.17);
+}
+/* le miniature scelte: il fondo grigio resta, il blu è uno strato sopra che si accende (solo opacity) */
+.v2c-mos i {
+  position: relative;
+}
+.v2c-mos i.on::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #57c7e3;
+}
+@media (min-width: 900px) {
+  .v2c-flow {
+    grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr) 44px minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .v2c-flow__arrow {
+    height: auto;
+    transform: none;
+  }
+  .v2c-stage {
+    padding: 22px;
+  }
+}
+
+
+/* ---------- Disegni a punti: pallini, spunte, giorni, miniature ----------
+   Versione leggera (telefono e tocco): il disegno compare intero con UN solo passaggio (opacity e transform di un
+   elemento solo). Con tanti pallini che cambiano da soli ogni elemento diventa uno strato a sé e il telefono scatta.
+   Versione piena (da 768 px, con il mouse): ogni pallino si accende a tempo, uno dopo l'altro. */
+[data-iv="out"] :is(.v2c-dots, .v2c-pips, .v2c-days, .v2c-mos) {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+}
+html [data-iv="in"] :is(.v2c-dots, .v2c-pips, .v2c-days, .v2c-mos) {
+  transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (min-width: 768px) and (hover: hover) {
+  [data-iv="out"] :is(.v2c-dots, .v2c-pips, .v2c-days, .v2c-mos) {
+    opacity: 1;
+    transform: none;
+  }
+  [data-iv="out"] .v2c-dots i {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  [data-iv="out"] .v2c-dots i.on::after,
+  [data-iv="out"] .v2c-pips i::before,
+  [data-iv="out"] .v2c-pips svg,
+  [data-iv="out"] .v2c-mos i.on::after {
+    opacity: 0;
+  }
+  [data-iv="out"] .v2c-pips i::before,
+  [data-iv="out"] .v2c-days i::before {
+    transform: scale(0.4);
+  }
+  [data-iv="out"] .v2c-days i::before {
+    opacity: 0;
+  }
+  html [data-iv="in"] :is(.v2c-dots, .v2c-pips, .v2c-days, .v2c-mos) {
+    transition: none;
+  }
+  html [data-iv="in"] .v2c-dots i {
+    transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: calc(var(--i, 0) * 9ms + 150ms);
+  }
+  html [data-iv="in"] .v2c-dots i.on::after {
+    transition: opacity 0.45s ease;
+    transition-delay: calc(1.15s + var(--k, 0) * 28ms);
+  }
+  html [data-iv="in"] .v2c-pips i::before {
+    transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: calc(0.35s + var(--k, 0) * 90ms);
+  }
+  html [data-iv="in"] .v2c-pips svg {
+    transition: opacity 0.3s ease;
+    transition-delay: calc(0.5s + var(--k, 0) * 90ms);
+  }
+  html [data-iv="in"] .v2c-days i::before {
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: calc(0.3s + var(--k, 0) * 38ms);
+  }
+  html [data-iv="in"] .v2c-mos i.on::after {
+    transition: opacity 0.5s ease;
+    transition-delay: calc(0.35s + var(--k, 0) * 0.07s);
+  }
+}
+
+/* ---------- Caso Album AI: dove gira, per un solo professionista ---------- */
+.v2-caso .v2c-info-sec {
+  padding-top: 0;
+}
+.v2c-info-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+.v2c-info {
+  padding: 22px;
+}
+.v2c-info__title {
+  margin: 18px 0 0;
+  font-family: var(--v2-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+  text-wrap: balance;
+}
+.v2c-info__line {
+  margin: 10px 0 0;
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+@media (min-width: 768px) {
+  .v2c-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .v2c-info {
+    padding: 32px;
+  }
+  .v2c-info__title {
+    font-size: 1.625rem;
+    letter-spacing: -0.005em;
+    word-spacing: 0.05em;
+  }
+}
+
+.v2c-card__title {
+  text-wrap: balance;
+}
+
+
+/* ======================================================================================
+   MOVIMENTO (comandato da fx.js). Lo stato di partenza senza JavaScript è quello finale.
+   ====================================================================================== */
+
+.v2c-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- CountUp ----------
+   Il valore vero è nel testo dal server e non cambia mai: ogni carattere è uno span (.v2c-cu__ch) e l'entrata muove solo
+   transform e opacity. Senza JavaScript, già nello schermo al montaggio e con prefers-reduced-motion il numero è fermo e intero.
+   data-cu="out": cifre abbassate e inclinate, invisibili, in attesa. data-cu="in": tornano al loro posto a scaglioni. */
+.v2c-cu {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  perspective: 700px;
+}
+.v2c-cu__txt {
+  display: inline-block;
+}
+.v2c-cu__ch {
+  display: inline-block;
+  white-space: pre;
+  transform-origin: 50% 100%;
+}
+.v2c-cu[data-cu="out"] .v2c-cu__ch {
+  opacity: 0;
+  transform: translateY(0.5em) rotateX(-75deg);
+}
+.v2c-cu[data-cu="in"] .v2c-cu__ch {
+  transition: opacity 0.45s ease, transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--cu-delay, 0ms) + var(--k, 0) * 35ms);
+}
+
+/* ---------- Indice e numeri di testa: profondità dentro la scheda ----------
+   L'inclinazione al puntatore la dà il kit (data-fx="tilt", components/v2/wow/fx/Tilt3D.js): qui la scheda diventa
+   uno spazio 3D e i testi non cliccabili stanno un po' più avanti, così con l'inclinazione si staccano dal fondo. */
+.v2c-card,
+.v2c-stat {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.v2c-card .v2c-card__head,
+.v2c-card .v2c-card__num,
+.v2c-card .v2c-card__numlabel,
+.v2c-card .v2c-card__cta {
+  pointer-events: none;
+}
+.v2c-card .v2c-card__head {
+  transform: translateZ(22px);
+}
+.v2c-card .v2c-card__num {
+  transform: translateZ(46px);
+}
+.v2c-card .v2c-card__numlabel {
+  transform: translateZ(26px);
+}
+.v2c-card .v2c-card__cta {
+  transform: translateZ(16px);
+}
+
+/* ---------- LiveStage: palco 3D, in pausa fuori schermo ---------- */
+.v2c-live {
+  position: relative;
+  perspective: 1100px;
+}
+.v2c-live[data-live="false"] *,
+.v2c-live[data-live="false"] *::before,
+.v2c-live[data-live="false"] *::after {
+  animation-play-state: paused !important;
+}
+
+/* ---------- La tessera di vetro con spessore (components/v2/use-cases/Tile.js) ----------
+   Stessa famiglia dei moduli della hero 3D e di .v2hp-mod nella home (home.css non si carica qui): spessore a gradini
+   (box-shadow), bordo smussato, riflesso in alto, icona dello stesso set. --s = lato. Alone e anello partono fermi:
+   li accendono i contenitori .v2c-live (catene) con animazioni di sola opacity e transform. */
+.v2c-tile {
+  --s: 56px;
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  width: var(--s);
+  height: var(--s);
+  transform-style: preserve-3d;
+}
+.v2c-tile--xs {
+  --s: 32px;
+}
+.v2c-tile--sm {
+  --s: 44px;
+}
+.v2c-tile--md {
+  --s: 56px;
+}
+.v2c-tile--lg {
+  --s: 72px;
+}
+.v2c-tile--xl {
+  --s: 92px;
+}
+.v2c-tile__body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--s) * 0.28);
+  color: #d6f1ff;
+  background: linear-gradient(150deg, rgba(150, 205, 255, 0.34) 0%, rgba(70, 130, 210, 0.16) 42%, rgba(20, 50, 100, 0.42) 100%), #071a2f;
+  border: 1px solid rgba(175, 220, 255, 0.42);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -8px 14px -6px rgba(0, 16, 48, 0.7), 1px 1px 0 #0a3359, 2px 2px 0 #082c4e,
+    3px 3px 0 #06223c, 4px 5px 0 #041a2f, 8px 14px 22px -8px rgba(0, 0, 0, 0.6);
+}
+.v2c-tile__body::before {
+  content: "";
+  position: absolute;
+  inset: 1px 1px 50% 1px;
+  border-radius: calc(var(--s) * 0.28) calc(var(--s) * 0.28) 40% 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.v2c-tile__body svg {
+  position: relative;
+  width: 46%;
+  height: 46%;
+  filter: drop-shadow(0 0 6px rgba(87, 199, 227, 0.6));
+}
+.v2c-tile__glow {
+  position: absolute;
+  inset: -34%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(87, 199, 227, 0.55), rgba(60, 145, 230, 0.18) 60%, transparent);
+  opacity: var(--g0, 0.55);
+  pointer-events: none;
+}
+/* l'anello dell'arrivo: azzurro; sull'ultimo nodo della catena (.v2c-tile--last) è l'unico tocco d'oro */
+.v2c-tile__ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: calc(var(--s) * 0.34);
+  border: 1.5px solid #57c7e3;
+  opacity: 0;
+  pointer-events: none;
+}
+.v2c-tile--last .v2c-tile__ring {
+  border-color: #f5cd79;
+}
+/* l'alone su fondo chiaro (schede dell'indice): più discreto */
+.v2c-chain {
+  --g0: 0.22;
+  --g1: 0.7;
+}
+
+/* Il ciclo comune delle catene (--cyc la durata, --trav il tempo che il pacchetto impiega dal primo all'ultimo modulo =
+   il 40% del ciclo): il pacchetto corre, ogni tessera si accende quando arriva, sull'ultima l'anello d'oro. */
+@keyframes v2c-hop-x {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  1% {
+    opacity: 1;
+  }
+  38% {
+    opacity: 1;
+  }
+  40%,
+  100% {
+    opacity: 0;
+    transform: translateX(calc(100cqw - var(--ts)));
+  }
+}
+@keyframes v2c-glow {
+  0% {
+    opacity: var(--g0, 0.55);
+    transform: scale(1);
+  }
+  3% {
+    opacity: var(--g1, 1);
+    transform: scale(1.18);
+  }
+  16%,
+  100% {
+    opacity: var(--g0, 0.55);
+    transform: scale(1);
+  }
+}
+@keyframes v2c-arrive {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  3% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  16%,
+  100% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+@keyframes v2c-float {
+  0%,
+  100% {
+    transform: rotateX(12deg) rotateY(var(--ry, 0deg)) translateY(0);
+  }
+  50% {
+    transform: rotateX(12deg) rotateY(var(--ry, 0deg)) translateY(-6px);
+  }
+}
+
+/* ---------- Il filo sotto la hero: fila di tessere nella sfumatura (Seam.js) ----------
+   Altezza zero fra la hero e la prima fascia chiara: i figli sporgono nella sfumatura (.v2c-edge). Il padding alto della
+   fascia lascia libero il testo. */
+.v2c-seam {
+  position: relative;
+  z-index: 3;
+  height: 0;
+  pointer-events: none;
+}
+.v2c-seam .v2c-seam__row {
+  --ts: 56px;
+  --gap: 34px;
+  --cyc: 6s;
+  --trav: 2.4s;
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  width: calc(var(--n) * var(--ts) + (var(--n) - 1) * var(--gap));
+  max-width: calc(100vw - 32px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  container-type: inline-size;
+  perspective: 900px;
+  transform: translateX(-50%);
+}
+@media (min-width: 768px) {
+  .v2c-seam .v2c-seam__row {
+    --ts: 72px;
+    --gap: 56px;
+    top: 44px;
+  }
+}
+@media (min-width: 1024px) {
+  .v2c-seam .v2c-seam__row {
+    --gap: 76px;
+    top: 52px;
+  }
+}
+.v2c-seam__wire {
+  position: absolute;
+  left: calc(var(--ts) / 2);
+  right: calc(var(--ts) / 2);
+  top: calc(var(--ts) / 2 - 1px);
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(87, 199, 227, 0.35), rgba(130, 195, 255, 0.85) 50%, rgba(87, 199, 227, 0.35));
+  box-shadow: 0 0 14px rgba(87, 199, 227, 0.45);
+}
+.v2c-seam__slot {
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+  transform: rotateX(12deg) rotateY(var(--ry, 0deg));
+}
+.v2c-seam .v2c-tile {
+  --s: var(--ts);
+}
+.v2c-seam__pkt {
+  position: absolute;
+  z-index: 2;
+  left: calc(var(--ts) / 2 - 4px);
+  top: calc(var(--ts) / 2 - 4px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d6f1ff;
+  box-shadow: 0 0 12px 3px rgba(87, 199, 227, 0.8);
+  opacity: 0;
+}
+/* le animazioni partono solo quando la fila è montata (data-live) e stanno in pausa fuori schermo */
+.v2c-live[data-live] .v2c-seam__slot {
+  animation: v2c-float 5.6s ease-in-out infinite;
+  animation-delay: calc(var(--k) * -1.1s);
+}
+.v2c-seam__row[data-live] .v2c-tile__glow {
+  animation: v2c-glow var(--cyc) ease-out infinite;
+  animation-delay: calc(var(--k) * var(--trav) / (var(--n) - 1));
+}
+@supports (width: 1cqw) {
+  .v2c-live[data-live] .v2c-seam__pkt {
+    animation: v2c-hop-x var(--cyc) linear infinite;
+    animation-delay: calc(var(--b) * 0.14s);
+  }
+}
+
+/* ---------- Il filo sotto la hero, in uscita: la stessa fila nella sfumatura chiaro → blu notte (Seam exit) ----------
+   Su fondo chiaro l'alone è più discreto e il filo e il pacchetto sono nel blu del corpo. */
+.v2c-seam--exit .v2c-seam__row {
+  --g0: 0.18;
+  --g1: 0.7;
+}
+.v2c-seam--exit .v2c-seam__wire {
+  background: linear-gradient(90deg, rgba(31, 111, 192, 0.4), rgba(31, 111, 192, 0.85) 50%, rgba(31, 111, 192, 0.4));
+  box-shadow: 0 0 12px rgba(31, 111, 192, 0.3);
+}
+.v2c-seam--exit .v2c-seam__pkt {
+  background: #fff;
+  box-shadow: 0 0 12px 3px rgba(31, 111, 192, 0.75);
+}
+
+/* ---------- La rotaia dei moduli (ModuleRail.js) ----------
+   Capsula di vetro scura, ferma nello schermo mentre si legge il corpo chiaro. Telefono e tablet: in alto, sotto
+   l'intestazione, in orizzontale. Da 1280 px: a sinistra, nel margine, in verticale. Tutto transform e opacity.
+   --ts lato tessera · --gap spazio fra tessere · --step passo (tessera + spazio) · --ax-x/--ax-y l'asse (1,0 in orizzontale,
+   0,1 in verticale) · --f quanta strada ha fatto il filo (0..1).
+   data-show: nella zona o no · data-live: nella zona e scheda visibile (se no, le animazioni stanno in pausa)
+   data-mode: idle (spenta: il problema) · one (si legge un modulo) · all (lo schema: tutta la catena).
+   Il pacchetto che va da un modulo all'altro lo anima ModuleRail.js (WAAPI) e sparisce all'arrivo; in modo «all» corre
+   in continuo (.v2c-rail__loop). */
+.v2c-rail {
+  --ts: 32px;
+  --gap: 16px;
+  --step: calc(var(--ts) + var(--gap));
+  --ax-x: 1;
+  --ax-y: 0;
+  position: fixed;
+  z-index: 30;
+  top: 80px;
+  left: 50%;
+  padding: 7px 14px;
+  border: 1px solid rgba(175, 220, 255, 0.3);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(10, 30, 56, 0.95), rgba(3, 14, 28, 0.95));
+  box-shadow: 0 14px 30px -14px rgba(0, 10, 30, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(-50%, -14px, 0);
+  transition: opacity 0.45s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), visibility 0s linear 0.6s;
+}
+.v2c-rail[data-show="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(-50%, 0, 0);
+  transition-delay: 0s;
+}
+.v2c-rail[data-live="false"] *,
+.v2c-rail[data-live="false"] *::before,
+.v2c-rail[data-live="false"] *::after {
+  animation-play-state: paused !important;
+}
+.v2c-rail__track {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap);
+}
+.v2c-rail__wire {
+  position: absolute;
+  left: calc(var(--ts) / 2);
+  right: calc(var(--ts) / 2);
+  top: calc(var(--ts) / 2 - 1px);
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(130, 195, 255, 0.26);
+}
+.v2c-rail__fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(87, 199, 227, 0.7), #8fd3f4);
+  box-shadow: 0 0 10px rgba(87, 199, 227, 0.6);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--f, 0));
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.v2c-rail__item {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: 0s;
+}
+.v2c-rail[data-show="true"] .v2c-rail__item {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(0.12s + var(--i, 0) * 0.08s);
+}
+.v2c-rail .v2c-tile {
+  --s: var(--ts);
+  opacity: 0.46;
+  transform: scale(0.9);
+  transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.v2c-rail__item.is-lit .v2c-tile {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.v2c-rail .v2c-tile__glow {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.v2c-rail__item.is-lit .v2c-tile__glow {
+  opacity: 0.85;
+}
+.v2c-rail__pkt,
+.v2c-rail__loop {
+  position: absolute;
+  z-index: 2;
+  left: calc(var(--ts) / 2 - 4px);
+  top: calc(var(--ts) / 2 - 4px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d6f1ff;
+  box-shadow: 0 0 12px 3px rgba(87, 199, 227, 0.85);
+  opacity: 0;
+}
+.v2c-rail[data-mode="all"][data-show="true"] .v2c-rail__loop {
+  animation: v2c-rail-run-x 2.4s cubic-bezier(0.45, 0, 0.25, 1) 0.5s infinite;
+}
+@keyframes v2c-rail-run-x {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  8%,
+  82% {
+    opacity: 1;
+  }
+  94%,
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--step) * (var(--n) - 1)), 0, 0);
+  }
+}
+@keyframes v2c-rail-run-y {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  8%,
+  82% {
+    opacity: 1;
+  }
+  94%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, calc(var(--step) * (var(--n) - 1)), 0);
+  }
+}
+/* tablet: l'intestazione è più alta, la capsula scende */
+@media (min-width: 768px) {
+  .v2c-rail {
+    top: 92px;
+  }
+}
+/* da 1280 px in su (e almeno 620 px di altezza): a sinistra, nel margine accanto al testo, che comincia a max(0, (100vw - 1152px) / 2) + 32px */
+@media (min-width: 1280px) and (min-height: 620px) {
+  .v2c-rail {
+    --ts: 40px;
+    --gap: 22px;
+    --ax-x: 0;
+    --ax-y: 1;
+    top: 50%;
+    left: calc(max(0px, (100vw - 1152px) / 2) + 32px - 88px);
+    padding: 16px 14px;
+    border-radius: 34px;
+    transform: translate3d(-16px, -50%, 0);
+  }
+  .v2c-rail[data-show="true"] {
+    transform: translate3d(0, -50%, 0);
+  }
+  .v2c-rail__track {
+    flex-direction: column;
+  }
+  .v2c-rail__wire {
+    top: calc(var(--ts) / 2);
+    bottom: calc(var(--ts) / 2);
+    left: calc(var(--ts) / 2 - 1px);
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  .v2c-rail__fill {
+    background: linear-gradient(180deg, rgba(87, 199, 227, 0.7), #8fd3f4);
+    transform-origin: 50% 0;
+    transform: scaleY(var(--f, 0));
+  }
+  .v2c-rail[data-mode="all"][data-show="true"] .v2c-rail__loop {
+    animation-name: v2c-rail-run-y;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2c-rail,
+  .v2c-rail *,
+  .v2c-rail *::before,
+  .v2c-rail *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .v2c-rail__pkt,
+  .v2c-rail__loop {
+    display: none;
+  }
+  .v2c-rail .v2c-tile {
+    transform: none;
+  }
+}
+
+/* ---------- La catena dentro la scheda dell'indice ---------- */
+.v2c-chain {
+  --ts: 44px;
+  --gap: 22px;
+  --cyc: 5s;
+  --trav: 2s;
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(var(--n) * var(--ts) + (var(--n) - 1) * var(--gap));
+  container-type: inline-size;
+  perspective: 700px;
+}
+.v2c-chain__wire {
+  position: absolute;
+  left: calc(var(--ts) / 2);
+  right: calc(var(--ts) / 2);
+  top: calc(50% - 1px);
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(31, 111, 192, 0.4);
+}
+.v2c-chain .v2c-tile {
+  position: relative;
+  z-index: 1;
+  --s: var(--ts);
+  transform: rotateX(10deg) rotateY(-8deg);
+}
+.v2c-chain__pkt {
+  position: absolute;
+  z-index: 2;
+  left: calc(var(--ts) / 2 - 3px);
+  top: calc(50% - 3px);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2a7fd4;
+  box-shadow: 0 0 10px 3px rgba(31, 111, 192, 0.55);
+  opacity: 0;
+}
+.v2c-card .v2c-chain {
+  transform: translateZ(40px);
+  pointer-events: none;
+}
+.v2c-chain[data-live] .v2c-tile__glow {
+  animation: v2c-glow var(--cyc) ease-out infinite;
+  animation-delay: calc(var(--cd, 0s) + var(--k) * var(--trav) / (var(--n) - 1));
+}
+.v2c-chain[data-live] .v2c-tile--last .v2c-tile__ring {
+  animation: v2c-arrive var(--cyc) ease-out infinite;
+  animation-delay: calc(var(--cd, 0s) + var(--trav));
+}
+@supports (width: 1cqw) {
+  .v2c-chain[data-live] .v2c-chain__pkt {
+    animation: v2c-hop-x var(--cyc) linear infinite;
+    animation-delay: var(--cd, 0s);
+  }
+}
+.v2c-seam__row[data-live] .v2c-tile--last .v2c-tile__ring {
+  animation: v2c-arrive var(--cyc) ease-out infinite;
+  animation-delay: var(--trav);
+}
+
+/* ======================================================================================
+   CASO DATURA CLOTHING
+   ====================================================================================== */
+
+/* ---------- Apertura: riga cliente e numeri di testa ---------- */
+.v2c-hero .v2-phero__extra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.v2c-hero .v2c-client {
+  justify-content: center;
+}
+.v2c-stats {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+.v2c-stats__li {
+  margin: 0;
+  display: flex;
+  animation: v2c-rise 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(0.35s + var(--i, 0) * 0.1s);
+}
+@keyframes v2c-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.v2c-stat {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 24px 48px -30px rgba(0, 0, 0, 0.7);
+}
+.v2c-stat__num {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--v2-num);
+  transform: translateZ(34px);
+  pointer-events: none;
+}
+.v2c-stat__label {
+  margin: 12px 0 0;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--v2-ink);
+  transform: translateZ(18px);
+  pointer-events: none;
+}
+.v2c-stat__basis {
+  margin: auto 0 0;
+  padding-top: 10px;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--v2-ink-3);
+}
+@media (min-width: 768px) {
+  .v2c-stats {
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 16px;
+  }
+  .v2c-stat {
+    padding: 24px 26px 24px;
+  }
+  .v2c-stat__num {
+    font-size: 3.75rem;
+  }
+  .v2c-stats__li:first-child .v2c-stat__num {
+    font-size: 5.25rem;
+  }
+}
+
+/* ---------- Il problema: da quanto restava fermo un guasto ---------- */
+.v2-caso .v2c-sec {
+  padding-top: 0;
+}
+.v2c-prob,
+.v2c-res,
+.v2c-mods {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+@media (min-width: 900px) {
+  .v2c-prob {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+  /* risultati: i numeri 10 e 19 impilati a sinistra, il 100 (con la sua griglia) alto a destra */
+  .v2c-res {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 20px;
+  }
+  .v2c-res > :nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .v2c-res > :nth-child(2) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  .v2c-res > :nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+.v2c-pc,
+.v2c-rc {
+  padding: 22px;
+}
+.v2c-pc__num {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 10px;
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--v2-num);
+}
+.v2c-pc__unit {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--v2-ink);
+}
+.v2c-pc__label {
+  margin: 12px 0 0;
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--v2-ink);
+}
+.v2c-pc__line {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
+.v2c-pc__basis {
+  margin: auto 0 0;
+  padding-top: 12px;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--v2-ink-3);
+}
+.v2c-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 18px 0 0;
+}
+.v2c-days i {
+  position: relative;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: rgba(165, 210, 255, 0.1);
+}
+.v2c-days i::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #57c7e3;
+}
+.v2c-spikes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0 0;
+}
+.v2c-spikes__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.v2c-spikes__v {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--v2-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.v2c-spikes__bar {
+  display: block;
+  width: 100%;
+  max-width: 48px;
+  height: calc(var(--h) * 56px);
+  min-height: 3px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(180deg, #57c7e3, #3c91e6);
+  transform-origin: center bottom;
+}
+.v2c-spikes__l {
+  font-size: 12.5px;
+  line-height: 1;
+  color: var(--v2-ink-3);
+}
+[data-iv="out"] .v2c-spikes__bar {
+  transform: scaleY(0);
+}
+html [data-iv="in"] .v2c-spikes__bar {
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(0.4s + var(--k, 0) * 0.15s);
+}
+
+/* ---------- Il sistema: palco 3D con il negozio e i quattro moduli ---------- */
+.v2c-sys {
+  --v2c-w: 118px;
+  container-type: size;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 4 / 4.7;
+  margin: 0 auto 28px;
+}
+@media (min-width: 720px) {
+  .v2c-sys {
+    --v2c-w: 186px;
+    aspect-ratio: 16 / 8.4;
+  }
+}
+.v2c-sys__plane {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  background-color: #000a14;
+  background-image: radial-gradient(70% 90% at 50% 0%, rgba(60, 145, 230, 0.3), transparent 70%),
+    radial-gradient(50% 60% at 50% 110%, rgba(87, 199, 227, 0.14), transparent 70%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 34px 34px, 34px 34px;
+  box-shadow: 0 28px 44px -34px rgba(0, 10, 20, 0.65);
+  transform-style: preserve-3d;
+  transform: rotateX(calc(4deg + var(--rx, 0deg))) rotateY(var(--ry, 0deg));
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+.v2c-live[data-tilt="on"] .v2c-sys__plane {
+  transition: transform 0.12s linear;
+}
+.v2c-sys__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.v2c-sys__lines line {
+  stroke: rgba(143, 211, 244, 0.38);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 6;
+  stroke-linecap: round;
+}
+.v2c-hub,
+.v2c-node {
+  position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  width: 0;
+  height: 0;
+}
+/* il negozio e i moduli sono ancore di larghezza zero nel centro della tessera: i fili e i pacchetti puntano lì */
+.v2c-hub {
+  --ns: 92px;
+  transform: translateZ(16px);
+}
+.v2c-node {
+  --ns: 72px;
+  transform: translateZ(34px);
+}
+.v2c-hub__tile,
+.v2c-node__tile {
+  --s: var(--ns);
+  position: absolute;
+  left: calc(var(--ns) / -2);
+  top: calc(var(--ns) / -2);
+}
+.v2c-hub__t,
+.v2c-node__t {
+  position: absolute;
+  left: 0;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.v2c-hub__t {
+  top: calc(var(--ns) / 2 + 10px);
+  padding: 3px 10px;
+  border-radius: 8px;
+  background: #02101f;
+  font-family: var(--v2-display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #fff;
+  white-space: nowrap;
+}
+.v2c-node__t {
+  top: calc(var(--ns) / 2 + 10px);
+  width: var(--v2c-w);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #fff;
+  text-wrap: balance;
+}
+/* due anelli attorno al negozio: danno profondità al piano (il secondo gira piano, solo quando il palco è visibile) */
+.v2c-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(143, 211, 244, 0.16);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.v2c-ring--a {
+  width: 34%;
+}
+.v2c-ring--b {
+  width: 58%;
+  border-style: dashed;
+  border-color: rgba(143, 211, 244, 0.12);
+}
+@media (min-width: 720px) {
+  .v2c-ring--a {
+    width: 26%;
+  }
+  .v2c-ring--b {
+    width: 44%;
+  }
+}
+.v2c-live[data-live] .v2c-ring--b {
+  animation: v2c-spin 90s linear infinite;
+}
+@keyframes v2c-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.v2c-hub__ping {
+  position: absolute;
+  top: calc(var(--ns) / -2);
+  left: calc(var(--ns) / -2);
+  width: var(--ns);
+  height: var(--ns);
+  border: 2px solid #8fd3f4;
+  border-radius: calc(var(--ns) * 0.3);
+  opacity: 0;
+}
+@media (min-width: 720px) {
+  .v2c-hub {
+    --ns: 112px;
+  }
+  .v2c-node {
+    --ns: 88px;
+  }
+  .v2c-node__t {
+    font-size: 16px;
+  }
+}
+/* i pacchetti: partono dal modulo, passano dal negozio, arrivano al modulo successivo (tre scatti ravvicinati) */
+.v2c-pkt {
+  position: absolute;
+  left: calc(var(--sx) * 1%);
+  top: calc(var(--sy) * 1%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #bfe6fb;
+  box-shadow: 0 0 12px 3px rgba(87, 199, 227, 0.8);
+  opacity: 0;
+  transform: translate(-50%, -50%) translateZ(22px);
+}
+/* su telefono: un solo pacchetto per tratta e niente anello che gira; lo stesso effetto, meno elementi in movimento */
+@media (max-width: 719px) {
+  .v2c-pkt--x,
+  .v2c-ring--b {
+    display: none;
+  }
+}
+/* le animazioni partono solo quando il palco è montato (data-live) e in pausa quando è fuori schermo */
+@supports (width: 1cqw) {
+  .v2c-live[data-live] .v2c-pkt {
+    animation: v2c-hop 8s linear infinite;
+    animation-delay: var(--d, 0s);
+  }
+}
+/* ogni modulo si accende quando invia (--send) e, con l'anello, quando riceve (--recv); sull'ultimo (il report) l'anello è d'oro */
+.v2c-live[data-live] .v2c-node__tile .v2c-tile__glow {
+  animation: v2c-glow 8s ease-out infinite;
+  animation-delay: var(--send, 0s);
+}
+.v2c-live[data-live] .v2c-node__tile .v2c-tile__ring {
+  animation: v2c-arrive 8s ease-out infinite;
+  animation-delay: var(--recv, 0s);
+}
+.v2c-live[data-live] .v2c-hub__ping {
+  animation: v2c-hubping 8s ease-out infinite;
+}
+@keyframes v2c-hop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0, 0) translateZ(22px);
+  }
+  1% {
+    opacity: 1;
+  }
+  9% {
+    opacity: 1;
+  }
+  10%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(calc(var(--dx) * 1cqw), calc(var(--dy) * 1cqh)) translateZ(22px);
+  }
+}
+@keyframes v2c-hubping {
+  0%,
+  9% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  10% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  17%,
+  34% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  35% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  42%,
+  59% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  60% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  67%,
+  84% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  85% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  92%,
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* ---------- I risultati ---------- */
+.v2c-rc {
+  display: flex;
+  flex-direction: column;
+}
+.v2c-rc__num {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--v2-num);
+}
+.v2c-rc__label {
+  margin: 12px 0 0;
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--v2-ink);
+}
+.v2c-rc__mod {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  color: var(--v2-ink-2);
+}
+.v2c-rc__vis {
+  margin: 20px 0 6px;
+}
+.v2c-rc__line {
+  margin: 14px 0 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+.v2c-dots,
+.v2c-pips {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 6px;
+}
+.v2c-pips {
+  max-width: 420px;
+}
+.v2c-dots {
+  max-width: 520px;
+  gap: 8px;
+}
+.v2c-dots i,
+.v2c-pips i {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(165, 210, 255, 0.1);
+}
+.v2c-pips--check i {
+  border-radius: 7px;
+}
+.v2c-dots i.on::after,
+.v2c-pips i::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #57c7e3;
+}
+.v2c-pips svg {
+  position: absolute;
+  left: 18%;
+  top: 18%;
+  width: 64%;
+  height: 64%;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.v2c-note {
+  max-width: 52rem;
+  margin: 28px 0 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+.v2c-basis {
+  max-width: 52rem;
+  margin-top: 10px;
+}
+
+/* ---------- Cosa fa ogni modulo ---------- */
+@media (min-width: 768px) {
+  .v2c-mods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+.v2c-mod {
+  padding: 24px;
+}
+.v2c-mod__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.v2c-mod__head .v2c-tile {
+  --s: 52px;
+}
+/* con la scheda inclinata dal puntatore, la tessera scivola appena in controluce (come l'icona delle schede del kit) */
+.fx-tilt-on .v2c-mod__head .v2c-tile,
+.fx-tilt-on .v2c-rc__mod .v2c-tile {
+  transform: translate3d(calc(var(--fx-px, 0) * 6px), calc(var(--fx-py, 0) * 6px), 0);
+}
+.v2c-mod__title {
+  margin: 18px 0 0;
+  font-family: var(--v2-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+}
+.v2c-mod__line {
+  margin: 10px 0 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+}
+.v2c-mod__more {
+  margin-top: auto;
+  padding-top: 12px;
+}
+@media (min-width: 768px) {
+  .v2c-mod {
+    padding: 30px;
+  }
+  .v2c-mod__title {
+    font-size: 1.5rem;
+    letter-spacing: -0.005em;
+    word-spacing: 0.05em;
+  }
+}
+
+/* ======================================================================================
+   CASO ALBUM AI: i pezzi dell'album si compongono, la finestra si inclina
+   ====================================================================================== */
+.v2c-hero .v2c-winstage {
+  max-width: 560px;
+  margin-inline: auto;
+}
+.v2c-winstage .v2c-win {
+  transform-style: preserve-3d;
+  transform: rotateX(calc(var(--rx, 0deg) + 3deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+.v2c-winstage[data-tilt="on"] .v2c-win {
+  transition: transform 0.12s linear;
+}
+.v2c-ph {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+/* all'apertura: i pezzi arrivano da fuori posto e si compongono; poi ogni tanto si scostano e tornano */
+.v2c-spread--assemble .v2c-ph {
+  animation: v2c-assemble 0.95s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(0.25s + var(--k, 0) * 0.1s);
+}
+.v2c-live[data-live] .v2c-spread--assemble .v2c-ph {
+  animation: v2c-assemble 0.95s cubic-bezier(0.2, 0.7, 0.2, 1) both, v2c-drift 7s ease-in-out infinite;
+  animation-delay: calc(0.25s + var(--k, 0) * 0.1s), calc(2.6s + var(--k, 0) * 0.12s);
+}
+@keyframes v2c-assemble {
+  from {
+    opacity: 0;
+    transform: translate(var(--tx, 0px), var(--ty, 0px)) rotate(var(--r, 0deg)) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes v2c-drift {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+  66%,
+  80% {
+    opacity: 0.92;
+    transform: translate(calc(var(--tx, 0px) * 0.4), calc(var(--ty, 0px) * 0.4)) rotate(calc(var(--r, 0deg) * 0.4)) scale(0.95);
+  }
+}
+/* nella sezione sotto la piega i pezzi si compongono quando la sezione entra */
+[data-iv="out"] .v2c-spread--rv .v2c-ph {
+  opacity: 0;
+  transform: translate(var(--tx, 0px), var(--ty, 0px)) rotate(var(--r, 0deg)) scale(0.6);
+}
+html [data-iv="in"] .v2c-spread--rv .v2c-ph {
+  transition: opacity 0.7s ease, transform 0.95s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(0.35s + var(--k, 0) * 0.1s);
+}
+html [data-iv="in"] .v2c-flow__arrow {
+  animation: v2c-nudge 1.8s ease-in-out 1.2s infinite;
+}
+@keyframes v2c-nudge {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* ======================================================================================
+   MENO MOVIMENTO: tutto a riposo, tutto visibile
+   ====================================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .v2c-stats__li {
+    animation: none;
+  }
+  .v2c-cu__ch {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .v2c-winstage .v2c-win {
+    transform: none !important;
+    transition: none;
+  }
+  .v2c-card .v2c-card__head,
+  .v2c-card .v2c-card__num,
+  .v2c-card .v2c-card__numlabel,
+  .v2c-card .v2c-card__cta,
+  .v2c-card .v2c-chain,
+  .v2c-stat__num,
+  .v2c-stat__label {
+    transform: none;
+  }
+  .v2c-seam__pkt,
+  .v2c-chain__pkt {
+    display: none;
+  }
+  .v2c-seam__row[data-live] .v2c-tile__glow,
+  .v2c-seam__row[data-live] .v2c-tile--last .v2c-tile__ring,
+  .v2c-chain[data-live] .v2c-tile__glow,
+  .v2c-chain[data-live] .v2c-tile--last .v2c-tile__ring,
+  .v2c-live[data-live] .v2c-seam__slot,
+  .v2c-live[data-live] .v2c-node__tile .v2c-tile__glow,
+  .v2c-live[data-live] .v2c-node__tile .v2c-tile__ring {
+    animation: none;
+  }
+  .v2c-sys__plane {
+    transform: none !important;
+    transition: none;
+  }
+  .v2c-pkt,
+  .v2c-hub__ping {
+    display: none;
+  }
+  .v2c-live[data-live] .v2c-ring--b {
+    animation: none;
+  }
+  .v2c-spread--assemble .v2c-ph,
+  .v2c-live[data-live] .v2c-spread--assemble .v2c-ph,
+  html [data-iv="in"] .v2c-flow__arrow {
+    animation: none;
+  }
+}
+
+/* ---------- Note più chiare (14/10/2026): leggere e leggibili sul blu ---------- */
+.v2-caso .v2c-note {
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(143, 211, 244, 0.09);
+  border: 1px solid rgba(143, 211, 244, 0.24);
+  color: #d3e2f4;
+}
+.v2-caso .v2c-pc__basis,
+.v2-caso .v2c-stat__basis {
+  color: #bcd0e8;
+}
+.v2-caso .v2c-pc__basis {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(143, 211, 244, 0.16);
+}
+
+/* ---------- Segni piatti come la home (14/10/2026) ----------
+   Le tessere estruse in 3D e la finestra che si inclina erano del v2 (bocciato da Arcangelo): qui tornano piatte,
+   vetro azzurro con bordo sottile, come le icone delle schede della home. */
+.v2c-tile {
+  transform-style: flat;
+}
+.v2c-tile__body {
+  color: #8fd3f4;
+  background: rgba(60, 145, 230, 0.16);
+  border: 1px solid rgba(143, 211, 244, 0.28);
+  box-shadow: none;
+}
+.v2c-winstage .v2c-win {
+  transform: none !important;
+  transition: none;
+}
+/* il palco dei moduli: piano frontale in vetro, senza prospettiva né inclinazione */
+.v2c-sys__plane {
+  transform: none !important;
+  transform-style: flat;
+  transition: none;
+  background-color: rgba(40, 80, 140, 0.3);
+  border: 1px solid rgba(165, 210, 255, 0.2);
+  box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.6);
+}
+.v2c-chain .v2c-tile {
+  transform: none;
+}
+
+/* ---------- Album AI: prima e dopo, citazione, schermate, tre pezzi (14/10/2026) ---------- */
+.v2c-ba {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.v2c-ba__card {
+  padding: 28px;
+}
+.v2c-ba__card--new {
+  border-color: rgba(143, 211, 244, 0.42);
+  background: linear-gradient(135deg, rgba(60, 145, 230, 0.3), rgba(14, 40, 78, 0.5));
+}
+.v2c-ba__label {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--v2-ink-3);
+}
+.v2c-ba__fig {
+  margin: 8px 0 18px;
+  font-family: var(--v2-display);
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.05;
+  color: var(--v2-num);
+}
+.v2c-ba__rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.v2c-ba__rows li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-top: 1px solid var(--v2-line);
+  font-size: 16px;
+  color: var(--v2-ink-2);
+}
+.v2c-ba__rows b {
+  font-weight: 600;
+  color: var(--v2-ink);
+  white-space: nowrap;
+}
+.v2c-quote {
+  margin: 28px 0 0;
+  padding: 32px;
+  max-width: 52rem;
+}
+.v2c-quote blockquote {
+  margin: 0;
+}
+.v2c-quote p {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.25;
+  color: var(--v2-ink);
+}
+.v2c-quote figcaption {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--v2-ink-3);
+}
+.v2c-quote figcaption b {
+  color: var(--v2-ink-2);
+  font-weight: 600;
+}
+.v2c-shots {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.v2c-shot {
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--v2-card-line);
+  background: rgba(0, 10, 20, 0.45);
+}
+.v2c-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.v2c-shot figcaption {
+  padding: 14px 18px;
+  font-size: 15px;
+  color: var(--v2-ink-2);
+}
+.v2c-online {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.v2c-online__card {
+  padding: 24px;
+}
+.v2c-online__card h3 {
+  margin: 14px 0 0;
+  font-family: var(--v2-display);
+  font-size: 22px;
+  color: var(--v2-ink);
+}
+.v2c-online__card p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
+.v2c-online__status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--v2-chip-line);
+  background: var(--v2-chip-bg);
+  color: var(--v2-chip-fg);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .v2c-ba,
+  .v2c-shots {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .v2c-online {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Album AI: strumento al lavoro in tre passi, e il sito di Simone (14/10/2026) ---------- */
+.v2c-steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+}
+.v2c-step {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.v2c-step__n {
+  position: absolute;
+  z-index: 2;
+  top: -14px;
+  left: -10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--v2-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: #00121f;
+  background: linear-gradient(120deg, #3c91e6, #57c7e3);
+  box-shadow: 0 8px 20px -8px rgba(60, 145, 230, 0.8);
+}
+.v2c-win2 {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(165, 210, 255, 0.28);
+  background: #1b1b1b;
+  box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(143, 211, 244, 0.06);
+}
+.v2c-win2__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+.v2c-win2__bar span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+}
+.v2c-win2__bar i {
+  margin-left: 8px;
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+.v2c-win2 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.v2c-step__review {
+  flex: 1;
+  min-height: 180px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: #8fd3f4;
+  border: 1px dashed rgba(143, 211, 244, 0.4);
+  background: rgba(60, 145, 230, 0.08);
+}
+.v2c-step figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--v2-ink-2);
+}
+.v2c-step figcaption b {
+  font-family: var(--v2-display);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--v2-ink);
+}
+.v2c-site {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  padding: 28px;
+  margin-top: 28px;
+  border-color: rgba(143, 211, 244, 0.42);
+  background: linear-gradient(135deg, rgba(60, 145, 230, 0.3), rgba(14, 40, 78, 0.5));
+}
+.v2c-site__text h3 {
+  margin: 14px 0 0;
+  font-family: var(--v2-display);
+  font-size: 30px;
+  color: var(--v2-ink);
+}
+.v2c-site__text > p {
+  margin: 10px 0 0;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
+.v2c-site__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 22px;
+}
+.v2c-site__links a {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--v2-chip-line);
+  background: var(--v2-chip-bg);
+  color: var(--v2-chip-fg);
+  font-size: 14px;
+  text-decoration: none;
+}
+.v2c-site__links a:hover {
+  border-color: var(--v2-card-line-hover);
+  color: #fff;
+}
+.v2c-site__note {
+  font-size: 13px !important;
+  color: var(--v2-ink-3) !important;
+}
+.v2c-site__shots {
+  position: relative;
+  min-height: 260px;
+}
+.v2c-site__img {
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(165, 210, 255, 0.28);
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.75);
+}
+.v2c-site__img--desktop {
+  width: 100%;
+  height: auto;
+}
+.v2c-site__img--mobile {
+  position: absolute;
+  right: -6px;
+  bottom: -22px;
+  width: 26%;
+  height: auto;
+  border-radius: 18px;
+  border-width: 2px;
+}
+.v2c-online--two {
+  grid-template-columns: minmax(0, 1fr);
+}
+.v2c-online__status--on {
+  border-color: rgba(126, 224, 166, 0.5);
+  background: rgba(126, 224, 166, 0.12);
+  color: #9ff0bf;
+}
+@media (min-width: 768px) {
+  .v2c-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .v2c-site {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    padding: 36px;
+  }
+  .v2c-online--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.v2c-online__status {
+  align-self: flex-start;
+}
+.v2c-steps {
+  align-items: start;
+}
+
+.v2c-client__logo {
+  display: block;
+  height: 44px;
+  width: auto;
+  max-width: 100%;
+}
+
+/* ---------- Prima e dopo: a destra il risultato, in evidenza (14/10/2026) ---------- */
+.v2c-ba__card--old {
+  opacity: 0.82;
+}
+.v2c-ba__card--old .v2c-ba__fig {
+  color: var(--v2-ink-2);
+  font-size: clamp(28px, 4vw, 40px);
+}
+.v2c-ba__card--new {
+  position: relative;
+  padding: 36px;
+  border-color: rgba(143, 211, 244, 0.6);
+  background: linear-gradient(140deg, rgba(60, 145, 230, 0.42), rgba(14, 40, 78, 0.55));
+  box-shadow: 0 0 0 1px rgba(87, 199, 227, 0.25), 0 40px 90px -40px rgba(60, 145, 230, 0.9);
+}
+.v2c-ba__card--new .v2c-ba__fig {
+  font-size: clamp(38px, 6vw, 68px);
+  color: #8fd3f4;
+}
+.v2c-ba__badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #00121f;
+  background: linear-gradient(120deg, #3c91e6, #57c7e3 60%, #8fd3f4);
+  box-shadow: 0 10px 26px -10px rgba(60, 145, 230, 0.9);
+}
+.v2c-ba__bar {
+  height: 10px;
+  margin: 0 0 18px;
+  border-radius: 999px;
+  background: rgba(165, 210, 255, 0.14);
+  overflow: hidden;
+}
+.v2c-ba__bar i {
+  display: block;
+  height: 100%;
+  width: var(--w, 100%);
+  border-radius: inherit;
+  background: rgba(165, 210, 255, 0.5);
+}
+.v2c-ba__card--new .v2c-ba__bar i {
+  background: linear-gradient(90deg, #3c91e6, #57c7e3);
+  box-shadow: 0 0 14px rgba(87, 199, 227, 0.8);
+}
+.v2c-ba__line {
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--v2-ink);
+}
+.v2c-site__features {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.v2c-site__features li {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--v2-ink-2);
+  background: rgba(143, 211, 244, 0.09);
+  border: 1px solid rgba(143, 211, 244, 0.22);
+}
+@media (min-width: 768px) {
+  .v2c-ba {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: stretch;
+  }
+}
+.v2c-ba__badge {
+  align-self: flex-start;
+}
+.v2c-site__features li {
+  padding: 0 0 0 22px;
+  border: 0;
+  background: none;
+  position: relative;
+  font-size: 15px;
+}
+.v2c-site__features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #57c7e3;
+  font-weight: 700;
+}
+.v2c-site__features {
+  flex-direction: column;
+  gap: 6px;
+}
+.v2c-back--end {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 56px;
+}
+
+/* ---------- «Vuoi vedere altri casi?»: riga leggera, bottone solo contorno (14/10/2026) ---------- */
+.v2c-more-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 56px 20px 88px;
+  border-top: 1px solid rgba(165, 210, 255, 0.12);
+}
+.v2c-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.v2c-more__text {
+  margin: 0;
+  max-width: 34rem;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #a9bdd6;
+}
+.v2c-more__go {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(165, 210, 255, 0.5);
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.v2c-more__go:hover,
+.v2c-more__go:focus-visible {
+  background: rgba(87, 199, 227, 0.14);
+  border-color: #57c7e3;
+  color: #fff;
+  transform: translateY(-2px);
+}
+.v2c-more__go svg {
+  transition: transform 0.3s;
+}
+.v2c-more__go:hover svg {
+  transform: translateX(4px);
+}
+.v2c-scenehead.v2-head--center {
+  max-width: none;
+}
+.v2c-scenehead .v2-head__lead,
+.v2c-scenehead p {
+  max-width: none;
+  text-wrap: nowrap;
+}
+.v2c-scenenote {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: #8ea6c4;
+}
+@media (max-width: 760px) {
+  .v2c-scenehead .v2-head__lead,
+  .v2c-scenehead p {
+    text-wrap: balance;
+  }
+}
+@media (max-width: 767px) {
+  .v2c-site {
+    padding: 22px;
+  }
+  .v2c-site__shots {
+    min-height: 0;
+    padding-bottom: 28px;
+  }
+  .v2c-site__img--mobile {
+    right: 0;
+    bottom: 0;
+    width: 30%;
+  }
+}

@@ -67,7 +67,7 @@ export default function NoShowCalculator({ locale }) {
   const summary = `${t.noShowMonth}: ${nfNum.format(Math.round(noShowsPerMonth))}. ${t.lostMonth}: ${nfEuro.format(Math.round(lostPerMonth))}. ${t.perYear}: ${nfEuro.format(Math.round(lostPerYear))}.`;
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+    <div className="hv3-toolcard p-6 md:p-8">
       <div className="grid gap-5 sm:grid-cols-3">
         <ToolField label={t.appts}>
           <input type="number" min="0" inputMode="numeric" value={apptsPerWeek} onChange={(e) => setApptsPerWeek(e.target.value)} className={inputClass} />

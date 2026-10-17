@@ -1,0 +1,66 @@
+/* Landing Shopify (IT): tabella «cosa fa già Sidekick». Il resto riusa woocommerce.css e i token del v2. */
+.hsp-sheet {
+  display: grid;
+  gap: 10px;
+  max-width: 44em;
+  margin: 40px auto 0;
+  padding: 0;
+  list-style: none;
+}
+.hsp-sheet__head,
+.hsp-sheet__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 16px;
+}
+.hsp-sheet__head {
+  padding: 0 22px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--v2-ink-2);
+}
+.hsp-sheet__row {
+  padding: 16px 22px;
+  color: var(--v2-ink);
+}
+.hsp-sheet__row b {
+  font-family: var(--v2-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--v2-accent);
+}
+.hwc-small a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Verde Shopify come riferimento visivo: solo dove si parla di Shopify e Sidekick; il blu resta Automis. */
+.hsp {
+  --hsp-shopify: #95bf47;
+}
+.hsp .hv3-pill {
+  border-color: color-mix(in srgb, var(--hsp-shopify) 55%, transparent);
+  background: color-mix(in srgb, var(--hsp-shopify) 12%, transparent);
+  color: #d4ecaa;
+}
+.hsp .hv3-pill::before {
+  background: var(--hsp-shopify);
+  box-shadow: 0 0 10px var(--hsp-shopify);
+}
+.hsp .hsp-sheet__head span:first-child {
+  color: var(--hsp-shopify);
+}
+.hsp .hsp-sheet__row {
+  border-left: 3px solid var(--hsp-shopify);
+}
+.hsp .hsp-sheet__row b {
+  color: var(--hsp-shopify);
+}
+.hsp #fuori .v2-tile {
+  color: var(--hsp-shopify);
+  background: color-mix(in srgb, var(--hsp-shopify) 14%, transparent);
+}

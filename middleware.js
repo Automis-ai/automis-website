@@ -15,6 +15,9 @@ const ENGLISH_ROOT_PAGES = new Set([
   "jumpstart-audit",
   "ai-automations",
   "voice-ai",
+  "systems",
+  "ecommerce",
+  "training",
   "consultation",
   "playbook",
   "tools"
@@ -24,7 +27,10 @@ export function middleware(req) {
   const { nextUrl } = req;
   const { pathname, hostname } = nextUrl;
 
-  const isVoiceHost = hostname === VOICE_HOST || DEV_HOSTS.has(hostname);
+  // AUTOMIS_DEV_MAIN=1 in locale fa rispondere localhost come il dominio principale, così /it e /pt
+  // si provano senza preview. Mai impostata su Vercel: lì non cambia niente.
+  const devAsMain = process.env.AUTOMIS_DEV_MAIN === "1";
+  const isVoiceHost = hostname === VOICE_HOST || (DEV_HOSTS.has(hostname) && !devAsMain);
 
   // Ignora asset e API
   if (

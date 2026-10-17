@@ -45,7 +45,7 @@ export const CASES = [
     pt: {
       industry: "Clínica dentária",
       location: "Lisboa, Portugal",
-      tag: "Assistente de voz IA",
+      tag: "Rececionista de voz IA",
       summary:
         "872 chamadas em sete meses, 527 resolvidas sem passar pela receção e 114 marcações. O que mudou mês a mês, desde que a clínica passou a confiar.",
       headline: "7 meses ao telefone de uma clínica dentária",
@@ -57,34 +57,34 @@ export const CASES = [
     slug: "adifesa",
     client: "Associazione ADifesa",
     shortClient: "ADifesa",
-    industry: "Consumer-protection association",
+    industry: "Banking and financial protection association",
     location: "Lissone, Italy",
     tag: "Meta automation",
     logo: "/assets/images/client-logos/adifesa.png",
     // Written case study with production figures: rendered by AdifesaStory, not the template.
     longForm: true,
     summary:
-      "2,329 conversations across Facebook and Instagram comments and DMs in five months, and 524 complete records. Three in ten of those become clients, according to the association.",
-    headline: "Five months in the comments on Facebook and Instagram",
+      "2,329 conversations across Facebook and Instagram comments and DMs from 1 May to 16 September 2026, and 524 complete records. Three in ten of those become clients, according to the association.",
+    headline: "Comments and messages on Facebook and Instagram",
     metaDescription:
       "2,329 conversations and 524 complete records, 3 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
     it: {
-      industry: "Associazione di tutela",
+      industry: "Associazione di tutela bancaria e finanziaria",
       location: "Lissone, Italia",
       tag: "Automazione Meta",
       summary:
-        "2.329 conversazioni fra commenti e messaggi su Facebook e Instagram in cinque mesi, e 524 schede complete. Di quelle, secondo l'associazione, 3 su 10 diventano clienti.",
-      headline: "Cinque mesi nei commenti di Facebook e Instagram",
+        "2.329 conversazioni fra commenti e messaggi su Facebook e Instagram dal 1° maggio al 16 settembre 2026, e 524 schede complete. Di quelle, secondo l'associazione, 3 su 10 diventano clienti.",
+      headline: "Commenti e messaggi su Facebook e Instagram",
       metaDescription:
         "2.329 conversazioni e 524 schede complete, di cui 3 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
     },
     pt: {
-      industry: "Associação de defesa do consumidor",
+      industry: "Associação de tutela bancária e financeira",
       location: "Lissone, Itália",
       tag: "Automação Meta",
       summary:
-        "2.329 conversas entre comentários e mensagens no Facebook e no Instagram em cinco meses, e 524 fichas completas. Dessas, segundo a associação, 3 em cada 10 tornam-se clientes.",
-      headline: "Cinco meses nos comentários do Facebook e do Instagram",
+        "2.329 conversas entre comentários e mensagens no Facebook e no Instagram, de 1 de maio a 16 de setembro de 2026, e 524 fichas completas. Dessas, segundo a associação, 3 em cada 10 tornam-se clientes.",
+      headline: "Comentários e mensagens no Facebook e no Instagram",
       metaDescription:
         "2.329 conversas e 524 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
     },

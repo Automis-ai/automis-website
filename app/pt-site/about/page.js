@@ -1,9 +1,5 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
-import AboutHero from "@/components/about/AboutHero";
-import AboutBeliefs from "@/components/about/AboutBeliefs";
-import AboutProcess from "@/components/about/AboutProcess";
-import AboutFounders from "@/components/about/AboutFounders";
-import FinalCta from "@/components/home/FinalCta";
+import AboutView from "@/components/v2/about/AboutView";
 
 export const metadata = {
   title: "Sobre nós | Automis, agência de automação de IA",
@@ -29,7 +25,7 @@ export const metadata = {
   openGraph: {
     title: "Sobre nós | Automis, envolvidos em cada projeto de IA",
     description:
-      "Um integrador estratégico de IA liderado pelos fundadores. Desenhamos, construímos e lançamos os sistemas de IA que faltam ao seu negócio, e você possui o que entregamos.",
+      "Um integrador estratégico de IA liderado pelos fundadores. Desenhamos, construímos e lançamos os sistemas de IA que faltam ao seu negócio, e fica sua a propriedade do que entregamos.",
     url: "https://automis.ai/pt/about",
     siteName: "Automis",
     locale: "pt_PT",
@@ -52,14 +48,10 @@ export const metadata = {
   },
 };
 
-export default function AboutPage() {
+export default function AboutPage({ searchParams }) {
   return (
     <AutomisEnShell>
-      <AboutHero />
-      <AboutBeliefs />
-      <AboutProcess />
-      <AboutFounders />
-      <FinalCta />
+      <AboutView lang="pt" tono={searchParams?.tono} />
     </AutomisEnShell>
   );
 }

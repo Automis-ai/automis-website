@@ -28,6 +28,9 @@ const CTAButton = ({
 
     tertiary: "!bg-gradient-to-r !from-[#3C91E6] !to-[#B4C2FF] !text-white hover:!from-[#FEC458] hover:!to-[#FEC458]/90 hover:!text-blue-darkest hover:!shadow-lg !border-2 !border-transparent hover:!scale-105",
 
+    // Sito v2: testo scuro #00121f su #3C91E6 -> #8FD3F4 (5,8:1 nel punto più scuro). Niente lavanda.
+    v2: "!bg-gradient-to-r !from-[#3C91E6] !via-[#57C7E3] !to-[#8FD3F4] !text-[#00121f] hover:!from-yellow-light hover:!via-yellow-light hover:!to-yellow-light/90 hover:!text-blue-darkest hover:!shadow-lg hover:!shadow-[#FEC458]/20 !border-2 !border-transparent hover:!scale-105",
+
     ghost: "!bg-transparent !text-[#FEC458] !border-2 !border-[#FEC458]/50 hover:!bg-[#FEC458] hover:!border-[#FEC458] hover:!text-blue-darkest hover:!scale-105",
 
     white: "!bg-white !text-[#000a14] hover:!bg-[#FEC458] hover:!text-blue-darkest hover:!shadow-lg hover:!shadow-[#FEC458]/10 !border-2 !border-transparent hover:!scale-105"
@@ -78,6 +81,12 @@ const CTAButton = ({
         return {
           backgroundImage: 'linear-gradient(to right, #3C91E6, #B4C2FF)',
           color: 'white',
+          border: 'none'
+        };
+      case 'v2':
+        return {
+          backgroundImage: 'linear-gradient(120deg, #3C91E6 0%, #57C7E3 60%, #8FD3F4 100%)',
+          color: '#00121f',
           border: 'none'
         };
       case 'ghost':
@@ -161,4 +170,4 @@ const CTAButton = ({
   );
 };
 
-export default CTAButton;
+export default CTAButton;

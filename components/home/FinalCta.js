@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { Reveal, GRAD, GradientText } from "./_ui";
 import { Check, Loader2 } from "lucide-react";
+import "@/components/home-v3/home-v3.css";
 
 const BOOKING = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
@@ -73,8 +74,11 @@ const COPY = {
   },
 };
 
-export default function FinalCta() {
+// v3: stessa chiusura di sempre (pitch a sinistra, calendario a destra) nei colori della home v3.
+export default function FinalCta({ v3: v3Prop = false }) {
   const locale = usePathname()?.startsWith("/pt") ? "pt" : usePathname()?.startsWith("/it") ? "it" : "en";
+  // Chiusura v3 in tutte le lingue (come l'IT), anche dove la pagina non passa v3
+  const v3 = true;
   const t = COPY[locale];
   const booking = locale === "it" ? "https://api.leadconnectorhq.com/widget/bookings/automis-it" : locale === "pt" ? "https://api.leadconnectorhq.com/widget/bookings/pt-automis" : BOOKING;
   const holderRef = useRef(null);
@@ -98,10 +102,10 @@ export default function FinalCta() {
   }, []);
 
   return (
-    <section id="book" className="relative overflow-hidden bg-[#020a12] py-16 md:py-24">
+    <section id="book" className={`relative overflow-hidden py-16 md:py-24 ${v3 ? "hv3 hv3-tone hv3-call" : "bg-[#020a12]"}`}>
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 opacity-50 blur-3xl"
+          className="absolute left-1/2 top-[160px] h-[420px] w-[820px] -translate-x-1/2 opacity-50 blur-3xl"
           style={{ background: "radial-gradient(50% 50% at 50% 0%, rgba(60,145,230,0.28), transparent 70%)" }}
         />
       </div>
@@ -111,7 +115,7 @@ export default function FinalCta() {
           {/* Left: pitch */}
           <Reveal>
             <div>
-              <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#57C7E3]">{t.eyebrow}</span>
+              <span className={`text-[12px] font-semibold uppercase tracking-[0.16em] ${v3 ? "hv3-call__eyebrow" : "text-[#57C7E3]"}`}>{t.eyebrow}</span>
               <h2 className="font-display mt-4 text-[2.1rem] font-bold leading-[1.1] tracking-[-0.02em] text-white sm:text-[2.7rem]">
                 {t.h2Pre}<GradientText>{t.h2Grad}</GradientText>{t.h2Post}
               </h2>
@@ -121,8 +125,8 @@ export default function FinalCta() {
               <ul className="mt-7 space-y-3">
                 {t.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-[15px] text-white/80">
-                    <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full" style={{ background: GRAD }}>
-                      <Check className="h-3 w-3 text-[#04101c]" strokeWidth={3} />
+                    <span className={`mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full${v3 ? " hv3-call__tick" : ""}`} style={v3 ? undefined : { background: GRAD }}>
+                      <Check className={`h-3 w-3 ${v3 ? "" : "text-[#04101c]"}`} strokeWidth={3} />
                     </span>
                     {b}
                   </li>
@@ -144,17 +148,17 @@ export default function FinalCta() {
           <Reveal delay={100}>
             <div
               ref={holderRef}
-              className="relative rounded-2xl border border-white/[0.1] bg-white/[0.02] p-2 shadow-2xl"
+              className={`relative rounded-2xl p-2 shadow-2xl ${v3 ? "hv3-call__card" : "border border-white/[0.1] bg-white/[0.02]"}`}
             >
               {/* dark header so the (unavoidably light) calendar reads as an intentional inset */}
               <div className="flex items-center justify-between px-3 pb-2 pt-1.5">
                 <span className="flex items-center gap-2 text-[13px] font-semibold text-white/85">
-                  <span className="h-2 w-2 rounded-full" style={{ background: GRAD, boxShadow: "0 0 8px rgba(87,199,227,0.8)" }} />
+                  <span className={`h-2 w-2 rounded-full${v3 ? " hv3-call__dot" : ""}`} style={v3 ? undefined : { background: GRAD, boxShadow: "0 0 8px rgba(87,199,227,0.8)" }} />
                   {t.availability}
                 </span>
                 <span className="text-[12px] text-white/50">{t.instantConfirmation}</span>
               </div>
-              <div className="relative w-full overflow-hidden rounded-xl bg-white" style={{ minHeight: 760 }}>
+              <div className={`relative w-full overflow-hidden rounded-xl ${v3 ? "hv3-call__frame" : "bg-white"}`} style={{ minHeight: 760 }}>
                 {/* skeleton */}
                 {!loaded && (
                   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-[#0b1622]">
@@ -175,7 +179,7 @@ export default function FinalCta() {
                   />
                 )}
               </div>
-              <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-2 py-2 text-[12px] text-white/60">
+              <div className={`mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-2 py-2 text-[12px] text-white/60${v3 ? " hv3-call__proof" : ""}`}>
                 <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.guarantee}</span>
                 <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.gdpr}</span>
                 <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#57C7E3]" strokeWidth={2.4} /> {t.noObligation}</span>

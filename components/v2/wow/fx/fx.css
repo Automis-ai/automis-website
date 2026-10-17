@@ -1,0 +1,353 @@
+/* Effetti del kit v2 (components/v2/wow/fx). Si anima solo transform e opacity.
+   Tutto è spento con prefers-reduced-motion (anche da JavaScript: gli effetti non partono).
+   Il testo non dipende da questi stili: senza JavaScript la pagina è già nel suo stato finale. */
+
+/* ---------- Tilt3D: inclinazione al puntatore, con riflesso ---------- */
+.fx-tilt-on {
+  will-change: transform;
+}
+/* Il riflesso: un ritaglio (arrotondato come la scheda) con dentro un alone che si sposta con transform. */
+.fx-glare {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+}
+.fx-glare i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 680px;
+  height: 680px;
+  margin: -340px 0 0 -340px;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.15) 0%, transparent 38%),
+    radial-gradient(closest-side, var(--v2-glow, rgba(60, 145, 230, 0.2)), transparent 100%);
+  will-change: transform;
+}
+.fx-tilt-on .v2-tile {
+  transform: translate3d(calc(var(--fx-px, 0) * 5px), calc(var(--fx-py, 0) * 5px), 0);
+}
+
+/* ---------- CursorGlow: alone che segue il puntatore sulle fasce scure ---------- */
+.v2-fx-glowbox {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.v2-fx-glow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 640px;
+  height: 640px;
+  margin: -320px 0 0 -320px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(87, 199, 227, 0.16), rgba(60, 145, 230, 0.07) 48%, transparent 74%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: transform, opacity;
+}
+.v2-fx-glowbox.is-on .v2-fx-glow {
+  opacity: 1;
+}
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .v2-fx-glowbox {
+    display: none;
+  }
+}
+
+/* ---------- Titoli a parole e numeri che salgono ---------- */
+.fx-w {
+  will-change: transform, opacity;
+}
+[data-fx="count"] {
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* ---------- Header: voci del menù con sottolineatura che scorre ---------- */
+.v2-fx-navlink {
+  position: relative;
+}
+.v2-fx-navlink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #3c91e6, #57c7e3);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .v2-fx-navlink:hover::after,
+  .v2-fx-navlink:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
+.v2-fx-navlink[aria-current="page"]::after {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2-fx-navlink::after {
+    transition: none;
+  }
+}
+
+/* ---------- Piede: voci che scorrono appena, icone social che si alzano ---------- */
+.v2-fx-flink {
+  transition: color 0.2s ease, transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) !important;
+}
+@media (hover: hover) {
+  .v2-fx-flink:hover {
+    transform: translateX(5px);
+  }
+  .main-footer .social-style-one a {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease, color 0.25s ease;
+  }
+  .main-footer .social-style-one a:hover {
+    transform: translateY(-4px) scale(1.08);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2-fx-flink,
+  .main-footer .social-style-one a {
+    transition: none !important;
+  }
+  .v2-fx-flink:hover,
+  .main-footer .social-style-one a:hover {
+    transform: none;
+  }
+}
+
+/* ---------- PageScene: la rete 3D dietro le PageHero compatte ---------- */
+.v2-pscene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.v2-pscene__canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.v2-pscene.is-on .v2-pscene__canvas {
+  opacity: 1;
+}
+.v2-pscene__still {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* l'immagine ferma non si deforma e non si ritaglia: sta in basso, dove c'è il filo della rete */
+  object-fit: contain;
+  object-position: 50% 100%;
+}
+
+/* ---------- PageTransition: persiane che coprono e scoprono lo schermo fra una pagina e l'altra ----------
+   L'overlay vive nel body solo durante la transizione. Si anima solo transform e opacity. Le cinque persiane scendono e coprono, poi
+   continuano a scendere e scoprono la pagina nuova dall'alto (prima la hero scura, mai una striscia chiara in basso).
+   Durate e sfalsamenti sono variabili scritte da PageTransition.js (più corte sul telefono). */
+.v2-pt {
+  --cover: 260ms;
+  --reveal: 320ms;
+  --in-stag: 18ms;
+  --out-stag: 6ms; /* quasi nulla: se le colonne si scoprissero sfalsate, il corpo chiaro in basso spunterebbe a cuneo prima del resto */
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  overflow: hidden;
+  pointer-events: none;
+}
+.v2-pt__slab {
+  position: relative;
+  flex: 1 1 0;
+  background: linear-gradient(180deg, #0a2647 0%, #02122a 55%, #000a14 100%);
+  transform: translate3d(0, -101%, 0);
+  will-change: transform;
+}
+/* il filo di luce fra una persiana e l'altra: i nodi della rete visti di profilo */
+.v2-pt__slab::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(143, 211, 244, 0), rgba(143, 211, 244, 0.5) 50%, rgba(143, 211, 244, 0));
+}
+/* il bordo di luce: sul lato basso mentre la persiana scende a coprire, su quello alto mentre scopre */
+.v2-pt__slab::before,
+.v2-pt__slab > b {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(87, 199, 227, 0), #8fe0f0 30%, #57c7e3 70%, rgba(87, 199, 227, 0));
+  box-shadow: 0 0 18px 2px rgba(87, 199, 227, 0.55);
+}
+.v2-pt__slab::before {
+  top: -1px;
+}
+.v2-pt__slab > b {
+  bottom: -1px;
+}
+.v2-pt.is-in .v2-pt__slab {
+  transform: translate3d(0, 0, 0);
+  transition: transform var(--cover) cubic-bezier(0.7, 0, 0.25, 1);
+  transition-delay: calc(var(--i) * var(--in-stag));
+}
+.v2-pt.is-out .v2-pt__slab {
+  transform: translate3d(0, 101%, 0);
+  transition: transform var(--reveal) cubic-bezier(0.7, 0, 0.25, 1);
+  transition-delay: calc(var(--i) * var(--out-stag));
+}
+/* il filo che attraversa le persiane, a metà schermo, e il modulo di vetro che lo percorre (lo stesso motivo della hero) */
+.v2-pt__wire {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(143, 211, 244, 0), rgba(143, 211, 244, 0.55) 22%, rgba(143, 211, 244, 0.55) 78%, rgba(143, 211, 244, 0));
+  opacity: 0;
+}
+.v2-pt.is-in .v2-pt__wire {
+  opacity: 1;
+  transition: opacity 0.2s ease 0.08s;
+}
+.v2-pt.is-out .v2-pt__wire {
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.v2-pt__mod {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  transform: translate3d(-62vw, 0, 0);
+  will-change: transform;
+}
+.v2-pt.is-in .v2-pt__mod {
+  transform: translate3d(0, 0, 0);
+  transition: transform calc(var(--cover) + 60ms) cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+.v2-pt.is-out .v2-pt__mod {
+  transform: translate3d(62vw, 0, 0);
+  transition: transform var(--reveal) cubic-bezier(0.6, 0, 0.8, 0.4);
+}
+.v2-pt__modbody {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  color: #d6f1ff;
+  background: linear-gradient(150deg, rgba(150, 205, 255, 0.34) 0%, rgba(70, 130, 210, 0.16) 42%, rgba(20, 50, 100, 0.42) 100%), #071a2f;
+  border: 1px solid rgba(175, 220, 255, 0.42);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -8px 14px -6px rgba(0, 16, 48, 0.7), 1px 1px 0 #0a3359, 2px 2px 0 #082c4e,
+    3px 3px 0 #06223c, 0 0 38px 4px rgba(87, 199, 227, 0.4);
+}
+.v2-pt__modbody svg {
+  filter: drop-shadow(0 0 6px rgba(87, 199, 227, 0.7));
+}
+/* Telefono: niente persiane. Un filo di luce in alto dà riscontro al tocco (si allunga mentre la pagina arriva) e si chiude all'arrivo. */
+.v2-ptl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  height: 3px;
+  background: linear-gradient(90deg, #3c91e6, #57c7e3 60%, #8fe0f0);
+  box-shadow: 0 0 12px rgba(87, 199, 227, 0.8);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+.v2-ptl.is-run {
+  transform: scaleX(0.82);
+  transition: transform 1.8s cubic-bezier(0.1, 0.7, 0.2, 1);
+}
+.v2-ptl.is-done {
+  transform: scaleX(1);
+  opacity: 0;
+  transition: transform 0.18s ease-out, opacity 0.3s ease 0.12s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2-pt,
+  .v2-ptl {
+    display: none;
+  }
+}
+
+/* ---------- Header: skip link e selettore di lingua ---------- */
+.v2-skip {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100001;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #fff;
+  color: #000a14 !important;
+  font-family: "General Sans", system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.v2-skip:focus,
+.v2-skip:focus-visible {
+  transform: none;
+  outline: 3px solid #3c91e6 !important;
+  outline-offset: 2px !important;
+}
+/* Selettore di lingua (components/LanguageSwitcher): contrasti sul vetro dell'header.
+   EN e PT passano dall'80% al 92% di bianco; la lingua attiva ha un azzurro più chiaro con testo scuro (7,4 : 1). */
+.v2-lang a:not([aria-current="true"]) {
+  color: rgba(255, 255, 255, 0.92);
+}
+.v2-lang a[aria-current="true"] {
+  background: #5aa9f0;
+  color: #00121f;
+}
+
+/* ---------- Bottone fisso su telefono (layouts/AkpagerLayout): bagliore solo blu ----------
+   L'oro sta nella banda finale e nel bottone «gold» della CtaBand: una volta per sezione, non su ogni schermata. */
+.mobile-sticky-glow > .animate-pulse-glow {
+  background-image: linear-gradient(to right, #3c91e6, #57c7e3, #8fd3f4);
+}
+
+/* ---------- Numeri che si compongono (scrollFx.countUp) ----------
+   Il valore vero è sempre nel DOM; a entrata preparata ogni carattere è una tessera. L'animazione la fa gsap (transform e opacità). */
+.v2fx-cu {
+  display: inline;
+}
+.v2fx-cu__ch {
+  display: inline-block;
+  white-space: pre;
+  will-change: transform, opacity;
+}

@@ -1,0 +1,201 @@
+/* Componenti locali di Chi siamo e Come lavoriamo (prefisso v2a-).
+   Colori sempre dalle variabili --v2-* che imposta <Section>: la stessa scheda va su fondo chiaro e su fondo scuro. */
+
+.v2a-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.v2a-list > li {
+  margin: 0;
+}
+
+/* ---------- Fondatori ---------- */
+.v2a-founder {
+  gap: 16px;
+  padding: 20px;
+}
+.v2a-founder__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.v2a-founder__photo {
+  flex: none;
+  width: 88px;
+  height: 88px;
+  border: 1px solid var(--v2-card-line);
+  border-radius: 50%;
+  background: var(--v2-tile-bg);
+  object-fit: cover;
+  object-position: center 18%;
+}
+.v2a-founder__name {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+}
+.v2-section .v2a-founder__role {
+  margin: 4px 0 0;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--v2-accent);
+}
+.v2a-founder__line {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--v2-ink-2);
+}
+.v2a-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  width: 44px;
+  height: 44px;
+  margin-top: auto;
+  border: 1px solid var(--v2-card-line);
+  border-radius: 50%;
+  color: var(--v2-ink-2);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+@media (hover: hover) {
+  .v2a-social:hover {
+    border-color: var(--v2-accent);
+    color: var(--v2-accent);
+  }
+}
+@media (min-width: 768px) {
+  .v2a-founder {
+    padding: 28px;
+  }
+  .v2a-founder__photo {
+    width: 104px;
+    height: 104px;
+  }
+  .v2a-founder__name {
+    font-size: 1.25rem;
+  }
+}
+
+/* ---------- Principi ---------- */
+/* Tra 640 e 1023 la griglia del kit ha 2 colonne: la terza scheda non resta sola a metà riga, prende tutta la larghezza. */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .v2a-principles > li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+.v2a-principle {
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px;
+}
+.v2a-principle__title {
+  margin: 4px 0 0;
+  font-family: var(--v2-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+}
+.v2a-principle__line {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--v2-ink-2);
+  text-wrap: pretty;
+}
+.v2a-principle .v2-disc {
+  margin-top: auto;
+}
+@media (min-width: 768px) {
+  .v2a-principle {
+    padding: 24px;
+  }
+  .v2a-principle__title {
+    font-size: 1.25rem;
+  }
+}
+
+/* ---------- Garanzia ---------- */
+.v2-card.v2a-guarantee {
+  display: grid;
+  gap: 20px;
+  padding: 24px 20px;
+  align-items: center;
+}
+.v2a-guarantee__num {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--v2-accent);
+  font-family: var(--v2-display);
+}
+.v2a-guarantee__n {
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+.v2a-guarantee__unit {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.v2a-guarantee__title {
+  margin: 0;
+  font-family: var(--v2-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
+  color: var(--v2-ink);
+}
+.v2a-guarantee__line {
+  margin: 8px 0 0;
+  max-width: 40rem;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--v2-ink-2);
+}
+@media (min-width: 768px) {
+  .v2-card.v2a-guarantee {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 40px;
+    padding: 36px 40px;
+  }
+  .v2a-guarantee__num {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 132px;
+    padding-right: 40px;
+    border-right: 1px solid var(--v2-line);
+  }
+  .v2a-guarantee__n {
+    font-size: 6rem;
+  }
+  .v2a-guarantee__title {
+    font-size: 1.75rem;
+    letter-spacing: -0.005em;
+    word-spacing: 0.05em;
+  }
+  .v2a-guarantee__line {
+    font-size: 17px;
+  }
+}
+
+.v2a-principle__title,
+.v2a-founder__name {
+  text-wrap: balance;
+}

@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // scripts/verify.sh compila in .next-verify per non pestare un `next dev` acceso. Su Vercel non è impostata.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   async redirects() {
     // Pages retired in the 2026-07 site rollout — keep old links alive.
     return [
@@ -68,6 +70,18 @@ const nextConfig = {
       {
         source: "/en/try/:path*",
         destination: "https://automis-try-en-automis-team.vercel.app/en/try/:path*",
+      },
+      // Le due landing e-commerce (solo in italiano) sono file statici in public/ecommerce-static,
+      // portati dal v2 così come sono. Il percorso pubblico resta /it/ecommerce/<piattaforma>.
+      {
+        // La Shopify nuova è una rotta del sito (app/it/ecommerce/shopify). Qui resta la versione statica di prima.
+        source: "/it/ecommerce/shopify-prima",
+        destination: "/ecommerce-static/shopify/index.html",
+      },
+      {
+        // La WooCommerce nuova è una rotta del sito (app/it/ecommerce/woocommerce). Qui resta la versione statica di prima.
+        source: "/it/ecommerce/woocommerce-prima",
+        destination: "/ecommerce-static/woocommerce/index.html",
       },
     ];
   },

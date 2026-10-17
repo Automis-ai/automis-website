@@ -58,7 +58,7 @@ export default function CaseStudyDetail({ slug, locale = "en" }) {
     const Storia = storiaLongForm(slug);
     if (Storia) {
       return (
-        <AutomisEnShell>
+        <AutomisEnShell main>
           <Storia locale={locale} />
         </AutomisEnShell>
       );
@@ -73,7 +73,7 @@ export default function CaseStudyDetail({ slug, locale = "en" }) {
       : "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
 
   return (
-    <AutomisEnShell>
+    <AutomisEnShell main>
       {/* Header */}
       <Section className="relative overflow-hidden bg-[#000a14] pt-24 md:pt-28" pad="pb-14 sm:pb-16">
         <div className="pointer-events-none absolute inset-0">

@@ -1,0 +1,200 @@
+/* Indice del blog nello stile v3 (15/10/2026): stessa hero, stesse schede in vetro e stessa sfumatura della home v3.
+   Solo presentazione: URL, meta, JSON-LD e testi degli articoli non passano di qui. */
+
+.hv3-blog {
+  padding-block: 120px 200px;
+}
+.hv3-blog__in {
+  width: min(1180px, 100% - 40px);
+  margin-inline: auto;
+}
+
+/* Riga «Disponibile anche in …» (server component fuori da BlogIndex, vedi BlogLanguageLinks) */
+.hv3-blog-langs {
+  background: var(--hv3-bg-2);
+  padding: 0 16px 8px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--hv3-ink-3);
+}
+.hv3-blog-langs a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.hv3-blog-langs a:hover {
+  color: var(--hv3-accent);
+}
+
+/* Filtro per argomento */
+.hv3-bchips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 56px;
+}
+.hv3-bchip {
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--hv3-line);
+  background: rgba(60, 145, 230, 0.1);
+  color: var(--hv3-ink-2);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.25s, border-color 0.25s, background 0.25s;
+}
+.hv3-bchip:hover {
+  color: #fff;
+  border-color: rgba(87, 199, 227, 0.55);
+}
+.hv3-bchip.is-on {
+  color: #04101c;
+  background: linear-gradient(100deg, #3c91e6, #57c7e3);
+  border-color: transparent;
+}
+
+/* Sezioni per argomento */
+.hv3-bsec + .hv3-bsec {
+  margin-top: 72px;
+}
+.hv3-bsec__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--hv3-line);
+}
+.hv3-bsec__head h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.hv3-bsec__all {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--hv3-accent);
+  white-space: nowrap;
+}
+.hv3-bsec__all:hover {
+  color: #fff;
+}
+.hv3-bgrid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 960px) {
+  .hv3-bgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  .hv3-blog {
+    padding-block: 80px 160px;
+  }
+  .hv3-bgrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hv3-bchips {
+    margin-bottom: 40px;
+  }
+}
+
+/* Scheda articolo */
+.hv3-bcard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--hv3-card);
+  border: 1px solid var(--hv3-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+  color: #fff;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.hv3-bcard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(87, 199, 227, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 30px 60px -26px rgba(60, 145, 230, 0.7);
+}
+.hv3-bcard__img {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: rgba(0, 10, 20, 0.5);
+}
+.hv3-bcard__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+.hv3-bcard:hover .hv3-bcard__img img {
+  transform: scale(1.04);
+}
+.hv3-bcard__body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 22px;
+}
+.hv3-bcard__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--hv3-ink-3);
+}
+.hv3-bcard__cat {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(143, 211, 244, 0.25);
+  background: rgba(60, 145, 230, 0.16);
+  color: #a9d4ff;
+  font-weight: 500;
+}
+.hv3-bcard h2 {
+  margin: 14px 0 0;
+  font-size: 21px;
+  line-height: 1.22;
+  letter-spacing: -0.005em;
+  color: #fff;
+  text-wrap: balance;
+}
+.hv3-bcard__desc {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--hv3-ink-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hv3-bcard__go {
+  margin-top: auto;
+  padding-top: 18px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--hv3-accent);
+  transition: color 0.25s;
+}
+.hv3-bcard:hover .hv3-bcard__go {
+  color: #fff;
+}
+.hv3-blog__empty {
+  text-align: center;
+  padding-block: 48px;
+  color: var(--hv3-ink-3);
+}

@@ -11,7 +11,7 @@ const COPY = {
     faqs: [
       {
         q: "How fast can we go live?",
-        a: "Voice agents and simple automations are typically live in about 7 days. Complex, multi-pillar systems run on a custom timeline, and we scope it precisely in the discovery call before anything starts.",
+        a: "Most systems go live in 2-4 weeks: about 2 for the simpler ones, about 4 for a custom CRM or a larger build. We scope the timeline precisely in the discovery call before anything starts.",
       },
       {
         q: "How much does it cost?",
@@ -41,7 +41,7 @@ const COPY = {
     faqs: [
       {
         q: "In quanto tempo si parte?",
-        a: "Gli assistenti vocali IA e le automazioni semplici vanno di solito online in circa 7 giorni. I sistemi complessi e multi-pilastro hanno tempistiche su misura, che definiamo con precisione nella discovery call prima di partire.",
+        a: "La maggior parte dei sistemi va online in 2-4 settimane: circa 2 per i più semplici, circa 4 per un CRM su misura o un progetto più ampio. I tempi li definiamo con precisione nella discovery call prima di partire.",
       },
       {
         q: "Quanto costa?",
@@ -71,7 +71,7 @@ const COPY = {
     faqs: [
       {
         q: "Em quanto tempo entramos em produção?",
-        a: "Os assistentes de voz e as automações simples ficam normalmente ativos em cerca de 7 dias. Os sistemas complexos e multi-pilar seguem um calendário à medida, que definimos com precisão na chamada de descoberta antes de arrancar.",
+        a: "A maioria dos sistemas fica ativa em 2 a 4 semanas: cerca de 2 para os mais simples, cerca de 4 para um CRM à medida ou um projeto mais amplo. Definimos o prazo com precisão na chamada de descoberta antes de arrancar.",
       },
       {
         q: "Quanto custa?",
