@@ -126,7 +126,7 @@ const Instructions = () => (
       <div className={CARD}>
         <ol className="body-text text-white/90 space-y-3">
           <Step n={1}>Open Facebook, go to Settings and privacy, then Settings, then Apps and websites.</Step>
-          <Step n={2}>Find "Automis" and choose Remove.</Step>
+          <Step n={2}>Find "Automis Social" and choose Remove.</Step>
           <Step n={3}>Choose the option to also send Automis a data deletion request.</Step>
           <Step n={4}>Meta sends us the request. We delete the data linked to your Meta ID and show you a confirmation code.</Step>
         </ol>
