@@ -314,7 +314,7 @@ const PrivacyPolicy = () => {
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Withdraw consent:</span> withdraw your consent at any time, without affecting the lawfulness of processing prior to withdrawal.</span></li>
                   </ul>
                   <p className="body-text text-white/90 mb-4">
-                    To exercise your rights, contact us at: support@automis.ai. We will respond within 30 days.
+                    To exercise your rights, contact us at: support@automis.ai. We will respond within 30 days. To delete your data from the Automis app, see our <Link href="/data-deletion">data deletion page</Link>.
                   </p>
                   <p className="body-text text-white/90">
                     You also have the right to lodge a complaint with the competent supervisory authority (<Link href="https://www.aki.ee/en" target="_blank" rel="noopener noreferrer">Estonian Data Protection Inspectorate</Link> or the authority of your country of residence).
