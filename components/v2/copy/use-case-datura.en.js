@@ -6,7 +6,7 @@ export default {
   meta: {
     title: "Datura Clothing: 10 Faults Found in 28 Days | Automis",
     description:
-      "Site monitoring, Meta campaigns, creatives and a monthly report for an online clothing store: 10 distinct faults found in 28 days, 100 ads created in 6 weeks.",
+      "An AI watches a WooCommerce store day and night and improves its Meta ads: 10 faults found in 28 days, 100 ads created in 6 weeks.",
   },
 
   hero: {

@@ -6,7 +6,7 @@ export default {
   meta: {
     title: "Datura Clothing: 10 falhas encontradas em 28 dias | Automis",
     description:
-      "Vigilância do site, campanhas Meta, criativos e relatório mensal para uma loja online de vestuário: 10 falhas distintas encontradas em 28 dias, 100 anúncios criados em 6 semanas.",
+      "Uma IA vigia a loja WooCommerce dia e noite e melhora os anúncios Meta: 10 falhas encontradas em 28 dias, 100 anúncios criados em 6 semanas.",
   },
 
   hero: {

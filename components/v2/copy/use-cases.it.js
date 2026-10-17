@@ -5,7 +5,7 @@ export default {
   meta: {
     title: "Casi studio: sistemi IA al lavoro in aziende vere | Automis",
     description:
-      "Un assistente vocale in una clinica dentale, un'automazione su Facebook e Instagram, uno strumento per album di un fotografo, il presidio di un negozio online: ecco cosa fa ognuno.",
+      "Sistemi IA al lavoro: assistente vocale in una clinica dentale, automazione Meta, album per un fotografo e un negozio online sotto controllo.",
   },
 
   hero: {

@@ -9,7 +9,7 @@ export default {
   meta: {
     title: "Datura Clothing: AI WooCommerce Manager per un negozio online | Automis",
     description:
-      "Un'IA che controlla il negozio WooCommerce giorno e notte, scrive le schede prodotto in pochi minuti e fa lavorare meglio gli annunci Meta: 10 guasti trovati in 28 giorni, 100 inserzioni create in 6 settimane.",
+      "Un'IA controlla il negozio WooCommerce giorno e notte e migliora gli annunci Meta: 10 guasti trovati in 28 giorni, 100 inserzioni create in 6 settimane.",
   },
 
   hero: {

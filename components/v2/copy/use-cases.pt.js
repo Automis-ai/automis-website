@@ -6,7 +6,7 @@ export default {
   meta: {
     title: "Casos de Estudo: Sistemas de IA em Negócios Reais | Automis",
     description:
-      "Um assistente de voz numa clínica dentária, uma automação no Facebook e Instagram, uma ferramenta de álbuns para um fotógrafo e a vigilância de uma loja online. O que cada um faz.",
+      "Sistemas de IA a trabalhar: assistente de voz numa clínica dentária, automação Meta, álbuns para um fotógrafo e uma loja online vigiada.",
   },
 
   hero: {

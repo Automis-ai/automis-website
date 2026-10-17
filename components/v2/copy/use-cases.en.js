@@ -5,7 +5,7 @@ export default {
   meta: {
     title: "Case Studies | AI Systems at Work in Real Businesses | Automis",
     description:
-      "A voice assistant at a dental clinic, an automation on Facebook and Instagram, an album tool for a photographer and the monitoring of an online store. What each one does.",
+      "Real AI systems at work: a voice assistant at a dental clinic, Meta automation, an album tool for a photo studio and an online store watched day and night.",
   },
 
   hero: {

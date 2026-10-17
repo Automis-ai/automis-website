@@ -543,7 +543,7 @@ export default {
     meta: {
       title: "AI Systems for Admin: Documents, Back Office and Accounting | Automis",
       description:
-        "AI systems for the back office: accounting management software, scan-to-brain for paper documents, document intake and sorting, and routine admin automation.",
+        "AI systems for the back office: accounting software, scan-to-brain for paper documents, document intake and sorting, and routine admin tasks.",
     },
     hero: {
       eyebrow: "AI Systems for Admin",
