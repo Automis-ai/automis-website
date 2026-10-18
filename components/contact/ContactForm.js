@@ -9,7 +9,7 @@ import { getAttribution } from "@/lib/utm";
 /*
   Contact form for the rebuilt /contact page (new EN design system).
   Ports the fields + submit contract from the old page:
-    POST /api/contact  (JSON) -> n8n webhook. Same payload shape kept intact.
+    POST /api/contact  (JSON) -> GoHighLevel (contact upsert + note). Same payload shape kept intact.
   Kept as a "use client" child so the page itself can stay a server component.
 */
 
@@ -135,6 +135,7 @@ export default function ContactForm() {
         message: formData.message,
         timestamp: new Date().toISOString(),
         source: "contact-form",
+        locale,
         attribution: getAttribution(),
       };
 
