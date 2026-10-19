@@ -1,4 +1,5 @@
 "use client";
+import "@css/fontawesome-5.14.0.min.css";
 import { sliderProps } from "@/utility/sliderProps";
 import { Fragment } from "react";
 import Slider from "react-slick";

@@ -1,3 +1,4 @@
+import "@css/fontawesome-5.14.0.min.css";
 import Link from "next/link";
 import { ORG_ID } from "@/components/site/OrganizationJsonLd";
 import ReactMarkdown from "react-markdown";

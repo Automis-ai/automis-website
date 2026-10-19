@@ -1,4 +1,5 @@
 import AkpagerLayout from "@/layouts/AkpagerLayout";
+import FaIcon from "@/components/FaIcon";
 const e404 = () => {
   return (
     <AkpagerLayout header={10}>
@@ -47,7 +48,7 @@ const e404 = () => {
                   data-aos-offset={50}
                 >
                   <label htmlFor="search">
-                    <i className="far fa-search fa-fw" />
+                    <FaIcon name="search" />
                   </label>
                   <input
                     id="search"
@@ -56,7 +57,7 @@ const e404 = () => {
                     required=""
                   />
                   <button type="submit">
-                    Search <i className="far fa-arrow-right" />
+                    Search <FaIcon name="arrow-right" className="ml-1" />
                   </button>
                 </form>
               </div>

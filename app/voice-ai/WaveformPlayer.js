@@ -1,4 +1,5 @@
 "use client";
+import "@css/fontawesome-5.14.0.min.css";
 import React, { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 
