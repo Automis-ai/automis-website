@@ -95,6 +95,7 @@ const DefaultFooter = () => {
                   alt="Automis AI Logo"
                   style={{ height: "2.5rem" }}
                   className="mb-4 !bg-transparent"
+                  loading="lazy"
                 />
               </Link>
 
