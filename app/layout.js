@@ -1,4 +1,3 @@
-import Preloader from "@/components/Preloader";
 import LocaleBootstrapper from "@/components/LocaleBootstrapper";
 import "./globals.css";
 import "@css/aos.css";
@@ -117,7 +116,6 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        <Preloader />
         <LocaleBootstrapper />
         <AnalyticsListeners />
         {children}
