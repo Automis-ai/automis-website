@@ -1,4 +1,5 @@
 "use client";
+import "@css/fontawesome-5.14.0.min.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 

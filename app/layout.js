@@ -1,9 +1,6 @@
-import Preloader from "@/components/Preloader";
 import LocaleBootstrapper from "@/components/LocaleBootstrapper";
 import "./globals.css";
 import "@css/aos.css";
-import "@css/flaticon.min.css";
-import "@css/fontawesome-5.14.0.min.css";
 import "@css/magnific-popup.min.css";
 import "@css/nice-select.min.css";
 import "@css/slick.min.css";
@@ -31,6 +28,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
   display: "swap",
+  preload: false,
 });
 
 const openSans = Open_Sans({
@@ -38,6 +36,7 @@ const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-open-sans",
   display: "swap",
+  preload: false,
 });
 
 export const metadata = {
@@ -117,7 +116,6 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        <Preloader />
         <LocaleBootstrapper />
         <AnalyticsListeners />
         {children}

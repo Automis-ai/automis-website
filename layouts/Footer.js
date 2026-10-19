@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, hrefFor, PATHNAMES } from "@/utility/pathnames";
 import { openCookieSettings } from "@/lib/cookieConsent";
+import FaIcon from "@/components/FaIcon";
 
 const Footer = ({ footer }) => {
   return (
@@ -121,7 +122,7 @@ const DefaultFooter = () => {
                 rel="noopener noreferrer"
                 aria-label="Automis on Instagram"
               >
-                <i className="fab fa-instagram" />
+                <FaIcon name="instagram" />
               </a>
               <a
                 href={linkedinHref}
@@ -129,7 +130,7 @@ const DefaultFooter = () => {
                 rel="noopener noreferrer"
                 aria-label="Automis on LinkedIn"
               >
-                <i className="fab fa-linkedin-in" />
+                <FaIcon name="linkedin-in" />
               </a>
               <a
                 href={facebookHref}
@@ -137,7 +138,7 @@ const DefaultFooter = () => {
                 rel="noopener noreferrer"
                 aria-label="Automis on Facebook"
               >
-                <i className="fab fa-facebook-f" />
+                <FaIcon name="facebook-f" />
               </a>
               <a
                 href="https://x.com/AutomisAI"
@@ -145,7 +146,7 @@ const DefaultFooter = () => {
                 rel="noopener noreferrer"
                 aria-label="Automis on X"
               >
-                <i className="fab fa-twitter" />
+                <FaIcon name="twitter" />
               </a>
             </div>
           </div>
@@ -178,6 +179,7 @@ const DefaultFooter = () => {
                 <img
                   src="https://eleven-public-cdn.elevenlabs.io/payloadcms/cy7rxce8uki-IIElevenLabsGrants%201.webp"
                   alt="ElevenLabs Grants"
+                  loading="lazy"
                   className="h-5 md:h-5 w-auto opacity-90 hover:opacity-100 transition"
                 />
               </a>
@@ -214,7 +216,7 @@ const DefaultFooter = () => {
           </div>
 
           <button className="scroll-top scroll-to-target" data-target="html">
-            <span className="far fa-angle-double-up" />
+            <FaIcon name="angle-double-up" />
           </button>
         </div>
       </div>

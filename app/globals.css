@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Icone SVG inline (components/FaIcon.js): stessa resa di <i class="fa-*"> senza caricare il CSS di Font Awesome */
+.fa-svg {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+
 @layer base {
   body {
     @apply text-white bg-deep-blue;
