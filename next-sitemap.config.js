@@ -78,6 +78,7 @@ const STATIC_PATHS = [
   "/blog/ai-automation-cost-for-dental-clinics",
   "/blog/ai-automation-cost-for-restaurants",
   "/blog/missed-call-text-back-for-restaurants",
+  "/blog/where-to-start-ai-automation-restaurants",
   "/blog/ai-receptionist-vs-answering-service",
   "/blog/whatsapp-automation-for-real-estate-agencies",
   "/blog/speed-to-lead-for-real-estate",
