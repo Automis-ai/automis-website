@@ -129,6 +129,7 @@ const STATIC_PATHS = [
   "/it/blog/ia-privata-documenti-studio-legale",
   "/it/blog/migliori-centralini-virtuali-studi-medici",
   "/it/blog/segretaria-ia-o-segreteria-telefonica-virtuale",
+  "/it/blog/da-dove-iniziare-ia-studio-dentistico",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
