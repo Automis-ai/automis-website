@@ -89,6 +89,7 @@ const STATIC_PATHS = [
   "/blog/moneypenny-vs-ai-receptionist",
   "/blog/best-ai-receptionist-for-uk-dental-practices",
   "/blog/missed-call-text-back-for-dental-clinics",
+  "/blog/reduce-no-shows-for-dental-clinics",
   "/playbook",
   "/contact",
   "/privacy-policy",
