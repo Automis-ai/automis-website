@@ -169,6 +169,7 @@ const STATIC_PATHS = [
   "/pt/blog/ia-para-contabilistas-gestao-faturas",
   "/pt/blog/por-onde-comecar-automatizar-ia-pequena-empresa",
   "/pt/blog/recuperar-chamadas-perdidas-restaurante",
+  "/it/blog/recupero-chiamate-perse-agenzia-immobiliare",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",
