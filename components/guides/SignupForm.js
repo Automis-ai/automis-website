@@ -41,7 +41,7 @@ const COPY = {
   },
 };
 
-export default function SignupForm({ lang, expired = false }) {
+export default function SignupForm({ lang, expired = false, bare = false }) {
   const t = COPY[lang];
   const [state, setState] = useState({ busy: false, error: "", sent: false });
 
@@ -82,10 +82,10 @@ export default function SignupForm({ lang, expired = false }) {
   }
 
   return (
-    <form className="signup" id="form" onSubmit={onSubmit} noValidate>
-      <h2>{t.title}</h2>
+    <form className="signup" id="form" onSubmit={onSubmit} noValidate aria-label={t.title}>
+      {bare ? null : <h2>{t.title}</h2>}
       {expired ? <p className="err" role="alert">{t.expired}</p> : null}
-      <p>{t.lead}</p>
+      {bare ? null : <p>{t.lead}</p>}
       <input type="email" name="email" required autoComplete="email" inputMode="email" placeholder={t.email} aria-label={t.email} />
       <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="trap" />
       <label className="check">
