@@ -44,10 +44,28 @@ const nextConfig = {
       {
         // /en/try is a live demo served from another project via rewrite. A 1h CDN cache
         // there serves stale HTML after a redeploy, so it is excluded alongside /api.
-        source: "/((?!api/|en/try).*)",
+        //
+        // Le pagine della guida (IT/EN) dipendono dal cookie di accesso: restano fuori, altrimenti la CDN
+        // servirebbe a tutti la risposta del primo visitatore (il rimando alla landing, o peggio la guida
+        // aperta a chi non ha fatto l'email). La CDN non guarda i cookie.
+        source: "/((?!api/|en/try|it/alternativa-a-manychat/guida|manychat-alternative/guide).*)",
         headers: [
           { key: "Vercel-CDN-Cache-Control", value: "max-age=3600" },
           { key: "CDN-Cache-Control", value: "max-age=3600" },
+        ],
+      },
+      {
+        source: "/it/alternativa-a-manychat/guida",
+        headers: [
+          { key: "Vercel-CDN-Cache-Control", value: "no-store" },
+          { key: "CDN-Cache-Control", value: "no-store" },
+        ],
+      },
+      {
+        source: "/manychat-alternative/guide",
+        headers: [
+          { key: "Vercel-CDN-Cache-Control", value: "no-store" },
+          { key: "CDN-Cache-Control", value: "no-store" },
         ],
       },
     ];
