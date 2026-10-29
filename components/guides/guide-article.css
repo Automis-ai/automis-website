@@ -1,0 +1,141 @@
+/* Guida «Alternativa a ManyChat»: solo ciò che gli articoli del blog non hanno già.
+   Titoli, testo, elenchi, tabelle e codice vengono da .blog-article (app/globals.css). */
+
+/* Hero: scheda del PDF e promemoria, al posto dell'immagine dell'articolo */
+.g-hero-card { display: grid; gap: 14px; }
+.g-pdf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #fec458, #f5cd79);
+  color: #1a1200;
+  text-decoration: none;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+  transition: transform 0.2s ease;
+}
+.g-pdf:hover { transform: translateY(-2px); }
+.g-pdf:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.g-pdf b { display: block; font-size: 1.2rem; font-weight: 700; color: #1a1200; }
+.g-pdf small { display: block; margin-top: 2px; font-size: 0.95rem; color: rgba(26, 18, 0, 0.78); }
+.g-pdf .g-go { font-size: 1.6rem; line-height: 1; }
+.g-note {
+  margin: 0;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+}
+.g-note b { color: #fff; }
+
+/* Percorso in cinque tappe: caselle uguali e numerate, a capo senza frecce spezzate */
+.blog-article .g-flow {
+  counter-reset: gflow;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 0.5rem;
+  margin: 0 0 2rem;
+}
+.blog-article .g-flow i { display: none; }
+.blog-article .g-flow span {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #d5dde9;
+  border-radius: 12px;
+  background: #f6f8fb;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #1c2a3a;
+}
+.blog-article .g-flow span::before {
+  counter-increment: gflow;
+  content: counter(gflow);
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: #2f7ed8;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Riquadri */
+.blog-article .g-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin: 0 0 1.6rem; }
+.blog-article .g-grid2 .g-panel { margin: 0; }
+.blog-article .g-panel {
+  background: #f6f8fb;
+  border: 1px solid #e3e8f0;
+  border-radius: 14px;
+  padding: 1.15rem 1.35rem;
+  margin: 0 0 1.5rem;
+}
+.blog-article .g-panel h3 { margin: 0 0 0.6rem; font-size: 1.1rem; }
+.blog-article .g-panel > :last-child,
+.blog-article .g-panel ul:last-child,
+.blog-article .g-panel ol:last-child { margin-bottom: 0; }
+.blog-article .g-gold { background: #fff8e8; border-color: #f3dba6; }
+
+/* Passi */
+.blog-article .g-step { margin: 0 0 2rem; }
+.blog-article .g-step h3 { display: flex; align-items: center; gap: 0.75rem; margin-top: 2.2rem; }
+.blog-article .g-n {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #2f7ed8;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Controllo e avvisi */
+.blog-article .g-check {
+  margin: 0 0 1.5rem;
+  padding: 0.8rem 1.1rem;
+  background: #ecf8f1;
+  border-left: 3px solid #2fa36b;
+  border-radius: 0 10px 10px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.blog-article .g-ok {
+  margin-right: 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1b7a4d;
+}
+.blog-article .g-warn {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1.15rem;
+  background: #fff7e6;
+  border-left: 4px solid #f5a623;
+  border-radius: 0 10px 10px 0;
+  line-height: 1.65;
+}
+.blog-article .g-warn b { color: #8a5200; }
+
+/* Codice lungo (bot.mjs): scorre dentro il riquadro invece di allungare la pagina */
+.blog-article pre.g-tall { max-height: 560px; overflow: auto; }
+.blog-article pre { font-size: 0.88rem; line-height: 1.55; }
+.blog-article code { overflow-wrap: anywhere; }
+.blog-article pre code { overflow-wrap: normal; }
+
+@media (max-width: 760px) {
+  .blog-article .g-grid2 { grid-template-columns: 1fr; }
+  .g-pdf { padding: 18px; }
+}
