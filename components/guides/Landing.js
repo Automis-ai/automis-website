@@ -238,9 +238,10 @@ const css = `
 #lp .signup{margin-top:26px;max-width:520px;border:1px solid var(--line);border-radius:18px;padding:18px;background:linear-gradient(170deg,var(--surf2),var(--surf));box-shadow:0 24px 60px -30px rgba(0,0,0,.8)}
 #lp .signup h2{font-family:var(--head);font-weight:600;font-size:22px;margin-bottom:6px}
 #lp .signup p{font-size:15px;color:var(--mute);margin-bottom:12px}
-#lp .signup input[type="email"]{display:block;width:100%;height:54px;padding:0 16px;border-radius:12px;border:1px solid var(--line);background:#020B14;color:var(--ink);font:500 16px var(--text)}
-#lp .signup input[type="email"]::placeholder{color:var(--faint)}
-#lp .signup input[type="email"]:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+#lp .signup input[type="email"],#lp .signup input[name="name"]{display:block;width:100%;height:54px;padding:0 16px;border-radius:12px;border:1px solid var(--line);background:#020B14;color:var(--ink);font:500 16px var(--text)}
+#lp .signup input[name="name"]{margin-bottom:10px}
+#lp .signup input[type="email"]::placeholder,#lp .signup input[name="name"]::placeholder{color:var(--faint)}
+#lp .signup input[type="email"]:focus-visible,#lp .signup input[name="name"]:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 #lp .signup .trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 #lp .signup .check{display:flex;gap:11px;align-items:flex-start;margin:14px 2px 14px;font-size:13.5px;line-height:1.45;color:var(--mute);cursor:pointer}
 #lp .signup .check input{appearance:none;-webkit-appearance:none;flex:none;margin:1px 0 0;width:20px;height:20px;min-width:0;min-height:0;padding:0;display:grid;place-content:center;border:1.5px solid var(--faint);border-radius:6px;background:#020B14;cursor:pointer}

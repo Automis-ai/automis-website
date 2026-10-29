@@ -74,11 +74,17 @@ export async function POST(req) {
 
     // 1) contatto (con i tag che NON fanno partire la mail)
     const wantsNews = body.newsletter === true;
+    // Nome di battesimo: serve a salutare per nome. Pulito e corto; se manca, il contatto resta com'è.
+    const firstName = (typeof body.name === "string" ? body.name : "")
+      .replace(/[\u0000-\u001f<>]/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 60);
     const tags = [cfg.stable, ...(wantsNews ? [cfg.newsPending] : [])];
     const up = await fetch(`${GHL_BASE}/contacts/upsert`, {
       method: "POST",
       headers: headers(token),
-      body: JSON.stringify({ locationId, email, tags, source: SOURCE }),
+      body: JSON.stringify({ locationId, email, tags, source: SOURCE, ...(firstName ? { firstName } : {}) }),
     });
     if (!up.ok) {
       console.error("guide-signup: upsert failed:", up.status, await up.text());
