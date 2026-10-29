@@ -2,38 +2,78 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { verifySession, cookieName } from "@/lib/guideGate";
 import S from "./snippets";
-import { mont, open, css, Code, Step, Check as BaseCheck } from "@/components/guides/manychatShared";
+import GuideArticle from "@/components/guides/GuideArticle";
+import { Code, Part, Step, Check as BaseCheck } from "@/components/guides/guideBlocks";
 
-const PDF = "/api/guide-pdf?lang=en";
-const CALL = "https://api.leadconnectorhq.com/widget/bookings/discover-automis";
+const T = {
+  ...{
+  "authorKey": "arcangelo",
+  "avatar": "/manychat-alternative/arcangelo.jpg",
+  "category": "Technical guide",
+  "updated": "Updated 29 October 2026",
+  "steps": "14 steps",
+  "title": "The comment-to-DM flow on Instagram, step by step",
+  "lead": "Someone comments a word under your post and gets a private message with your resource. Here is every step to build it yourself with Meta's official APIs: the app, the receiver, the flow, the full code, and the tests to run before you switch it on.",
+  "pdfTitle": "Download the guide as a PDF",
+  "pdfSub": "The same guide, to keep and to print",
+  "noteTitle": "Bookmark this page.",
+  "note": "You stay in for 30 days on this device; after that, just enter your email again.",
+  "tocLabel": "Contents",
+  "ctaTitle": "Stuck on a step? I'll help you build it.",
+  "ctaText": "If the app, the receiver or the tests don't add up, book a 15-minute call and we'll look at it together.",
+  "ctaButton": "Book a 15-minute call"
+},
+  pdf: "/api/guide-pdf?lang=en",
+  call: "https://api.leadconnectorhq.com/widget/bookings/discover-automis",
+  toc: [
+  {
+    "level": 2,
+    "id": "part-a",
+    "text": "Part A · The Meta app"
+  },
+  {
+    "level": 2,
+    "id": "part-b",
+    "text": "Part B · The receiver"
+  },
+  {
+    "level": 2,
+    "id": "part-c",
+    "text": "Part C · The flow, call by call"
+  },
+  {
+    "level": 2,
+    "id": "part-d",
+    "text": "Part D · The full code"
+  },
+  {
+    "level": 2,
+    "id": "part-e",
+    "text": "Part E · The tests, before you switch it on"
+  },
+  {
+    "level": 2,
+    "id": "if-it-doesnt-work",
+    "text": "If it doesn't work"
+  },
+  {
+    "level": 2,
+    "id": "part-f",
+    "text": "Part F · Rules, limits and production"
+  },
+  {
+    "level": 2,
+    "id": "honesty",
+    "text": "Honesty, what this guide doesn't say"
+  }
+],
+};
 const Check = (props) => <BaseCheck label="Check" {...props} />;
 
 function GuideContent() {
   return (
-    <main id="guida" className={`${mont.variable} ${open.variable}`}>
-      <style dangerouslySetInnerHTML={{ __html: css }} />
-      <div className="wrap">
-        <div className="top">
-          <img src="/luca-ig/automis-logo.png" alt="Automis" />
-          <span className="pill">AI Agency</span>
-        </div>
-
-        <div className="hero">
-          <img src="/manychat-alternative/arcangelo.jpg" alt="Arcangelo" />
-          <div>
-            <p className="kicker">ManyChat alternative · technical guide</p>
-            <h1>
-              The comment-to-DM flow on Instagram, <em>step by step</em>
-            </h1>
-            <p className="lead">
-              Someone comments a word under your post and gets a private message with your resource. Here is every step
-              to build it yourself with Meta's official APIs: the app, the receiver, the flow, the full code, and the
-              tests to run before you switch it on.
-            </p>
-          </div>
-        </div>
-
-        <div className="flow">
+    <GuideArticle locale="en" t={T}>
+        <div className="g-flow">
           <span>Comment with the keyword</span>
           <i>→</i>
           <span>Public reply</span>
@@ -45,22 +85,10 @@ function GuideContent() {
           <span>Link and question</span>
         </div>
 
-        <a className="pdfcard" href={PDF} download>
-          <span>
-            <b>Download the guide as a PDF</b>
-            <small>The same guide, to keep and to print</small>
-          </span>
-          <span className="go" aria-hidden="true">↓</span>
-        </a>
-
-        <div className="warn" style={{ marginBottom: 18 }}>
-          <b>Bookmark this page.</b> You stay in for 30 days on this device; after that, just enter your email again.
-        </div>
-
-        <div className="grid2">
-          <div className="panel">
+        <div className="g-grid2">
+          <div className="g-panel">
             <h3>What you need</h3>
-            <ul className="dots">
+            <ul>
               <li>An Instagram <b>professional</b> account (Business or Creator).</li>
               <li>A <b>second</b> Instagram account, only for testing.</li>
               <li>An account on <b>developers.facebook.com</b>.</li>
@@ -68,17 +96,17 @@ function GuideContent() {
               <li>A public <b>https address</b> for the receiver: a tunnel is enough for testing (ngrok, Cloudflare Tunnel or similar), an always-on service for production.</li>
             </ul>
           </div>
-          <div className="panel">
+          <div className="g-panel">
             <h3>How to read it</h3>
-            <ul className="dots">
-              <li>Every step has a <span className="ok">Check</span> line: it tells you how to know it worked before moving on.</li>
+            <ul>
+              <li>Every step has a <b>Check</b> line: it tells you how to know it worked before moving on.</li>
               <li>Menu names in Meta's dashboard change often: if you can't find an item, search for its English name in the app settings.</li>
               <li>Calls contain <b>&lt;PLACEHOLDERS&gt;</b> to replace. The token and the App Secret are secrets: never put them in published code.</li>
             </ul>
           </div>
         </div>
 
-        <p className="sec">Part A · The Meta app</p>
+        <Part id="part-a">Part A · The Meta app</Part>
 
         <Step n="1" title="Create the app">
           <p>Go to <b>developers.facebook.com</b>, log in and choose <b>My Apps → Create App</b>. As the use case pick the one for managing messages and content on Instagram and, if asked, the <b>Business</b> type. An app that isn't a Business app won't work: if you have an old one, create a new one.</p>
@@ -107,7 +135,7 @@ function GuideContent() {
           <Check>in the dashboard the second account shows up among the testers, invite accepted.</Check>
         </Step>
 
-        <p className="sec">Part B · The receiver</p>
+        <Part id="part-b">Part B · The receiver</Part>
 
         <Step n="6" title="Put the receiver online">
           <p>The code is in part D. Start it and make it reachable from a public <b>https</b> address: a tunnel to port 3000 for testing, an always-on service in production. The variables to set are at the end of part D.</p>
@@ -116,7 +144,7 @@ function GuideContent() {
 
         <Step n="7" title="Register the webhook">
           <p>On the page from step 2 find <b>Configure webhooks</b> and fill in:</p>
-          <ul className="dots">
+          <ul>
             <li><b>Callback URL</b>: the receiver's https address.</li>
             <li><b>Verify token</b>: a string of your choice, the same one you set in <b>VERIFY_TOKEN</b>.</li>
           </ul>
@@ -130,9 +158,9 @@ function GuideContent() {
           <Check>the response is <code>{'{"success": true}'}</code>. With <code>GET .../me/subscribed_apps</code> you see the subscribed fields.</Check>
         </Step>
 
-        <div className="panel gold">
+        <div className="g-panel g-gold">
           <h3>The 4 receiver rules, according to Meta</h3>
-          <ul className="dots">
+          <ul>
             <li>Answer <b>200 right away</b> to every notification, then do the work. If you don't, Meta retries for <b>36 hours</b>.</li>
             <li><b>Drop duplicates</b>: because of retries the same notification can arrive more than once.</li>
             <li><b>Verify the signature</b>: the <b>X-Hub-Signature-256</b> header is an HMAC SHA256 of the <b>raw</b> body, computed with the App Secret. If it doesn't match, discard.</li>
@@ -140,7 +168,7 @@ function GuideContent() {
           </ul>
         </div>
 
-        <p className="sec">Part C · The flow, call by call</p>
+        <Part id="part-c">Part C · The flow, call by call</Part>
 
         <Step n="9" title="The comment arrives">
           <p>Meta sends the receiver a <b>comments</b> notification. You need four values: the <b>comment id</b>, the <b>commenter's id</b>, the <b>text</b> and the <b>post id</b>.</p>
@@ -157,7 +185,7 @@ function GuideContent() {
           <p>You send it with the <b>comment id</b> in place of the person's id. Meta allows <b>only one per comment</b>, within <b>7 days</b>. It lands in the inbox if the person follows you, in the <b>Requests</b> folder if they don't, with a link to the post.</p>
           <p><b>Try 1 · with the button</b> (this is what you want: the tap opens the 24 hours):</p>
           <Code>{S.try1}</Code>
-          <div className="warn">
+          <div className="g-warn">
             <b>To be tested, not guaranteed.</b> In Meta's documentation the private reply is described only with plain text, and the button only with the person's id in place of the comment id. Nowhere does it say they can be combined. The code in part D tries the button and, if Meta rejects it, falls back to try 2 on its own.
           </div>
           <p><b>Try 2 · text only, and the person replies</b> (always works):</p>
@@ -184,23 +212,23 @@ function GuideContent() {
           <Check>from the second account: comment, public reply, message, tap, follow request, second tap, link. If the whole chain comes back, the flow works.</Check>
         </Step>
 
-        <p className="sec">Part D · The full code</p>
-        <p style={{ margin: "0 0 8px", fontSize: 15, lineHeight: 1.6, color: "var(--body-c)" }}>
+        <Part id="part-d">Part D · The full code</Part>
+        <p>
           One file, <b>bot.mjs</b>, no libraries to install. It does the whole chain: verification, signature, duplicates, public reply, try 1 and try 2, soft follow, link. The rules (one row per keyword) are at the top: swap in your own.
         </p>
         <Code tall>{S.bot}</Code>
-        <p style={{ margin: "14px 0 6px", fontSize: 15, color: "var(--body-c)" }}><b>How to start it</b></p>
+        <p><b>How to start it</b></p>
         <Code>{S.env}</Code>
-        <div className="panel" style={{ marginTop: 10 }}>
-          <ul className="dots">
+        <div className="g-panel">
+          <ul>
             <li><b>What has been verified:</b> the logic (signature, duplicates, whole-word match, the sequence of steps, the fallback when the button is rejected) is tested against a fake Meta server, 17 checks out of 17. <b>It has not been tested against Meta:</b> you do that with part E.</li>
             <li><b>Limits of this file:</b> duplicates and who has already been asked to follow are kept in memory, and are lost on restart. For real use, store them in a file or a database.</li>
           </ul>
         </div>
 
-        <p className="sec">Part E · The tests, before you switch it on</p>
-        <div className="panel">
-          <ol className="use">
+        <Part id="part-e">Part E · The tests, before you switch it on</Part>
+        <div className="g-panel">
+          <ol>
             <li>Publish (or use) a test post on your account and write the keyword in the caption.</li>
             <li>From the <b>second account</b> comment with the keyword. Then watch the receiver's logs.</li>
             <li>Check: public reply under the comment, private message (also in <b>Requests</b>), tap or reply, follow request, second tap, link.</li>
@@ -211,8 +239,8 @@ function GuideContent() {
           </ol>
         </div>
 
-        <p className="sec">If it doesn't work</p>
-        <div className="tablewrap">
+        <Part id="if-it-doesnt-work">If it doesn't work</Part>
+        <div className="blog-table-wrap">
           <table>
             <thead>
               <tr><th>What you see</th><th>What to check</th></tr>
@@ -230,11 +258,11 @@ function GuideContent() {
           </table>
         </div>
 
-        <p className="sec">Part F · Rules, limits and production</p>
-        <div className="grid2">
-          <div className="panel">
+        <Part id="part-f">Part F · Rules, limits and production</Part>
+        <div className="g-grid2">
+          <div className="g-panel">
             <h3>Meta's limits</h3>
-            <ul className="dots">
+            <ul>
               <li>One automated message per comment, within 7 days.</li>
               <li>To write again you need a reply or a tap: from then you have 24 hours.</li>
               <li>Up to <b>750 private replies per hour</b> per account, on comments to posts and reels.</li>
@@ -242,9 +270,9 @@ function GuideContent() {
               <li>You can only reply publicly to top-level comments.</li>
             </ul>
           </div>
-          <div className="panel">
+          <div className="g-panel">
             <h3>Good habits</h3>
-            <ul className="dots">
+            <ul>
               <li><b>Say it's automated</b> in the first message. Meta requires it where the law does and recommends it everywhere.</li>
               <li>One rule per keyword, and the same keyword in the video and in the caption.</li>
               <li>Store only what you need (id, keyword, outcome) and say in your privacy notice what you keep.</li>
@@ -252,9 +280,9 @@ function GuideContent() {
             </ul>
           </div>
         </div>
-        <div className="panel">
+        <div className="g-panel">
           <h3>To keep it running for real</h3>
-          <ol className="use">
+          <ol>
             <li><b>An always-on service</b> for the receiver, with automatic restart if it crashes.</li>
             <li><b>A store</b> instead of memory: comments already handled and who has been asked to follow.</li>
             <li>
@@ -266,8 +294,8 @@ function GuideContent() {
           </ol>
         </div>
 
-        <div className="honest">
-          <h3>Honesty, what this guide doesn't say</h3>
+        <Part id="honesty">Honesty, what this guide doesn't say</Part>
+        <div className="g-panel">
           <ul>
             <li><b>Meta's rules and APIs change.</b> The steps were checked against the official documentation on 29 Oct 2026 (pages updated between March and June 2026): re-check before you build.</li>
             <li><b>The button inside the private reply is not documented by Meta.</b> That's why there are two tries. I can't tell you in advance which one will work on your account.</li>
@@ -278,19 +306,7 @@ function GuideContent() {
           </ul>
         </div>
 
-        <div className="cta">
-          <h3>Stuck on a step? I'll help you build it.</h3>
-          <p>If the app, the receiver or the tests don't add up, book a 15-minute call and we'll look at it together.</p>
-          <a href={CALL} target="_blank" rel="noopener">Book a 15-minute call</a>
-        </div>
-
-        <footer className="foot">
-          <strong style={{ color: "#fff", fontFamily: "var(--head)" }}>Automis</strong> · AI Agency
-          <br />
-          <a href="https://automis.ai" target="_blank" rel="noopener">automis.ai</a>
-        </footer>
-      </div>
-    </main>
+    </GuideArticle>
   );
 }
 
