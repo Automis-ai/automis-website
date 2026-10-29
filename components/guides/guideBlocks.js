@@ -8,7 +8,23 @@ export const Code = ({ children, tall }) => (
   </pre>
 );
 
-export const Part = ({ id, children }) => <h2 id={id}>{children}</h2>;
+// «Parte A · L'app su Meta» -> etichetta sopra, titolo sotto. L'indice laterale usa il testo intero (page.js).
+export const Part = ({ id, children }) => {
+  const text = String(children);
+  const i = text.indexOf(" · ");
+  return (
+    <h2 id={id} className="g-part">
+      {i > 0 ? (
+        <>
+          <span className="g-kicker">{text.slice(0, i)}</span>
+          {text.slice(i + 3)}
+        </>
+      ) : (
+        text
+      )}
+    </h2>
+  );
+};
 
 export const Step = ({ n, title, children }) => (
   <div className="g-step">
