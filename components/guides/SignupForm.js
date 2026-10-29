@@ -6,6 +6,7 @@ const COPY = {
   it: {
     title: "Apri la guida",
     lead: "Lascia la tua email: ti mandiamo il link per aprire la guida, con il PDF da scaricare.",
+    name: "Il tuo nome",
     email: "La tua email",
     news: "Voglio ricevere ogni tanto una mail con nuove guide di Luca. Mi disiscrivo quando voglio.",
     info: "Usiamo la tua email per mandarti il link di accesso, che vale 30 minuti. Se spunti la casella, cliccando il link confermi anche questo.",
@@ -24,6 +25,7 @@ const COPY = {
   en: {
     title: "Open the guide",
     lead: "Leave your email and we'll send you the link to open the guide, with the PDF to download.",
+    name: "Your first name",
     email: "Your email",
     news: "I'd like to get an occasional email with new guides from Arcangelo. I can unsubscribe anytime.",
     info: "We use your email to send you the access link, which is valid for 30 minutes. If you tick the box, clicking the link also confirms that.",
@@ -55,6 +57,7 @@ export default function SignupForm({ lang, expired = false, bare = false }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           lang,
+          name: f.get("name"),
           email: f.get("email"),
           newsletter: f.get("newsletter") === "on",
           company: f.get("company"),
@@ -86,6 +89,7 @@ export default function SignupForm({ lang, expired = false, bare = false }) {
       {bare ? null : <h2>{t.title}</h2>}
       {expired ? <p className="err" role="alert">{t.expired}</p> : null}
       {bare ? null : <p>{t.lead}</p>}
+      <input type="text" name="name" required autoComplete="given-name" maxLength={60} placeholder={t.name} aria-label={t.name} />
       <input type="email" name="email" required autoComplete="email" inputMode="email" placeholder={t.email} aria-label={t.email} />
       <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="trap" />
       <label className="check">
