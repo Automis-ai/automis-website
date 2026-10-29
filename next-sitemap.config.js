@@ -91,6 +91,7 @@ const STATIC_PATHS = [
   "/blog/missed-call-text-back-for-dental-clinics",
   "/blog/reduce-no-shows-for-dental-clinics",
   "/playbook",
+  "/manychat-alternative", // EN guide (twin of /it/alternativa-a-manychat)
   "/contact",
   "/privacy-policy",
   "/terms-of-service",
@@ -103,6 +104,7 @@ const STATIC_PATHS = [
   "/tools/whatsapp-link-generator",
   // Italian
   "/it",
+  "/it/alternativa-a-manychat", // IT guide (twin of /manychat-alternative)
   "/it/about",
   "/it/ai-automations",
   "/it/voice-ai",
@@ -246,6 +248,7 @@ module.exports = {
     "/roadmap", // transactional finder-results page, noindex
     "/luca-ig", // 308 -> /it/luca-ig
     "/it/luca-ig", // Instagram bio lander (traffic comes from IG, not search)
+    "/alternativa-a-manychat", // 308 -> /it/alternativa-a-manychat
   ],
   // Attach the real lastmod (or none) instead of next-sitemap's build-time default.
   transform: async (config, loc) => ({

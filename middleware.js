@@ -115,6 +115,14 @@ export function middleware(req) {
     return NextResponse.redirect(new URL("/it/luca-ig", req.url), 308);
   }
 
+  // La guida «alternativa a ManyChat» è in italiano: la sua casa è /it/alternativa-a-manychat.
+  // Stesso motivo di /luca-ig: senza prefisso verrebbe letta come inglese e il bootstrapper
+  // la porterebbe su un URL sbagliato al primo accesso dal browser in-app di Instagram.
+  // La versione inglese è /manychat-alternative (pagina solo EN, senza prefisso).
+  if (pathname === "/alternativa-a-manychat") {
+    return NextResponse.redirect(new URL("/it/alternativa-a-manychat", req.url), 308);
+  }
+
   // Gestione altri segmenti (privacy-policy, about, etc.)
   const segments = pathname.split("/").filter(Boolean);
   const maybeLocale = segments[0];
