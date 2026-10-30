@@ -15,7 +15,7 @@ export default {
     eyebrow: "Case study",
     title: "7 months on a dental clinic's phone line",
     highlight: "7 months",
-    lead: "872 calls, 114 appointments and 527 calls the assistant closed without going through the receptionist.",
+    lead: "Through October 30: 1,211 calls, 148 appointments and 702 calls the assistant closed without going through the receptionist. Below, the first seven months in detail.",
     client: "Clínica Santa Maria dos Olivais",
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
   },

@@ -1,16 +1,16 @@
-/* Caso Album AI (EN). Stessa struttura e stessi numeri dell'IT (fonte): 1.200-1.800 scatti, circa 280 foto, circa 6 ore a mano
-   contro circa 50 minuti con il sistema (tempi dichiarati dallo studio, non misurati). Percorso: /use-cases/album-ai. */
+/* Caso Album AI (EN). Stessa struttura e stessi numeri dell'IT (fonte): 1.200-1.800 scatti, circa 280 foto, da 4 a 5 ore a mano
+   contro 1 ora con il sistema (tempi dichiarati dallo studio, non misurati). Percorso: /use-cases/album-ai. */
 export default {
   meta: {
-    title: "Album AI: from 6 hours to 50 minutes per album | Automis",
+    title: "Album AI: from 4-5 hours to 1 hour per album | Automis",
     description:
-      "Album AI picks the photos and lays out the album for a photo studio: from about 6 hours to about 50 minutes, review included. Times reported by the studio.",
+      "Album AI picks the photos and lays out the album for a photo studio: from 4-5 hours to 1 hour, review included. Times reported by the studio.",
   },
 
   hero: {
     eyebrow: "Case study",
-    title: "An album in about 50 minutes, not 6 hours",
-    highlight: "about 50 minutes",
+    title: "An album in 1 hour, not 4-5",
+    highlight: "1 hour",
     lead: "Album AI chooses the photos and lays out the photographer's album. He reviews and corrects, and the system learns from his corrections.",
     client: "Simone Casillo photo studio",
     logo: "/assets/images/client-logos/simone-casillo-white.png",
@@ -47,24 +47,16 @@ export default {
     lead: "The time an event album takes, first by hand and now with the system.",
     before: {
       label: "By hand",
-      figure: "About 6 hours",
+      figure: "4-5 hours",
       bar: 100,
-      rows: [
-        ["Choosing the photos", "about 3 hours"],
-        ["Layout", "2-3 hours"],
-      ],
+      line: "The photographer chooses every photo and lays out every page by hand.",
     },
     after: {
       label: "With Album AI",
-      figure: "About 50 minutes",
-      bar: 14,
-      badge: "Over 80% less time",
+      figure: "1 hour",
+      bar: 22,
+      badge: "Up to 80% less time",
       line: "The system does the long work. The photographer is left with the review.",
-      rows: [
-        ["Choosing the photos", "about 20 minutes"],
-        ["Layout", "about 15 minutes"],
-        ["Photographer's review", "about 15 minutes"],
-      ],
     },
   },
 

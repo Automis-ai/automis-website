@@ -12,7 +12,7 @@ export default {
     eyebrow: "Case studies",
     title: "Systems at work in real businesses",
     highlight: "real businesses",
-    lead: "What each system does, with real numbers and the period they cover.",
+    lead: "What changed for each business, with real numbers.",
   },
 
   items: [
@@ -21,8 +21,8 @@ export default {
       client: "Clínica Santa Maria dos Olivais",
       tag: "Voice AI receptionist",
       title: "7 months on a dental clinic's phone line",
-      figure: "872",
-      figureLabel: "calls in seven months",
+      figure: "0",
+      figureLabel: "calls sent to voicemail in nine months",
       href: "/use-cases/clinica-santa-maria",
     },
     {
@@ -30,8 +30,8 @@ export default {
       client: "ADifesa",
       tag: "Meta automation",
       title: "Comments and messages on Facebook and Instagram",
-      figure: "2,329",
-      figureLabel: "conversations from 1 May to 16 Sep 2026",
+      figure: "4 hours",
+      figureLabel: "a day back for the team",
       href: "/use-cases/adifesa",
     },
     {
@@ -39,8 +39,8 @@ export default {
       client: "Simone Casillo Photography Studio",
       tag: "Album AI",
       title: "Album AI: photos chosen, album laid out",
-      figure: "About 280",
-      figureLabel: "photos chosen from 1,200 to 1,800 shots",
+      figure: "1 hour",
+      figureLabel: "per album, not 4-5",
       href: "/use-cases/album-ai",
     },
     {
@@ -48,8 +48,8 @@ export default {
       client: "Datura Clothing",
       tag: "AI WooCommerce Manager",
       title: "One system for the whole store",
-      figure: "10",
-      figureLabel: "faults found in 28 days",
+      figure: "5 min",
+      figureLabel: "for the whole catalog's listings, when one used to take 20",
       href: "/use-cases/datura-clothing",
     },
   ],

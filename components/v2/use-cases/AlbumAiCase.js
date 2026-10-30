@@ -58,14 +58,16 @@ export default function AlbumAiCase({ locale = "en" }) {
                       </div>
                     ) : null}
                     {c.line ? <p className="v2c-ba__line">{c.line}</p> : null}
-                    <ul className="v2c-ba__rows">
-                      {c.rows.map(([k, v]) => (
-                        <li key={k}>
-                          <span>{k}</span>
-                          <b>{v}</b>
-                        </li>
-                      ))}
-                    </ul>
+                    {c.rows ? (
+                      <ul className="v2c-ba__rows">
+                        {c.rows.map(([k, v]) => (
+                          <li key={k}>
+                            <span>{k}</span>
+                            <b>{v}</b>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </div>
                 ))}
               </InView>

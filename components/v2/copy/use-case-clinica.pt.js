@@ -15,7 +15,7 @@ export default {
     eyebrow: "Caso de estudo",
     title: "7 meses ao telefone de uma clínica dentária",
     highlight: "7 meses",
-    lead: "872 chamadas, 114 marcações e 527 chamadas resolvidas pelo assistente sem passar pela rececionista.",
+    lead: "Até 30 de outubro: 1.211 chamadas, 148 marcações e 702 chamadas resolvidas pelo assistente sem passar pela rececionista. Abaixo, os primeiros sete meses em detalhe.",
     client: "Clínica Santa Maria dos Olivais",
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
   },

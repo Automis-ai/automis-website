@@ -1,17 +1,17 @@
-/* Caso Album AI (PT, pt-PT). Stessa struttura e stessi numeri dell'IT (fonte): 1.200-1.800 scatti, circa 280 foto, circa 6 ore a mano
-   contro circa 50 minuti con il sistema (tempi dichiarati dallo studio, non misurati). Percorso: /use-cases/album-ai.
+/* Caso Album AI (PT, pt-PT). Stessa struttura e stessi numeri dell'IT (fonte): 1.200-1.800 scatti, circa 280 foto, da 4 a 5 ore a mano
+   contro 1 ora con il sistema (tempi dichiarati dallo studio, non misurati). Percorso: /use-cases/album-ai.
    Scritta pensando in portoghese europeo, non tradotta dall'inglese. */
 export default {
   meta: {
-    title: "Album AI: de 6 horas a 50 minutos por álbum | Automis",
+    title: "Album AI: de 4-5 horas a 1 hora por álbum | Automis",
     description:
-      "O Album AI escolhe as fotografias e faz o álbum de um estúdio: de cerca de 6 horas para cerca de 50 minutos, com revisão. Tempos indicados pelo estúdio.",
+      "O Album AI escolhe as fotografias e faz o álbum de um estúdio: de 4 a 5 horas para 1 hora, com revisão. Tempos indicados pelo estúdio.",
   },
 
   hero: {
     eyebrow: "Caso de estudo",
-    title: "Um álbum em cerca de 50 minutos, não em 6 horas",
-    highlight: "cerca de 50 minutos",
+    title: "Um álbum em 1 hora, não em 4 a 5",
+    highlight: "1 hora",
     lead: "O Album AI escolhe as fotografias e faz a paginação do álbum do fotógrafo. Ele revê e corrige, e o sistema aprende com as correções.",
     client: "Estúdio fotográfico Simone Casillo",
     logo: "/assets/images/client-logos/simone-casillo-white.png",
@@ -48,24 +48,16 @@ export default {
     lead: "O tempo de um álbum de eventos, antes à mão e agora com o sistema.",
     before: {
       label: "À mão",
-      figure: "Cerca de 6 horas",
+      figure: "4 a 5 horas",
       bar: 100,
-      rows: [
-        ["Escolha das fotografias", "cerca de 3 horas"],
-        ["Paginação", "2 a 3 horas"],
-      ],
+      line: "O fotógrafo escolhe cada fotografia e pagina o álbum à mão.",
     },
     after: {
       label: "Com o Album AI",
-      figure: "Cerca de 50 minutos",
-      bar: 14,
-      badge: "Mais de 80% menos de tempo",
+      figure: "1 hora",
+      bar: 22,
+      badge: "Até 80% menos de tempo",
       line: "O sistema faz o trabalho demorado. Ao fotógrafo resta a revisão.",
-      rows: [
-        ["Escolha das fotografias", "cerca de 20 minutos"],
-        ["Paginação", "cerca de 15 minutos"],
-        ["Revisão do fotógrafo", "cerca de 15 minutos"],
-      ],
     },
   },
 

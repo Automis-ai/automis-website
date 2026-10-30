@@ -12,7 +12,7 @@ export default {
     eyebrow: "Casi studio",
     title: "Sistemi al lavoro in aziende vere",
     highlight: "aziende vere",
-    lead: "Cosa fa ogni sistema, con numeri reali e il periodo a cui si riferiscono.",
+    lead: "Cosa è cambiato per ogni azienda, con numeri reali.",
   },
 
   items: [
@@ -21,8 +21,8 @@ export default {
       client: "Clínica Santa Maria dos Olivais",
       tag: "Segretaria IA",
       title: "7 mesi al telefono di una clinica dentale",
-      figure: "872",
-      figureLabel: "chiamate in sette mesi",
+      figure: "0",
+      figureLabel: "chiamate finite in segreteria in nove mesi",
       href: "/use-cases/clinica-santa-maria",
     },
     {
@@ -30,8 +30,8 @@ export default {
       client: "ADifesa",
       tag: "Automazione Meta",
       title: "Commenti e messaggi su Facebook e Instagram",
-      figure: "2.329",
-      figureLabel: "conversazioni dal 1/5 al 16/9/2026",
+      figure: "4 ore",
+      figureLabel: "al giorno restituite al team",
       href: "/use-cases/adifesa",
     },
     {
@@ -39,8 +39,8 @@ export default {
       client: "Studio fotografico Simone Casillo",
       tag: "Album AI",
       title: "Album AI: le foto scelte, l'album impaginato",
-      figure: "Circa 280",
-      figureLabel: "foto scelte fra 1.200 e 1.800 scatti",
+      figure: "1 ora",
+      figureLabel: "per un album, non 4-5",
       href: "/use-cases/album-ai",
     },
     {
@@ -48,8 +48,8 @@ export default {
       client: "Datura Clothing",
       tag: "AI WooCommerce Manager",
       title: "Un solo sistema per tutto il negozio",
-      figure: "10",
-      figureLabel: "guasti trovati in 28 giorni",
+      figure: "5 min",
+      figureLabel: "per le schede di tutto il catalogo, quando una sola ne chiedeva 20",
       href: "/use-cases/datura-clothing",
     },
   ],

@@ -43,6 +43,10 @@ export default function SystemsHubV3({ locale = "it" }) {
                 <b>{h.systems.pain}</b>
                 <span>{s.pain}</span>
               </div>
+              <div className="hv3-scard__gain">
+                <b>{h.systems.gain}</b>
+                <span>{s.gain}</span>
+              </div>
               <Link className="hv3-scard__go" href={addLangPrefix(`/systems/${s.slug}`, locale)}>
                 {h.systems.more} <span aria-hidden="true">→</span>
               </Link>

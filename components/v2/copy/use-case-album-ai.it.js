@@ -4,15 +4,15 @@
    Percorso proposto: /use-cases/album-ai. */
 export default {
   meta: {
-    title: "Album AI: da 6 ore a 50 minuti per un album | Automis",
+    title: "Album AI: da 4-5 ore a 1 ora per un album | Automis",
     description:
-      "Album AI sceglie le foto e impagina l'album per uno studio fotografico: da circa 6 ore a circa 50 minuti, con revisione. Tempi indicati dallo studio.",
+      "Album AI sceglie le foto e impagina l'album per uno studio fotografico: da 4-5 ore a 1 ora, con revisione. Tempi indicati dallo studio.",
   },
 
   hero: {
     eyebrow: "Caso studio",
-    title: "Un album in circa 50 minuti, non in 6 ore",
-    highlight: "circa 50 minuti",
+    title: "Un album in 1 ora, non in 4-5",
+    highlight: "1 ora",
     lead: "Album AI sceglie le foto e impagina l'album del fotografo. Lui rivede e corregge, e il sistema impara dalle sue correzioni.",
     client: "Studio fotografico Simone Casillo",
     logo: "/assets/images/client-logos/simone-casillo-white.png",
@@ -49,24 +49,16 @@ export default {
     lead: "Il tempo di un album di eventi, prima a mano e adesso con il sistema.",
     before: {
       label: "A mano",
-      figure: "Circa 6 ore",
+      figure: "4-5 ore",
       bar: 100,
-      rows: [
-        ["Scelta delle foto", "circa 3 ore"],
-        ["Impaginazione", "2-3 ore"],
-      ],
+      line: "Il fotografo sceglie ogni foto e impagina ogni pagina a mano.",
     },
     after: {
       label: "Con Album AI",
-      figure: "Circa 50 minuti",
-      bar: 14,
-      badge: "Oltre l'80% di tempo in meno",
+      figure: "1 ora",
+      bar: 22,
+      badge: "Fino all'80% di tempo in meno",
       line: "Il sistema fa il lavoro lungo. Al fotografo resta la revisione.",
-      rows: [
-        ["Scelta delle foto", "circa 20 minuti"],
-        ["Impaginazione", "circa 15 minuti"],
-        ["Revisione del fotografo", "circa 15 minuti"],
-      ],
     },
   },
 

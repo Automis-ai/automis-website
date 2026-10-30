@@ -16,7 +16,7 @@ export default {
     eyebrow: "Caso studio",
     title: "7 mesi al telefono di una clinica dentale",
     highlight: "7 mesi",
-    lead: "872 chiamate, 114 appuntamenti e 527 telefonate chiuse dall'assistente senza passare dalla segretaria.",
+    lead: "Al 30 ottobre: 1.211 chiamate, 148 appuntamenti e 702 telefonate chiuse dall'assistente senza passare dalla segretaria. Qui sotto, i primi sette mesi nel dettaglio.",
     client: "Clínica Santa Maria dos Olivais",
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
   },

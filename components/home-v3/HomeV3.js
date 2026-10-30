@@ -123,6 +123,10 @@ export function SystemsV3() {
               <b>{t.pain}</b>
               <span>{s.pain}</span>
             </div>
+            <div className="hv3-scard__gain">
+              <b>{t.gain}</b>
+              <span>{s.gain}</span>
+            </div>
             <details className="hv3-more">
               <summary>{t.more}</summary>
               <p>{s.more}</p>
@@ -144,7 +148,7 @@ export function CasesV3() {
     <div className="hv3-head">
       <span className="hv3-eyebrow">{t.eyebrow}</span>
       <h2 className="hv3-h2 font-display">{t.title}</h2>
-      <p className="hv3-lead">{t.lead}</p>
+      {t.lead ? <p className="hv3-lead">{t.lead}</p> : null}
     </div>
   );
   return (
@@ -163,6 +167,13 @@ export function CasesV3() {
               {c.stat}
             </div>
             <div className="hv3-ccard__lab">{c.label}</div>
+            {c.lines ? (
+              <ul className="hv3-ccard__lines">
+                {c.lines.map((l) => (
+                  <li key={l}>{l}</li>
+                ))}
+              </ul>
+            ) : null}
             <div className="hv3-ccard__who">
               <b>{c.client}</b>
               {c.meta}

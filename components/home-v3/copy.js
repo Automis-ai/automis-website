@@ -22,6 +22,7 @@ export const HOME_V3 = {
       title: "Un sistema per ogni area della tua azienda",
       chapters: { m: "Marketing", v: "Vendite", a: "Amministrazione" },
       pain: "Il problema",
+      gain: "Il risultato",
       more: "Scopri di più",
       go: "Vedi i sistemi",
       items: [
@@ -31,6 +32,7 @@ export const HOME_V3 = {
           title: "Sistemi IA per il Marketing",
           line: "Annunci, SEO, contenuti e recensioni.",
           pain: "Spendi in pubblicità e contenuti senza sapere cosa ti porta clienti.",
+          gain: "Sai quali annunci ti portano clienti, e una fetta maggiore di ogni euro va lì.",
           more: "Il sistema prova più versioni dello stesso annuncio e sposta il budget su quella che porta prenotazioni. Contenuti e recensioni li segue ogni giorno, senza che tu debba rincorrerli.",
         },
         {
@@ -39,6 +41,7 @@ export const HOME_V3 = {
           title: "Sistemi IA per la Vendita",
           line: "Ogni contatto riceve risposta.",
           pain: "I contatti si raffreddano prima che qualcuno risponda.",
+          gain: "Ogni contatto riceve risposta in pochi minuti, di giorno e di notte.",
           more: "Quasi tutte le attività rispondono dopo ore. Ma passati i primi 5 minuti, le probabilità di chiudere quel contatto crollano.",
         },
         {
@@ -47,6 +50,7 @@ export const HOME_V3 = {
           title: "Sistemi IA per l'Assistenza",
           line: "Chiamate e chat, a ogni ora.",
           pain: "Le chiamate restano senza risposta.",
+          gain: "Ogni chiamata trova risposta, anche alle 21, e l'appuntamento finisce nella tua agenda.",
           more: "Dal 30 al 50% delle chiamate a un'attività locale finisce in segreteria. E ogni chiamata persa è un cliente che prenota dal tuo concorrente.",
         },
         {
@@ -55,6 +59,7 @@ export const HOME_V3 = {
           title: "Sistemi IA per l'Amministrazione",
           line: "Documenti e dati in automatico.",
           pain: "Il tuo team perde ore tra pratiche e scartoffie.",
+          gain: "Il tuo team recupera ore da dedicare a ciò che conta davvero nella tua azienda.",
           more: "Ogni settimana se ne vanno ore tra dati da inserire, appuntamenti da fissare e documenti da rincorrere, invece di occuparsi dei clienti.",
         },
       ],
@@ -79,14 +84,13 @@ export const HOME_V3 = {
     cases: {
       eyebrow: "I risultati dei nostri clienti",
       title: "Business veri. Sistemi veri. Già attivi.",
-      lead: "Ogni numero con il suo periodo.",
       approx: "circa",
       read: "Leggi il caso studio",
       items: [
-        { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "872", label: "chiamate in sette mesi", client: "Clínica Santa Maria dos Olivais", tag: "Segretaria IA", meta: "Clinica dentale · Lisbona" },
-        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "2.329", label: "conversazioni dal 1/5 al 16/9/2026", client: "ADifesa", tag: "Automazione Meta", meta: "Associazione di tutela bancaria e finanziaria · Lissone" },
-        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "280", approx: true, label: "foto scelte tra 1.200 e 1.800 scatti", client: "Studio fotografico Simone Casillo", tag: "Album AI", meta: "Fotografia · Album scelti e impaginati dall'IA" },
-        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "10", label: "guasti trovati in 28 giorni", client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "E-commerce di abbigliamento · Negozio WooCommerce" },
+        { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "0", label: "chiamate finite in segreteria in nove mesi", lines: ["Circa 22 chiamate al mese con risposta a clinica chiusa", "Circa 4.400 € al mese di fatturato stimato, a prezzo di listino"], client: "Clínica Santa Maria dos Olivais", tag: "Segretaria IA", meta: "Clinica dentale · Lisbona" },
+        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "4 ore", label: "al giorno restituite al team", lines: ["Nessun potenziale cliente senza risposta", "Circa 157 nuovi clienti da 524 contatti completi, in quattro mesi e mezzo"], client: "ADifesa", tag: "Automazione Meta", meta: "Associazione di tutela bancaria e finanziaria · Lissone" },
+        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "1 ora", label: "per un album, non 4-5", client: "Studio fotografico Simone Casillo", tag: "Album AI", meta: "Fotografia · Album scelti e impaginati dall'IA" },
+        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "5 minuti", label: "per le schede di tutto il catalogo, quando una sola ne chiedeva 20", client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "E-commerce di abbigliamento · Negozio WooCommerce" },
       ],
     },
   },
@@ -110,6 +114,7 @@ export const HOME_V3 = {
       title: "A system for every area of your business",
       chapters: { m: "Marketing", v: "Sales", a: "Admin" },
       pain: "The problem",
+      gain: "The outcome",
       more: "Learn more",
       go: "See the systems",
       items: [
@@ -119,6 +124,7 @@ export const HOME_V3 = {
           title: "AI Systems for Marketing",
           line: "Ads, SEO, content and reviews.",
           pain: "You spend on ads and content without knowing what brings in customers.",
+          gain: "You know which ads bring customers, and more of every euro goes to them.",
           more: "The system tests several versions of the same ad and moves the budget to the one that brings bookings. Content and reviews are followed every day, so you don't have to chase them.",
         },
         {
@@ -127,6 +133,7 @@ export const HOME_V3 = {
           title: "AI Systems for Sales",
           line: "Every contact gets an answer.",
           pain: "Leads go cold before anyone replies.",
+          gain: "Every inquiry gets a reply within minutes, day or night.",
           more: "Most businesses take hours to reply. But after the first 5 minutes, the odds of closing that lead drop sharply.",
         },
         {
@@ -135,6 +142,7 @@ export const HOME_V3 = {
           title: "AI Systems for Customer Service",
           line: "Calls and chats, around the clock.",
           pain: "Calls go unanswered.",
+          gain: "Every call gets picked up, even at 9pm, and the appointment lands in your calendar.",
           more: "Between 30 and 50% of calls to a local business end up in voicemail. And every missed call is a customer booking with your competitor.",
         },
         {
@@ -143,6 +151,7 @@ export const HOME_V3 = {
           title: "AI Systems for Admin",
           line: "Documents and data on autopilot.",
           pain: "Your team loses hours to paperwork and admin.",
+          gain: "Your team gets hours back to focus on what really matters in your company.",
           more: "Every week, hours go to entering data, scheduling appointments and chasing documents, instead of looking after customers.",
         },
       ],
@@ -167,14 +176,13 @@ export const HOME_V3 = {
     cases: {
       eyebrow: "Our clients' results",
       title: "Real businesses. Real systems. Already running.",
-      lead: "Every number comes with its period.",
       approx: "about",
       read: "Read the case study",
       items: [
-        { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "872", label: "calls in seven months", client: "Clínica Santa Maria dos Olivais", tag: "AI Receptionist", meta: "Dental clinic · Lisbon" },
-        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "2,329", label: "conversations from May 1 to Sep 16, 2026", client: "ADifesa", tag: "Meta Automation", meta: "Banking and financial consumer protection association · Lissone" },
-        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "280", approx: true, label: "photos chosen from 1,200 to 1,800 shots", client: "Simone Casillo Photography Studio", tag: "Album AI", meta: "Photography · Albums chosen and laid out by AI" },
-        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "10", label: "faults found in 28 days", client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "Clothing e-commerce · WooCommerce store" },
+        { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "0", label: "calls sent to voicemail in nine months", lines: ["About 22 calls a month answered with the clinic closed", "About €4,400 a month in estimated revenue, at list price"], client: "Clínica Santa Maria dos Olivais", tag: "AI Receptionist", meta: "Dental clinic · Lisbon" },
+        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "4 hours", label: "a day back for the team", lines: ["No potential client left without a reply", "About 157 new clients from 524 complete contacts, in four and a half months"], client: "ADifesa", tag: "Meta Automation", meta: "Banking and financial consumer protection association · Lissone" },
+        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "1 hour", label: "per album, not 4-5", client: "Simone Casillo Photography Studio", tag: "Album AI", meta: "Photography · Albums chosen and laid out by AI" },
+        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "5 minutes", label: "for the whole catalog's listings, when one used to take 20", client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "Clothing e-commerce · WooCommerce store" },
       ],
     },
   },
@@ -198,6 +206,7 @@ export const HOME_V3 = {
       title: "Um sistema para cada área do seu negócio",
       chapters: { m: "Marketing", v: "Vendas", a: "Administração" },
       pain: "O problema",
+      gain: "O resultado",
       more: "Saiba mais",
       go: "Ver os sistemas",
       items: [
@@ -207,6 +216,7 @@ export const HOME_V3 = {
           title: "Sistemas de IA para Marketing",
           line: "Anúncios, SEO, conteúdos e avaliações.",
           pain: "Gasta em publicidade e conteúdos sem saber o que lhe traz clientes.",
+          gain: "Sabe quais os anúncios que lhe trazem clientes, e mais de cada euro vai para esses.",
           more: "O sistema testa várias versões do mesmo anúncio e passa o orçamento para a que traz marcações. Conteúdos e avaliações são acompanhados todos os dias, sem que tenha de andar atrás deles.",
         },
         {
@@ -215,6 +225,7 @@ export const HOME_V3 = {
           title: "Sistemas de IA para Vendas",
           line: "Cada contacto recebe resposta.",
           pain: "Os contactos arrefecem antes de alguém responder.",
+          gain: "Cada contacto recebe resposta em poucos minutos, de dia ou de noite.",
           more: "Quase todos os negócios demoram horas a responder. Mas passados os primeiros 5 minutos, as hipóteses de fechar esse contacto caem a pique.",
         },
         {
@@ -223,6 +234,7 @@ export const HOME_V3 = {
           title: "Sistemas de IA para Apoio ao Cliente",
           line: "Chamadas e chats, a qualquer hora.",
           pain: "As chamadas ficam sem resposta.",
+          gain: "Todas as chamadas são atendidas, mesmo às 21h, e a marcação fica na sua agenda.",
           more: "Entre 30 e 50% das chamadas para um negócio local acabam no voicemail. E cada chamada perdida é um cliente que marca com a concorrência.",
         },
         {
@@ -231,6 +243,7 @@ export const HOME_V3 = {
           title: "Sistemas de IA para Administração",
           line: "Documentos e dados em automático.",
           pain: "A sua equipa perde horas em papelada e processos.",
+          gain: "A sua equipa recupera horas para se dedicar ao que realmente importa na sua empresa.",
           more: "Todas as semanas vão-se horas a introduzir dados, a marcar compromissos e a andar atrás de documentos, em vez de tratar dos clientes.",
         },
       ],
@@ -255,14 +268,13 @@ export const HOME_V3 = {
     cases: {
       eyebrow: "Os resultados dos nossos clientes",
       title: "Negócios reais. Sistemas reais. Já em funcionamento.",
-      lead: "Cada número com o seu período.",
       approx: "cerca de",
       read: "Ler o caso de estudo",
       items: [
-        { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "872", label: "chamadas em sete meses", client: "Clínica Santa Maria dos Olivais", tag: "Rececionista de voz IA", meta: "Clínica dentária · Lisboa" },
-        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "2.329", label: "conversas de 1/5 a 16/9/2026", client: "ADifesa", tag: "Automação Meta", meta: "Associação de defesa do consumidor bancário e financeiro · Lissone" },
-        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "280", approx: true, label: "fotografias escolhidas de um total de 1.200 a 1.800", client: "Estúdio fotográfico Simone Casillo", tag: "Album AI", meta: "Fotografia · Álbuns escolhidos e paginados pela IA" },
-        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "10", label: "falhas encontradas em 28 dias", client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "Loja online de roupa · Loja WooCommerce" },
+        { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "0", label: "chamadas enviadas para o voicemail em nove meses", lines: ["Cerca de 22 chamadas por mês atendidas com a clínica fechada", "Cerca de 4.400 € por mês de faturação estimada, a preço de tabela"], client: "Clínica Santa Maria dos Olivais", tag: "Rececionista de voz IA", meta: "Clínica dentária · Lisboa" },
+        { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "4 horas", label: "por dia devolvidas à equipa", lines: ["Nenhum potencial cliente sem resposta", "Cerca de 157 novos clientes de 524 contactos completos, em quatro meses e meio"], client: "ADifesa", tag: "Automação Meta", meta: "Associação de defesa do consumidor bancário e financeiro · Lissone" },
+        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "1 hora", label: "por álbum, não 4 a 5", client: "Estúdio fotográfico Simone Casillo", tag: "Album AI", meta: "Fotografia · Álbuns escolhidos e paginados pela IA" },
+        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "5 minutos", label: "para as fichas de todo o catálogo, quando uma só demorava 20", client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "Loja online de roupa · Loja WooCommerce" },
       ],
     },
   },

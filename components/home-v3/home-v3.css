@@ -2335,7 +2335,7 @@
 }
 .hv3-systems--four .hv3-scard {
   display: grid;
-  grid-row: span 7;
+  grid-row: span 8;
   grid-template-rows: subgrid;
   min-height: 0;
   margin-bottom: 16px;
@@ -2678,4 +2678,62 @@
 /* Il widget vocale (ElevenLabs) galleggiava sopra il menu mobile e copriva il bottone in fondo: con il menu aperto si nasconde. */
 body.menu-open elevenlabs-convai {
   display: none !important;
+}
+
+/* Schede dei sistemi: il risultato in primo piano, il problema in secondo (30/10/2026). L'oro passa dal problema al risultato. */
+.hv3-systems--four .hv3-scard__pain,
+.hv3-hub__grid .hv3-scard__pain {
+  margin-top: 14px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+.hv3-systems--four .hv3-scard__pain b,
+.hv3-hub__grid .hv3-scard__pain b {
+  color: var(--hv3-ink-3);
+}
+.hv3-systems--four .hv3-scard__pain span,
+.hv3-hub__grid .hv3-scard__pain span {
+  font-size: 14px;
+  color: var(--hv3-ink-2);
+}
+.hv3-scard__gain {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(245, 205, 121, 0.07);
+  border: 1px solid rgba(245, 205, 121, 0.3);
+}
+.hv3-scard__gain b {
+  display: block;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f5cd79;
+  font-weight: 500;
+}
+.hv3-scard__gain span {
+  display: block;
+  margin-top: 6px;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Schede dei casi in home: sotto il numero grande, gli altri risultati del cliente (30/10/2026) */
+.hv3-ccard__lines {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.hv3-ccard__lines li {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #fff;
 }
