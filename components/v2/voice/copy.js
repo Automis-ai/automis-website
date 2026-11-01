@@ -289,7 +289,7 @@ export default {
       "headingPre": "Get your AI voice agent ",
       "headingGrad": "answering, qualifying, and booking 24/7",
       "headingPost": ".",
-      "paragraph": "Book a discovery call and we will set up a voice agent that picks up every call, qualifies the lead, and books it straight onto your calendar, day, night, and weekend. No missed calls, no lost revenue.",
+      "paragraph": "Book a free call and we will set up a voice agent that picks up every call and books the appointment straight onto your calendar, day, night, and weekend.",
       "bullets": [
         "A 30-minute call, hear your AI voice agent live",
         "We map your calls, hours, and where bookings slip away",
@@ -589,7 +589,7 @@ export default {
       "headingPre": "Fai in modo che il tuo assistente vocale ",
       "headingGrad": "risponda, qualifichi e prenoti 24/7",
       "headingPost": ".",
-      "paragraph": "Prenota una call e configuriamo un assistente vocale che risponde a ogni chiamata, qualifica il contatto e lo prenota direttamente sul tuo calendario, di giorno, di notte e nel weekend. Nessuna chiamata persa, nessun fatturato perso.",
+      "paragraph": "Prenota una call gratuita e configuriamo un assistente vocale che risponde a ogni chiamata e fissa l'appuntamento direttamente sul tuo calendario, di giorno, di notte e nel weekend.",
       "bullets": [
         "Una call di 30 minuti: senti il tuo assistente vocale dal vivo",
         "Analizziamo le tue chiamate, gli orari e dove perdi prenotazioni",
@@ -889,7 +889,7 @@ export default {
       "headingPre": "Ponha o seu agente de voz IA ",
       "headingGrad": "a atender, qualificar e marcar 24/7",
       "headingPost": ".",
-      "paragraph": "Agende uma chamada e configuramos um agente de voz que atende cada chamada, qualifica o contacto e marca-o diretamente na sua agenda, de dia, de noite e ao fim de semana. Sem chamadas perdidas, sem receita perdida.",
+      "paragraph": "Agende uma chamada gratuita e configuramos um agente de voz que atende cada chamada e faz a marcação diretamente na sua agenda, de dia, de noite e ao fim de semana.",
       "bullets": [
         "Uma chamada de 30 minutos: ouça o seu agente de voz IA ao vivo",
         "Analisamos as suas chamadas, os horários e onde perde marcações",
