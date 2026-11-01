@@ -14,7 +14,7 @@ export default {
     title: "A WooCommerce store that gets fixed while you sleep",
     highlight: "gets fixed while you sleep",
     titleLogo: { word: "WooCommerce", src: "/assets/images/logos/woocommerce-mark-white.svg", alt: "WooCommerce" },
-    lead: "Problems found and fixed day and night, listings for the whole catalog in 5 minutes where one product took 20, and ads that follow what is in stock.",
+    lead: "The AI checks the store day and night, fixes problems on its own and writes to you only when needed. Ads follow what is in stock.",
     client: "Datura Clothing",
     logo: "/assets/images/client-logos/datura-clothing-white.png",
   },

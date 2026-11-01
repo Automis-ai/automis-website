@@ -89,8 +89,8 @@ export const HOME_V3 = {
       items: [
         { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "0", label: "chiamate finite in segreteria in nove mesi", lines: ["Circa 22 chiamate al mese con risposta a clinica chiusa", "Circa 4.400 € al mese di fatturato stimato, a prezzo di listino"], client: "Clínica Santa Maria dos Olivais", tag: "Segretaria IA", meta: "Clinica dentale · Lisbona" },
         { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "4 ore", label: "al giorno restituite al team", lines: ["Nessun potenziale cliente senza risposta", "Circa 157 nuovi clienti da 524 contatti completi, in quattro mesi e mezzo"], client: "ADifesa", tag: "Automazione Meta", meta: "Associazione di tutela bancaria e finanziaria · Lissone" },
-        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "1 ora", label: "per un album, non 4-5", client: "Studio fotografico Simone Casillo", tag: "Album AI", meta: "Fotografia · Album scelti e impaginati dall'IA" },
-        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "5 minuti", label: "per le schede di tutto il catalogo, quando una sola ne chiedeva 20", client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "E-commerce di abbigliamento · Negozio WooCommerce" },
+        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "1 ora", label: "per un album, non 4-5", lines: ["Consegne più veloci e più tempo per i clienti", "L'IA sceglie le foto e impagina l'album, al fotografo resta solo la revisione"], client: "Studio fotografico Simone Casillo", tag: "Album AI", meta: "Fotografia · Album di eventi" },
+        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "24/7", label: "l'IA controlla il negozio e risolve i problemi da sola", lines: ["10 problemi intercettati in 28 giorni, come annunci con il prezzo doppio", "Da 111 errori del sito in un giorno a zero"], client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "E-commerce di abbigliamento · Negozio WooCommerce" },
       ],
     },
   },
@@ -181,8 +181,8 @@ export const HOME_V3 = {
       items: [
         { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "0", label: "calls sent to voicemail in nine months", lines: ["About 22 calls a month answered with the clinic closed", "About €4,400 a month in estimated revenue, at list price"], client: "Clínica Santa Maria dos Olivais", tag: "AI Receptionist", meta: "Dental clinic · Lisbon" },
         { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "4 hours", label: "a day back for the team", lines: ["No potential client left without a reply", "About 157 new clients from 524 complete contacts, in four and a half months"], client: "ADifesa", tag: "Meta Automation", meta: "Banking and financial consumer protection association · Lissone" },
-        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "1 hour", label: "per album, not 4-5", client: "Simone Casillo Photography Studio", tag: "Album AI", meta: "Photography · Albums chosen and laid out by AI" },
-        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "5 minutes", label: "for the whole catalog's listings, when one used to take 20", client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "Clothing e-commerce · WooCommerce store" },
+        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "1 hour", label: "per album, not 4-5", lines: ["Faster deliveries and more time for clients", "The AI picks the photos and lays out the album, the photographer only reviews"], client: "Simone Casillo Photography Studio", tag: "Album AI", meta: "Photography · Event albums" },
+        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "24/7", label: "the AI watches the store and fixes problems on its own", lines: ["10 problems caught in 28 days, like ads showing double the real price", "From 111 site errors in a day to zero"], client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "Clothing e-commerce · WooCommerce store" },
       ],
     },
   },
@@ -273,8 +273,8 @@ export const HOME_V3 = {
       items: [
         { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "0", label: "chamadas enviadas para o voicemail em nove meses", lines: ["Cerca de 22 chamadas por mês atendidas com a clínica fechada", "Cerca de 4.400 € por mês de faturação estimada, a preço de tabela"], client: "Clínica Santa Maria dos Olivais", tag: "Rececionista de voz IA", meta: "Clínica dentária · Lisboa" },
         { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "4 horas", label: "por dia devolvidas à equipa", lines: ["Nenhum potencial cliente sem resposta", "Cerca de 157 novos clientes de 524 contactos completos, em quatro meses e meio"], client: "ADifesa", tag: "Automação Meta", meta: "Associação de defesa do consumidor bancário e financeiro · Lissone" },
-        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "1 hora", label: "por álbum, não 4 a 5", client: "Estúdio fotográfico Simone Casillo", tag: "Album AI", meta: "Fotografia · Álbuns escolhidos e paginados pela IA" },
-        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "5 minutos", label: "para as fichas de todo o catálogo, quando uma só demorava 20", client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "Loja online de roupa · Loja WooCommerce" },
+        { slug: "album-ai", logo: "/assets/images/client-logos/simone-casillo.png", stat: "1 hora", label: "por álbum, não 4 a 5", lines: ["Entregas mais rápidas e mais tempo para os clientes", "A IA escolhe as fotografias e pagina o álbum, ao fotógrafo resta só a revisão"], client: "Estúdio fotográfico Simone Casillo", tag: "Album AI", meta: "Fotografia · Álbuns de eventos" },
+        { slug: "datura-clothing", logo: "/assets/images/client-logos/datura-clothing.png", stat: "24/7", label: "a IA vigia a loja e resolve os problemas sozinha", lines: ["10 problemas detetados em 28 dias, como anúncios com o dobro do preço", "De 111 erros do site num dia para zero"], client: "Datura Clothing", tag: "AI WooCommerce Manager", meta: "Loja online de roupa · Loja WooCommerce" },
       ],
     },
   },

@@ -17,7 +17,7 @@ export default {
     title: "Un negozio WooCommerce che si ripara mentre dormi",
     highlight: "si ripara mentre dormi",
     titleLogo: { word: "WooCommerce", src: "/assets/images/logos/woocommerce-mark-white.svg", alt: "WooCommerce" },
-    lead: "Problemi trovati e risolti giorno e notte, le schede di tutto il catalogo in 5 minuti quando una sola ne chiedeva 20, e annunci che seguono le scorte.",
+    lead: "L'IA controlla il negozio giorno e notte, risolve i problemi da sola e ti scrive solo quando serve. Gli annunci seguono le scorte.",
     client: "Datura Clothing",
     logo: "/assets/images/client-logos/datura-clothing-white.png",
   },
