@@ -48,7 +48,7 @@ const IT_LABELS = {
   ctaTitle: "Pronto a trasformare la tua attività?",
   ctaText:
     "Scopri come i nostri sistemi di IA aiutano le attività locali a rispondere a ogni chiamata, raccogliere ogni contatto e automatizzare il lavoro ripetitivo.",
-  ctaPrimary: "Prenota una call",
+  ctaPrimary: "Prenota una call gratuita",
   ctaSecondary: "Scopri di più",
 };
 

@@ -11,10 +11,10 @@ export default {
 
   hero: {
     eyebrow: "Caso de estudo",
-    title: "AI WooCommerce Manager: um só sistema para toda a loja",
-    highlight: "AI WooCommerce Manager:",
+    title: "Uma loja WooCommerce que se repara enquanto dorme",
+    highlight: "se repara enquanto dorme",
     titleLogo: { word: "WooCommerce", src: "/assets/images/logos/woocommerce-mark-white.svg", alt: "WooCommerce" },
-    lead: "Uma loja de roupa que funciona sozinha. Nos últimos quatro meses, a IA assumiu a vigilância dia e noite, tornou o catálogo mais rápido e fez os anúncios render mais.",
+    lead: "Problemas encontrados e resolvidos dia e noite, as fichas de todo o catálogo em 5 minutos quando uma só demorava 20, e anúncios que seguem o stock.",
     client: "Datura Clothing",
     logo: "/assets/images/client-logos/datura-clothing-white.png",
   },
@@ -54,8 +54,8 @@ export default {
           figure: "111",
           unit: "erros num só dia",
           title: "As rajadas da Meta deitavam o site abaixo",
-          found: "O site respondia com erro 503 e ia abaixo.",
-          fix: "As páginas mais pedidas servem-se a partir da cache, também ao crawler da Meta.",
+          found: "O site ia abaixo com a carga e mostrava uma página de erro.",
+          fix: "As páginas mais visitadas estão agora sempre prontas, por isso os picos de tráfego já não deitam o site abaixo.",
           done: "Passados dois dias, zero erros.",
         },
         {
@@ -190,9 +190,9 @@ export default {
     title: "Nos últimos 4 meses",
     label: "Os números do caso",
     items: [
-      { figure: "10", label: "falhas distintas encontradas", basis: "em 28 dias" },
+      { figure: "10", label: "problemas detetados", basis: "em 28 dias" },
       { figure: "100", label: "anúncios criados em 4 campanhas, 46 foram para o ar", basis: "em 6 semanas" },
-      { figure: "19", label: "atualizações de plugins verificadas uma a uma, todas sem problemas", basis: "em 4 dias" },
+      { figure: "19", label: "atualizações da loja verificadas uma a uma, sem nenhum problema", basis: "em 4 dias" },
     ],
     product: { label: "O produto por trás do caso: AI E-commerce Manager", href: "/ecommerce" },
   },

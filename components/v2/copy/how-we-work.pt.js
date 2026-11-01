@@ -1,19 +1,19 @@
 /* Como trabalhamos (PT, pt-PT). I tre passi di knowledge/business.md:
    ascolto e diagnosi, progettazione e attivazione, gestione e miglioramento mensile.
-   Tempi: «2 a 4 semanas» a seconda del sistema (circa 2 per i più semplici, circa 4 per un CRM su misura).
+   Tempi: circa 7 giorni per un sistema semplice, di più se su misura.
    Scritta dagli intenti, non tradotta dall'inglese. */
 export default {
   meta: {
     title: "Como trabalhamos: ouvir, construir, melhorar | Automis",
     description:
-      "Três passos: ouvimos como trabalha, construímos o sistema à sua medida e melhoramos todos os meses, com supervisão humana. Em 2 a 4 semanas.",
+      "Três passos: ouvimos como trabalha, construímos o sistema à sua medida e melhoramos todos os meses, com supervisão humana. Os sistemas simples ficam ativos em cerca de 7 dias.",
   },
 
   hero: {
     eyebrow: "Como trabalhamos",
-    title: "Primeiro ouvimos, depois construímos",
+    title: "Pode ficar a funcionar em 7 dias, à medida de como já trabalha",
     lead: "Três passos, da primeira chamada à melhoria mensal, e fica sempre a saber o que está a acontecer.",
-    accent: "depois construímos",
+    accent: "em 7 dias",
   },
 
   steps: {
@@ -30,7 +30,7 @@ export default {
         title: "Desenhar e ativar",
         line: "Construímos sobre o seu processo, e testa antes de arrancar.",
         more: "Nada arranca enquanto não funcionar como a sua atividade realmente trabalha.",
-        meta: "2 a 4 semanas, consoante o sistema.",
+        meta: "Cerca de 7 dias para um sistema simples, mais se for à medida.",
       },
       {
         n: "3",
@@ -59,7 +59,7 @@ export default {
       },
       {
         q: "Em quanto tempo fica a funcionar?",
-        a: "A maioria dos sistemas fica a funcionar em 2 a 4 semanas: cerca de 2 para os mais simples, cerca de 4 para um CRM à medida ou um projeto mais amplo. Combinamos consigo o prazo antes de começar.",
+        a: "Um sistema simples fica a funcionar em cerca de 7 dias. Os projetos à medida demoram mais, e combinamos consigo o prazo antes de começar.",
       },
       {
         q: "Quanto custa?",
@@ -79,7 +79,7 @@ export default {
       },
       {
         q: "E se não funcionar para nós?",
-        a: "Todos os planos Voice AI têm garantia de desempenho de 30 dias, e os projetos à medida com custo de configuração preveem o reembolso desse custo. O risco do primeiro passo é nosso.",
+        a: "Em todos os planos Voice AI pode pedir o reembolso nos primeiros 30 dias, sem perguntas. Os projetos à medida com custo de configuração preveem o reembolso desse custo. O risco do primeiro passo é nosso.",
       },
     ],
   },

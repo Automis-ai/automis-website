@@ -5,8 +5,8 @@
    the one in that schema. */
 export default {
   ui: {
-    read: "Read the case",
-    book: "Book a call",
+    read: "See the results",
+    book: "Book a free 30-minute call",
     openShot: "Open the full screenshot",
     hoursTitle: "1,377 private messages after hours",
     sep: ",",
@@ -14,9 +14,9 @@ export default {
 
   hero: {
     eyebrow: "Case study",
-    title: "Five months in the comments on Facebook and Instagram",
-    highlight: "Five months",
-    lead: "2,329 conversations handled and 524 records complete with name, phone and email. Of those, 3 in 10 become clients.",
+    title: "4 hours a day back, and no potential client without a reply",
+    highlight: "4 hours a day back",
+    lead: "Comments and DMs on Facebook and Instagram, answered for them. 524 people left their name, phone and email, and about 3 in 10 became clients, the association's own figure.",
     client: "ADifesa association",
     logo: "/assets/images/client-logos/adifesa-mark.png",
   },

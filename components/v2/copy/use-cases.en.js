@@ -20,7 +20,7 @@ export default {
       slug: "clinica-santa-maria",
       client: "Clínica Santa Maria dos Olivais",
       tag: "Voice AI receptionist",
-      title: "7 months on a dental clinic's phone line",
+      title: "A dental clinic's phone, answered day and night",
       figure: "0",
       figureLabel: "calls sent to voicemail in nine months",
       href: "/use-cases/clinica-santa-maria",

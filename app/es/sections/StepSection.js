@@ -27,7 +27,7 @@ export default function StepsSection() {
       title: "Configuración Rápida",
       points: [
         "📋 Comparte con nosotros los detalles de tu negocio, FAQs y procesos",
-        "⚡ Configuración completa en 72 horas",
+        "⚡ Configuración completa en unos 7 días",
         "🎯 Personalizamos la IA para tu sector",
       ],
       delay: 100,

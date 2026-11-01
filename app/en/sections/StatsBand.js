@@ -3,7 +3,7 @@
 import CountUp from "react-countup";
 
 const STATS = [
-  { end: 72, suffix: "h", label: "To go live" },
+  { end: 7, suffix: " days", label: "To go live with a simple setup" },
   { end: 80, suffix: "%", label: "Of calls handled by AI" },
   { end: 24, suffix: "/7", label: "Available, no breaks or holidays" },
   { end: 100, suffix: "%", label: "Natural English voice" },

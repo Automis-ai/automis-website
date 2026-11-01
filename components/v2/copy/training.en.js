@@ -13,8 +13,8 @@ export default {
 
   hero: {
     eyebrow: "Training",
-    title: "Make AI part of how your company works",
-    highlight: "AI",
+    title: "Get your team using Claude or ChatGPT on the work they repeat every day",
+    highlight: "Claude or ChatGPT",
     lead: "Practical training on using Claude or ChatGPT in your daily work, from simple everyday uses to agents and a second brain.",
     ctaPaths: "See the two paths",
   },

@@ -19,7 +19,7 @@ const TRUST_ICONS = [ShieldCheck, Lock, UserCheck];
 const COPY = {
   en: {
     eyebrow: "The team behind it",
-    heading: "Two founders, hands-on with your build",
+    heading: "The two founders build your system themselves",
     intro:
       "Founder-led and hands-on: we design, build, and ship the systems ourselves, shaped around how your business actually works.",
     roles: ["Co-Founder", "Co-Founder"],
@@ -27,21 +27,21 @@ const COPY = {
     trust: [
       {
         title: "The Automis Guarantee",
-        body: "A 30-day performance guarantee on every Voice plan, and a setup-fee refund on custom engagements. We de-risk the first step so you don't have to.",
+        body: "On every Voice plan you can ask for a refund in the first 30 days, no questions asked. Custom engagements come with a setup-fee refund. We de-risk the first step so you don't have to.",
       },
       {
         title: "Privacy-first by design",
         body: "GDPR-aligned, with EU / local server options for healthcare and financial data. Your information stays where it should.",
       },
       {
-        title: "Human-in-the-loop",
+        title: "Sensitive cases go to you",
         body: "Complex or sensitive cases route straight to your team. AI handles the volume; people handle the nuance.",
       },
     ],
   },
   it: {
     eyebrow: "Il team dietro Automis",
-    heading: "Due founder, al lavoro sul tuo progetto",
+    heading: "I due fondatori costruiscono il tuo sistema in prima persona",
     intro:
       "Ci mettiamo le mani noi founder: progettiamo, costruiamo e mandiamo online i sistemi in prima persona, cuciti su come lavora davvero il tuo business.",
     roles: ["Co-Founder", "Co-Founder"],
@@ -49,21 +49,21 @@ const COPY = {
     trust: [
       {
         title: "La Garanzia Automis",
-        body: "Una garanzia sui risultati di 30 giorni su ogni piano Voice, e il rimborso del costo di setup sui progetti su misura. Ci prendiamo noi il rischio del primo passo, così non devi farlo tu.",
+        body: "Su ogni piano Voice puoi chiedere il rimborso nei primi 30 giorni, senza dover dare spiegazioni. Sui progetti su misura, il rimborso del costo di setup. Ci prendiamo noi il rischio del primo passo, così non devi farlo tu.",
       },
       {
         title: "Privacy al primo posto, da subito",
         body: "In linea con il GDPR, con opzioni di server in UE o locali per dati sanitari e finanziari. Le tue informazioni restano dove devono stare.",
       },
       {
-        title: "C'è sempre una persona nel processo",
+        title: "I casi delicati arrivano a te",
         body: "I casi complessi o delicati passano direttamente al tuo team. L'IA gestisce i volumi, le persone gestiscono le sfumature.",
       },
     ],
   },
   pt: {
     eyebrow: "A equipa por trás",
-    heading: "Dois founders, com as mãos no seu projeto",
+    heading: "Os dois fundadores constroem pessoalmente o seu sistema",
     intro:
       "Liderado pelos founders e com as mãos na massa: desenhamos, construímos e colocamos os sistemas online nós próprios, moldados à forma como o seu negócio realmente funciona.",
     roles: ["Co-Founder", "Co-Founder"],
@@ -71,14 +71,14 @@ const COPY = {
     trust: [
       {
         title: "A Garantia Automis",
-        body: "Uma garantia de desempenho de 30 dias em todos os planos Voice, e o reembolso do custo de setup nos projetos à medida. Tiramos o risco do primeiro passo para que não tenha de o assumir.",
+        body: "Em todos os planos Voice pode pedir o reembolso nos primeiros 30 dias, sem perguntas. Nos projetos à medida, o reembolso do custo de setup. Tiramos o risco do primeiro passo para que não tenha de o assumir.",
       },
       {
         title: "Privacidade primeiro, desde a raiz",
         body: "Em conformidade com o RGPD, com opções de servidor na UE ou local para dados de saúde e financeiros. A sua informação fica onde deve ficar.",
       },
       {
-        title: "Sempre uma pessoa no processo",
+        title: "Os casos sensíveis vão para si",
         body: "Os casos complexos ou sensíveis vão diretamente para a sua equipa. A IA trata do volume, as pessoas tratam das nuances.",
       },
     ],

@@ -30,10 +30,10 @@ export default {
     scriptNote: "Exemplo com guião. Nesta página não corre nenhuma IA em direto.",
     home: "Início",
     allCases: "Todos os casos de estudo",
-    readCase: "Ler o caso",
+    readCase: "Ver os resultados",
   },
   booking: {
-    cta: "Agende uma chamada",
+    cta: "Agende uma chamada gratuita",
     availability: "Disponibilidade atualizada · chamada de 30 minutos",
     instant: "Confirmação imediata",
     noObligation: "Sem compromisso",

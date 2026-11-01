@@ -32,15 +32,15 @@ const AkpagerLayout = ({
   const STICKY_CTA = {
     en: {
       href: "https://api.leadconnectorhq.com/widget/bookings/discover-automis",
-      label: "Book Discovery Call",
+      label: "Book a free 30-minute call",
     },
     it: {
       href: "https://api.leadconnectorhq.com/widget/bookings/automis-it",
-      label: "Prenota una call",
+      label: "Prenota una call gratuita",
     },
     pt: {
       href: "https://api.leadconnectorhq.com/widget/bookings/pt-automis",
-      label: "Agende uma chamada",
+      label: "Agende uma chamada gratuita",
     },
   };
   const { href: stickyCtaHref, label: stickyCtaLabel } =

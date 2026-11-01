@@ -11,7 +11,7 @@ const steps = [
     title: "Fast Setup",
     points: [
       "Share your business details, FAQs and processes with us",
-      "Full setup in 72 hours",
+      "Full setup in about 7 days",
       "We tailor the AI to your industry",
     ],
   },
@@ -114,7 +114,7 @@ export default function StepsSection() {
             size="large"
             icon="fas fa-calendar-check"
           >
-            Book a call
+            Book a free 30-minute call
           </CTAButton>
         </div>
       </div>

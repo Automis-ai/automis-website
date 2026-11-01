@@ -219,13 +219,13 @@ export default {
     meta: {
       title: "AI Systems for Sales: CRM, Lead Follow-up and DMs | Automis",
       description:
-        "AI that answers every social comment and DM, calls back ad leads, qualifies with quizzes and runs your CRM. Live in 2 to 4 weeks. Book a call.",
+        "AI that answers every social comment and DM, calls back ad leads, qualifies with quizzes and runs your CRM. Simple systems live in about 7 days. Book a call.",
     },
     hero: {
       eyebrow: "AI Systems for Sales",
       title: "Systems that let no lead go cold",
       highlight: "no lead",
-      lead: "They answer right away, take each lead to an appointment and track it in your CRM, so your team only talks to people who are ready.",
+      lead: "They reply within minutes, take each lead to an appointment and keep track of it, so your team only talks to people who are ready.",
     },
     moment: {
       label: "From message to CRM: the sales chain",
@@ -351,7 +351,7 @@ export default {
       eyebrow: "Real case",
       title: "ADifesa",
       line: "Comments and DMs on Facebook and Instagram, answered and qualified: 2,329 conversations from 1 May to 16 September 2026 and 524 complete records. According to the association, 3 in 10 complete records become customers.",
-      cta: "Read the case",
+      cta: "See the results",
       href: "/use-cases/adifesa",
     },
     finder: {
@@ -376,12 +376,12 @@ export default {
       },
       times: {
         label: "Timing",
-        text: "About 2 weeks for DM replies, lead callbacks and forms. About 4 for a custom CRM. We start once we have access.",
+        text: "About 7 days for DM replies, lead callbacks and forms. Longer for a custom CRM. We start once we have access.",
       },
       tools: {
         label: "Connects to",
         title: "The tools you already use",
-        line: "If it has an API, we connect to it: you don't change what you use.",
+        line: "You keep your tools, so there's nothing to switch.",
         items: [
           { name: "HubSpot", src: "/assets/images/integrations/hubspot.svg" },
           { name: "Salesforce", src: "/assets/images/integrations/salesforce.svg" },
@@ -410,7 +410,7 @@ export default {
         },
         {
           q: "How long until it goes live?",
-          a: "About 2 weeks for the simpler systems, like DM replies, lead callbacks and forms. About 4 for a custom CRM. The clock starts once we have access and your rules.",
+          a: "About 7 days for the simpler systems, like DM replies, lead callbacks and forms. Longer for a custom CRM. The clock starts once we have access and your rules.",
         },
         {
           q: "How much does it cost?",
@@ -509,7 +509,7 @@ export default {
       eyebrow: "Real case",
       title: "Clínica Santa Maria dos Olivais",
       line: "A voice assistant on a dental clinic's phone line: 872 calls from 1 February to 9 September 2026, 527 closed by the assistant and 114 appointments booked.",
-      cta: "Read the case",
+      cta: "See the results",
       href: "/use-cases/clinica-santa-maria",
     },
     faq: {
@@ -521,7 +521,7 @@ export default {
         },
         {
           q: "How long until it goes live?",
-          a: "About 2 to 4 weeks, depending on the system: about 2 for the simpler ones, about 4 for a custom CRM or a larger build. We agree the timeline with you before we start.",
+          a: "About 7 days for a simple system, longer for a custom CRM or a larger build. We agree the timeline with you before we start.",
         },
         {
           q: "What happens with delicate calls?",
@@ -529,7 +529,7 @@ export default {
         },
         {
           q: "What if it doesn't work for us?",
-          a: "Every Voice AI plan has a 30-day performance guarantee. We take the risk of the first step.",
+          a: "On every Voice AI plan you can ask for a refund in the first 30 days, no questions asked. We take the risk of the first step.",
         },
       ],
     },

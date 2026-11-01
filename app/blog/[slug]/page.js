@@ -48,7 +48,7 @@ const EN_LABELS = {
   ctaTitle: "Ready to Transform Your Business?",
   ctaText:
     "See how our AI systems help local businesses answer every call, capture every lead, and automate the busywork.",
-  ctaPrimary: "Book Discovery Call",
+  ctaPrimary: "Book a free 30-minute call",
   ctaSecondary: "Learn More",
 };
 

@@ -21,7 +21,7 @@ export default {
       slug: "clinica-santa-maria",
       client: "Clínica Santa Maria dos Olivais",
       tag: "Rececionista de voz IA",
-      title: "7 meses ao telefone de uma clínica dentária",
+      title: "O telefone de uma clínica dentária, atendido dia e noite",
       figure: "0",
       figureLabel: "chamadas enviadas para o voicemail em nove meses",
       href: "/use-cases/clinica-santa-maria",

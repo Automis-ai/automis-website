@@ -26,7 +26,7 @@ export const metadata = {
   openGraph: {
     title: "Automis Voice AI | The 24/7 AI receptionist that books appointments",
     description:
-      "Answers every call 24/7, qualifies, books, and syncs to your CRM. Full dashboard transparency, plans from €297/mo, 30-day performance guarantee.",
+      "Answers every call 24/7, qualifies, books, and syncs to your CRM. Full dashboard transparency, plans from €297/mo, 30-day money-back guarantee.",
     url: "https://automis.ai/voice-ai",
     siteName: "Automis",
     type: "website",

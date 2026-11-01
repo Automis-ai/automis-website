@@ -5,8 +5,8 @@
    as desse schema. */
 export default {
   ui: {
-    read: "Ler o caso",
-    book: "Marcar uma chamada",
+    read: "Ver os resultados",
+    book: "Agende uma chamada gratuita",
     openShot: "Abrir a captura completa",
     hoursTitle: "1.377 mensagens privadas fora de horas",
     sep: ".",
@@ -14,9 +14,9 @@ export default {
 
   hero: {
     eyebrow: "Caso de estudo",
-    title: "Cinco meses nos comentários do Facebook e do Instagram",
-    highlight: "Cinco meses",
-    lead: "2.329 conversas tratadas e 524 fichas completas com nome, telefone e email. Dessas, 3 em cada 10 tornam-se clientes.",
+    title: "4 horas por dia devolvidas à equipa, e nenhum potencial cliente sem resposta",
+    highlight: "4 horas por dia",
+    lead: "Comentários e DMs no Facebook e no Instagram, respondidos em vez da equipa. 524 pessoas deixaram nome, telefone e email, e cerca de 3 em cada 10 tornaram-se clientes, segundo os dados da associação.",
     client: "Associação ADifesa",
     logo: "/assets/images/client-logos/adifesa-mark.png",
   },

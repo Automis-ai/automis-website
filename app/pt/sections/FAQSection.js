@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "Quanto tempo demora a configuração?",
     answer:
-      "72 horas. A nossa equipa faz um onboarding guiado: recolhemos informação, criamos os guiões, testamos com a sua equipa e lançamos.",
+      "Cerca de 7 dias para uma configuração simples, mais se for à medida. A nossa equipa faz um onboarding guiado: recolhemos informação, criamos os guiões, testamos com a sua equipa e lançamos.",
   },
   {
     question: "Posso integrar com o meu CRM atual?",

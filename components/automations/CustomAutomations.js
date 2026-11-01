@@ -32,18 +32,18 @@ const COPY = {
         title: "Design, Build & Deploy",
         body: "We take the closest example from the catalog and rebuild it around your tools, your scripts, and your CRM. You test it before it goes live. Nothing ships until it works the way your team actually works.",
         points: ["Built around your stack, not a template", "You approve it before it goes live"],
-        meta: "2-4 weeks, depending on the system",
+        meta: "About 7 days for a simple system, longer for custom builds",
       },
       {
         step: "Step 3",
         title: "Launch, Monitor & Optimize",
         body: "We do not disappear after go-live. We watch how the automation performs, keep a human in the loop, and tune it every month so it gets sharper as your business grows, not stale.",
         points: ["Human oversight on every automation", "Monthly tuning as your business changes"],
-        meta: "Ongoing, with human-in-the-loop",
+        meta: "Ongoing, with a person checking the work",
       },
     ],
     ctaText: "Not sure which automation fits, or want something that is not on the list? That is exactly what the discovery call is for. We scope it around your business, for free.",
-    ctaButton: "Book a Discovery Call",
+    ctaButton: "Book a free 30-minute call",
   },
   it: {
     eyebrow: "Esempi, non un menù fisso",
@@ -64,7 +64,7 @@ const COPY = {
         title: "Progetta, costruisci e lancia",
         body: "Prendiamo l'esempio più vicino dal catalogo e lo ricostruiamo attorno ai tuoi strumenti, ai tuoi script e al tuo CRM. Lo provi prima che vada online. Niente parte finché non funziona come lavora davvero il tuo team.",
         points: ["Costruita sul tuo stack, non su un template", "Lo approvi prima che vada online"],
-        meta: "2-4 settimane, a seconda del sistema",
+        meta: "Circa 7 giorni per un sistema semplice, di più se su misura",
       },
       {
         step: "Step 3",
@@ -75,7 +75,7 @@ const COPY = {
       },
     ],
     ctaText: "Non sai quale automazione fa per te, o vuoi qualcosa che non è nella lista? La call conoscitiva serve esattamente a questo. La costruiamo attorno al tuo business, gratis.",
-    ctaButton: "Prenota una call",
+    ctaButton: "Prenota una call gratuita",
   },
   pt: {
     eyebrow: "Exemplos, não um menu fixo",
@@ -96,7 +96,7 @@ const COPY = {
         title: "Desenho, construção e lançamento",
         body: "Pegamos no exemplo mais próximo do catálogo e reconstruímo-lo em torno das suas ferramentas, dos seus scripts e do seu CRM. Só entra em funcionamento depois de o testar. Nada é lançado até funcionar tal como a sua equipa trabalha de facto.",
         points: ["Construída sobre o seu stack, não sobre um template", "Aprova-a antes de entrar em funcionamento"],
-        meta: "2 a 4 semanas, consoante o sistema",
+        meta: "Cerca de 7 dias para um sistema simples, mais se for à medida",
       },
       {
         step: "Fase 3",
@@ -107,7 +107,7 @@ const COPY = {
       },
     ],
     ctaText: "Não sabe qual a automação certa para si, ou quer algo que não está na lista? É exatamente para isso que serve a chamada de descoberta. Definimo-la em torno do seu negócio, de forma gratuita.",
-    ctaButton: "Agende uma chamada",
+    ctaButton: "Agende uma chamada gratuita",
   },
 };
 

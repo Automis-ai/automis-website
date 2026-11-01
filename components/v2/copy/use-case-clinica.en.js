@@ -4,8 +4,8 @@
    the one in that schema. */
 export default {
   ui: {
-    read: "Read the case",
-    book: "Book a call",
+    read: "See the results",
+    book: "Book a free 30-minute call",
     keyTag: "In seven months",
     keyTitle: "first visits for implants",
     sep: ",",
@@ -13,9 +13,9 @@ export default {
 
   hero: {
     eyebrow: "Case study",
-    title: "7 months on a dental clinic's phone line",
-    highlight: "7 months",
-    lead: "Through October 30: 1,211 calls, 148 appointments and 702 calls the assistant closed without going through the receptionist. Below, the first seven months in detail.",
+    title: "0 calls sent to voicemail in nine months at a dental clinic",
+    highlight: "0 calls sent to voicemail",
+    lead: "About €4,400 a month in estimated revenue and 148 appointments through October 30, with about 22 calls a month answered while the clinic was closed.",
     client: "Clínica Santa Maria dos Olivais",
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
   },

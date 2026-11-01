@@ -247,9 +247,9 @@ const HeroSection = () => {
               data-aos-delay={80}
               data-aos-duration={1100}
             >
-              Il Tuo Assistente Vocale{" "}
+              Ogni chiamata con risposta, giorno e notte,{" "}
               <span className="bg-gradient-to-r from-soft-blue via-bright-blue to-soft-blue bg-clip-text text-transparent">
-                Intelligente, 24 ore su 24
+                così non perdi più clienti in segreteria
               </span>
             </h1>
 
@@ -259,10 +259,8 @@ const HeroSection = () => {
               data-aos-delay={160}
               data-aos-duration={1100}
             >
-              Trasforma ogni chiamata in un'opportunità. La nostra intelligenza
-              artificiale vocale gestisce i contatti, qualifica i clienti e fissa
-              gli appuntamenti — mentre tu ti concentri sulla crescita del tuo
-              business.
+              Il nostro assistente vocale risponde a ogni chiamata, prende i dati e fissa
+              l'appuntamento mentre tu pensi al tuo lavoro.
             </p>
 
             <div
@@ -277,7 +275,7 @@ const HeroSection = () => {
                 size="large"
                 icon="fas fa-calendar-check"
               >
-                Prenota una chiamata
+                Prenota una chiamata gratuita
               </CTAButton>
             </div>
 
@@ -288,7 +286,7 @@ const HeroSection = () => {
               data-aos-duration={1100}
             >
               {[
-                { icon: Clock, label: "Configurazione in 72 ore" },
+                { icon: Clock, label: "Attivo in circa 7 giorni" },
                 { icon: ShieldCheck, label: "Conforme al GDPR" },
                 { icon: Globe, label: "Supporto in italiano" },
               ].map(({ icon: Icon, label }) => (

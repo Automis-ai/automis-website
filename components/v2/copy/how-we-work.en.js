@@ -1,18 +1,18 @@
 /* Come lavoriamo (EN). I tre passi di knowledge/business.md:
    ascolto e diagnosi, progettazione e attivazione, avvio e miglioramento mensile.
-   Tempi: «2-4 settimane» a seconda del sistema (circa 2 per i più semplici, circa 4 per un CRM su misura). */
+   Tempi: circa 7 giorni per un sistema semplice, di più se su misura. */
 export default {
   meta: {
     title: "How We Work: Listen, Build, Improve Every Month | Automis",
     description:
-      "Three steps: we listen to how you work, build the system around it, then improve it every month with a person overseeing it. Live in 2 to 4 weeks.",
+      "Three steps: we listen to how you work, build the system around it, then improve it every month with a person overseeing it. Simple systems go live in about 7 days.",
   },
 
   hero: {
     eyebrow: "How we work",
-    title: "We listen first, then we build",
+    title: "Live in as little as 7 days, built around how you already work",
     lead: "Three steps, from the first call to the monthly improvement. You always know what is happening.",
-    accent: "then we build",
+    accent: "as little as 7 days",
   },
 
   steps: {
@@ -29,7 +29,7 @@ export default {
         title: "Design and launch",
         line: "We build around your process, and you test it before launch.",
         more: "Nothing ships until it works the way your business actually runs.",
-        meta: "2-4 weeks, depending on the system.",
+        meta: "About 7 days for a simple system, longer for custom builds.",
       },
       {
         n: "3",
@@ -45,7 +45,7 @@ export default {
     items: [
       { title: "You own it", line: "What we build is yours. No black box, no lock-in." },
       { title: "Privacy first", line: "GDPR-aligned from day one, with EU hosting options for sensitive data." },
-      { title: "A person in the loop", line: "AI does the repetitive work. Delicate cases go straight to your team." },
+      { title: "A person checks the tricky ones", line: "AI does the repetitive work. Delicate cases go straight to your team." },
     ],
   },
 
@@ -58,7 +58,7 @@ export default {
       },
       {
         q: "How long until it goes live?",
-        a: "Most systems go live in 2-4 weeks: about 2 for the simpler ones, about 4 for a custom CRM or a larger build. We agree the timeline with you before anything starts.",
+        a: "A simple system goes live in about 7 days. Custom builds take longer, and we agree the timeline with you before anything starts.",
       },
       {
         q: "How much does it cost?",
@@ -78,7 +78,7 @@ export default {
       },
       {
         q: "What if it doesn't work for us?",
-        a: "Every Voice AI plan has a 30-day performance guarantee, and custom projects with a setup fee come with a refund of it. We take the risk of the first step.",
+        a: "On every Voice AI plan you can ask for a refund in the first 30 days, no questions asked. Custom projects with a setup fee come with a refund of it. We take the risk of the first step.",
       },
     ],
   },

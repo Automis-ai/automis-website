@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "How long does it take to set up the system?",
     answer:
-      "72 hours. Our team runs a guided onboarding: we gather the information, build the scripts, test with your team and launch.",
+      "About 7 days for a simple setup, longer for custom builds. Our team runs a guided onboarding: we gather the information, build the scripts, test with your team and launch.",
   },
   {
     question: "Can I integrate it with my current CRM?",

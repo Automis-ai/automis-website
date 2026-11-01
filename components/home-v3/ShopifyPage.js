@@ -29,8 +29,8 @@ const COPY = {
   it: {
     hero: {
       eyebrow: "Per negozi Shopify che fanno pubblicità",
-      title: "Dove Sidekick finisce, iniziamo noi.",
-      highlight: "iniziamo noi",
+      title: "Il tuo negozio Shopify controllato ogni notte, con un riepilogo al mattino.",
+      highlight: "controllato ogni notte",
       lead: "Sidekick, l'assistente IA di Shopify, ti lascia una lista di cose da fare. Se non hai tempo, resta lì. I nostri agenti IA se ne occupano ogni notte, anche fuori da Shopify, e al mattino trovi il riepilogo.",
       cta: "Prenota il check-up gratuito",
     },
@@ -85,8 +85,8 @@ const COPY = {
   en: {
     hero: {
       eyebrow: "For Shopify stores that run ads",
-      title: "Where Sidekick ends, we begin.",
-      highlight: "we begin",
+      title: "Your Shopify store checked every night, with a summary each morning.",
+      highlight: "checked every night",
       lead: "Sidekick, Shopify's AI assistant, leaves you a to-do list. If you don't have time, it just sits there. Our AI agents take care of it every night, including outside Shopify, and in the morning you find the summary.",
       cta: "Book your free check-up",
     },
@@ -141,8 +141,8 @@ const COPY = {
   pt: {
     hero: {
       eyebrow: "Para lojas Shopify que fazem publicidade",
-      title: "Onde o Sidekick acaba, começamos nós.",
-      highlight: "começamos nós",
+      title: "A sua loja Shopify verificada todas as noites, com um resumo de manhã.",
+      highlight: "verificada todas as noites",
       lead: "O Sidekick, o assistente de IA da Shopify, deixa-lhe uma lista de tarefas. Se não tiver tempo, fica lá parada. Os nossos agentes de IA tratam disso todas as noites, mesmo fora da Shopify, e de manhã encontra o resumo.",
       cta: "Marque o diagnóstico gratuito",
     },

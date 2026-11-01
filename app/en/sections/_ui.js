@@ -75,7 +75,7 @@ export function CtaBand({
   eyebrow = "Ready to get started?",
   title,
   subtitle,
-  buttonLabel = "Book a call",
+  buttonLabel = "Book a free 30-minute call",
 }) {
   return (
     <section className="relative px-4 py-12 md:py-16">

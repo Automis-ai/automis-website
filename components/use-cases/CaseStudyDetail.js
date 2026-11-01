@@ -21,7 +21,7 @@ const COPY = {
     solution: "What we built",
     results: "Results",
     ctaLine: "Want a system like this built for your business?",
-    ctaButton: "Book a Discovery Call",
+    ctaButton: "Book a free 30-minute call",
   },
   it: {
     back: "Torna ai casi studio",
@@ -32,7 +32,7 @@ const COPY = {
     solution: "Cosa abbiamo costruito",
     results: "I risultati",
     ctaLine: "Vuoi un sistema come questo per il tuo business?",
-    ctaButton: "Prenota una call",
+    ctaButton: "Prenota una call gratuita",
   },
   pt: {
     back: "Voltar aos casos de estudo",
@@ -43,7 +43,7 @@ const COPY = {
     solution: "O que construímos",
     results: "Resultados",
     ctaLine: "Quer um sistema como este construído para o seu negócio?",
-    ctaButton: "Agende uma chamada",
+    ctaButton: "Agende uma chamada gratuita",
   },
 };
 

@@ -10,8 +10,8 @@ export default {
       "eyebrow": "Flagship · Automis Voice AI",
       "title": "The AI receptionist that turns every call into a booked appointment.",
       "highlight": "booked appointment",
-      "subtitle": "Automis Voice AI answers every call 24/7, qualifies the lead, books it on your calendar, and syncs it to your CRM. Nights, weekends, holidays. No missed calls, no lost revenue.",
-      "cta": "Book a Discovery Call",
+      "subtitle": "Automis Voice AI answers every call 24/7 and books the appointment on your calendar: nights, weekends, holidays. Your team gets the details afterwards.",
+      "cta": "Book a free 30-minute call",
       "videoTitle": "How Automis Voice AI works"
     },
     "problem": {
@@ -131,8 +131,8 @@ export default {
           "body": "Checks live availability and books directly onto your calendar, with confirmation to the caller."
         },
         {
-          "title": "Syncs to your CRM",
-          "body": "Contact, outcome, and notes flow straight into your CRM, so nothing is retyped and nothing is lost."
+          "title": "Details saved for your team",
+          "body": "The caller's details, the outcome and notes are saved for your team, so nothing is retyped."
         },
         {
           "title": "Recovers missed calls",
@@ -199,7 +199,7 @@ export default {
       "title": "Simple plans that pay for themselves in booked appointments.",
       "lead": "Pick the level that matches how you sell. Upgrade any time as you grow.",
       "mostPopular": "Most popular",
-      "bookCta": "Book a Discovery Call",
+      "bookCta": "Book a free 30-minute call",
       "enterprise": {
         "label": "Enterprise / Custom",
         "heading": "High volume, multiple locations, or bespoke integrations?",
@@ -207,8 +207,8 @@ export default {
         "cta": "Let's talk"
       },
       "guarantee": {
-        "title": "30-day performance guarantee",
-        "body": "Every plan is backed by our 30-day performance guarantee. If it does not perform, you are covered."
+        "title": "30-day money-back guarantee",
+        "body": "Every plan comes with it: ask for a refund in the first 30 days, no questions asked."
       },
       "tiers": [
         {
@@ -251,7 +251,7 @@ export default {
             "WhatsApp chatbot",
             "Outbound campaigns",
             "Custom integrations",
-            "Priority + human-in-the-loop",
+            "Priority + a person checking the work",
             "Advanced analytics"
           ],
           "featured": false
@@ -295,12 +295,12 @@ export default {
         "We map your calls, hours, and where bookings slip away",
         "Leave with a plan for a voice agent that answers 24/7"
       ],
-      "cta": "Book a Discovery Call",
+      "cta": "Book a free 30-minute call",
       "calHeader": "Live availability · 30-min call",
       "calConfirm": "Instant confirmation",
       "calLoading": "Loading live calendar…",
       "iframeTitle": "Book a discovery call with Automis",
-      "guarantee": "30-day performance guarantee",
+      "guarantee": "30-day money-back guarantee",
       "gdpr": "GDPR-aligned",
       "noObligation": "No obligation"
     }
@@ -310,8 +310,8 @@ export default {
       "eyebrow": "Prodotto di punta · Assistente Vocale Automis",
       "title": "L'assistente vocale che trasforma ogni chiamata in un appuntamento fissato.",
       "highlight": "appuntamento fissato",
-      "subtitle": "L'assistente vocale di Automis risponde a ogni chiamata 24/7, qualifica il contatto, lo fissa sul tuo calendario e lo sincronizza con il tuo CRM. Notti, weekend, festivi. Nessuna chiamata persa, nessun fatturato perso.",
-      "cta": "Prenota una call",
+      "subtitle": "L'assistente vocale di Automis risponde a ogni chiamata 24/7 e fissa l'appuntamento sul tuo calendario: notti, weekend, festivi. Il tuo team riceve i dettagli subito dopo.",
+      "cta": "Prenota una call gratuita",
       "videoTitle": "Come funziona l'assistente vocale di Automis"
     },
     "problem": {
@@ -431,8 +431,8 @@ export default {
           "body": "Controlla la disponibilità in tempo reale e prenota direttamente sul tuo calendario, con conferma a chi chiama."
         },
         {
-          "title": "Si sincronizza col tuo CRM",
-          "body": "Contatto, esito e note finiscono dritti nel tuo CRM: niente da ridigitare, niente che va perso."
+          "title": "Dati salvati per il tuo team",
+          "body": "I dati di chi chiama, l'esito e le note restano salvati per il tuo team: niente da ridigitare."
         },
         {
           "title": "Recupera le chiamate perse",
@@ -499,7 +499,7 @@ export default {
       "title": "Piani semplici che si ripagano da soli in appuntamenti prenotati.",
       "lead": "Scegli il livello adatto a come vendi. Passa a un piano superiore quando vuoi, man mano che cresci.",
       "mostPopular": "Il più scelto",
-      "bookCta": "Prenota una call",
+      "bookCta": "Prenota una call gratuita",
       "enterprise": {
         "label": "Enterprise / Su misura",
         "heading": "Grandi volumi, più sedi o integrazioni su misura?",
@@ -507,8 +507,8 @@ export default {
         "cta": "Parliamone"
       },
       "guarantee": {
-        "title": "Garanzia sui risultati a 30 giorni",
-        "body": "Ogni piano è coperto dalla nostra garanzia sui risultati a 30 giorni. Se non funziona, sei coperto."
+        "title": "Rimborso garantito per 30 giorni",
+        "body": "Vale per ogni piano: chiedi il rimborso nei primi 30 giorni, senza dover dare spiegazioni."
       },
       "tiers": [
         {
@@ -595,12 +595,12 @@ export default {
         "Analizziamo le tue chiamate, gli orari e dove perdi prenotazioni",
         "Esci con un piano per un assistente vocale che risponde 24/7"
       ],
-      "cta": "Prenota una call",
+      "cta": "Prenota una call gratuita",
       "calHeader": "Disponibilità in tempo reale · call di 30 min",
       "calConfirm": "Conferma immediata",
       "calLoading": "Caricamento del calendario…",
       "iframeTitle": "Prenota una call con Automis",
-      "guarantee": "Garanzia sui risultati a 30 giorni",
+      "guarantee": "Rimborso garantito per 30 giorni",
       "gdpr": "Conforme al GDPR",
       "noObligation": "Senza impegno"
     }
@@ -610,8 +610,8 @@ export default {
       "eyebrow": "Produto de referência · Assistente de Voz Automis",
       "title": "O assistente de voz que transforma cada chamada numa consulta marcada.",
       "highlight": "consulta marcada",
-      "subtitle": "O assistente de voz da Automis atende cada chamada 24/7, qualifica o contacto, marca-o na sua agenda e sincroniza-o com o seu CRM. Noites, fins de semana, feriados. Sem chamadas perdidas, sem receita perdida.",
-      "cta": "Agende uma chamada",
+      "subtitle": "O assistente de voz da Automis atende cada chamada 24/7 e faz a marcação na sua agenda: noites, fins de semana, feriados. A sua equipa recebe os detalhes a seguir.",
+      "cta": "Agende uma chamada gratuita",
       "videoTitle": "Como funciona o assistente de voz da Automis"
     },
     "problem": {
@@ -731,8 +731,8 @@ export default {
           "body": "Verifica a disponibilidade em tempo real e marca diretamente na sua agenda, com confirmação para quem liga."
         },
         {
-          "title": "Sincroniza com o seu CRM",
-          "body": "Contacto, resultado e notas seguem direto para o seu CRM, sem nada para reescrever e sem nada que se perca."
+          "title": "Dados guardados para a sua equipa",
+          "body": "Os dados de quem liga, o resultado e as notas ficam guardados para a sua equipa, sem nada para reescrever."
         },
         {
           "title": "Recupera chamadas perdidas",
@@ -799,7 +799,7 @@ export default {
       "title": "Planos simples que se pagam a si próprios em consultas marcadas.",
       "lead": "Escolha o nível que corresponde à forma como vende. Passe a um plano superior quando quiser, à medida que cresce.",
       "mostPopular": "O mais escolhido",
-      "bookCta": "Agende uma chamada",
+      "bookCta": "Agende uma chamada gratuita",
       "enterprise": {
         "label": "Enterprise / À medida",
         "heading": "Grandes volumes, várias localizações ou integrações à medida?",
@@ -807,8 +807,8 @@ export default {
         "cta": "Vamos falar"
       },
       "guarantee": {
-        "title": "Garantia de resultados de 30 dias",
-        "body": "Cada plano é coberto pela nossa garantia de resultados de 30 dias. Se não funcionar, está protegido."
+        "title": "Garantia de reembolso de 30 dias",
+        "body": "Aplica-se a todos os planos: pode pedir o reembolso nos primeiros 30 dias, sem perguntas."
       },
       "tiers": [
         {
@@ -895,12 +895,12 @@ export default {
         "Analisamos as suas chamadas, os horários e onde perde marcações",
         "Sai com um plano para um agente de voz que atende 24/7"
       ],
-      "cta": "Agende uma chamada",
+      "cta": "Agende uma chamada gratuita",
       "calHeader": "Disponibilidade em tempo real · chamada de 30 min",
       "calConfirm": "Confirmação imediata",
       "calLoading": "A carregar a agenda…",
       "iframeTitle": "Agende uma chamada com a Automis",
-      "guarantee": "Garantia de resultados de 30 dias",
+      "guarantee": "Garantia de reembolso de 30 dias",
       "gdpr": "Conforme ao RGPD",
       "noObligation": "Sem compromisso"
     }

@@ -5,11 +5,11 @@ export const HOME_V3 = {
   it: {
     hero: {
       eyebrow: "Agenzia IA",
-      titlePre: "Costruiamo i ",
-      titleAccent: "sistemi IA",
-      titlePost: " che mancano alla tua azienda.",
-      lead: "Prima ascoltiamo come lavori, poi lo costruiamo su misura. E i sistemi che costruiamo funzionano già, ogni giorno, per i nostri clienti.",
-      cta: "Prenota una call",
+      titlePre: "",
+      titleAccent: "Sistemi IA",
+      titlePost: " che ti portano più clienti e restituiscono ore al tuo team.",
+      lead: "Le chiamate trovano risposta, i contatti ricevono un riscontro in pochi minuti e il tuo team recupera ore. Su misura di come lavori, e già attivi per i nostri clienti.",
+      cta: "Prenota una call gratuita",
       ctaSecondary: "Scopri i sistemi IA",
     },
     journey: {
@@ -85,7 +85,7 @@ export const HOME_V3 = {
       eyebrow: "I risultati dei nostri clienti",
       title: "Business veri. Sistemi veri. Già attivi.",
       approx: "circa",
-      read: "Leggi il caso studio",
+      read: "Guarda i risultati",
       items: [
         { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "0", label: "chiamate finite in segreteria in nove mesi", lines: ["Circa 22 chiamate al mese con risposta a clinica chiusa", "Circa 4.400 € al mese di fatturato stimato, a prezzo di listino"], client: "Clínica Santa Maria dos Olivais", tag: "Segretaria IA", meta: "Clinica dentale · Lisbona" },
         { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "4 ore", label: "al giorno restituite al team", lines: ["Nessun potenziale cliente senza risposta", "Circa 157 nuovi clienti da 524 contatti completi, in quattro mesi e mezzo"], client: "ADifesa", tag: "Automazione Meta", meta: "Associazione di tutela bancaria e finanziaria · Lissone" },
@@ -97,11 +97,11 @@ export const HOME_V3 = {
   en: {
     hero: {
       eyebrow: "AI Agency",
-      titlePre: "We build the ",
+      titlePre: "",
       titleAccent: "AI systems",
-      titlePost: " your business is missing.",
-      lead: "We start by listening to how you work, then build around it. And the systems we build are already running every day for our clients.",
-      cta: "Book a call",
+      titlePost: " that bring you more customers and give your team hours back.",
+      lead: "Calls get answered, inquiries get a reply within minutes, and your team gets hours back. Built around how you work, already running for our clients.",
+      cta: "Book a free 30-minute call",
       ctaSecondary: "Explore AI systems",
     },
     journey: {
@@ -177,7 +177,7 @@ export const HOME_V3 = {
       eyebrow: "Our clients' results",
       title: "Real businesses. Real systems. Already running.",
       approx: "about",
-      read: "Read the case study",
+      read: "See the results",
       items: [
         { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "0", label: "calls sent to voicemail in nine months", lines: ["About 22 calls a month answered with the clinic closed", "About €4,400 a month in estimated revenue, at list price"], client: "Clínica Santa Maria dos Olivais", tag: "AI Receptionist", meta: "Dental clinic · Lisbon" },
         { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "4 hours", label: "a day back for the team", lines: ["No potential client left without a reply", "About 157 new clients from 524 complete contacts, in four and a half months"], client: "ADifesa", tag: "Meta Automation", meta: "Banking and financial consumer protection association · Lissone" },
@@ -189,11 +189,11 @@ export const HOME_V3 = {
   pt: {
     hero: {
       eyebrow: "Agência de IA",
-      titlePre: "Construímos os ",
-      titleAccent: "sistemas de IA",
-      titlePost: " que faltam ao seu negócio.",
-      lead: "Primeiro ouvimos como trabalha, depois construímos à sua medida. E os sistemas que construímos já funcionam, todos os dias, para os nossos clientes.",
-      cta: "Agende uma chamada",
+      titlePre: "",
+      titleAccent: "Sistemas de IA",
+      titlePost: " que lhe trazem mais clientes e devolvem horas à sua equipa.",
+      lead: "As chamadas são atendidas, os contactos recebem resposta em poucos minutos e a sua equipa recupera horas. À medida de como trabalha, e já em funcionamento para os nossos clientes.",
+      cta: "Agende uma chamada gratuita",
       ctaSecondary: "Conheça os sistemas de IA",
     },
     journey: {
@@ -269,7 +269,7 @@ export const HOME_V3 = {
       eyebrow: "Os resultados dos nossos clientes",
       title: "Negócios reais. Sistemas reais. Já em funcionamento.",
       approx: "cerca de",
-      read: "Ler o caso de estudo",
+      read: "Ver os resultados",
       items: [
         { slug: "clinica-santa-maria", logo: "/assets/images/client-logos/clinica-santa-maria.png", stat: "0", label: "chamadas enviadas para o voicemail em nove meses", lines: ["Cerca de 22 chamadas por mês atendidas com a clínica fechada", "Cerca de 4.400 € por mês de faturação estimada, a preço de tabela"], client: "Clínica Santa Maria dos Olivais", tag: "Rececionista de voz IA", meta: "Clínica dentária · Lisboa" },
         { slug: "adifesa", logo: "/assets/images/client-logos/adifesa.png", stat: "4 horas", label: "por dia devolvidas à equipa", lines: ["Nenhum potencial cliente sem resposta", "Cerca de 157 novos clientes de 524 contactos completos, em quatro meses e meio"], client: "ADifesa", tag: "Automação Meta", meta: "Associação de defesa do consumidor bancário e financeiro · Lissone" },

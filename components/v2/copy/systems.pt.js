@@ -220,13 +220,13 @@ export default {
     meta: {
       title: "Sistemas de IA para vendas: CRM, contactos e DMs | Automis",
       description:
-        "A IA responde a comentários e DMs, liga aos contactos dos anúncios, qualifica com quizzes e gere o CRM. Em 2 a 4 semanas. Marque uma chamada.",
+        "A IA responde a comentários e DMs, liga aos contactos dos anúncios, qualifica com quizzes e gere o CRM. Os sistemas simples ficam ativos em cerca de 7 dias. Marque uma chamada.",
     },
     hero: {
       eyebrow: "Sistemas de IA para Vendas",
       title: "Sistemas que não deixam arrefecer nenhum contacto",
       highlight: "nenhum contacto",
-      lead: "Respondem logo, levam o contacto até à marcação e acompanham-no no CRM, para a sua equipa falar só com quem está pronto.",
+      lead: "Respondem em poucos minutos, levam o contacto até à marcação e acompanham-no, para a sua equipa falar só com quem está pronto.",
     },
     moment: {
       label: "Da mensagem ao CRM: a cadeia das vendas",
@@ -352,7 +352,7 @@ export default {
       eyebrow: "Caso real",
       title: "ADifesa",
       line: "Comentários e DMs no Facebook e no Instagram, tratados e qualificados: 2.329 conversas de 1 de maio a 16 de setembro de 2026 e 524 fichas completas. Segundo a associação, 3 em cada 10 fichas completas tornam-se clientes.",
-      cta: "Ler o caso",
+      cta: "Ver os resultados",
       href: "/use-cases/adifesa",
     },
     finder: {
@@ -377,12 +377,12 @@ export default {
       },
       times: {
         label: "Prazos",
-        text: "Cerca de 2 semanas para as respostas às DMs, o retorno aos contactos e os formulários. Cerca de 4 para um CRM à medida. Começamos quando tivermos os acessos.",
+        text: "Cerca de 7 dias para as respostas às DMs, o retorno aos contactos e os formulários. Mais para um CRM à medida. Começamos quando tivermos os acessos.",
       },
       tools: {
         label: "Liga-se a",
         title: "As ferramentas que já usa",
-        line: "Se tiver API, ligamo-nos: não muda o que usa.",
+        line: "Mantém as suas ferramentas: não tem de mudar nada.",
         items: [
           { name: "HubSpot", src: "/assets/images/integrations/hubspot.svg" },
           { name: "Salesforce", src: "/assets/images/integrations/salesforce.svg" },
@@ -411,7 +411,7 @@ export default {
         },
         {
           q: "Quanto tempo demora a arrancar?",
-          a: "Cerca de 2 semanas para os sistemas mais simples, como as respostas às DMs, o retorno aos contactos e os formulários. Cerca de 4 para um CRM à medida. O prazo conta a partir do momento em que temos os acessos e as suas regras.",
+          a: "Cerca de 7 dias para os sistemas mais simples, como as respostas às DMs, o retorno aos contactos e os formulários. Mais para um CRM à medida. O prazo conta a partir do momento em que temos os acessos e as suas regras.",
         },
         {
           q: "Quanto custa?",
@@ -510,7 +510,7 @@ export default {
       eyebrow: "Caso real",
       title: "Clínica Santa Maria dos Olivais",
       line: "Um assistente de voz no telefone de uma clínica dentária: 872 chamadas de 1 de fevereiro a 9 de setembro de 2026, 527 resolvidas pelo assistente e 114 marcações.",
-      cta: "Ler o caso",
+      cta: "Ver os resultados",
       href: "/use-cases/clinica-santa-maria",
     },
     faq: {
@@ -522,7 +522,7 @@ export default {
         },
         {
           q: "Em quanto tempo fica a funcionar?",
-          a: "Cerca de 2 a 4 semanas, consoante o sistema: cerca de 2 para os mais simples, cerca de 4 para um CRM à medida ou um projeto mais amplo. Combinamos consigo o prazo antes de começar.",
+          a: "Cerca de 7 dias para um sistema simples, mais para um CRM à medida ou um projeto mais amplo. Combinamos consigo o prazo antes de começar.",
         },
         {
           q: "O que acontece com as chamadas delicadas?",
@@ -530,7 +530,7 @@ export default {
         },
         {
           q: "E se não funcionar para nós?",
-          a: "Todos os planos Voice AI têm garantia de desempenho de 30 dias. O risco do primeiro passo é nosso.",
+          a: "Em todos os planos Voice AI pode pedir o reembolso nos primeiros 30 dias, sem perguntas. O risco do primeiro passo é nosso.",
         },
       ],
     },

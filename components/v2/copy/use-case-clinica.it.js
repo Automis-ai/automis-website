@@ -5,8 +5,8 @@
    Metadati e JSON-LD restano quelli di components/use-cases/clinica/meta.js. EN e PT: use-case-clinica.en.js / .pt.js, stesse chiavi. */
 export default {
   ui: {
-    read: "Leggi il caso",
-    book: "Prenota una call",
+    read: "Guarda i risultati",
+    book: "Prenota una call gratuita",
     keyTag: "In sette mesi",
     keyTitle: "prime visite per impianti",
     sep: ".",
@@ -14,9 +14,9 @@ export default {
 
   hero: {
     eyebrow: "Caso studio",
-    title: "7 mesi al telefono di una clinica dentale",
-    highlight: "7 mesi",
-    lead: "Al 30 ottobre: 1.211 chiamate, 148 appuntamenti e 702 telefonate chiuse dall'assistente senza passare dalla segretaria. Qui sotto, i primi sette mesi nel dettaglio.",
+    title: "0 chiamate finite in segreteria in nove mesi in una clinica dentale",
+    highlight: "0 chiamate finite in segreteria",
+    lead: "Circa 4.400 € al mese di fatturato stimato e 148 appuntamenti al 30 ottobre, con circa 22 chiamate al mese con risposta a clinica chiusa.",
     client: "Clínica Santa Maria dos Olivais",
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
   },

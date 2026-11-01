@@ -3,7 +3,7 @@
 import CountUp from "react-countup";
 
 const STATS = [
-  { end: 72, suffix: "h", label: "Per entrare in funzione" },
+  { end: 7, suffix: " giorni", label: "Per andare online, se la configurazione è semplice" },
   { end: 80, suffix: "%", label: "Delle chiamate gestite dall'AI" },
   { end: 24, suffix: "/7", label: "Disponibile, senza pause né ferie" },
   { end: 100, suffix: "%", label: "Supporto in italiano" },

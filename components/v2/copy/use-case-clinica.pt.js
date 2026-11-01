@@ -4,8 +4,8 @@
    as desse schema. */
 export default {
   ui: {
-    read: "Ler o caso",
-    book: "Marcar uma chamada",
+    read: "Ver os resultados",
+    book: "Agende uma chamada gratuita",
     keyTag: "Em sete meses",
     keyTitle: "primeiras consultas de implantes",
     sep: ".",
@@ -13,9 +13,9 @@ export default {
 
   hero: {
     eyebrow: "Caso de estudo",
-    title: "7 meses ao telefone de uma clínica dentária",
-    highlight: "7 meses",
-    lead: "Até 30 de outubro: 1.211 chamadas, 148 marcações e 702 chamadas resolvidas pelo assistente sem passar pela rececionista. Abaixo, os primeiros sete meses em detalhe.",
+    title: "0 chamadas enviadas para o voicemail em nove meses numa clínica dentária",
+    highlight: "0 chamadas enviadas para o voicemail",
+    lead: "Cerca de 4.400 € por mês de faturação estimada e 148 marcações até 30 de outubro, com cerca de 22 chamadas por mês atendidas com a clínica fechada.",
     client: "Clínica Santa Maria dos Olivais",
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
   },

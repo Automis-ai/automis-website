@@ -247,9 +247,9 @@ const HeroSection = () => {
               data-aos-delay={80}
               data-aos-duration={1100}
             >
-              Your Intelligent Voice Assistant,{" "}
+              Every call answered, day and night,{" "}
               <span className="bg-gradient-to-r from-soft-blue via-bright-blue to-soft-blue bg-clip-text text-transparent">
-                Working 24/7
+                so you stop losing customers to voicemail
               </span>
             </h1>
 
@@ -259,9 +259,8 @@ const HeroSection = () => {
               data-aos-delay={160}
               data-aos-duration={1100}
             >
-              Turn every call into an opportunity. Our voice AI handles your
-              contacts, qualifies customers and books appointments — while you
-              focus on growing your business.
+              Our voice assistant answers every call, takes the details and books the
+              appointment while you get on with your day.
             </p>
 
             <div
@@ -276,7 +275,7 @@ const HeroSection = () => {
                 size="large"
                 icon="fas fa-calendar-check"
               >
-                Book a call
+                Book a free 30-minute call
               </CTAButton>
             </div>
 
@@ -287,7 +286,7 @@ const HeroSection = () => {
               data-aos-duration={1100}
             >
               {[
-                { icon: Clock, label: "Up and running in 72 hours" },
+                { icon: Clock, label: "Live in about 7 days" },
                 { icon: ShieldCheck, label: "GDPR compliant" },
                 { icon: Globe, label: "Natural English voice" },
               ].map(({ icon: Icon, label }) => (

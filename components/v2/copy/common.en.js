@@ -30,10 +30,10 @@ export default {
     scriptNote: "Scripted example. No live AI runs on this page.",
     home: "Home",
     allCases: "All case studies",
-    readCase: "Read the case",
+    readCase: "See the results",
   },
   booking: {
-    cta: "Book a call",
+    cta: "Book a free 30-minute call",
     availability: "Live availability · 30-minute call",
     instant: "Instant confirmation",
     noObligation: "No obligation",

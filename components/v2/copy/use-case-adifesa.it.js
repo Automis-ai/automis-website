@@ -6,8 +6,8 @@
    Metadati e JSON-LD restano quelli di components/use-cases/adifesa/meta.js. EN e PT: use-case-adifesa.en.js / .pt.js, stesse chiavi. */
 export default {
   ui: {
-    read: "Leggi il caso",
-    book: "Prenota una call",
+    read: "Guarda i risultati",
+    book: "Prenota una call gratuita",
     openShot: "Apri la schermata intera",
     hoursTitle: "1.377 messaggi privati fuori orario",
     sep: ".",
@@ -15,9 +15,9 @@ export default {
 
   hero: {
     eyebrow: "Caso studio",
-    title: "Cinque mesi nei commenti di Facebook e Instagram",
-    highlight: "Cinque mesi",
-    lead: "2.329 conversazioni gestite e 524 schede complete di nome, telefono ed email. Di quelle, 3 su 10 diventano clienti.",
+    title: "4 ore al giorno restituite al team, e nessun potenziale cliente senza risposta",
+    highlight: "4 ore al giorno",
+    lead: "Commenti e DM su Facebook e Instagram, gestiti al posto loro. 524 persone hanno lasciato nome, telefono ed email, e circa 3 su 10 sono diventate clienti, secondo i dati dell'associazione.",
     client: "Associazione ADifesa",
     logo: "/assets/images/client-logos/adifesa-mark.png",
   },

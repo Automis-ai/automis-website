@@ -9,9 +9,9 @@ export default {
 
   hero: {
     eyebrow: "Chi siamo",
-    title: "Due fondatori al lavoro sul tuo progetto",
+    title: "I due fondatori costruiscono il tuo sistema in prima persona",
     lead: "Automis è un integratore strategico di IA. Chi progetta il tuo sistema è chi lo costruisce.",
-    accent: "Due fondatori",
+    accent: "due fondatori",
     ctaFounders: "Conosci i fondatori",
   },
 
@@ -59,7 +59,7 @@ export default {
     title: "La nostra garanzia",
     number: "30",
     unit: "giorni",
-    line: "Ogni piano Voice AI ha 30 giorni di garanzia sui risultati. Se un progetto su misura ha un costo di setup, te lo rimborsiamo.",
+    line: "Su ogni piano Voice AI puoi chiedere il rimborso nei primi 30 giorni, senza dover dare spiegazioni. Se un progetto su misura ha un costo di setup, te lo rimborsiamo.",
   },
 
   cta: {

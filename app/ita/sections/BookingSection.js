@@ -47,7 +47,7 @@ export default function BookingSection() {
 
           <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3">
             {[
-              { icon: Clock, label: "Configurazione in 72 ore" },
+              { icon: Clock, label: "Attivo in circa 7 giorni" },
               { icon: ShieldCheck, label: "Conforme al GDPR" },
               { icon: Globe, label: "Supporto in italiano" },
             ].map(({ icon: Icon, label }) => (

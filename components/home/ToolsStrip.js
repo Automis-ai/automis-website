@@ -5,15 +5,15 @@ import { TOOL_ICONS } from "./toolIcons";
 const COPY = {
   en: {
     eyebrow: "Connects to the tools you already run",
-    tagline: "If it has an API, we connect to it.",
+    tagline: "You keep your tools, so there's nothing to switch.",
   },
   it: {
     eyebrow: "Si integra con gli strumenti che usi già",
-    tagline: "Se ha un'API, la colleghiamo.",
+    tagline: "Tieni i tuoi strumenti: non devi cambiare niente.",
   },
   pt: {
     eyebrow: "Liga-se às ferramentas que já utiliza",
-    tagline: "Se tiver uma API, ligamo-nos a ela.",
+    tagline: "Mantém as suas ferramentas: não tem de mudar nada.",
   },
 };
 

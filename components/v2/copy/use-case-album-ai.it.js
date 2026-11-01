@@ -89,7 +89,7 @@ export default {
   },
 
   cta: {
-    title: "Sei un fotografo? Prova Album AI nel tuo studio",
+    title: "Sei un fotografo? Passa 1 ora su un album, non 4-5",
     line: "Meno ore sugli album, consegne più veloci, più tempo per i clienti. Se fai matrimoni, 18 anni o cerimonie e passi ore a scegliere e impaginare, raccontaci come lavori: vediamo insieme se fa per te.",
   },
 };

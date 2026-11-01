@@ -219,13 +219,13 @@ export default {
     meta: {
       title: "Sistemi IA per le vendite: CRM, contatti e DM | Automis",
       description:
-        "L'IA risponde a commenti e DM, richiama i contatti degli annunci, qualifica con quiz e gestisce il CRM. Online in 2-4 settimane. Prenota una call.",
+        "L'IA risponde a commenti e DM, richiama i contatti degli annunci, qualifica con quiz e gestisce il CRM. I sistemi semplici vanno online in circa 7 giorni. Prenota una call.",
     },
     hero: {
       eyebrow: "Sistemi IA per la Vendita",
       title: "Sistemi che non lasciano freddare nessun contatto",
       highlight: "nessun contatto",
-      lead: "Rispondono subito, portano il contatto all'appuntamento e lo seguono nel CRM, così il tuo team parla solo con chi è pronto.",
+      lead: "Rispondono in pochi minuti, portano il contatto all'appuntamento e ne tengono traccia, così il tuo team parla solo con chi è pronto.",
     },
     moment: {
       label: "Dal messaggio al CRM: la catena della vendita",
@@ -351,7 +351,7 @@ export default {
       eyebrow: "Caso reale",
       title: "ADifesa",
       line: "Commenti e DM su Facebook e Instagram gestiti e qualificati: 2.329 conversazioni dal 1/5 al 16/9/2026 e 524 schede complete. Secondo l'associazione, 3 schede complete su 10 diventano clienti.",
-      cta: "Leggi il caso",
+      cta: "Guarda i risultati",
       href: "/use-cases/adifesa",
     },
     finder: {
@@ -376,12 +376,12 @@ export default {
       },
       times: {
         label: "Tempi",
-        text: "Circa 2 settimane per le risposte ai DM, il richiamo dei contatti e i moduli. Circa 4 per un CRM su misura. Si parte quando abbiamo gli accessi.",
+        text: "Circa 7 giorni per le risposte ai DM, il richiamo dei contatti e i moduli. Di più per un CRM su misura. Si parte quando abbiamo gli accessi.",
       },
       tools: {
         label: "Si collega a",
         title: "Gli strumenti che usi già",
-        line: "Se ha un'API, ci colleghiamo: non cambi quello che usi.",
+        line: "Tieni i tuoi strumenti: non devi cambiare niente.",
         items: [
           { name: "HubSpot", src: "/assets/images/integrations/hubspot.svg" },
           { name: "Salesforce", src: "/assets/images/integrations/salesforce.svg" },
@@ -410,7 +410,7 @@ export default {
         },
         {
           q: "Quanto ci vuole per partire?",
-          a: "Circa 2 settimane per i sistemi più semplici, come le risposte ai DM, il richiamo dei contatti e i moduli. Circa 4 per un CRM su misura. Il conto parte da quando abbiamo gli accessi e le tue regole.",
+          a: "Circa 7 giorni per i sistemi più semplici, come le risposte ai DM, il richiamo dei contatti e i moduli. Di più per un CRM su misura. Il conto parte da quando abbiamo gli accessi e le tue regole.",
         },
         {
           q: "Quanto costa?",
@@ -509,7 +509,7 @@ export default {
       eyebrow: "Caso reale",
       title: "Clínica Santa Maria dos Olivais",
       line: "Un assistente vocale sul telefono di una clinica dentale: 872 chiamate dal 1/2 al 9/9/2026, 527 chiuse dall'assistente e 114 appuntamenti presi.",
-      cta: "Leggi il caso",
+      cta: "Guarda i risultati",
       href: "/use-cases/clinica-santa-maria",
     },
     faq: {
@@ -521,7 +521,7 @@ export default {
         },
         {
           q: "Quanto ci vuole per attivarlo?",
-          a: "Circa 2-4 settimane, a seconda del sistema: circa 2 per i più semplici, circa 4 per un CRM su misura o un progetto più ampio. I tempi li concordiamo con te prima di iniziare.",
+          a: "Circa 7 giorni per un sistema semplice, di più per un CRM su misura o un progetto più ampio. I tempi li concordiamo con te prima di iniziare.",
         },
         {
           q: "Che fine fanno le chiamate delicate?",
@@ -529,7 +529,7 @@ export default {
         },
         {
           q: "E se non funziona per noi?",
-          a: "Ogni piano Voice AI ha 30 giorni di garanzia sui risultati. Il rischio del primo passo lo prendiamo noi.",
+          a: "Su ogni piano Voice AI puoi chiedere il rimborso nei primi 30 giorni, senza dover dare spiegazioni. Il rischio del primo passo lo prendiamo noi.",
         },
       ],
     },

@@ -27,7 +27,7 @@ export default function StepSection() {
       title: "Schnelle Einrichtung",
       points: [
         "📋 Teilen Sie uns Geschäftsdetails, FAQs und Prozesse mit",
-        "⚡ Vollständiges Setup in 72 Stunden",
+        "⚡ Vollständiges Setup in etwa 7 Tagen",
         "🎯 Wir personalisieren die KI für Ihre Branche",
       ],
       delay: 100,

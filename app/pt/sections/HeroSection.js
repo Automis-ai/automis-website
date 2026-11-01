@@ -247,9 +247,9 @@ const HeroSection = () => {
               data-aos-delay={80}
               data-aos-duration={1100}
             >
-              O Seu Assistente de Voz{" "}
+              Todas as chamadas atendidas, dia e noite,{" "}
               <span className="bg-gradient-to-r from-soft-blue via-bright-blue to-soft-blue bg-clip-text text-transparent">
-                Inteligente, 24 horas por dia
+                para deixar de perder clientes no voicemail
               </span>
             </h1>
 
@@ -259,9 +259,8 @@ const HeroSection = () => {
               data-aos-delay={160}
               data-aos-duration={1100}
             >
-              Transforme cada chamada numa oportunidade. A nossa inteligência
-              artificial de voz gere contactos, qualifica clientes e agenda
-              marcações — enquanto se concentra no crescimento do seu negócio.
+              O nosso assistente de voz atende cada chamada, regista os dados e faz a
+              marcação enquanto trata do seu dia.
             </p>
 
             <div
@@ -276,7 +275,7 @@ const HeroSection = () => {
                 size="large"
                 icon="fas fa-calendar-check"
               >
-                Agende uma chamada
+                Agende a chamada gratuita
               </CTAButton>
             </div>
 
@@ -287,7 +286,7 @@ const HeroSection = () => {
               data-aos-duration={1100}
             >
               {[
-                { icon: Clock, label: "Configuração em 72 horas" },
+                { icon: Clock, label: "Ativo em cerca de 7 dias" },
                 { icon: ShieldCheck, label: "Conforme com o RGPD" },
                 { icon: Globe, label: "Suporte em português" },
               ].map(({ icon: Icon, label }) => (

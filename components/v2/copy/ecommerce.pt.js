@@ -11,8 +11,8 @@ export default {
   },
 
   hero: {
-    eyebrow: "Sistemas de IA para Marketing",
-    title: "AI E-commerce Manager",
+    eyebrow: "AI E-commerce Manager",
+    title: "A sua loja online vigiada dia e noite, com anúncios que seguem o seu stock",
     lead: "Agentes de IA que vigiam a sua loja online dia e noite e só lhe escrevem quando é preciso.",
     cta: "Escolha a plataforma",
     visual: {

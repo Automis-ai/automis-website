@@ -15,8 +15,8 @@ export default {
 
   hero: {
     eyebrow: "Formação",
-    title: "Faça da IA parte do trabalho da sua empresa",
-    highlight: "IA",
+    title: "Ponha a sua equipa a usar o Claude ou o ChatGPT no trabalho que repete todos os dias",
+    highlight: "Claude ou o ChatGPT",
     lead: "Formação prática para usar o Claude ou o ChatGPT no dia a dia, dos usos simples aos agentes e ao second brain.",
     ctaPaths: "Ver as duas formas",
   },

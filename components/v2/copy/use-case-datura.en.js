@@ -11,10 +11,10 @@ export default {
 
   hero: {
     eyebrow: "Case study",
-    title: "AI WooCommerce Manager: one system for the whole store",
-    highlight: "AI WooCommerce Manager:",
+    title: "A WooCommerce store that gets fixed while you sleep",
+    highlight: "gets fixed while you sleep",
     titleLogo: { word: "WooCommerce", src: "/assets/images/logos/woocommerce-mark-white.svg", alt: "WooCommerce" },
-    lead: "A clothing store that runs on its own. Over the last four months the AI has taken over round-the-clock monitoring, sped up the catalog and made the ads work harder.",
+    lead: "Problems found and fixed day and night, listings for the whole catalog in 5 minutes where one product took 20, and ads that follow what is in stock.",
     client: "Datura Clothing",
     logo: "/assets/images/client-logos/datura-clothing-white.png",
   },
@@ -54,8 +54,8 @@ export default {
           figure: "111",
           unit: "errors in one day",
           title: "Meta's bursts of requests were taking the site down",
-          found: "The site answered with a 503 error and went down.",
-          fix: "The most requested pages are served from cache, Meta's crawler included.",
+          found: "The site crashed under the load and showed an error page.",
+          fix: "The most visited pages are now kept ready to load, so heavy traffic no longer takes the site down.",
           done: "After two days, zero errors.",
         },
         {
@@ -190,9 +190,9 @@ export default {
     title: "Over the last 4 months",
     label: "The case in numbers",
     items: [
-      { figure: "10", label: "distinct faults found", basis: "in 28 days" },
+      { figure: "10", label: "problems caught", basis: "in 28 days" },
       { figure: "100", label: "ads created in 4 campaigns, 46 went live", basis: "in 6 weeks" },
-      { figure: "19", label: "plugin updates checked one by one, all without problems", basis: "in 4 days" },
+      { figure: "19", label: "store updates checked one by one, none caused a problem", basis: "in 4 days" },
     ],
     product: { label: "The product behind the case: AI E-commerce Manager", href: "/ecommerce" },
   },

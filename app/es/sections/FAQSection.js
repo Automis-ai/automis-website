@@ -15,7 +15,7 @@ export default function FAQSection() {
     {
       question: "¿Cuánto tiempo se necesita para configurar el sistema?",
       answer:
-        "72 horas. Nuestro equipo realiza una incorporación guiada: recopilamos la información, creamos los guiones, probamos con tu equipo y lanzamos.",
+        "Unos 7 días para una configuración sencilla, más si es a medida. Nuestro equipo realiza una incorporación guiada: recopilamos la información, creamos los guiones, probamos con tu equipo y lanzamos.",
     },
     {
       question: "¿Puedo integrarlo con mi CRM actual?",

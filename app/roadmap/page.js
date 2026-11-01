@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 const T = {
   en: {
-    ready: "Your AI Opportunity Roadmap",
+    ready: "Your 3 best ways to get time back with AI",
     sub: "Here is your personalised roadmap. Your download should start automatically.",
     focus: "Focus pillar",
     hours: "Time back / week",
@@ -16,7 +16,7 @@ const T = {
     hrs: "hrs",
   },
   it: {
-    ready: "La tua Roadmap di Opportunità IA",
+    ready: "I tuoi 3 modi migliori per recuperare tempo con l'IA",
     sub: "Ecco la tua roadmap personalizzata. Il download dovrebbe partire in automatico.",
     focus: "Pilastro prioritario",
     hours: "Tempo risparmiato / settimana",

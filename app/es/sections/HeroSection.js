@@ -77,7 +77,7 @@ const HeroSection = () => {
           >
             <div className="flex items-center gap-2">
               <i className="fas fa-check-circle text-yellow-light"></i>
-              <span>Configuración en 72 horas</span>
+              <span>Configuración en unos 7 días</span>
             </div>
             <div className="flex items-center gap-2">
               <i className="fas fa-check-circle text-yellow-light"></i>

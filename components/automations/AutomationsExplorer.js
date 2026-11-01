@@ -41,7 +41,7 @@ const COPY = {
     seeLive: "See it live",
     emptyTitle: "No exact match yet",
     emptyBody: "We very likely build this anyway. Clear a filter, or book a call and we will scope it around your business.",
-    bookCta: "Book a Discovery Call",
+    bookCta: "Book a free 30-minute call",
   },
   it: {
     pillars: {
@@ -67,7 +67,7 @@ const COPY = {
     seeLive: "Guardala dal vivo",
     emptyTitle: "Nessuna corrispondenza esatta, per ora",
     emptyBody: "Molto probabilmente lo costruiamo comunque. Rimuovi un filtro, oppure prenota una call e lo definiamo intorno al tuo business.",
-    bookCta: "Prenota una call",
+    bookCta: "Prenota una call gratuita",
   },
   pt: {
     pillars: {
@@ -93,7 +93,7 @@ const COPY = {
     seeLive: "Veja ao vivo",
     emptyTitle: "Sem correspondência exata, para já",
     emptyBody: "É muito provável que o construamos na mesma. Remova um filtro, ou agende uma chamada e definimo-lo em torno do seu negócio.",
-    bookCta: "Agende uma chamada",
+    bookCta: "Agende uma chamada gratuita",
   },
 };
 

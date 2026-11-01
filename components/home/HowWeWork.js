@@ -8,7 +8,7 @@ const COPY = {
   en: {
     eyebrow: "How we work",
     title: "A strategic integrator, not a vendor",
-    lead: "We diagnose the bottleneck before we build. You own the infrastructure we deliver. It's your system, not a subscription you're locked into blind.",
+    lead: "We find what's costing you time and money before we build anything. What we deliver belongs to you, with no lock-in.",
     steps: [
       {
         step: "Step 1",
@@ -20,20 +20,20 @@ const COPY = {
         step: "Step 2",
         title: "Design, Build & Deploy",
         body: "We build your system and you test it before it goes live. Nothing ships until it works the way your business actually runs.",
-        meta: "2-4 weeks, depending on the system",
+        meta: "About 7 days for a simple system, longer for custom builds",
       },
       {
         step: "Step 3",
         title: "Launch, Monitor & Optimize",
         body: "We don't disappear after go-live. Continuous monthly improvement with human oversight, so your system gets sharper every month, not stale.",
-        meta: "Ongoing, with human-in-the-loop",
+        meta: "Ongoing, with a person checking the work",
       },
     ],
   },
   it: {
     eyebrow: "Come lavoriamo",
     title: "Un partner strategico, non un fornitore",
-    lead: "Prima di costruire, individuiamo il punto critico. L'infrastruttura che realizziamo è tua: un sistema che ti appartiene, non un abbonamento a cui resti legato senza sapere cosa c'è dentro.",
+    lead: "Prima di costruire, troviamo cosa ti costa tempo e soldi. Quello che realizziamo è tuo, senza vincoli.",
     steps: [
       {
         step: "Step 1",
@@ -45,7 +45,7 @@ const COPY = {
         step: "Step 2",
         title: "Progettiamo, costruiamo e attiviamo",
         body: "Costruiamo il tuo sistema e tu lo provi prima che vada online. Niente parte finché non funziona come lavora davvero la tua attività.",
-        meta: "2-4 settimane, a seconda del sistema",
+        meta: "Circa 7 giorni per un sistema semplice, di più se su misura",
       },
       {
         step: "Step 3",
@@ -58,7 +58,7 @@ const COPY = {
   pt: {
     eyebrow: "Como trabalhamos",
     title: "Um integrador estratégico, não um fornecedor",
-    lead: "Diagnosticamos o ponto crítico antes de construir. A infraestrutura que entregamos é sua: é o seu sistema, não uma subscrição à qual fica preso às cegas.",
+    lead: "Antes de construir, descobrimos o que lhe custa tempo e dinheiro. O que entregamos é seu, sem amarras.",
     steps: [
       {
         step: "Passo 1",
@@ -70,13 +70,13 @@ const COPY = {
         step: "Passo 2",
         title: "Desenhar, Construir & Ativar",
         body: "Construímos o seu sistema e só entra em produção depois de o testar. Nada arranca até funcionar como o seu negócio realmente funciona.",
-        meta: "2 a 4 semanas, consoante o sistema",
+        meta: "Cerca de 7 dias para um sistema simples, mais se for à medida",
       },
       {
         step: "Passo 3",
         title: "Lançar, Monitorizar & Otimizar",
         body: "Não desaparecemos depois do arranque. Melhoria mensal contínua com supervisão humana, para que o seu sistema fique mais afinado todos os meses, em vez de estagnar.",
-        meta: "Contínuo, com human-in-the-loop",
+        meta: "Contínuo, com supervisão humana",
       },
     ],
   },

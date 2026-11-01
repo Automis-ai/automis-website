@@ -88,7 +88,7 @@ export default {
   },
 
   cta: {
-    title: "É fotógrafo? Experimente o Album AI no seu estúdio",
+    title: "É fotógrafo? Dedique 1 hora a um álbum, não 4 a 5",
     line: "Menos horas nos álbuns, entregas mais rápidas, mais tempo para os clientes. Se faz casamentos, festas de 18 anos ou cerimónias e passa horas a escolher e a paginar, conte-nos como trabalha: vemos juntos se é para si.",
   },
 };

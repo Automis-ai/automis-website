@@ -15,7 +15,7 @@ export default function FAQSection() {
     {
       question: "Combien de temps faut-il pour configurer le système ?",
       answer:
-        "72 heures. Notre équipe vous accompagne étape par étape : collecte des informations, création des scripts, tests avec votre équipe, puis lancement.",
+        "Environ 7 jours pour une configuration simple, davantage pour du sur-mesure. Notre équipe vous accompagne étape par étape : collecte des informations, création des scripts, tests avec votre équipe, puis lancement.",
     },
     {
       question: "Puis-je l’intégrer à mon CRM actuel ?",

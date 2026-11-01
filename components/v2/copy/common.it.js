@@ -30,10 +30,10 @@ export default {
     scriptNote: "Esempio scritto in anticipo: qui non risponde nessuna IA dal vivo.",
     home: "Home",
     allCases: "Tutti i casi studio",
-    readCase: "Leggi il caso",
+    readCase: "Guarda i risultati",
   },
   booking: {
-    cta: "Prenota una call",
+    cta: "Prenota una call gratuita",
     availability: "Disponibilità aggiornata · call da 30 minuti",
     instant: "Conferma immediata",
     noObligation: "Senza impegno",

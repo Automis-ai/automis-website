@@ -27,7 +27,7 @@ export default function StepsSection() {
       title: "Configuration Rapide",
       points: [
         "📋 Partagez avec nous les détails de votre activité, les FAQ et vos processus",
-        "⚡ Mise en place complète en 72 heures",
+        "⚡ Mise en place complète en 7 jours environ",
         "🎯 Nous personnalisons l’IA pour votre secteur",
       ],
       delay: 100,

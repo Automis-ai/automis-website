@@ -9,9 +9,9 @@ export default {
 
   hero: {
     eyebrow: "About",
-    title: "Two founders, hands-on with your build",
+    title: "The two founders build your system themselves",
     lead: "Automis is a strategic AI integrator. The people who design your system are the people who build it.",
-    accent: "Two founders",
+    accent: "two founders",
     ctaFounders: "Meet the founders",
   },
 
@@ -48,7 +48,7 @@ export default {
         more: "Data can be stored on EU servers. Some AI processing happens with providers outside the EU, under standard contractual clauses, and we tell you who does what before we start.",
       },
       {
-        title: "A person in the loop",
+        title: "A person checks the tricky ones",
         line: "AI handles the volume, people handle the nuance.",
         more: "Complex or sensitive cases route straight to your team, so nothing important gets lost to automation.",
       },
@@ -59,7 +59,7 @@ export default {
     title: "Our guarantee",
     number: "30",
     unit: "days",
-    line: "A 30-day performance guarantee on every Voice AI plan, and a setup-fee refund on custom projects that carry one.",
+    line: "On every Voice AI plan you can ask for a refund in the first 30 days, no questions asked. Custom projects with a setup fee come with a refund of it.",
   },
 
   cta: {

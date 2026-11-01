@@ -11,7 +11,7 @@ const steps = [
     title: "Configurazione Rapida",
     points: [
       "Condividi con noi i dettagli del tuo business, FAQ e processi",
-      "Setup completo in 72 ore",
+      "Setup completo in circa 7 giorni",
       "Personalizziamo l'AI per il tuo settore",
     ],
   },
@@ -114,7 +114,7 @@ export default function StepsSection() {
             size="large"
             icon="fas fa-calendar-check"
           >
-            Prenota una chiamata
+            Prenota una chiamata gratuita
           </CTAButton>
         </div>
       </div>

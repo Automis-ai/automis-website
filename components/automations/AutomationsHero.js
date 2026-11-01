@@ -6,24 +6,24 @@ import { ArrowDown } from "lucide-react";
 const COPY = {
   en: {
     eyebrow: "The catalog",
-    headlinePre: "The automations ",
-    headlineAccent: "we build",
+    headlinePre: "AI automations that ",
+    headlineAccent: "win you customers and give you time back",
     subhead:
       "A working catalog of AI systems we deploy, from voice receptionists to your own Company Brain. Filter by your industry and your goal to see what fits.",
     cta: "Explore the catalog",
   },
   it: {
     eyebrow: "Il catalogo",
-    headlinePre: "Le automazioni ",
-    headlineAccent: "che costruiamo",
+    headlinePre: "Automazioni IA che ",
+    headlineAccent: "ti portano clienti e ti restituiscono tempo",
     subhead:
       "Un catalogo concreto di sistemi IA che mettiamo in produzione, dalle receptionist vocali al tuo Company Brain. Filtra per settore e obiettivo e scopri cosa fa al caso tuo.",
     cta: "Esplora il catalogo",
   },
   pt: {
     eyebrow: "O catálogo",
-    headlinePre: "As automações ",
-    headlineAccent: "que construímos",
+    headlinePre: "Automações de IA que ",
+    headlineAccent: "lhe trazem clientes e lhe devolvem tempo",
     subhead:
       "Um catálogo concreto de sistemas de IA que colocamos em produção, desde assistentes de voz até ao seu próprio Company Brain. Filtre pelo seu setor e pelo seu objetivo para ver o que lhe serve.",
     cta: "Explore o catálogo",

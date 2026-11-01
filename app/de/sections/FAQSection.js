@@ -15,7 +15,7 @@ export default function FAQSection() {
     {
       question: "Wie lange dauert die Einrichtung?",
       answer:
-        "72 Stunden. Unser Team begleitet Sie durch ein geführtes Onboarding: Informationen sammeln, Skripte erstellen, intern testen und live schalten.",
+        "Etwa 7 Tage für ein einfaches Setup, länger bei individuellen Lösungen. Unser Team begleitet Sie durch ein geführtes Onboarding: Informationen sammeln, Skripte erstellen, intern testen und live schalten.",
     },
     {
       question: "Kann ich mein aktuelles CRM integrieren?",

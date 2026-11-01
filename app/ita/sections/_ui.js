@@ -75,7 +75,7 @@ export function CtaBand({
   eyebrow = "Pronto per iniziare?",
   title,
   subtitle,
-  buttonLabel = "Prenota una chiamata",
+  buttonLabel = "Prenota una chiamata gratuita",
 }) {
   return (
     <section className="relative px-4 py-12 md:py-16">

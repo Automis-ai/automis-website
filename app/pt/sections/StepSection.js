@@ -11,7 +11,7 @@ const steps = [
     title: "Configuração Rápida",
     points: [
       "Partilhe connosco os detalhes do seu negócio, FAQs e processos",
-      "Configuração completa em 72 horas",
+      "Configuração completa em cerca de 7 dias",
       "Personalizamos a IA para o seu setor",
     ],
   },
@@ -114,7 +114,7 @@ export default function StepsSection() {
             size="large"
             icon="fas fa-calendar-check"
           >
-            Agende uma chamada
+            Agende uma chamada gratuita
           </CTAButton>
         </div>
       </div>

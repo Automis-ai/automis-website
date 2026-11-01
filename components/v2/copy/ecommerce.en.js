@@ -10,8 +10,8 @@ export default {
   },
 
   hero: {
-    eyebrow: "AI Systems for Marketing",
-    title: "AI E-commerce Manager",
+    eyebrow: "AI E-commerce Manager",
+    title: "Your online store watched day and night, with ads that follow your stock",
     lead: "AI agents that watch your online store day and night, and write to you only when it matters.",
     cta: "Choose your platform",
     visual: {

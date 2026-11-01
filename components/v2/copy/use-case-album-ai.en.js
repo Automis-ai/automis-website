@@ -87,7 +87,7 @@ export default {
   },
 
   cta: {
-    title: "Are you a photographer? Try Album AI in your studio",
+    title: "Photographer? Spend 1 hour on an album, not 4-5",
     line: "Fewer hours on albums, faster deliveries, more time for clients. If you shoot weddings, 18th birthday parties or ceremonies and spend hours choosing and laying out, tell us how you work: we will see together if it is right for you.",
   },
 };

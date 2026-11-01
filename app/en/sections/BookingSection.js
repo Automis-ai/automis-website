@@ -47,7 +47,7 @@ export default function BookingSection() {
 
           <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3">
             {[
-              { icon: Clock, label: "Up and running in 72 hours" },
+              { icon: Clock, label: "Live in about 7 days" },
               { icon: ShieldCheck, label: "GDPR compliant" },
               { icon: Globe, label: "Natural English voice" },
             ].map(({ icon: Icon, label }) => (

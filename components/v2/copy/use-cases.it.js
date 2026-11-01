@@ -20,7 +20,7 @@ export default {
       slug: "clinica-santa-maria",
       client: "Clínica Santa Maria dos Olivais",
       tag: "Segretaria IA",
-      title: "7 mesi al telefono di una clinica dentale",
+      title: "Il telefono di una clinica dentale, con risposta giorno e notte",
       figure: "0",
       figureLabel: "chiamate finite in segreteria in nove mesi",
       href: "/use-cases/clinica-santa-maria",
