@@ -78,7 +78,7 @@ The pattern is clear. A human gives you genuine warmth and clinical judgement bu
 
 Automis Voice AI starts from EUR 297 per month, with a higher tier at EUR 497 per month for busier, multi-line practices. Both are flat monthly fees. You are not billed per minute and you are not billed per call, so a surge from a new campaign or a seasonal rush becomes more booked appointments at the same price, not a bigger invoice.
 
-That flat model matters in dentistry because phone traffic is lumpy. A single local ad or a busy post-holiday week can double your inbound calls, and per-minute vendors profit exactly when your patients are waiting on hold. A flat plan puts you and the provider on the same side. For a full breakdown of what drives the price and how it compares to a hire, the [AI receptionist cost guide](/blog/ai-receptionist-cost) goes deeper, and every Automis plan carries a 30-day performance guarantee so you can watch it book real appointments before committing.
+That flat model matters in dentistry because phone traffic is lumpy. A single local ad or a busy post-holiday week can double your inbound calls, and per-minute vendors profit exactly when your patients are waiting on hold. A flat plan puts you and the provider on the same side. For a full breakdown of what drives the price and how it compares to a hire, the [AI receptionist cost guide](/blog/ai-receptionist-cost) goes deeper, and every Automis plan carries a 30-day money-back guarantee so you can watch it book real appointments before committing.
 
 ## Is it worth it for a small dental practice?
 

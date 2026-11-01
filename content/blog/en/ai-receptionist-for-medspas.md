@@ -79,7 +79,7 @@ The pattern is clear. A human gives you genuine warmth and a reassuring face at 
 
 Automis Voice AI starts from EUR 297 per month, with a higher tier at EUR 497 per month for busier, multi-line clinics. Both are flat monthly fees. You are not billed per minute and you are not billed per call, so a surge from a new campaign, a seasonal rush, or a viral post becomes more booked consultations at the same price, not a bigger invoice.
 
-That flat model matters in aesthetics because your phone traffic is lumpy and campaign-driven. One promotion, one busy pre-summer week, or one popular treatment launch can double your inbound calls, and per-minute vendors profit exactly when your clients are waiting on hold. A flat plan puts you and the provider on the same side. For a full breakdown of what drives the price and how it compares to a hire, the [AI receptionist cost guide](/blog/ai-receptionist-cost) goes deeper, and every Automis plan carries a 30-day performance guarantee so you can watch it book real appointments before you commit.
+That flat model matters in aesthetics because your phone traffic is lumpy and campaign-driven. One promotion, one busy pre-summer week, or one popular treatment launch can double your inbound calls, and per-minute vendors profit exactly when your clients are waiting on hold. A flat plan puts you and the provider on the same side. For a full breakdown of what drives the price and how it compares to a hire, the [AI receptionist cost guide](/blog/ai-receptionist-cost) goes deeper, and every Automis plan carries a 30-day money-back guarantee so you can watch it book real appointments before you commit.
 
 ## Is it worth it for a small or single-location medspa?
 

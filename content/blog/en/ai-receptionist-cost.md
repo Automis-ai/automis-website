@@ -28,7 +28,7 @@ faqs:
   - question: "Are there setup or per-minute fees?"
     answer: "Automis plans are flat monthly pricing, not per-minute billing, so a busy month will not surprise you with a bigger invoice. Traditional answering services often bill per minute or per call, which makes their real cost hard to predict."
   - question: "What if it does not work for my business?"
-    answer: "Every Automis Voice AI plan comes with a 30-day performance guarantee, so you can see whether it books appointments and recovers missed calls before you commit long term."
+    answer: "Every Automis Voice AI plan comes with a 30-day money-back guarantee, so you can see whether it books appointments and recovers missed calls before you commit long term."
 ---
 
 An AI receptionist costs from EUR 297 per month with Automis Voice AI, and a higher tier sits at EUR 497 per month for busier phone lines. That is a flat monthly fee for a voice agent that answers every call 24/7, qualifies the caller, books the appointment, and syncs it to your CRM. For most appointment-based businesses that is a fraction of a full-time receptionist salary, and the real question is not "how much does an AI receptionist cost" but "how much are the calls you already miss costing you." This guide breaks down the price, what actually drives it, and how it stacks up against a human hire and a traditional answering service.
@@ -41,7 +41,7 @@ An AI receptionist from Automis starts at EUR 297 per month on the Starter plan,
 
 ### Why a flat monthly fee beats per-minute billing
 
-The reason a flat fee matters is simple: your phone traffic is lumpy. A single ad, a local event, or a seasonal spike can double your inbound calls in a week. With per-minute pricing, that surge becomes a cost you cannot forecast. With a flat plan, the same surge is just more appointments booked at the same price. Every plan also carries a 30-day performance guarantee, which means you can watch it book real appointments before you commit for the long term.
+The reason a flat fee matters is simple: your phone traffic is lumpy. A single ad, a local event, or a seasonal spike can double your inbound calls in a week. With per-minute pricing, that surge becomes a cost you cannot forecast. With a flat plan, the same surge is just more appointments booked at the same price. Every plan also carries a 30-day money-back guarantee, which means you can watch it book real appointments before you commit for the long term.
 
 > Rule: if a vendor bills you per minute, they profit when your callers wait on hold. Flat pricing puts you both on the same side.
 
