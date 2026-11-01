@@ -1,0 +1,227 @@
+.page {
+  --ink: #ffffff;
+  --muted: rgba(255, 255, 255, 0.66);
+  --line: rgba(255, 255, 255, 0.1);
+  --card: rgba(255, 255, 255, 0.04);
+  --gold: #fec458;
+  min-height: 100vh;
+  background: radial-gradient(120% 70% at 50% 0%, #0b1a2b 0%, #000a14 60%);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 16px;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+.logo {
+  height: 26px;
+  width: auto;
+}
+.badge {
+  font-size: 13px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+.main {
+  flex: 1;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+.h1 {
+  font-family: "Clash Display", "Clash Display Fallback", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(30px, 6vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+.intro {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0 0 28px;
+  max-width: 560px;
+}
+
+.callCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 36px 20px 28px;
+  text-align: center;
+}
+
+.orb {
+  --level: 0;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 70%);
+  border: 1px solid var(--line);
+  transform: scale(calc(1 + var(--level) * 0.12));
+  transition: transform 80ms linear, box-shadow 200ms ease;
+}
+.orbCore {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  opacity: 0.35;
+  transition: opacity 200ms ease;
+}
+.orbLive .orbCore {
+  opacity: 0.9;
+}
+.orbSpeaking {
+  box-shadow: 0 0 calc(18px + var(--level) * 40px) rgba(255, 255, 255, 0.18);
+}
+
+.practice {
+  font-family: "Clash Display", "Clash Display Fallback", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+.status {
+  min-height: 22px;
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #111;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 16px 34px;
+  min-width: 220px;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.btnEnd {
+  background: #e5484d;
+  color: #fff;
+}
+
+.hint,
+.error {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 14px auto 0;
+  max-width: 420px;
+}
+.hint {
+  color: var(--muted);
+}
+.error {
+  color: #ff9a9a;
+}
+
+.log {
+  margin: 24px 0 0;
+  max-height: 260px;
+  overflow-y: auto;
+  text-align: left;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.lineAgent,
+.lineUser {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+.lineUser {
+  color: var(--muted);
+}
+.who {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.block {
+  margin-top: 32px;
+}
+.h2 {
+  font-family: "Clash Display", "Clash Display Fallback", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+.tips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.tips li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.notes ul {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+.notes li {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.notes li::marker {
+  color: var(--muted);
+}
+
+.foot {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  padding: 20px 16px 28px;
+}
+.foot a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

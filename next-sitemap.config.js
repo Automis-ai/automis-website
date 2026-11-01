@@ -250,6 +250,7 @@ module.exports = {
     "/luca-ig", // 308 -> /it/luca-ig
     "/it/luca-ig", // Instagram bio lander (traffic comes from IG, not search)
     "/alternativa-a-manychat", // 308 -> /it/alternativa-a-manychat
+    "/demo/*", // private prospect demos, noindex
   ],
   // Attach the real lastmod (or none) instead of next-sitemap's build-time default.
   transform: async (config, loc) => ({
