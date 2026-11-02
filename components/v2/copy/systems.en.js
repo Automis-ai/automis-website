@@ -219,7 +219,7 @@ export default {
     meta: {
       title: "AI Systems for Sales: CRM, Lead Follow-up and DMs | Automis",
       description:
-        "AI that answers every social comment and DM, calls back ad leads, qualifies with quizzes and runs your CRM. Simple systems live in about 7 days. Book a call.",
+        "AI that answers every social comment and DM, calls back ad leads, qualifies with quizzes and runs your CRM. Simple systems live in about 7 days.",
     },
     hero: {
       eyebrow: "AI Systems for Sales",

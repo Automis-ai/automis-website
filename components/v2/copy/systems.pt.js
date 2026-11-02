@@ -220,7 +220,7 @@ export default {
     meta: {
       title: "Sistemas de IA para vendas: CRM, contactos e DMs | Automis",
       description:
-        "A IA responde a comentários e DMs, liga aos contactos dos anúncios, qualifica com quizzes e gere o CRM. Os sistemas simples ficam ativos em cerca de 7 dias. Marque uma chamada.",
+        "A IA responde a comentários e DMs, liga aos contactos dos anúncios, qualifica com quizzes e gere o CRM. Sistemas simples ativos em cerca de 7 dias.",
     },
     hero: {
       eyebrow: "Sistemas de IA para Vendas",

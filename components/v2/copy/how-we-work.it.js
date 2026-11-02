@@ -5,7 +5,7 @@ export default {
   meta: {
     title: "Come lavoriamo: ascolto, costruzione, crescita | Automis",
     description:
-      "Tre passi: ascoltiamo come lavori, costruiamo il sistema sul tuo modo di lavorare e lo miglioriamo ogni mese. I sistemi semplici vanno online in circa 7 giorni.",
+      "Tre passi: ascoltiamo come lavori, costruiamo il sistema sul tuo modo di lavorare e lo miglioriamo ogni mese.",
   },
 
   hero: {

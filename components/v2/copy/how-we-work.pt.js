@@ -6,7 +6,7 @@ export default {
   meta: {
     title: "Como trabalhamos: ouvir, construir, melhorar | Automis",
     description:
-      "Três passos: ouvimos como trabalha, construímos o sistema à sua medida e melhoramos todos os meses, com supervisão humana. Os sistemas simples ficam ativos em cerca de 7 dias.",
+      "Três passos: ouvimos como trabalha, construímos o sistema à sua medida e melhoramos todos os meses, com supervisão humana.",
   },
 
   hero: {

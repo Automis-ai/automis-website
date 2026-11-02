@@ -219,7 +219,7 @@ export default {
     meta: {
       title: "Sistemi IA per le vendite: CRM, contatti e DM | Automis",
       description:
-        "L'IA risponde a commenti e DM, richiama i contatti degli annunci, qualifica con quiz e gestisce il CRM. I sistemi semplici vanno online in circa 7 giorni. Prenota una call.",
+        "L'IA risponde a commenti e DM, richiama i contatti degli annunci, qualifica con quiz e gestisce il CRM. I sistemi semplici vanno online in circa 7 giorni.",
     },
     hero: {
       eyebrow: "Sistemi IA per la Vendita",

@@ -5,7 +5,7 @@ export default {
   meta: {
     title: "How We Work: Listen, Build, Improve Every Month | Automis",
     description:
-      "Three steps: we listen to how you work, build the system around it, then improve it every month with a person overseeing it. Simple systems go live in about 7 days.",
+      "Three steps: we listen to how you work, build the system around it, then improve it every month with a person overseeing it.",
   },
 
   hero: {
