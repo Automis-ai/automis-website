@@ -59,6 +59,7 @@ export function HeroV3() {
             {t.titlePre}
             <em>{t.titleAccent}</em>
             {t.titlePost}
+            <span className="hv3-h1__tail">{t.titleTail}</span>.
           </h1>
           <p className="hv3-hero__lead">{t.lead}</p>
           <div className="hv3-ctas">
