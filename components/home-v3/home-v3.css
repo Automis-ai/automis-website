@@ -122,9 +122,10 @@
   text-wrap: balance;
   color: #fff;
 }
-@media (max-width: 430px) {
+/* Sui telefoni il titolo riempie la colonna (schermo meno i 32px di padding), così restano 3 righe */
+@media (max-width: 560px) {
   .hv3-h1 {
-    font-size: 7.9vw;
+    font-size: calc((100vw - 32px) / 15.5);
   }
 }
 .hv3-h1 em {
