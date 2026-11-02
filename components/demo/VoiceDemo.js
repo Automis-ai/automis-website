@@ -14,10 +14,11 @@ const STATUS_LABEL = {
   ended: "Call ended. You can start again any time.",
 };
 
-export default function VoiceDemo({ agentId, practice, headline, intro, tips = [], notes = [] }) {
+export default function VoiceDemo({ agentId, practice, headline, intro, voices = [], tips = [], notes = [] }) {
   const [phase, setPhase] = useState("idle"); // idle | connecting | listening | speaking | ended
   const [error, setError] = useState("");
   const [lines, setLines] = useState([]);
+  const [voiceId, setVoiceId] = useState(voices[0]?.id || "");
   const convRef = useRef(null);
   const orbRef = useRef(null);
   const wakeRef = useRef(null);
@@ -69,6 +70,7 @@ export default function VoiceDemo({ agentId, practice, headline, intro, tips = [
       const { Conversation } = await import("@elevenlabs/client");
       convRef.current = await Conversation.startSession({
         agentId,
+        ...(voiceId ? { overrides: { tts: { voiceId } } } : {}),
         onConnect: () => setPhase("listening"),
         onModeChange: ({ mode }) => setPhase(mode === "speaking" ? "speaking" : "listening"),
         onMessage: ({ message, role, source }) => {
@@ -113,6 +115,19 @@ export default function VoiceDemo({ agentId, practice, headline, intro, tips = [
           </div>
           <p className={s.practice}>{practice}</p>
           <p className={s.status}>{STATUS_LABEL[phase]}</p>
+
+          {voices.length > 1 && (
+            <label className={s.voice}>
+              <span>Voice</span>
+              <select value={voiceId} onChange={(e) => setVoiceId(e.target.value)} disabled={inCall}>
+                {voices.map((v) => (
+                  <option key={v.id} value={v.id}>
+                    {v.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
 
           {inCall ? (
             <button type="button" className={`${s.btn} ${s.btnEnd}`} onClick={stop} disabled={phase === "connecting"}>

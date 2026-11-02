@@ -9,6 +9,15 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
+const VOICES = [
+  { id: "KXlCX4WPwUZLtxuuZWcu", label: "Woman, younger, soft Yorkshire" },
+  { id: "exsUS4vynmxd379XN4yO", label: "Woman, warm, British" },
+  { id: "kkPJzQOWz2Oz9cUaEaQd", label: "Woman, older, gentle British" },
+  { id: "j57KDF72L6gxbLk4sOo5", label: "Man, younger, Northern" },
+  { id: "2EVscXwJhGYuLiX1PgKA", label: "Man, gentle Yorkshire" },
+  { id: "QMc6FU2Fkzs9Dkeq7swc", label: "Man, older, soft Yorkshire" },
+];
+
 const TIPS = [
   "I need to see a doctor about my knee.",
   "Can I order my repeat prescription?",
@@ -25,12 +34,13 @@ export default function KingswellDemoPage() {
       practice="Kingswell Surgery"
       headline="Talk to your new phone assistant"
       intro="It answers the way your reception would: it takes the request, checks the details and sends the team a clean summary. Call it the way a patient would."
+      voices={VOICES}
       tips={TIPS}
       notes={[
         "Please use made-up patient details only.",
         "This demo is not connected to SystmOne.",
         "No audio is recorded. A text transcript is kept for up to 7 days.",
-        "Each request goes to a demo inbox, standing in for your reception team.",
+        "If you finish a request, a summary is emailed to Dr Kukstas and to Automis, standing in for your reception team.",
       ]}
     />
   );
