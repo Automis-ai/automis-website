@@ -138,6 +138,7 @@ const STATIC_PATHS = [
   "/it/blog/segretaria-ia-o-segreteria-telefonica-virtuale",
   "/it/blog/da-dove-iniziare-ia-studio-dentistico",
   "/it/blog/centralino-ia-costo-studio-medico",
+  "/it/blog/lead-ads-facebook-centro-estetico",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
