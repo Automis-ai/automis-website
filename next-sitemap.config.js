@@ -176,6 +176,7 @@ const STATIC_PATHS = [
   "/pt/blog/por-onde-comecar-automatizar-ia-pequena-empresa",
   "/pt/blog/recuperar-chamadas-perdidas-restaurante",
   "/pt/blog/chatbot-whatsapp-imobiliaria-porto",
+  "/pt/blog/anuncios-facebook-clinica-dentaria-lisboa",
   "/it/blog/recupero-chiamate-perse-agenzia-immobiliare",
   // Portuguese tools
   "/pt/tools",
