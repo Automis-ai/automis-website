@@ -69,6 +69,7 @@ const STATIC_PATHS = [
   "/blog/ai-document-processing-for-accountants",
   "/blog/ai-document-processing-for-law-firms",
   "/blog/ai-company-brain-for-law-firms",
+  "/blog/ai-company-brain-for-real-estate-agencies",
   "/blog/facebook-lead-ads-follow-up-for-real-estate",
   "/blog/ai-receptionist-for-medspas",
   "/blog/reduce-no-shows-for-medspas",
