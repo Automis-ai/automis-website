@@ -1,12 +1,12 @@
 /* Clínica Santa Maria dos Olivais case (EN). Same keys, same facts and same figures as use-case-clinica.it.js (the source of truth).
-   Data window: February 1 to September 9, 2026 (the November-January calls were Automis tests and are not counted).
+   Data window: February 1 to November 10, 2026 (the November-January calls were Automis tests and are not counted).
    Metadata and JSON-LD (with the FAQ) come from components/use-cases/clinica/meta.js, locale "en"; the FAQ below is word for word
    the one in that schema. */
 export default {
   ui: {
     read: "See the results",
     book: "Book a free 30-minute call",
-    keyTag: "In seven months",
+    keyTag: "In the first seven months",
     keyTitle: "first visits for implants",
     sep: ",",
   },
@@ -15,7 +15,7 @@ export default {
     eyebrow: "Case study",
     title: "0 calls sent to voicemail in nine months at a dental clinic",
     highlight: "0 calls sent to voicemail",
-    lead: "About €4,400 a month in estimated revenue and 148 appointments through October 30, with about 22 calls a month answered while the clinic was closed.",
+    lead: "About €4,400 a month in estimated revenue and 154 appointments through November 10, with about 22 calls a month answered while the clinic was closed.",
     client: "Clínica Santa Maria dos Olivais",
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
   },
@@ -42,8 +42,8 @@ export default {
     lead: "We didn't try to win her over with a presentation.",
     chart: {
       title: "Calls per month",
-      total: "872 in total",
-      ariaLabel: "Calls the assistant received each month of 2026: February 81, March 45, April 50, May 34, June 154, July 168, August 275, September 65 (through the 9th).",
+      total: "1,268 in total",
+      ariaLabel: "Calls the assistant received each month of 2026: February 81, March 45, April 50, May 34, June 154, July 168, August 275, September 169, October 239, November 53 (through the 10th).",
       months: [
         { label: "Feb", value: 81 },
         { label: "Mar", value: 45 },
@@ -52,12 +52,14 @@ export default {
         { label: "Jun", value: 154 },
         { label: "Jul", value: 168 },
         { label: "Aug", value: 275 },
-        { label: "Sep", value: 65 },
+        { label: "Sep", value: 169 },
+        { label: "Oct", value: 239 },
+        { label: "Nov", value: 53 },
       ],
       markAt: 4,
       mark: "June · Google Maps",
       year: "2026",
-      note: "September through the 9th.",
+      note: "November through the 10th (partial).",
     },
     phases: [
       {
@@ -76,27 +78,27 @@ export default {
 
   numbers: {
     eyebrow: "By the numbers",
-    title: "February 1 to September 9, 2026",
+    title: "February 1 to November 10, 2026",
     lead: "Production data.",
     label: "The case in numbers",
     items: [
-      { figure: "872", label: "calls the assistant received", basis: "in seven months" },
-      { figure: "527", label: "closed by the assistant, without reaching the receptionist", basis: "60% of calls" },
-      { figure: "114", label: "appointments booked", basis: "all in the calendar" },
+      { figure: "1,268", label: "calls the assistant received", basis: "in nine months" },
+      { figure: "729", label: "closed by the assistant, without reaching the receptionist", basis: "57% of calls" },
+      { figure: "154", label: "appointments booked", basis: "all in the calendar" },
     ],
     split: {
-      title: "Where the 872 calls went",
+      title: "Where the 1,268 calls went",
       parts: [
-        { value: 527, label: "Closed by the assistant", pct: "60%" },
-        { value: 223, label: "Passed to the receptionist", pct: "26%" },
-        { value: 122, label: "Hung up within 10 seconds", pct: "14%" },
+        { value: 729, label: "Closed by the assistant", pct: "57%" },
+        { value: 339, label: "Passed to the receptionist", pct: "27%" },
+        { value: 200, label: "Hung up within 10 seconds", pct: "16%" },
       ],
     },
     more: [
-      { figure: "193", label: "came in after hours or while another call was in progress", basis: "22%" },
-      { figure: "385", label: "different people it spoke with" },
-      { figure: "1 min 37 s", label: "average length of a conversation" },
-      { figure: "20.2", label: "hours of phone time handled" },
+      { figure: "219", label: "came in after hours or while another call was in progress", basis: "17%" },
+      { figure: "533", label: "different people it spoke with" },
+      { figure: "1 min 35 s", label: "average length of a conversation" },
+      { figure: "28.2", label: "hours of phone time handled" },
     ],
   },
 
@@ -170,7 +172,7 @@ export default {
       { n: "A", title: "The first free slot", line: "The assistant offers the first free slot." },
       { n: "B", title: "The receptionist", line: "If the clinic is open, the call goes to her." },
     ],
-    note: "Promising a same-day slot to someone in pain is easy to program and impossible to keep. That's the difference between a demo and a system that has been running for seven months.",
+    note: "Promising a same-day slot to someone in pain is easy to program and impossible to keep. That's the difference between a demo and a system that has been running for nine months.",
   },
 
   call: {
@@ -206,9 +208,9 @@ export default {
   handoff: {
     eyebrow: "4 · The receptionist",
     title: "One call in four goes to the receptionist",
-    lead: "223 out of 872. The assistant doesn't pass a call on just because the caller asks: it first asks why, and if it's something it can handle, it tries to handle it itself. It only transfers if the person insists.",
+    lead: "339 out of 1,268. The assistant doesn't pass a call on just because the caller asks: it first asks why, and if it's something it can handle, it tries to handle it itself. It only transfers if the person insists.",
     table: {
-      title: "Why the call is passed on",
+      title: "Why the call is passed on (the first 223 transfers, through September 9)",
       rows: [
         { label: "Insists on a person, after the assistant has tried", value: 111 },
         { label: "Implant cleaning: by clinic policy only the receptionist books it", value: 26 },
@@ -263,12 +265,12 @@ export default {
       { label: "Treatments requested by new patients", value: 1400, text: "+€1,400" },
       { label: "Implants, assuming half of the 23 first visits become a treatment", value: 25400, text: "+€25,400" },
     ],
-    total: { label: "List-price total over seven months", value: 32000, text: "about €32,000" },
+    total: { label: "List-price total over the first seven months (February to September)", value: 32000, text: "about €32,000" },
     ceiling: "If every implant visit became a treatment: about €57,000",
     note: "Math on the clinic's price list. Implant visits are valued at the average of the treatments in the clinic's implant program, about €2,200 each: from €745 for a single implant to €4,800 for a full arch. New patients' first visit at €20, and no-shows are not subtracted. The implant part depends on how many visits turn into a treatment, and it's the only assumption in the calculation.",
     key: {
       figure: "23",
-      label: "first visits for implants in seven months",
+      label: "first visits for implants in the first seven months (February to September)",
       line: "In our view it's the number that matters most. It's the most expensive part of the price list, and a single one turning into a full arch is worth almost €5,000.",
     },
   },
@@ -279,7 +281,7 @@ export default {
     items: [
       {
         q: "How many calls did the AI voice receptionist handle?",
-        a: "From February 1 to September 9, 2026 it answered 872 calls: 527 were wrapped up without reaching the front desk, 223 were passed to the receptionist and 122 were hung up within the first 10 seconds. It booked 114 appointments.",
+        a: "From February 1 to November 10, 2026 it answered 1,268 calls: 729 were wrapped up without reaching the front desk, 339 were passed to the receptionist and 200 were hung up within the first 10 seconds. It booked 154 appointments.",
       },
       {
         q: "Which languages does it speak?",
@@ -291,7 +293,7 @@ export default {
       },
       {
         q: "When does it hand the call to a person?",
-        a: "When the caller insists on a person after the assistant has tried to help, for implant cleanings, when someone doesn't want the call recorded, and for emergencies. That happened on 223 calls out of 872.",
+        a: "When the caller insists on a person after the assistant has tried to help, for implant cleanings, when someone doesn't want the call recorded, and for emergencies. That happened on 339 calls out of 1,268.",
       },
       {
         q: "Where should you start with an AI voice receptionist?",

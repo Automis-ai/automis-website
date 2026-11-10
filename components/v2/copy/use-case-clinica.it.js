@@ -1,13 +1,13 @@
 /* Caso Clínica Santa Maria dos Olivais (IT), nello stile di Datura e Album AI (14/10/2026).
    Stessi fatti e stesse cifre dell'articolo lungo (components/use-cases/clinica/story.it.js, generato dal secondo cervello,
    clients/clinica-santa-maria-olivais/case-study-site.md): qui il testo è accorciato e ogni passaggio ha la sua scena.
-   Finestra dei dati: dal 1° febbraio al 9 settembre 2026 (le chiamate di novembre-gennaio sono test di Automis e non si contano).
+   Finestra dei dati: dal 1° febbraio al 10 novembre 2026 (le chiamate di novembre-gennaio sono test di Automis e non si contano).
    Metadati e JSON-LD restano quelli di components/use-cases/clinica/meta.js. EN e PT: use-case-clinica.en.js / .pt.js, stesse chiavi. */
 export default {
   ui: {
     read: "Guarda i risultati",
     book: "Prenota una call gratuita",
-    keyTag: "In sette mesi",
+    keyTag: "Nei primi sette mesi",
     keyTitle: "prime visite per impianti",
     sep: ".",
   },
@@ -16,7 +16,7 @@ export default {
     eyebrow: "Caso studio",
     title: "0 chiamate finite in segreteria in nove mesi in una clinica dentale",
     highlight: "0 chiamate finite in segreteria",
-    lead: "Circa 4.400 € al mese di fatturato stimato e 148 appuntamenti al 30 ottobre, con circa 22 chiamate al mese con risposta a clinica chiusa.",
+    lead: "Circa 4.400 € al mese di fatturato stimato e 154 appuntamenti al 10 novembre, con circa 22 chiamate al mese con risposta a clinica chiusa.",
     client: "Clínica Santa Maria dos Olivais",
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
   },
@@ -43,8 +43,8 @@ export default {
     lead: "Non abbiamo provato a convincerla con una presentazione.",
     chart: {
       title: "Chiamate al mese",
-      total: "872 in totale",
-      ariaLabel: "Chiamate arrivate all'assistente ogni mese del 2026: febbraio 81, marzo 45, aprile 50, maggio 34, giugno 154, luglio 168, agosto 275, settembre 65 (fino al 9).",
+      total: "1.268 in totale",
+      ariaLabel: "Chiamate arrivate all'assistente ogni mese del 2026: febbraio 81, marzo 45, aprile 50, maggio 34, giugno 154, luglio 168, agosto 275, settembre 169, ottobre 239, novembre 53 (fino al 10).",
       months: [
         { label: "feb", value: 81 },
         { label: "mar", value: 45 },
@@ -53,12 +53,14 @@ export default {
         { label: "giu", value: 154 },
         { label: "lug", value: 168 },
         { label: "ago", value: 275 },
-        { label: "set", value: 65 },
+        { label: "set", value: 169 },
+        { label: "ott", value: 239 },
+        { label: "nov", value: 53 },
       ],
       markAt: 4,
       mark: "Giugno · Google Maps",
       year: "2026",
-      note: "Settembre fino al 9.",
+      note: "Novembre fino al 10 (dato parziale).",
     },
     phases: [
       {
@@ -77,27 +79,27 @@ export default {
 
   numbers: {
     eyebrow: "In numeri",
-    title: "Dal 1° febbraio al 9 settembre 2026",
+    title: "Dal 1° febbraio al 10 novembre 2026",
     lead: "Dati di produzione.",
     label: "I numeri del caso",
     items: [
-      { figure: "872", label: "chiamate arrivate all'assistente", basis: "in sette mesi" },
-      { figure: "527", label: "chiuse dall'assistente, senza passare dalla segretaria", basis: "il 60% delle chiamate" },
-      { figure: "114", label: "appuntamenti presi", basis: "finiti in agenda" },
+      { figure: "1.268", label: "chiamate arrivate all'assistente", basis: "in nove mesi" },
+      { figure: "729", label: "chiuse dall'assistente, senza passare dalla segretaria", basis: "il 57% delle chiamate" },
+      { figure: "154", label: "appuntamenti presi", basis: "finiti in agenda" },
     ],
     split: {
-      title: "Dove sono finite le 872 chiamate",
+      title: "Dove sono finite le 1.268 chiamate",
       parts: [
-        { value: 527, label: "Chiuse dall'assistente", pct: "60%" },
-        { value: 223, label: "Passate alla segretaria", pct: "26%" },
-        { value: 122, label: "Riattaccate nei primi 10 secondi", pct: "14%" },
+        { value: 729, label: "Chiuse dall'assistente", pct: "57%" },
+        { value: 339, label: "Passate alla segretaria", pct: "27%" },
+        { value: 200, label: "Riattaccate nei primi 10 secondi", pct: "16%" },
       ],
     },
     more: [
-      { figure: "193", label: "arrivate fuori orario o con un'altra chiamata in corso", basis: "il 22%" },
-      { figure: "385", label: "persone diverse con cui ha parlato" },
-      { figure: "1 min 37 s", label: "durata media di una conversazione" },
-      { figure: "20,2", label: "ore di telefono gestite" },
+      { figure: "219", label: "arrivate fuori orario o con un'altra chiamata in corso", basis: "il 17%" },
+      { figure: "533", label: "persone diverse con cui ha parlato" },
+      { figure: "1 min 35 s", label: "durata media di una conversazione" },
+      { figure: "28,2", label: "ore di telefono gestite" },
     ],
   },
 
@@ -171,7 +173,7 @@ export default {
       { n: "A", title: "Il primo posto libero", line: "L'assistente propone il primo posto libero." },
       { n: "B", title: "La segretaria", line: "Se la clinica è aperta, la chiamata passa a lei." },
     ],
-    note: "Promettere un posto subito a chi ha male è facile da programmare e impossibile da mantenere. È la differenza fra una demo e un sistema che lavora da sette mesi.",
+    note: "Promettere un posto subito a chi ha male è facile da programmare e impossibile da mantenere. È la differenza fra una demo e un sistema che lavora da nove mesi.",
   },
 
   call: {
@@ -207,9 +209,9 @@ export default {
   handoff: {
     eyebrow: "4 · La segretaria",
     title: "Una chiamata su quattro passa alla segretaria",
-    lead: "223 su 872. L'assistente non passa la chiamata a chi la chiede: prima domanda il motivo, e se è una cosa che sa gestire prova a gestirla lui. La passa solo se la persona insiste.",
+    lead: "339 su 1.268. L'assistente non passa la chiamata a chi la chiede: prima domanda il motivo, e se è una cosa che sa gestire prova a gestirla lui. La passa solo se la persona insiste.",
     table: {
-      title: "Perché passa la chiamata",
+      title: "Perché passa la chiamata (le prime 223 passate, fino al 9 settembre)",
       rows: [
         { label: "Insiste per parlare con una persona, dopo che l'assistente ha provato", value: 111 },
         { label: "Pulizia degli impianti: per regola della clinica la prenota solo la segretaria", value: 26 },
@@ -264,12 +266,12 @@ export default {
       { label: "Trattamenti chiesti dai pazienti nuovi", value: 1400, text: "+1.400 €" },
       { label: "Impianti, nell'ipotesi che metà delle 23 prime visite diventi un trattamento", value: 25400, text: "+25.400 €" },
     ],
-    total: { label: "Totale a listino in sette mesi", value: 32000, text: "circa 32.000 €" },
+    total: { label: "Totale a listino nei primi sette mesi (da febbraio a settembre)", value: 32000, text: "circa 32.000 €" },
     ceiling: "Se tutte le visite per impianti diventassero un trattamento: circa 57.000 €",
     note: "Conti sul listino della clinica. Le visite per impianti valgono la media dei trattamenti del programma della clinica, circa 2.200 € l'una: si va da 745 € per un impianto singolo a 4.800 € per un'arcata completa. Prima visita dei pazienti nuovi a 20 €, e non è tolto chi non si è presentato. La parte sugli impianti dipende da quante visite diventano trattamento, ed è l'unica ipotesi del conto.",
     key: {
       figure: "23",
-      label: "prime visite per impianti in sette mesi",
+      label: "prime visite per impianti nei primi sette mesi (da febbraio a settembre)",
       line: "Secondo noi è il numero che conta di più. È la parte più cara del listino, e basta che una diventi un'arcata completa per valere quasi 5.000 euro.",
     },
   },
@@ -280,7 +282,7 @@ export default {
     items: [
       {
         q: "Quante chiamate ha gestito l'assistente vocale?",
-        a: "Dal 1° febbraio al 9 settembre 2026 ha risposto a 872 chiamate: 527 si sono chiuse senza passare dalla segretaria, 223 sono passate a lei e 122 si sono chiuse nei primi 10 secondi. Gli appuntamenti presi sono 114.",
+        a: "Dal 1° febbraio al 10 novembre 2026 ha risposto a 1.268 chiamate: 729 si sono chiuse senza passare dalla segretaria, 339 sono passate a lei e 200 si sono chiuse nei primi 10 secondi. Gli appuntamenti presi sono 154.",
       },
       {
         q: "In quali lingue risponde?",
@@ -292,7 +294,7 @@ export default {
       },
       {
         q: "Quando passa la chiamata a una persona?",
-        a: "Quando chi chiama insiste per parlare con una persona dopo che l'assistente ha provato a gestire la richiesta, per la pulizia degli impianti, quando qualcuno non vuole che la chiamata venga registrata e per le urgenze. È successo con 223 chiamate su 872.",
+        a: "Quando chi chiama insiste per parlare con una persona dopo che l'assistente ha provato a gestire la richiesta, per la pulizia degli impianti, quando qualcuno non vuole che la chiamata venga registrata e per le urgenze. È successo con 339 chiamate su 1.268.",
       },
       {
         q: "Da dove conviene partire con un assistente vocale?",

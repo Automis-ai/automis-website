@@ -28,29 +28,29 @@ export const CASES = [
     // Written case study with production figures: rendered by ClinicaStory, not the template.
     longForm: true,
     summary:
-      "872 calls in seven months, 527 closed without reaching the front desk and 114 appointments booked. What changed month by month, once the clinic started trusting it.",
+      "1,268 calls in nine months, 729 closed without reaching the front desk and 154 appointments booked. What changed month by month, once the clinic started trusting it.",
     headline: "7 months on a dental clinic's phone line",
     metaDescription:
-      "872 calls, 527 closed without reaching the front desk and 114 appointments: how a voice assistant answers the phone at a Lisbon dental clinic.",
+      "1,268 calls, 729 closed without reaching the front desk and 154 appointments: how a voice assistant answers the phone at a Lisbon dental clinic.",
     it: {
       industry: "Clinica dentale",
       location: "Lisbona, Portogallo",
       tag: "Segretaria IA",
       summary:
-        "872 chiamate in sette mesi, 527 chiuse senza passare dalla segretaria e 114 appuntamenti presi. Cosa è cambiato mese per mese, da quando la clinica si è fidata.",
+        "1.268 chiamate in nove mesi, 729 chiuse senza passare dalla segretaria e 154 appuntamenti presi. Cosa è cambiato mese per mese, da quando la clinica si è fidata.",
       headline: "7 mesi al telefono di una clinica dentale",
       metaDescription:
-        "872 chiamate, 527 chiuse senza passare dalla segretaria e 114 appuntamenti: come un assistente vocale risponde al telefono di una clinica dentale a Lisbona.",
+        "1.268 chiamate, 729 chiuse senza passare dalla segretaria e 154 appuntamenti: come un assistente vocale risponde al telefono di una clinica dentale a Lisbona.",
     },
     pt: {
       industry: "Clínica dentária",
       location: "Lisboa, Portugal",
       tag: "Rececionista de voz IA",
       summary:
-        "872 chamadas em sete meses, 527 resolvidas sem passar pela receção e 114 marcações. O que mudou mês a mês, desde que a clínica passou a confiar.",
+        "1.268 chamadas em nove meses, 729 resolvidas sem passar pela receção e 154 marcações. O que mudou mês a mês, desde que a clínica passou a confiar.",
       headline: "7 meses ao telefone de uma clínica dentária",
       metaDescription:
-        "872 chamadas, 527 resolvidas sem passar pela receção e 114 marcações: como um assistente de voz atende o telefone de uma clínica dentária em Lisboa.",
+        "1.268 chamadas, 729 resolvidas sem passar pela receção e 154 marcações: como um assistente de voz atende o telefone de uma clínica dentária em Lisboa.",
     },
   },
   {
@@ -64,29 +64,29 @@ export const CASES = [
     // Written case study with production figures: rendered by AdifesaStory, not the template.
     longForm: true,
     summary:
-      "2,329 conversations across Facebook and Instagram comments and DMs from 1 May to 16 September 2026, and 524 complete records. Three in ten of those become clients, according to the association.",
+      "2,880 conversations across Facebook and Instagram comments and DMs from 1 May to 10 November 2026, and 622 complete records. Three in ten of those become clients, according to the association.",
     headline: "Comments and messages on Facebook and Instagram",
     metaDescription:
-      "2,329 conversations and 524 complete records, 3 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
+      "2,880 conversations and 622 complete records, 3 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
     it: {
       industry: "Associazione di tutela bancaria e finanziaria",
       location: "Lissone, Italia",
       tag: "Automazione Meta",
       summary:
-        "2.329 conversazioni fra commenti e messaggi su Facebook e Instagram dal 1° maggio al 16 settembre 2026, e 524 schede complete. Di quelle, secondo l'associazione, 3 su 10 diventano clienti.",
+        "2.880 conversazioni fra commenti e messaggi su Facebook e Instagram dal 1° maggio al 10 novembre 2026, e 622 schede complete. Di quelle, secondo l'associazione, 3 su 10 diventano clienti.",
       headline: "Commenti e messaggi su Facebook e Instagram",
       metaDescription:
-        "2.329 conversazioni e 524 schede complete, di cui 3 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
+        "2.880 conversazioni e 622 schede complete, di cui 3 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
     },
     pt: {
       industry: "Associação de tutela bancária e financeira",
       location: "Lissone, Itália",
       tag: "Automação Meta",
       summary:
-        "2.329 conversas entre comentários e mensagens no Facebook e no Instagram, de 1 de maio a 16 de setembro de 2026, e 524 fichas completas. Dessas, segundo a associação, 3 em cada 10 tornam-se clientes.",
+        "2.880 conversas entre comentários e mensagens no Facebook e no Instagram, de 1 de maio a 10 de novembro de 2026, e 622 fichas completas. Dessas, segundo a associação, 3 em cada 10 tornam-se clientes.",
       headline: "Comentários e mensagens no Facebook e no Instagram",
       metaDescription:
-        "2.329 conversas e 524 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
+        "2.880 conversas e 622 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e mensagens no Facebook e no Instagram.",
     },
   },
 ];

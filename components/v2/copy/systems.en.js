@@ -235,7 +235,7 @@ export default {
         { card: "lead-nurture", glyph: "repeat", label: "Follow-up" },
         { card: "custom-crm", glyph: "contact", label: "CRM" },
       ],
-      result: { value: "2,329", unit: "conversations handled", src: "ADifesa · 1 May to 16 Sept 2026" },
+      result: { value: "2,880", unit: "conversations handled", src: "ADifesa · 1 May to 10 Nov 2026" },
     },
     // Illustrative examples for the visuals (no real data: made-up contacts, phone prefix of the page's country)
     dmDemo: {
@@ -350,7 +350,7 @@ export default {
     case: {
       eyebrow: "Real case",
       title: "ADifesa",
-      line: "Comments and DMs on Facebook and Instagram, answered and qualified: 2,329 conversations from 1 May to 16 September 2026 and 524 complete records. According to the association, 3 in 10 complete records become customers.",
+      line: "Comments and DMs on Facebook and Instagram, answered and qualified: 2,880 conversations from 1 May to 10 November 2026 and 622 complete records. According to the association, 3 in 10 complete records become customers.",
       cta: "See the results",
       href: "/use-cases/adifesa",
     },
@@ -444,7 +444,7 @@ export default {
         { card: "answers-247", glyph: "clock", label: "Replies" },
         { card: "ecommerce-support", glyph: "cart", label: "Shop" },
       ],
-      result: { value: "872", unit: "calls", src: "Clínica Santa Maria dos Olivais · 1 Feb to 9 Sept 2026" },
+      result: { value: "1,268", unit: "calls", src: "Clínica Santa Maria dos Olivais · 1 Feb to 10 Nov 2026" },
     },
     cards: [
       {
@@ -508,7 +508,7 @@ export default {
     case: {
       eyebrow: "Real case",
       title: "Clínica Santa Maria dos Olivais",
-      line: "A voice assistant on a dental clinic's phone line: 872 calls from 1 February to 9 September 2026, 527 closed by the assistant and 114 appointments booked.",
+      line: "A voice assistant on a dental clinic's phone line: 1,268 calls from 1 February to 10 November 2026, 729 closed by the assistant and 154 appointments booked.",
       cta: "See the results",
       href: "/use-cases/clinica-santa-maria",
     },

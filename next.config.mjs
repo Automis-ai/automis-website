@@ -55,6 +55,22 @@ const nextConfig = {
         ],
       },
       {
+        // Prezzi per regione (lib/region.js): la risposta cambia con il paese del visitatore, e la CDN
+        // non guarda ne' il paese ne' il cookie. Queste pagine non vanno in cache CDN.
+        source: "/:page(voice-ai|how-we-work|systems|en)",
+        headers: [
+          { key: "Vercel-CDN-Cache-Control", value: "no-store" },
+          { key: "CDN-Cache-Control", value: "no-store" },
+        ],
+      },
+      {
+        source: "/systems/:category",
+        headers: [
+          { key: "Vercel-CDN-Cache-Control", value: "no-store" },
+          { key: "CDN-Cache-Control", value: "no-store" },
+        ],
+      },
+      {
         source: "/it/alternativa-a-manychat/guida",
         headers: [
           { key: "Vercel-CDN-Cache-Control", value: "no-store" },

@@ -13,14 +13,14 @@ const COPY = {
         meta: "Dental clinic · Lisbon, PT",
         tag: "Voice AI receptionist",
         result:
-          "A voice assistant on the clinic's phone line: 872 calls in seven months, 527 closed without reaching the front desk and 114 appointments booked.",
+          "A voice assistant on the clinic's phone line: 1,268 calls in nine months, 729 closed without reaching the front desk and 154 appointments booked.",
       },
       {
         client: "ADifesa",
         meta: "Consumer-protection association · Lissone, IT",
         tag: "Meta automation",
         result:
-          "Comments and DMs on Facebook and Instagram, handled and qualified: 2,329 conversations in five months and 524 complete records, 3 in 10 of which become clients.",
+          "Comments and DMs on Facebook and Instagram, handled and qualified: 2,880 conversations in six months and 622 complete records, 3 in 10 of which become clients.",
       },
     ],
     stats: [
@@ -43,14 +43,14 @@ const COPY = {
         meta: "Clinica dentale · Lisbona, PT",
         tag: "Segretaria IA",
         result:
-          "Un assistente vocale sul telefono della clinica: 872 chiamate in sette mesi, 527 chiuse senza passare dalla segretaria e 114 appuntamenti presi.",
+          "Un assistente vocale sul telefono della clinica: 1.268 chiamate in nove mesi, 729 chiuse senza passare dalla segretaria e 154 appuntamenti presi.",
       },
       {
         client: "ADifesa",
         meta: "Associazione di tutela · Lissone, Italia",
         tag: "Automazione Meta",
         result:
-          "Commenti e messaggi su Facebook e Instagram, gestiti e qualificati: 2.329 conversazioni in cinque mesi e 524 schede complete, di cui 3 su 10 diventano clienti.",
+          "Commenti e messaggi su Facebook e Instagram, gestiti e qualificati: 2.880 conversazioni in sei mesi e 622 schede complete, di cui 3 su 10 diventano clienti.",
       },
     ],
     stats: [
@@ -73,14 +73,14 @@ const COPY = {
         meta: "Clínica dentária · Lisboa, PT",
         tag: "Rececionista de voz IA",
         result:
-          "Um assistente de voz no telefone da clínica: 872 chamadas em sete meses, 527 resolvidas sem passar pela receção e 114 marcações.",
+          "Um assistente de voz no telefone da clínica: 1.268 chamadas em nove meses, 729 resolvidas sem passar pela receção e 154 marcações.",
       },
       {
         client: "ADifesa",
         meta: "Associação de defesa do consumidor · Lissone, IT",
         tag: "Automação Meta",
         result:
-          "Comentários e mensagens no Facebook e no Instagram, tratados e qualificados: 2.329 conversas em cinco meses e 524 fichas completas, das quais 3 em cada 10 se tornam clientes.",
+          "Comentários e mensagens no Facebook e no Instagram, tratados e qualificados: 2.880 conversas em seis meses e 622 fichas completas, das quais 3 em cada 10 se tornam clientes.",
       },
     ],
     stats: [

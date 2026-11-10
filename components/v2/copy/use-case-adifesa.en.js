@@ -1,5 +1,5 @@
 /* ADifesa case (EN). Same keys, same facts and same figures as use-case-adifesa.it.js (the source of truth).
-   Data window: May 1 to September 16, 2026. The commercial outcome (3 records in 10 become clients) is the association's own figure,
+   Data window: May 1 to November 10, 2026. The commercial outcome (3 records in 10 become clients) is the association's own figure,
    not ours. No revenue and no refunds: they are not our data.
    Metadata and JSON-LD (with the FAQ) come from components/use-cases/adifesa/meta.js, locale "en"; the FAQ below is word for word
    the one in that schema. */
@@ -8,7 +8,7 @@ export default {
     read: "See the results",
     book: "Book a free 30-minute call",
     openShot: "Open the full screenshot",
-    hoursTitle: "1,377 private messages after hours",
+    hoursTitle: "1,614 private messages after hours",
     sep: ",",
   },
 
@@ -16,7 +16,7 @@ export default {
     eyebrow: "Case study",
     title: "4 hours a day back, and no potential client without a reply",
     highlight: "4 hours a day back",
-    lead: "Comments and DMs on Facebook and Instagram, answered for them. 524 people left their name, phone and email, and about 3 in 10 became clients, the association's own figure.",
+    lead: "Comments and DMs on Facebook and Instagram, answered for them. 622 people left their name, phone and email, and about 3 in 10 became clients, the association's own figure.",
     client: "ADifesa association",
     logo: "/assets/images/client-logos/adifesa-mark.png",
   },
@@ -94,46 +94,48 @@ export default {
 
   numbers: {
     eyebrow: "By the numbers",
-    title: "May 1 to September 16, 2026",
+    title: "May 1 to November 10, 2026",
     lead: "Production data.",
     label: "The case in numbers",
     funnel: [
-      { figure: "2,329", label: "conversations handled across comments and private messages" },
-      { figure: "1,033", label: "qualified contacts" },
-      { figure: "524", label: "complete records: name, phone, email, product" },
+      { figure: "2,880", label: "conversations handled across comments and private messages" },
+      { figure: "1,234", label: "qualified contacts" },
+      { figure: "622", label: "complete records: name, phone, email, product" },
       { figure: "3 in 10", label: "of those records become a client, with at least one case", note: "the association's figure" },
     ],
     funnelNote: "From comment to case. The last step is the association's figure, not ours.",
-    focus: "The first number we look at isn't the total. It's the 524 complete records, which is what an adviser needs to pick up the phone already knowing what the call is about.",
+    focus: "The first number we look at isn't the total. It's the 622 complete records, which is what an adviser needs to pick up the phone already knowing what the call is about.",
     chart: {
       title: "Conversations per month",
-      total: "2,329 in total",
-      ariaLabel: "Conversations handled each month of 2026: May 523, June 470, July 760, August 355, September 221 (through the 16th).",
+      total: "2,880 in total",
+      ariaLabel: "Conversations handled each month of 2026: May 523, June 469, July 761, August 354, September 380, October 319, November 74 (through the 10th).",
       months: [
         { label: "May", value: 523 },
-        { label: "Jun", value: 470 },
-        { label: "Jul", value: 760 },
-        { label: "Aug", value: 355 },
-        { label: "Sep", value: 221 },
+        { label: "Jun", value: 469 },
+        { label: "Jul", value: 761 },
+        { label: "Aug", value: 354 },
+        { label: "Sep", value: 380 },
+        { label: "Oct", value: 319 },
+        { label: "Nov", value: 74 },
       ],
       markAt: 2,
       mark: "July · Instagram",
       year: "2026",
-      note: "From July, Instagram direct messages come in too. Volume follows the association's campaigns, which were scaled back from August. September through the 16th.",
+      note: "From July, Instagram direct messages come in too. Volume follows the association's campaigns, which were scaled back from August. November through the 10th (partial).",
     },
     rows: [
-      ["Different people", "1,794"],
-      ["Handed to a person", "111 (4.8%)"],
-      ["Private messages received", "2,951"],
-      ["Private replies written by the automation", "1,676"],
-      ["Public replies under comments", "1,262"],
+      ["Different people", "2,188"],
+      ["Handed to a person", "123 (4.3%)"],
+      ["Private messages received", "3,454"],
+      ["Private replies written by the automation", "2,043"],
+      ["Public replies under comments", "1,598"],
     ],
     origin: {
-      title: "Where the 2,329 conversations came from",
+      title: "Where the 2,880 conversations came from",
       parts: [
-        { value: 1065, label: "From a comment under an ad" },
-        { value: 232, label: "From a comment under a post" },
-        { value: 1032, label: "From a direct message" },
+        { value: 1375, label: "From a comment under an ad" },
+        { value: 276, label: "From a comment under a post" },
+        { value: 1229, label: "From a direct message" },
       ],
     },
   },
@@ -141,14 +143,14 @@ export default {
   hours: {
     eyebrow: "4 · After hours",
     title: "Half of these people write when the office is closed",
-    lead: "Of the 2,951 private messages received, 1,377 came in outside working hours: 46.7%.",
+    lead: "Of the 3,454 private messages received, 1,614 came in outside working hours: 46.7%.",
     figure: "46.7%",
     figureLabel: "of private messages arrive after hours",
     parts: [
-      { value: 850, label: "On weekdays", line: "before nine or after six" },
-      { value: 527, label: "At the weekend", line: "Saturday and Sunday" },
+      { value: 974, label: "On weekdays", line: "before nine or after six" },
+      { value: 640, label: "At the weekend", line: "Saturday and Sunday" },
     ],
-    night: { value: 267, label: "between ten at night and seven in the morning" },
+    night: { value: 351, label: "between ten at night and seven in the morning" },
     line: "It's the easiest number in the project to underrate. It says almost half of these requests arrive when there is nobody there to read them. They come on the evenings and Sundays when someone sits down with their statements, and that is exactly when they decide to write.",
   },
 
@@ -171,9 +173,9 @@ export default {
 
   handoff: {
     eyebrow: "5 · The person",
-    title: "111 conversations out of 2,329 were handed to a person",
+    title: "123 conversations out of 2,880 were handed to a person",
     lead: "Fewer than one in twenty. The automation closed everything else on its own.",
-    figure: "4.8%",
+    figure: "4.3%",
     figureLabel: "handed to a person",
     control: {
       tag: "Control stays with the client",
@@ -207,15 +209,17 @@ export default {
     },
     chart: {
       title: "Qualified contacts from Instagram",
-      ariaLabel: "Qualified contacts coming from Instagram: May 6, June 29, July 117, August 22, September 6 (through the 16th).",
+      ariaLabel: "Qualified contacts coming from Instagram: May 6, June 29, July 117, August 22, September 14, October 24, November 8 (through the 10th).",
       months: [
         { label: "May", value: 6 },
         { label: "Jun", value: 29 },
         { label: "Jul", value: 117 },
         { label: "Aug", value: 22 },
-        { label: "Sep", value: 6 },
+        { label: "Sep", value: 14 },
+        { label: "Oct", value: 24 },
+        { label: "Nov", value: 8 },
       ],
-      note: "September through the 16th.",
+      note: "November through the 10th (partial).",
     },
     shot: {
       src: "/assets/images/casi/adifesa-3-instagram-dm.png",
@@ -239,8 +243,8 @@ export default {
       line: "Every post keeps a tally of the comments seen and how many turned out to be spam. Past a threshold, that single post is muted and its comments stop reaching the model.",
     },
     stats: [
-      { figure: "257", label: "posts tracked, in the window observed" },
-      { figure: "37", label: "muted, in the window observed" },
+      { figure: "432", label: "posts tracked, in the window observed" },
+      { figure: "63", label: "muted, in the window observed" },
     ],
     safe: {
       tag: "It doesn't go blind",
@@ -300,11 +304,11 @@ export default {
     items: [
       {
         q: "How many conversations did the automation handle?",
-        a: "From May 1 to September 16, 2026 it handled 2,329 conversations across comments and private messages on Facebook and Instagram, with 1,794 different people. They produced 1,033 qualified contacts and 524 records complete with name, phone and email.",
+        a: "From May 1 to November 10, 2026 it handled 2,880 conversations across comments and private messages on Facebook and Instagram, with 2,188 different people. They produced 1,234 qualified contacts and 622 records complete with name, phone and email.",
       },
       {
         q: "Does it answer public comments too, or only private messages?",
-        a: "Both. Under a public comment it replies after a deliberate three-minute wait, and opens the private conversation in parallel. In the window observed it wrote 1,262 public replies and 1,676 private messages.",
+        a: "Both. Under a public comment it replies after a deliberate three-minute wait, and opens the private conversation in parallel. In the window observed it wrote 1,598 public replies and 2,043 private messages.",
       },
       {
         q: "What happens if someone posts their phone number in a comment?",
@@ -312,7 +316,7 @@ export default {
       },
       {
         q: "When does a person step in?",
-        a: "Whenever the client decides: from the control panel the automation is switched off on that single conversation and the team carries on by hand. It happened on 111 conversations out of 2,329, fewer than one in twenty.",
+        a: "Whenever the client decides: from the control panel the automation is switched off on that single conversation and the team carries on by hand. It happened on 123 conversations out of 2,880, fewer than one in twenty.",
       },
       {
         q: "How many of those contacts become clients?",

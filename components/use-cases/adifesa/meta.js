@@ -3,8 +3,8 @@
 export const CASO = {
   "it": {
     "titolo": "Automazione Meta per commenti e DM: caso studio | Automis",
-    "descrizione": "2.329 conversazioni e 524 schede complete, di cui 3 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
-    "h1": "Cinque mesi nei commenti di Facebook e Instagram",
+    "descrizione": "2.880 conversazioni e 622 schede complete, di cui 3 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
+    "h1": "Sei mesi nei commenti di Facebook e Instagram",
     "url": "https://automis.ai/it/use-cases/adifesa",
     "og": "https://automis.ai/assets/og/caso-adifesa-it.png",
     "schema": {
@@ -13,10 +13,10 @@ export const CASO = {
         {
           "@type": "Article",
           "@id": "https://automis.ai/it/use-cases/adifesa#article",
-          "headline": "Cinque mesi nei commenti di Facebook e Instagram",
-          "description": "2.329 conversazioni e 524 schede complete, di cui 3 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
+          "headline": "Sei mesi nei commenti di Facebook e Instagram",
+          "description": "2.880 conversazioni e 622 schede complete, di cui 3 su 10 diventano clienti: come un'automazione gestisce commenti e messaggi su Facebook e Instagram.",
           "inLanguage": "it-IT",
-          "dateModified": "2026-09-21",
+          "dateModified": "2026-11-10",
           "image": [
             "https://automis.ai/assets/og/caso-adifesa-it.png"
           ],
@@ -53,7 +53,7 @@ export const CASO = {
               "name": "Quante conversazioni ha gestito l'automazione?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Dal 1° maggio al 16 settembre 2026 ha gestito 2.329 conversazioni fra commenti e messaggi privati su Facebook e Instagram, con 1.794 persone diverse. Ne sono usciti 1.033 contatti qualificati e 524 schede complete di nome, telefono ed email."
+                "text": "Dal 1° maggio al 10 novembre 2026 ha gestito 2.880 conversazioni fra commenti e messaggi privati su Facebook e Instagram, con 2.188 persone diverse. Ne sono usciti 1.234 contatti qualificati e 622 schede complete di nome, telefono ed email."
               }
             },
             {
@@ -61,7 +61,7 @@ export const CASO = {
               "name": "Risponde anche ai commenti pubblici o solo ai messaggi privati?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "A entrambi. Sotto il commento pubblico risponde dopo un'attesa voluta di tre minuti, e in parallelo apre la conversazione privata. Nella finestra osservata ha scritto 1.262 risposte pubbliche e 1.676 messaggi privati."
+                "text": "A entrambi. Sotto il commento pubblico risponde dopo un'attesa voluta di tre minuti, e in parallelo apre la conversazione privata. Nella finestra osservata ha scritto 1.598 risposte pubbliche e 2.043 messaggi privati."
               }
             },
             {
@@ -77,7 +77,7 @@ export const CASO = {
               "name": "Quando interviene una persona?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Quando serve, e sempre per scelta del cliente: dal pannello di controllo l'automazione si spegne sulla singola conversazione e il team continua a mano. È successo con 111 conversazioni su 2.329, meno di una su venti."
+                "text": "Quando serve, e sempre per scelta del cliente: dal pannello di controllo l'automazione si spegne sulla singola conversazione e il team continua a mano. È successo con 123 conversazioni su 2.880, meno di una su venti."
               }
             },
             {
@@ -126,8 +126,8 @@ export const CASO = {
   },
   "en": {
     "titolo": "Meta Comment and DM Automation: Case Study | Automis",
-    "descrizione": "2,329 conversations and 524 complete records, 3 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
-    "h1": "Five months in the comments on Facebook and Instagram",
+    "descrizione": "2,880 conversations and 622 complete records, 3 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
+    "h1": "Six months in the comments on Facebook and Instagram",
     "url": "https://automis.ai/use-cases/adifesa",
     "og": "https://automis.ai/assets/og/caso-adifesa-en.png",
     "schema": {
@@ -136,10 +136,10 @@ export const CASO = {
         {
           "@type": "Article",
           "@id": "https://automis.ai/use-cases/adifesa#article",
-          "headline": "Five months in the comments on Facebook and Instagram",
-          "description": "2,329 conversations and 524 complete records, 3 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
+          "headline": "Six months in the comments on Facebook and Instagram",
+          "description": "2,880 conversations and 622 complete records, 3 in 10 of which become clients: how an automation handles Facebook and Instagram comments and DMs.",
           "inLanguage": "en",
-          "dateModified": "2026-09-21",
+          "dateModified": "2026-11-10",
           "image": [
             "https://automis.ai/assets/og/caso-adifesa-en.png"
           ],
@@ -176,7 +176,7 @@ export const CASO = {
               "name": "How many conversations did the automation handle?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "From May 1 to September 16, 2026 it handled 2,329 conversations across comments and private messages on Facebook and Instagram, with 1,794 different people. They produced 1,033 qualified contacts and 524 records complete with name, phone and email."
+                "text": "From May 1 to November 10, 2026 it handled 2,880 conversations across comments and private messages on Facebook and Instagram, with 2,188 different people. They produced 1,234 qualified contacts and 622 records complete with name, phone and email."
               }
             },
             {
@@ -184,7 +184,7 @@ export const CASO = {
               "name": "Does it answer public comments too, or only private messages?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Both. Under a public comment it replies after a deliberate three-minute wait, and opens the private conversation in parallel. In the window observed it wrote 1,262 public replies and 1,676 private messages."
+                "text": "Both. Under a public comment it replies after a deliberate three-minute wait, and opens the private conversation in parallel. In the window observed it wrote 1,598 public replies and 2,043 private messages."
               }
             },
             {
@@ -200,7 +200,7 @@ export const CASO = {
               "name": "When does a person step in?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Whenever the client decides: from the control panel the automation is switched off on that single conversation and the team carries on by hand. It happened on 111 conversations out of 2,329, fewer than one in twenty."
+                "text": "Whenever the client decides: from the control panel the automation is switched off on that single conversation and the team carries on by hand. It happened on 123 conversations out of 2,880, fewer than one in twenty."
               }
             },
             {
@@ -249,8 +249,8 @@ export const CASO = {
   },
   "pt": {
     "titolo": "Automação de comentários e DM na Meta: caso | Automis",
-    "descrizione": "2.329 conversas e 524 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e DMs no Facebook e no Instagram.",
-    "h1": "Cinco meses nos comentários do Facebook e do Instagram",
+    "descrizione": "2.880 conversas e 622 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e DMs no Facebook e no Instagram.",
+    "h1": "Seis meses nos comentários do Facebook e do Instagram",
     "url": "https://automis.ai/pt/use-cases/adifesa",
     "og": "https://automis.ai/assets/og/caso-adifesa-pt.png",
     "schema": {
@@ -259,10 +259,10 @@ export const CASO = {
         {
           "@type": "Article",
           "@id": "https://automis.ai/pt/use-cases/adifesa#article",
-          "headline": "Cinco meses nos comentários do Facebook e do Instagram",
-          "description": "2.329 conversas e 524 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e DMs no Facebook e no Instagram.",
+          "headline": "Seis meses nos comentários do Facebook e do Instagram",
+          "description": "2.880 conversas e 622 fichas completas, das quais 3 em cada 10 se tornam clientes: como uma automação trata comentários e DMs no Facebook e no Instagram.",
           "inLanguage": "pt-PT",
-          "dateModified": "2026-09-21",
+          "dateModified": "2026-11-10",
           "image": [
             "https://automis.ai/assets/og/caso-adifesa-pt.png"
           ],
@@ -299,7 +299,7 @@ export const CASO = {
               "name": "Quantas conversas tratou a automação?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "De 1 de maio a 16 de setembro de 2026 tratou 2.329 conversas entre comentários e mensagens privadas no Facebook e no Instagram, com 1.794 pessoas diferentes. Delas saíram 1.033 contactos qualificados e 524 fichas completas com nome, telefone e email."
+                "text": "De 1 de maio a 10 de novembro de 2026 tratou 2.880 conversas entre comentários e mensagens privadas no Facebook e no Instagram, com 2.188 pessoas diferentes. Delas saíram 1.234 contactos qualificados e 622 fichas completas com nome, telefone e email."
               }
             },
             {
@@ -307,7 +307,7 @@ export const CASO = {
               "name": "Responde também aos comentários públicos ou só às mensagens privadas?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "A ambos. Sob o comentário público responde depois de uma espera propositada de três minutos, e em paralelo abre a conversa privada. Na janela observada escreveu 1.262 respostas públicas e 1.676 mensagens privadas."
+                "text": "A ambos. Sob o comentário público responde depois de uma espera propositada de três minutos, e em paralelo abre a conversa privada. Na janela observada escreveu 1.598 respostas públicas e 2.043 mensagens privadas."
               }
             },
             {
@@ -323,7 +323,7 @@ export const CASO = {
               "name": "Quando entra uma pessoa?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Quando o cliente decide: a partir do painel de controlo a automação é desligada naquela conversa e a equipa continua à mão. Aconteceu em 111 conversas em 2.329, menos de uma em vinte."
+                "text": "Quando o cliente decide: a partir do painel de controlo a automação é desligada naquela conversa e a equipa continua à mão. Aconteceu em 123 conversas em 2.880, menos de uma em vinte."
               }
             },
             {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { addLangPrefix } from "@/lib/locales";
 import { getCopy } from "@/components/v2/copy/getCopy";
+import { getRegion, usCopy } from "@/lib/region";
 import PageHeroV3 from "./PageHeroV3";
 import { Icon } from "./HomeV3";
 import { homeCopy } from "./copy";
@@ -13,7 +14,8 @@ import "./home-v3.css";
 export default function SystemsHubV3({ locale = "it" }) {
   const h = homeCopy(locale);
   const t = h.hub;
-  const products = getCopy("systems", locale).hub.products.items;
+  const baseProducts = getCopy("systems", locale).hub.products.items;
+  const products = locale === "en" && getRegion() === "us" ? usCopy(baseProducts) : baseProducts;
   const productHref = { voice: "/voice-ai", ecommerce: "/ecommerce", "company-brain": "/systems/company-brain" };
 
   return (

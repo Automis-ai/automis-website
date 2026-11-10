@@ -42,22 +42,22 @@ export default {
     items: [
       {
         key: "clinica",
-        stat: "872",
-        statLabel: "chamadas em sete meses",
+        stat: "1.268",
+        statLabel: "chamadas em nove meses",
         client: "Clínica Santa Maria dos Olivais",
         meta: "Clínica dentária · Lisboa, PT",
         tag: "Rececionista de voz IA",
-        result: "Um assistente de voz no telefone da clínica: 872 chamadas em sete meses e 114 marcações.",
+        result: "Um assistente de voz no telefone da clínica: 1.268 chamadas em nove meses e 154 marcações.",
         href: "/use-cases/clinica-santa-maria",
       },
       {
         key: "adifesa",
-        stat: "2.329",
-        statLabel: "conversas de 1/5 a 16/9/2026",
+        stat: "2.880",
+        statLabel: "conversas de 1/5 a 10/11/2026",
         client: "ADifesa",
         meta: "Associação de tutela bancária e financeira · Lissone, IT",
         tag: "Automação Meta",
-        result: "Comentários e mensagens no Facebook e no Instagram, tratados e qualificados: 2.329 conversas de 1/5 a 16/9/2026.",
+        result: "Comentários e mensagens no Facebook e no Instagram, tratados e qualificados: 2.880 conversas de 1/5 a 10/11/2026.",
         href: "/use-cases/adifesa",
       },
       {

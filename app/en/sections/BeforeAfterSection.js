@@ -3,6 +3,7 @@
 import { Fragment } from "react";
 import { X, Check } from "lucide-react";
 import { SectionHeading, Grad, useReveal } from "./_ui";
+import { useRegion, money } from "@/lib/RegionContext";
 
 const comparisons = [
   {
@@ -41,6 +42,7 @@ const comparisons = [
 
 export default function BeforeAfterSection() {
   const [ref, visible] = useReveal();
+  const region = useRegion();
 
   return (
     <section
@@ -100,7 +102,7 @@ export default function BeforeAfterSection() {
                       className="h-4 w-4 flex-shrink-0 text-white/25"
                       strokeWidth={2.5}
                     />
-                    <span>{row.before}</span>
+                    <span>{money(row.before, region)}</span>
                   </div>
                   <div
                     className={`flex items-center gap-3 bg-bright-blue/[0.03] px-5 py-3.5 text-sm font-medium text-white/90 md:px-6 ${

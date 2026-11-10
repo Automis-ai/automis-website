@@ -39,22 +39,22 @@ export default {
     items: [
       {
         key: "clinica",
-        stat: "872",
-        statLabel: "calls in seven months",
+        stat: "1,268",
+        statLabel: "calls in nine months",
         client: "Clínica Santa Maria dos Olivais",
         meta: "Dental clinic · Lisbon, PT",
         tag: "Voice AI receptionist",
-        result: "A voice assistant on the clinic's phone line: 872 calls in seven months and 114 appointments booked.",
+        result: "A voice assistant on the clinic's phone line: 1,268 calls in nine months and 154 appointments booked.",
         href: "/use-cases/clinica-santa-maria",
       },
       {
         key: "adifesa",
-        stat: "2,329",
-        statLabel: "conversations from 1 May to 16 Sep 2026",
+        stat: "2,880",
+        statLabel: "conversations from 1 May to 10 Nov 2026",
         client: "ADifesa",
         meta: "Banking and financial protection association · Lissone, IT",
         tag: "Meta automation",
-        result: "Comments and DMs on Facebook and Instagram, handled and qualified: 2,329 conversations from 1 May to 16 Sep 2026.",
+        result: "Comments and DMs on Facebook and Instagram, handled and qualified: 2,880 conversations from 1 May to 10 Nov 2026.",
         href: "/use-cases/adifesa",
       },
       {

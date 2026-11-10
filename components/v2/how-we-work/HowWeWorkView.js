@@ -4,6 +4,7 @@ import SectionHeader from "@/components/v2/ui/SectionHeader";
 import CtaBand from "@/components/v2/ui/CtaBand";
 import { pageClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
+import { getRegion, usCopy } from "@/lib/region";
 import { addLangPrefix } from "@/lib/locales";
 import PrincipleCards from "@/components/v2/about/PrincipleCards";
 import FaqSection from "@/components/v2/systems/FaqSection";
@@ -14,7 +15,9 @@ import HowSteps from "./HowSteps";
    Il ritmo: scuro, un solo momento blu (i passi), blu notte, scuro, chiusura.
    Cornice e metadati stanno nel file di rotta. `tono`: ?tono= della preview. */
 export default function HowWeWorkView({ lang, tono }) {
-  const t = getCopy("how-we-work", lang);
+  const base = getCopy("how-we-work", lang);
+  const us = lang === "en" && getRegion() === "us";
+  const t = us ? usCopy(base) : base;
   const c = getCopy("common", lang);
   const moreLabel = getCopy("systems", lang).labels.more;
   const contact = addLangPrefix("/contact", lang);
@@ -41,7 +44,7 @@ export default function HowWeWorkView({ lang, tono }) {
         </Section>
       </div>
 
-      <FaqSection tone="dark" title={t.faq.title} items={t.faq.items} />
+      <FaqSection tone="dark" title={t.faq.title} items={t.faq.items} jsonLdItems={base.faq.items} />
 
       <CtaBand tone="dark" title={t.cta.title} line={t.cta.line} button={{ label: c.cta, href: contact }} />
     </main>

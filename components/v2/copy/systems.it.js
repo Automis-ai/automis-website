@@ -235,7 +235,7 @@ export default {
         { card: "lead-nurture", glyph: "repeat", label: "Seguito" },
         { card: "custom-crm", glyph: "contact", label: "CRM" },
       ],
-      result: { value: "2.329", unit: "conversazioni gestite", src: "ADifesa · dal 1/5 al 16/9/2026" },
+      result: { value: "2.880", unit: "conversazioni gestite", src: "ADifesa · dal 1/5 al 10/11/2026" },
     },
     // Esempi illustrativi delle vignette (nessun dato vero: contatti inventati, prefisso del paese della pagina)
     dmDemo: {
@@ -350,7 +350,7 @@ export default {
     case: {
       eyebrow: "Caso reale",
       title: "ADifesa",
-      line: "Commenti e DM su Facebook e Instagram gestiti e qualificati: 2.329 conversazioni dal 1/5 al 16/9/2026 e 524 schede complete. Secondo l'associazione, 3 schede complete su 10 diventano clienti.",
+      line: "Commenti e DM su Facebook e Instagram gestiti e qualificati: 2.880 conversazioni dal 1/5 al 10/11/2026 e 622 schede complete. Secondo l'associazione, 3 schede complete su 10 diventano clienti.",
       cta: "Guarda i risultati",
       href: "/use-cases/adifesa",
     },
@@ -444,7 +444,7 @@ export default {
         { card: "answers-247", glyph: "clock", label: "Risposta" },
         { card: "ecommerce-support", glyph: "cart", label: "Negozio" },
       ],
-      result: { value: "872", unit: "chiamate", src: "Clínica Santa Maria dos Olivais · dal 1/2 al 9/9/2026" },
+      result: { value: "1.268", unit: "chiamate", src: "Clínica Santa Maria dos Olivais · dal 1/2 al 10/11/2026" },
     },
     cards: [
       {
@@ -508,7 +508,7 @@ export default {
     case: {
       eyebrow: "Caso reale",
       title: "Clínica Santa Maria dos Olivais",
-      line: "Un assistente vocale sul telefono di una clinica dentale: 872 chiamate dal 1/2 al 9/9/2026, 527 chiuse dall'assistente e 114 appuntamenti presi.",
+      line: "Un assistente vocale sul telefono di una clinica dentale: 1.268 chiamate dal 1/2 al 10/11/2026, 729 chiuse dall'assistente e 154 appuntamenti presi.",
       cta: "Guarda i risultati",
       href: "/use-cases/clinica-santa-maria",
     },

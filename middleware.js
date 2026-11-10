@@ -50,7 +50,25 @@ export function middleware(req) {
   // l'header allora.
   const requestHeaders = new Headers(req.headers);
   requestHeaders.set("x-pathname", pathname);
-  const pass = () => NextResponse.next({ request: { headers: requestHeaders } });
+
+  // Regione per i prezzi (EU = listino in euro, US = listino in dollari; lib/region.js).
+  // Priorita': ?region=us|eu (e lo ricorda in un cookie) > cookie > paese Vercel (US -> us).
+  // Il valore arriva ai Server Component come header `x-region`: niente flash EUR -> USD.
+  const regionParam = (nextUrl.searchParams.get("region") || "").toLowerCase();
+  const regionOverride = regionParam === "us" || regionParam === "eu" ? regionParam : null;
+  const regionCookie = req.cookies.get("region")?.value;
+  const geoCountry = (req.headers.get("x-vercel-ip-country") || "").toUpperCase();
+  const region =
+    regionOverride ||
+    (regionCookie === "us" || regionCookie === "eu" ? regionCookie : geoCountry === "US" ? "us" : "eu");
+  requestHeaders.set("x-region", region);
+  const pass = () => {
+    const res = NextResponse.next({ request: { headers: requestHeaders } });
+    if (regionOverride) {
+      res.cookies.set("region", regionOverride, { path: "/", maxAge: 60 * 60 * 24 * 30, sameSite: "lax" });
+    }
+    return res;
+  };
 
   // ✅ LOGICA PER SOTTODOMINIO VOICE (voice.automis.ai)
   if (isVoiceHost) {

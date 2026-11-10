@@ -559,6 +559,19 @@
   line-height: 1.5;
   color: var(--v2-ink-2);
 }
+.v2vo-plan__over {
+  margin: 16px 0 0;
+  font-size: 14px;
+  color: var(--v2-ink-2);
+}
+.v2vo-note {
+  margin: 36px auto 0;
+  max-width: 720px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--v2-ink-2);
+}
 .v2vo-plan__list {
   margin-top: 20px;
 }

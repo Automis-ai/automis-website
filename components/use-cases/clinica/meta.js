@@ -3,7 +3,7 @@
 export const CASO = {
   "it": {
     "titolo": "Assistente vocale per studi dentistici: caso studio | Automis",
-    "descrizione": "872 chiamate, 527 chiuse senza la segretaria e 114 appuntamenti: come un assistente vocale IA risponde al telefono di uno studio dentistico di Lisbona.",
+    "descrizione": "1.268 chiamate, 729 chiuse senza la segretaria e 154 appuntamenti: come un assistente vocale IA risponde al telefono di uno studio dentistico di Lisbona.",
     "h1": "7 mesi al telefono di una clinica dentale",
     "url": "https://automis.ai/it/use-cases/clinica-santa-maria",
     "og": "https://automis.ai/assets/og/caso-clinica-santa-maria-it.png",
@@ -14,7 +14,7 @@ export const CASO = {
           "@type": "Article",
           "@id": "https://automis.ai/it/use-cases/clinica-santa-maria#article",
           "headline": "7 mesi al telefono di una clinica dentale",
-          "description": "872 chiamate, 527 chiuse senza la segretaria e 114 appuntamenti: come un assistente vocale IA risponde al telefono di uno studio dentistico di Lisbona.",
+          "description": "1.268 chiamate, 729 chiuse senza la segretaria e 154 appuntamenti: come un assistente vocale IA risponde al telefono di uno studio dentistico di Lisbona.",
           "inLanguage": "it-IT",
           "dateModified": "2026-09-16",
           "image": [
@@ -52,7 +52,7 @@ export const CASO = {
               "name": "Quante chiamate ha gestito l'assistente vocale?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Dal 1° febbraio al 9 settembre 2026 ha risposto a 872 chiamate: 527 si sono chiuse senza passare dalla segretaria, 223 sono passate a lei e 122 si sono chiuse nei primi 10 secondi. Gli appuntamenti presi sono 114."
+                "text": "Dal 1° febbraio al 10 novembre 2026 ha risposto a 1.268 chiamate: 729 si sono chiuse senza passare dalla segretaria, 339 sono passate a lei e 200 si sono chiuse nei primi 10 secondi. Gli appuntamenti presi sono 154."
               }
             },
             {
@@ -76,7 +76,7 @@ export const CASO = {
               "name": "Quando passa la chiamata a una persona?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Quando chi chiama insiste per parlare con una persona dopo che l'assistente ha provato a gestire la richiesta, per la pulizia degli impianti, quando qualcuno non vuole che la chiamata venga registrata e per le urgenze. È successo con 223 chiamate su 872."
+                "text": "Quando chi chiama insiste per parlare con una persona dopo che l'assistente ha provato a gestire la richiesta, per la pulizia degli impianti, quando qualcuno non vuole che la chiamata venga registrata e per le urgenze. È successo con 339 chiamate su 1.268."
               }
             },
             {
@@ -117,7 +117,7 @@ export const CASO = {
   },
   "en": {
     "titolo": "AI Voice Receptionist for a Dental Clinic: Case Study | Automis",
-    "descrizione": "872 calls, 527 handled without the front desk and 114 appointments booked: how an AI voice receptionist answers the phone at a dental clinic in Lisbon.",
+    "descrizione": "1,268 calls, 729 handled without the front desk and 154 appointments booked: how an AI voice receptionist answers the phone at a dental clinic in Lisbon.",
     "h1": "7 months on a dental clinic's phone line",
     "url": "https://automis.ai/use-cases/clinica-santa-maria",
     "og": "https://automis.ai/assets/og/caso-clinica-santa-maria-en.png",
@@ -128,7 +128,7 @@ export const CASO = {
           "@type": "Article",
           "@id": "https://automis.ai/use-cases/clinica-santa-maria#article",
           "headline": "7 months on a dental clinic's phone line",
-          "description": "872 calls, 527 handled without the front desk and 114 appointments booked: how an AI voice receptionist answers the phone at a dental clinic in Lisbon.",
+          "description": "1,268 calls, 729 handled without the front desk and 154 appointments booked: how an AI voice receptionist answers the phone at a dental clinic in Lisbon.",
           "inLanguage": "en",
           "dateModified": "2026-09-16",
           "image": [
@@ -166,7 +166,7 @@ export const CASO = {
               "name": "How many calls did the AI voice receptionist handle?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "From February 1 to September 9, 2026 it answered 872 calls: 527 were wrapped up without reaching the front desk, 223 were passed to the receptionist and 122 were hung up within the first 10 seconds. It booked 114 appointments."
+                "text": "From February 1 to November 10, 2026 it answered 1,268 calls: 729 were wrapped up without reaching the front desk, 339 were passed to the receptionist and 200 were hung up within the first 10 seconds. It booked 154 appointments."
               }
             },
             {
@@ -190,7 +190,7 @@ export const CASO = {
               "name": "When does it hand the call to a person?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "When the caller insists on a person after the assistant has tried to help, for implant cleanings, when someone doesn't want the call recorded, and for emergencies. That happened on 223 calls out of 872."
+                "text": "When the caller insists on a person after the assistant has tried to help, for implant cleanings, when someone doesn't want the call recorded, and for emergencies. That happened on 339 calls out of 1,268."
               }
             },
             {
@@ -231,7 +231,7 @@ export const CASO = {
   },
   "pt": {
     "titolo": "Assistente de voz para clínicas dentárias | Automis",
-    "descrizione": "872 chamadas, 527 resolvidas sem passar pela receção e 114 marcações: como um assistente de voz atende o telefone de uma clínica dentária em Lisboa.",
+    "descrizione": "1.268 chamadas, 729 resolvidas sem passar pela receção e 154 marcações: como um assistente de voz atende o telefone de uma clínica dentária em Lisboa.",
     "h1": "7 meses ao telefone de uma clínica dentária",
     "url": "https://automis.ai/pt/use-cases/clinica-santa-maria",
     "og": "https://automis.ai/assets/og/caso-clinica-santa-maria-pt.png",
@@ -242,7 +242,7 @@ export const CASO = {
           "@type": "Article",
           "@id": "https://automis.ai/pt/use-cases/clinica-santa-maria#article",
           "headline": "7 meses ao telefone de uma clínica dentária",
-          "description": "872 chamadas, 527 resolvidas sem passar pela receção e 114 marcações: como um assistente de voz atende o telefone de uma clínica dentária em Lisboa.",
+          "description": "1.268 chamadas, 729 resolvidas sem passar pela receção e 154 marcações: como um assistente de voz atende o telefone de uma clínica dentária em Lisboa.",
           "inLanguage": "pt-PT",
           "dateModified": "2026-09-16",
           "image": [
@@ -280,7 +280,7 @@ export const CASO = {
               "name": "Quantas chamadas tratou o assistente de voz?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "De 1 de fevereiro a 9 de setembro de 2026 atendeu 872 chamadas: 527 ficaram resolvidas sem passar pela receção, 223 passaram à rececionista e 122 foram desligadas nos primeiros 10 segundos. As marcações feitas são 114."
+                "text": "De 1 de fevereiro a 10 de novembro de 2026 atendeu 1.268 chamadas: 729 ficaram resolvidas sem passar pela receção, 339 passaram à rececionista e 200 foram desligadas nos primeiros 10 segundos. As marcações feitas são 154."
               }
             },
             {
@@ -304,7 +304,7 @@ export const CASO = {
               "name": "Quando passa a chamada a uma pessoa?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Quando quem liga insiste em falar com uma pessoa depois de o assistente ter tentado resolver, para limpezas de implantes, quando alguém não quer a chamada gravada e nas urgências. Aconteceu em 223 chamadas em 872."
+                "text": "Quando quem liga insiste em falar com uma pessoa depois de o assistente ter tentado resolver, para limpezas de implantes, quando alguém não quer a chamada gravada e nas urgências. Aconteceu em 339 chamadas em 1.268."
               }
             },
             {

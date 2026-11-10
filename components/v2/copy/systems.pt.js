@@ -236,7 +236,7 @@ export default {
         { card: "lead-nurture", glyph: "repeat", label: "Seguimento" },
         { card: "custom-crm", glyph: "contact", label: "CRM" },
       ],
-      result: { value: "2.329", unit: "conversas tratadas", src: "ADifesa · de 1/5 a 16/9/2026" },
+      result: { value: "2.880", unit: "conversas tratadas", src: "ADifesa · de 1/5 a 10/11/2026" },
     },
     // Exemplos ilustrativos das vinhetas (nenhum dado real: contactos inventados, indicativo do país da página)
     dmDemo: {
@@ -351,7 +351,7 @@ export default {
     case: {
       eyebrow: "Caso real",
       title: "ADifesa",
-      line: "Comentários e DMs no Facebook e no Instagram, tratados e qualificados: 2.329 conversas de 1 de maio a 16 de setembro de 2026 e 524 fichas completas. Segundo a associação, 3 em cada 10 fichas completas tornam-se clientes.",
+      line: "Comentários e DMs no Facebook e no Instagram, tratados e qualificados: 2.880 conversas de 1 de maio a 10 de novembro de 2026 e 622 fichas completas. Segundo a associação, 3 em cada 10 fichas completas tornam-se clientes.",
       cta: "Ver os resultados",
       href: "/use-cases/adifesa",
     },
@@ -445,7 +445,7 @@ export default {
         { card: "answers-247", glyph: "clock", label: "Respostas" },
         { card: "ecommerce-support", glyph: "cart", label: "Loja" },
       ],
-      result: { value: "872", unit: "chamadas", src: "Clínica Santa Maria dos Olivais · de 1/2 a 9/9/2026" },
+      result: { value: "1.268", unit: "chamadas", src: "Clínica Santa Maria dos Olivais · de 1/2 a 10/11/2026" },
     },
     cards: [
       {
@@ -509,7 +509,7 @@ export default {
     case: {
       eyebrow: "Caso real",
       title: "Clínica Santa Maria dos Olivais",
-      line: "Um assistente de voz no telefone de uma clínica dentária: 872 chamadas de 1 de fevereiro a 9 de setembro de 2026, 527 resolvidas pelo assistente e 114 marcações.",
+      line: "Um assistente de voz no telefone de uma clínica dentária: 1.268 chamadas de 1 de fevereiro a 10 de novembro de 2026, 729 resolvidas pelo assistente e 154 marcações.",
       cta: "Ver os resultados",
       href: "/use-cases/clinica-santa-maria",
     },

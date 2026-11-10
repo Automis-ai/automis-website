@@ -98,6 +98,7 @@ export function Plans({ p, booking }) {
                 </li>
               ))}
             </ul>
+            {tier.overage ? <p className="v2vo-plan__over">{tier.overage}</p> : null}
             <div className="v2vo-plan__cta">
               <Button href={booking} variant={tier.featured ? "primary" : "secondary"} external>
                 {p.bookCta}
@@ -106,6 +107,7 @@ export function Plans({ p, booking }) {
           </article>
         ))}
       </div>
+      {p.note ? <p className="v2vo-note">{nb(p.note)}</p> : null}
       <div className="v2vo-aside">
       <div className="v2vo-ent">
         <div>

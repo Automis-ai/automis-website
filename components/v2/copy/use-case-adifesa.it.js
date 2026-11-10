@@ -1,7 +1,7 @@
 /* Caso ADifesa (IT), nello stile di Datura e Album AI (14/10/2026).
    Stessi fatti e stesse cifre dell'articolo lungo (components/use-cases/adifesa/story.it.js, generato dal secondo cervello,
    clients/adifesa/): qui il testo è accorciato e ogni passaggio ha la sua scena.
-   Finestra dei dati: dal 1° maggio al 16 settembre 2026. L'esito commerciale (3 schede su 10 diventano clienti) è un dato
+   Finestra dei dati: dal 1° maggio al 10 novembre 2026. L'esito commerciale (3 schede su 10 diventano clienti) è un dato
    dell'associazione, non nostro. Nessun fatturato né rimborso: non sono dati nostri.
    Metadati e JSON-LD restano quelli di components/use-cases/adifesa/meta.js. EN e PT: use-case-adifesa.en.js / .pt.js, stesse chiavi. */
 export default {
@@ -9,7 +9,7 @@ export default {
     read: "Guarda i risultati",
     book: "Prenota una call gratuita",
     openShot: "Apri la schermata intera",
-    hoursTitle: "1.377 messaggi privati fuori orario",
+    hoursTitle: "1.614 messaggi privati fuori orario",
     sep: ".",
   },
 
@@ -17,7 +17,7 @@ export default {
     eyebrow: "Caso studio",
     title: "4 ore al giorno restituite al team, e nessun potenziale cliente senza risposta",
     highlight: "4 ore al giorno",
-    lead: "Commenti e DM su Facebook e Instagram, gestiti al posto loro. 524 persone hanno lasciato nome, telefono ed email, e circa 3 su 10 sono diventate clienti, secondo i dati dell'associazione.",
+    lead: "Commenti e DM su Facebook e Instagram, gestiti al posto loro. 622 persone hanno lasciato nome, telefono ed email, e circa 3 su 10 sono diventate clienti, secondo i dati dell'associazione.",
     client: "Associazione ADifesa",
     logo: "/assets/images/client-logos/adifesa-mark.png",
   },
@@ -95,46 +95,48 @@ export default {
 
   numbers: {
     eyebrow: "In numeri",
-    title: "Dal 1° maggio al 16 settembre 2026",
+    title: "Dal 1° maggio al 10 novembre 2026",
     lead: "Dati di produzione.",
     label: "I numeri del caso",
     funnel: [
-      { figure: "2.329", label: "conversazioni gestite fra commenti e messaggi privati" },
-      { figure: "1.033", label: "contatti qualificati" },
-      { figure: "524", label: "schede complete: nome, telefono, email, prodotto" },
+      { figure: "2.880", label: "conversazioni gestite fra commenti e messaggi privati" },
+      { figure: "1.234", label: "contatti qualificati" },
+      { figure: "622", label: "schede complete: nome, telefono, email, prodotto" },
       { figure: "3 su 10", label: "di quelle schede diventa cliente, con almeno una pratica", note: "dato dell'associazione" },
     ],
     funnelNote: "Dal commento alla pratica. L'ultimo passaggio è un dato dell'associazione, non nostro.",
-    focus: "Il numero che guardiamo per primo non è il totale: sono le 524 schede complete, cioè quello che serve a una consulente per alzare il telefono e sapere già di cosa si parla.",
+    focus: "Il numero che guardiamo per primo non è il totale: sono le 622 schede complete, cioè quello che serve a una consulente per alzare il telefono e sapere già di cosa si parla.",
     chart: {
       title: "Conversazioni al mese",
-      total: "2.329 in totale",
-      ariaLabel: "Conversazioni gestite ogni mese del 2026: maggio 523, giugno 470, luglio 760, agosto 355, settembre 221 (fino al 16).",
+      total: "2.880 in totale",
+      ariaLabel: "Conversazioni gestite ogni mese del 2026: maggio 523, giugno 469, luglio 761, agosto 354, settembre 380, ottobre 319, novembre 74 (fino al 10).",
       months: [
         { label: "mag", value: 523 },
-        { label: "giu", value: 470 },
-        { label: "lug", value: 760 },
-        { label: "ago", value: 355 },
-        { label: "set", value: 221 },
+        { label: "giu", value: 469 },
+        { label: "lug", value: 761 },
+        { label: "ago", value: 354 },
+        { label: "set", value: 380 },
+        { label: "ott", value: 319 },
+        { label: "nov", value: 74 },
       ],
       markAt: 2,
       mark: "Luglio · Instagram",
       year: "2026",
-      note: "Da luglio arrivano anche i messaggi diretti di Instagram. Il volume segue le campagne dell'associazione, ridotte da agosto. Settembre fino al 16.",
+      note: "Da luglio arrivano anche i messaggi diretti di Instagram. Il volume segue le campagne dell'associazione, ridotte da agosto. Novembre fino al 10 (dato parziale).",
     },
     rows: [
-      ["Persone diverse", "1.794"],
-      ["Passate a una persona", "111 (4,8%)"],
-      ["Messaggi privati ricevuti", "2.951"],
-      ["Risposte private scritte dall'automazione", "1.676"],
-      ["Risposte pubbliche sotto i commenti", "1.262"],
+      ["Persone diverse", "2.188"],
+      ["Passate a una persona", "123 (4,3%)"],
+      ["Messaggi privati ricevuti", "3.454"],
+      ["Risposte private scritte dall'automazione", "2.043"],
+      ["Risposte pubbliche sotto i commenti", "1.598"],
     ],
     origin: {
-      title: "Da dove nascono le 2.329 conversazioni",
+      title: "Da dove nascono le 2.880 conversazioni",
       parts: [
-        { value: 1065, label: "Da un commento sotto un'inserzione" },
-        { value: 232, label: "Da un commento sotto un post" },
-        { value: 1032, label: "Da un messaggio diretto" },
+        { value: 1375, label: "Da un commento sotto un'inserzione" },
+        { value: 276, label: "Da un commento sotto un post" },
+        { value: 1229, label: "Da un messaggio diretto" },
       ],
     },
   },
@@ -142,14 +144,14 @@ export default {
   hours: {
     eyebrow: "4 · Fuori orario",
     title: "Metà delle persone scrive quando l'ufficio è chiuso",
-    lead: "Dei 2.951 messaggi privati arrivati, 1.377 sono fuori dall'orario di lavoro: il 46,7%.",
+    lead: "Dei 3.454 messaggi privati arrivati, 1.614 sono fuori dall'orario di lavoro: il 46,7%.",
     figure: "46,7%",
     figureLabel: "dei messaggi privati arriva fuori orario",
     parts: [
-      { value: 850, label: "Nei giorni feriali", line: "prima delle nove o dopo le sei" },
-      { value: 527, label: "Nel fine settimana", line: "sabato e domenica" },
+      { value: 974, label: "Nei giorni feriali", line: "prima delle nove o dopo le sei" },
+      { value: 640, label: "Nel fine settimana", line: "sabato e domenica" },
     ],
-    night: { value: 267, label: "fra le dieci di sera e le sette del mattino" },
+    night: { value: 351, label: "fra le dieci di sera e le sette del mattino" },
     line: "È il numero più facile da sottovalutare di tutto il progetto. Dice che quasi metà delle richieste arriva quando non c'è nessuno a leggerle. Sono le sere e le domeniche in cui uno si mette a guardare i conti, e proprio lì si decide a scrivere.",
   },
 
@@ -172,9 +174,9 @@ export default {
 
   handoff: {
     eyebrow: "5 · La persona",
-    title: "111 conversazioni su 2.329 sono passate a una persona",
+    title: "123 conversazioni su 2.880 sono passate a una persona",
     lead: "Meno di una su venti. Tutto il resto lo ha chiuso l'automazione da sola.",
-    figure: "4,8%",
+    figure: "4,3%",
     figureLabel: "passate a una persona",
     control: {
       tag: "Il controllo resta al cliente",
@@ -208,15 +210,17 @@ export default {
     },
     chart: {
       title: "Contatti qualificati da Instagram",
-      ariaLabel: "Contatti qualificati arrivati da Instagram: maggio 6, giugno 29, luglio 117, agosto 22, settembre 6 (fino al 16).",
+      ariaLabel: "Contatti qualificati arrivati da Instagram: maggio 6, giugno 29, luglio 117, agosto 22, settembre 14, ottobre 24, novembre 8 (fino al 10).",
       months: [
         { label: "mag", value: 6 },
         { label: "giu", value: 29 },
         { label: "lug", value: 117 },
         { label: "ago", value: 22 },
-        { label: "set", value: 6 },
+        { label: "set", value: 14 },
+        { label: "ott", value: 24 },
+        { label: "nov", value: 8 },
       ],
-      note: "Settembre fino al 16.",
+      note: "Novembre fino al 10 (dato parziale).",
     },
     shot: {
       src: "/assets/images/casi/adifesa-3-instagram-dm.png",
@@ -240,8 +244,8 @@ export default {
       line: "Ogni post tiene il conto dei commenti visti e di quanti sono risultati spam. Superata una soglia, quel singolo post viene messo in sordina e i commenti non arrivano più al modello.",
     },
     stats: [
-      { figure: "257", label: "post seguiti, nella finestra osservata" },
-      { figure: "37", label: "messi in sordina, nella finestra osservata" },
+      { figure: "432", label: "post seguiti, nella finestra osservata" },
+      { figure: "63", label: "messi in sordina, nella finestra osservata" },
     ],
     safe: {
       tag: "Non diventa cieco",
@@ -301,11 +305,11 @@ export default {
     items: [
       {
         q: "Quante conversazioni ha gestito l'automazione?",
-        a: "Dal 1° maggio al 16 settembre 2026 ha gestito 2.329 conversazioni fra commenti e messaggi privati su Facebook e Instagram, con 1.794 persone diverse. Ne sono usciti 1.033 contatti qualificati e 524 schede complete di nome, telefono ed email.",
+        a: "Dal 1° maggio al 10 novembre 2026 ha gestito 2.880 conversazioni fra commenti e messaggi privati su Facebook e Instagram, con 2.188 persone diverse. Ne sono usciti 1.234 contatti qualificati e 622 schede complete di nome, telefono ed email.",
       },
       {
         q: "Risponde anche ai commenti pubblici o solo ai messaggi privati?",
-        a: "A entrambi. Sotto il commento pubblico risponde dopo un'attesa voluta di tre minuti, e in parallelo apre la conversazione privata. Nella finestra osservata ha scritto 1.262 risposte pubbliche e 1.676 messaggi privati.",
+        a: "A entrambi. Sotto il commento pubblico risponde dopo un'attesa voluta di tre minuti, e in parallelo apre la conversazione privata. Nella finestra osservata ha scritto 1.598 risposte pubbliche e 2.043 messaggi privati.",
       },
       {
         q: "Cosa succede se qualcuno scrive il suo numero di telefono in un commento?",
@@ -313,7 +317,7 @@ export default {
       },
       {
         q: "Quando interviene una persona?",
-        a: "Quando serve, e sempre per scelta del cliente: dal pannello di controllo l'automazione si spegne sulla singola conversazione e il team continua a mano. È successo con 111 conversazioni su 2.329, meno di una su venti.",
+        a: "Quando serve, e sempre per scelta del cliente: dal pannello di controllo l'automazione si spegne sulla singola conversazione e il team continua a mano. È successo con 123 conversazioni su 2.880, meno di una su venti.",
       },
       {
         q: "Quanti di quei contatti diventano clienti?",

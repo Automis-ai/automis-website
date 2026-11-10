@@ -8,6 +8,7 @@ import {
   ShoppingBag,
 } from "lucide-react";
 import { SectionHeading, Grad, useReveal } from "./_ui";
+import { useRegion, money } from "@/lib/RegionContext";
 
 /* Figures kept within credible ranges and presented as estimates.
    See the note under the heading — validate against your own client data before publishing. */
@@ -86,6 +87,7 @@ const cases = [
 
 export default function ResultsSection() {
   const [ref, visible] = useReveal();
+  const region = useRegion();
 
   return (
     <section
@@ -178,7 +180,7 @@ export default function ResultsSection() {
                             {r.label}
                           </span>
                           <span className="whitespace-nowrap font-montserrat text-lg font-extrabold leading-none text-warm-yellow md:text-xl">
-                            {r.value}
+                            {money(r.value, region)}
                           </span>
                         </div>
                       ))}

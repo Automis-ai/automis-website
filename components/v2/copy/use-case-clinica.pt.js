@@ -1,12 +1,12 @@
 /* Caso Clínica Santa Maria dos Olivais (PT, pt-PT). Mesmas chaves, mesmos factos e mesmas cifras de use-case-clinica.it.js (a fonte de verdade).
-   Janela dos dados: de 1 de fevereiro a 9 de setembro de 2026 (as chamadas de novembro a janeiro eram testes da Automis e não contam).
+   Janela dos dados: de 1 de fevereiro a 10 de novembro de 2026 (as chamadas de novembro a janeiro eram testes da Automis e não contam).
    Metadados e JSON-LD (com as FAQ) vêm de components/use-cases/clinica/meta.js, locale "pt"; as FAQ abaixo são palavra por palavra
    as desse schema. */
 export default {
   ui: {
     read: "Ver os resultados",
     book: "Agende uma chamada gratuita",
-    keyTag: "Em sete meses",
+    keyTag: "Nos primeiros sete meses",
     keyTitle: "primeiras consultas de implantes",
     sep: ".",
   },
@@ -15,7 +15,7 @@ export default {
     eyebrow: "Caso de estudo",
     title: "0 chamadas enviadas para o voicemail em nove meses numa clínica dentária",
     highlight: "0 chamadas enviadas para o voicemail",
-    lead: "Cerca de 4.400 € por mês de faturação estimada e 148 marcações até 30 de outubro, com cerca de 22 chamadas por mês atendidas com a clínica fechada.",
+    lead: "Cerca de 4.400 € por mês de faturação estimada e 154 marcações até 10 de novembro, com cerca de 22 chamadas por mês atendidas com a clínica fechada.",
     client: "Clínica Santa Maria dos Olivais",
     logo: "/assets/images/client-logos/clinica-santa-maria.png",
   },
@@ -42,8 +42,8 @@ export default {
     lead: "Não tentámos convencê-la com uma apresentação.",
     chart: {
       title: "Chamadas por mês",
-      total: "872 no total",
-      ariaLabel: "Chamadas recebidas pelo assistente em cada mês de 2026: fevereiro 81, março 45, abril 50, maio 34, junho 154, julho 168, agosto 275, setembro 65 (até ao dia 9).",
+      total: "1.268 no total",
+      ariaLabel: "Chamadas recebidas pelo assistente em cada mês de 2026: fevereiro 81, março 45, abril 50, maio 34, junho 154, julho 168, agosto 275, setembro 169, outubro 239, novembro 53 (até ao dia 10).",
       months: [
         { label: "fev", value: 81 },
         { label: "mar", value: 45 },
@@ -52,12 +52,14 @@ export default {
         { label: "jun", value: 154 },
         { label: "jul", value: 168 },
         { label: "ago", value: 275 },
-        { label: "set", value: 65 },
+        { label: "set", value: 169 },
+        { label: "out", value: 239 },
+        { label: "nov", value: 53 },
       ],
       markAt: 4,
       mark: "Junho · Google Maps",
       year: "2026",
-      note: "Setembro até ao dia 9.",
+      note: "Novembro até ao dia 10 (dados parciais).",
     },
     phases: [
       {
@@ -76,27 +78,27 @@ export default {
 
   numbers: {
     eyebrow: "Em números",
-    title: "De 1 de fevereiro a 9 de setembro de 2026",
+    title: "De 1 de fevereiro a 10 de novembro de 2026",
     lead: "Dados de produção.",
     label: "Os números do caso",
     items: [
-      { figure: "872", label: "chamadas recebidas pelo assistente", basis: "em sete meses" },
-      { figure: "527", label: "resolvidas pelo assistente, sem passar pela rececionista", basis: "60% das chamadas" },
-      { figure: "114", label: "marcações feitas", basis: "todas na agenda" },
+      { figure: "1.268", label: "chamadas recebidas pelo assistente", basis: "em nove meses" },
+      { figure: "729", label: "resolvidas pelo assistente, sem passar pela rececionista", basis: "57% das chamadas" },
+      { figure: "154", label: "marcações feitas", basis: "todas na agenda" },
     ],
     split: {
-      title: "Para onde foram as 872 chamadas",
+      title: "Para onde foram as 1.268 chamadas",
       parts: [
-        { value: 527, label: "Resolvidas pelo assistente", pct: "60%" },
-        { value: 223, label: "Passadas à rececionista", pct: "26%" },
-        { value: 122, label: "Desligadas nos primeiros 10 segundos", pct: "14%" },
+        { value: 729, label: "Resolvidas pelo assistente", pct: "57%" },
+        { value: 339, label: "Passadas à rececionista", pct: "27%" },
+        { value: 200, label: "Desligadas nos primeiros 10 segundos", pct: "16%" },
       ],
     },
     more: [
-      { figure: "193", label: "chegaram fora de horas ou com outra chamada a decorrer", basis: "22%" },
-      { figure: "385", label: "pessoas diferentes com quem falou" },
-      { figure: "1 min 37 s", label: "duração média de uma conversa" },
-      { figure: "20,2", label: "horas de telefone tratadas" },
+      { figure: "219", label: "chegaram fora de horas ou com outra chamada a decorrer", basis: "17%" },
+      { figure: "533", label: "pessoas diferentes com quem falou" },
+      { figure: "1 min 35 s", label: "duração média de uma conversa" },
+      { figure: "28,2", label: "horas de telefone tratadas" },
     ],
   },
 
@@ -170,7 +172,7 @@ export default {
       { n: "A", title: "O primeiro horário livre", line: "O assistente propõe o primeiro horário livre." },
       { n: "B", title: "A rececionista", line: "Se a clínica estiver aberta, a chamada passa para ela." },
     ],
-    note: "Prometer uma vaga imediata a quem tem dores é fácil de programar e impossível de cumprir. É a diferença entre uma demonstração e um sistema a trabalhar há sete meses.",
+    note: "Prometer uma vaga imediata a quem tem dores é fácil de programar e impossível de cumprir. É a diferença entre uma demonstração e um sistema a trabalhar há nove meses.",
   },
 
   call: {
@@ -206,9 +208,9 @@ export default {
   handoff: {
     eyebrow: "4 · A rececionista",
     title: "Uma chamada em quatro passa à rececionista",
-    lead: "223 em 872. O assistente não passa a chamada a quem a pede: primeiro pergunta o motivo, e se for uma coisa que sabe resolver tenta resolvê-la. Só a passa se a pessoa insistir.",
+    lead: "339 em 1.268. O assistente não passa a chamada a quem a pede: primeiro pergunta o motivo, e se for uma coisa que sabe resolver tenta resolvê-la. Só a passa se a pessoa insistir.",
     table: {
-      title: "Porque passa a chamada",
+      title: "Porque passa a chamada (as primeiras 223 passagens, até 9 de setembro)",
       rows: [
         { label: "Insiste em falar com uma pessoa, depois de o assistente ter tentado", value: 111 },
         { label: "Limpeza de implantes: por regra da clínica só a receção marca", value: 26 },
@@ -263,12 +265,12 @@ export default {
       { label: "Tratamentos pedidos pelos pacientes novos", value: 1400, text: "+1.400 €" },
       { label: "Implantes, na hipótese de metade das 23 primeiras consultas virar tratamento", value: 25400, text: "+25.400 €" },
     ],
-    total: { label: "Total a preço de tabela em sete meses", value: 32000, text: "cerca de 32.000 €" },
+    total: { label: "Total a preço de tabela nos primeiros sete meses (de fevereiro a setembro)", value: 32000, text: "cerca de 32.000 €" },
     ceiling: "Se todas as consultas de implantes virassem tratamento: cerca de 57.000 €",
     note: "Contas sobre a tabela de preços da clínica. As consultas de implantes valem a média dos tratamentos do programa da clínica, cerca de 2.200 € cada: de 745 € por um implante unitário a 4.800 € por uma arcada completa. Primeira consulta dos pacientes novos a 20 €, e não foram descontadas as faltas. A parte dos implantes depende de quantas consultas viram tratamento, e é a única hipótese da conta.",
     key: {
       figure: "23",
-      label: "primeiras consultas de implantes em sete meses",
+      label: "primeiras consultas de implantes nos primeiros sete meses (de fevereiro a setembro)",
       line: "Para nós é o número que mais conta. É a parte mais cara da tabela, e basta que uma vire uma arcada completa para valer quase 5.000 euros.",
     },
   },
@@ -279,7 +281,7 @@ export default {
     items: [
       {
         q: "Quantas chamadas tratou o assistente de voz?",
-        a: "De 1 de fevereiro a 9 de setembro de 2026 atendeu 872 chamadas: 527 ficaram resolvidas sem passar pela receção, 223 passaram à rececionista e 122 foram desligadas nos primeiros 10 segundos. As marcações feitas são 114.",
+        a: "De 1 de fevereiro a 10 de novembro de 2026 atendeu 1.268 chamadas: 729 ficaram resolvidas sem passar pela receção, 339 passaram à rececionista e 200 foram desligadas nos primeiros 10 segundos. As marcações feitas são 154.",
       },
       {
         q: "Em que línguas atende?",
@@ -291,7 +293,7 @@ export default {
       },
       {
         q: "Quando passa a chamada a uma pessoa?",
-        a: "Quando quem liga insiste em falar com uma pessoa depois de o assistente ter tentado resolver, para limpezas de implantes, quando alguém não quer a chamada gravada e nas urgências. Aconteceu em 223 chamadas em 872.",
+        a: "Quando quem liga insiste em falar com uma pessoa depois de o assistente ter tentado resolver, para limpezas de implantes, quando alguém não quer a chamada gravada e nas urgências. Aconteceu em 339 chamadas em 1.268.",
       },
       {
         q: "Por onde vale a pena começar com um assistente de voz?",

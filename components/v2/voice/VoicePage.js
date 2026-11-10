@@ -12,7 +12,8 @@ import Rail, { RailCell } from "@/components/v2/wow/fx/Rail";
 import SystemTile from "@/components/v2/systems/SystemTile";
 import FaqSection from "@/components/v2/systems/FaqSection";
 import { heroTitle } from "@/components/v2/systems/heroTitle";
-import copy, { UI, BOOKING_URL, VIDEO_ID, SHOTS } from "./copy";
+import copy, { UI, BOOKING_URL, VIDEO_ID, SHOTS, US_PRICING } from "./copy";
+import { getRegion } from "@/lib/region";
 import { Agents, Win, Plans, Close } from "./Parts";
 import VideoFacade from "./VideoFacade";
 import BookingEmbed from "./BookingEmbed";
@@ -41,6 +42,7 @@ export default function VoicePage({ locale = "en", tono }) {
   const booking = BOOKING_URL[locale] || BOOKING_URL.en;
   const moreLabel = getCopy("systems", locale).labels.more;
   const shots = SHOTS[locale] || SHOTS.en;
+  const pricing = locale === "en" && getRegion() === "us" ? { ...t.pricing, ...US_PRICING } : t.pricing;
 
   return (
     <main id="main" className={`${pageClass(tono)} v2-calm`}>
@@ -186,7 +188,7 @@ export default function VoicePage({ locale = "en", tono }) {
       {/* I piani */}
       <Section tone="dark" className="v2vo-sec" aria-labelledby="vo-plans">
         <SectionHeader id="vo-plans" eyebrow={t.pricing.eyebrow} title={t.pricing.title} lead={t.pricing.lead} />
-        <Plans p={t.pricing} booking={booking} />
+        <Plans p={pricing} booking={booking} />
       </Section>
 
       <FaqSection

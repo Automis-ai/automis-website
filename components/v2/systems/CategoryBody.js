@@ -13,6 +13,7 @@ import CtaBand from "@/components/v2/ui/CtaBand";
 import ScriptedChat from "@/components/v2/ui/ScriptedChat";
 import { pageClass } from "@/components/v2/ui/toneClass";
 import { getCopy } from "@/components/v2/copy/getCopy";
+import { getRegion, usCopy } from "@/lib/region";
 import { CASES } from "@/components/use-cases/cases";
 import { addLangPrefix } from "@/lib/locales";
 import { NetGrid, NetCell } from "@/components/v2/wow/fx/NetGrid";
@@ -39,7 +40,8 @@ import { CARD_ICONS, BAND_CARD, CARD_SPLIT, colsFor, caseSlug } from "./data";
 export default function CategoryBody({ locale, slug, tono }) {
   const all = getCopy("systems", locale);
   const common = getCopy("common", locale);
-  const c = all[slug];
+  const baseC = all[slug];
+  const c = locale === "en" && getRegion() === "us" ? usCopy(baseC) : baseC;
   const L = locale;
   const itV3 = ["it", "en", "pt"].includes(L); // corpo v3 (tappe, hero, Vendita) in tutte le lingue
   const caseInfo = c.case ? CASES.find((x) => x.slug === caseSlug(c.case.href)) : null;
@@ -308,7 +310,7 @@ export default function CategoryBody({ locale, slug, tono }) {
         <SalesExtrasV3 finder={c.finder} start={c.start} finderHref={`${addLangPrefix("/", L)}#opportunity-finder`} />
       ) : null}
 
-      <FaqSection title={c.faq.title} items={c.faq.items} tone="dark" />
+      <FaqSection title={c.faq.title} items={c.faq.items} jsonLdItems={baseC.faq.items} tone="dark" />
 
       <CtaBand
         blue={itV3}

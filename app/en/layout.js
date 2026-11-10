@@ -1,4 +1,6 @@
 import HtmlLang from "@/components/HtmlLang";
+import { getRegion } from "@/lib/region";
+import { RegionProvider } from "@/lib/RegionContext";
 
 // Declares this subtree's language to the browser, assistive tech, and the
 // cookie banner (which reads <html lang> to pick its own language).
@@ -13,7 +15,7 @@ export default function EnLayout({ children }) {
   return (
     <>
       <HtmlLang lang="en" />
-      {children}
+      <RegionProvider region={getRegion()}>{children}</RegionProvider>
     </>
   );
 }
