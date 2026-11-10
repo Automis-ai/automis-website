@@ -140,6 +140,7 @@ const STATIC_PATHS = [
   "/it/blog/da-dove-iniziare-ia-studio-dentistico",
   "/it/blog/centralino-ia-costo-studio-medico",
   "/it/blog/lead-ads-facebook-centro-estetico",
+  "/it/blog/ia-privata-documenti-agenzia-immobiliare",
   "/it/contact",
   "/it/privacy-policy",
   "/it/terms-of-service",
