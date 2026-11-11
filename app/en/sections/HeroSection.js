@@ -46,8 +46,18 @@ function fmt(s) {
 // Voice tags such as [short pause] shape delivery, they are not words.
 const clean = (t) => (t || "").replace(/\[[^\]]*\]/g, "").replace(/\s{2,}/g, " ").trim();
 
-// A booking only counts if the tool ran without error and its result doesn't read as a failure.
-const bookingFailed = (r) => /error|fail|unavailable|not available|taken|invalid|could not|couldn't/i.test(r || "");
+// A booking counts only on the full tool payload (client event agent_tool_response_full_payload, enabled on
+// Lana) when the n8n webhook answered booked:true. A rejected slot also returns HTTP 200 (booked:false), and
+// the short agent_tool_response event carries no result at all, so it never counts.
+const isBooked = (r) => {
+  if (r?.tool_name !== BOOKING_TOOL || r.is_error || r.is_called === false) return false;
+  if (typeof r.full_tool_result !== "string") return false;
+  try {
+    return JSON.parse(r.full_tool_result)?.booked === true;
+  } catch {
+    return /["']?booked["']?\s*[:=]\s*true/i.test(r.full_tool_result);
+  }
+};
 
 const HeroSection = () => {
   const [phase, setPhase] = useState("idle"); // idle | connecting | listening | speaking | ended
@@ -58,11 +68,13 @@ const HeroSection = () => {
   const [booked, setBooked] = useState(false);
   const [error, setError] = useState("");
   const [cardInView, setCardInView] = useState(true);
+  const [bookingInView, setBookingInView] = useState(false);
 
   const convRef = useRef(null);
   const wakeRef = useRef(null);
   const cardRef = useRef(null);
   const barsRef = useRef([]);
+  const mountedRef = useRef(true);
 
   const inCall = phase === "connecting" || phase === "listening" || phase === "speaking";
   const live = phase === "listening" || phase === "speaking";
@@ -128,17 +140,40 @@ const HeroSection = () => {
     };
   }, [live, phase]);
 
-  // Phones: once the card scrolls away, a sticky pill brings the visitor back to it.
+  // Phones: once the card scrolls away, a sticky pill brings the visitor back to it
+  // (hidden again over the booking calendar, so it never covers its buttons).
   useEffect(() => {
     const el = cardRef.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(([e]) => setCardInView(e.isIntersecting), { threshold: 0.15 });
     io.observe(el);
-    return () => io.disconnect();
+    const booking = document.getElementById("agendar");
+    const io2 = booking
+      ? new IntersectionObserver(([e]) => setBookingInView(e.isIntersecting), { threshold: 0 })
+      : null;
+    if (booking) io2.observe(booking);
+    return () => {
+      io.disconnect();
+      io2?.disconnect();
+    };
   }, []);
 
-  // Close the session if the visitor leaves the page mid-call.
-  useEffect(() => () => convRef.current?.endSession(), []);
+  const releaseWake = () => {
+    wakeRef.current?.release?.().catch(() => {});
+    wakeRef.current = null;
+  };
+
+  // Close the session (and free the screen) if the visitor leaves the page, even mid-connect:
+  // start() checks mountedRef after each await and hangs up a session that arrives too late.
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      convRef.current?.endSession();
+      convRef.current = null;
+      releaseWake();
+    };
+  }, []);
 
   const start = async () => {
     setError("");
@@ -152,18 +187,26 @@ const HeroSection = () => {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       stream.getTracks().forEach((t) => t.stop());
     } catch {
+      if (!mountedRef.current) return;
       setPhase("idle");
       setError("Your microphone is blocked. Allow it for this page, then try again.");
       return;
     }
+    if (!mountedRef.current) return;
     try {
-      wakeRef.current = await navigator.wakeLock?.request("screen");
+      const lock = await navigator.wakeLock?.request("screen");
+      if (!mountedRef.current) {
+        lock?.release?.().catch(() => {});
+        return;
+      }
+      wakeRef.current = lock || null;
     } catch {
       // Not supported or refused: the call still works, the screen may just dim.
     }
     try {
       const { Conversation } = await import("@elevenlabs/client");
-      convRef.current = await Conversation.startSession({
+      if (!mountedRef.current) return;
+      const conv = await Conversation.startSession({
         agentId: AGENT_ID,
         onConnect: () => setPhase("listening"),
         onModeChange: ({ mode }) => setPhase(mode === "speaking" ? "speaking" : "listening"),
@@ -173,19 +216,27 @@ const HeroSection = () => {
           setLine({ who: (role || source) === "user" ? "user" : "agent", text });
         },
         onAgentToolResponse: (r) => {
-          if (r?.tool_name === BOOKING_TOOL && !r.is_error && !bookingFailed(r.full_tool_result)) {
-            setBooked(true);
-          }
+          if (isBooked(r)) setBooked(true);
         },
         onDisconnect: () => {
           convRef.current = null;
-          wakeRef.current?.release?.().catch(() => {});
-          setPhase("ended");
+          releaseWake();
+          if (mountedRef.current) setPhase("ended");
         },
-        onError: () => setError("Something went wrong with the call. Please try again."),
+        onError: () => {
+          if (mountedRef.current) setError("Something went wrong with the call. Please try again.");
+        },
       });
+      // The visitor left while we were connecting: hang up instead of leaving a billed call running.
+      if (!mountedRef.current) {
+        conv.endSession();
+        return;
+      }
+      convRef.current = conv;
     } catch {
       convRef.current = null;
+      releaseWake();
+      if (!mountedRef.current) return;
       setPhase("idle");
       setError("We couldn't connect the call. Check your connection and try again.");
     }
@@ -523,10 +574,10 @@ const HeroSection = () => {
       <button
         type="button"
         onClick={goToCard}
-        aria-hidden={cardInView}
-        tabIndex={cardInView ? -1 : 0}
+        aria-hidden={cardInView || bookingInView}
+        tabIndex={cardInView || bookingInView ? -1 : 0}
         className={`fixed bottom-5 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2.5 whitespace-nowrap rounded-full border border-bright-blue/30 bg-[#000a14]/90 px-5 py-3 font-montserrat text-sm font-bold text-white shadow-xl shadow-black/50 backdrop-blur-md transition-all duration-300 lg:hidden ${
-          cardInView ? "pointer-events-none translate-y-6 opacity-0" : "translate-y-0 opacity-100"
+          cardInView || bookingInView ? "pointer-events-none translate-y-6 opacity-0" : "translate-y-0 opacity-100"
         }`}
       >
         {live ? (
