@@ -910,7 +910,7 @@ export default {
 /* Listino per i visitatori dagli Stati Uniti (solo inglese, in dollari; la regione la decide middleware.js, vedi lib/region.js).
    Sostituisce i tre piani e aggiunge la riga sul setup; la garanzia resta quella dei piani in euro. */
 export const US_PRICING = {
-  note: "No setup fee on the plans: we set up your number and text-message registration. Custom builds are scoped with a one-time setup fee.",
+  note: "No setup fee on the plans: we set up your number and text-message registration. Custom builds are priced per project: a setup fee plus a monthly retainer.",
   tiers: [
     {
       name: "Front Desk",
