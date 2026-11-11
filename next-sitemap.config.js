@@ -92,6 +92,7 @@ const STATIC_PATHS = [
   "/blog/missed-call-text-back-for-dental-clinics",
   "/blog/reduce-no-shows-for-dental-clinics",
   "/blog/ai-lead-generation-for-dental-clinics",
+  "/blog/where-to-start-ai-automation-dental-clinics",
   "/blog/whatsapp-automation-for-medspas",
   "/playbook",
   "/manychat-alternative", // EN guide (twin of /it/alternativa-a-manychat)
