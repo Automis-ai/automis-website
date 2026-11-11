@@ -17,6 +17,7 @@ import {
   Globe,
 } from "lucide-react";
 import CTAButton from "@/components/CTAButton";
+import { useRegion } from "@/lib/RegionContext";
 
 // Lana: the EN lead-qualification + demo-booking agent. The hero card talks to her live through
 // the ElevenLabs SDK (no widget, no third-party branding). Her booking tool is `book_appointment`.
@@ -67,6 +68,7 @@ const HeroSection = () => {
   const [line, setLine] = useState(null); // { who: "agent" | "user", text }
   const [booked, setBooked] = useState(false);
   const [error, setError] = useState("");
+  const region = useRegion();
   const [cardInView, setCardInView] = useState(true);
   const [bookingInView, setBookingInView] = useState(false);
 
@@ -358,7 +360,7 @@ const HeroSection = () => {
             >
               {[
                 { icon: Clock, label: "Live in about 7 days" },
-                { icon: ShieldCheck, label: "GDPR compliant" },
+                { icon: ShieldCheck, label: region === "us" ? "Your data stays private" : "GDPR compliant" },
                 { icon: Globe, label: "Natural English voice" },
               ].map(({ icon: Icon, label }) => (
                 <li

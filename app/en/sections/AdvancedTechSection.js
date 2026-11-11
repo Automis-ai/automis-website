@@ -9,6 +9,7 @@ import {
   Rocket,
 } from "lucide-react";
 import { SectionHeading, Grad, useReveal } from "./_ui";
+import { useRegion } from "@/lib/RegionContext";
 
 const features = [
   {
@@ -35,6 +36,11 @@ const features = [
     icon: ShieldCheck,
     title: "Security & GDPR",
     text: "Encrypted data, EU servers and full GDPR compliance.",
+    // US visitors: GDPR means nothing to them, and we make no US-law claim (no HIPAA/TCPA without a BAA chain).
+    us: {
+      title: "Security & Privacy",
+      text: "Encrypted calls and data, with private recordings and retention you control.",
+    },
   },
   {
     icon: Rocket,
@@ -45,6 +51,7 @@ const features = [
 
 export default function AdvancedTechSection() {
   const [ref, visible] = useReveal();
+  const region = useRegion();
 
   return (
     <section
@@ -67,7 +74,8 @@ export default function AdvancedTechSection() {
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((item, index) => {
+          {features.map((raw, index) => {
+            const item = region === "us" && raw.us ? { ...raw, ...raw.us } : raw;
             const Icon = item.icon;
             return (
               <div

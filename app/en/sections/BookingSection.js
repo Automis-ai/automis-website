@@ -3,9 +3,11 @@
 import { useEffect, useRef } from "react";
 import { Clock, ShieldCheck, Globe } from "lucide-react";
 import { SectionHeading, Grad, useReveal } from "./_ui";
+import { useRegion } from "@/lib/RegionContext";
 
 export default function BookingSection() {
   const [ref, visible] = useReveal();
+  const region = useRegion();
   const iframeRef = useRef(null);
 
   // LeadConnector booking widget sends its content height — keep the iframe snug.
@@ -48,7 +50,7 @@ export default function BookingSection() {
           <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3">
             {[
               { icon: Clock, label: "Live in about 7 days" },
-              { icon: ShieldCheck, label: "GDPR compliant" },
+              { icon: ShieldCheck, label: region === "us" ? "Your data stays private" : "GDPR compliant" },
               { icon: Globe, label: "Natural English voice" },
             ].map(({ icon: Icon, label }) => (
               <li

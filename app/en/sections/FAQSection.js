@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import { SectionHeading, Grad } from "./_ui";
+import { useRegion } from "@/lib/RegionContext";
 
 const faqs = [
   {
@@ -29,6 +30,12 @@ const faqs = [
     question: "Is it GDPR compliant?",
     answer:
       "Absolutely. EU servers, end-to-end encryption, automatic consent capture and the right to erasure built in. We provide full documentation for your data protection officer.",
+    // US visitors: same slot, no GDPR and no US-law claim.
+    us: {
+      question: "Is my customers' data safe?",
+      answer:
+        "Yes. Calls and data are encrypted, recordings stay private in your own dashboard, and you decide how long they are kept.",
+    },
   },
   {
     question: "How much does it cost?",
@@ -59,6 +66,7 @@ const faqs = [
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
+  const region = useRegion();
 
   return (
     <section
@@ -79,7 +87,8 @@ export default function FAQSection() {
         />
 
         <div className="mt-12 space-y-3">
-          {faqs.map((faq, index) => {
+          {faqs.map((raw, index) => {
+            const faq = region === "us" && raw.us ? { ...raw, ...raw.us } : raw;
             const open = openIndex === index;
             return (
               <div
