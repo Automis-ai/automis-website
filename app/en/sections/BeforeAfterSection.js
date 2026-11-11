@@ -23,7 +23,8 @@ const comparisons = [
     after: "Automatic re-activation of dormant leads",
   },
   {
-    before: "Hiring a receptionist: ~€30,000/year",
+    // EU: PT/ES/IT gross ~€16-24k + employer costs. US: BLS median $37,230 (2024) + ~30% benefits (BLS ECEC).
+    before: { eu: "Hiring a receptionist: ~€30,000/year", us: "Hiring a receptionist: ~$50,000/year" },
     after: "Variable, scalable cost",
   },
   {

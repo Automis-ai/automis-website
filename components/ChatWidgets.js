@@ -18,7 +18,7 @@ const LANDER_AGENTS = {
   "/ita": "agent_6901k7t47hzvfz69c0k41z23540r",
   "/fr": "agent_2301k951bevxfs89r0s7vyr93cq5",
   "/pt": "agent_5501k9s44q79fkja12p86txkxq0n",
-  "/en": "agent_4001k7szwpqcetwvp9de8c3dqm25", // Lana — EN lead-gen + demo booking
+  // "/en" has no widget: Lana lives inside the hero call card (app/en/sections/HeroSection.js, SDK).
 };
 
 export default function ChatWidgets() {

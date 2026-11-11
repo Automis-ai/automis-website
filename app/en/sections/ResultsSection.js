@@ -10,8 +10,18 @@ import {
 import { SectionHeading, Grad, useReveal } from "./_ui";
 import { useRegion, money } from "@/lib/RegionContext";
 
-/* Figures kept within credible ranges and presented as estimates.
-   See the note under the heading — validate against your own client data before publishing. */
+/* Estimates for a typical small business, built from published benchmarks (researched Nov 2026).
+   EU and US values differ ({ eu, us }); percentages and hours are the same in both.
+   - Re-activation: per 1,000 dormant leads, 30-40% reached, ~12% of those re-engage (Waboom AI-voice case),
+     3-7 deals; fee per deal EU ~€6-9k (PT ~5%, IT ~3%), US ~$9k (one side ~2.4-2.8% of $367k median home).
+   - Qualification: ~200 inbound leads/month x 15-20 min of rep time; rep cost EU ~€30-35/h, US ~$55-65/h.
+     Average firm takes 42 h to respond (HBR 2011); calling within 5 min = 21x odds of qualifying (MIT/InsideSales).
+   - Receptionist: loaded cost EU ~€22-32k/yr, US ~$53k (BLS $37,230 + benefits); ~20% of practice calls missed
+     (Patient News, ~2M dental calls).
+   - Booking: 20-60 calls/day, 23-33% missed at peak (Hostie, Maple); 2-3 recovered bookings/day x ~2.5 covers x
+     €25 / $30; SMS reminders cut no-shows 16% (Resos, 3.8M bookings), 24% in salons (PLOS ONE).
+   - E-commerce: ~800 tickets/month, 50-70% resolved by AI (vendor benchmarks 40-75%), human cost ~$4-5/ticket US,
+     ~€3-4 EU, AI ~$1; AI-handled CSAT ~82-84%. */
 const cases = [
   {
     icon: Building2,
@@ -22,9 +32,9 @@ const cases = [
     solution:
       "The AI automatically calls dormant leads with natural conversations, warms up the contact and hands only interested ones to your team.",
     results: [
-      { label: "Potential ROI/year", value: "€15,000–€35,000" },
-      { label: "Response rate", value: "8–14%" },
-      { label: "Time saved/month", value: "15–25 h" },
+      { label: "Extra revenue/year", value: { eu: "€20,000–€50,000", us: "$30,000–$70,000" } },
+      { label: "Leads re-engaged", value: "8–12%" },
+      { label: "Calling time saved/month", value: "40–60 h" },
     ],
   },
   {
@@ -36,9 +46,9 @@ const cases = [
     solution:
       "The AI calls every new lead, asks qualifying questions and passes only the warm leads to your team.",
     results: [
-      { label: "Monthly saving", value: "€1,200–€2,000" },
-      { label: "Sales efficiency", value: "+30–45%" },
-      { label: "Close rate", value: "+12–20%" },
+      { label: "Monthly saving", value: { eu: "€1,500–€2,500", us: "$2,500–$4,500" } },
+      { label: "First call to every new lead", value: "< 1 min" },
+      { label: "Rep time freed/month", value: "50–70 h" },
     ],
   },
   {
@@ -50,9 +60,9 @@ const cases = [
     solution:
       "An always-available AI receptionist that answers FAQs, books appointments, sends text confirmations and updates the calendar.",
     results: [
-      { label: "Monthly saving", value: "€900–€1,500" },
-      { label: "Extra appointments", value: "+8–15/month" },
-      { label: "Calls handled", value: "70–80%" },
+      { label: "Monthly saving vs. a hire", value: { eu: "€1,500–€2,500", us: "$3,000–$4,000" } },
+      { label: "Extra appointments", value: "+15–30/month" },
+      { label: "Calls resolved by the AI", value: "70–80%" },
     ],
   },
   {
@@ -64,9 +74,9 @@ const cases = [
     solution:
       "The AI answers, checks availability in real time, books tables, sends WhatsApp confirmations and automatic reminders.",
     results: [
-      { label: "Extra revenue/month", value: "€1,500–€3,000" },
-      { label: "No-show reduction", value: "–20/–30%" },
-      { label: "Staff time freed", value: "~30 min/day" },
+      { label: "Extra revenue/month", value: { eu: "€2,500–€5,000", us: "$4,000–$7,000" } },
+      { label: "No-show reduction", value: "–15/–25%" },
+      { label: "Staff phone time freed", value: "1–2 h/day" },
     ],
   },
   {
@@ -78,8 +88,8 @@ const cases = [
     solution:
       "AI that answers over the phone, tracks orders in real time, handles returns and shares product information.",
     results: [
-      { label: "Monthly saving", value: "€800–€1,600" },
-      { label: "Requests resolved automatically", value: "60–70%" },
+      { label: "Monthly saving", value: { eu: "€1,000–€2,000", us: "$1,500–$3,000" } },
+      { label: "Requests resolved automatically", value: "50–70%" },
       { label: "Satisfaction (CSAT)", value: "4.2/5" },
     ],
   },
@@ -110,8 +120,8 @@ export default function ResultsSection() {
             subtitle="Here's how different industries use Automis to cut costs and grow revenue — automatically."
           />
           <p className="mx-auto mt-4 max-w-2xl text-center font-plex-mono text-xs leading-relaxed text-soft-blue/55">
-            Estimated figures based on real cases. Results vary depending on your
-            industry, call volume and contact base.
+            Estimates for a typical small business, built from published industry
+            benchmarks. Results vary with your industry, call volume and contact base.
           </p>
         </div>
 
