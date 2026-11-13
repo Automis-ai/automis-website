@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import AutomisItShell from "@/components/site/AutomisItShell";
 import LeggiAccesso from "@/components/guide-lettore/LeggiAccesso";
 import Lettore from "@/components/guide-lettore/Lettore";
@@ -57,6 +57,9 @@ export default async function LeggiPage({ params }) {
       } catch (err) {
         console.error("guide-leggi: pagine non disponibili:", err?.message || err);
       }
+      // guida web: si apre a tutta pagina, non dentro una pagina del sito. L'HTML lo serve /api/guide-leggi-web con il cookie
+      // del lettore e con l'intestazione CSP «sandbox» (stesso isolamento dell'iframe di prima). redirect() fuori dal try.
+      if (data?.manifest.formato === "web") redirect(`/api/guide-leggi-web?slug=${encodeURIComponent(guida.slug)}`);
       body = data?.manifest.formato === "web" ? (
         <LettoreWeb
           guida={{ code: guida.code, slug: guida.slug, titolo: guida.titolo }}
