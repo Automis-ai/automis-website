@@ -54,6 +54,7 @@ export default function LeggiAccesso({ guida }) {
 
   const { busy, error, notFound } = state;
   return (
+    <>
     <form className="gate" onSubmit={onSubmit} noValidate aria-labelledby={`${uid}-h`}>
       <h2 id={`${uid}-h`}>Conferma il tuo numero</h2>
       <p>Scrivi il numero con cui hai chiesto la guida su WhatsApp. Se te l&apos;ho mandata, la leggi qui.</p>
@@ -68,8 +69,7 @@ export default function LeggiAccesso({ guida }) {
         {error ? <p className="err" role="alert">{error}</p> : null}
         {notFound ? (
           <div className="res">
-            <p>Non la trovo per questo numero. Chiedila su WhatsApp: ti arriva il link in chat.</p>
-            <WaButton guida={guida} />
+            <p>Non la trovo per questo numero. Chiedila su WhatsApp qui sotto: ti arriva il link in chat.</p>
           </div>
         ) : null}
       </div>
@@ -77,5 +77,11 @@ export default function LeggiAccesso({ guida }) {
         Uso il numero solo per cercare la tua richiesta. <a href="/it/privacy-policy">Informativa sulla privacy</a>.
       </p>
     </form>
+    <div className="gate ask">
+      <h2>Non l&apos;hai ancora ricevuta?</h2>
+      <p>Chiedila su WhatsApp: ti arriva il link in chat e da lì la leggi.</p>
+      <WaButton guida={guida} label="Chiedila su WhatsApp" />
+    </div>
+    </>
   );
 }

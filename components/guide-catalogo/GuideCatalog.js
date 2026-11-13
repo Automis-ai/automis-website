@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import "./catalogo.css";
 import GuideCard, { DOOR } from "./GuideCard";
-import WaButton, { WA_ICON } from "./WaButton";
-import { waMessage } from "@/lib/guideWa";
+import WaButton from "./WaButton";
+import HeroAnimation from "./HeroAnimation";
 
 const SECTIONS = [
   { porta: "ruolo", tab: "Ruolo", title: "Per ruolo", sub: "Cosa cambia con l’IA nel tuo lavoro." },
@@ -13,17 +13,16 @@ const SECTIONS = [
   { porta: "servizio", tab: "Servizi", title: "Servizi", sub: "Un tema alla volta." },
 ];
 
-const STEPS = ["Scegli la guida", "Si apre WhatsApp col messaggio pronto", "Ricevi il link e la leggi online"];
-
 const FINDER = "/it#opportunity-finder";
 
 export default function GuideCatalog({ guide, source = "", focusCode = "" }) {
   const pronte = guide.filter((g) => g.pronta);
   const presto = guide.filter((g) => !g.pronta);
   const sections = SECTIONS.map((s) => ({ ...s, items: pronte.filter((g) => g.porta === s.porta) })).filter((s) => s.items.length);
-  const pages = pronte.map((g) => g.pagine).filter(Number.isInteger);
-  const min = Math.min(...pages);
-  const max = Math.max(...pages);
+  const mins = pronte.map((g) => g.minuti).filter(Number.isInteger);
+  const min = Math.min(...mins);
+  const max = Math.max(...mins);
+  const edizione = pronte.map((g) => g.edizione).find(Boolean);
   const order = ["ruolo", "settore", "strumento", "servizio", "mini"];
   const soon = [...presto].sort((a, b) => order.indexOf(a.porta) - order.indexOf(b.porta));
   const [active, setActive] = useState(sections[0]?.porta);
@@ -57,35 +56,21 @@ export default function GuideCatalog({ guide, source = "", focusCode = "" }) {
     return () => io.disconnect();
   }, []);
 
-  const sample = pronte[0];
-  const sampleMsg = sample ? waMessage({ kind: "vorrei", titolo: sample.titolo, source: "LI" }) : "";
-
   return (
     <div id="gd">
       <div className="wrap">
         <section className="hero" aria-labelledby="gd-h1">
-          <div className="hero-t">
-            <p className="chip"><i aria-hidden="true" />Gratis, su WhatsApp</p>
+          <div className="hero-head">
             <h1 id="gd-h1">Le guide pratiche per portare l’IA in azienda.</h1>
-            <p className="lead">Per ruolo, per settore, per strumento. Ognuna con i conti da fare e i passi da seguire.</p>
-            <p className="proof">
-              <b>{pronte.length}</b> guide pronte, da <b>{min}</b> a <b>{max}</b> pagine, aggiornate ogni mese.
-            </p>
-            <ol className="steps">
-              {STEPS.map((t, i) => (
-                <li key={t}><span aria-hidden="true">{i + 1}</span>{t}</li>
-              ))}
-            </ol>
+            <p className="lead">Gratis, su WhatsApp. Ognuna con i conti da fare e i passi da seguire.</p>
           </div>
-          {sample ? (
-            <figure className="demo" aria-label="Il messaggio che si apre in WhatsApp">
-              <figcaption>Il messaggio che si apre</figcaption>
-              <div className="composer">
-                <p>{sampleMsg}</p>
-                <span className="send" aria-hidden="true">{WA_ICON}</span>
-              </div>
-            </figure>
-          ) : null}
+          <HeroAnimation />
+          <div className="hero-act">
+            <a className="btn gold" href={`#${sections[0]?.porta || "ruolo"}`}>Scegli la tua guida</a>
+            <p className="proof">
+              <b>{pronte.length}</b> guide pronte{mins.length ? <>, da <b>{min}</b> a <b>{max}</b> minuti di lettura</> : null}{edizione ? `, edizione di ${edizione}` : ""}.
+            </p>
+          </div>
         </section>
 
         <nav className="jump" aria-label="Vai alla sezione">

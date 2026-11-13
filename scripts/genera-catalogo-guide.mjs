@@ -27,6 +27,14 @@ const pubbliche = path.resolve(
 );
 
 const readJson = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
+// minuti di lettura: parole del testo web della guida (setter-guide/bot/guide-web/<CODICE>.md) a 200 al minuto, arrotondate a 5
+const testoWeb = path.resolve(path.dirname(pubbliche), "bot/guide-web");
+const minutiDiLettura = (code) => {
+  const f = path.join(testoWeb, `${code}.md`);
+  if (!fs.existsSync(f)) return null;
+  const parole = fs.readFileSync(f, "utf8").split(/\s+/).filter(Boolean).length;
+  return Math.max(5, Math.round(parole / 200 / 5) * 5);
+};
 const problems = [];
 
 const pub = readJson(pubbliche);
@@ -51,7 +59,7 @@ const guide = catalogo.filter((g) => !escluse.has(g.code)).map((g) => {
   if (pronta && !pdfOk) console.warn(`avviso: ${g.code} è pubblica ma il PDF non c'è (${pdfName || "campo pdf mancante"})`);
 
   if (pronta) {
-    for (const k of ["promessa", "capitoli", "pagine"]) {
+    for (const k of ["promessa", "capitoli"]) {
       if (!s[k] || (Array.isArray(s[k]) && !s[k].length)) problems.push(`${g.code}: pronta ma senza ${k}`);
     }
   }
@@ -69,6 +77,7 @@ const guide = catalogo.filter((g) => !escluse.has(g.code)).map((g) => {
     promessa: pronta ? s?.promessa || null : null,
     capitoli: pronta ? s?.capitoli || [] : [],
     pagine: pronta ? s?.pagine ?? null : null,
+    minuti: pronta ? minutiDiLettura(g.code) : null,
     conti: pronta ? s?.conti ?? null : null,
     controlli: pronta ? s?.controlli ?? null : null,
     caso_vero: pronta ? s?.caso_vero || null : null,

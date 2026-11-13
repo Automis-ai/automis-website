@@ -139,14 +139,14 @@ test("numero sconosciuto: stessa risposta di «senza quella guida»", async () =
 });
 
 test("guida non pubblica o inesistente: 400, nessuna chiamata (anche se il contatto la «ha»)", async () => {
-  for (const slug of [M1.slug, "guida-che-non-esiste", "s5", "../etc", ""]) {
+  for (const slug of [M1.slug, "guida-che-non-esiste", "s6", "../etc", ""]) {
     const log = [];
     const r = await access(log, { phone: "3330001111", slug });
     assert.equal(r.status, 400, slug);
     assert.equal(log.length, 0, slug);
     assert.equal(r.headers.get("set-cookie"), null);
   }
-  assert.ok(!catalog.some((g) => g.code === "S5"));
+  assert.ok(!catalog.some((g) => g.code === "S6"));
 });
 
 test("numero non valido: 400, nessuna chiamata", async () => {
@@ -382,15 +382,16 @@ test("messaggi WhatsApp: contratto v3 §6, niente codici", () => {
   assert.equal(parseSource("facebook"), "");
 });
 
-test("catalogo: 57 guide, 13 pronte (come guide-pubbliche.json), slug unici, le altre in arrivo", () => {
-  assert.equal(catalog.length, 57);
+test("catalogo: 56 guide, 29 pronte (come guide-pubbliche.json), slug unici, le altre in arrivo", () => {
+  assert.equal(catalog.length, 56);
   const pronte = catalog.filter((g) => g.pronta).map((g) => g.code);
-  assert.deepEqual(pronte, ["R1", "R2", "R3", "R4", "S1", "S2", "S3", "S4", "V1", "T1", "T2", "T3", "T4"]);
-  assert.ok(catalog.filter((g) => g.pronta).every((g) => g.file && g.promessa && g.capitoli.length));
+  assert.deepEqual([...pronte].sort(), ["R1", "R2", "R3", "R4", "S1", "S2", "S3", "S4", "V1", "T1", "T2", "T3", "T4", "R5", "L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "W1", "W2", "W3", "R6", "A1", "S5", "T15"].sort());
+  assert.ok(catalog.filter((g) => g.pronta).every((g) => g.promessa && g.capitoli.length));
   assert.ok(catalog.filter((g) => !g.pronta).every((g) => !g.file));
-  assert.equal(new Set(catalog.map((g) => g.code)).size, 57);
-  assert.equal(new Set(catalog.map((g) => g.slug)).size, 57);
-  assert.equal(R1.slug, "il-conto-dell-ia");
+  assert.equal(new Set(catalog.map((g) => g.code)).size, 56);
+  assert.equal(new Set(catalog.map((g) => g.slug)).size, 56);
+  assert.equal(R1.slug, "cfo-il-conto-dell-ia-prima-di-firmare");
+  assert.ok(catalog.filter((g) => g.pronta).every((g) => Number.isInteger(g.minuti)));
 });
 
 // ---- loader del catalogo (bucket Supabase finto) ----

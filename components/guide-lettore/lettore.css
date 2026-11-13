@@ -39,6 +39,7 @@
 #gl .err{margin-top:12px;color:#ff9b9b;font-size:14px}
 #gl .res{margin-top:14px;padding:14px;border-radius:12px;border:1px solid var(--line);background:rgba(0,10,20,.45)}
 #gl .res .btn{width:100%;margin-top:12px}
+#gl .gate.ask{margin-top:14px}
 #gl .priv{margin-top:14px;font-size:12.5px;line-height:1.45;color:var(--faint)}
 #gl .priv a{color:var(--soft);text-underline-offset:3px}
 

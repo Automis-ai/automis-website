@@ -18,6 +18,13 @@ const nextConfig = {
       { source: "/arcangelo", destination: "/playbook", permanent: true },
       // Free consultation now lives as step 1 of the Jumpstart Audit ladder.
       { source: "/consultation", destination: "/jumpstart-audit", permanent: false },
+      // Guide di ruolo rinominate il 13/11/2026: i link già mandati su WhatsApp restano vivi.
+      { source: "/it/guide/leggi/il-conto-dell-ia", destination: "/it/guide/leggi/cfo-il-conto-dell-ia-prima-di-firmare", permanent: true },
+      { source: "/it/guide/leggi/dove-mettere-l-ia-nel-2027", destination: "/it/guide/leggi/ceo-dove-mettere-l-ia-nel-2027", permanent: true },
+      { source: "/it/guide/leggi/i-contatti-che-perdi", destination: "/it/guide/leggi/direzione-commerciale-l-ia-sui-contatti-che-perdi", permanent: true },
+      { source: "/it/guide/leggi/report-e-follow-up-senza-farli-a-mano", destination: "/it/guide/leggi/operations-report-e-follow-up-senza-farli-a-mano", permanent: true },
+      { source: "/it/guide/leggi/il-cervello-aziendale-cos-e", destination: "/it/guide/leggi/titolari-il-company-brain-come-e-perche-costruirlo", permanent: true },
+      { source: "/it/guide/leggi/company-brain-come-e-perche-costruire-il-tuo-cervello-aziendale", destination: "/it/guide/leggi/titolari-il-company-brain-come-e-perche-costruirlo", permanent: true },
     ];
   },
   // Queste due righe hanno risparmiato una ristrutturazione da 158 file.
