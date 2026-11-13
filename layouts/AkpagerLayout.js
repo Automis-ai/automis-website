@@ -16,6 +16,7 @@ const AkpagerLayout = ({
   bodyClass,
   onePage,
   hideHeaderNav = false,
+  hideStickyCta = false, // nasconde solo il bottone fisso «Prenota una call» su telefono
   main = false, // avvolge il contenuto in <main id="main"> per il link «Vai al contenuto»
 }) => {
   const [showStickyButton, setShowStickyButton] = useState(false);
@@ -96,7 +97,7 @@ const AkpagerLayout = ({
         <Footer footer={footer} />
       </div>
 
-      {!hideHeaderNav && (
+      {!hideHeaderNav && !hideStickyCta && (
         <div
           className={`md:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
             showStickyButton

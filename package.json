@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "postbuild": "next-sitemap",
-    "seo-check": "node scripts/seo-check.mjs"
+    "seo-check": "node scripts/seo-check.mjs",
+    "guide:catalogo": "node scripts/genera-catalogo-guide.mjs",
+    "test:guide-wa": "node --no-warnings scripts/test-guide-wa-access.mjs"
   },
   "dependencies": {
     "@elevenlabs/client": "1.28.0",

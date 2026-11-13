@@ -109,6 +109,7 @@ const STATIC_PATHS = [
   // Italian
   "/it",
   "/it/alternativa-a-manychat", // IT guide (twin of /manychat-alternative)
+  "/it/guide", // catalogo guide di Luca (WhatsApp)
   "/it/about",
   "/it/ai-automations",
   "/it/voice-ai",

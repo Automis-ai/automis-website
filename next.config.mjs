@@ -48,10 +48,27 @@ const nextConfig = {
         // Le pagine della guida (IT/EN) dipendono dal cookie di accesso: restano fuori, altrimenti la CDN
         // servirebbe a tutti la risposta del primo visitatore (il rimando alla landing, o peggio la guida
         // aperta a chi non ha fatto l'email). La CDN non guarda i cookie.
-        source: "/((?!api/|en/try|it/alternativa-a-manychat/guida|manychat-alternative/guide).*)",
+        source: "/((?!api/|en/try|it/alternativa-a-manychat/guida|manychat-alternative/guide|it/guide$|it/guide/leggi).*)",
         headers: [
           { key: "Vercel-CDN-Cache-Control", value: "max-age=3600" },
           { key: "CDN-Cache-Control", value: "max-age=3600" },
+        ],
+      },
+      {
+        // Catalogo guide: legge catalogo.json dal bucket (cache 5 minuti nel codice). Con l'ora di CDN di tutte le
+        // altre pagine una guida nuova non comparirebbe entro 5 minuti: qui la CDN tiene 5 minuti, come il loader.
+        source: "/it/guide",
+        headers: [
+          { key: "Vercel-CDN-Cache-Control", value: "max-age=300" },
+          { key: "CDN-Cache-Control", value: "max-age=300" },
+        ],
+      },
+      {
+        // Lettore online: dipende dal cookie `ga_lettore`, mai in cache CDN (altrimenti la guida di uno la vedrebbe chiunque).
+        source: "/it/guide/leggi/:slug*",
+        headers: [
+          { key: "Vercel-CDN-Cache-Control", value: "no-store" },
+          { key: "CDN-Cache-Control", value: "no-store" },
         ],
       },
       {

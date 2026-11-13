@@ -1,0 +1,65 @@
+/* Lettore online delle guide /it/guide/leggi/<slug>. Tutto sotto #gl. Mobile prima (390 px). */
+#gl{--bg:#000A14;--surf:#06182A;--surf2:#0A2238;--line:rgba(180,194,255,.16);--ink:#fff;--soft:#B4C2FF;--mute:rgba(214,222,255,.8);--faint:rgba(180,194,255,.66);--blue:#3C91E6;--gold:#FEC458;--ongold:#1A1200;--navy:#000A14;
+  --head:"Clash Display","Montserrat",system-ui,sans-serif;--text:"General Sans","Open Sans",system-ui,sans-serif;
+  position:relative;overflow-x:clip;min-height:100vh;background:radial-gradient(70% 30% at 80% 0%,rgba(60,145,230,.2),transparent 70%),var(--bg);
+  color:var(--ink);font-family:var(--text);font-size:16px;line-height:1.55;padding:clamp(92px,12vw,124px) 16px 56px;-webkit-font-smoothing:antialiased}
+#gl *,#gl *::before,#gl *::after{box-sizing:border-box}
+#gl p,#gl h1,#gl h2,#gl ul,#gl ol{margin:0;padding:0}
+#gl a{color:inherit}
+#gl section{background:none}
+#gl [hidden]{display:none !important}
+#gl :is(a,button,input):focus-visible{outline:2px solid #fff;outline-offset:3px}
+#gl .wrap{max-width:560px;margin-inline:auto}
+#gl .back{display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;font-weight:600;color:var(--soft);text-decoration:none}
+#gl .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 12px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--soft);background:rgba(6,24,42,.6)}
+#gl .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(60,145,230,.2)}
+#gl h1{font-family:var(--head);font-weight:700;font-size:clamp(30px,8vw,46px);line-height:1.06;margin-top:16px;text-wrap:balance}
+#gl .lead{margin-top:14px;font-size:16.5px;color:var(--mute)}
+
+/* richiesta del numero */
+#gl .gate{margin-top:24px;border:1px solid var(--line);border-radius:20px;padding:20px 18px;background:linear-gradient(170deg,var(--surf2),var(--surf));box-shadow:0 24px 60px -30px rgba(0,0,0,.8)}
+#gl .gate h2{font-family:var(--head);font-weight:600;font-size:22px;line-height:1.15}
+#gl .gate p{margin-top:8px;font-size:15px;color:var(--mute)}
+#gl .gate label{display:block;margin-top:16px;font-size:13px;font-weight:600;color:var(--soft)}
+#gl .phone-row{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px;margin-top:6px}
+#gl .phone-row input{width:100%;height:52px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:#020B14;color:var(--ink);font:500 16px var(--text)}
+#gl .phone-row input::placeholder{color:var(--faint)}
+#gl .trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+#gl .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:12px;border:1px solid transparent;font:600 16px var(--head);letter-spacing:.01em;text-decoration:none;cursor:pointer;text-align:center;transition:transform .2s ease,background .2s ease}
+#gl .btn svg{width:19px;height:19px;flex:none}
+#gl .btn:hover{transform:translateY(-1px)}
+#gl .btn:disabled{opacity:.6;cursor:default;transform:none}
+#gl .gate .btn{width:100%;margin-top:14px}
+#gl .btn.gold{background:var(--gold);color:var(--ongold)}
+#gl .btn.gold:hover{background:#FFD27A}
+#gl .btn.wa{background:#25D366;color:#04210F}
+#gl .btn.wa:hover{background:#3BE07B}
+#gl .btn.soft{background:var(--soft);color:var(--navy)}
+#gl .btn.ghost{background:rgba(60,145,230,.14);border-color:var(--blue);color:#fff}
+#gl .err{margin-top:12px;color:#ff9b9b;font-size:14px}
+#gl .res{margin-top:14px;padding:14px;border-radius:12px;border:1px solid var(--line);background:rgba(0,10,20,.45)}
+#gl .res .btn{width:100%;margin-top:12px}
+#gl .priv{margin-top:14px;font-size:12.5px;line-height:1.45;color:var(--faint)}
+#gl .priv a{color:var(--soft);text-underline-offset:3px}
+
+/* lettore */
+#gl.reading .wrap{max-width:900px}
+#gl .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin-top:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+#gl .bar p{font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
+#gl .bar a{font-size:14.5px;font-weight:600;color:var(--soft);text-underline-offset:3px}
+#gl .pages{margin-top:18px;display:grid;gap:14px;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#gl .pg{position:relative;width:100%;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(0,0,0,.8)}
+#gl .pg img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none;opacity:0;transition:opacity .25s ease}
+#gl .pg img.on{opacity:1}
+#gl .pg .n{position:absolute;right:8px;bottom:8px;font-size:11.5px;font-weight:600;color:#33415a;background:rgba(255,255,255,.85);border-radius:999px;padding:1px 9px}
+#gl .pg.wait::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,#eef1f6 30%,#f8f9fc 50%,#eef1f6 70%);background-size:200% 100%;animation:gl-shimmer 1.4s linear infinite}
+@keyframes gl-shimmer{to{background-position:-200% 0}}
+#gl .webframe{display:block;width:100%;height:calc(100vh - 150px);height:calc(100dvh - 150px);min-height:560px;margin-top:18px;border:0;border-radius:6px;background:#fff;box-shadow:0 18px 40px -22px rgba(0,0,0,.8)}
+#gl .after{margin-top:32px;display:grid;gap:12px;padding:20px 18px;border:1px solid var(--line);border-radius:20px;background:var(--surf)}
+#gl .after h2{font-family:var(--head);font-weight:600;font-size:22px;line-height:1.15}
+#gl .after p{font-size:15px;color:var(--mute)}
+#gl .after .btn{width:100%}
+#gl .print-note{display:none}
+@media (min-width:700px){#gl{padding-inline:32px}#gl .after{grid-template-columns:1fr auto;align-items:center}#gl .after .btn{width:auto}}
+@media print{#gl .pages,#gl .webframe,#gl .bar,#gl .after{display:none !important}#gl .print-note{display:block;margin-top:24px;font-size:16px;color:#000}}
+@media (prefers-reduced-motion:reduce){#gl .btn,#gl .pg img{transition:none}#gl .pg.wait::before{animation:none}}
