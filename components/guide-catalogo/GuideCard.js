@@ -2,7 +2,7 @@
 
 import WaButton from "./WaButton";
 
-export const DOOR = { ruolo: "Ruolo", settore: "Settore", strumento: "Strumento", servizio: "Servizio", mini: "Mini-guida" };
+export const DOOR = { ruolo: "Ruolo", settore: "Settore", strumento: "Strumento", servizio: "Marketing", mini: "Mini-guida" };
 
 // Una riga di promessa: la prima parte prima dei due punti o del punto e virgola, accorciata a ~92 caratteri.
 export function shortPromise(text, max = 92) {

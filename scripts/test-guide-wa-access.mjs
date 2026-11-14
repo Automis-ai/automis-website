@@ -146,7 +146,7 @@ test("guida non pubblica o inesistente: 400, nessuna chiamata (anche se il conta
     assert.equal(log.length, 0, slug);
     assert.equal(r.headers.get("set-cookie"), null);
   }
-  assert.ok(!catalog.some((g) => g.code === "S6"));
+  assert.ok(!catalog.some((g) => g.slug === "s6"));
 });
 
 test("numero non valido: 400, nessuna chiamata", async () => {
@@ -382,14 +382,14 @@ test("messaggi WhatsApp: contratto v3 §6, niente codici", () => {
   assert.equal(parseSource("facebook"), "");
 });
 
-test("catalogo: 56 guide, 29 pronte (come guide-pubbliche.json), slug unici, le altre in arrivo", () => {
-  assert.equal(catalog.length, 56);
+test("catalogo: 55 guide, 43 pronte (come guide-pubbliche.json), slug unici, le altre in arrivo", () => {
+  assert.equal(catalog.length, 55);
   const pronte = catalog.filter((g) => g.pronta).map((g) => g.code);
-  assert.deepEqual([...pronte].sort(), ["R1", "R2", "R3", "R4", "S1", "S2", "S3", "S4", "V1", "T1", "T2", "T3", "T4", "R5", "L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "W1", "W2", "W3", "R6", "A1", "S5", "T15"].sort());
+  assert.deepEqual([...pronte].sort(), ["A1", "I10", "I3", "I4", "I5", "I6", "I7", "I8", "I9", "L1", "L3", "L5", "L8", "M4", "R1", "R2", "R3", "R4", "R5", "R6", "S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "T1", "T11", "T13", "T15", "T2", "T3", "T4", "T5", "T6", "T7", "V1", "W1", "W2", "W4"].sort());
   assert.ok(catalog.filter((g) => g.pronta).every((g) => g.promessa && g.capitoli.length));
   assert.ok(catalog.filter((g) => !g.pronta).every((g) => !g.file));
-  assert.equal(new Set(catalog.map((g) => g.code)).size, 56);
-  assert.equal(new Set(catalog.map((g) => g.slug)).size, 56);
+  assert.equal(new Set(catalog.map((g) => g.code)).size, 55);
+  assert.equal(new Set(catalog.map((g) => g.slug)).size, 55);
   assert.equal(R1.slug, "cfo-il-conto-dell-ia-prima-di-firmare");
   assert.ok(catalog.filter((g) => g.pronta).every((g) => Number.isInteger(g.minuti)));
 });

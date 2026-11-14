@@ -10,7 +10,7 @@ const SECTIONS = [
   { porta: "ruolo", tab: "Ruolo", title: "Per ruolo", sub: "Cosa cambia con l’IA nel tuo lavoro." },
   { porta: "settore", tab: "Settore", title: "Per settore", sub: "L’IA nel tuo tipo di attività." },
   { porta: "strumento", tab: "Strumenti", title: "Strumenti", sub: "Usare bene quello che hai già." },
-  { porta: "servizio", tab: "Servizi", title: "Servizi", sub: "Un tema alla volta." },
+  { porta: "servizio", tab: "Marketing e clienti", title: "Marketing e clienti", sub: "Un tema alla volta." },
 ];
 
 const FINDER = "/it#opportunity-finder";
