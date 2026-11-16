@@ -15,8 +15,10 @@ const SECTIONS = [
 
 const FINDER = "/it#opportunity-finder";
 
-export default function GuideCatalog({ guide, source = "", focusCode = "" }) {
+export default function GuideCatalog({ guide, source = "", focusCode = "", related = [] }) {
   const pronte = guide.filter((g) => g.pronta);
+  // guida pronta in ?g=: va in evidenza in alto (le «in arrivo» restano nel catalogo con la scheda evidenziata)
+  const featured = focusCode ? pronte.find((g) => g.code === focusCode) : null;
   const presto = guide.filter((g) => !g.pronta);
   const sections = SECTIONS.map((s) => ({ ...s, items: pronte.filter((g) => g.porta === s.porta) })).filter((s) => s.items.length);
   const mins = pronte.map((g) => g.minuti).filter(Number.isInteger);
@@ -29,7 +31,7 @@ export default function GuideCatalog({ guide, source = "", focusCode = "" }) {
 
   // ?g=CODICE: la pagina scorre fino a quella scheda e la evidenzia per qualche secondo
   useEffect(() => {
-    if (!focusCode) return undefined;
+    if (!focusCode || featured) return undefined;
     const el = document.getElementById(`g-${focusCode}`);
     if (!el) return undefined;
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -41,7 +43,7 @@ export default function GuideCatalog({ guide, source = "", focusCode = "" }) {
     const t1 = setTimeout(go, 350);
     const t2 = setTimeout(() => el.classList.remove("flash"), 5200);
     return () => { clearTimeout(t1); clearTimeout(t2); el.classList.remove("flash"); };
-  }, [focusCode]);
+  }, [focusCode, featured]);
 
   // la voce del menu fisso che corrisponde alla sezione a schermo
   useEffect(() => {
@@ -59,6 +61,29 @@ export default function GuideCatalog({ guide, source = "", focusCode = "" }) {
   return (
     <div id="gd">
       <div className="wrap">
+        {featured ? (
+          <>
+            <section className="pick" aria-labelledby="gd-pick">
+              <p className="who">{DOOR[featured.porta]} · per {featured.per_chi}{featured.minuti ? ` · ${featured.minuti} min di lettura` : ""}</p>
+              <h1 id="gd-pick">{featured.titolo}</h1>
+              <p className="lead">{featured.promessa}</p>
+              <div className="act">
+                <WaButton guida={featured} source={source} kind="vorrei" />
+              </div>
+              <p className="proof">Gratis, su WhatsApp.</p>
+            </section>
+            {related.length ? (
+              <section className="sec" aria-labelledby="gd-rel">
+                <h2 id="gd-rel">Ti può servire anche</h2>
+                <div className="grid">
+                  {related.map((g) => <GuideCard key={g.code} g={g} source={source} />)}
+                </div>
+              </section>
+            ) : null}
+            <p className="all"><a href="/it/guide">Vedi tutte le guide</a></p>
+          </>
+        ) : (
+        <>
         <section className="hero" aria-labelledby="gd-h1">
           <div className="hero-head">
             <h1 id="gd-h1">Le guide pratiche per portare l’IA in azienda.</h1>
@@ -106,6 +131,8 @@ export default function GuideCatalog({ guide, source = "", focusCode = "" }) {
             </ul>
           </section>
         ) : null}
+        </>
+        )}
 
         <section className="finder" aria-labelledby="gd-finder">
           <div>
