@@ -29,7 +29,7 @@ const PrivacyPolicy = () => {
                 Automis — AI & Marketing Agency
               </p>
               <p className="body-text text-white/70">
-                Ultimo aggiornamento: 29 luglio 2026
+                Ultimo aggiornamento: 16 novembre 2026
               </p>
             </div>
 
@@ -202,7 +202,7 @@ const PrivacyPolicy = () => {
                     </li>
                     <li className="flex items-start">
                       <span className="mr-3 mt-1">•</span>
-                      <span><span className="font-semibold">Legittimo interesse (Art. 6.1.f):</span> per il miglioramento dei servizi, la sicurezza dei sistemi, la prevenzione di abusi e l’analisi dei dati. Quando operiamo come Responsabile del trattamento, il legittimo interesse è del Cliente (Titolare).</span>
+                      <span><span className="font-semibold">Legittimo interesse (Art. 6.1.f):</span> per il miglioramento dei servizi, la sicurezza dei sistemi, la prevenzione di abusi e l’analisi dei dati. Quando operiamo come Responsabile del trattamento, il legittimo interesse è del Cliente (Titolare). Per i contatti commerciali con professionisti e aziende vedi la Sezione 16.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="mr-3 mt-1">•</span>
@@ -224,7 +224,7 @@ const PrivacyPolicy = () => {
                     <ul className="body-text text-white/90 space-y-2">
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Meta Platforms, Inc.:</span> in qualità di piattaforma tramite cui i dati social media vengono raccolti e trasmessi via API. Meta tratta i dati secondo la propria Privacy Policy e i propri Terms of Service.</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Google</span> (Google Ads, Google Calendar): per gestione campagne e integrazioni calendario</span></li>
-                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">TikTok, LinkedIn, X (Twitter):</span> per gestione campagne sulle rispettive piattaforme, ove applicabile</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">TikTok, LinkedIn, X (Twitter):</span> per gestione campagne sulle rispettive piattaforme, ove applicabile. LinkedIn è anche la piattaforma su cui contattiamo potenziali clienti (Sezione 16).</span></li>
                     </ul>
                   </div>
 
@@ -235,7 +235,7 @@ const PrivacyPolicy = () => {
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">ElevenLabs:</span> fornitore di sintesi vocale IA per i servizi Voice AI</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">GoHighLevel / LeadConnector:</span> piattaforma CRM e marketing automation</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Vercel, GitHub, Supabase:</span> infrastruttura e hosting</span></li>
-                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Twilio:</span> infrastruttura telefonica per Voice AI</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Twilio:</span> infrastruttura telefonica per Voice AI e invio dei messaggi WhatsApp</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">OpenAI, Anthropic:</span> fornitori di modelli linguistici utilizzati per generare le risposte degli assistenti IA e dei chatbot</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Hetzner Online GmbH:</span> hosting di server europei (Germania) per la nostra infrastruttura di automazione self-hosted</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Fathom:</span> registrazione e trascrizione delle nostre riunioni commerciali e con i clienti</span></li>
@@ -287,6 +287,7 @@ const PrivacyPolicy = () => {
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Dati account pubblicitari</span>: i report sono conservati per la durata dell’incarico più 3 mesi. I dati grezzi delle piattaforme non vengono conservati a lungo termine da Automis.</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Analytics e log del sito</span>: massimo 12 mesi.</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Dati marketing (basati su consenso)</span>: fino alla revoca del consenso.</span></li>
+                    <li className="flex items-start"><span className="mr-3 mt-1">•</span><span> <span className="font-bold">Contatti commerciali (LinkedIn, WhatsApp, call)</span>: finché la conversazione è attiva e per un massimo di 12 mesi dall’ultimo scambio (Sezione 16).</span></li>
                   </ul>
                   <p className="body-text text-white/90">
                     In conformità con i Meta Platform Terms, alla cessazione dell’utilizzo delle API Meta o su richiesta di Meta, cancelleremo tutti i Platform Data senza ingiustificato ritardo.
@@ -310,7 +311,7 @@ const PrivacyPolicy = () => {
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Cancellazione:</span> richiedere la cancellazione dei tuoi dati (“diritto all’oblio”).</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Limitazione:</span> richiedere la limitazione del trattamento in determinati casi.</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Portabilità:</span> ricevere i tuoi dati in formato strutturato, di uso comune e leggibile da dispositivo automatico.</span></li>
-                    <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Opposizione:</span> opporti al trattamento basato su legittimo interesse.</span></li>
+                    <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Opposizione:</span> opporti al trattamento basato su legittimo interesse e, in qualsiasi momento, ai contatti di marketing diretto (vedi Sezione 16.4).</span></li>
                     <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Revoca del consenso:</span> ritirare il consenso in qualsiasi momento, senza pregiudicare la liceità del trattamento precedente.</span></li>
                   </ul>
                   <p className="body-text text-white/90 mb-4">
@@ -451,6 +452,57 @@ const PrivacyPolicy = () => {
               <div className="mb-12">
                 <h2 className="section-heading text-white mb-6 flex items-center">
                   <span className="mr-3">16.</span>
+                  Contatti commerciali, guide su WhatsApp e call
+                </h2>
+                <div className="space-y-6">
+                  <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
+                    <h3 className="card-heading text-white mb-4">16.1 Se ti contattiamo su LinkedIn</h3>
+                    <p className="body-text text-white/90 mb-4">Se ti scriviamo su LinkedIn come potenziale cliente, ecco cosa devi sapere. Il titolare del trattamento è Automis (vedi Sezione 1).</p>
+                    <ul className="body-text text-white/90 space-y-2">
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Da dove arrivano i dati:</span> dal tuo profilo LinkedIn pubblico, anche attraverso Sales Navigator. Sono informazioni accessibili al pubblico.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Quali dati:</span> nome e cognome, ruolo, azienda, link al tuo profilo e i messaggi che ci scambiamo su LinkedIn.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Perché:</span> per contattarti, a mano e una persona per volta, su un tema legato al tuo ruolo, e per offrirti una guida gratuita.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Base giuridica:</span> legittimo interesse (Art. 6.1.f GDPR). L’interesse è presentare i nostri servizi a imprese e professionisti che possono averne bisogno. Per questo scriviamo poco, a mano, e solo a chi svolge un ruolo pertinente. Puoi opporti in qualsiasi momento (vedi 16.4).</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Email:</span> non usiamo indirizzi email trovati online per inviarti comunicazioni promozionali. Ti scriviamo per email a scopo promozionale solo se ci dai il consenso.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Per quanto tempo:</span> finché la conversazione è attiva e per un massimo di 12 mesi dall’ultimo scambio, poi cancelliamo i dati. Se diventi cliente valgono i tempi della Sezione 7.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">A chi vanno:</span> ai fornitori elencati nella Sezione 5 (tra cui il CRM GoHighLevel, n8n, Supabase e Hetzner) e a LinkedIn, che gestisce la piattaforma. Per i trasferimenti fuori dallo Spazio economico europeo vedi la Sezione 6.</span></li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
+                    <h3 className="card-heading text-white mb-4">16.2 Se ci scrivi su WhatsApp per una guida</h3>
+                    <p className="body-text text-white/90 mb-4">Se scrivi al numero WhatsApp di Automis per ricevere una guida gratuita, trattiamo i tuoi dati per mandartela e per risponderti.</p>
+                    <ul className="body-text text-white/90 space-y-2">
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Quali dati:</span> il tuo numero di telefono, il nome del tuo profilo WhatsApp, i messaggi, la guida che hai richiesto, quando apri la guida online e le note sulla conversazione.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Base giuridica:</span> la tua richiesta (misure precontrattuali, Art. 6.1.b GDPR) e il nostro legittimo interesse a seguire la conversazione (Art. 6.1.f GDPR).</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Chi risponde:</span> un assistente di intelligenza artificiale, che lo dichiara. Passa la conversazione a una persona quando serve o quando lo chiedi tu. Non prendiamo decisioni automatizzate che producano effetti su di te: l’assistente può suggerire a che punto è la conversazione, e lo conferma una persona.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Lettore online:</span> per aprire la guida ti chiediamo di confermare il numero e usiamo un cookie tecnico per riconoscerti. Non usiamo questo cookie per la pubblicità.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Fornitori coinvolti:</span> Meta (WhatsApp), Twilio, OpenAI, oltre a quelli della Sezione 5. Per i trasferimenti fuori dallo Spazio economico europeo vedi la Sezione 6.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Per quanto tempo:</span> come in 16.1.</span></li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
+                    <h3 className="card-heading text-white mb-4">16.3 Se facciamo una call insieme</h3>
+                    <ul className="body-text text-white/90 space-y-2">
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Registrazione:</span> prima di iniziare ti chiediamo a voce se puoi essere registrato. Senza il tuo sì non registriamo. La base giuridica è il tuo consenso (Art. 6.1.a GDPR) e puoi ritirarlo in qualsiasi momento.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Cosa si registra:</span> audio, trascrizione e riepilogo della call, con Fathom (vedi Sezione 5.2). Servono a prendere appunti e a preparare la proposta.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Per quanto tempo:</span> per un massimo di 12 mesi dalla call, salvo che tu diventi cliente (Sezione 7).</span></li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
+                    <h3 className="card-heading text-white mb-4">16.4 Il tuo diritto di opporti</h3>
+                    <p className="body-text text-white/90 mb-4">Puoi opporti in qualsiasi momento al trattamento dei tuoi dati per i nostri contatti commerciali. Scrivici STOP qui su LinkedIn, su WhatsApp o a support@automis.ai: smettiamo subito di contattarti. Conserviamo solo il minimo necessario (il tuo nome e il link al profilo) per non scriverti più.</p>
+                    <p className="body-text text-white/90 mb-4">Gli altri diritti (accesso, rettifica, cancellazione, limitazione, portabilità, revoca del consenso) e il reclamo all’autorità di controllo sono descritti nella Sezione 8. In Italia puoi rivolgerti al <Link href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">Garante per la protezione dei dati personali</Link>.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Sezione 17 */}
+              <div className="mb-12">
+                <h2 className="section-heading text-white mb-6 flex items-center">
+                  <span className="mr-3">17.</span>
                   Contatti
                 </h2>
                 <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
