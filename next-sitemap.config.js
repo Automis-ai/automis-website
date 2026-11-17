@@ -128,6 +128,7 @@ const STATIC_PATHS = [
   "/it/blog/quanto-costa-automatizzare-uno-studio-legale",
   "/it/blog/ridurre-no-show-studi-medici",
   "/it/blog/assistente-vocale-ristoranti-prenotazioni",
+  "/it/blog/quanto-costa-assistente-vocale-ristorante",
   "/it/blog/bot-whatsapp-prenotazioni-parrucchieria",
   "/it/blog/migliori-bot-whatsapp-prenotazioni",
   "/it/blog/note-vocali-crm-agenti-immobiliari",
