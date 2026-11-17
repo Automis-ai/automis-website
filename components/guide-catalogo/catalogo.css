@@ -105,3 +105,4 @@
 }
 @media (min-width:1100px){#gd .grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){#gd .btn,#gd .card{transition:none}#gd .card.flash,#gd .soon li.flash{animation:none;box-shadow:0 0 0 3px rgba(254,196,88,.9)}}
+#gd .vid .cv{margin-top:18px}

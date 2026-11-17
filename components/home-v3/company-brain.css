@@ -138,3 +138,5 @@
     color: var(--v2-ink-3);
   }
 }
+
+.hcb-video{max-width:960px;margin:28px auto 0}

@@ -10,6 +10,7 @@ import CtaBand from "@/components/v2/ui/CtaBand";
 import { pageClass } from "@/components/v2/ui/toneClass";
 import FaqSection from "@/components/v2/systems/FaqSection";
 import BrainPicker from "@/components/v2/systems/BrainPicker";
+import ClickVideo from "@/components/ui/ClickVideo";
 import { getCopy } from "@/components/v2/copy/getCopy";
 import { addLangPrefix } from "@/lib/locales";
 import { getCB } from "./companyBrainCopy";
@@ -34,6 +35,23 @@ export default function CompanyBrainPage({ tono, locale = "it" }) {
         lead={c.hero.lead}
         cta={{ label: CB.hero.cta, href: "#demo" }}
       />
+
+      {locale === "it" ? (
+        <Section tone="deep" id="video" aria-labelledby="cb-video">
+          <SectionHeader
+            id="cb-video"
+            title="Guarda il Brain al lavoro"
+            lead="50 secondi su un’azienda di esempio: dai documenti alla risposta, con file, sezione e frase esatta."
+          />
+          <div className="hcb-video">
+            <ClickVideo
+              base="/media/company-brain/demo"
+              caption="50 secondi, con la voce. Azienda e dati di fantasia."
+              label="Video di 50 secondi: un assistente che risponde sui documenti di un’azienda di esempio, con file, sezione e citazione."
+            />
+          </div>
+        </Section>
+      ) : null}
 
       <Section tone="light" aria-labelledby="cb-who">
         <SectionHeader id="cb-who" eyebrow={CB.who.eyebrow} title={CB.who.title} />

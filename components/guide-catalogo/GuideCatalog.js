@@ -5,6 +5,7 @@ import "./catalogo.css";
 import GuideCard, { DOOR } from "./GuideCard";
 import WaButton from "./WaButton";
 import HeroAnimation from "./HeroAnimation";
+import ClickVideo from "@/components/ui/ClickVideo";
 
 const SECTIONS = [
   { porta: "ruolo", tab: "Ruolo", title: "Per ruolo", sub: "Cosa cambia con l’IA nel tuo lavoro." },
@@ -15,7 +16,7 @@ const SECTIONS = [
 
 const FINDER = "/it#opportunity-finder";
 
-export default function GuideCatalog({ guide, source = "", focusCode = "", related = [] }) {
+export default function GuideCatalog({ guide, source = "", focusCode = "", related = [], video = null }) {
   const pronte = guide.filter((g) => g.pronta);
   // guida pronta in ?g=: va in evidenza in alto (le «in arrivo» restano nel catalogo con la scheda evidenziata)
   const featured = focusCode ? pronte.find((g) => g.code === focusCode) : null;
@@ -72,6 +73,13 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
               </div>
               <p className="proof">Gratis, su WhatsApp.</p>
             </section>
+            {video ? (
+              <section className="sec vid" aria-labelledby="gd-vid">
+                <h2 id="gd-vid">{video.title}</h2>
+                <p className="sub">{video.lead}</p>
+                <ClickVideo base={video.base} label={video.label} caption="50 secondi, con la voce. Azienda e dati di fantasia." />
+              </section>
+            ) : null}
             {related.length ? (
               <section className="sec" aria-labelledby="gd-rel">
                 <h2 id="gd-rel">Ti può servire anche</h2>

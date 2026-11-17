@@ -1,0 +1,13 @@
+.cv-wrap{margin:0;width:100%}
+.cv{position:relative;width:100%;width:100%;overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.1);background:#000a14;box-shadow:0 24px 60px -24px rgba(0,0,0,.6)}
+.cv-d .cv{aspect-ratio:16/9}
+.cv-m .cv{aspect-ratio:4/5}
+.cv-m{max-width:460px;margin-inline:auto}
+.cv-cap{margin-top:10px;font-size:14.5px;color:#b4c2ff}
+.cv-v,.cv-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cv-play{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer;color:#fff;font:inherit}
+.cv-btn{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;display:grid;place-items:center;background:#3c91e6;box-shadow:0 0 0 10px rgba(60,145,230,.25);transition:transform .2s ease,box-shadow .2s ease}
+.cv-btn svg{margin-left:4px}
+.cv-play:hover .cv-btn,.cv-play:focus-visible .cv-btn{transform:scale(1.06);box-shadow:0 0 0 14px rgba(60,145,230,.28)}
+.cv-play:focus-visible{outline:3px solid #b4c2ff;outline-offset:-3px}
+@media (prefers-reduced-motion:reduce){.cv-btn{transition:none}}
