@@ -10,6 +10,15 @@ import { relatedFor, TARGETS } from "@/lib/guideCorrelate";
 // Non è per la ricerca: noindex, canonical sul catalogo, fuori dalla sitemap.
 export const dynamic = "force-dynamic";
 
+// Video «Company Brain» (50 s, con la voce, parte solo al click) sotto la guida promessa, su tutte e tre le pagine.
+// Versione guide: la scheda finale non cita il sito (regola del 12/11). File in public/media/company-brain/guide-*.
+const VIDEO = {
+  base: "/media/company-brain/guide",
+  title: "Guarda un Company Brain al lavoro",
+  lead: "Contratti, fatture, buste paga: l’assistente risponde solo dai documenti e ti mostra la frase esatta.",
+  label: "Video di 50 secondi: un assistente che risponde sui documenti di un’azienda di esempio, con file, sezione e citazione.",
+};
+
 export async function generateMetadata({ params }) {
   const code = TARGETS[params.target];
   const guida = code ? (await getCatalogo()).find((g) => g.code === code) : null;
@@ -29,7 +38,7 @@ export default async function GuideTargetPage({ params, searchParams }) {
   const focusCode = catalogo.some((g) => g.code === code) ? code : "";
   return (
     <AutomisItShell hideStickyCta>
-      <GuideCatalog guide={catalogo} source={source} focusCode={focusCode} related={focusCode ? relatedFor(focusCode, catalogo) : []} />
+      <GuideCatalog guide={catalogo} source={source} focusCode={focusCode} related={focusCode ? relatedFor(focusCode, catalogo) : []} video={focusCode ? VIDEO : null} />
     </AutomisItShell>
   );
 }
