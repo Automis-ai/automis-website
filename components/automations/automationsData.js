@@ -296,7 +296,7 @@ export const AUTOMATIONS = [
     problem: "The answer to any question is buried in a folder, an inbox, or one person's memory.",
     automate: "We build a private searchable brain over your documents so your team asks a question in plain language and gets a sourced answer.",
     outcome: "Your team gets the answer, with its source, instead of asking you.",
-    liveHref: "/use-cases/adifesa",
+    liveHref: "/systems/company-brain",
     liveLabel: "See it live",
     it: {
       title: "Company Brain (RAG sui tuoi documenti)",
