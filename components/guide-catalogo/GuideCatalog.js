@@ -77,7 +77,7 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
               <section className="sec vid" aria-labelledby="gd-vid">
                 <h2 id="gd-vid">{video.title}</h2>
                 <p className="sub">{video.lead}</p>
-                <ClickVideo base={video.base} label={video.label} caption="50 secondi, con la voce. Azienda e dati di fantasia." />
+                <ClickVideo base={video.base} label={video.label} />
               </section>
             ) : null}
             {related.length ? (

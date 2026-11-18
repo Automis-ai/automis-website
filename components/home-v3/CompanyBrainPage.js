@@ -41,12 +41,11 @@ export default function CompanyBrainPage({ tono, locale = "it" }) {
           <SectionHeader
             id="cb-video"
             title="Guarda il Brain al lavoro"
-            lead="50 secondi su un’azienda di esempio: dai documenti alla risposta, con file, sezione e frase esatta."
+            lead="Dai documenti alla risposta, con file, sezione e frase esatta."
           />
           <div className="hcb-video">
             <ClickVideo
               base="/media/company-brain/demo"
-              caption="50 secondi, con la voce. Azienda e dati di fantasia."
               label="Video di 50 secondi: un assistente che risponde sui documenti di un’azienda di esempio, con file, sezione e citazione."
             />
           </div>
