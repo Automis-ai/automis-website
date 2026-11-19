@@ -132,6 +132,7 @@ const STATIC_PATHS = [
   "/it/blog/quanto-costa-assistente-vocale-ristorante",
   "/it/blog/bot-whatsapp-prenotazioni-parrucchieria",
   "/it/blog/migliori-bot-whatsapp-prenotazioni",
+  "/it/blog/migliori-chatbot-whatsapp-business-studi-professionali",
   "/it/blog/note-vocali-crm-agenti-immobiliari",
   "/it/blog/ia-privata-cartelle-cliniche-studio-medico",
   "/it/blog/da-dove-iniziare-automazione-ia-salone-bellezza",
