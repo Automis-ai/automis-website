@@ -37,8 +37,8 @@ export default async function GuideTargetPage({ params, searchParams }) {
   const source = parseSource(searchParams?.da) || "LO";
   const focusCode = catalogo.some((g) => g.code === code) ? code : "";
   return (
-    <AutomisItShell hideStickyCta>
-      <GuideCatalog guide={catalogo} source={source} focusCode={focusCode} related={focusCode ? relatedFor(focusCode, catalogo) : []} video={focusCode ? VIDEO : null} />
+    <AutomisItShell hideStickyCta landing>
+      <GuideCatalog guide={catalogo} source={source} focusCode={focusCode} related={focusCode ? relatedFor(focusCode, catalogo) : []} video={focusCode ? VIDEO : null} landing />
     </AutomisItShell>
   );
 }
