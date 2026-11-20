@@ -9,7 +9,7 @@ import AutomationsCta from "@/components/automations/AutomationsCta";
 export const metadata = {
   title: "Automazioni IA per settore: cosa puoi automatizzare | Automis",
   description:
-    "Scegli il tuo settore e scopri cosa puoi automatizzare con l'IA: cosa fai da solo con la guida e cosa costruiamo con te. Studi, PMI, sanità, immobiliare e altri.",
+    "Scegli il tuo settore e scopri cosa puoi automatizzare con l'IA: cosa fai da solo con la guida e cosa costruiamo insieme. Studi, PMI, sanità e altri.",
   keywords: [
     "automazioni IA per settore",
     "intelligenza artificiale per le aziende",

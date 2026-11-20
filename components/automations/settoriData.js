@@ -11,7 +11,7 @@ export const SETTORI = [
       slug: "intelligenza-artificiale-per-commercialisti", breve: "commercialisti",
       h1: "Intelligenza artificiale per commercialisti",
       title: "Intelligenza artificiale per commercialisti: cosa automatizzare | Automis",
-      description: "Sei idee per usare l'IA nello studio di un commercialista: documenti dei clienti, posta e PEC, telefono, scadenze. Cosa fai da solo e cosa costruiamo con te.",
+      description: "Sei idee per usare l'IA nello studio di un commercialista: documenti dei clienti, posta e PEC, telefono, scadenze. Cosa fai da solo, cosa facciamo insieme.",
       intro: "Documenti da rincorrere, posta che si accumula, scadenze che non perdonano. Qui trovi cosa può fare l'IA nel tuo studio, cosa puoi provare da solo con la guida e cosa costruiamo insieme.",
     },
     idee: [
@@ -29,7 +29,7 @@ export const SETTORI = [
       slug: "intelligenza-artificiale-per-avvocati", breve: "avvocati",
       h1: "Intelligenza artificiale per avvocati",
       title: "Intelligenza artificiale per avvocati: cosa automatizzare | Automis",
-      description: "Sei idee per usare l'IA nello studio legale: ricerca nei fascicoli, contratti e clausole, bozze di atti, telefono. Cosa fai da solo e cosa costruiamo con te.",
+      description: "Sei idee per usare l'IA nello studio legale: ricerca nei fascicoli, contratti e clausole, bozze di atti, telefono. Cosa fai da solo, cosa facciamo insieme.",
       intro: "Fascicoli da ritrovare, contratti da leggere, atti da preparare. Qui trovi cosa può fare l'IA nel tuo studio, dentro il segreto professionale, cosa puoi provare da solo con la guida e cosa costruiamo insieme.",
     },
     idee: [
@@ -78,7 +78,7 @@ export const SETTORI = [
       slug: "intelligenza-artificiale-per-dentisti", breve: "dentisti",
       h1: "Intelligenza artificiale per dentisti",
       title: "Intelligenza artificiale per dentisti: cosa automatizzare | Automis",
-      description: "Sei idee per usare l'IA nello studio dentistico: telefono, promemoria, pazienti che non tornano, recensioni. Cosa fai da solo e cosa costruiamo con te.",
+      description: "Sei idee per usare l'IA nello studio dentistico: telefono, promemoria, pazienti che non tornano, recensioni. Cosa fai da solo, cosa facciamo insieme.",
       intro: "Il telefono squilla mentre sei in poltrona, i pazienti dimenticano la visita, qualcuno non torna più. Qui trovi cosa può fare l'IA nel tuo studio, cosa puoi provare da solo con la guida e cosa costruiamo insieme.",
     },
     idee: [
