@@ -12,6 +12,8 @@ const nextConfig = {
     return [
       { source: "/paid-ads-management", destination: "/ai-automations", permanent: true },
       { source: "/it/paid-ads-management", destination: "/it", permanent: true },
+      // Pagina automazioni rinominata in italiano il 20/11/2026.
+      { source: "/it/ai-automations", destination: "/it/automazioni-ia", permanent: true },
       { source: "/coming-soon", destination: "/", permanent: true },
       { source: "/blog-details", destination: "/blog", permanent: true },
       // IG-bio landing renamed: /arcangelo -> /playbook.

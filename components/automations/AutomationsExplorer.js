@@ -49,9 +49,9 @@ const COPY = {
       marketing: { name: "Marketing e crescita", blurb: "Porta i clienti giusti, in automatico." },
       admin: { name: "Admin e cervello aziendale", blurb: "Togli al tuo team il lavoro ripetitivo e la gestione delle informazioni." },
     },
-    eyebrow: "Filtra sul tuo mondo",
-    title: <>Trova le automazioni giuste per te</>,
-    lead: "Scegli il tuo settore, scegli il tuo obiettivo, o combinali entrambi per restringere la lista. Ogni esempio è qualcosa che costruiamo davvero.",
+    eyebrow: "Tutto il catalogo",
+    title: <>Preferisci partire dall'obiettivo?</>,
+    lead: "Scegli cosa vuoi ottenere e guarda le automazioni. Ogni esempio è qualcosa che costruiamo davvero.",
     byIndustry: "Per settore",
     allIndustries: "Tutti i settori",
     byGoal: "Per obiettivo",
@@ -219,6 +219,7 @@ export default function AutomationsExplorer() {
       {/* Filters */}
       <Reveal delay={80}>
         <div className="mx-auto mt-12 max-w-5xl space-y-6">
+          {locale !== "it" && (
           <div>
             <p className="mb-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/50">{t.byIndustry}</p>
             <div className="-mx-1 flex flex-wrap gap-2 overflow-x-auto px-1 pb-1">
@@ -228,6 +229,7 @@ export default function AutomationsExplorer() {
               ))}
             </div>
           </div>
+          )}
 
           <div>
             <p className="mb-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white/50">{t.byGoal}</p>

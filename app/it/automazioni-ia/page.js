@@ -1,15 +1,18 @@
 import AutomisEnShell from "@/components/site/AutomisEnShell";
 import AutomationsHero from "@/components/automations/AutomationsHero";
+import AutomationsPerSettore from "@/components/automations/AutomationsPerSettore";
 import AutomationsExplorer from "@/components/automations/AutomationsExplorer";
 import CustomAutomations from "@/components/automations/CustomAutomations";
 import OpportunityFinder from "@/components/home/OpportunityFinder";
 import AutomationsCta from "@/components/automations/AutomationsCta";
 
 export const metadata = {
-  title: "Automazioni IA | Sistemi su misura per il tuo business | Automis",
+  title: "Automazioni IA per settore: cosa puoi automatizzare | Automis",
   description:
-    "Esplora le automazioni IA di Automis: segretarie vocali 24/7, flussi da DM social a CRM e il tuo Company Brain. Filtra per settore e obiettivo.",
+    "Scegli il tuo settore e scopri cosa puoi automatizzare con l'IA: cosa fai da solo con la guida e cosa costruiamo con te. Studi, PMI, sanità, immobiliare e altri.",
   keywords: [
+    "automazioni IA per settore",
+    "intelligenza artificiale per le aziende",
     "automazioni IA",
     "automazione aziendale IA",
     "sistemi IA su misura",
@@ -18,19 +21,19 @@ export const metadata = {
     "automazione marketing IA",
   ],
   alternates: {
-    canonical: "https://automis.ai/it/ai-automations",
+    canonical: "https://automis.ai/it/automazioni-ia",
     languages: {
       en: "https://automis.ai/ai-automations",
-      "it-IT": "https://automis.ai/it/ai-automations",
+      "it-IT": "https://automis.ai/it/automazioni-ia",
       "pt-PT": "https://automis.ai/pt/ai-automations",
       "x-default": "https://automis.ai/ai-automations",
     },
   },
   openGraph: {
-    title: "Automazioni IA | Automis",
+    title: "Automazioni IA per settore | Automis",
     description:
-      "Un catalogo navigabile delle automazioni IA che costruiamo. Filtra per settore e obiettivo e trova i sistemi giusti per la tua azienda.",
-    url: "https://automis.ai/it/ai-automations",
+      "Scegli il tuo settore e scopri cosa puoi automatizzare con l'IA, da solo o con il nostro aiuto.",
+    url: "https://automis.ai/it/automazioni-ia",
     siteName: "Automis",
     locale: "it_IT",
     type: "website",
@@ -42,6 +45,7 @@ export default function AutomationsPage() {
   return (
     <AutomisEnShell>
       <AutomationsHero />
+      <AutomationsPerSettore />
       <AutomationsExplorer />
       <CustomAutomations />
       <OpportunityFinder />
