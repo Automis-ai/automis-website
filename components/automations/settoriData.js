@@ -43,6 +43,13 @@ export const SETTORI = [
   },
   {
     id: "manifattura", guida: "S7", nome: "Aziende manifatturiere",
+    pagina: {
+      slug: "intelligenza-artificiale-per-aziende-manifatturiere", breve: "aziende manifatturiere",
+      h1: "Intelligenza artificiale per aziende manifatturiere",
+      title: "Intelligenza artificiale per aziende manifatturiere: cosa automatizzare | Automis",
+      description: "Sei idee per usare l'IA in un'azienda manifatturiera: questionari dei clienti, ordini, ricambi, preventivi. Cosa fai da solo, cosa facciamo insieme.",
+      intro: "Questionari da compilare, ordini da inserire, ricambi da cercare. Qui trovi cosa può fare l'IA nella tua azienda, cosa puoi provare da solo con la guida e cosa costruiamo insieme.",
+    },
     idee: [
       [A, "Rispondere ai questionari dei clienti", "Arriva un questionario su qualità o sicurezza: l'IA cerca le risposte nelle schede e nelle procedure che hai già e ti propone il testo."],
       [A, "Ordini da email e PDF", "L'ordine viene letto e inserito, e al cliente parte la conferma. I casi dubbi li guarda un collega."],
@@ -54,6 +61,13 @@ export const SETTORI = [
   },
   {
     id: "ingrosso", guida: "S8", nome: "Commercio all'ingrosso",
+    pagina: {
+      slug: "intelligenza-artificiale-per-grossisti", breve: "grossisti",
+      h1: "Intelligenza artificiale per grossisti",
+      title: "Intelligenza artificiale per grossisti: cosa automatizzare | Automis",
+      description: "Cinque idee per usare l'IA nel commercio all'ingrosso: ordini da email e WhatsApp, resi, preventivi, solleciti. Cosa fai da solo, cosa facciamo insieme.",
+      intro: "Ordini su tre canali, resi da gestire, crediti da recuperare. Qui trovi cosa può fare l'IA nella tua azienda, cosa puoi provare da solo con la guida e cosa costruiamo insieme.",
+    },
     idee: [
       [A, "Ordini da email, WhatsApp e PDF", "Gli ordini arrivano su tre canali diversi. Vengono letti, messi in ordine e inseriti, con i dubbi segnalati a un collega."],
       [A, "Assistenza e resi", "Le domande ripetitive su resi e consegne ricevono risposta subito. I casi particolari arrivano a te."],
@@ -64,6 +78,13 @@ export const SETTORI = [
   },
   {
     id: "logistica", guida: "S9", nome: "Logistica e trasporti",
+    pagina: {
+      slug: "intelligenza-artificiale-per-logistica", breve: "logistica e trasporti",
+      h1: "Intelligenza artificiale per la logistica",
+      title: "Intelligenza artificiale per la logistica: cosa automatizzare | Automis",
+      description: "Cinque idee per usare l'IA nella logistica: preventivi, stato delle consegne, documenti di viaggio, reclami. Cosa fai da solo, cosa facciamo insieme.",
+      intro: "Preventivi da quotare, clienti che chiedono dov'è la merce, documenti da archiviare. Qui trovi cosa può fare l'IA nella tua azienda, cosa puoi provare da solo con la guida e cosa costruiamo insieme.",
+    },
     idee: [
       [A, "Richieste di preventivo", "La richiesta arriva per email o WhatsApp, viene letta e ti ritrovi una quotazione da rivedere."],
       [A, "Dov'è la mia merce?", "Il cliente chiede lo stato di una consegna e riceve risposta con le informazioni che hai già, anche di sera."],
