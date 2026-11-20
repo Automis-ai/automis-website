@@ -187,6 +187,7 @@ const STATIC_PATHS = [
   "/pt/blog/chatbot-whatsapp-imobiliaria-porto",
   "/pt/blog/anuncios-facebook-clinica-dentaria-lisboa",
   "/pt/blog/ia-para-advogados-gestao-documentos",
+  "/pt/blog/quanto-custa-automatizar-restaurante-ia",
   "/it/blog/recupero-chiamate-perse-agenzia-immobiliare",
   // Portuguese tools
   "/pt/tools",
