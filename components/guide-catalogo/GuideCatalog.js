@@ -71,6 +71,7 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
       <div className="wrap">
         {featured ? (
           <>
+            <div className="pickrow">
             <section className="pick" aria-labelledby="gd-pick">
               <p className="who">{DOOR[featured.porta]} · per {featured.per_chi}{featured.minuti ? ` · ${featured.minuti} min di lettura` : ""}</p>
               <h1 id="gd-pick">{featured.titolo}</h1>
@@ -80,6 +81,8 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
               </div>
               <p className="proof">Gratis, su WhatsApp.</p>
             </section>
+            <HeroAnimation />
+            </div>
             {video ? (
               <section className="sec vid" aria-labelledby="gd-vid">
                 <h2 id="gd-vid">{video.title}</h2>

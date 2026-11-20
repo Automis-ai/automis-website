@@ -32,6 +32,8 @@
 #gd .pick .act{width:100%;max-width:420px;margin-top:6px}
 #gd .pick .proof{margin-top:0}
 #gd .all{margin-top:28px;text-align:center}
+#gd .pickrow{display:grid;gap:24px}
+#gd .pickrow .anim{max-width:320px}
 #gd .all a{color:var(--soft);font-size:15px;font-weight:500;text-underline-offset:4px}
 
 /* ---- menu fisso ---- */
@@ -93,6 +95,8 @@
   #gd .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
   #gd .soon ul{grid-template-columns:repeat(2,minmax(0,1fr))}
   #gd .finder .btn{width:auto}
+  #gd .pickrow{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);column-gap:40px;align-items:start}
+  #gd .pickrow .anim{justify-self:end;margin-inline:0;max-width:340px}
 }
 @media (min-width:900px){
   #gd .hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-areas:"head anim" "act anim";column-gap:56px;row-gap:24px;align-items:center}
@@ -100,6 +104,7 @@
   #gd .hero-act{grid-area:act;align-self:start}
   #gd .hero-act .btn{width:auto}
   #gd .anim{grid-area:anim;justify-self:end;width:100%;max-width:400px}
+  #gd .pickrow .anim{grid-area:auto;max-width:400px}
   #gd .jump{top:96px}
   #gd .sec,#gd .soon{scroll-margin-top:150px}
 }
