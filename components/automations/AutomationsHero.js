@@ -13,12 +13,12 @@ const COPY = {
     cta: "Explore the catalog",
   },
   it: {
-    eyebrow: "Il catalogo",
-    headlinePre: "Automazioni IA che ",
-    headlineAccent: "ti portano clienti e ti restituiscono tempo",
+    eyebrow: "Per settore",
+    headlinePre: "Automazioni IA ",
+    headlineAccent: "per il tuo settore",
     subhead:
-      "Un catalogo concreto di sistemi IA che mettiamo in produzione, dalle receptionist vocali al tuo Company Brain. Filtra per settore e obiettivo e scopri cosa fa al caso tuo.",
-    cta: "Esplora il catalogo",
+      "Scegli il tuo settore e guarda cosa puoi automatizzare: cosa fai da solo seguendo la guida e cosa costruiamo insieme.",
+    cta: "Scegli il settore",
   },
   pt: {
     eyebrow: "O catálogo",
@@ -73,7 +73,7 @@ export default function AutomationsHero() {
 
           <Reveal immediate delay={180}>
             <a
-              href="#explorer"
+              href={locale === "it" ? "#per-settore" : "#explorer"}
               className="mt-9 inline-flex items-center gap-2 rounded-xl border border-white/15 px-5 py-3 text-[14px] font-semibold text-white/80 transition-colors hover:border-white/30 hover:text-white"
             >
               {t.cta}

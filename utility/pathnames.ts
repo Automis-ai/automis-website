@@ -70,7 +70,7 @@ export const PATHNAMES = {
     },
     aiAutomations: {
       en: "/ai-automations",
-      it: "/it/ai-automations",
+      it: "/it/automazioni-ia",
       pt: "/pt/ai-automations",
     },
   },

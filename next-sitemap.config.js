@@ -113,7 +113,10 @@ const STATIC_PATHS = [
   "/it/alternativa-a-manychat", // IT guide (twin of /manychat-alternative)
   "/it/guide", // catalogo guide di Luca (WhatsApp)
   "/it/about",
-  "/it/ai-automations",
+  "/it/automazioni-ia",
+  "/it/intelligenza-artificiale-per-commercialisti",
+  "/it/intelligenza-artificiale-per-avvocati",
+  "/it/intelligenza-artificiale-per-dentisti",
   "/it/voice-ai",
   "/it/jumpstart-audit",
   "/it/use-cases",

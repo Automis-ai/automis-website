@@ -21,7 +21,7 @@ export const metadata = {
     canonical: "https://automis.ai/pt/ai-automations",
     languages: {
       en: "https://automis.ai/ai-automations",
-      "it-IT": "https://automis.ai/it/ai-automations",
+      "it-IT": "https://automis.ai/it/automazioni-ia",
       "pt-PT": "https://automis.ai/pt/ai-automations",
       "x-default": "https://automis.ai/ai-automations",
     },
