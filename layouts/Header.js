@@ -184,11 +184,11 @@ const panelLinkStyle = {
 
 const isUnder = (path, bases) => bases.some((b) => path === b || path.startsWith(`${b}/`));
 
-const Header = ({ header, onePage, hideHeaderNav = false }) => {
+const Header = ({ header, onePage, hideHeaderNav = false, plainLogo = false }) => {
   switch (header) {
     case 1:
     default:
-      return <DefaultHeader onePage={onePage} hideHeaderNav={hideHeaderNav} />;
+      return <DefaultHeader onePage={onePage} hideHeaderNav={hideHeaderNav} plainLogo={plainLogo} />;
   }
 };
 
@@ -212,7 +212,7 @@ const Chevron = ({ open, className = "" }) => (
   </svg>
 );
 
-const DefaultHeader = ({ hideHeaderNav = false }) => {
+const DefaultHeader = ({ hideHeaderNav = false, plainLogo = false }) => {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
   // Percorso senza prefisso di lingua (gestisce anche /pt-site/*): serve a capire quale voce e' attiva.
@@ -329,13 +329,24 @@ const DefaultHeader = ({ hideHeaderNav = false }) => {
           zIndex: 999,
         }}
       >
-        <Link href={menu.home} className="flex items-center">
-          <img
-            src="/assets/images/logos/logo.png"
-            alt="Automis AI"
-            className="md:h-[50px] h-[62px] md:w-[140px] w-[130px] object-contain"
-          />
-        </Link>
+        {/* plainLogo: landing senza uscite, il logo non porta alla home */}
+        {plainLogo ? (
+          <span className="flex items-center">
+            <img
+              src="/assets/images/logos/logo.png"
+              alt="Automis AI"
+              className="md:h-[50px] h-[62px] md:w-[140px] w-[130px] object-contain"
+            />
+          </span>
+        ) : (
+          <Link href={menu.home} className="flex items-center">
+            <img
+              src="/assets/images/logos/logo.png"
+              alt="Automis AI"
+              className="md:h-[50px] h-[62px] md:w-[140px] w-[130px] object-contain"
+            />
+          </Link>
+        )}
       </header>
     );
   }

@@ -16,6 +16,7 @@ const AkpagerLayout = ({
   bodyClass,
   onePage,
   hideHeaderNav = false,
+  landing = false, // landing senza uscite: logo senza link e footer ridotto ai soli link legali
   hideStickyCta = false, // nasconde solo il bottone fisso «Prenota una call» su telefono
   main = false, // avvolge il contenuto in <main id="main"> per il link «Vai al contenuto»
 }) => {
@@ -92,12 +93,12 @@ const AkpagerLayout = ({
     <Fragment>
       <VideoPopup />
       <div className="page-wrapper">
-        <Header header={header} onePage={onePage} hideHeaderNav={hideHeaderNav} />
+        <Header header={header} onePage={onePage} hideHeaderNav={hideHeaderNav || landing} plainLogo={landing} />
         {main ? <main id="main">{children}</main> : children}
-        <Footer footer={footer} />
+        <Footer footer={footer} legalOnly={landing} />
       </div>
 
-      {!hideHeaderNav && !hideStickyCta && (
+      {!hideHeaderNav && !landing && !hideStickyCta && (
         <div
           className={`md:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
             showStickyButton

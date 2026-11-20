@@ -7,6 +7,8 @@ import WaButton from "./WaButton";
 import HeroAnimation from "./HeroAnimation";
 import ClickVideo from "@/components/ui/ClickVideo";
 
+const FINDER = "/it#opportunity-finder";
+
 const SECTIONS = [
   { porta: "ruolo", tab: "Ruolo", title: "Per ruolo", sub: "Cosa cambia con l’IA nel tuo lavoro." },
   { porta: "settore", tab: "Settore", title: "Per settore", sub: "L’IA nel tuo tipo di attività." },
@@ -14,14 +16,19 @@ const SECTIONS = [
   { porta: "servizio", tab: "Marketing e clienti", title: "Marketing e clienti", sub: "Un tema alla volta." },
 ];
 
-const FINDER = "/it#opportunity-finder";
-
-export default function GuideCatalog({ guide, source = "", focusCode = "", related = [], video = null }) {
+// landing: pagina senza uscite (pagine per ruolo /it/guide/cfo, /ceo, /studi): niente blocco Finder che porta alla home
+export default function GuideCatalog({ guide, source = "", focusCode = "", related = [], video = null, landing = false }) {
   const pronte = guide.filter((g) => g.pronta);
   // guida pronta in ?g=: va in evidenza in alto (le «in arrivo» restano nel catalogo con la scheda evidenziata)
   const featured = focusCode ? pronte.find((g) => g.code === focusCode) : null;
   const presto = guide.filter((g) => !g.pronta);
-  const sections = SECTIONS.map((s) => ({ ...s, items: pronte.filter((g) => g.porta === s.porta) })).filter((s) => s.items.length);
+  // Nei settori vengono prima gli studi legali e i commercialisti (S4), poi il resto nell'ordine del catalogo.
+  const SETTORE_PRIMA = ["S4"];
+  const perSettore = (g) => (SETTORE_PRIMA.indexOf(g.code) + 1 || SETTORE_PRIMA.length + 1);
+  const sections = SECTIONS.map((s) => {
+    const items = pronte.filter((g) => g.porta === s.porta);
+    return { ...s, items: s.porta === "settore" ? [...items].sort((a, b) => perSettore(a) - perSettore(b)) : items };
+  }).filter((s) => s.items.length);
   const mins = pronte.map((g) => g.minuti).filter(Number.isInteger);
   const min = Math.min(...mins);
   const max = Math.max(...mins);
@@ -88,7 +95,7 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
                 </div>
               </section>
             ) : null}
-            <p className="all"><a href="/it/guide">Vedi tutte le guide</a></p>
+            {!landing ? <p className="all"><a href="/it/guide">Vedi tutte le guide</a></p> : null}
           </>
         ) : (
         <>
@@ -142,13 +149,15 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
         </>
         )}
 
-        <section className="finder" aria-labelledby="gd-finder">
-          <div>
-            <h2 id="gd-finder">Non sai da quale partire?</h2>
-            <p>Rispondi alle domande del Finder: in 2 minuti vedi le tue 3 opportunità IA.</p>
-          </div>
-          <a className="btn gold" href={FINDER}>Apri l’Opportunity Finder</a>
-        </section>
+        {!landing ? (
+          <section className="finder" aria-labelledby="gd-finder">
+            <div>
+              <h2 id="gd-finder">Non sai da quale partire?</h2>
+              <p>Rispondi alle domande del Finder: in 2 minuti vedi le tue 3 opportunità IA.</p>
+            </div>
+            <a className="btn gold" href={FINDER}>Apri l’Opportunity Finder</a>
+          </section>
+        ) : null}
 
         <p className="note">
           Su WhatsApp ti risponde l’assistente IA di Luca, che passa la mano a lui quando serve. Usiamo il tuo numero e i tuoi messaggi solo per mandarti la guida e risponderti.{" "}

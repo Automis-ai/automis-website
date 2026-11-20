@@ -6,7 +6,7 @@ import { getLocaleFromPathname, hrefFor, PATHNAMES } from "@/utility/pathnames";
 import { openCookieSettings } from "@/lib/cookieConsent";
 import FaIcon from "@/components/FaIcon";
 
-const Footer = ({ footer }) => {
+const Footer = ({ footer, legalOnly = false }) => {
   return (
     <>
       <style jsx global>{`
@@ -38,14 +38,14 @@ const Footer = ({ footer }) => {
         }
       `}</style>
 
-      {footer === 2 ? <Footer2 /> : <DefaultFooter />}
+      {footer === 2 ? <Footer2 /> : <DefaultFooter legalOnly={legalOnly} />}
     </>
   );
 };
 
 export default Footer;
 
-const DefaultFooter = () => {
+const DefaultFooter = ({ legalOnly = false }) => {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
 
@@ -85,6 +85,7 @@ const DefaultFooter = () => {
   return (
     <footer className="container main-footer footer-one relative z-1">
       <div className="max-w-1660 mx-auto px-4 clearfix">
+        {!legalOnly && (
         <div className="max-w-1660 mx-auto footer-content-wrapper flex flex-col lg:flex-row lg:flex-nowrap justify-between items-center lg:items-start pt-20 !pb-16 lg:pt-40">
           {/* LEFT SECTION: LOGO & INFO */}
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0 flex justify-center lg:justify-start">
@@ -151,6 +152,7 @@ const DefaultFooter = () => {
             </div>
           </div>
         </div>
+        )}
 
         {/* === FOOTER BOTTOM (3 COL GRID) === */}
         <div className="footer-bottom py-10">
@@ -158,9 +160,13 @@ const DefaultFooter = () => {
             {/* LEFT: COPYRIGHT */}
             <p className="text-white text-center md:text-left">
               © {new Date().getFullYear()}{" "}
-              <Link href={homeHref} className="underline underline-offset-2">
-                Automis
-              </Link>{" "}
+              {legalOnly ? (
+                "Automis"
+              ) : (
+                <Link href={homeHref} className="underline underline-offset-2">
+                  Automis
+                </Link>
+              )}{" "}
               {t.rights}
             </p>
 
@@ -169,6 +175,9 @@ const DefaultFooter = () => {
                 every request (image and homepage alike), so it rendered as a broken
                 image on all 78 pages and Ahrefs flagged a site-wide broken resource.
                 Re-add it only against a self-hosted copy of the image. */}
+            {legalOnly ? (
+              <div />
+            ) : (
             <div className="flex flex-col items-center gap-2">
               <a
                 href="https://elevenlabs.io/startup-grants"
@@ -184,6 +193,7 @@ const DefaultFooter = () => {
                 />
               </a>
             </div>
+            )}
 
             {/* RIGHT: LINKS */}
             <ul className="flex gap-6 justify-center md:justify-end text-white/70">
