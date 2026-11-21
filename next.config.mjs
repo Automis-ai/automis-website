@@ -20,6 +20,11 @@ const nextConfig = {
       { source: "/arcangelo", destination: "/playbook", permanent: true },
       // Free consultation now lives as step 1 of the Jumpstart Audit ladder.
       { source: "/consultation", destination: "/jumpstart-audit", permanent: false },
+      // Link corti per i messaggi WhatsApp del bot guide (21/11/2026): in chat si vede automis.ai/call, non l'URL lungo.
+      // Temporanei (307) di proposito: il bot li usa a lungo, la destinazione può cambiare.
+      { source: "/call", destination: "https://api.leadconnectorhq.com/widget/bookings/automis-it", permanent: false },
+      { source: "/luca", destination: "https://wa.me/393516026920?text=Ciao%20Luca%2C%20vorrei%20parlare%20con%20te", permanent: false },
+      { source: "/g/:slug", destination: "/it/guide/leggi/:slug", permanent: false },
       // Guide di ruolo rinominate il 13/11/2026: i link già mandati su WhatsApp restano vivi.
       { source: "/it/guide/leggi/il-conto-dell-ia", destination: "/it/guide/leggi/cfo-il-conto-dell-ia-prima-di-firmare", permanent: true },
       { source: "/it/guide/leggi/dove-mettere-l-ia-nel-2027", destination: "/it/guide/leggi/ceo-dove-mettere-l-ia-nel-2027", permanent: true },
