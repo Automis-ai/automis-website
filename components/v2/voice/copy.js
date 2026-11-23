@@ -950,7 +950,7 @@ export const US_PRICING = {
       period: "/mo",
       tagline: "A full acquisition engine, voice and beyond.",
       features: [
-        "1,500 minutes / month",
+        "1,200 minutes / month",
         "Everything in Growth System",
         "Outbound call and text campaigns",
         "Instant callback on new ad leads",
