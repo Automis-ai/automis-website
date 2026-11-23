@@ -246,7 +246,7 @@ export default {
           "period": "/mo",
           "tagline": "A full acquisition engine, voice and beyond.",
           "features": [
-            "1,500 minutes / month",
+            "1,000 minutes / month",
             "Everything in Growth",
             "WhatsApp chatbot",
             "Outbound campaigns",
@@ -546,7 +546,7 @@ export default {
           "period": "al mese",
           "tagline": "Un motore di acquisizione completo: voce e non solo.",
           "features": [
-            "1.500 minuti / mese",
+            "1.000 minuti / mese",
             "Tutto ciò che include Growth",
             "Chatbot WhatsApp",
             "Campagne outbound",
@@ -846,7 +846,7 @@ export default {
           "period": "/mês",
           "tagline": "Um motor de aquisição completo: voz e muito mais.",
           "features": [
-            "1.500 minutos / mês",
+            "1.000 minutos / mês",
             "Tudo o que inclui o Growth",
             "Chatbot WhatsApp",
             "Campanhas outbound",
