@@ -926,7 +926,6 @@ export const US_PRICING = {
         "Review request after every visit or job",
         "Instant alerts to your team",
       ],
-      overage: "Overage $0.40/min",
       featured: false,
     },
     {
@@ -943,7 +942,6 @@ export const US_PRICING = {
         "Win-back texts to past customers",
         "Multi-calendar, multi-staff",
       ],
-      overage: "Overage $0.30/min",
       featured: true,
     },
     {
@@ -961,7 +959,6 @@ export const US_PRICING = {
         "Analytics dashboard",
         "Up to 3 locations, one custom integration",
       ],
-      overage: "Overage $0.25/min",
       featured: false,
     },
   ],
