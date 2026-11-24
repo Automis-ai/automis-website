@@ -7,6 +7,7 @@ import LettoreWeb from "@/components/guide-lettore/LettoreWeb";
 import "@/components/guide-lettore/lettore.css";
 import WaButton from "@/components/guide-catalogo/WaButton";
 import { getCatalogo } from "@/lib/guideCatalogo";
+import { guideOg } from "@/lib/guideOg";
 import { READER_COOKIE } from "@/lib/guideGate";
 import { readManifest, readerSession, signPages } from "@/lib/guideLeggi";
 
@@ -16,8 +17,10 @@ const FIRST = 6; // pagine con link firmato già nella pagina: il resto arriva s
 
 export async function generateMetadata({ params }) {
   const g = (await getCatalogo()).find((x) => x.slug === params.slug);
+  const title = g ? `Leggi «${g.titolo}» | Automis` : "Guide | Automis";
   return {
-    title: { absolute: g ? `Leggi «${g.titolo}» | Automis` : "Guide | Automis" },
+    title: { absolute: title },
+    ...guideOg({ guida: g, title, url: `https://automis.ai/it/guide/leggi/${params.slug}` }),
     robots: { index: false, follow: false },
   };
 }

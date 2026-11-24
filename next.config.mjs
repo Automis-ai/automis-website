@@ -5,7 +5,7 @@ const nextConfig = {
   // I PDF delle guide stanno in private/ (non in public/): li serve solo /api/guide-pdf a chi ha il
   // cookie di accesso. Senza questa riga Vercel non li include nel pacchetto della funzione.
   experimental: {
-    outputFileTracingIncludes: { "/api/guide-pdf": ["./private/guides/**/*"] },
+    outputFileTracingIncludes: { "/api/guide-pdf": ["./private/guides/**/*"], "/api/guide-og/[code]": ["./lib/fonts/*.ttf"] },
   },
   async redirects() {
     // Pages retired in the 2026-07 site rollout — keep old links alive.
