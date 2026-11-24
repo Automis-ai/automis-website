@@ -4,6 +4,7 @@ import GuideCatalog from "@/components/guide-catalogo/GuideCatalog";
 import { getCatalogo } from "@/lib/guideCatalogo";
 import { parseSource } from "@/lib/guideWa";
 import { relatedFor, TARGETS } from "@/lib/guideCorrelate";
+import { guideOg } from "@/lib/guideOg";
 
 // Pagina breve per i link dell'outreach: /it/guide/cfo, /it/guide/ceo, /it/guide/studi.
 // Stessa pagina di /it/guide?g=CODICE (guida promessa in alto + correlate), con la fonte «LinkedIn» già impostata.
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }) {
   return {
     title: { absolute: title },
     alternates: { canonical: "https://automis.ai/it/guide" },
+    ...guideOg({ guida, title, url: `https://automis.ai/it/guide/${params.target}` }),
     robots: { index: false, follow: false },
   };
 }
