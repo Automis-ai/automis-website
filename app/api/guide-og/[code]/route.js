@@ -17,7 +17,7 @@ export async function GET(_req, { params }) {
   const sub = g ? `${g.per_chi}${g.pagine ? ` · ${g.pagine} pagine` : ""}` : "Per ruolo, settore e strumento · le ricevi su WhatsApp";
   const size = title.length > 52 ? 58 : title.length > 36 ? 68 : 80;
   const [bold, medium] = await Promise.all([font("Montserrat-ExtraBold.ttf"), font("Montserrat-Medium.ttf")]);
-  return new ImageResponse(
+  const img = new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", background: "#020a14", color: "#fff", padding: "56px 64px 64px", fontFamily: "Montserrat", position: "relative" }}>
         <div style={{ display: "flex", fontSize: 30, letterSpacing: 10, color: "#e6edf7", fontWeight: 500 }}>AUTOMIS</div>
@@ -34,7 +34,8 @@ export async function GET(_req, { params }) {
         { name: "Montserrat", data: bold, weight: 800, style: "normal" },
         { name: "Montserrat", data: medium, weight: 500, style: "normal" },
       ],
-      headers: { "Cache-Control": "public, max-age=3600, s-maxage=3600" },
     },
   );
+  // ImageResponse aggiunge da solo «immutable, 1 anno»: sul catalogo, che cambia, vogliamo 1 ora, e una sola direttiva.
+  return new Response(img.body, { headers: { "Content-Type": "image/png", "Cache-Control": "public, max-age=3600, s-maxage=3600" } });
 }
