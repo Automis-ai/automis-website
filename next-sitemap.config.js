@@ -95,6 +95,7 @@ const STATIC_PATHS = [
   "/blog/ai-lead-generation-for-dental-clinics",
   "/blog/where-to-start-ai-automation-dental-clinics",
   "/blog/google-review-software-for-dental-practices",
+  "/blog/patient-reactivation-software-dental-practices",
   "/blog/whatsapp-automation-for-medspas",
   "/blog/cheapest-phone-answering-service-small-business-ai-alternative",
   "/playbook",
