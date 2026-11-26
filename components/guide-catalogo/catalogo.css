@@ -76,6 +76,22 @@
 #gd .btn.gold{background:var(--gold);color:var(--ongold)}
 #gd .btn.gold:hover{background:#FFD27A}
 
+/* ---- «Link aperto»: riquadro di consenso (solo con ?p=). I due pulsanti hanno la stessa classe e lo stesso aspetto: nessuna scelta in evidenza ---- */
+#gd .la{max-width:720px;margin:0 0 22px;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--surf);display:grid;gap:10px}
+#gd .la h2{font-family:var(--head);font-weight:600;font-size:19px;line-height:1.2}
+#gd .la p{font-size:15px;line-height:1.5;color:var(--mute)}
+#gd .la a{color:var(--soft);text-underline-offset:3px}
+#gd .la-b{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px}
+#gd .la-btn{min-height:48px;padding:0 12px;background:transparent;color:var(--ink);border-color:var(--soft);font-size:16px}
+#gd .la-btn:hover{background:rgba(180,194,255,.12)}
+#gd .la-i{justify-self:start;display:inline-flex;align-items:center;min-height:44px;font-size:14.5px;font-weight:500}
+#gd .la-s{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px 14px;padding:8px 8px 8px 16px;border-radius:14px}
+#gd .la-s p{font-size:14.5px}
+#gd .la-r{min-height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--soft);font:500 14.5px var(--text);cursor:pointer;text-underline-offset:3px}
+#gd .la-r:hover{color:#fff;border-color:var(--soft)}
+#gd .la-r:disabled{opacity:.6;cursor:default}
+@media (max-width:420px){#gd .la-s{grid-template-columns:minmax(0,1fr)}#gd .la-r{justify-self:start}}
+
 /* ---- in arrivo ---- */
 #gd .soon ul{margin-top:18px;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
 #gd .soon li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 16px;border:1px dashed var(--line);border-radius:14px;background:rgba(6,24,42,.55);scroll-margin-top:120px}
