@@ -58,16 +58,16 @@ export const TOOLS = {
       ],
       h1: "Calcolatore delle chiamate perse",
       intro:
-        "Ogni chiamata senza risposta puo' essere un appuntamento che non si prenota. Inserisci i tuoi numeri e scopri in pochi secondi quanto fatturato perdi ogni mese e quanto potresti recuperare con un assistente vocale IA che risponde 24 ore su 24.",
+        "Ogni chiamata senza risposta può essere un appuntamento che non si prenota. Inserisci i tuoi numeri e scopri in pochi secondi quanto fatturato perdi ogni mese e quanto potresti recuperare con un assistente vocale IA che risponde 24 ore su 24.",
       why: [
-        "La maggior parte delle attivita' locali perde molte piu' chiamate di quanto immagina: fuori orario, nei momenti di punta e mentre lo staff e' con i clienti. Ogni chiamata persa e' spesso un cliente che chiama semplicemente l'attivita' successiva.",
+        "La maggior parte delle attività locali perde molte più chiamate di quanto immagina: fuori orario, nei momenti di punta e mentre lo staff è con i clienti. Ogni chiamata persa è spesso un cliente che chiama semplicemente l'attività successiva.",
         "Questo calcolatore trasforma quella perdita invisibile in un numero. Moltiplica le chiamate che perdi per il valore medio di un cliente e per il tuo tasso di conversione, e ottieni una cifra mensile e annuale su cui agire.",
-        "L'assistente vocale IA di Automis risponde a ogni chiamata 24 ore su 24, qualifica chi chiama e fissa l'appuntamento direttamente in agenda, cosi' recuperi gran parte di quel fatturato invece di lasciarlo andare.",
+        "L'assistente vocale IA di Automis risponde a ogni chiamata 24 ore su 24, qualifica chi chiama e fissa l'appuntamento direttamente in agenda, così recuperi gran parte di quel fatturato invece di lasciarlo andare.",
       ],
       faqs: [
-        { q: "Come si calcola il fatturato perso?", a: "Moltiplichiamo le chiamate perse al mese per il valore medio di un cliente e per il tuo tasso di conversione tipico. E' una stima per dimensionare l'opportunita', non un dato contabile preciso." },
-        { q: "Cosa si intende per chiamata persa?", a: "Qualsiasi chiamata in entrata a cui non rispondi dal vivo: fuori orario, nei weekend, nei giorni di chiusura o quando sei gia' occupato con un'altra chiamata o con un cliente." },
-        { q: "Un assistente vocale IA puo' davvero recuperarle?", a: "Un agente vocale IA risponde subito, a qualsiasi ora, quindi le chiamate che finivano in segreteria (o a un concorrente) vengono gestite e prenotate. Non le recupera tutte, ma copre gran parte del divario." },
+        { q: "Come si calcola il fatturato perso?", a: "Moltiplichiamo le chiamate perse al mese per il valore medio di un cliente e per il tuo tasso di conversione tipico. È una stima per dimensionare l'opportunità, non un dato contabile preciso." },
+        { q: "Cosa si intende per chiamata persa?", a: "Qualsiasi chiamata in entrata a cui non rispondi dal vivo: fuori orario, nei weekend, nei giorni di chiusura o quando sei già occupato con un'altra chiamata o con un cliente." },
+        { q: "Un assistente vocale IA può davvero recuperarle?", a: "Un agente vocale IA risponde subito, a qualsiasi ora, quindi le chiamate che finivano in segreteria (o a un concorrente) vengono gestite e prenotate. Non le recupera tutte, ma copre gran parte del divario." },
       ],
       cta: { label: "Prenota una call per fermare la perdita", sub: "15 minuti, nessun impegno" },
     },
@@ -149,14 +149,14 @@ export const TOOLS = {
       intro:
         "Gli appuntamenti mancati svuotano in silenzio un'agenda piena. Inserisci pochi numeri e scopri quanto ti costano ogni mese e quanto potresti risparmiare con promemoria e conferme automatiche.",
       why: [
-        "Per studi, cliniche e saloni, un appuntamento mancato e' uno slot che raramente si riempie all'ultimo minuto. La poltrona resta vuota, il tempo dello staff e' comunque pagato e il fatturato e' perso.",
-        "Vedere il costo mensile e annuale in euro rende evidente perche' conviene automatizzare promemoria e conferme invece di lasciarli a una reception gia' impegnata.",
-        "L'assistente vocale IA di Automis conferma gli appuntamenti, invia promemoria e permette ai clienti di spostare la prenotazione a voce, cosi' meno slot restano vuoti e la tua agenda resta piena.",
+        "Per studi, cliniche e saloni, un appuntamento mancato è uno slot che raramente si riempie all'ultimo minuto. La poltrona resta vuota, il tempo dello staff è comunque pagato e il fatturato è perso.",
+        "Vedere il costo mensile e annuale in euro rende evidente perché conviene automatizzare promemoria e conferme invece di lasciarli a una reception già impegnata.",
+        "L'assistente vocale IA di Automis conferma gli appuntamenti, invia promemoria e permette ai clienti di spostare la prenotazione a voce, così meno slot restano vuoti e la tua agenda resta piena.",
       ],
       faqs: [
         { q: "Come si stima il costo degli appuntamenti mancati?", a: "Moltiplichiamo gli appuntamenti a settimana per la percentuale di no-show e per il valore medio di un appuntamento, poi proiettiamo il dato su mese e anno." },
-        { q: "Di quanto si possono ridurre i no-show?", a: "Dipende dal settore, ma promemoria automatici e la possibilita' di riprogrammare facilmente riducono i no-show in modo significativo. Usa il risultato come stima prudente dell'opportunita'." },
-        { q: "Funziona per qualsiasi attivita' su appuntamento?", a: "Si'. Studi dentistici e medici, saloni e qualsiasi servizio che prenota per fasce orarie possono usarlo per quantificare il costo delle poltrone vuote." },
+        { q: "Di quanto si possono ridurre i no-show?", a: "Dipende dal settore, ma promemoria automatici e la possibilità di riprogrammare facilmente riducono i no-show in modo significativo. Usa il risultato come stima prudente dell'opportunità." },
+        { q: "Funziona per qualsiasi attività su appuntamento?", a: "Sì. Studi dentistici e medici, saloni e qualsiasi servizio che prenota per fasce orarie possono usarlo per quantificare il costo delle poltrone vuote." },
       ],
       cta: { label: "Prenota una call per ridurre i no-show", sub: "15 minuti, nessun impegno" },
     },
@@ -234,24 +234,24 @@ export const TOOLS = {
         "generatore link recensioni google",
         "qr code recensioni google",
         "link diretto recensione google",
-        "ottenere piu' recensioni google",
+        "ottenere più recensioni google",
         "link recensioni",
       ],
       h1: "Link recensioni Google e QR code: il generatore",
       intro:
-        "Crea il link per le recensioni Google in tre passaggi: trova il Place ID, incollalo qui sotto, copia il link. Ottieni anche il QR code per le recensioni Google e un cartoncino da stampare per il bancone, cosi' un cliente soddisfatto ti recensisce con un'inquadratura.",
+        "Crea il link per le recensioni Google in tre passaggi: trova il Place ID, incollalo qui sotto, copia il link. Ottieni anche il QR code per le recensioni Google e un cartoncino da stampare per il bancone, così un cliente soddisfatto ti recensisce con un'inquadratura.",
       why: [
-        "Meno passaggi ci sono tra un cliente soddisfatto e il modulo di recensione, piu' recensioni raccogli. Un link diretto salta la ricerca e apre subito il riquadro.",
-        "Le recensioni sono uno dei segnali di fiducia e di posizionamento locale piu' forti, quindi un flusso costante migliora sia la posizione nel pacchetto mappe sia il tasso di conversione.",
-        "Stampa il QR su un cartoncino alla reception, aggiungi il link a un messaggio di follow-up e chiedi subito dopo una bella visita. L'assistente vocale IA di Automis puo' inviare il link automaticamente dopo ogni appuntamento.",
+        "Meno passaggi ci sono tra un cliente soddisfatto e il modulo di recensione, più recensioni raccogli. Un link diretto salta la ricerca e apre subito il riquadro.",
+        "Le recensioni sono uno dei segnali di fiducia e di posizionamento locale più forti, quindi un flusso costante migliora sia la posizione nel pacchetto mappe sia il tasso di conversione.",
+        "Stampa il QR su un cartoncino alla reception, aggiungi il link a un messaggio di follow-up e chiedi subito dopo una bella visita. L'assistente vocale IA di Automis può inviare il link automaticamente dopo ogni appuntamento.",
       ],
       faqs: [
         { q: "Come si crea il link per le recensioni Google?", a: "Trova il Place ID con lo strumento gratuito Place ID Finder di Google, incollalo nel campo qui sopra e lo strumento crea il link diretto per scrivere una recensione. Copialo e mandalo per messaggio, email o mettilo sul sito." },
-        { q: "Come si fa il QR code per le recensioni Google?", a: "Incolla il Place ID e il QR code compare sotto il link. Scaricalo in PNG oppure scrivi il nome della tua attivita' e stampa il cartoncino gia' pronto." },
-        { q: "Posso stampare il QR code?", a: "Si'. Usa il pulsante di stampa sul cartoncino sotto il link: stampa un cartoncino semplice con il QR code e una frase che chiede una recensione, pronto per il bancone o lo scontrino." },
-        { q: "Dove trovo il mio Place ID di Google?", a: "Usa lo strumento gratuito Place ID Finder di Google, linkato sopra il campo. Cerca il nome della tua attivita' e copia il Place ID che appare." },
-        { q: "Il link per le recensioni e' sicuro da condividere?", a: "Si'. Apre semplicemente il modulo standard di recensione Google per la tua attivita'. Non salviamo nulla e tutto avviene nel tuo browser." },
-        { q: "Posso automatizzare le richieste di recensione?", a: "Si'. L'assistente vocale IA di Automis e le nostre automazioni possono inviare questo link via SMS o WhatsApp subito dopo ogni visita." },
+        { q: "Come si fa il QR code per le recensioni Google?", a: "Incolla il Place ID e il QR code compare sotto il link. Scaricalo in PNG oppure scrivi il nome della tua attività e stampa il cartoncino già pronto." },
+        { q: "Posso stampare il QR code?", a: "Sì. Usa il pulsante di stampa sul cartoncino sotto il link: stampa un cartoncino semplice con il QR code e una frase che chiede una recensione, pronto per il bancone o lo scontrino." },
+        { q: "Dove trovo il mio Place ID di Google?", a: "Usa lo strumento gratuito Place ID Finder di Google, linkato sopra il campo. Cerca il nome della tua attività e copia il Place ID che appare." },
+        { q: "Il link per le recensioni è sicuro da condividere?", a: "Sì. Apre semplicemente il modulo standard di recensione Google per la tua attività. Non salviamo nulla e tutto avviene nel tuo browser." },
+        { q: "Posso automatizzare le richieste di recensione?", a: "Sì. L'assistente vocale IA di Automis e le nostre automazioni possono inviare questo link via SMS o WhatsApp subito dopo ogni visita." },
       ],
       cta: { label: "Automatizza le richieste di recensione", sub: "Scopri come lo fa l'assistente vocale IA" },
     },
@@ -324,7 +324,7 @@ export const TOOLS = {
       name: "Generatore di link WhatsApp e click-to-call",
       metaTitle: "Generatore gratuito di link WhatsApp e click-to-call | Automis",
       metaDescription:
-        "Crea un link WhatsApp wa.me con messaggio gia' pronto, un link click-to-call e un QR code. Gratis, funziona nel browser, senza registrazione.",
+        "Crea un link WhatsApp wa.me con messaggio già pronto, un link click-to-call e un QR code. Gratis, funziona nel browser, senza registrazione.",
       keywords: [
         "generatore link whatsapp",
         "link wa.me",
@@ -334,18 +334,18 @@ export const TOOLS = {
       ],
       h1: "Generatore di link WhatsApp e click-to-call",
       intro:
-        "Fatti raggiungere con un tocco. Inserisci il tuo numero per creare un link chat WhatsApp con messaggio gia' pronto, un link click-to-call e un QR code per stampa o web.",
+        "Fatti raggiungere con un tocco. Inserisci il tuo numero per creare un link chat WhatsApp con messaggio già pronto, un link click-to-call e un QR code per stampa o web.",
       why: [
         "In Italia e in Europa i clienti usano WhatsApp prima dell'email. Un link chat con un tocco sul sito, in bio o su un volantino elimina l'attrito di dover prima salvare il numero.",
-        "Aggiungi il link click-to-call al profilo Google e agli annunci cosi' chi e' da mobile ti chiama subito, e metti il QR sul materiale stampato per collegare l'offline alla chat.",
-        "Quando il volume cresce, l'assistente vocale IA di Automis e le automazioni di chat rispondono e qualificano queste conversazioni 24 ore su 24, cosi' una linea occupata non e' mai un cliente perso.",
+        "Aggiungi il link click-to-call al profilo Google e agli annunci così chi è da mobile ti chiama subito, e metti il QR sul materiale stampato per collegare l'offline alla chat.",
+        "Quando il volume cresce, l'assistente vocale IA di Automis e le automazioni di chat rispondono e qualificano queste conversazioni 24 ore su 24, così una linea occupata non è mai un cliente perso.",
       ],
       faqs: [
-        { q: "Cos'e' un link wa.me?", a: "E' il formato ufficiale dei link di WhatsApp. Aprendolo si avvia una chat con il tuo numero, se vuoi con un messaggio gia' scritto, da telefono o desktop." },
+        { q: "Cos'è un link wa.me?", a: "È il formato ufficiale dei link di WhatsApp. Aprendolo si avvia una chat con il tuo numero, se vuoi con un messaggio già scritto, da telefono o desktop." },
         { q: "Serve un account WhatsApp Business?", a: "No. Il link funziona con qualsiasi numero WhatsApp. Un profilo Business aggiunge solo extra come catalogo e risposte rapide." },
         { q: "Dove conviene usare questi link?", a: "Sito, profili Instagram e Google, firma email, annunci e materiale stampato tramite il QR. Ovunque un cliente possa volerti contattare." },
       ],
-      cta: { label: "Non perdere piu' una chat o una chiamata", sub: "Scopri come lo gestisce l'assistente vocale IA" },
+      cta: { label: "Non perdere più una chat o una chiamata", sub: "Scopri come lo gestisce l'assistente vocale IA" },
     },
     pt: {
       name: "Gerador de link WhatsApp e click-to-call",
@@ -427,16 +427,16 @@ export const TOOLS = {
       intro:
         "Quanto costa davvero far rispondere a ogni chiamata? Inserisci le chiamate, la durata e le fasce da coprire e confronta una segretaria assunta, un servizio di segreteria telefonica e una segretaria IA, al mese e all'anno.",
       why: [
-        "Una segretaria si paga per ogni ora, anche quelle tranquille. Un servizio di segreteria si paga a chiamata o a minuto, quindi un mese pieno costa di piu'. Una segretaria IA ha un canone fisso. Quale conviene dipende da quante chiamate ricevi e a che ora.",
+        "Una segretaria si paga per ogni ora, anche quelle tranquille. Un servizio di segreteria si paga a chiamata o a minuto, quindi un mese pieno costa di più. Una segretaria IA ha un canone fisso. Quale conviene dipende da quante chiamate ricevi e a che ora.",
         "Il calcolatore parte da cifre pubbliche, come i minimi del contratto collettivo e i listini pubblicati, e ti dice da dove arriva ognuna. Cambia i numeri con i tuoi, quelli del tuo preventivo o del tuo cedolino. Dove non abbiamo trovato una cifra pubblica, il campo resta vuoto invece di essere inventato.",
         "Le righe sul punto di pareggio ti dicono da quante chiamate al mese un'opzione batte l'altra. Se il telefono squilla la sera, nel weekend o mentre sei con un cliente, la differenza si vede presto.",
       ],
       faqs: [
-        { q: "Quanto costa una segretaria?", a: "Per una persona assunta, il minimo contrattuale del CCNL Terziario Confcommercio al IV livello e' un punto di partenza, ma a questo vanno aggiunti contributi, ferie, malattia e sostituzioni. Nel calcolatore puoi inserire la percentuale di costi extra a carico tuo." },
-        { q: "Quanto costa una segreteria telefonica?", a: "Dipende dal fornitore e dal piano. Per l'Italia non abbiamo trovato un listino pubblico affidabile, quindi il campo e' vuoto: inserisci il tuo preventivo. Come esempio estero, Smith.ai pubblica un piano da 300 $ per 30 chiamate, circa 10 $ a chiamata." },
+        { q: "Quanto costa una segretaria?", a: "Per una persona assunta, il minimo contrattuale del CCNL Terziario Confcommercio al IV livello è un punto di partenza, ma a questo vanno aggiunti contributi, ferie, malattia e sostituzioni. Nel calcolatore puoi inserire la percentuale di costi extra a carico tuo." },
+        { q: "Quanto costa una segreteria telefonica?", a: "Dipende dal fornitore e dal piano. Per l'Italia non abbiamo trovato un listino pubblico affidabile, quindi il campo è vuoto: inserisci il tuo preventivo. Come esempio estero, Smith.ai pubblica un piano da 300 $ per 30 chiamate, circa 10 $ a chiamata." },
         { q: "Quanto costa una segretaria IA?", a: "I piani della segretaria IA di Automis partono da 297 € al mese, a canone fisso. Altri fornitori fanno pagare a minuto o a chiamata, quindi confronta sempre sul tuo numero di chiamate." },
         { q: "Da dove arrivano i numeri di partenza?", a: "Da pagine pubbliche che abbiamo aperto a novembre 2026: il contratto collettivo Terziario Confcommercio per lo stipendio, il listino Automis per la segretaria IA. Le fonti sono elencate sotto il calcolatore." },
-        { q: "Perche' alcuni campi sono vuoti?", a: "Dove non abbiamo trovato un prezzo pubblico lasciamo il campo vuoto invece di inventarlo. Scrivi il tuo preventivo e il confronto si aggiorna." },
+        { q: "Perché alcuni campi sono vuoti?", a: "Dove non abbiamo trovato un prezzo pubblico lasciamo il campo vuoto invece di inventarlo. Scrivi il tuo preventivo e il confronto si aggiorna." },
       ],
       cta: { label: "Prenota una call per i tuoi numeri veri", sub: "15 minuti, nessun impegno" },
     },
@@ -510,7 +510,7 @@ export const TOOLS = {
       name: "Generatore di messaggi di assenza e risposta automatica WhatsApp",
       metaTitle: "Messaggio di assenza WhatsApp e risposta automatica: generatore gratuito | Automis",
       metaDescription:
-        "Generatore gratuito di messaggi di assenza e risposta automatica per WhatsApp: scegli attivita', situazione e tono, ottieni 3 messaggi pronti per chiamata persa, fuori orario, ferie e linea occupata.",
+        "Generatore gratuito di messaggi di assenza e risposta automatica per WhatsApp: scegli attività, situazione e tono, ottieni 3 messaggi pronti per chiamata persa, fuori orario, ferie e linea occupata.",
       keywords: [
         "messaggio di assenza WhatsApp",
         "risposta automatica WhatsApp",
@@ -520,20 +520,20 @@ export const TOOLS = {
       ],
       h1: "Messaggio di assenza WhatsApp e risposta automatica: il generatore",
       intro:
-        "Chi chiama e non ti trova di solito non lascia un messaggio in segreteria. Scegli la tua attivita', la situazione e il tono, e copia tre messaggi pronti che trasformano una chiamata persa in una conversazione. Senza registrazione, non salviamo nulla.",
+        "Chi chiama e non ti trova di solito non lascia un messaggio in segreteria. Scegli la tua attività, la situazione e il tono, e copia tre messaggi pronti che trasformano una chiamata persa in una conversazione. Senza registrazione, non salviamo nulla.",
       why: [
-        "Un messaggio veloce dopo una chiamata persa dice al cliente che l'hai vista e cosa succede adesso. Spesso e' la differenza tra un appuntamento e una chiamata al concorrente.",
+        "Un messaggio veloce dopo una chiamata persa dice al cliente che l'hai vista e cosa succede adesso. Spesso è la differenza tra un appuntamento e una chiamata al concorrente.",
         "I messaggi coprono i quattro momenti in cui perdi contatti: chiamata persa, fuori orario, ferie e linea occupata. Aggiungi il tuo nome, un link per prenotare e quando richiami, e sono pronti da incollare in WhatsApp Business, nel telefono o nel gestionale.",
-        "Un modello pero' deve sempre essere inviato da qualcuno. L'assistente vocale IA di Automis risponde alla chiamata, fissa la visita e scrive a chi ha chiamato, cosi' non c'e' nessuna chiamata persa di cui scusarsi.",
+        "Un modello però deve sempre essere inviato da qualcuno. L'assistente vocale IA di Automis risponde alla chiamata, fissa la visita e scrive a chi ha chiamato, così non c'è nessuna chiamata persa di cui scusarsi.",
       ],
       faqs: [
         { q: "Come si imposta il messaggio di assenza su WhatsApp Business?", a: "In WhatsApp Business vai su Strumenti per l'azienda, poi Messaggio di assenza, attivalo e incolla il testo che hai scelto qui. Puoi scegliere quando inviarlo, per esempio fuori dall'orario di lavoro." },
         { q: "Come si imposta la risposta automatica WhatsApp?", a: "Sempre da Strumenti per l'azienda: usa Messaggio di assenza per fuori orario e ferie, e Risposte rapide per i testi che invii a mano dopo una chiamata persa." },
-        { q: "Quanto deve essere lungo il messaggio?", a: "Breve. Due o tre frasi, un passo chiaro da fare e il tuo nome. Se vuoi la versione piu' snella, scegli il tono Breve." },
-        { q: "Salvate qualcosa o usate l'IA?", a: "No. I messaggi si costruiscono nel tuo browser da modelli, non salviamo nulla e non c'e' nessuna chiamata a un'IA ogni volta che usi lo strumento." },
-        { q: "Posso evitare del tutto le chiamate perse?", a: "Si', con un assistente vocale IA che risponde a ogni chiamata, 24 ore su 24, e fissa l'appuntamento in agenda." },
+        { q: "Quanto deve essere lungo il messaggio?", a: "Breve. Due o tre frasi, un passo chiaro da fare e il tuo nome. Se vuoi la versione più snella, scegli il tono Breve." },
+        { q: "Salvate qualcosa o usate l'IA?", a: "No. I messaggi si costruiscono nel tuo browser da modelli, non salviamo nulla e non c'è nessuna chiamata a un'IA ogni volta che usi lo strumento." },
+        { q: "Posso evitare del tutto le chiamate perse?", a: "Sì, con un assistente vocale IA che risponde a ogni chiamata, 24 ore su 24, e fissa l'appuntamento in agenda." },
       ],
-      cta: { label: "Non perdere piu' una chiamata", sub: "Scopri come l'assistente vocale IA risponde a tutto" },
+      cta: { label: "Non perdere più una chiamata", sub: "Scopri come l'assistente vocale IA risponde a tutto" },
     },
     pt: {
       name: "Gerador de mensagens de chamada perdida e de ausência",
@@ -616,15 +616,15 @@ export const TOOLS = {
       intro:
         "Gli appuntamenti saltati costano soldi veri. Scegli settore, canale e quando inviarlo, e copia tre messaggi di promemoria con la frase giusta per confermare o annullare. Pronti per WhatsApp, SMS o email, senza registrazione.",
       why: [
-        "Un promemoria a cui e' facile rispondere riceve risposta. I messaggi qui chiedono un SI' veloce, un link o una telefonata, cosi' il cliente conferma o libera lo slot quando puoi ancora riempirlo.",
-        "Scegli il giorno prima o lo stesso giorno, e il testo cambia con settore e canale: breve per l'SMS, un po' piu' caldo per WhatsApp, con l'oggetto per l'email.",
-        "Mandarli a mano toglie tempo alla segreteria ogni giorno. L'assistente vocale IA di Automis conferma gli appuntamenti, invia i promemoria e fa spostare la prenotazione a voce, cosi' restano meno slot vuoti.",
+        "Un promemoria a cui è facile rispondere riceve risposta. I messaggi qui chiedono un SÌ veloce, un link o una telefonata, così il cliente conferma o libera lo slot quando puoi ancora riempirlo.",
+        "Scegli il giorno prima o lo stesso giorno, e il testo cambia con settore e canale: breve per l'SMS, un po' più caldo per WhatsApp, con l'oggetto per l'email.",
+        "Mandarli a mano toglie tempo alla segreteria ogni giorno. L'assistente vocale IA di Automis conferma gli appuntamenti, invia i promemoria e fa spostare la prenotazione a voce, così restano meno slot vuoti.",
       ],
       faqs: [
-        { q: "Quando conviene inviare il promemoria di un appuntamento?", a: "Molti studi lo inviano il giorno prima e, per gli slot importanti, un secondo la mattina stessa. Il generatore ti da' entrambi i momenti, cosi' scegli quello che fa per te." },
-        { q: "Cosa deve contenere un promemoria?", a: "Nome dell'attivita', giorno e ora, un modo semplice per confermare e uno per annullare o spostare. Tienilo a due o tre righe." },
-        { q: "Posso usarlo per gli SMS?", a: "Si'. Scegli SMS per un testo piu' corto. Controlla la lunghezza nel tuo strumento SMS, perche' i limiti cambiano da fornitore a fornitore." },
-        { q: "Salvate qualcosa o usate l'IA?", a: "No. I messaggi si costruiscono nel tuo browser da modelli e non salviamo nulla ne' inviamo dati a un'IA." },
+        { q: "Quando conviene inviare il promemoria di un appuntamento?", a: "Molti studi lo inviano il giorno prima e, per gli slot importanti, un secondo la mattina stessa. Il generatore ti dà entrambi i momenti, così scegli quello che fa per te." },
+        { q: "Cosa deve contenere un promemoria?", a: "Nome dell'attività, giorno e ora, un modo semplice per confermare e uno per annullare o spostare. Tienilo a due o tre righe." },
+        { q: "Posso usarlo per gli SMS?", a: "Sì. Scegli SMS per un testo più corto. Controlla la lunghezza nel tuo strumento SMS, perché i limiti cambiano da fornitore a fornitore." },
+        { q: "Salvate qualcosa o usate l'IA?", a: "No. I messaggi si costruiscono nel tuo browser da modelli e non salviamo nulla né inviamo dati a un'IA." },
         { q: "Come calcolo quanto mi costano gli appuntamenti saltati?", a: "Usa il calcolatore degli appuntamenti mancati, linkato sotto questo strumento: trasforma appuntamenti e percentuale di no-show in una cifra mensile e annuale." },
       ],
       cta: { label: "Automatizza i promemoria", sub: "Scopri come l'assistente vocale IA conferma ogni appuntamento" },
@@ -682,12 +682,12 @@ export const HUB = {
     cardCta: "Open tool",
   },
   it: {
-    metaTitle: "Strumenti gratuiti per attivita' locali | Automis",
+    metaTitle: "Strumenti gratuiti per attività locali | Automis",
     metaDescription:
       "Strumenti gratuiti e senza registrazione: confronta il costo della segretaria, calcola chiamate perse e appuntamenti mancati, genera link recensioni, promemoria e messaggi di assenza.",
-    h1: "Strumenti gratuiti per attivita' locali",
+    h1: "Strumenti gratuiti per attività locali",
     intro:
-      "Strumenti semplici e gratuiti per aiutare le attivita' locali a rispondere a piu' chiamate, riempire piu' appuntamenti e ottenere piu' recensioni. Senza registrazione, non salviamo nulla, tutto funziona nel tuo browser.",
+      "Strumenti semplici e gratuiti per aiutare le attività locali a rispondere a più chiamate, riempire più appuntamenti e ottenere più recensioni. Senza registrazione, non salviamo nulla, tutto funziona nel tuo browser.",
     cardCta: "Apri strumento",
   },
   pt: {
@@ -727,7 +727,7 @@ export function hubUrl(locale) {
 }
 
 function ogImageAlt(locale) {
-  if (locale === "it") return "Strumenti gratuiti Automis per attivita' locali";
+  if (locale === "it") return "Strumenti gratuiti Automis per attività locali";
   if (locale === "pt") return "Ferramentas gratuitas Automis para negócios locais";
   return "Free Automis tools for local businesses";
 }

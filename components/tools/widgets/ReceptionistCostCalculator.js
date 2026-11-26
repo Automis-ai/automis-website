@@ -78,7 +78,7 @@ const STR = {
     model: "Tariffa", perCall: "A chiamata", perMin: "Al minuto", price: "Prezzo a chiamata", priceMin: "Prezzo al minuto", base: "Canone mensile fisso (facoltativo)",
     ai: "Segretaria IA, canone mensile", aiHint: "Automis parte da 297 € al mese",
     placeholder: "Inserisci il tuo",
-    month: "Al mese", year: "All'anno", cheapest: "L'opzione piu' economica", tbd: "Aggiungi il tuo dato",
+    month: "Al mese", year: "All'anno", cheapest: "L'opzione più economica", tbd: "Aggiungi il tuo dato",
     staff: (n) => `${n} persone a tempo pieno per coprire queste fasce`,
     sourcesIntro: "Cifre predefinite da", sourcesOutro: "Verificate a novembre 2026. Cambiale con le tue.",
     noSources: "Per i campi vuoti non abbiamo trovato una cifra pubblica, quindi li lasciamo in bianco. Compilali con il tuo preventivo.",
@@ -166,7 +166,7 @@ export default function ReceptionistCostCalculator({ locale }) {
     const v = rows.find((x) => x[0] === r.cheapest)[1];
     const sentences = {
       en: `At ${cal(r.c)} calls a month, the cheapest option is: ${label[r.cheapest]}, ${f0(v)} a month, ${f0(v * 12)} a year.`,
-      it: `Con ${cal(r.c)} chiamate al mese, l'opzione piu' economica e': ${label[r.cheapest]}, ${f0(v)} al mese e ${f0(v * 12)} all'anno.`,
+      it: `Con ${cal(r.c)} chiamate al mese, l'opzione più economica è: ${label[r.cheapest]}, ${f0(v)} al mese e ${f0(v * 12)} all'anno.`,
       pt: `Com ${cal(r.c)} chamadas por mês, a opção mais barata é: ${label[r.cheapest]}, ${f0(v)} por mês e ${f0(v * 12)} por ano.`,
     };
     read.push(sentences[locale] || sentences.en);
@@ -191,7 +191,7 @@ export default function ReceptionistCostCalculator({ locale }) {
     const diff = (r.aiVsHouse.inhouse - r.aiVsHouse.ai) * 12;
     const s = {
       en: diff >= 0 ? `Versus in-house, the AI receptionist saves ${f0(diff)} a year, and it answers every call at any hour.` : `Versus in-house, the AI receptionist costs ${f0(-diff)} more a year at these inputs.`,
-      it: diff >= 0 ? `Rispetto alla persona interna, la segretaria IA fa risparmiare ${f0(diff)} all'anno e risponde a ogni chiamata a qualsiasi ora.` : `Rispetto alla persona interna, con questi dati la segretaria IA costa ${f0(-diff)} in piu' all'anno.`,
+      it: diff >= 0 ? `Rispetto alla persona interna, la segretaria IA fa risparmiare ${f0(diff)} all'anno e risponde a ogni chiamata a qualsiasi ora.` : `Rispetto alla persona interna, con questi dati la segretaria IA costa ${f0(-diff)} in più all'anno.`,
       pt: diff >= 0 ? `Em relação à pessoa interna, a rececionista IA poupa ${f0(diff)} por ano e atende todas as chamadas a qualquer hora.` : `Em relação à pessoa interna, com estes dados a rececionista IA custa mais ${f0(-diff)} por ano.`,
     };
     read.push(s[locale] || s.en);

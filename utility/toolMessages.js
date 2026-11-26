@@ -12,7 +12,7 @@ const lc = (s) => s.charAt(0).toLowerCase() + s.slice(1);
 
 export const AWAY_TYPES = {
   en: { dental: "Dental clinic", medical: "Medical practice", physio: "Physio or wellness", salon: "Salon or beauty", professional: "Legal or accounting", realestate: "Real estate", trades: "Trades and home services", generic: "Other business" },
-  it: { dental: "Studio dentistico", medical: "Studio medico", physio: "Fisioterapia o benessere", salon: "Salone o estetica", professional: "Studio legale o commercialista", realestate: "Agenzia immobiliare", trades: "Artigiani e servizi a domicilio", generic: "Altra attivita'" },
+  it: { dental: "Studio dentistico", medical: "Studio medico", physio: "Fisioterapia o benessere", salon: "Salone o estetica", professional: "Studio legale o commercialista", realestate: "Agenzia immobiliare", trades: "Artigiani e servizi a domicilio", generic: "Altra attività" },
   pt: { dental: "Clínica dentária", medical: "Consultório médico", physio: "Fisioterapia ou bem-estar", salon: "Salão ou estética", professional: "Advocacia ou contabilidade", realestate: "Imobiliária", trades: "Serviços e assistência ao domicílio", generic: "Outro negócio" },
 };
 export const AWAY_SITUATIONS = {

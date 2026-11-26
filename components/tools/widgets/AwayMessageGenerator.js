@@ -17,9 +17,9 @@ const STR = {
     capture: { title: "Want 20 more messages for your business type?", button: "Email me 20 messages", done: "Got it. We will send them over shortly." },
   },
   it: {
-    type: "La tua attivita'", situation: "Situazione", tone: "Tono", name: "Nome dell'attivita' (facoltativo)", link: "Link per prenotare (facoltativo)", callback: "Quando richiami (facoltativo)",
+    type: "La tua attività", situation: "Situazione", tone: "Tono", name: "Nome dell'attività (facoltativo)", link: "Link per prenotare (facoltativo)", callback: "Quando richiami (facoltativo)",
     callbackPh: "es. entro 30 minuti", linkPh: "https://",
-    capture: { title: "Vuoi altri 20 messaggi per il tuo tipo di attivita'?", button: "Inviami 20 messaggi", done: "Fatto. Te li inviamo a breve." },
+    capture: { title: "Vuoi altri 20 messaggi per il tuo tipo di attività?", button: "Inviami 20 messaggi", done: "Fatto. Te li inviamo a breve." },
   },
   pt: {
     type: "O seu negócio", situation: "Situação", tone: "Tom", name: "Nome do negócio (opcional)", link: "Link de marcação (opcional)", callback: "Quando liga de volta (opcional)",

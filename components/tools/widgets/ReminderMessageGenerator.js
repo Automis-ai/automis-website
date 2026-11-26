@@ -19,7 +19,7 @@ const STR = {
   },
   it: {
     sector: "Settore", channel: "Canale", timing: "Quando inviarlo", confirm: "Come confermare o annullare",
-    name: "Nome dell'attivita' (facoltativo)", client: "Nome del cliente (facoltativo)", when: "Orario dell'appuntamento", whenPh: "es. 10:30",
+    name: "Nome dell'attività (facoltativo)", client: "Nome del cliente (facoltativo)", when: "Orario dell'appuntamento", whenPh: "es. 10:30",
     contactLink: "Link per confermare o spostare", contactCall: "Numero da chiamare", contactPh: "",
     capture: { title: "Vuoi 20 messaggi di promemoria per il tuo settore?", button: "Inviami 20 messaggi", done: "Fatto. Te li inviamo a breve." },
   },

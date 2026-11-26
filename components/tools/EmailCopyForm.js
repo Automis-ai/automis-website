@@ -12,7 +12,7 @@ const COPY = {
     button: "Inviami i risultati",
     sending: "Invio...",
     done: "Fatto. Te li inviamo a breve.",
-    error: "Qualcosa e' andato storto. Riprova.",
+    error: "Qualcosa è andato storto. Riprova.",
     privacy: "Niente spam. La usiamo solo per inviarti i risultati e qualche consiglio utile.",
   },
   pt: {

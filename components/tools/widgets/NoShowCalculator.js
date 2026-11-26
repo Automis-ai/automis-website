@@ -41,7 +41,7 @@ export default function NoShowCalculator({ locale }) {
       lostMonth: "Fatturato perso al mese",
       noShowMonth: "No-show al mese",
       perYear: "All'anno",
-      note: "Promemoria e conferme automatiche mantengono piu' slot occupati.",
+      note: "Promemoria e conferme automatiche mantengono più slot occupati.",
     },
     pt: {
       appts: "Consultas por semana",

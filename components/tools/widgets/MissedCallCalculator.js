@@ -39,7 +39,7 @@ export default function MissedCallCalculator({ locale }) {
       lostMonth: "Fatturato perso stimato al mese",
       missedMonth: "Chiamate perse al mese",
       perYear: "All'anno",
-      note: "L'assistente vocale IA di Automis risponde 24 ore su 24 e puo' recuperarne gran parte.",
+      note: "L'assistente vocale IA di Automis risponde 24 ore su 24 e può recuperarne gran parte.",
     },
     pt: {
       calls: "Chamadas que o seu negócio recebe por dia",

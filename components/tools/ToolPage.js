@@ -18,7 +18,7 @@ const lastWords = (t, n) => t.split(" ").slice(-n).join(" ");
 
 const LABELS = {
   en: { tools: "Tools", why: "Why it matters", faq: "Frequently asked questions", related: "Related", voice: "See the AI voice receptionist" },
-  it: { tools: "Strumenti", why: "Perche' conta", faq: "Domande frequenti", related: "Correlati", voice: "Scopri l'assistente vocale IA" },
+  it: { tools: "Strumenti", why: "Perché conta", faq: "Domande frequenti", related: "Correlati", voice: "Scopri l'assistente vocale IA" },
   pt: { tools: "Ferramentas", why: "Porque é importante", faq: "Perguntas frequentes", related: "Relacionados", voice: "Conheça o assistente de voz IA" },
 };
 
