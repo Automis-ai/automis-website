@@ -198,6 +198,7 @@ const STATIC_PATHS = [
   "/pt/blog/quanto-custa-automatizar-restaurante-ia",
   "/it/blog/recupero-chiamate-perse-agenzia-immobiliare",
   "/it/blog/migliori-software-recensioni-google-studi-medici",
+  "/it/blog/migliori-strumenti-automazione-dm-instagram",
   // Portuguese tools
   "/pt/tools",
   "/pt/tools/calculadora-chamadas-perdidas",
