@@ -22,7 +22,7 @@ export function shortPromise(text, max = 92) {
 
 // Scheda compatta: fascia colorata per porta col titolo, una riga di promessa, minuti di lettura, WhatsApp.
 // La guida si riceve prima su WhatsApp; il lettore online si apre solo da lì.
-export default function GuideCard({ g, source }) {
+export default function GuideCard({ g, source, rif = "" }) {
   return (
     <article className="card" id={`g-${g.code}`}>
       <header className={`band porta-${g.porta}`}>
@@ -33,7 +33,7 @@ export default function GuideCard({ g, source }) {
       <div className="body">
         <p className="promise">{shortPromise(g.promessa)}</p>
         <div className="act">
-          <WaButton guida={g} source={source} kind="vorrei" />
+          <WaButton guida={g} source={source} rif={rif} kind="vorrei" />
         </div>
       </div>
     </article>

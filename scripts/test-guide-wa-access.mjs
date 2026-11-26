@@ -6,7 +6,7 @@ import fs from "node:fs";
 import { handleLeggiAccesso, handleLeggiPagine, handleLeggiWeb, readManifest, readerSession, signPages, _resetForTests, parseReceived, readCookie, BATCH_MAX } from "../lib/guideLeggi.js";
 import { makeReaderToken, hashPhone, READER_COOKIE } from "../lib/guideGate.js";
 import { normalizePhone } from "../lib/guidePhone.js";
-import { waMessage, waLink, parseSource } from "../lib/guideWa.js";
+import { waMessage, waLink, parseSource, parseRif } from "../lib/guideWa.js";
 import { loadCatalogo, normalizeCatalog, _resetForTests as resetCatalog, _lastSource, CATALOG_TTL_MS } from "../lib/guideCatalogoLoader.js";
 
 const catalog = JSON.parse(fs.readFileSync(new URL("../data/guide-catalogo.json", import.meta.url), "utf8"));
@@ -492,4 +492,18 @@ test("loader + lettore: una guida pubblicata nel bucket si legge senza deploy (s
   assert.equal(r.status, 200);
   assert.equal((await r.json()).found, true);
   assert.deepEqual(readerSession(cookieOf({ headers: r.headers }), ENV).c, ["X9"]);
+});
+
+test("riferimento LinkedIn ?p=: in coda al messaggio, solo se valido, mai nelle domande", () => {
+  assert.equal(parseRif("k7x2mn"), "k7x2mn");
+  assert.equal(parseRif(" K7X2MN "), "k7x2mn");
+  assert.equal(parseRif(["k7x2mn", "altro"]), "k7x2mn");
+  for (const bad of ["", undefined, "k7x2m0", "k7x2ml", "k7x2m", "k7x2mnp", "<script>"]) assert.equal(parseRif(bad), "", String(bad));
+  assert.equal(waMessage({ kind: "vorrei", titolo: "Titolo", source: "LO", rif: "k7x2mn" }), "Mandami la guida «Titolo» · dal messaggio su LinkedIn · rif. k7x2mn");
+  assert.equal(waMessage({ kind: "avvisami", titolo: "Titolo", source: "LO", rif: "k7x2mn" }), "Avvisami quando esce «Titolo» · dal messaggio su LinkedIn · rif. k7x2mn");
+  assert.equal(waMessage({ kind: "vorrei", titolo: "Titolo", source: "LO" }), "Mandami la guida «Titolo» · dal messaggio su LinkedIn"); // senza p: identico a prima
+  assert.equal(waMessage({ kind: "vorrei", titolo: "Titolo", source: "LO", rif: "xx" }), "Mandami la guida «Titolo» · dal messaggio su LinkedIn"); // non valido: ignorato
+  assert.equal(waMessage({ kind: "domanda", titolo: "Titolo", rif: "k7x2mn" }), "Ciao Luca, ho letto «Titolo» e ho una domanda");
+  assert.equal(waMessage({ kind: "aiuto", rif: "k7x2mn" }), "Ciao Luca, non so quale guida scegliere");
+  assert.ok(waLink({ kind: "vorrei", titolo: "T", source: "LO", rif: "k7x2mn" }).includes(encodeURIComponent("rif. k7x2mn")));
 });
