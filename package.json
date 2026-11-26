@@ -10,7 +10,8 @@
     "postbuild": "next-sitemap",
     "seo-check": "node scripts/seo-check.mjs",
     "guide:catalogo": "node scripts/genera-catalogo-guide.mjs",
-    "test:guide-wa": "node --no-warnings scripts/test-guide-wa-access.mjs"
+    "test:guide-wa": "node --no-warnings scripts/test-guide-wa-access.mjs",
+    "test:guide-visita": "node --no-warnings scripts/test-guide-visita.mjs"
   },
   "dependencies": {
     "@elevenlabs/client": "1.28.0",
