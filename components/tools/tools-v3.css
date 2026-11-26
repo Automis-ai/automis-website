@@ -176,3 +176,10 @@
   margin: 10px 0 0;
   color: var(--hv3-ink-2);
 }
+
+/* Cartoncino QR stampabile (generatore link recensioni) */
+@media print {
+  body * { visibility: hidden !important; }
+  .rv-print, .rv-print * { visibility: visible !important; }
+  .rv-print { position: absolute; left: 0; top: 0; width: 100%; max-width: none !important; border-radius: 0 !important; box-shadow: none !important; }
+}

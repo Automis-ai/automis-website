@@ -4,6 +4,7 @@ import { useState } from "react";
 import ToolField from "@/components/tools/ToolField";
 import CopyButton from "@/components/tools/CopyButton";
 import QrBlock from "@/components/tools/QrBlock";
+import { QRCodeCanvas } from "qrcode.react";
 
 const inputClass =
   "w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-white outline-none focus:border-blue-middle";
@@ -11,6 +12,7 @@ const FINDER = "https://developers.google.com/maps/documentation/javascript/exam
 
 export default function ReviewLinkGenerator({ locale }) {
   const [placeId, setPlaceId] = useState("");
+  const [bizName, setBizName] = useState("");
   const id = placeId.trim();
   const reviewUrl = id ? `https://search.google.com/local/writereview?placeid=${encodeURIComponent(id)}` : "";
 
@@ -24,6 +26,11 @@ export default function ReviewLinkGenerator({ locale }) {
       copied: "Copiato",
       open: "Apri il link",
       download: "Scarica QR (PNG)",
+      cardTitle: "Cartoncino da stampare",
+      bizLabel: "Nome della tua attivita' (facoltativo)",
+      cardLine: "Ti e' piaciuto? Lasciaci una recensione",
+      cardSub: "Inquadra il codice con la fotocamera",
+      print: "Stampa il cartoncino",
     },
     pt: {
       finder: "Encontre o seu Place ID →",
@@ -34,6 +41,11 @@ export default function ReviewLinkGenerator({ locale }) {
       copied: "Copiado",
       open: "Abrir o link",
       download: "Descarregar QR (PNG)",
+      cardTitle: "Cartão para imprimir",
+      bizLabel: "Nome do seu negócio (opcional)",
+      cardLine: "Gostou? Deixe-nos uma avaliação",
+      cardSub: "Aponte a câmara do telemóvel ao código",
+      print: "Imprimir o cartão",
     },
     en: {
       finder: "Find your Place ID →",
@@ -44,6 +56,11 @@ export default function ReviewLinkGenerator({ locale }) {
       copied: "Copied",
       open: "Open link",
       download: "Download QR (PNG)",
+      cardTitle: "Printable card",
+      bizLabel: "Your business name (optional)",
+      cardLine: "Enjoyed your visit? Leave us a review",
+      cardSub: "Scan the code with your phone camera",
+      print: "Print the card",
     },
   };
   const t = strings[locale] || strings.en;
@@ -75,6 +92,32 @@ export default function ReviewLinkGenerator({ locale }) {
             </a>
           </div>
           <QrBlock value={reviewUrl} fileName="google-review-qr" downloadLabel={t.download} />
+
+          <div className="border-t border-white/10 pt-6">
+            <p className="mb-3 text-sm font-medium text-white/80">{t.cardTitle}</p>
+            <div className="grid gap-6 md:grid-cols-2 md:items-start">
+              <div>
+                <ToolField label={t.bizLabel}>
+                  <input type="text" value={bizName} onChange={(e) => setBizName(e.target.value)} className={inputClass} />
+                </ToolField>
+                <button
+                  type="button"
+                  onClick={() => window.print()}
+                  className="mt-4 rounded-lg bg-gradient-to-r from-blue-middle to-blue-lightest px-5 py-3 font-semibold text-white transition-transform hover:-translate-y-0.5"
+                >
+                  {t.print}
+                </button>
+              </div>
+              <div className="rv-print mx-auto w-full max-w-[300px] rounded-2xl bg-white p-6 text-center" style={{ color: "#111" }}>
+                {bizName.trim() ? <p style={{ fontWeight: 700, fontSize: 18, color: "#111" }}>{bizName.trim()}</p> : null}
+                <p style={{ fontWeight: 700, fontSize: 20, lineHeight: 1.25, margin: "6px 0 14px", color: "#111" }}>{t.cardLine}</p>
+                <div className="flex justify-center">
+                  <QRCodeCanvas value={reviewUrl} size={200} />
+                </div>
+                <p style={{ fontSize: 13, marginTop: 12, color: "#444" }}>{t.cardSub}</p>
+              </div>
+            </div>
+          </div>
         </div>
       ) : null}
     </div>

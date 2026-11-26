@@ -197,9 +197,9 @@ export const TOOLS = {
     slug: { en: "google-review-link-generator", it: "generatore-link-recensioni-google", pt: "gerador-link-avaliacoes-google" },
     en: {
       name: "Google Review Link Generator",
-      metaTitle: "Free Google Review Link and QR Code Generator | Automis",
+      metaTitle: "Google Review Link Generator and QR Code (Free, Printable) | Automis",
       metaDescription:
-        "Turn your Google Place ID into a direct write-a-review link and a downloadable QR code. Free, runs in your browser, no signup.",
+        "Get your Google review link in seconds: paste your Place ID, copy the direct link, then download or print a Google review QR code card. Free, no signup.",
       keywords: [
         "google review link generator",
         "google review qr code",
@@ -207,15 +207,18 @@ export const TOOLS = {
         "get more google reviews",
         "review link generator",
       ],
-      h1: "Google Review Link and QR Code Generator",
+      h1: "Google Review Link Generator and QR Code",
       intro:
-        "Make it effortless for happy customers to review you. Paste your Google Place ID to get a direct link that opens the review box, plus a QR code you can print or share.",
+        "Make your Google review link in three steps: find your Place ID, paste it below, copy the link. You also get a Google review QR code and a printable card to put at the counter, so happy customers can review you in one scan.",
       why: [
         "The fewer taps between a happy customer and the review form, the more reviews you collect. A direct write-a-review link skips the search and opens the box straight away.",
         "Reviews are one of the strongest local ranking and trust signals, so a steady flow of them lifts both your map-pack position and your conversion rate.",
         "Print the QR on a card at reception, add the link to a follow-up message, and ask right after a great visit. Automis VoiceAI can send the review link automatically after each appointment, so asking becomes hands-free.",
       ],
       faqs: [
+        { q: "How do I get a Google review link?", a: "Find your Google Place ID with Google's free Place ID Finder, paste it into the field above, and the tool builds your direct write-a-review link. Copy it and share it by text, email or on your site." },
+        { q: "How do I make a Google review QR code?", a: "Paste your Place ID and the QR code appears under your link. Download it as a PNG, or add your business name and print the ready-made card." },
+        { q: "Can I print the QR code?", a: "Yes. Use the print button on the card below your link. It prints a simple card with the QR code and a short line asking for a review, ready for a counter or a receipt." },
         { q: "Where do I find my Google Place ID?", a: "Use Google's free Place ID Finder, linked above the field. Search your business name and copy the Place ID it shows." },
         { q: "Is the review link safe to share?", a: "Yes. It simply opens the standard Google review box for your business. Nothing is stored and everything runs in your browser." },
         { q: "Can I automate review requests?", a: "Yes. Automis VoiceAI and our automations can send this link by SMS or WhatsApp right after each visit, so your review flow runs on autopilot." },
@@ -224,9 +227,9 @@ export const TOOLS = {
     },
     it: {
       name: "Generatore di link e QR per recensioni Google",
-      metaTitle: "Generatore gratuito di link e QR per recensioni Google | Automis",
+      metaTitle: "Link recensioni Google e QR code: generatore gratuito da stampare | Automis",
       metaDescription:
-        "Trasforma il Place ID di Google in un link diretto per lasciare una recensione e in un QR code da scaricare. Gratis, senza registrazione.",
+        "Crea il link per le recensioni Google in pochi secondi: incolla il Place ID, copia il link diretto e scarica o stampa il QR code per le recensioni. Gratis, senza registrazione.",
       keywords: [
         "generatore link recensioni google",
         "qr code recensioni google",
@@ -234,15 +237,18 @@ export const TOOLS = {
         "ottenere piu' recensioni google",
         "link recensioni",
       ],
-      h1: "Generatore di link e QR per recensioni Google",
+      h1: "Link recensioni Google e QR code: il generatore",
       intro:
-        "Rendi semplicissimo lasciare una recensione ai clienti soddisfatti. Incolla il tuo Place ID di Google per ottenere un link diretto che apre subito il modulo di recensione, piu' un QR code da stampare o condividere.",
+        "Crea il link per le recensioni Google in tre passaggi: trova il Place ID, incollalo qui sotto, copia il link. Ottieni anche il QR code per le recensioni Google e un cartoncino da stampare per il bancone, cosi' un cliente soddisfatto ti recensisce con un'inquadratura.",
       why: [
         "Meno passaggi ci sono tra un cliente soddisfatto e il modulo di recensione, piu' recensioni raccogli. Un link diretto salta la ricerca e apre subito il riquadro.",
         "Le recensioni sono uno dei segnali di fiducia e di posizionamento locale piu' forti, quindi un flusso costante migliora sia la posizione nel pacchetto mappe sia il tasso di conversione.",
         "Stampa il QR su un cartoncino alla reception, aggiungi il link a un messaggio di follow-up e chiedi subito dopo una bella visita. L'assistente vocale IA di Automis puo' inviare il link automaticamente dopo ogni appuntamento.",
       ],
       faqs: [
+        { q: "Come si crea il link per le recensioni Google?", a: "Trova il Place ID con lo strumento gratuito Place ID Finder di Google, incollalo nel campo qui sopra e lo strumento crea il link diretto per scrivere una recensione. Copialo e mandalo per messaggio, email o mettilo sul sito." },
+        { q: "Come si fa il QR code per le recensioni Google?", a: "Incolla il Place ID e il QR code compare sotto il link. Scaricalo in PNG oppure scrivi il nome della tua attivita' e stampa il cartoncino gia' pronto." },
+        { q: "Posso stampare il QR code?", a: "Si'. Usa il pulsante di stampa sul cartoncino sotto il link: stampa un cartoncino semplice con il QR code e una frase che chiede una recensione, pronto per il bancone o lo scontrino." },
         { q: "Dove trovo il mio Place ID di Google?", a: "Usa lo strumento gratuito Place ID Finder di Google, linkato sopra il campo. Cerca il nome della tua attivita' e copia il Place ID che appare." },
         { q: "Il link per le recensioni e' sicuro da condividere?", a: "Si'. Apre semplicemente il modulo standard di recensione Google per la tua attivita'. Non salviamo nulla e tutto avviene nel tuo browser." },
         { q: "Posso automatizzare le richieste di recensione?", a: "Si'. L'assistente vocale IA di Automis e le nostre automazioni possono inviare questo link via SMS o WhatsApp subito dopo ogni visita." },
@@ -251,9 +257,9 @@ export const TOOLS = {
     },
     pt: {
       name: "Gerador de link e QR para avaliações Google",
-      metaTitle: "Gerador gratuito de link e QR para avaliações Google | Automis",
+      metaTitle: "Link de avaliações Google e QR code: gerador gratuito para imprimir | Automis",
       metaDescription:
-        "Transforme o seu Place ID do Google num link direto para deixar uma avaliação e num QR code para descarregar. Grátis, funciona no seu browser, sem registo.",
+        "Crie o link de avaliações Google em segundos: cole o Place ID, copie o link direto e descarregue ou imprima o QR code. Grátis, sem registo.",
       keywords: [
         "gerador de link para avaliações google",
         "qr code avaliações google",
@@ -261,15 +267,18 @@ export const TOOLS = {
         "obter mais avaliações google",
         "gerador de link de avaliações",
       ],
-      h1: "Gerador de link e QR para avaliações Google",
+      h1: "Link de avaliações Google e QR code: o gerador",
       intro:
-        "Torne muito simples para os clientes satisfeitos deixarem uma avaliação. Cole o seu Place ID do Google para obter um link direto que abre logo o formulário de avaliação, mais um QR code para imprimir ou partilhar.",
+        "Crie o link de avaliações Google em três passos: encontre o Place ID, cole-o abaixo e copie o link. Recebe também o QR code e um cartão para imprimir e pôr no balcão, para que um cliente satisfeito o avalie com uma leitura.",
       why: [
         "Quantos menos toques houver entre um cliente satisfeito e o formulário de avaliação, mais avaliações recolhe. Um link direto salta a pesquisa e abre logo a caixa de avaliação.",
         "As avaliações são um dos sinais de confiança e de posicionamento local mais fortes, por isso um fluxo constante melhora tanto a sua posição no mapa como a sua taxa de conversão.",
         "Imprima o QR num cartão na receção, junte o link a uma mensagem de follow-up e peça logo a seguir a uma boa visita. O assistente de voz da Automis pode enviar o link de avaliação automaticamente após cada consulta, para que pedir seja algo automático.",
       ],
       faqs: [
+        { q: "Como se cria o link de avaliações Google?", a: "Encontre o Place ID com o Place ID Finder gratuito do Google, cole-o no campo acima e a ferramenta cria o link direto para escrever uma avaliação. Copie-o e envie-o por mensagem ou email, ou ponha-o no site." },
+        { q: "Como se faz o QR code das avaliações Google?", a: "Cole o Place ID e o QR code aparece por baixo do link. Descarregue-o em PNG ou escreva o nome do seu negócio e imprima o cartão já pronto." },
+        { q: "Posso imprimir o QR code?", a: "Sim. Use o botão de impressão no cartão por baixo do link: imprime um cartão simples com o QR code e uma frase a pedir uma avaliação, pronto para o balcão ou para o talão." },
         { q: "Onde encontro o meu Place ID do Google?", a: "Use o Place ID Finder gratuito da Google, com ligação acima do campo. Pesquise o nome do seu negócio e copie o Place ID que aparece." },
         { q: "O link de avaliação é seguro de partilhar?", a: "Sim. Abre simplesmente o formulário padrão de avaliação Google do seu negócio. Não guardamos nada e tudo acontece no seu browser." },
         { q: "Posso automatizar os pedidos de avaliação?", a: "Sim. O assistente de voz da Automis e as nossas automações podem enviar este link por SMS ou WhatsApp logo após cada visita, para que o seu fluxo de avaliações funcione em piloto automático." },
