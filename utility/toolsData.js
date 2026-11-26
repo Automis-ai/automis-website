@@ -470,21 +470,212 @@ export const TOOLS = {
       cta: { label: "Agende uma chamada para ver os seus números reais", sub: "15 minutos, sem compromisso" },
     },
   },
+  "missed-call-text-back-generator": {
+    key: "missed-call-text-back-generator",
+    widget: "AwayMessageGenerator",
+    icon: "💬",
+    ctaTarget: "voiceai",
+    related: ["missed-call-calculator", "receptionist-cost-calculator"],
+    slug: { en: "missed-call-text-back-generator", it: "generatore-messaggio-assenza-whatsapp", pt: "gerador-mensagem-chamada-perdida" },
+    en: {
+      name: "Missed-Call Text Back and Away Message Generator",
+      metaTitle: "Missed Call Text Back Message Generator: Free Templates | Automis",
+      metaDescription:
+        "Free missed call text back generator: pick your business, the situation and a tone, and get 3 ready-to-send messages for missed calls, after hours, holidays and busy times. No signup.",
+      keywords: [
+        "missed call text back",
+        "missed call text back message",
+        "missed call text back template",
+        "auto reply text for missed calls",
+        "away message generator",
+      ],
+      h1: "Missed Call Text Back and Away Message Generator",
+      intro:
+        "A caller who gets no answer rarely leaves a voicemail. Pick your business, the situation and the tone, and copy three ready messages that turn a missed call into a conversation. No signup, nothing stored.",
+      why: [
+        "A quick text after a missed call tells the customer you saw it and what happens next. That one message is often the difference between a booking and a call to your competitor.",
+        "The messages cover the four moments that cost you contacts: a missed call, after hours, holidays and a busy line. Add your name, a booking link and a callback time, and they are ready to paste into your phone, WhatsApp Business or CRM.",
+        "A template still needs someone to send it. Automis VoiceAI answers the call itself, books the visit and texts the caller, so there is no missed call to apologise for.",
+      ],
+      faqs: [
+        { q: "What is a missed call text back?", a: "It is a short text a business sends to a caller it could not answer, saying sorry, asking how to help and, if you add one, offering a callback time or a booking link." },
+        { q: "How do I send it automatically?", a: "Most business phone systems, WhatsApp Business and CRMs let you set an automatic reply or a missed call text. Paste the message you like into that setting. An AI receptionist avoids the problem by answering the call." },
+        { q: "How long should the message be?", a: "Short. Two or three sentences, a clear next step, and your name. Use the Short tone if you want the leanest version." },
+        { q: "Is anything stored or sent to AI?", a: "No. The messages are built in your browser from templates, nothing is stored, and no AI is called each time you use the tool." },
+        { q: "Can I use these for WhatsApp away messages?", a: "Yes. Pick the After hours, Holidays or Busy situation and paste the text into your WhatsApp Business away message or quick replies." },
+      ],
+      cta: { label: "Stop missing calls for good", sub: "See how the AI receptionist answers every call" },
+    },
+    it: {
+      name: "Generatore di messaggi di assenza e risposta automatica WhatsApp",
+      metaTitle: "Messaggio di assenza WhatsApp e risposta automatica: generatore gratuito | Automis",
+      metaDescription:
+        "Generatore gratuito di messaggi di assenza e risposta automatica per WhatsApp: scegli attivita', situazione e tono, ottieni 3 messaggi pronti per chiamata persa, fuori orario, ferie e linea occupata.",
+      keywords: [
+        "messaggio di assenza WhatsApp",
+        "risposta automatica WhatsApp",
+        "messaggio assenza whatsapp business",
+        "messaggio chiamata persa",
+        "risposta automatica WhatsApp Business",
+      ],
+      h1: "Messaggio di assenza WhatsApp e risposta automatica: il generatore",
+      intro:
+        "Chi chiama e non ti trova di solito non lascia un messaggio in segreteria. Scegli la tua attivita', la situazione e il tono, e copia tre messaggi pronti che trasformano una chiamata persa in una conversazione. Senza registrazione, non salviamo nulla.",
+      why: [
+        "Un messaggio veloce dopo una chiamata persa dice al cliente che l'hai vista e cosa succede adesso. Spesso e' la differenza tra un appuntamento e una chiamata al concorrente.",
+        "I messaggi coprono i quattro momenti in cui perdi contatti: chiamata persa, fuori orario, ferie e linea occupata. Aggiungi il tuo nome, un link per prenotare e quando richiami, e sono pronti da incollare in WhatsApp Business, nel telefono o nel gestionale.",
+        "Un modello pero' deve sempre essere inviato da qualcuno. L'assistente vocale IA di Automis risponde alla chiamata, fissa la visita e scrive a chi ha chiamato, cosi' non c'e' nessuna chiamata persa di cui scusarsi.",
+      ],
+      faqs: [
+        { q: "Come si imposta il messaggio di assenza su WhatsApp Business?", a: "In WhatsApp Business vai su Strumenti per l'azienda, poi Messaggio di assenza, attivalo e incolla il testo che hai scelto qui. Puoi scegliere quando inviarlo, per esempio fuori dall'orario di lavoro." },
+        { q: "Come si imposta la risposta automatica WhatsApp?", a: "Sempre da Strumenti per l'azienda: usa Messaggio di assenza per fuori orario e ferie, e Risposte rapide per i testi che invii a mano dopo una chiamata persa." },
+        { q: "Quanto deve essere lungo il messaggio?", a: "Breve. Due o tre frasi, un passo chiaro da fare e il tuo nome. Se vuoi la versione piu' snella, scegli il tono Breve." },
+        { q: "Salvate qualcosa o usate l'IA?", a: "No. I messaggi si costruiscono nel tuo browser da modelli, non salviamo nulla e non c'e' nessuna chiamata a un'IA ogni volta che usi lo strumento." },
+        { q: "Posso evitare del tutto le chiamate perse?", a: "Si', con un assistente vocale IA che risponde a ogni chiamata, 24 ore su 24, e fissa l'appuntamento in agenda." },
+      ],
+      cta: { label: "Non perdere piu' una chiamata", sub: "Scopri come l'assistente vocale IA risponde a tutto" },
+    },
+    pt: {
+      name: "Gerador de mensagens de chamada perdida e de ausência",
+      metaTitle: "Mensagem de chamada perdida e de ausência: gerador gratuito | Automis",
+      metaDescription:
+        "Gerador gratuito de mensagens para chamadas perdidas e ausência: escolha o negócio, a situação e o tom, e obtenha 3 mensagens prontas para chamada perdida, fora de horas, férias e linha ocupada.",
+      keywords: [
+        "mensagem automática whatsapp business",
+        "mensagem de ausência whatsapp",
+        "resposta automática whatsapp",
+        "mensagem chamada perdida",
+        "mensagem fora de horas",
+      ],
+      h1: "Mensagem de chamada perdida e de ausência: o gerador",
+      intro:
+        "Quem liga e não consegue falar consigo raramente deixa mensagem. Escolha o negócio, a situação e o tom, e copie três mensagens prontas que transformam uma chamada perdida numa conversa. Sem registo, não guardamos nada.",
+      why: [
+        "Uma mensagem rápida depois de uma chamada perdida diz ao cliente que viu a chamada e o que acontece a seguir. Muitas vezes é a diferença entre uma marcação e uma chamada para a concorrência.",
+        "As mensagens cobrem os quatro momentos em que perde contactos: chamada perdida, fora de horas, férias e linha ocupada. Junte o seu nome, um link de marcação e a hora de retorno, e ficam prontas para colar no WhatsApp Business, no telemóvel ou no sistema de gestão.",
+        "Um modelo continua a precisar de alguém que o envie. O assistente de voz da Automis atende a chamada, marca a consulta e escreve a quem ligou, por isso não há nenhuma chamada perdida pela qual pedir desculpa.",
+      ],
+      faqs: [
+        { q: "Como configuro a mensagem automática no WhatsApp Business?", a: "No WhatsApp Business vá a Ferramentas comerciais, depois a Mensagem de ausência, ative-a e cole o texto que escolheu aqui. Pode definir quando é enviada, por exemplo fora do horário de trabalho." },
+        { q: "Quanto deve ter a mensagem?", a: "Curta. Duas ou três frases, um passo claro a seguir e o seu nome. Se quiser a versão mais enxuta, escolha o tom Curto." },
+        { q: "Guardam alguma coisa ou usam IA?", a: "Não. As mensagens são criadas no seu browser a partir de modelos, não guardamos nada e não é feita nenhuma chamada a uma IA de cada vez que usa a ferramenta." },
+        { q: "Posso evitar de vez as chamadas perdidas?", a: "Sim, com um assistente de voz IA que atende todas as chamadas, 24 horas por dia, e marca a consulta na agenda." },
+      ],
+      cta: { label: "Nunca mais perca uma chamada", sub: "Veja como o assistente de voz IA atende tudo" },
+    },
+  },
+  "appointment-reminder-generator": {
+    key: "appointment-reminder-generator",
+    widget: "ReminderMessageGenerator",
+    icon: "⏰",
+    ctaTarget: "voiceai",
+    related: ["no-show-calculator", "missed-call-text-back-generator"],
+    slug: { en: "appointment-reminder-text-generator", it: "generatore-messaggio-promemoria-appuntamento", pt: "gerador-mensagem-lembrete-consulta" },
+    en: {
+      name: "Appointment Reminder Message Generator",
+      metaTitle: "Appointment Reminder Text Template Generator: WhatsApp, SMS, Email | Automis",
+      metaDescription:
+        "Free appointment reminder text generator: pick your sector, channel and timing, and get 3 ready messages with confirm and cancel wording for WhatsApp, SMS or email. No signup.",
+      keywords: [
+        "appointment reminder text template",
+        "appointment reminder message",
+        "appointment reminder text",
+        "sms appointment reminder template",
+        "reduce no-shows",
+      ],
+      h1: "Appointment Reminder Message Generator",
+      intro:
+        "Empty slots cost real money. Pick your sector, the channel and when to send, and copy three reminder messages with clear confirm and cancel wording. Ready for WhatsApp, SMS or email, no signup.",
+      why: [
+        "A reminder that is easy to answer gets answered. The messages here ask for a quick YES, a link or a call, so the client confirms or frees the slot while you can still refill it.",
+        "Pick the day before or the same day, and the wording changes with the sector and channel: short for SMS, a little warmer for WhatsApp, with a subject line for email.",
+        "Sending them by hand costs your front desk time every day. Automis VoiceAI confirms appointments, sends reminders and lets clients move a booking by voice, so fewer slots go empty.",
+      ],
+      faqs: [
+        { q: "When should I send an appointment reminder?", a: "Many practices send one the day before and, for important slots, a second one the same morning. The generator gives you both timings so you can pick what fits your business." },
+        { q: "What should a reminder include?", a: "The business name, the day and time, a simple way to confirm and a simple way to cancel or move. Keep it to two or three lines." },
+        { q: "Can I use these for SMS?", a: "Yes. Choose SMS for a shorter text. Check the length in your SMS tool, as limits vary by provider." },
+        { q: "Is anything stored or sent to AI?", a: "No. Messages are built in your browser from templates and nothing is stored or sent to an AI." },
+        { q: "How do I work out what no-shows cost me?", a: "Use the no-show cost calculator linked below this tool: it turns your appointments and no-show rate into a monthly and yearly figure." },
+      ],
+      cta: { label: "Automate your reminders", sub: "See how VoiceAI confirms every appointment" },
+    },
+    it: {
+      name: "Generatore di messaggi promemoria appuntamento",
+      metaTitle: "Messaggio promemoria appuntamento: generatore per WhatsApp, SMS, email | Automis",
+      metaDescription:
+        "Generatore gratuito di messaggi promemoria per appuntamenti: scegli settore, canale e quando inviarlo, ottieni 3 messaggi pronti con conferma e annullamento per WhatsApp, SMS o email.",
+      keywords: [
+        "messaggio promemoria appuntamento",
+        "promemoria appuntamento WhatsApp",
+        "sms promemoria appuntamento",
+        "messaggio conferma appuntamento",
+        "ridurre i no-show",
+      ],
+      h1: "Messaggio promemoria appuntamento: il generatore",
+      intro:
+        "Gli appuntamenti saltati costano soldi veri. Scegli settore, canale e quando inviarlo, e copia tre messaggi di promemoria con la frase giusta per confermare o annullare. Pronti per WhatsApp, SMS o email, senza registrazione.",
+      why: [
+        "Un promemoria a cui e' facile rispondere riceve risposta. I messaggi qui chiedono un SI' veloce, un link o una telefonata, cosi' il cliente conferma o libera lo slot quando puoi ancora riempirlo.",
+        "Scegli il giorno prima o lo stesso giorno, e il testo cambia con settore e canale: breve per l'SMS, un po' piu' caldo per WhatsApp, con l'oggetto per l'email.",
+        "Mandarli a mano toglie tempo alla segreteria ogni giorno. L'assistente vocale IA di Automis conferma gli appuntamenti, invia i promemoria e fa spostare la prenotazione a voce, cosi' restano meno slot vuoti.",
+      ],
+      faqs: [
+        { q: "Quando conviene inviare il promemoria di un appuntamento?", a: "Molti studi lo inviano il giorno prima e, per gli slot importanti, un secondo la mattina stessa. Il generatore ti da' entrambi i momenti, cosi' scegli quello che fa per te." },
+        { q: "Cosa deve contenere un promemoria?", a: "Nome dell'attivita', giorno e ora, un modo semplice per confermare e uno per annullare o spostare. Tienilo a due o tre righe." },
+        { q: "Posso usarlo per gli SMS?", a: "Si'. Scegli SMS per un testo piu' corto. Controlla la lunghezza nel tuo strumento SMS, perche' i limiti cambiano da fornitore a fornitore." },
+        { q: "Salvate qualcosa o usate l'IA?", a: "No. I messaggi si costruiscono nel tuo browser da modelli e non salviamo nulla ne' inviamo dati a un'IA." },
+        { q: "Come calcolo quanto mi costano gli appuntamenti saltati?", a: "Usa il calcolatore degli appuntamenti mancati, linkato sotto questo strumento: trasforma appuntamenti e percentuale di no-show in una cifra mensile e annuale." },
+      ],
+      cta: { label: "Automatizza i promemoria", sub: "Scopri come l'assistente vocale IA conferma ogni appuntamento" },
+    },
+    pt: {
+      name: "Gerador de mensagens de lembrete de consulta",
+      metaTitle: "Mensagem de lembrete de consulta: gerador para WhatsApp, SMS e email | Automis",
+      metaDescription:
+        "Gerador gratuito de mensagens de lembrete de consulta: escolha o setor, o canal e quando enviar, e obtenha 3 mensagens prontas com confirmação e cancelamento para WhatsApp, SMS ou email.",
+      keywords: [
+        "mensagem lembrete consulta",
+        "lembrete de marcação whatsapp",
+        "sms lembrete consulta",
+        "mensagem confirmação de consulta",
+        "reduzir faltas às consultas",
+      ],
+      h1: "Mensagem de lembrete de consulta: o gerador",
+      intro:
+        "As faltas custam dinheiro a sério. Escolha o setor, o canal e quando enviar, e copie três mensagens de lembrete com a frase certa para confirmar ou cancelar. Prontas para WhatsApp, SMS ou email, sem registo.",
+      why: [
+        "Um lembrete a que é fácil responder tem resposta. As mensagens aqui pedem um SIM rápido, um link ou uma chamada, para que o cliente confirme ou liberte o horário enquanto ainda o pode preencher.",
+        "Escolha a véspera ou o próprio dia, e o texto muda com o setor e o canal: curto para SMS, um pouco mais caloroso para WhatsApp, com assunto para email.",
+        "Enviá-las à mão tira tempo à receção todos os dias. O assistente de voz da Automis confirma marcações, envia lembretes e deixa o cliente remarcar por voz, para que menos horários fiquem vazios.",
+      ],
+      faqs: [
+        { q: "Quando devo enviar o lembrete de uma consulta?", a: "Muitas clínicas enviam um na véspera e, para horários importantes, um segundo na própria manhã. O gerador dá-lhe os dois momentos para escolher o que serve ao seu negócio." },
+        { q: "O que deve incluir um lembrete?", a: "O nome do negócio, o dia e a hora, uma forma simples de confirmar e outra de cancelar ou remarcar. Mantenha-o em duas ou três linhas." },
+        { q: "Posso usá-lo para SMS?", a: "Sim. Escolha SMS para um texto mais curto. Verifique o tamanho na sua ferramenta de SMS, porque os limites variam de fornecedor para fornecedor." },
+        { q: "Guardam alguma coisa ou usam IA?", a: "Não. As mensagens são criadas no seu browser a partir de modelos e não guardamos nada nem enviamos dados a uma IA." },
+        { q: "Como calculo o que as faltas me custam?", a: "Use a calculadora de faltas às consultas, ligada por baixo desta ferramenta: transforma as suas consultas e a taxa de faltas num valor mensal e anual." },
+      ],
+      cta: { label: "Automatize os lembretes", sub: "Veja como o assistente de voz IA confirma cada marcação" },
+    },
+  },
 };
 
 export const TOOLS_ORDER = [
+  "receptionist-cost-calculator",
+  "google-review-link-generator",
+  "missed-call-text-back-generator",
+  "appointment-reminder-generator",
   "missed-call-calculator",
   "no-show-calculator",
-  "google-review-link-generator",
   "whatsapp-link-generator",
-  "receptionist-cost-calculator",
 ];
 
 export const HUB = {
   en: {
     metaTitle: "Free Tools for Local Businesses | Automis",
     metaDescription:
-      "Free, no-signup tools for local businesses: calculate missed-call and no-show costs, and generate Google review, WhatsApp and click-to-call links.",
+      "Free, no-signup tools for local businesses: compare receptionist and answering service costs, calculate missed-call and no-show losses, and generate review links, reminder and missed-call messages.",
     h1: "Free Tools for Local Businesses",
     intro:
       "Simple, free tools to help local businesses answer more calls, fill more appointments, and win more reviews. No signup, nothing stored, everything runs in your browser.",
@@ -493,7 +684,7 @@ export const HUB = {
   it: {
     metaTitle: "Strumenti gratuiti per attivita' locali | Automis",
     metaDescription:
-      "Strumenti gratuiti e senza registrazione: calcola il costo di chiamate perse e appuntamenti mancati, genera link per recensioni Google e WhatsApp.",
+      "Strumenti gratuiti e senza registrazione: confronta il costo della segretaria, calcola chiamate perse e appuntamenti mancati, genera link recensioni, promemoria e messaggi di assenza.",
     h1: "Strumenti gratuiti per attivita' locali",
     intro:
       "Strumenti semplici e gratuiti per aiutare le attivita' locali a rispondere a piu' chiamate, riempire piu' appuntamenti e ottenere piu' recensioni. Senza registrazione, non salviamo nulla, tutto funziona nel tuo browser.",
@@ -502,7 +693,7 @@ export const HUB = {
   pt: {
     metaTitle: "Ferramentas gratuitas para negócios locais | Automis",
     metaDescription:
-      "Ferramentas gratuitas e sem registo: calcule o custo das chamadas perdidas e das faltas às consultas, gere links para avaliações Google e WhatsApp.",
+      "Ferramentas gratuitas e sem registo: compare o custo da rececionista, calcule chamadas perdidas e faltas às consultas, gere links de avaliações, lembretes e mensagens de ausência.",
     h1: "Ferramentas gratuitas para negócios locais",
     intro:
       "Ferramentas simples e gratuitas para ajudar os negócios locais a atender mais chamadas, preencher mais marcações e conquistar mais avaliações. Sem registo, não guardamos nada, tudo funciona no seu browser.",
