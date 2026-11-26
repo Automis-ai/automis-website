@@ -5,6 +5,7 @@ import "./catalogo.css";
 import GuideCard, { DOOR } from "./GuideCard";
 import WaButton from "./WaButton";
 import HeroAnimation from "./HeroAnimation";
+import VisitaBeacon from "./VisitaBeacon";
 import ClickVideo from "@/components/ui/ClickVideo";
 
 const FINDER = "/it#opportunity-finder";
@@ -68,6 +69,7 @@ export default function GuideCatalog({ guide, source = "", rif = "", focusCode =
 
   return (
     <div id="gd">
+      <VisitaBeacon rif={rif} guida={focusCode} />
       <div className="wrap">
         {featured ? (
           <>
