@@ -9,7 +9,7 @@ import "./tools-v3.css";
 import CTAButton from "@/components/CTAButton";
 import { getCtaHref } from "@/utility/ctaLinks";
 import { PATHNAMES, hrefFor } from "@/utility/pathnames";
-import { TOOLS, hubPath } from "@/utility/toolsData";
+import { TOOLS, hubPath, toolPath } from "@/utility/toolsData";
 import ToolJsonLd from "@/components/tools/ToolJsonLd";
 import FaqAccordion from "@/components/tools/FaqAccordion";
 
@@ -17,9 +17,9 @@ import FaqAccordion from "@/components/tools/FaqAccordion";
 const lastWords = (t, n) => t.split(" ").slice(-n).join(" ");
 
 const LABELS = {
-  en: { tools: "Tools", why: "Why it matters", faq: "Frequently asked questions" },
-  it: { tools: "Strumenti", why: "Perche' conta", faq: "Domande frequenti" },
-  pt: { tools: "Ferramentas", why: "Porque é importante", faq: "Perguntas frequentes" },
+  en: { tools: "Tools", why: "Why it matters", faq: "Frequently asked questions", related: "Related", voice: "See the AI voice receptionist" },
+  it: { tools: "Strumenti", why: "Perche' conta", faq: "Domande frequenti", related: "Correlati", voice: "Scopri l'assistente vocale IA" },
+  pt: { tools: "Ferramentas", why: "Porque é importante", faq: "Perguntas frequentes", related: "Relacionados", voice: "Conheça o assistente de voz IA" },
 };
 
 export default function ToolPage({ toolKey, locale, children }) {
@@ -69,6 +69,28 @@ export default function ToolPage({ toolKey, locale, children }) {
             <h2 className="hv3-toolh font-display">{l.faq}</h2>
             <FaqAccordion faqs={c.faqs} />
           </div>
+
+          {tool.related ? (
+            <div className="hv3-tools__sec">
+              <h2 className="hv3-toolh font-display">{l.related}</h2>
+              <ul className="space-y-2">
+                {tool.related
+                  .filter((k) => TOOLS[k])
+                  .map((k) => (
+                    <li key={k}>
+                      <Link href={toolPath(k, locale)} className="text-blue-lightest underline">
+                        {TOOLS[k][locale].name}
+                      </Link>
+                    </li>
+                  ))}
+                <li>
+                  <Link href={hrefFor(PATHNAMES.services.voiceAI, locale)} className="text-blue-lightest underline">
+                    {l.voice}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          ) : null}
 
           <div className="hv3-toolcta">
             <h2 className="font-display">{c.cta.label}</h2>

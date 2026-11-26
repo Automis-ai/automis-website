@@ -30,7 +30,7 @@ export async function POST(req) {
       const tags = [
         `tool-${slug(toolName || "unknown")}`,
         "tool-lead",
-        locale === "it" ? "lingua:it" : "lingua:en",
+        locale === "it" ? "lingua:it" : locale === "pt" ? "lingua:pt" : "lingua:en",
       ];
       try {
         const res = await fetch(GHL_UPSERT_URL, {

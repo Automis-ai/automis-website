@@ -110,6 +110,7 @@ const STATIC_PATHS = [
   "/tools/no-show-cost-calculator",
   "/tools/google-review-link-generator",
   "/tools/whatsapp-link-generator",
+  "/tools/ai-receptionist-cost-calculator",
   // Italian
   "/it",
   "/it/alternativa-a-manychat", // IT guide (twin of /manychat-alternative)
@@ -166,6 +167,7 @@ const STATIC_PATHS = [
   "/it/tools/calcolatore-appuntamenti-mancati",
   "/it/tools/generatore-link-recensioni-google",
   "/it/tools/generatore-link-whatsapp",
+  "/it/tools/calcolatore-costo-segretaria",
   // Portuguese (European Portuguese main site; served at /pt via the middleware
   // rewrite to app/pt-site). The voice.automis.ai/pt lander is a different host
   // and is not part of this automis.ai sitemap.
@@ -206,6 +208,7 @@ const STATIC_PATHS = [
   "/pt/tools/calculadora-faltas-consultas",
   "/pt/tools/gerador-link-avaliacoes-google",
   "/pt/tools/gerador-link-whatsapp",
+  "/pt/tools/calculadora-custo-rececionista",
 ];
 
 // Pagine del sito rifatto (v2/v3), uguali nelle tre lingue (prefisso "" = EN). Formazione (/training) è volutamente fuori: noindex.

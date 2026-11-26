@@ -366,6 +366,101 @@ export const TOOLS = {
       cta: { label: "Nunca mais perca uma conversa ou uma chamada", sub: "Veja como o assistente de voz IA a trata" },
     },
   },
+  "receptionist-cost-calculator": {
+    key: "receptionist-cost-calculator",
+    widget: "ReceptionistCostCalculator",
+    icon: "🧮",
+    ctaTarget: "booking",
+    related: ["missed-call-calculator", "missed-call-text-back-generator"],
+    slug: { en: "ai-receptionist-cost-calculator", it: "calcolatore-costo-segretaria", pt: "calculadora-custo-rececionista" },
+    en: {
+      name: "Answering Service vs AI Receptionist Cost Calculator",
+      metaTitle: "Answering Service Cost vs AI Receptionist Cost Calculator | Automis",
+      metaDescription:
+        "Free calculator: compare the monthly and yearly cost of an in-house receptionist, a human answering service and an AI receptionist, with sourced default figures you can change.",
+      keywords: [
+        "answering service cost",
+        "ai receptionist cost",
+        "receptionist cost calculator",
+        "answering service pricing",
+        "virtual receptionist cost",
+      ],
+      h1: "Answering Service vs AI Receptionist Cost Calculator",
+      intro:
+        "What does it really cost to have every call answered? Enter your calls, call length and the hours you need covered, and compare a hired receptionist, a human answering service and an AI receptionist, month by month and year by year.",
+      why: [
+        "A receptionist is paid for every hour, including the quiet ones. An answering service charges per call or per minute, so a busy month costs more. An AI receptionist is a flat monthly fee. Which one is cheapest depends on how many calls you get and when.",
+        "The calculator starts from public figures, such as official wage statistics and published answering service prices, and tells you where each one comes from. Change any number to match your own quote or payroll. Where we found no public figure, the field is left empty rather than guessed.",
+        "The break-even lines show how many calls a month it takes for one option to beat another. If your phone is busy at night, at weekends or while you are with a customer, the gap usually opens fast.",
+      ],
+      faqs: [
+        { q: "How much does an answering service cost?", a: "It depends on the provider and the plan. As one published example, the Smith.ai human receptionist Starter plan is listed at $300 for 30 calls, about $10 a call, and Ruby lists $250 for 50 minutes. Enter your own quote in the calculator to see your real figure." },
+        { q: "How much does an AI receptionist cost?", a: "Automis AI receptionist plans start from EUR 297 a month, a flat fee. Other providers price per minute or per call, so compare on your own call volume." },
+        { q: "Where do the default numbers come from?", a: "Each default is taken from a public page we opened in November 2026: the US Bureau of Labor Statistics for the US wage, ONS earnings data for the UK, the Confcommercio collective agreement for Italy, the national minimum wage for Portugal, and Smith.ai for a published per-call price. The sources are listed under the calculator." },
+        { q: "Why are some fields empty?", a: "Where we could not find a public price, we leave the field empty instead of inventing one. Type in your own quote and the comparison updates." },
+        { q: "Does the in-house option include extra costs?", a: "Only the employer cost percentage you enter. Social charges, equipment, training, sick leave and holiday cover usually add to the salary, so adding them gives a fairer comparison." },
+      ],
+      cta: { label: "Book a call to see your real numbers", sub: "15 minutes, no commitment" },
+    },
+    it: {
+      name: "Calcolatore costo segretaria: servizio di segreteria o segretaria IA",
+      metaTitle: "Costo segretaria: confronto con segreteria telefonica e segretaria IA | Automis",
+      metaDescription:
+        "Calcolatore gratuito: confronta il costo mensile e annuale di una segretaria interna, di una segreteria telefonica e di una segretaria IA, con cifre di partenza da fonti pubbliche che puoi cambiare.",
+      keywords: [
+        "costo segretaria",
+        "costo segretaria part time",
+        "segretaria IA",
+        "costo segreteria telefonica",
+        "calcolatore costo receptionist",
+      ],
+      h1: "Calcolatore costo segretaria: interna, servizio telefonico o segretaria IA",
+      intro:
+        "Quanto costa davvero far rispondere a ogni chiamata? Inserisci le chiamate, la durata e le fasce da coprire e confronta una segretaria assunta, un servizio di segreteria telefonica e una segretaria IA, al mese e all'anno.",
+      why: [
+        "Una segretaria si paga per ogni ora, anche quelle tranquille. Un servizio di segreteria si paga a chiamata o a minuto, quindi un mese pieno costa di piu'. Una segretaria IA ha un canone fisso. Quale conviene dipende da quante chiamate ricevi e a che ora.",
+        "Il calcolatore parte da cifre pubbliche, come i minimi del contratto collettivo e i listini pubblicati, e ti dice da dove arriva ognuna. Cambia i numeri con i tuoi, quelli del tuo preventivo o del tuo cedolino. Dove non abbiamo trovato una cifra pubblica, il campo resta vuoto invece di essere inventato.",
+        "Le righe sul punto di pareggio ti dicono da quante chiamate al mese un'opzione batte l'altra. Se il telefono squilla la sera, nel weekend o mentre sei con un cliente, la differenza si vede presto.",
+      ],
+      faqs: [
+        { q: "Quanto costa una segretaria?", a: "Per una persona assunta, il minimo contrattuale del CCNL Terziario Confcommercio al IV livello e' un punto di partenza, ma a questo vanno aggiunti contributi, ferie, malattia e sostituzioni. Nel calcolatore puoi inserire la percentuale di costi extra a carico tuo." },
+        { q: "Quanto costa una segreteria telefonica?", a: "Dipende dal fornitore e dal piano. Per l'Italia non abbiamo trovato un listino pubblico affidabile, quindi il campo e' vuoto: inserisci il tuo preventivo. Come esempio estero, Smith.ai pubblica un piano da 300 $ per 30 chiamate, circa 10 $ a chiamata." },
+        { q: "Quanto costa una segretaria IA?", a: "I piani della segretaria IA di Automis partono da 297 € al mese, a canone fisso. Altri fornitori fanno pagare a minuto o a chiamata, quindi confronta sempre sul tuo numero di chiamate." },
+        { q: "Da dove arrivano i numeri di partenza?", a: "Da pagine pubbliche che abbiamo aperto a novembre 2026: il contratto collettivo Terziario Confcommercio per lo stipendio, il listino Automis per la segretaria IA. Le fonti sono elencate sotto il calcolatore." },
+        { q: "Perche' alcuni campi sono vuoti?", a: "Dove non abbiamo trovato un prezzo pubblico lasciamo il campo vuoto invece di inventarlo. Scrivi il tuo preventivo e il confronto si aggiorna." },
+      ],
+      cta: { label: "Prenota una call per i tuoi numeri veri", sub: "15 minuti, nessun impegno" },
+    },
+    pt: {
+      name: "Calculadora do custo de rececionista: serviço de atendimento ou rececionista IA",
+      metaTitle: "Custo de rececionista: comparação com serviço de atendimento e rececionista IA | Automis",
+      metaDescription:
+        "Calculadora gratuita: compare o custo mensal e anual de uma rececionista interna, de um serviço de atendimento telefónico e de uma rececionista IA, com valores de partida de fontes públicas que pode alterar.",
+      keywords: [
+        "custo de uma rececionista",
+        "custo secretária",
+        "rececionista IA",
+        "custo serviço de atendimento telefónico",
+        "calculadora custo rececionista",
+      ],
+      h1: "Calculadora do custo de rececionista: interna, serviço telefónico ou IA",
+      intro:
+        "Quanto custa realmente atender todas as chamadas? Introduza as chamadas, a duração e o horário a cobrir e compare uma rececionista contratada, um serviço de atendimento telefónico e uma rececionista IA, por mês e por ano.",
+      why: [
+        "Uma rececionista é paga por todas as horas, incluindo as calmas. Um serviço de atendimento cobra por chamada ou por minuto, por isso um mês cheio custa mais. Uma rececionista IA tem uma mensalidade fixa. Qual compensa depende de quantas chamadas recebe e a que horas.",
+        "A calculadora parte de valores públicos, como o salário mínimo nacional e preços publicados, e diz-lhe de onde vem cada um. Altere os números para os do seu orçamento ou do seu recibo de vencimento. Onde não encontrámos um valor público, o campo fica vazio em vez de inventado.",
+        "As linhas do ponto de equilíbrio mostram a partir de quantas chamadas por mês uma opção ganha à outra. Se o telefone toca à noite, ao fim de semana ou enquanto está com um cliente, a diferença nota-se depressa.",
+      ],
+      faqs: [
+        { q: "Quanto custa uma rececionista?", a: "Para uma pessoa contratada, o salário mínimo nacional (920 € em 14 meses em 2026) é um mínimo, não um valor típico, e a empresa paga ainda 23,75% de Taxa Social Única. Na calculadora pode alterar o salário e os custos extra." },
+        { q: "Quanto custa um serviço de atendimento telefónico?", a: "Depende do fornecedor e do plano. Para Portugal não encontrámos uma tabela pública fiável, por isso o campo está vazio: introduza o seu orçamento. Como exemplo estrangeiro, a Smith.ai publica um plano de 300 $ para 30 chamadas, cerca de 10 $ por chamada." },
+        { q: "Quanto custa uma rececionista IA?", a: "Os planos de rececionista IA da Automis começam nos 297 € por mês, com mensalidade fixa. Outros fornecedores cobram por minuto ou por chamada, por isso compare sempre com o seu número de chamadas." },
+        { q: "De onde vêm os números de partida?", a: "De páginas públicas que abrimos em novembro de 2026: o salário mínimo nacional e a taxa da Segurança Social, e a tabela de preços da Automis. As fontes estão listadas por baixo da calculadora." },
+        { q: "Porque estão alguns campos vazios?", a: "Onde não encontrámos um preço público deixamos o campo vazio em vez de o inventar. Escreva o seu orçamento e a comparação atualiza-se." },
+      ],
+      cta: { label: "Agende uma chamada para ver os seus números reais", sub: "15 minutos, sem compromisso" },
+    },
+  },
 };
 
 export const TOOLS_ORDER = [
@@ -373,6 +468,7 @@ export const TOOLS_ORDER = [
   "no-show-calculator",
   "google-review-link-generator",
   "whatsapp-link-generator",
+  "receptionist-cost-calculator",
 ];
 
 export const HUB = {

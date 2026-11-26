@@ -35,11 +35,11 @@ const COPY = {
   },
 };
 
-export default function EmailCopyForm({ toolName, locale, summary }) {
+export default function EmailCopyForm({ toolName, locale, summary, copy }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | done | error
 
-  const t = COPY[locale] || COPY.en;
+  const t = { ...(COPY[locale] || COPY.en), ...(copy || {}) };
 
   async function onSubmit(e) {
     e.preventDefault();
