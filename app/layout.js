@@ -107,6 +107,7 @@ export default function RootLayout({ children }) {
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
+              (function(){try{var u=new URL(location.href);if(u.pathname.indexOf('/it/guide/')===0&&u.searchParams.has('p')){u.searchParams.delete('p');history.replaceState(history.state,'',u.pathname+u.search+u.hash);}}catch(e){}})();
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
