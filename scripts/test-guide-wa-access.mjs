@@ -499,11 +499,11 @@ test("riferimento LinkedIn ?p=: in coda al messaggio, solo se valido, mai nelle 
   assert.equal(parseRif(" K7X2MN "), "k7x2mn");
   assert.equal(parseRif(["k7x2mn", "altro"]), "k7x2mn");
   for (const bad of ["", undefined, "k7x2m0", "k7x2ml", "k7x2m", "k7x2mnp", "<script>"]) assert.equal(parseRif(bad), "", String(bad));
-  assert.equal(waMessage({ kind: "vorrei", titolo: "Titolo", source: "LO", rif: "k7x2mn" }), "Mandami la guida «Titolo» · dal messaggio su LinkedIn · rif. k7x2mn");
-  assert.equal(waMessage({ kind: "avvisami", titolo: "Titolo", source: "LO", rif: "k7x2mn" }), "Avvisami quando esce «Titolo» · dal messaggio su LinkedIn · rif. k7x2mn");
+  assert.equal(waMessage({ kind: "vorrei", titolo: "Titolo", source: "LO", rif: "k7x2mn" }), "Mandami la guida «Titolo» · dal messaggio su LinkedIn (rif. k7x2mn)");
+  assert.equal(waMessage({ kind: "avvisami", titolo: "Titolo", source: "LO", rif: "k7x2mn" }), "Avvisami quando esce «Titolo» · dal messaggio su LinkedIn (rif. k7x2mn)");
   assert.equal(waMessage({ kind: "vorrei", titolo: "Titolo", source: "LO" }), "Mandami la guida «Titolo» · dal messaggio su LinkedIn"); // senza p: identico a prima
   assert.equal(waMessage({ kind: "vorrei", titolo: "Titolo", source: "LO", rif: "xx" }), "Mandami la guida «Titolo» · dal messaggio su LinkedIn"); // non valido: ignorato
   assert.equal(waMessage({ kind: "domanda", titolo: "Titolo", rif: "k7x2mn" }), "Ciao Luca, ho letto «Titolo» e ho una domanda");
   assert.equal(waMessage({ kind: "aiuto", rif: "k7x2mn" }), "Ciao Luca, non so quale guida scegliere");
-  assert.ok(waLink({ kind: "vorrei", titolo: "T", source: "LO", rif: "k7x2mn" }).includes(encodeURIComponent("rif. k7x2mn")));
+  assert.ok(waLink({ kind: "vorrei", titolo: "T", source: "LO", rif: "k7x2mn" }).includes(encodeURIComponent("(rif. k7x2mn)")));
 });
