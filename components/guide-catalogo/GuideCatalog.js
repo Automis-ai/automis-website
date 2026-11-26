@@ -164,7 +164,7 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
 
         <p className="note">
           Su WhatsApp ti risponde l’assistente IA di Luca, che passa la mano a lui quando serve. Usiamo il tuo numero e i tuoi messaggi solo per mandarti la guida e risponderti.{" "}
-          <a href="/it/privacy-policy">Informativa sulla privacy</a>.
+          <a href="/it/privacy-policy#whatsapp">Come usiamo i tuoi dati: informativa privacy</a>.
         </p>
       </div>
     </div>

@@ -29,7 +29,7 @@ const PrivacyPolicy = () => {
                 Automis — AI & Marketing Agency
               </p>
               <p className="body-text text-white/70">
-                Ultimo aggiornamento: 16 novembre 2026
+                Ultimo aggiornamento: 26 novembre 2026
               </p>
             </div>
 
@@ -449,7 +449,7 @@ const PrivacyPolicy = () => {
               </div>
 
               {/* Sezione 16 */}
-              <div className="mb-12">
+              <div id="contatti-commerciali" className="mb-12 scroll-mt-24">
                 <h2 className="section-heading text-white mb-6 flex items-center">
                   <span className="mr-3">16.</span>
                   Contatti commerciali, guide su WhatsApp e call
@@ -469,15 +469,18 @@ const PrivacyPolicy = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
+                  <div id="whatsapp" className="scroll-mt-24 bg-blue-darkest/30 backdrop-blur-lg border border-blue-middle/20 rounded-2xl p-8 hover:bg-yellow-light/30 hover:border-yellow-light/30 transition-all duration-300">
                     <h3 className="card-heading text-white mb-4">16.2 Se ci scrivi su WhatsApp per una guida</h3>
                     <p className="body-text text-white/90 mb-4">Se scrivi al numero WhatsApp di Automis per ricevere una guida gratuita, trattiamo i tuoi dati per mandartela e per risponderti.</p>
                     <ul className="body-text text-white/90 space-y-2">
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Quali dati:</span> il tuo numero di telefono, il nome del tuo profilo WhatsApp, i messaggi, la guida che hai richiesto, quando apri la guida online e le note sulla conversazione.</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Base giuridica:</span> la tua richiesta (misure precontrattuali, Art. 6.1.b GDPR) e il nostro legittimo interesse a seguire la conversazione (Art. 6.1.f GDPR).</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Chi risponde:</span> un assistente di intelligenza artificiale, che lo dichiara. Passa la conversazione a una persona quando serve o quando lo chiedi tu. Non prendiamo decisioni automatizzate che producano effetti su di te: l’assistente può suggerire a che punto è la conversazione, e lo conferma una persona.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Cosa riceve l’assistente:</span> per generare ogni risposta mandiamo al fornitore dell’IA (OpenAI) il nome del tuo profilo WhatsApp, il ruolo, il settore e l’obiettivo che ci hai indicato, le guide che hai ricevuto e gli ultimi 20 messaggi della conversazione. Non mandiamo il tuo numero di telefono.</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Lettore online:</span> per aprire la guida ti chiediamo di confermare il numero e usiamo un cookie tecnico per riconoscerti. Non usiamo questo cookie per la pubblicità.</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Fornitori coinvolti:</span> Meta (WhatsApp), Twilio, OpenAI, oltre a quelli della Sezione 5. Per i trasferimenti fuori dallo Spazio economico europeo vedi la Sezione 6.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">STOP:</span> scrivi STOP in qualsiasi momento e smettiamo di scriverti.</span></li>
+                      <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Novità e altre guide:</span> ti riscriviamo per altre guide o novità solo se ci dai il permesso. Puoi ritirarlo con STOP.</span></li>
                       <li className="flex items-start"><span className="mr-3 mt-1">•</span><span><span className="font-semibold">Per quanto tempo:</span> come in 16.1.</span></li>
                     </ul>
                   </div>
