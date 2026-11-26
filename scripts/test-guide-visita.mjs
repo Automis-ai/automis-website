@@ -3,7 +3,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { handleVisita, parseVisita, isBotUA } from "../lib/guideVisita.js";
+import { handleVisita, parseVisita, isBotUA, deveInviare } from "../lib/guideVisita.js";
 
 const ENV = { LINK_APERTO_URL: "https://progetto-finto.supabase.co/functions/v1/link-aperto", LINK_APERTO_SECRET: "segreto-finto" };
 const UA_OK = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 LinkedInApp/9.30";
@@ -109,4 +109,32 @@ test("beacon: usa la prop rif, non l'indirizzo; parte solo con rif; è montato n
   assert.equal(/<VisitaBeacon rif=\{rif\}/.test(catalogo), true);
   const layout = fs.readFileSync(new URL("../app/layout.js", import.meta.url), "utf8");
   assert.equal(/guide-visita|automis_autore/.test(layout), false, "layout.js non si tocca");
+  // consenso: niente flag nuovo, niente ?io=, niente localStorage diretto; consenso letto e ascoltato
+  const codice = beacon.replace(/\/\/.*$/gm, "");
+  assert.equal(/automis_autore|["']io["']|localStorage/.test(codice), false, "nessun flag autore né localStorage nel beacon");
+  assert.equal(/readConsent/.test(codice) && /CONSENT_CHANGED_EVENT/.test(codice) && /isInternalTraffic/.test(codice), true);
+  const consent = fs.readFileSync(new URL("../lib/consent.js", import.meta.url), "utf8");
+  assert.equal(/dispatchEvent\(new CustomEvent\(CONSENT_CHANGED_EVENT/.test(consent), true, "applyConsent emette l'evento");
+  // il flag interno si legge solo dopo il consenso: nel beacon è passato come funzione, non valutato prima
+  assert.equal(/interno:\s*\(\)\s*=>\s*isInternalTraffic\(\)/.test(codice), true);
+});
+
+test("deveInviare: solo con consenso statistiche, non interno, pagina visibile e non prerenderizzata", () => {
+  const ok = { rif: "k7x2mn", consenso: true, interno: false, prerendering: false, visibile: true };
+  assert.equal(deveInviare(ok), true);
+  assert.equal(deveInviare({ ...ok, consenso: false }), false, "rifiuto");
+  assert.equal(deveInviare({ ...ok, consenso: undefined }), false, "nessuna scelta ancora");
+  assert.equal(deveInviare({ ...ok, interno: true }), false, "traffico interno");
+  assert.equal(deveInviare({ ...ok, rif: "" }), false, "senza codice");
+  assert.equal(deveInviare({ ...ok, visibile: false }), false, "pagina in background");
+  assert.equal(deveInviare({ ...ok, prerendering: true }), false, "prerender");
+  assert.equal(deveInviare(), false);
+  // flag interno letto solo dopo il consenso (lazy): senza consenso la funzione non viene chiamata
+  let letture = 0;
+  const lazy = () => { letture++; return false; };
+  assert.equal(deveInviare({ ...ok, consenso: false, interno: lazy }), false);
+  assert.equal(letture, 0, "niente lettura del flag prima del consenso");
+  assert.equal(deveInviare({ ...ok, interno: lazy }), true);
+  assert.equal(letture, 1);
+  assert.equal(deveInviare({ ...ok, interno: () => true }), false);
 });
