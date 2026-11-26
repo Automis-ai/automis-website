@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import Link from "next/link";
 import AkpagerLayout from "@/layouts/AkpagerLayout";
 import { openCookieSettings } from "@/lib/cookieConsent";
@@ -15,9 +16,10 @@ import { openCookieSettings } from "@/lib/cookieConsent";
   before relying on it.
 */
 
-const LAST_UPDATED = { en: "July 9, 2026", it: "9 luglio 2026" };
+const LAST_UPDATED = { en: "July 9, 2026", it: "26 novembre 2026" };
 
-// Observed on automis.ai. category: necessary | statistics | marketing
+// Observed on automis.ai. category: necessary | statistics | marketing | dedicated
+// `locales` (optional) limits a row to those locales; `note` is an extra line shown under the row.
 const COOKIES = [
   { name: "cookieyes-consent", provider: "CookieYes", duration: { en: "1 year", it: "1 anno" }, category: "necessary" },
   { name: "_ga", provider: "Google Analytics 4", duration: { en: "13 months", it: "13 mesi" }, category: "statistics" },
@@ -25,6 +27,14 @@ const COOKIES = [
   { name: "_clck", provider: "Microsoft Clarity", duration: { en: "1 year", it: "1 anno" }, category: "statistics" },
   { name: "_clsk", provider: "Microsoft Clarity", duration: { en: "1 day", it: "1 giorno" }, category: "statistics" },
   { name: "_fbp", provider: "Meta (Facebook)", duration: { en: "90 days", it: "90 giorni" }, category: "marketing" },
+  {
+    name: "automis_link_aperto",
+    provider: "Automis (prima parte)",
+    duration: { it: "90 giorni" },
+    category: "dedicated",
+    locales: ["it"],
+    note: "Consenso dedicato, chiesto sulla pagina. Ricorda la tua scelta sul link personale della guida. Se acconsenti, il sito registra codice, guida e data della prima apertura, collegati alla persona a cui Luca ha mandato il link.",
+  },
 ];
 
 const COPY = {
@@ -76,6 +86,7 @@ const COPY = {
       "I cookie sono piccoli file di testo che un sito salva sul tuo dispositivo. Alcuni servono al funzionamento del sito. Altri ci permettono di capire come viene usato, o di misurare le nostre campagne pubblicitarie. Quelli non essenziali li installiamo solo dopo il tuo consenso.",
     s2Title: "2. Le categorie che usiamo",
     cats: {
+      dedicated: { name: "Consenso dedicato", body: "" },
       necessary: {
         name: "Strettamente necessari",
         body: "Servono al funzionamento del sito e del banner cookie. Sempre attivi, non richiedono consenso.",
@@ -154,13 +165,20 @@ export default function CookiePolicy({ locale = "en" }) {
                       </tr>
                     </thead>
                     <tbody>
-                      {COOKIES.map((c) => (
-                        <tr key={c.name} className="border-t border-white/[0.07] text-white/65">
-                          <td className="px-4 py-3 font-mono text-white/85">{c.name}</td>
-                          <td className="px-4 py-3">{c.provider}</td>
-                          <td className="px-4 py-3">{c.duration[locale]}</td>
-                          <td className="px-4 py-3">{t.cats[c.category].name}</td>
-                        </tr>
+                      {COOKIES.filter((c) => !c.locales || c.locales.includes(locale)).map((c) => (
+                        <Fragment key={c.name}>
+                          <tr className={`border-t border-white/[0.07] text-white/65${c.note ? " border-b-0" : ""}`}>
+                            <td className="px-4 py-3 font-mono text-white/85">{c.name}</td>
+                            <td className="px-4 py-3">{c.provider}</td>
+                            <td className="px-4 py-3">{c.duration[locale]}</td>
+                            <td className="px-4 py-3">{t.cats[c.category].name}</td>
+                          </tr>
+                          {c.note && (
+                            <tr className="text-white/55">
+                              <td colSpan={4} className="px-4 pb-3 pt-0 text-[13px] leading-relaxed"><div className="sticky left-0 w-[calc(100vw-5.5rem)] md:w-auto">{c.note}</div></td>
+                            </tr>
+                          )}
+                        </Fragment>
                       ))}
                     </tbody>
                   </table>
