@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import AutomisItShell from "@/components/site/AutomisItShell";
 import GuideCatalog from "@/components/guide-catalogo/GuideCatalog";
 import { getCatalogo } from "@/lib/guideCatalogo";
-import { parseSource } from "@/lib/guideWa";
+import { parseSource, parseRif } from "@/lib/guideWa";
 import { relatedFor, TARGETS } from "@/lib/guideCorrelate";
 import { guideOg } from "@/lib/guideOg";
 
@@ -37,10 +37,11 @@ export default async function GuideTargetPage({ params, searchParams }) {
   if (!code) notFound();
   const catalogo = await getCatalogo();
   const source = parseSource(searchParams?.da) || "LO";
+  const rif = parseRif(searchParams?.p);
   const focusCode = catalogo.some((g) => g.code === code) ? code : "";
   return (
     <AutomisItShell hideStickyCta landing>
-      <GuideCatalog guide={catalogo} source={source} focusCode={focusCode} related={focusCode ? relatedFor(focusCode, catalogo) : []} video={focusCode ? VIDEO : null} landing />
+      <GuideCatalog guide={catalogo} source={source} rif={rif} focusCode={focusCode} related={focusCode ? relatedFor(focusCode, catalogo) : []} video={focusCode ? VIDEO : null} landing />
     </AutomisItShell>
   );
 }

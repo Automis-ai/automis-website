@@ -17,7 +17,7 @@ const SECTIONS = [
 ];
 
 // landing: pagina senza uscite (pagine per ruolo /it/guide/cfo, /ceo, /studi): niente blocco Finder che porta alla home
-export default function GuideCatalog({ guide, source = "", focusCode = "", related = [], video = null, landing = false }) {
+export default function GuideCatalog({ guide, source = "", rif = "", focusCode = "", related = [], video = null, landing = false }) {
   const pronte = guide.filter((g) => g.pronta);
   // guida pronta in ?g=: va in evidenza in alto (le «in arrivo» restano nel catalogo con la scheda evidenziata)
   const featured = focusCode ? pronte.find((g) => g.code === focusCode) : null;
@@ -77,7 +77,7 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
               <h1 id="gd-pick">{featured.titolo}</h1>
               <p className="lead">{featured.promessa}</p>
               <div className="act">
-                <WaButton guida={featured} source={source} kind="vorrei" />
+                <WaButton guida={featured} source={source} rif={rif} kind="vorrei" />
               </div>
               <p className="proof">Gratis, su WhatsApp.</p>
             </section>
@@ -94,7 +94,7 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
               <section className="sec" aria-labelledby="gd-rel">
                 <h2 id="gd-rel">Ti può servire anche</h2>
                 <div className="grid">
-                  {related.map((g) => <GuideCard key={g.code} g={g} source={source} />)}
+                  {related.map((g) => <GuideCard key={g.code} g={g} source={source} rif={rif} />)}
                 </div>
               </section>
             ) : null}
@@ -127,7 +127,7 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
             <h2 id={`gd-${s.porta}`}>{s.title}</h2>
             <p className="sub">{s.sub}</p>
             <div className="grid">
-              {s.items.map((g) => <GuideCard key={g.code} g={g} source={source} />)}
+              {s.items.map((g) => <GuideCard key={g.code} g={g} source={source} rif={rif} />)}
             </div>
           </section>
         ))}
@@ -143,7 +143,7 @@ export default function GuideCatalog({ guide, source = "", focusCode = "", relat
                     <span className="k">{DOOR[g.porta]}</span>
                     <span className="t">{g.titolo}</span>
                   </div>
-                  <WaButton guida={g} source={source} kind="avvisami" variant="wa sm" />
+                  <WaButton guida={g} source={source} rif={rif} kind="avvisami" variant="wa sm" />
                 </li>
               ))}
             </ul>

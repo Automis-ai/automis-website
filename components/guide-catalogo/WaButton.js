@@ -14,8 +14,8 @@ const LABEL = { vorrei: "Ricevila su WhatsApp", avvisami: "Avvisami", aiuto: "Sc
 
 // Apre WhatsApp col messaggio già scritto (formato fisso, vedi lib/guideWa.js).
 // L'evento non porta dati personali: solo codice, tipo e fonte.
-export default function WaButton({ guida, source, kind = "vorrei", variant = "wa", label }) {
-  const href = waLink({ kind, titolo: guida.titolo, source });
+export default function WaButton({ guida, source, rif = "", kind = "vorrei", variant = "wa", label }) {
+  const href = waLink({ kind, titolo: guida.titolo, source, rif });
   return (
     <a
       className={`btn ${variant}`}
