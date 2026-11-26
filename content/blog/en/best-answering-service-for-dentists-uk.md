@@ -131,6 +131,10 @@ Cost: live services bill by the minute or the call, so a busy month raises the b
 
 Here is a worked example, labelled as an example and not client data. A practice has three phones ringing at 8.10am while the team is setting up, and a new patient ringing at 7pm. A message service takes four messages, and someone rings four people back the next day. An AI connected to the diary books the four, and the team arrives to a full day. Where I would still want a person is a patient who calls in tears about a bill.
 
+```tool
+receptionist-cost-calculator:gbp
+```
+
 ## What do missed calls cost a dental practice?
 
 Each unanswered call from a new patient is a booking that may go to the practice down the road, so the cost is the value of a new patient multiplied by the calls you miss. I will not quote a national figure I cannot source. Work out your own number with our free [missed call revenue calculator](/tools/missed-call-revenue-calculator): enter your call volume and what a new patient is worth, and hold every quote against the result.

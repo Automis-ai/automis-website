@@ -82,6 +82,10 @@ On those made-up rates, the two cross somewhere around 200 to 250 calls a month.
 
 Not all calls are equal either. A message-taking call is short. A booking call, where the caller picks a time, gets moved once and asks about parking, is not. Per-minute plans punish exactly the calls you want.
 
+```tool
+receptionist-cost-calculator
+```
+
 ## What does a missed call actually cost a clinic?
 
 A missed call costs the value of the appointment that went to someone else, which is usually far more than the answering service itself. This is the number that should drive your decision, more than the monthly fee.

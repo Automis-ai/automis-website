@@ -114,6 +114,10 @@ This is the right place to start, and for some practices it is enough. The weakn
 - Why it stands out: no contract, no software, and it follows Google's own method.
 - Worth knowing: it is fully manual, so it works on the days someone remembers and stalls on busy ones. It also does nothing for replies.
 
+```tool
+google-review-link-generator
+```
+
 ## What are Google's rules on asking dental patients for reviews?
 
 Google's rules say you may not offer incentives, and you may not selectively ask only happy customers. Its [contribution policy](https://support.google.com/contributionpolicy/answer/7400114) bars merchants from offering discounts, free goods or services in exchange for reviews, and from "selectively solicit positive reviews from customers". It also says not to pressure people to review while they are on the premises.

@@ -129,6 +129,10 @@ Expect to pay somewhere between a low monthly fee and several thousand pounds up
 
 Before you compare quotes, work out what you lose now. Our free [missed call revenue calculator](/tools/missed-call-revenue-calculator) takes your call volume and the value of a new patient and gives you a monthly number to hold the quotes against.
 
+```tool
+receptionist-cost-calculator:gbp
+```
+
 ## How do I choose?
 
 Choose by your practice software and your callers, then test the shortlist with a real booking.

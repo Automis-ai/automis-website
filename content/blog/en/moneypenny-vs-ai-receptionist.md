@@ -51,6 +51,10 @@ Third-party blogs quote specific monthly figures for Moneypenny. I am not repeat
 
 An AI receptionist is priced differently. Ours starts from 297 EUR a month, flat, and covers answering, booking and follow-up. For the wider picture, see our breakdown of [what an AI receptionist costs](/blog/ai-receptionist-cost).
 
+```tool
+receptionist-cost-calculator:gbp
+```
+
 ## How do they differ in a real working day?
 
 The difference shows up at 8.10am, at lunch and at 7pm, so here is a day in a dental practice. This is an example I built to show the mechanics, not a client's data.

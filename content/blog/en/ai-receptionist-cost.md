@@ -75,6 +75,10 @@ On top of salary you carry payroll taxes, holiday pay, sick days, training, turn
 
 This is not an argument to fire your front desk. A good AI receptionist frees your team from the phone so they can look after the people actually in the room, and it catches the calls your team was never going to reach in the first place.
 
+```tool
+receptionist-cost-calculator
+```
+
 ## AI receptionist vs human receptionist vs answering service: cost and value
 
 An AI receptionist wins on both predictable cost and round-the-clock coverage, while a human wins on genuine human warmth and an answering service sits awkwardly in the middle. The table below lays out the trade-off. Salary and answering-service figures are illustrative public ranges, attributed and clearly marked, not precise quotes.

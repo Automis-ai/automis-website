@@ -78,6 +78,10 @@ A sensible flow looks like this. A text or WhatsApp message goes out a few days 
 
 That sequence keeps the voice call for the patients who need it. It also stops the assistant from pestering people who confirmed instantly.
 
+```tool
+appointment-reminder-generator
+```
+
 ## What should a confirmation call say?
 
 A good confirmation call is short, specific and gives a way out. Aim for under twenty seconds when the patient just says yes.

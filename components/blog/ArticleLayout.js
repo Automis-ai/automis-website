@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CTAButton from "@/components/CTAButton";
 import BlogToc from "@/components/blog/BlogToc";
+import ToolEmbed from "@/components/blog/ToolEmbed";
 import {
   getAuthor,
   getAuthorBio,
@@ -246,7 +247,21 @@ export default function ArticleLayout({
             )}
 
             <div className="blog-article">
-              <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  ...mdComponents,
+                  // ```tool\nkey\n``` renders a compact free tool; unknown keys render nothing.
+                  pre: ({ node, children }) => {
+                    const code = node && node.children && node.children[0];
+                    const cls = (code && code.properties && code.properties.className) || [];
+                    if (cls.includes("language-tool")) {
+                      return <ToolEmbed spec={nodeText(code)} locale={locale} />;
+                    }
+                    return <pre>{children}</pre>;
+                  },
+                }}
+              >
                 {post.body}
               </ReactMarkdown>
             </div>

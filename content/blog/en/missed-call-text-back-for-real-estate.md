@@ -56,6 +56,10 @@ The same path works for sellers. A homeowner who could not reach you gets a text
 
 Text-back is the safety net, and a voice agent is the front door. A [Voice AI receptionist](/voice-ai) picks up calls live, answers routine questions like the asking price, whether the property has parking, or when the next open house runs, checks your calendar, and books the viewing straight away, day or night. When several calls land at once after a hot new listing goes live and one still slips past, the text-back layer catches it rather than letting it fall into voicemail. Together they mean no caller is ever met with silence, whether it is 8pm on a weekday or a Sunday morning when nobody is in the office.
 
+```tool
+missed-call-text-back-generator
+```
+
 ## Why do estate agents lose so much money to missed calls?
 
 Estate agents lose money to missed calls because the loss never appears anywhere, so nobody manages it. A buyer who rings during a viewing, gets no answer, and books with a faster agency does not show up in your books as a lost deal. The commission simply never happens, and the enquiry that vanished is invisible. That invisibility is exactly why the leak runs month after month while the marketing spend that generated the call is treated as wasted.

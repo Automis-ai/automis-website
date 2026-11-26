@@ -14,7 +14,7 @@ const FTE_HOURS = 40;
 
 // Every default below comes from a public page opened on 26 Nov 2026.
 // Fields with no public source stay empty on purpose.
-const PRESETS = {
+export const PRESETS = {
   USD: { salary: "38010", onCost: "", price: "10", model: "call", ai: "326" },
   GBP: { salary: "25865", onCost: "", price: "", model: "call", ai: "249" },
   "EUR-en": { salary: "", onCost: "", price: "", model: "call", ai: "297" },
@@ -23,7 +23,7 @@ const PRESETS = {
 };
 
 const L = (label, href) => ({ label, href });
-const SOURCES = {
+export const SOURCES = {
   USD: {
     en: [
       L("BLS, receptionists, median pay $38,010 (May 2025)", "https://www.bls.gov/ooh/office-and-administrative-support/receptionists.htm"),

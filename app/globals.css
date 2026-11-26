@@ -882,6 +882,33 @@ body.blog-article-page .automis-en {
 .blog-faq-item[open] summary::after { content: "\2212"; }
 .blog-faq-item p { color: #4b5563; margin: 0.7rem 0 0; line-height: 1.65; }
 
+/* ── In-article free tool (```tool) ── */
+.blog-tool-embed {
+  margin: 2rem 0;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid #d6e2f5;
+  border-left: 4px solid #3c91e6;
+  border-radius: 14px;
+  background: #f4f8ff;
+  color: #1f2937;
+}
+.blog-tool-embed .te-kicker { margin: 0; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #2563a8; }
+.blog-tool-embed .te-title { margin: 0.2rem 0 1rem; font-size: 1.15rem; font-weight: 700; color: #0b1a2e; }
+.blog-tool-embed .te-row { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; }
+.blog-tool-embed .te-field { display: block; margin-bottom: 0.9rem; }
+.blog-tool-embed .te-field > span { display: block; margin-bottom: 0.35rem; font-size: 0.85rem; font-weight: 600; color: #374151; }
+.blog-tool-embed input { background: #fff; border-color: #cbd5e1; color: #111827; }
+.blog-tool-embed .te-out { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin: 0.4rem 0 0.6rem; }
+.blog-tool-embed .te-out > div { background: #fff; border: 1px solid #d6e2f5; border-radius: 10px; padding: 0.7rem 0.9rem; }
+.blog-tool-embed .te-out strong { display: block; font-size: 1.3rem; color: #0b1a2e; }
+.blog-tool-embed .te-out span, .blog-tool-embed .te-out small { display: block; font-size: 0.8rem; color: #4b5563; }
+.blog-tool-embed .te-note { margin: 0 0 0.8rem; font-size: 0.78rem; color: #4b5563; }
+.blog-tool-embed .te-msg { background: #fff; border: 1px solid #d6e2f5; border-radius: 10px; padding: 0.8rem 1rem; margin: 0.3rem 0 0.9rem; }
+.blog-tool-embed .te-msg p { margin: 0 0 0.6rem; font-size: 0.95rem; line-height: 1.55; color: #1f2937; }
+.blog-tool-embed .te-copy { border: 1px solid #2563a8; color: #2563a8; background: #fff; border-radius: 8px; padding: 0.3rem 0.8rem; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.blog-tool-embed a.te-open { font-weight: 700; color: #2563a8; text-decoration: none; }
+.blog-tool-embed a.te-open:hover { text-decoration: underline; }
+
 /* ── CTA (contained brand card) ── */
 .blog-cta {
   margin-top: 3.5rem;

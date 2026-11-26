@@ -49,6 +49,10 @@ Una segretaria IA è un assistente vocale che risponde a voce, in italiano, a og
 
 Noi la costruiamo e la gestiamo per te. Colleghiamo l'assistente al calendario, a WhatsApp o al gestionale che usi già, e lo teniamo aggiornato. Il prezzo parte da 297€ al mese. Non è un'app che scarichi e configuri in un pomeriggio: c'è un lavoro iniziale fatto da noi, e per questo il canone è più alto di quello di una semplice casella vocale. Quando abbiamo costruito l'assistente per Clinica Santa Maria, uno studio dentistico, i problemi da risolvere erano tre: chiamate perse, prenotazione degli appuntamenti e mancate presentazioni. Sono i tre punti in cui una segreteria da sola si ferma.
 
+```tool
+receptionist-cost-calculator
+```
+
 ## Come cambia una giornata di lavoro reale?
 
 La differenza si vede in una mattina qualsiasi: con la segreteria ottieni una lista di messaggi da richiamare, con la segretaria IA ottieni una lista di appuntamenti già fissati. Ecco un esempio, con numeri inventati per far capire il meccanismo (non sono dati di un cliente).

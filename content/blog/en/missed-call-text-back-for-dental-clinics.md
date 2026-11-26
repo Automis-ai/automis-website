@@ -56,6 +56,10 @@ In practice you decide the rules in advance: which treatments can be booked by m
 
 Answering live is better, and text-back is the safety net. An [AI receptionist that picks up the phone](/voice-ai) can answer opening hours, check availability and book on the call, so most patients never reach the missed-call stage. Text-back then catches whatever still slips through: a line that is busy, a caller who hangs up before the greeting finishes, a patient who prefers to type. If you can only do one first, I would start with text-back, because it is faster to put live and it protects revenue straight away.
 
+```tool
+missed-call-text-back-generator
+```
+
 ## Why do dental clinics lose patients to missed calls?
 
 Dental clinics lose patients to missed calls because the loss is invisible: nobody records the booking that did not happen. The caller does not leave a complaint. They ring the next practice, book there, and you never learn they existed.
