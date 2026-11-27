@@ -196,6 +196,7 @@ const STATIC_PATHS = [
   "/pt/blog/anuncios-facebook-clinica-dentaria-lisboa",
   "/pt/blog/ia-para-advogados-gestao-documentos",
   "/pt/blog/quanto-custa-automatizar-restaurante-ia",
+  "/pt/blog/software-marcacao-consultas-clinica-estetica",
   "/it/blog/recupero-chiamate-perse-agenzia-immobiliare",
   "/it/blog/migliori-software-recensioni-google-studi-medici",
   "/it/blog/migliori-strumenti-automazione-dm-instagram",
