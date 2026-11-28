@@ -229,7 +229,7 @@ export const TOOLS = {
       name: "Generatore di link e QR per recensioni Google",
       metaTitle: "Link recensioni Google e QR code: generatore gratuito da stampare | Automis",
       metaDescription:
-        "Crea il link per le recensioni Google in pochi secondi: incolla il Place ID, copia il link diretto e scarica o stampa il QR code per le recensioni. Gratis, senza registrazione.",
+        "Crea il link per le recensioni Google in pochi secondi: incolla il Place ID, copia il link diretto e stampa il QR code. Gratis, senza registrazione.",
       keywords: [
         "generatore link recensioni google",
         "qr code recensioni google",
@@ -386,7 +386,7 @@ export const TOOLS = {
       name: "Answering Service vs AI Receptionist Cost Calculator",
       metaTitle: "Answering Service Cost vs AI Receptionist Cost Calculator | Automis",
       metaDescription:
-        "Free calculator: compare the monthly and yearly cost of an in-house receptionist, a human answering service and an AI receptionist, with sourced default figures you can change.",
+        "Free calculator: compare the monthly and yearly cost of an in-house receptionist, an answering service and an AI receptionist. Editable default figures.",
       keywords: [
         "answering service cost",
         "ai receptionist cost",
@@ -415,7 +415,7 @@ export const TOOLS = {
       name: "Calcolatore costo segretaria: servizio di segreteria o segretaria IA",
       metaTitle: "Costo segretaria: confronto con segreteria telefonica e segretaria IA | Automis",
       metaDescription:
-        "Calcolatore gratuito: confronta il costo mensile e annuale di una segretaria interna, di una segreteria telefonica e di una segretaria IA, con cifre di partenza da fonti pubbliche che puoi cambiare.",
+        "Calcolatore gratuito: confronta il costo mensile e annuale di segretaria interna, segreteria telefonica e segretaria IA. Cifre modificabili.",
       keywords: [
         "costo segretaria",
         "costo segretaria part time",
@@ -444,7 +444,7 @@ export const TOOLS = {
       name: "Calculadora do custo de rececionista: serviço de atendimento ou rececionista IA",
       metaTitle: "Custo de rececionista: comparação com serviço de atendimento e rececionista IA | Automis",
       metaDescription:
-        "Calculadora gratuita: compare o custo mensal e anual de uma rececionista interna, de um serviço de atendimento telefónico e de uma rececionista IA, com valores de partida de fontes públicas que pode alterar.",
+        "Calculadora gratuita: compare o custo mensal e anual de uma rececionista interna, de um serviço de atendimento e de uma rececionista IA. Valores editáveis.",
       keywords: [
         "custo de uma rececionista",
         "custo secretária",
@@ -481,7 +481,7 @@ export const TOOLS = {
       name: "Missed-Call Text Back and Away Message Generator",
       metaTitle: "Missed Call Text Back Message Generator: Free Templates | Automis",
       metaDescription:
-        "Free missed call text back generator: pick your business, the situation and a tone, and get 3 ready-to-send messages for missed calls, after hours, holidays and busy times. No signup.",
+        "Free missed call text back generator: pick your business, situation and tone, and get 3 ready-to-send messages for missed calls and after hours. No signup.",
       keywords: [
         "missed call text back",
         "missed call text back message",
@@ -510,7 +510,7 @@ export const TOOLS = {
       name: "Generatore di messaggi di assenza e risposta automatica WhatsApp",
       metaTitle: "Messaggio di assenza WhatsApp e risposta automatica: generatore gratuito | Automis",
       metaDescription:
-        "Generatore gratuito di messaggi di assenza e risposta automatica per WhatsApp: scegli attività, situazione e tono, ottieni 3 messaggi pronti per chiamata persa, fuori orario, ferie e linea occupata.",
+        "Generatore gratuito di messaggi di assenza e risposta automatica per WhatsApp: scegli attività, situazione e tono, ottieni 3 messaggi pronti.",
       keywords: [
         "messaggio di assenza WhatsApp",
         "risposta automatica WhatsApp",
@@ -539,7 +539,7 @@ export const TOOLS = {
       name: "Gerador de mensagens de chamada perdida e de ausência",
       metaTitle: "Mensagem de chamada perdida e de ausência: gerador gratuito | Automis",
       metaDescription:
-        "Gerador gratuito de mensagens para chamadas perdidas e ausência: escolha o negócio, a situação e o tom, e obtenha 3 mensagens prontas para chamada perdida, fora de horas, férias e linha ocupada.",
+        "Gerador gratuito de mensagens para chamadas perdidas e ausência: escolha o negócio, a situação e o tom, e obtenha 3 mensagens prontas. Sem registo.",
       keywords: [
         "mensagem automática whatsapp business",
         "mensagem de ausência whatsapp",
@@ -575,7 +575,7 @@ export const TOOLS = {
       name: "Appointment Reminder Message Generator",
       metaTitle: "Appointment Reminder Text Template Generator: WhatsApp, SMS, Email | Automis",
       metaDescription:
-        "Free appointment reminder text generator: pick your sector, channel and timing, and get 3 ready messages with confirm and cancel wording for WhatsApp, SMS or email. No signup.",
+        "Free appointment reminder text generator: pick your sector, channel and timing, and get 3 ready messages with confirm and cancel wording. No signup.",
       keywords: [
         "appointment reminder text template",
         "appointment reminder message",
@@ -604,7 +604,7 @@ export const TOOLS = {
       name: "Generatore di messaggi promemoria appuntamento",
       metaTitle: "Messaggio promemoria appuntamento: generatore per WhatsApp, SMS, email | Automis",
       metaDescription:
-        "Generatore gratuito di messaggi promemoria per appuntamenti: scegli settore, canale e quando inviarlo, ottieni 3 messaggi pronti con conferma e annullamento per WhatsApp, SMS o email.",
+        "Generatore gratuito di messaggi promemoria per appuntamenti: scegli settore, canale e momento, ottieni 3 messaggi pronti per WhatsApp, SMS o email.",
       keywords: [
         "messaggio promemoria appuntamento",
         "promemoria appuntamento WhatsApp",
@@ -633,7 +633,7 @@ export const TOOLS = {
       name: "Gerador de mensagens de lembrete de consulta",
       metaTitle: "Mensagem de lembrete de consulta: gerador para WhatsApp, SMS e email | Automis",
       metaDescription:
-        "Gerador gratuito de mensagens de lembrete de consulta: escolha o setor, o canal e quando enviar, e obtenha 3 mensagens prontas com confirmação e cancelamento para WhatsApp, SMS ou email.",
+        "Gerador gratuito de mensagens de lembrete de consulta: escolha o setor, o canal e quando enviar, e obtenha 3 mensagens prontas para WhatsApp, SMS ou email.",
       keywords: [
         "mensagem lembrete consulta",
         "lembrete de marcação whatsapp",
@@ -675,7 +675,7 @@ export const HUB = {
   en: {
     metaTitle: "Free Tools for Local Businesses | Automis",
     metaDescription:
-      "Free, no-signup tools for local businesses: compare receptionist and answering service costs, calculate missed-call and no-show losses, and generate review links, reminder and missed-call messages.",
+      "Free, no-signup tools for local businesses: compare receptionist costs, calculate missed-call and no-show losses, and generate review links and messages.",
     h1: "Free Tools for Local Businesses",
     intro:
       "Simple, free tools to help local businesses answer more calls, fill more appointments, and win more reviews. No signup, nothing stored, everything runs in your browser.",
@@ -684,7 +684,7 @@ export const HUB = {
   it: {
     metaTitle: "Strumenti gratuiti per attività locali | Automis",
     metaDescription:
-      "Strumenti gratuiti e senza registrazione: confronta il costo della segretaria, calcola chiamate perse e appuntamenti mancati, genera link recensioni, promemoria e messaggi di assenza.",
+      "Strumenti gratuiti e senza registrazione: confronta il costo della segretaria, calcola chiamate perse e appuntamenti mancati, genera link e messaggi.",
     h1: "Strumenti gratuiti per attività locali",
     intro:
       "Strumenti semplici e gratuiti per aiutare le attività locali a rispondere a più chiamate, riempire più appuntamenti e ottenere più recensioni. Senza registrazione, non salviamo nulla, tutto funziona nel tuo browser.",
@@ -693,7 +693,7 @@ export const HUB = {
   pt: {
     metaTitle: "Ferramentas gratuitas para negócios locais | Automis",
     metaDescription:
-      "Ferramentas gratuitas e sem registo: compare o custo da rececionista, calcule chamadas perdidas e faltas às consultas, gere links de avaliações, lembretes e mensagens de ausência.",
+      "Ferramentas gratuitas e sem registo: compare o custo da rececionista, calcule chamadas perdidas e faltas às consultas, gere links e mensagens.",
     h1: "Ferramentas gratuitas para negócios locais",
     intro:
       "Ferramentas simples e gratuitas para ajudar os negócios locais a atender mais chamadas, preencher mais marcações e conquistar mais avaliações. Sem registo, não guardamos nada, tudo funciona no seu browser.",
